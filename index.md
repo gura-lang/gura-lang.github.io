@@ -9,7 +9,8 @@ title: Top
 <table>
 
 <tr><td valign="top" style="white-space:nowrap">2014-08-26</td><td>
-I've began using Twitter account [@ypsitau](https://twitter.com/ypsitau).
+I've began using Twitter account
+<a href="https://twitter.com/ypsitau">@ypsitau</a>.
 Feel free to contact me when you have any questions and opinions about Gura.
 Japanese and English are avaiable.
 </td></tr>
