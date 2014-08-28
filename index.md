@@ -18,8 +18,8 @@ Japanese and English are avaiable.
 <tr><td valign="top" style="white-space:nowrap">2014-08-25</td><td>
 I made a presentation about Gura at <a href="http://ll.jus.or.jp/2014/">LL Diver</a>,
 a conference concerning light-weight language, on Aug 23rd in Tokyo.
-Japanese material is available
-<a href="http://www.slideshare.net/ypsitau/gura-introduction-37974595">here</a>.
+Presentation material is available
+<a href="Documents.html#presentation">here</a>.
 Thank you for attending the presentation.
 </td></tr>
 
@@ -27,7 +27,7 @@ Thank you for attending the presentation.
 8 月 23 日にお台場日本未来科学館で行われた軽量プログラミング言語カンファレンス
 <a href="http://ll.jus.or.jp/2014/">LL Diver</a> にて
 Gura のプレゼンテーションを行いました。発表資料は
-<a href="http://www.slideshare.net/ypsitau/gura-introduction-37974595">こちら</a>。
+<a href="Documents.html#presentation">こちら</a>。
 参加者のみなさん、ありがとうございました。
 </td></tr>
 

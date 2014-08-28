@@ -4,7 +4,26 @@ lang: en
 title: Documents
 ---
 
-# {{ page.title }}
+<h1 name="presentation">Presentation Materials</h1>
+
+<table>
+<tr><th>Title</th><th>Language</th><th>Note</th></tr>
+
+<tr><td>
+<a href="http://www.slideshare.net/ypsitau/gura-introduction-37974595">
+Gura プログラミング言語の紹介
+</a></td>
+<td>Japanese</td><td>Presented at LL Diver on Aug. 23, 2014</td></tr>
+
+<tr><td>
+<a href="http://www.slideshare.net/ypsitau/gura-introductione">
+Introduction to Gura Programming Language
+</a></td>
+<td>English</td><td>Translated from "Gura プログラミング言語の紹介".</td></tr>
+
+</table>
+
+<h1>Documents</h1>
 
 <div id="box-left">
 
@@ -63,7 +82,9 @@ I hope the publication will inspire me to carry on this tough work :-)</em>
 
 <div id="box-bottom">
 
-<h2>Articles</h2>
+<hr />
+
+<h1>Articles</h1>
 
 <p>
 <div><a href="articles/Comparison-between-Java8-and-Gura.html">Comparison between Java 8 and Gura</a></div>
@@ -71,7 +92,9 @@ I hope the publication will inspire me to carry on this tough work :-)</em>
 <div><a href="articles/Database-Access.html">Database Access</a></div>
 </p>
 
-<h2>Sample Code</h2>
+<hr />
+
+<h1>Sample Code</h1>
 
 <p>Sample codes of Gura are stored in
 <a href="https://github.com/gura-lang/gura/tree/master/sample"
