@@ -29,3 +29,146 @@ would print the result.
 
 Gura script is written between `${` and `}` in a document.
 
+<table>
+<tr><th>Template</th><th>Result</th></tr>
+
+<tr><td><code><pre
+>Hello ${'gura'.capitalize()} World</pre>
+</code></td><td><code><pre
+>Hello Gura World</pre>
+</code></td></tr>
+
+<tr><td><code><pre
+>Hello ${3 + 4 * 2} World</pre>
+</code></td><td><code><pre
+>Hello 11 World</pre>
+</code></td></tr>
+
+<tr><td><code><pre
+>AB ${['1st', '2nd', '3rd']} CD</pre>
+</code></td><td><code><pre
+>AB 1st2nd3rd CD</pre>
+</code></td></tr>
+
+<tr><td><code><pre
+>AB ${['1st\n', '2nd\n', '3rd\n']} CD</pre>
+</code></td><td><code><pre
+>AB 1st
+2nd
+3rd CD
+</pre></code></td></tr>
+
+<tr><td><code><pre
+>    ${['1st\n', '2nd\n', '3rd\n']}
+</pre></code></td><td><code><pre
+>    1st
+    2nd
+    3rd
+</pre></code></td></tr>
+
+<tr><td><code><pre
+>Hello ${
+'gura'.capitalize()
+} World
+</pre></code></td><td><code><pre
+>Hello Gura World</pre></code></td></tr>
+
+</table>
+
+
+<table>
+<tr><th>Template</th><th>Result</th></tr>
+
+<tr><td><code><pre
+>Hello ${''} World
+Line1
+${''}
+Line2
+</pre></code></td><td><code><pre
+>Hello World
+Line1
+Line2
+</pre></code></td></tr>
+
+<tr><td><code><pre
+>Hello ${nil} World
+Line1
+${nil}
+Line2
+</pre></code></td><td><code><pre
+>Hello World
+Line1
+Line2
+</pre></code></td></tr>
+
+</table>
+
+<table>
+<tr><th>Template</th><th>Result</th></tr>
+
+<tr><td><code><pre
+>${for (i in 1..5)}
+  ${if (i < 2)}
+    ${i} is less than two
+  ${elsif (i < 4)}
+    ${i} is less than four
+  ${else}
+    ${i} is greater or equal to four
+  ${end}
+${end}
+</pre></code></td><td><code><pre
+>  1 is less than two
+  2 is less than four
+  3 is less than four
+  4 is greater or equal to four
+  5 is greater or equal to four
+</pre></code></td></tr>
+
+<tr><td><code><pre
+>${range(3) {}}
+Hello World
+${end}
+</pre></code></td><td><code><pre
+>Hello World
+Hello World
+Hello World
+</pre></code></td></tr>
+
+<tr><td><code><pre
+>${range(3) {|i|}}
+${i}
+${end}
+</pre></code></td><td><code><pre
+>0
+1
+2
+</pre></code></td></tr>
+
+<tr><td><code><pre
+>1st line
+2nd line
+3rd line
+${==
+*comment-out*
+==}$
+4th line
+${==*comment-out*==}$
+5th line${==*comment-out*==}$
+6th line
+</pre></code></td><td><code><pre
+>1st line
+2nd line
+3rd line
+4th line
+5th line
+6th line
+</pre></code></td></tr>
+
+<tr><td><code><pre
+>
+</pre></code></td><td><code><pre
+>
+</pre></code></td></tr>
+
+
+</table>
