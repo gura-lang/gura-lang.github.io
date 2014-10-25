@@ -70,7 +70,7 @@ Install them as below before building Gura.
 
 For Ubuntu:
 
-    $ sudo apt-get install build-essential cmake libreadline-dev
+    $ sudo apt-get install build-essential cmake libreadline-dev rpm
 
 For Fedora:
 
