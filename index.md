@@ -8,6 +8,10 @@ title: Top
 
 <table>
 
+<tr><td valign="top" style="white-space:nowrap">2014-11-03</td><td>
+<a href="Download.html">Gura v0.6.0</a> was released.
+</td></tr>
+
 <tr><td valign="top" style="white-space:nowrap">2014-08-26</td><td>
 I've began using Twitter account
 <a href="https://twitter.com/ypsitau">@ypsitau</a>.
@@ -32,7 +36,7 @@ Gura のプレゼンテーションを行いました。発表資料は
 </td></tr>
 
 <tr><td valign="top" style="white-space:nowrap">2014-07-10</td><td>
-<a href="Download.html">Gura v0.5.2</a> was released.
+Gura v0.5.2 was released.
 </td></tr>
 
 </table>
