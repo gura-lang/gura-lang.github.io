@@ -77,7 +77,7 @@ and drag `Gura.app` icon to `Applications` folder.
 
 **You can't use Launchpad to run `Gura.app`** as it'll be blocked by Gatekeeper.
 This is because Gura hasn't been shipped with an Apple Developer ID so far.
-Instead, use **Finder** to launch it to avoid that security check.
+Instead, browse the application in **Finder** and do "Open" in right-click menu.
 
 Launching `Gura.app` will open a Terminal with Gura command prompt
 in which you can evaluate Gura scripts interactively.
