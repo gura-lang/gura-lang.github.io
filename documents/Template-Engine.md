@@ -27,7 +27,15 @@ would print the result.
 
 ## {{ page.chapter }}.3. Description Rules
 
-Gura script is written between `${` and `}` in a document.
+Gura script is written in a script block surrounded by `${` and `}`.
+The result of the script block must be of one of the followings.
+
+- a string
+- a number
+- a list of strings
+- a list of numbers
+
+If the result is a list, the engine would concatenate all the elements together.
 
 <table>
 <tr><th>Template</th><th>Result</th></tr>
@@ -58,12 +66,32 @@ Gura script is written between `${` and `}` in a document.
 3rd CD
 </pre></code></td></tr>
 
+</table>
+
+If the script blockis preceded by white spaces and the result string consists of multiple lines,
+each line is indented with the spaces.
+
+<table>
+<tr><th>Template</th><th>Result</th></tr>
+
 <tr><td><code><pre
->    ${['1st\n', '2nd\n', '3rd\n']}
+>Lines:
+  ${'1st\n2nd\n3rd\n'}
 </pre></code></td><td><code><pre
->    1st
-    2nd
-    3rd
+>Lines:
+  1st
+  2nd
+  3rd
+</pre></code></td></tr>
+
+<tr><td><code><pre
+>Lines:
+  ${['1st\n', '2nd\n', '3rd\n']}
+</pre></code></td><td><code><pre
+>Lines:
+  1st
+  2nd
+  3rd
 </pre></code></td></tr>
 
 <tr><td><code><pre
