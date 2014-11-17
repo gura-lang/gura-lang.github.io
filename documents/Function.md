@@ -578,7 +578,48 @@ and you can use `args#isset()` method to check if an attribute is set.
 </table>
 
 
-## {{ page.chapter }}.6. Anonymous Function
+## {{ page.chapter }}.6. Help Block
+
+You can add a help block to a function by appending `%` and a block containing help information
+to a function declaration.
+
+    add(x, y) = {
+        x + y
+    } % {
+        `en, 'markdown', 'Takes two numbers and returns an added result.'
+    }
+
+The content in the block has a format of `{lang:symbol, format:string, help:string}`
+which takes following values.
+
+- `lang:symbol` .. Specifies a language symbol, `en` for English and `ja` for Japanese, etc.
+- `format:string` .. Specifies a syntax format. Only `markdown` is available so far.
+- `help:string` .. Help string formatted in a syntax specified by `format`.
+
+Function `help` prints the help information when you call it like `help(add)`.
+
+A function may have multiple help blocks that contain explanatory text in different languages
+by describing them in sequence after a function declaration.
+
+    add(x, y) = {
+        x + y
+    } % {
+        `en, 'markdown', 'Takes two numbers and returns an added result.'
+    } % {
+        `ja, 'markdown', '2 つの数値をとり、加算した結果を返す。'
+    }
+
+A predefined variable `sys.langcode` determines which help should be printed by default.
+If a function doesn't have a help in the specified language,
+what appears at first in the declaration will be used.
+
+You can also pass a language symbol to `help` function as below.
+
+    help(add, `en)
+    help(add, `ja)
+
+
+## {{ page.chapter }}.7. Anonymous Function
 
 A function `function()` creates an anonymous function instance
 from an argument list and a block that contains its function body.
@@ -614,7 +655,7 @@ This is equivalent with the function creation shown below:
 The order of arguments is the same with the order in which the variables appear in the body.
 
 
-## {{ page.chapter }}.7. Closure
+## {{ page.chapter }}.8. Closure
 
 You can define a function inside another function body.
 In that case, the inner function can access variables in the outer function.
@@ -642,7 +683,7 @@ The environment of the outer function will be held in the inner function.
     h()
 
 
-## {{ page.chapter }}.8. Leader-trailer Relationship
+## {{ page.chapter }}.9. Leader-trailer Relationship
 
 When a Caller expression is described at the same line with the end of a preceding one,
 they have a leader-trailer relationship
