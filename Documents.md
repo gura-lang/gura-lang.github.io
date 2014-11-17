@@ -23,19 +23,11 @@ Introduction to Gura Programming Language
 
 </table>
 
-<h1>Documents</h1>
+<h1 name="documents">Documents</h1>
 
 <div id="box-left">
 
-<h2>English</h2>
-
-<p>
-<em>I've decided to publish documents in English that I'm currently writing,
-which is far from complete and being updated day by day.
-I hope the publication will inspire me to carry on this tough work :-)</em>
-</p>
-
-<p><strong>Gura Language Manual</strong></p>
+<h2>Gura Language Manual</h2>
 
 <p>
 <div><a href="documents/Introduction.html">Introduction</a></div>
@@ -64,7 +56,7 @@ I hope the publication will inspire me to carry on this tough work :-)</em>
 
 <div id="box-right">
 
-<h2>Japanese</h2>
+<h2>Documents in Japanese</h2>
 
 <p>
 <div><img src="images/pdf.png" alt="pdf-icon" /> Gura Language Manual
@@ -78,13 +70,9 @@ I hope the publication will inspire me to carry on this tough work :-)</em>
   onClick="ga('send', 'event', 'document', 'click', 'gura-dev-j.pdf');">Japanese</a>)</div>
 </p>
 
-</div>
-
-<div id="box-bottom">
-
 <hr />
 
-<h1>Articles</h1>
+<h2>Articles</h2>
 
 <p>
 <div><a href="articles/Comparison-between-Java8-and-Gura.html">Comparison between Java 8 and Gura</a></div>
@@ -94,11 +82,14 @@ I hope the publication will inspire me to carry on this tough work :-)</em>
 
 <hr />
 
-<h1>Sample Code</h1>
+<h2>Sample Code</h2>
 
 <p>Sample codes of Gura are stored in
 <a href="https://github.com/gura-lang/gura/tree/master/sample"
  onClick="ga('send', 'event', 'repository', 'click', '/gura-lang/gura/tree/master/sample');">Repository</a>.
 </p>
 
+</div>
+
+<div id="box-bottom">
 </div>
