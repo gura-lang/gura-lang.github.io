@@ -3,7 +3,7 @@ layout: default
 lang: en
 title: Download
 ---
-{% assign gura_version = '0.6.0' %}
+{% assign gura_version = '0.5.2' %}
 
 # {{ page.title }}
 
@@ -25,11 +25,13 @@ title: Download
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-win32.zip');">gura-{{ gura_version }}-win32.zip</a></td>
 </tr>
 
+<!--
 <tr>
 <td>MacOS Binary</td>
 <td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}.dmg"
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}.dmg');">gura-{{ gura_version }}.dmg</a></td>
 </tr>
+-->
 
 <tr>
 <td>Sorce Package</td>
@@ -64,6 +66,7 @@ If you don't want to modify registry, you can just expand ZIP file
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-win32.zip');">gura-{{ gura_version }}-win32.zip</a>
   in some directory and edit PATH environment so that it includes `gura\bin-x86` directory in the expanded content.
 
+<!--
 ## Install into MacOS
 
 It has been confirmed that Gura runs on the following versions of MacOS.
@@ -84,7 +87,7 @@ in which you can evaluate Gura scripts interactively.
 If you want to write and execute a Gura script file,
 call `setup()` function in the prompt to create a symbolic link `/usr/bin/gura`
 that allows you to execute the interpreter from anywhere in the system.
-
+-->
 
 ## Install into Linux
 
