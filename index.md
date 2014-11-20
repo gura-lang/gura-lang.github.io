@@ -8,6 +8,11 @@ title: Top
 
 <table>
 
+<tr><td valign="top" style="white-space:nowrap">2014-11-20</td><td>
+Stopped providing <a href="Download.html">Gura v0.6.0</a> due to a bug that
+one of its application Gura Shot doesn't work well with it.
+</td></tr>
+
 <tr><td valign="top" style="white-space:nowrap">2014-11-03</td><td>
 <a href="Download.html">Gura v0.6.0</a> was released.
 </td></tr>
