@@ -4,11 +4,12 @@ lang: en
 title: Download
 ---
 {% assign gura_version = '0.6.1' %}
+{% assign gura_version_prev = '0.5.2' %}
 
 # {{ page.title }}
 
 
-## Packages
+## Latest Version
 
 <table>
 
@@ -37,19 +38,46 @@ title: Download
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-src.tar.gz');">gura-{{ gura_version }}-src.tar.gz</a></td>
 </tr>
 
+</table>
+
+## Previous Version
+
+<table>
+
+<tr>
+<td>Windows Installer</td>
+<td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version_prev }}/gura-{{ gura_version_prev }}-win32.msi"
+  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}-win32.msi');">gura-{{ gura_version_prev }}-win32.msi</a></td>
+</tr>
+<tr>
+
+<tr>
+<td>Windows Binary</td>
+<td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version_prev }}/gura-{{ gura_version_prev }}-win32.zip"
+  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}-win32.zip');">gura-{{ gura_version_prev }}-win32.zip</a></td>
+</tr>
+
 <!--
 <tr>
-<td style="padding-top: 3em">
-<a href="http://www.softpedia.com/progClean/Gura-Clean-220177.html">
-<img src="images/softpedia_free_award_f.gif" border="0" alt="100% FREE award granted by Softpedia" /></a></td>
+<td>MacOS Binary</td>
+<td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version_prev }}/gura-{{ gura_version_prev }}.dmg"
+  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}.dmg');">gura-{{ gura_version_prev }}.dmg</a></td>
 </tr>
 -->
+
+<tr>
+<td>Sorce Package</td>
+<td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version_prev }}/gura-{{ gura_version_prev }}-src.tar.gz"
+  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}-src.tar.gz');">gura-{{ gura_version_prev }}-src.tar.gz</a></td>
+</tr>
+
 </table>
 
 [Release Notes](https://github.com/gura-lang/gura/releases)
 
+# Installation
 
-## Install into Windows
+## Windows
 
 It has been confirmed that Gura runs on the following versions of Windows.
 
@@ -66,7 +94,7 @@ If you don't want to modify registry, you can just expand ZIP file
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-win32.zip');">gura-{{ gura_version }}-win32.zip</a>
   in some directory and edit PATH environment so that it includes `gura\bin-x86` directory in the expanded content.
 
-## Install into MacOS
+## MacOS
 
 It has been confirmed that Gura runs on the following versions of MacOS.
 
@@ -87,9 +115,9 @@ If you want to write and execute a Gura script file,
 call `setup()` function in the prompt to create a symbolic link `/usr/bin/gura`
 that allows you to execute the interpreter from anywhere in the system.
 
-## Install into Linux
+## Linux
 
-It has been confirmed that Gura runs on the following distributions of Linux.
+It has been confirmed that Gura can run on the following distributions of Linux.
 
 * Ubuntu 13.10
 * Ubuntu 14.04
