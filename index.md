@@ -8,13 +8,17 @@ title: Top
 
 <table>
 
+<tr><td valign="top" style="white-space:nowrap">2015-01-07</td><td>
+<a href="Download.html">Gura v0.6.1</a> was released.
+</td></tr>
+
 <tr><td valign="top" style="white-space:nowrap">2014-11-20</td><td>
-Stopped providing <a href="Download.html">Gura v0.6.0</a> due to a bug that
+Stopped providing Gura v0.6.0 due to a bug that
 Gura Shot, one of its applications, doesn't work well with it.
 </td></tr>
 
 <tr><td valign="top" style="white-space:nowrap">2014-11-03</td><td>
-<a href="Download.html">Gura v0.6.0</a> was released.
+Gura v0.6.0 was released.
 </td></tr>
 
 <tr><td valign="top" style="white-space:nowrap">2014-08-26</td><td>
