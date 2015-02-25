@@ -14,17 +14,17 @@ Using Template Engine, you can embed Gura scripts in any sequence of text
 and get it generate texts inside it.
 
 
-## {{ page.chapter }}.2. How to Use Template Engine
+## {{ page.chapter }}.2. How to Invoke Template Engine
 
-There are several ways to use Template Engine as below:
+There are two ways to invoke Template Engine as below:
 
-- Use it in a command line by launching Gura intepreter with the option `-T`.
-- Create a `template` instance in a script.
+- In a command line, launch Gura intepreter with a text file containing embedded scripts.
+- Create a `template` instance in a script with which you can control the engine.
 
 
-### {{ page.chapter}}.2.1. Use It in Command Line
+### {{ page.chapter}}.2.1. Invoke in Command Line
 
-Create a file `sample.txt` that contains the following content.
+Consider a file `sample.txt` that contains the following content:
 
 `[sample.txt]`
 
@@ -41,9 +41,9 @@ and render the result to the standard output like below:
     Current time is 12:34:56.
 
 
-### {{ page.chapter}}.2.2. Create template Instance
+### {{ page.chapter}}.2.2. Invoke Using template Instance
 
-In a script, you can create a `template` instance to work with the Template Engine.
+In a script, you can create a `template` instance to work with the engine.
 Below is an example to read the above sample text and create an instance:
 
     tmpl = template('sample.txt')
@@ -60,20 +60,42 @@ for that purpose. You can create a `template` instance from a `string` as below:
 	tmpl = txt.template()
 
 
-## {{ page.chapter }}.3. Description Rules
+## {{ page.chapter }}.3. Syntax Rules
 
-Gura script is written in a script block surrounded by `${` and `}`.
-The result of the script block must be of one of the followings.
+When the engine finds a code surrounded by `${` and `}`,
+it evaluates its content as a script block
+in which you can put any number of scripts as long as
+the block has a result value of one of the following type:
 
-- a string
-- a number
-- a list of strings
-- a list of numbers
+- `nil`
+- `string`
+- `number`
+- a list or iterator of `string`
+- a list of iterator of `number`
 
-If the result is a list, the engine would concatenate all the elements together.
+An error occurs if the block returns other types of value.
+
+If the block has no element in it or returns `nil`, nothing would be rendered.
 
 <table>
-<tr><th>Template</th><th>Result</th></tr>
+<tr><th>Template</th><th>Rendering Result</th></tr>
+
+<tr><td><code><pre
+>Hello${}World</pre>
+</code></td><td><code><pre
+>HelloWorld</pre>
+</code></td></tr>
+
+<tr><td><code><pre
+>Hello${nil}World</pre>
+</code></td><td><code><pre
+>HelloWorld</pre>
+</code></td></tr>
+
+</table>
+
+<table>
+<tr><th>Template</th><th>Rendering Result</th></tr>
 
 <tr><td><code><pre
 >Hello ${'gura'.capitalize()} World</pre>
@@ -81,11 +103,23 @@ If the result is a list, the engine would concatenate all the elements together.
 >Hello Gura World</pre>
 </code></td></tr>
 
+</table>
+
+<table>
+<tr><th>Template</th><th>Rendering Result</th></tr>
+
 <tr><td><code><pre
 >Hello ${3 + 4 * 2} World</pre>
 </code></td><td><code><pre
 >Hello 11 World</pre>
 </code></td></tr>
+
+</table>
+
+If the result is a list, the engine would concatenate all the elements together.
+
+<table>
+<tr><th>Template</th><th>Result</th></tr>
 
 <tr><td><code><pre
 >AB ${['1st', '2nd', '3rd']} CD</pre>
