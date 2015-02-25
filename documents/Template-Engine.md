@@ -7,6 +7,7 @@ chapter: 19
 
 # Chapter {{ page.chapter }}. {{ page.title }}
 
+<!-- --------------------------------------------------------------------- -->
 ## {{ page.chapter }}.1. Overview
 
 Sometimes, you may want to daynamically generate text contents by scripting.
@@ -14,6 +15,7 @@ Using Template Engine, you can embed Gura scripts in any sequence of text
 and get it generate texts inside it.
 
 
+<!-- --------------------------------------------------------------------- -->
 ## {{ page.chapter }}.2. How to Invoke Template Engine
 
 There are two ways to invoke Template Engine as below:
@@ -40,7 +42,6 @@ and render the result to the standard output like below:
 
     Current time is 12:34:56.
 
-
 ### {{ page.chapter}}.2.2. Invoke Using template Instance
 
 In a script, you can create a `template` instance to work with the engine.
@@ -60,7 +61,10 @@ for that purpose. You can create a `template` instance from a `string` as below:
 	tmpl = txt.template()
 
 
+<!-- --------------------------------------------------------------------- -->
 ## {{ page.chapter }}.3. Syntax Rules
+
+## {{ page.chapter }}.3.1. Rendering
 
 When the engine finds a code surrounded by `${` and `}`,
 it evaluates its content as a script block
@@ -200,6 +204,8 @@ Line2
 
 </table>
 
+## {{ page.chapter }}.3.2. Sequence Control
+
 <table>
 <tr><th>Template</th><th>Result</th></tr>
 
@@ -240,6 +246,24 @@ ${end}
 1
 2
 </pre></code></td></tr>
+
+## {{ page.chapter }}.3.3. Template Directive
+
+A template block that begins with an equal character is called a template directive.
+
+- `${=define()}`
+- `${=call()}`
+
+- `${=embed()}`
+
+- `${=extends()}`
+- `${=block()}`
+- `${=super()}`
+
+## {{ page.chapter }}.3.4. Comment
+
+The engine recognizes a region surrounded by `${==` and `==}$` as a comment
+and just skips it during the parsing process.
 
 <tr><td><code><pre
 >1st line
