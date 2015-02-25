@@ -13,16 +13,51 @@ Sometimes, you may want to daynamically generate text contents by scripting.
 Using Template Engine, you can embed Gura scripts in any sequence of text
 and get it generate texts inside it.
 
-## {{ page.chapter }}.2. Simple Usage
+
+## {{ page.chapter }}.2. How to Use Template Engine
+
+There are several ways to use Template Engine as below:
+
+- Use it in a command line by launching Gura intepreter with the option `-T`.
+- Create a `template` instance in a script.
+
+
+### {{ page.chapter}}.2.1. Use It in Command Line
 
 Create a file `sample.txt` that contains the following content.
 
+`[sample.txt]`
+
     Current time is ${datetime.now().format('%H:%M:%S')}.
 
-In a command line, executing Gura interpreter with `-T` foolowed by the text file
-would print the result.
+In a command line, execute the Gura interpreter with the option `-T`
+followed by the file name as below:
 
     $ gura -T sample.txt
+
+This would evaluate the file containing embedded scripts
+and render the result to the standard output like below:
+
+    Current time is 12:34:56.
+
+
+### {{ page.chapter}}.2.2. Create template Instance
+
+In a script, you can create a `template` instance to work with the Template Engine.
+Below is an example to read the above sample text and create an instance:
+
+    tmpl = template('sample.txt')
+
+Then, you can evaluate it and render the result by the following code:
+
+	tmpl.render(sys.stdout)
+
+It may sometimes happen that you want to describe a text containing embedded scripts
+as a `string` value in a script. The `string` class provides method `string#template()`
+for that purpose. You can create a `template` instance from a `string` as below:
+
+    txt = 'Current time is ${datetime.now().format('%H:%M:%S')}.'
+	tmpl = txt.template()
 
 
 ## {{ page.chapter }}.3. Description Rules
