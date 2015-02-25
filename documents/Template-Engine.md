@@ -250,15 +250,39 @@ ${end}
 ## {{ page.chapter }}.3.3. Template Directive
 
 A template block that begins with an equal character is called a template directive.
+Direcives are categorized into the following types:
 
-- `${=define()}`
-- `${=call()}`
+- Macro
+- Inheritance
+- Embedding Other Templates
 
-- `${=embed()}`
+### {{ page.chapter }}.3.3.1. Macro
 
-- `${=extends()}`
-- `${=block()}`
-- `${=super()}`
+
+- `${=define(symbol:symbol, `args*)}` .. `${end}`
+- `${=call(symbol:symbol, args*)}`
+
+
+    ${=define(`foo)}
+    ${end}
+
+    ${=call(`foo)}
+
+### {{ page.chapter }}.3.3.2. Inheritance
+
+- `${=extends(template:template)}`
+- `${=block(symbol:symbol)}` .. `${end}`
+- `${=super(symbol:symbol)}`
+
+
+
+### {{ page.chapter }}.3.3.3. Embedding Other Templates
+
+- `${=embed(template:template)}`
+
+    ${=embed('head.tmpl')}
+    ${=embed('body.tmpl')}
+    ${=embed('footer.tmpl')}
 
 ## {{ page.chapter }}.3.4. Comment
 
