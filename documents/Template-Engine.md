@@ -20,35 +20,36 @@ and get it generate texts inside it.
 
 There are two ways to invoke Template Engine as below:
 
-- In a command line, launch Gura intepreter with a text file containing embedded scripts.
-- Create a `template` instance in a script with which you can control the engine.
+- In a command line, launch Gura intepreter with `-T` option and a text file containing embedded scripts.
+- In a script, create a `template` instance in a script with which you can control the engine.
 
 
-### {{ page.chapter}}.2.1. Invoked from Command Line
+### {{ page.chapter}}.2.1. Invoke from Command Line
 
-Consider a file `sample.txt` that contains the following text content containing embeddd scripts:
+Consider a file `sample.tmpl` that contains the following text content containing an embedded script:
 
-`[sample.txt]`
+`[sample.tmpl]`
 
     Current time is ${datetime.now().format('%H:%M:%S')}.
 
 From a command line, execute the Gura interpreter with the option `-T`
 followed by the file name as below:
 
-    $ gura -T sample.txt
+    $ gura -T sample.tmpl
 
-This would evaluate the file and render the result to the standard output like below:
+This would evaluate the file with the engine
+that renders the result to the standard output like below:
 
     Current time is 12:34:56.
 
-### {{ page.chapter}}.2.2. Using template Instance
+### {{ page.chapter}}.2.2. Invoke from Script
 
 In a script, you can create a `template` instance to work with the engine.
-Below is an example to read the above sample file and create an instance:
+Below is an example to read the above sample file and create the instance:
 
-    tmpl = template('sample.txt')
+    tmpl = template('sample.tmpl')
 
-Then, you can order the instance to render its result with the following code:
+Then, you can order the instance to render its result by the following code:
 
 	tmpl.render(sys.stdout)
 
@@ -56,18 +57,18 @@ It may sometimes happen that you want to describe a text containing embedded scr
 as a `string` value in a script. The `string` class provides method `string#template()`
 that create a `template` instance from the string as below:
 
-    txt = 'Current time is ${datetime.now().format('%H:%M:%S')}.'
-	tmpl = txt.template()
+    str = 'Current time is ${datetime.now().format('%H:%M:%S')}.'
+	tmpl = str.template()
 
 
 <!-- --------------------------------------------------------------------- -->
 ## {{ page.chapter }}.3. Syntax Rules
 
-## {{ page.chapter }}.3.1. Script Block
+## {{ page.chapter }}.3.1. Embedded Script
 
-When the engine finds a code surrounded by `${` and `}`,
-it's recognized as a script block in which you can put any number and any type of scripts
-as long as the block has a final result value of one of the following types:
+When the engine finds a region surrounded by borders "`${`" and "`}`" in a text,
+that would be recognized as an embedded script in which you can put any number and any type of
+expressions as long as the block has a final result value of one of the following types:
 
 - `string`
 - `number`
@@ -77,7 +78,7 @@ as long as the block has a final result value of one of the following types:
 
 An error occurs if the block returns any other types of value.
 
-If the block has no element in it, it would render nothing.
+If the block has no element in it, it would render nothing. Below is an example:
 
 **Template:**
 
@@ -87,7 +88,7 @@ If the block has no element in it, it would render nothing.
 
     HelloWorld
 
-If the block returns a `string` value, it would render the string.
+If the block returns a `string` value, it would render that string.
 
 **Template:**
 
@@ -98,7 +99,7 @@ If the block returns a `string` value, it would render the string.
     Hello gura World
 
 As the content of the block is an ordinary script,
-you can describe multiple expressions of any types including variable assignments
+it can contain any number and any types of expressions including variable assignments
 and function calls.
 
 **Template:**
@@ -109,8 +110,9 @@ and function calls.
 
     Hello GURA World
 
-The format of the block script such as indentations and line breaks
-doesn't affect the rendering result.
+The block script can be written in free format as for spaces, indentations and line breaks.
+The format of the script doesn't affect the rendering result as long as they're described
+within borders of a block script.
 
 **Template:**
 
@@ -123,7 +125,7 @@ doesn't affect the rendering result.
 
     Hello GURA World
 
-If the block has a `number` value, it converts the result into a string before rendering.
+If the block has a `number` value, the engine converts the result into a string before rendering.
 
 **Template:**
 
@@ -145,8 +147,8 @@ If the block returns `nil`, it would render nothing.
     HelloWorld
     HelloWorld
 
-This feature is useful to describe scripts such as for assignment of variables
-that don't want to render anything. A symbol "`-`" is defined as `nil` value so that
+This feature is useful when you describe scripts that don't want to render anything
+such as assignments of variables. A symbol "`-`" is defined as `nil` value so that
 it can be used as a terminator for such scripts.
 
 **Template:**
@@ -167,10 +169,11 @@ If the result is a list or iterator, the engine would concatenate all the elemen
 
     Hello 1st2nd3rd World
 
+
 ## {{ page.chapter }}.3.2. Indentation and Line Break
 
-If the script block is preceded by white spaces and the result string consists of multiple lines,
-each line is indented with the spaces.
+If an embedded script that returns a string containing multiple lines appears first in a line
+and is preceded by white spaces or tabs, each line would be indented with the preceding spaces.
 
 **Template:**
 
@@ -184,6 +187,8 @@ each line is indented with the spaces.
       2nd
       3rd
 
+When the embedded script returns a list of string including line breaks, they would also be indented.
+
 **Template:**
 
     Lines:
@@ -196,28 +201,31 @@ each line is indented with the spaces.
       2nd
       3rd
 
-**Template:**
-
-    Line1
-    ${''}
-    Line2
-
-**Result:**
-
-    Line1
-
-    Line2
+If an embedded script that has `nil` value appears at the end of a line,
+it would defeat the trailing line break.
 
 **Template**
 
-    Line1
-    ${nil}
-    Line2
+    Hello${-}
+    World
 
 **Result:**
 
-    Line1
-    Line2
+    HelloWorld
+
+If an embedded script that has `nil` value is an only element in a line,
+nothing would be rendered for the line even if it has preceding white spaces.
+
+**Template**
+
+    Hello
+      ${-}
+    World
+
+**Result:**
+
+    Hello
+    World
 
 
 ## {{ page.chapter }}.3.3. Sequence Control
@@ -269,24 +277,26 @@ each line is indented with the spaces.
 
 ## {{ page.chapter }}.3.4. Template Directive
 
-A template block that begins with an equal character is called a template directive.
-Direcives are categorized into the following types:
+A template block that begins with a character "`=`" is called a template directive,
+which is categorized into the following types:
 
-- Macro
+- Macro Definition and Call
 - Inheritance
 - Embedding Other Templates
 
-### {{ page.chapter }}.3.4.1. Macro
+### {{ page.chapter }}.3.4.1. Macro Definition and Call
 
+Macros are used to define text patterns that can be applied for multiple times.
+They're defined and called with the following directives:
 
-- `${=define(symbol:symbol, `args*)}` .. `${end}`
+- ``${=define(symbol:symbol, `args*)}`` .. `${end}`
 - `${=call(symbol:symbol, args*)}`
 
+Below is an example:
 
-    ${=define(`foo)}
-    ${end}
+    ${=define(`author)}Taro Yamada{end}
 
-    ${=call(`foo)}
+    Author: ${=call(`author)}
 
 ### {{ page.chapter }}.3.4.2. Inheritance
 
@@ -300,9 +310,11 @@ Direcives are categorized into the following types:
 
 - `${=embed(template:template)}`
 
-      ${=embed('head.tmpl')}
-      ${=embed('body.tmpl')}
-      ${=embed('footer.tmpl')}
+Below is an example:
+
+    ${=embed('head.tmpl')}
+    ${=embed('body.tmpl')}
+    ${=embed('footer.tmpl')}
 
 
 ## {{ page.chapter }}.3.5. Comment
