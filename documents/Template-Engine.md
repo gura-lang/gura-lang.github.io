@@ -24,38 +24,37 @@ There are two ways to invoke Template Engine as below:
 - Create a `template` instance in a script with which you can control the engine.
 
 
-### {{ page.chapter}}.2.1. Invoke in Command Line
+### {{ page.chapter}}.2.1. Invoked from Command Line
 
-Consider a file `sample.txt` that contains the following content:
+Consider a file `sample.txt` that contains the following text content containing embeddd scripts:
 
 `[sample.txt]`
 
     Current time is ${datetime.now().format('%H:%M:%S')}.
 
-In a command line, execute the Gura interpreter with the option `-T`
+From a command line, execute the Gura interpreter with the option `-T`
 followed by the file name as below:
 
     $ gura -T sample.txt
 
-This would evaluate the file containing embedded scripts
-and render the result to the standard output like below:
+This would evaluate the file and render the result to the standard output like below:
 
     Current time is 12:34:56.
 
-### {{ page.chapter}}.2.2. Invoke Using template Instance
+### {{ page.chapter}}.2.2. Using template Instance
 
 In a script, you can create a `template` instance to work with the engine.
-Below is an example to read the above sample text and create an instance:
+Below is an example to read the above sample file and create an instance:
 
     tmpl = template('sample.txt')
 
-Then, you can evaluate it and render the result by the following code:
+Then, you can order the instance to render its result with the following code:
 
 	tmpl.render(sys.stdout)
 
 It may sometimes happen that you want to describe a text containing embedded scripts
 as a `string` value in a script. The `string` class provides method `string#template()`
-for that purpose. You can create a `template` instance from a `string` as below:
+that create a `template` instance from the string as below:
 
     txt = 'Current time is ${datetime.now().format('%H:%M:%S')}.'
 	tmpl = txt.template()
@@ -64,190 +63,211 @@ for that purpose. You can create a `template` instance from a `string` as below:
 <!-- --------------------------------------------------------------------- -->
 ## {{ page.chapter }}.3. Syntax Rules
 
-## {{ page.chapter }}.3.1. Rendering
+## {{ page.chapter }}.3.1. Script Block
 
 When the engine finds a code surrounded by `${` and `}`,
-it evaluates its content as a script block
-in which you can put any number of scripts as long as
-the block has a result value of one of the following type:
+it's recognized as a script block in which you can put any number and any type of scripts
+as long as the block has a final result value of one of the following types:
 
-- `nil`
 - `string`
 - `number`
+- `nil`
 - a list or iterator of `string`
 - a list of iterator of `number`
 
-An error occurs if the block returns other types of value.
+An error occurs if the block returns any other types of value.
 
-If the block has no element in it or returns `nil`, nothing would be rendered.
+If the block has no element in it, it would render nothing.
 
-<table>
-<tr><th>Template</th><th>Rendering Result</th></tr>
+**Template:**
 
-<tr><td><code><pre
->Hello${}World</pre>
-</code></td><td><code><pre
->HelloWorld</pre>
-</code></td></tr>
+    Hello${}World
 
-<tr><td><code><pre
->Hello${nil}World</pre>
-</code></td><td><code><pre
->HelloWorld</pre>
-</code></td></tr>
+**Result:**
 
-</table>
+    HelloWorld
 
-<table>
-<tr><th>Template</th><th>Rendering Result</th></tr>
+If the block returns a `string` value, it would render the string.
 
-<tr><td><code><pre
->Hello ${'gura'.capitalize()} World</pre>
-</code></td><td><code><pre
->Hello Gura World</pre>
-</code></td></tr>
+**Template:**
 
-</table>
+    Hello ${'gura'} World
 
-<table>
-<tr><th>Template</th><th>Rendering Result</th></tr>
+**Result:**
 
-<tr><td><code><pre
->Hello ${3 + 4 * 2} World</pre>
-</code></td><td><code><pre
->Hello 11 World</pre>
-</code></td></tr>
+    Hello gura World
 
-</table>
+As the content of the block is an ordinary script,
+you can describe multiple expressions of any types including variable assignments
+and function calls.
 
-If the result is a list, the engine would concatenate all the elements together.
+**Template:**
 
-<table>
-<tr><th>Template</th><th>Result</th></tr>
+    Hello ${str = 'gura', str.upper()} World
 
-<tr><td><code><pre
->AB ${['1st', '2nd', '3rd']} CD</pre>
-</code></td><td><code><pre
->AB 1st2nd3rd CD</pre>
-</code></td></tr>
+**Result:**
 
-<tr><td><code><pre
->AB ${['1st\n', '2nd\n', '3rd\n']} CD</pre>
-</code></td><td><code><pre
->AB 1st
-2nd
-3rd CD
-</pre></code></td></tr>
+    Hello GURA World
 
-</table>
+The format of the block script such as indentations and line breaks
+doesn't affect the rendering result.
 
-If the script blockis preceded by white spaces and the result string consists of multiple lines,
+**Template:**
+
+    Hello ${
+		str = 'gura'
+		str.upper()
+	} World
+
+**Result:**
+
+    Hello GURA World
+
+If the block has a `number` value, it converts the result into a string before rendering.
+
+**Template:**
+
+    Calculation: ${3 + 4 * 2}
+
+**Result:**
+
+    Calculation: 11
+
+If the block returns `nil`, it would render nothing.
+
+**Template:**
+
+    Hello${nil}World
+    Hello${x = 2, y = 3, nil}World
+
+**Result:**
+
+    HelloWorld
+    HelloWorld
+
+This feature is useful to describe scripts such as for assignment of variables
+that don't want to render anything. A symbol "`-`" is defined as `nil` value so that
+it can be used as a terminator for such scripts.
+
+**Template:**
+
+    Hello${x = 2, y = 3, -}World
+
+**Result:**
+
+    HelloWorld
+
+If the result is a list or iterator, the engine would concatenate all the elements together.
+
+**Template:**
+
+    Hello ${['1st', '2nd', '3rd']} World
+
+**Result:**
+
+    Hello 1st2nd3rd World
+
+## {{ page.chapter }}.3.2. Indentation and Line Break
+
+If the script block is preceded by white spaces and the result string consists of multiple lines,
 each line is indented with the spaces.
 
-<table>
-<tr><th>Template</th><th>Result</th></tr>
+**Template:**
 
-<tr><td><code><pre
->Lines:
-  ${'1st\n2nd\n3rd\n'}
-</pre></code></td><td><code><pre
->Lines:
-  1st
-  2nd
-  3rd
-</pre></code></td></tr>
+    Lines:
+      ${'1st\n2nd\n3rd\n'}
 
-<tr><td><code><pre
->Lines:
-  ${['1st\n', '2nd\n', '3rd\n']}
-</pre></code></td><td><code><pre
->Lines:
-  1st
-  2nd
-  3rd
-</pre></code></td></tr>
+**Result:**
 
-<tr><td><code><pre
->Hello ${
-'gura'.capitalize()
-} World
-</pre></code></td><td><code><pre
->Hello Gura World</pre></code></td></tr>
+    Lines:
+      1st
+      2nd
+      3rd
 
-</table>
+**Template:**
+
+    Lines:
+      ${['1st\n', '2nd\n', '3rd\n']}
+
+**Result:**
+
+    Lines:
+      1st
+      2nd
+      3rd
+
+**Template:**
+
+    Line1
+    ${''}
+    Line2
+
+**Result:**
+
+    Line1
+
+    Line2
+
+**Template**
+
+    Line1
+    ${nil}
+    Line2
+
+**Result:**
+
+    Line1
+    Line2
 
 
-<table>
-<tr><th>Template</th><th>Result</th></tr>
+## {{ page.chapter }}.3.3. Sequence Control
 
-<tr><td><code><pre
->Hello ${''} World
-Line1
-${''}
-Line2
-</pre></code></td><td><code><pre
->Hello World
-Line1
-Line2
-</pre></code></td></tr>
+**Template:**
 
-<tr><td><code><pre
->Hello ${nil} World
-Line1
-${nil}
-Line2
-</pre></code></td><td><code><pre
->Hello World
-Line1
-Line2
-</pre></code></td></tr>
-
-</table>
-
-## {{ page.chapter }}.3.2. Sequence Control
-
-<table>
-<tr><th>Template</th><th>Result</th></tr>
-
-<tr><td><code><pre
->${for (i in 1..5)}
-  ${if (i < 2)}
+    ${for (i in 1..5)}
+    ${if (i < 2)}
     ${i} is less than two
-  ${elsif (i < 4)}
+    ${elsif (i < 4)}
     ${i} is less than four
-  ${else}
+    ${else}
     ${i} is greater or equal to four
-  ${end}
-${end}
-</pre></code></td><td><code><pre
->  1 is less than two
-  2 is less than four
-  3 is less than four
-  4 is greater or equal to four
-  5 is greater or equal to four
-</pre></code></td></tr>
+    ${end}
+    ${end}
 
-<tr><td><code><pre
->${range(3) {}}
-Hello World
-${end}
-</pre></code></td><td><code><pre
->Hello World
-Hello World
-Hello World
-</pre></code></td></tr>
+**Result:**
 
-<tr><td><code><pre
->${range(3) {|i|}}
-${i}
-${end}
-</pre></code></td><td><code><pre
->0
-1
-2
-</pre></code></td></tr>
+    1 is less than two
+    2 is less than four
+    3 is less than four
+    4 is greater or equal to four
+    5 is greater or equal to four
 
-## {{ page.chapter }}.3.3. Template Directive
+
+**Template:**
+
+    ${range(3) {}}
+    Hello World
+    ${end}
+
+**Result:**
+
+    Hello World
+    Hello World
+    Hello World
+
+**Template:**
+
+    ${range(3) {|i|}}
+    ${i}
+    ${end}
+
+**Result:**
+
+    0
+    1
+    2
+
+## {{ page.chapter }}.3.4. Template Directive
 
 A template block that begins with an equal character is called a template directive.
 Direcives are categorized into the following types:
@@ -256,7 +276,7 @@ Direcives are categorized into the following types:
 - Inheritance
 - Embedding Other Templates
 
-### {{ page.chapter }}.3.3.1. Macro
+### {{ page.chapter }}.3.4.1. Macro
 
 
 - `${=define(symbol:symbol, `args*)}` .. `${end}`
@@ -268,7 +288,7 @@ Direcives are categorized into the following types:
 
     ${=call(`foo)}
 
-### {{ page.chapter }}.3.3.2. Inheritance
+### {{ page.chapter }}.3.4.2. Inheritance
 
 - `${=extends(template:template)}`
 - `${=block(symbol:symbol)}` .. `${end}`
@@ -276,44 +296,38 @@ Direcives are categorized into the following types:
 
 
 
-### {{ page.chapter }}.3.3.3. Embedding Other Templates
+### {{ page.chapter }}.3.4.3. Embedding Other Templates
 
 - `${=embed(template:template)}`
 
-    ${=embed('head.tmpl')}
-    ${=embed('body.tmpl')}
-    ${=embed('footer.tmpl')}
+      ${=embed('head.tmpl')}
+      ${=embed('body.tmpl')}
+      ${=embed('footer.tmpl')}
 
-## {{ page.chapter }}.3.4. Comment
+
+## {{ page.chapter }}.3.5. Comment
 
 The engine recognizes a region surrounded by `${==` and `==}$` as a comment
 and just skips it during the parsing process.
 
-<tr><td><code><pre
->1st line
-2nd line
-3rd line
-${==
-*comment-out*
-==}$
-4th line
-${==*comment-out*==}$
-5th line${==*comment-out*==}$
-6th line
-</pre></code></td><td><code><pre
->1st line
-2nd line
-3rd line
-4th line
-5th line
-6th line
-</pre></code></td></tr>
+**Template:**
 
-<tr><td><code><pre
->
-</pre></code></td><td><code><pre
->
-</pre></code></td></tr>
+    1st line
+    2nd line
+    3rd line
+    ${==
+    *comment-out*
+    ==}$
+    4th line
+    ${==*comment-out*==}$
+    5th line${==*comment-out*==}$
+    6th line
 
+**Result:**
 
-</table>
+    1st line
+    2nd line
+    3rd line
+    4th line
+    5th line
+    6th line
