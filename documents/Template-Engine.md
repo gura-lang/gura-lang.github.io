@@ -10,23 +10,23 @@ chapter: 19
 <!-- --------------------------------------------------------------------- -->
 ## {{ page.chapter }}.1. Overview
 
-Sometimes, you may want to daynamically generate text contents by scripting.
-Using Template Engine, you can embed Gura scripts in any sequence of text
-and get it generate texts inside it.
-
+Sometimes, you may want to daynamically generate text from a template
+that contains some variable fields.
+You can use Template Engine to embed Gura scripts within a text for such purposes.
 
 <!-- --------------------------------------------------------------------- -->
 ## {{ page.chapter }}.2. How to Invoke Template Engine
 
 There are two ways to invoke Template Engine as below:
 
-- In a command line, launch Gura intepreter with `-T` option and a text file containing embedded scripts.
+- In a command line, launch Gura intepreter with `-T` option and a template file containing embedded scripts.
 - In a script, create a `template` instance in a script with which you can control the engine.
 
 
 ### {{ page.chapter}}.2.1. Invoke from Command Line
 
-Consider a file `sample.tmpl` that contains the following text content containing an embedded script:
+Consider a template file `sample.tmpl` that contains the below text content
+containing an embedded script:
 
 `[sample.tmpl]`
 
@@ -53,7 +53,7 @@ Then, you can order the instance to render its result by the following code:
 
 	tmpl.render(sys.stdout)
 
-It may sometimes happen that you want to describe a text containing embedded scripts
+It may sometimes happen that you want to describe a template containing embedded scripts
 as a `string` value in a script. The `string` class provides method `string#template()`
 that create a `template` instance from the string as below:
 
@@ -66,9 +66,9 @@ that create a `template` instance from the string as below:
 
 ## {{ page.chapter }}.3.1. Embedded Script
 
-When the engine finds a region surrounded by borders "`${`" and "`}`" in a text,
+When the engine finds a region surrounded by borders "`${`" and "`}`" in a template,
 that would be recognized as an embedded script in which you can put any number and any type of
-expressions as long as the block has a final result value of one of the following types:
+expressions as long as the embedded script has a final result value of one of the following types:
 
 - `string`
 - `number`
@@ -76,9 +76,9 @@ expressions as long as the block has a final result value of one of the followin
 - a list or iterator of `string`
 - a list of iterator of `number`
 
-An error occurs if the block returns any other types of value.
+An error occurs if the embedded script has any other types of value.
 
-If the block has no element in it, it would render nothing. Below is an example:
+If the embedded script has no element in it, it would render nothing. Below is an example:
 
 **Template:**
 
@@ -88,7 +88,7 @@ If the block has no element in it, it would render nothing. Below is an example:
 
     HelloWorld
 
-If the block returns a `string` value, it would render that string.
+If the embedded script has a `string` value, it would render that string.
 
 **Template:**
 
@@ -98,7 +98,7 @@ If the block returns a `string` value, it would render that string.
 
     Hello gura World
 
-As the content of the block is an ordinary script,
+As the content of the embedded script is an ordinary script,
 it can contain any number and any types of expressions including variable assignments
 and function calls.
 
@@ -110,9 +110,10 @@ and function calls.
 
     Hello GURA World
 
-The block script can be written in free format as for spaces, indentations and line breaks.
+The embedded script can be written in free format
+as for inserted spaces, indentations and line breaks.
 The format of the script doesn't affect the rendering result as long as they're described
-within borders of a block script.
+within borders of a embedded script.
 
 **Template:**
 
@@ -125,7 +126,7 @@ within borders of a block script.
 
     Hello GURA World
 
-If the block has a `number` value, the engine converts the result into a string before rendering.
+If the embedded script has a `number` value, the engine converts the result into a string before rendering.
 
 **Template:**
 
@@ -135,29 +136,52 @@ If the block has a `number` value, the engine converts the result into a string 
 
     Calculation: 11
 
-If the block returns `nil`, it would render nothing.
+If the embedded script has a value of `nil`, it would render nothing.
 
 **Template:**
 
     Hello${nil}World
-    Hello${x = 2, y = 3, nil}World
 
 **Result:**
 
     HelloWorld
-    HelloWorld
 
-This feature is useful when you describe scripts that don't want to render anything
-such as assignments of variables. A symbol "`-`" is defined as `nil` value so that
-it can be used as a terminator for such scripts.
+This feature is useful when you describe scripts that don't want to render anything.
+Consider the following template that has an embedded script to initialize variables `x` and `y`:
 
 **Template:**
 
-    Hello${x = 2, y = 3, -}World
+    ${x = 2, y = 3}
+    Hello World
 
 **Result:**
 
-    HelloWorld
+    3
+    Hello World
+
+You would see an unexpected result that the embedded script renders `3`
+caused by the evaluation result of the last expression "`y = 3`". 
+To avoid this, put `nil` at the last of the embedded script as below:
+
+**Template:**
+
+    ${x = 2, y = 3, nil}
+    Hello World
+
+**Result:**
+
+    Hello World
+
+A symbol "`-`" is defined as `nil` value so that it can be used as a terminator for such scripts.
+
+**Template:**
+
+    ${x = 2, y = 3, -}
+    Hello World
+
+**Result:**
+
+    Hello World
 
 If the result is a list or iterator, the engine would concatenate all the elements together.
 
@@ -172,7 +196,7 @@ If the result is a list or iterator, the engine would concatenate all the elemen
 
 ## {{ page.chapter }}.3.2. Indentation and Line Break
 
-If an embedded script that returns a string containing multiple lines appears first in a line
+If an embedded script that has a string containing multiple lines appears first in a line
 and is preceded by white spaces or tabs, each line would be indented with the preceding spaces.
 
 **Template:**
@@ -187,7 +211,7 @@ and is preceded by white spaces or tabs, each line would be indented with the pr
       2nd
       3rd
 
-When the embedded script returns a list of string including line breaks, they would also be indented.
+When the embedded script has a list of string including line breaks, they would also be indented.
 
 **Template:**
 
@@ -277,12 +301,12 @@ nothing would be rendered for the line even if it has preceding white spaces.
 
 ## {{ page.chapter }}.3.4. Template Directive
 
-A template block that begins with a character "`=`" is called a template directive,
+An embedded script that begins with a character "`=`" is called a template directive,
 which is categorized into the following types:
 
 - Macro Definition and Call
 - Inheritance
-- Embedding Other Templates
+- Rendering Sub Templates
 
 ### {{ page.chapter }}.3.4.1. Macro Definition and Call
 
@@ -306,20 +330,20 @@ Below is an example:
 
 
 
-### {{ page.chapter }}.3.4.3. Embedding Other Templates
+### {{ page.chapter }}.3.4.3. Renderng Sub Templates
 
 - `${=embed(template:template)}`
 
 Below is an example:
 
-    ${=embed('head.tmpl')}
+    ${=embed('header.tmpl')}
     ${=embed('body.tmpl')}
     ${=embed('footer.tmpl')}
 
 
 ## {{ page.chapter }}.3.5. Comment
 
-The engine recognizes a region surrounded by `${==` and `==}$` as a comment
+The engine recognizes a region surrounded by "`${==`" and "`==}$`" as a comment
 and just skips it during the parsing process.
 
 **Template:**
@@ -343,3 +367,27 @@ and just skips it during the parsing process.
     4th line
     5th line
     6th line
+
+<!-- --------------------------------------------------------------------- -->
+## {{ page.chapter }}.4. Scope Issues
+
+Consider a template file containing an embedded script that refers to a variable:
+
+`[sample.tmpl]`
+
+    My name is ${name}.
+
+`template#render()`
+
+script:
+
+    tmpl = template('sample.tmpl')
+    name = 'Yamada'
+	tmpl.render(sys.stdout)
+
+script:
+
+    ['Yamada', 'Suzuki', 'Sato'].each {|name|
+        tmpl.render(sys.stdout)
+    }
+
