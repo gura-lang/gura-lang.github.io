@@ -306,7 +306,8 @@ which is categorized into the following types:
 
 - Macro Definition and Call
 - Inheritance
-- Rendering Sub Templates
+- Rendering Other Templates
+
 
 ### {{ page.chapter }}.3.4.1. Macro Definition and Call
 
@@ -318,19 +319,65 @@ They're defined and called with the following directives:
 
 Below is an example:
 
-    ${=define(`author)}Taro Yamada{end}
+**Template:**
 
+    ${=define(`author)}Taro Yamada{end}
     Author: ${=call(`author)}
+
+**Result:**
+
+    Author: Taro Yamada
+
 
 ### {{ page.chapter }}.3.4.2. Inheritance
 
-- `${=extends(template:template)}`
-- `${=block(symbol:symbol)}` .. `${end}`
-- `${=super(symbol:symbol)}`
+Using Template Engine's inheritance feature, you can create a derived template
+that inherits the text content from a base template.
 
+    +------------------+
+    |  base template   |
+    +------------------+
+             A
+             |
+    +--------+---------+
+    | derived template |
+    +------------------+
 
+Template Engine provides the following directives for the inheritance feature:
 
-### {{ page.chapter }}.3.4.3. Renderng Sub Templates
+- `${=block(symbol:symbol)}` .. `${end}` .. 
+- `${=extends(template:template)}` .. 
+- `${=super(symbol:symbol)}` .. 
+
+A base template provides basement text content including blocks
+that are supposed to be replaced by a derived template.
+
+`[base.tmpl]`
+
+    ${=block(`header)}
+    jfkdjfdas
+    ${end}
+
+    ${=block(`footer)}
+    jfkdjfdas
+    ${end}
+
+A template that calls `${=extends}` directive becomes a derived template,
+which should only contain `${=block}` directive to replace the content of the base template.
+
+`[derived.tmpl]`
+
+    ${=extends('base.tmpl')}
+
+    ${=block(`header)}
+    ${end}
+
+    ${=block(`footer)}
+    ${end}
+
+### {{ page.chapter }}.3.4.3. Renderng Other Templates
+
+The directive `${=embed()}` renders other template within the current template.
 
 - `${=embed(template:template)}`
 
