@@ -288,23 +288,34 @@ A symbol "`-`" is defined as `nil` so that it can be used as a terminator for su
     Hello World
 
 <!-- --------------------------------------------------------------------- -->
-## {{ page.chapter }}.6. Sequence Control
+## {{ page.chapter }}.6. Calling Function with Block
 
-Template Engihe can deal with sequence controls such as repetitions and branches.
+Template Engine can call functions along with a block
+that is usually surrounded by "`{`" and "`}`" in an ordinary script.
 
-They work with a block that is surrounded by "`{`" and "`}`" in an ordinary script.
-In a template text, the block starts implicitly and ends with an embedded script "`${end}`".
+In a template text, a block starts implicitly after a function call
+that expects a mandatory block and ends with a call of a function named `end`.
 
-For example, a repetition sequence by `repeat` is described in a template text like below
-which renders the text "`repeated`" with a line-break for 10 times:
+Consider a function `repeat()` that repeats the procedure of the given block
+for the specified times.
+A template that repeats a text "`repeated`" with a line-break for 4 times comes like below:
 
 **Template:**
 
-    ${repeat (10)}
+    ${repeat (4)}
     repeated
     ${end}
 
-A branch sequence by `if-elsif-else` would be described like below:
+**Result:**
+
+    repeated
+    repeated
+    repeated
+    repeated
+
+Besides the function `end`, some functions declared with `:trailer` attribute
+such as `elsif` and `else` can work as a block terminator.
+A branch sequence of `if-elsif-else` could be described like below:
 
 **Template:**
 
@@ -338,31 +349,46 @@ Below is an example that uses repetitions and branches in a more practical conte
     4 is greater or equal to four
     5 is greater or equal to four
 
+With the function `repeat()`, you can take an index number during the repetition
+using a block paramter like below:
 
+    repeat(4) {|i|
+        println('repeated #', i)
+    }
+
+In a template, such block parameters should be described in a block containing only
+a block parameter list within an embedded script.
 
 **Template:**
 
-    ${range(3) {}}
-    Hello World
+    ${repeat(4) {|i|}}
+    repeated #${i}
     ${end}
 
 **Result:**
 
-    Hello World
-    Hello World
-    Hello World
+    repeated #0
+    repeated #1
+    repeated #2
+    repeated #3
+
+Some functions like `range()` can take an optional block, not a mandatory one,
+which doesn't give Template Engine any information on whether a block should be followed.
+To give such a function a block, specify an empty block "`{}`" in an embedded script.
 
 **Template:**
 
-    ${range(3) {|i|}}
-    ${i}
+    ${range(4) {}}
+    repeated
     ${end}
 
 **Result:**
 
-    0
-    1
-    2
+    repeated
+    repeated
+    repeated
+    repeated
+
 
 <!-- --------------------------------------------------------------------- -->
 ## {{ page.chapter }}.7. Template Directive
@@ -420,19 +446,37 @@ that are supposed to be replaced by a derived template.
 
 `[base.tmpl]`
 
-    ${=block(`header)}
-    header
+    block1
+    ------
+    ${=block(`block1)}
+    block1-content base
     ${end}
 
-    ${=block(`footer)}
-    footer
+    block2
+    ------
+    ${=block(`block2)}
+    block2-content base
+    ${end}
+    
+    block3
+    ------
+    ${=block(`block3)}
+    block3-content base
     ${end}
 
 **Result:**
 
-    header
+    block1
+    ------
+    block1-content base
     
-    footer
+    block2
+    ------
+    block2-content base
+    
+    block3
+    ------
+    block3-content base
 
 A template that calls `${=extends}` directive becomes a derived template,
 which should only contain `${=block}` directive to replace the content of the base template.
@@ -441,27 +485,68 @@ which should only contain `${=block}` directive to replace the content of the ba
 
     ${=extends('base.tmpl')}
 
-    ${=block(`header)}
-    actual header
+    ${=block(`block1)}
+    block1-content derived
     ${end}
 
-    ${=block(`footer)}
-    actual footer
+    ${=block(`block3)}
+    block3-content derived
     ${end}
 
 **Result:**
 
-    actual header
+    block1
+    ------
+    block1-content derived
     
-    actual footer
+    block2
+    ------
+    block2-content base
+    
+    block3
+    ------
+    block3-content derived
+
+Using directive `${=super()}`, you can render the block content defined in the base template.
+
+`[derived.tmpl]`
+
+    ${=extends('base.tmpl')}
+
+    ${=block(`block1)}
+    ${=super(`block1)}
+    block1-content derived
+    ${end}
+
+    ${=block(`block3)}
+    block3-content derived
+    ${end}
+
+**Result:**
+
+    block1
+    ------
+    block1-content base
+    block1-content derived
+    
+    block2
+    ------
+    block2-content base
+    
+    block3
+    ------
+    block3-content derived
+
 
 ### {{ page.chapter }}.7.3. Rendering Other Templates
 
-The directive `${=embed()}` renders other template within the current template.
+The directive `${=embed()}` renders other templates from the current template.
 
 - `${=embed(template:template)}`
 
 Below is an example:
+
+**Template:**
 
     ${=embed('header.tmpl')}
     ${=embed('body.tmpl')}
@@ -472,20 +557,22 @@ Below is an example:
 ## {{ page.chapter }}.8. Comment
 
 The engine recognizes a region surrounded by "`${==`" and "`==}$`" as a comment
-and just skips it during the parsing process.
+and just skips it during parsing process.
 
 **Template:**
 
     1st line
     2nd line
+    ${== comment of single-line ==}$
     3rd line
     ${==
-    *comment-out*
+    comment of multi-lines
     ==}$
     4th line
-    ${==*comment-out*==}$
-    5th line${==*comment-out*==}$
+    5th line${== comment at end of line ==}$
     6th line
+	7th ${== comment in the middle of line ==}$line
+	8th line
 
 **Result:**
 
@@ -495,27 +582,30 @@ and just skips it during the parsing process.
     4th line
     5th line
     6th line
+    7th line
+    8th line
 
 <!-- --------------------------------------------------------------------- -->
 ## {{ page.chapter }}.9. Scope Issues
 
-Consider a template file containing an embedded script that refers to a variable:
+An embedded script in a template runs with a scope in which `template#render()` is evaluated.
+
+Consider the following template file including an embedded script
+that contains variable references named `fruit` and `price`:
 
 `[sample.tmpl]`
 
-    My name is ${name}.
+    The price of ${fruit} is ${price} yen.
 
-`template#render()`
-
-script:
-
-    tmpl = template('sample.tmpl')
-    name = 'Yamada'
-	tmpl.render(sys.stdout)
+Below is a script to render that template.
 
 script:
 
-    ['Yamada', 'Suzuki', 'Sato'].each {|name|
+    func(tmpl:template, fruit:string, price:number) = {
         tmpl.render(sys.stdout)
     }
 
+    tmpl = template('sample.tmpl')
+    func(tmpl, 'grape', 100)
+
+Note that the template is evaluated with a scope in the context of `func`.
