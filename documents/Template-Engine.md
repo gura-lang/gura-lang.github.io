@@ -62,9 +62,7 @@ that create a `template` instance from the string as below:
 
 
 <!-- --------------------------------------------------------------------- -->
-## {{ page.chapter }}.3. Syntax Rules
-
-## {{ page.chapter }}.3.1. Embedded Script
+## {{ page.chapter }}.3. Embedded Script
 
 When the engine finds a region surrounded by borders "`${`" and "`}`" in a template,
 that would be recognized as an embedded script in which you can put any number and any type of
@@ -146,44 +144,7 @@ If the embedded script has a value of `nil`, it would render nothing.
 
     HelloWorld
 
-This feature is useful when you describe scripts that don't want to render anything.
-Consider the following template that has an embedded script to initialize variables `x` and `y`:
-
-**Template:**
-
-    ${x = 2, y = 3}
-    Hello World
-
-**Result:**
-
-    3
-    Hello World
-
-You would see an unexpected result that the embedded script renders `3`
-caused by the evaluation result of the last expression "`y = 3`". 
-To avoid this, put `nil` at the last of the embedded script as below:
-
-**Template:**
-
-    ${x = 2, y = 3, nil}
-    Hello World
-
-**Result:**
-
-    Hello World
-
-A symbol "`-`" is defined as `nil` value so that it can be used as a terminator for such scripts.
-
-**Template:**
-
-    ${x = 2, y = 3, -}
-    Hello World
-
-**Result:**
-
-    Hello World
-
-If the result is a list or iterator, the engine would concatenate all the elements together.
+If the result is a list or iterator, the engine would render each element in it.
 
 **Template:**
 
@@ -193,8 +154,19 @@ If the result is a list or iterator, the engine would concatenate all the elemen
 
     Hello 1st2nd3rd World
 
+This feature would be useful when used in combination
+with iterator operations such as Implicit Mapping.
+Below is an example to render the content of an external text file with line numbers:
 
-## {{ page.chapter }}.3.2. Indentation and Line Break
+**Template:**
+
+    Here is the content of foo.txt:
+    ----
+    ${format('%d: %s', 1.., readlines('foo.txt'))}
+    ----
+
+<!-- --------------------------------------------------------------------- -->
+## {{ page.chapter }}.4. Indentation
 
 If an embedded script that has a string containing multiple lines appears first in a line
 and is preceded by white spaces or tabs, each line would be indented with the preceding spaces.
@@ -211,7 +183,8 @@ and is preceded by white spaces or tabs, each line would be indented with the pr
       2nd
       3rd
 
-When the embedded script has a list of string including line breaks, they would also be indented.
+When the embedded script has a list or iterator of string including line breaks,
+each element would also be indented.
 
 **Template:**
 
@@ -225,25 +198,48 @@ When the embedded script has a list of string including line breaks, they would 
       2nd
       3rd
 
-If an embedded script that has `nil` value appears at the end of a line,
-it would defeat the trailing line break.
+<!-- --------------------------------------------------------------------- -->
+## {{ page.chapter }}.5. Rendering nil Value
 
-**Template**
+An embedded script that has `nil` value would render nothing just like an empty string.
 
-    Hello${-}
-    World
+**Template:**
+
+    nil${nil}-ahead
+    ----
+    empty${''}-ahead
 
 **Result:**
 
-    HelloWorld
+    nil-ahead
+    ----
+    empty-ahead
+
+If an embedded script that has `nil` value appears at the end of a line,
+it would defeat the trailing line break while an empty string would not.
+
+**Template**
+
+    nil${nil}
+    -ahead
+    ----
+    empty{''}
+    -ahead
+
+**Result:**
+
+    nil-ahead
+    ----
+    empty
+    -ahead
 
 If an embedded script that has `nil` value is an only element in a line,
-nothing would be rendered for the line even if it has preceding white spaces.
+nothing would be rendered for the line even if it's preceded by white spaces.
 
 **Template**
 
     Hello
-      ${-}
+      ${nil}
     World
 
 **Result:**
@@ -251,8 +247,76 @@ nothing would be rendered for the line even if it has preceding white spaces.
     Hello
     World
 
+Utilizing these rules of `nil`, some functions and methods are designed
+to return `nil` value so that it doesn't affect the rendering result.
 
-## {{ page.chapter }}.3.3. Sequence Control
+The `nil` rules may sometimes have to be applied when you describe embedded scripts.
+Consider the following template that has an embedded script to initialize variables `x` and `y`:
+
+**Template:**
+
+    ${x = 2, y = 3}
+    Hello World
+
+**Result:**
+
+    3
+    Hello World
+
+You would see an unexpected result that the embedded script renders "`3`"
+caused by the evaluation result of the last expression "`y = 3`". 
+To avoid this, put `nil` at the last of the embedded script as below:
+
+**Template:**
+
+    ${x = 2, y = 3, nil}
+    Hello World
+
+**Result:**
+
+    Hello World
+
+A symbol "`-`" is defined as `nil` so that it can be used as a terminator for such scripts.
+
+**Template:**
+
+    ${x = 2, y = 3, -}
+    Hello World
+
+**Result:**
+
+    Hello World
+
+<!-- --------------------------------------------------------------------- -->
+## {{ page.chapter }}.6. Sequence Control
+
+Template Engihe can deal with sequence controls such as repetitions and branches.
+
+They work with a block that is surrounded by "`{`" and "`}`" in an ordinary script.
+In a template text, the block starts implicitly and ends with an embedded script "`${end}`".
+
+For example, a repetition sequence by `repeat` is described in a template text like below
+which renders the text "`repeated`" with a line-break for 10 times:
+
+**Template:**
+
+    ${repeat (10)}
+    repeated
+    ${end}
+
+A branch sequence by `if-elsif-else` would be described like below:
+
+**Template:**
+
+    ${if (..)}
+    if-clause
+    ${elsif (..)}
+    elsif-clause
+    ${else}
+    else-clause
+    ${end}
+
+Below is an example that uses repetitions and branches in a more practical context:
 
 **Template:**
 
@@ -273,6 +337,7 @@ nothing would be rendered for the line even if it has preceding white spaces.
     3 is less than four
     4 is greater or equal to four
     5 is greater or equal to four
+
 
 
 **Template:**
@@ -299,7 +364,8 @@ nothing would be rendered for the line even if it has preceding white spaces.
     1
     2
 
-## {{ page.chapter }}.3.4. Template Directive
+<!-- --------------------------------------------------------------------- -->
+## {{ page.chapter }}.7. Template Directive
 
 An embedded script that begins with a character "`=`" is called a template directive,
 which is categorized into the following types:
@@ -309,7 +375,7 @@ which is categorized into the following types:
 - Rendering Other Templates
 
 
-### {{ page.chapter }}.3.4.1. Macro Definition and Call
+### {{ page.chapter }}.7.1. Macro Definition and Call
 
 Macros are used to define text patterns that can be applied for multiple times.
 They're defined and called with the following directives:
@@ -329,7 +395,7 @@ Below is an example:
     Author: Taro Yamada
 
 
-### {{ page.chapter }}.3.4.2. Inheritance
+### {{ page.chapter }}.7.2. Inheritance
 
 Using Template Engine's inheritance feature, you can create a derived template
 that inherits the text content from a base template.
@@ -355,12 +421,18 @@ that are supposed to be replaced by a derived template.
 `[base.tmpl]`
 
     ${=block(`header)}
-    jfkdjfdas
+    header
     ${end}
 
     ${=block(`footer)}
-    jfkdjfdas
+    footer
     ${end}
+
+**Result:**
+
+    header
+    
+    footer
 
 A template that calls `${=extends}` directive becomes a derived template,
 which should only contain `${=block}` directive to replace the content of the base template.
@@ -370,12 +442,20 @@ which should only contain `${=block}` directive to replace the content of the ba
     ${=extends('base.tmpl')}
 
     ${=block(`header)}
+    actual header
     ${end}
 
     ${=block(`footer)}
+    actual footer
     ${end}
 
-### {{ page.chapter }}.3.4.3. Renderng Other Templates
+**Result:**
+
+    actual header
+    
+    actual footer
+
+### {{ page.chapter }}.7.3. Rendering Other Templates
 
 The directive `${=embed()}` renders other template within the current template.
 
@@ -388,7 +468,8 @@ Below is an example:
     ${=embed('footer.tmpl')}
 
 
-## {{ page.chapter }}.3.5. Comment
+<!-- --------------------------------------------------------------------- -->
+## {{ page.chapter }}.8. Comment
 
 The engine recognizes a region surrounded by "`${==`" and "`==}$`" as a comment
 and just skips it during the parsing process.
@@ -416,7 +497,7 @@ and just skips it during the parsing process.
     6th line
 
 <!-- --------------------------------------------------------------------- -->
-## {{ page.chapter }}.4. Scope Issues
+## {{ page.chapter }}.9. Scope Issues
 
 Consider a template file containing an embedded script that refers to a variable:
 
