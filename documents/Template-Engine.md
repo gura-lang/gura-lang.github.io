@@ -439,7 +439,6 @@ Template Engine provides the following directives for the inheritance feature:
 
 - `${=block(symbol:symbol)}` .. `${end}` .. In a base template, it defines
   a template block which content would be replaced by the derived template.
-
   In a derived template, it replaces the corresponding template block defined in its base template.
 - `${=extends(template:template)}` .. Declares the current template derives from the specified one.
 - `${=super(symbol:symbol)}` .. Used within a template block in a derived template to insert
