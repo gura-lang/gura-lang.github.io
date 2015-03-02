@@ -437,9 +437,13 @@ that inherits the text content from a base template.
 
 Template Engine provides the following directives for the inheritance feature:
 
-- `${=block(symbol:symbol)}` .. `${end}` .. 
-- `${=extends(template:template)}` .. 
-- `${=super(symbol:symbol)}` .. 
+- `${=block(symbol:symbol)}` .. `${end}` .. In a base template, it defines
+  a block region which content would be replaced by the derived template.
+
+  In a derived template, it replaces the corresponding block defined in its base template.
+- `${=extends(template:template)}` .. Declares the current template derives from the specified one.
+- `${=super(symbol:symbol)}` .. Used within a block in a derived template to insert
+  the content of a block defined by its base template.
 
 A base template provides basement text content including blocks
 that are supposed to be replaced by a derived template.
@@ -551,6 +555,20 @@ Below is an example:
     ${=embed('header.tmpl')}
     ${=embed('body.tmpl')}
     ${=embed('footer.tmpl')}
+
+
+### {{ page.chapter }}.7.4. How Does Directive Work?
+
+A directive actually consists of two methods named like
+`template#xxxxx()` and `template#init_xxxxx()` where `xxxxx` is the directive name.
+They would work with Template Engine that has two phases of process:
+presentation and initialization phase.
+The presentation phase runs all the rendering and scripting process
+while the initialization phase only evaluates directive's methods `template#init_xxxxx()`.
+
+When a parser in Template Engine finds a directive `${=xxxxx()}`,
+it will add parsed result of `this.init_xxxxx()` to the initialization phase
+and `this.xxxxx()` to the presentation phase.
 
 
 <!-- --------------------------------------------------------------------- -->
