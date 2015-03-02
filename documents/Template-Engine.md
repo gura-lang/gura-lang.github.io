@@ -290,8 +290,8 @@ A symbol "`-`" is defined as `nil` so that it can be used as a terminator for su
 <!-- --------------------------------------------------------------------- -->
 ## {{ page.chapter }}.6. Calling Function with Block
 
-Template Engine can call functions along with a block
-that is usually surrounded by "`{`" and "`}`" in an ordinary script.
+The engine can also call a function with a block
+that usually appears surrounded by "`{`" and "`}`" in an ordinary script.
 
 In a template text, a block starts implicitly after a function call
 that expects a mandatory block and ends with a call of a function named `end`.
@@ -438,14 +438,14 @@ that inherits the text content from a base template.
 Template Engine provides the following directives for the inheritance feature:
 
 - `${=block(symbol:symbol)}` .. `${end}` .. In a base template, it defines
-  a block region which content would be replaced by the derived template.
+  a template block which content would be replaced by the derived template.
 
-  In a derived template, it replaces the corresponding block defined in its base template.
+  In a derived template, it replaces the corresponding template block defined in its base template.
 - `${=extends(template:template)}` .. Declares the current template derives from the specified one.
-- `${=super(symbol:symbol)}` .. Used within a block in a derived template to insert
-  the content of a block defined by its base template.
+- `${=super(symbol:symbol)}` .. Used within a template block in a derived template to insert
+  the content of a template block defined by its base template.
 
-A base template provides basement text content including blocks
+A base template provides basement text content including template blocks
 that are supposed to be replaced by a derived template.
 
 `[base.tmpl]`
@@ -511,7 +511,8 @@ which should only contain `${=block}` directive to replace the content of the ba
     ------
     block3-content derived
 
-Using directive `${=super()}`, you can render the block content defined in the base template.
+Using directive `${=super()}`, you can render the content of the template block
+defined in the base template.
 
 `[derived.tmpl]`
 
@@ -561,12 +562,12 @@ Below is an example:
 
 A directive actually consists of two methods named like
 `template#xxxxx()` and `template#init_xxxxx()` where `xxxxx` is the directive name.
-They would work with Template Engine that has two phases of process:
+They would work with the engine that has two phases of process:
 presentation and initialization phase.
 The presentation phase runs all the rendering and scripting process
 while the initialization phase only evaluates directive's methods `template#init_xxxxx()`.
 
-When a parser in Template Engine finds a directive `${=xxxxx()}`,
+When a parser in the engine finds a directive `${=xxxxx()}`,
 it will add parsed result of `this.init_xxxxx()` to the initialization phase
 and `this.xxxxx()` to the presentation phase.
 
