@@ -22,7 +22,7 @@ For Linux, an executable binary `gura` is the interpreter program.
 When you run `gura.exe` or `gura` with no script file specified in the argument,
 it will enter an interactive mode that waits for user inputs.
 
-    Gura x.x.x [xxxxxxxxxx, xxx xx xxxx] Copyright (C) 2011-2014 ypsitau
+    Gura x.x.x [xxxxxxxxxx, xxx xx xxxx] Copyright (C) 2011-2015 ypsitau
     >>> 
 
 When you input a script followed by an enter key after a prompt `>>>`,
