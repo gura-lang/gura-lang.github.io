@@ -35,6 +35,17 @@ it will evaluate the script and show its result.
 
 To quit the interpreter, enter `Ctrl+C` from keyboard or execute a script `sys.exit()`.
 
+If you want to get a help of a function, put "`~`" before the function name
+and hit the enter key in the prompt.
+Below is an example to show a help of function `println()`:
+
+    >>> ~println
+    println(values*):map:void
+    
+    Prints out values and a line-break to the standard output.
+
+*(this feature will be provided in v0.6.2 or later)*
+
 
 ## {{ page.chapter }}.3. Run Script File
 
