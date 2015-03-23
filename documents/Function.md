@@ -434,7 +434,7 @@ Then, you can call it like following:
 
 This results in three print-outs of `'hello world'`.
 
-For a block that is declared to take a block,
+As for a function that is declared to take a mandatory block,
 a call without specifying a block procedure would occur an error.
 
     three_times()  // Error because of lacking block
@@ -451,21 +451,41 @@ that are specified as block parameters.
 Consider the following function:
 
     three_times() {block} = {
-        block(1)
-        block(2)
-        block(3)
+        block(0, 'zero')
+        block(1, 'one')
+        block(2, 'two')
     }
 
-The function expects that the block procedure provides one block parameter 
-hat accepts a value of `number` type.
+The function expects that the block procedure provides two block parameters,
+values of `number` and `string` type.
 
-So, on the Caller side, it comes like below:
+The function can be called like below:
 
-    three_times() {|i|
-        println('hello world ' + i)
+    three_times() {|idx, str|
+        println(idx, ' ', str)
     }
 
-You can specify an optional block by putting `?` after an Identifier for the block procedure.
+The caller can also specify a value type for each block parameter just like function's arguments.
+
+    three_times() {|idx:number, str:string|
+        println(idx, ' ', str)
+    }
+
+The caller doesn't have to declare all the block parameters that are provided by the function
+if it doesn't require them. In the case of calling the above function, declaraing
+only one block parameter like below is permitted:
+
+    three_times() {|idx|
+        println(idx)
+    }
+
+And having no block parameter like below is also allowed:
+
+    three_times() {
+        println('hello')
+    }
+
+You can specify an optional block by putting `?` after an identifier for the block procedure.
 
     f() {block?} = { /* body */ }
 
