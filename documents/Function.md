@@ -456,8 +456,7 @@ Consider the following function:
         block(2, 'two')
     }
 
-The function expects that the block procedure provides two block parameters,
-values of `number` and `string` type.
+The function provides two block parameters, values of `number` and `string` type.
 
 The function can be called like below:
 
