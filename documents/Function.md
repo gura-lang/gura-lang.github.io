@@ -615,27 +615,37 @@ which takes following values.
 - `format:string` .. Specifies a syntax format. Only `markdown` is available so far.
 - `help:string` .. Help string formatted in a syntax specified by `format`.
 
-Function `help` prints the help information when you call it like `help(add)`.
+Evaluating an operator `~` with a function instance prints the help information like "`~add`".
 
 A function may have multiple help blocks that contain explanatory text in different languages
 by describing them in sequence after a function declaration.
 
     add(x, y) = {
         x + y
-    } % {
-        `en, 'markdown', 'Takes two numbers and returns an added result.'
-    } % {
-        `ja, 'markdown', '2 つの数値をとり、加算した結果を返す。'
+    } % {`en, 'markdown', R'''
+    Takes two numbers and returns an added result.
+    
+    Below is an example:
+
+        ans = add(3, 4)
+    '''
+    } % {`ja, 'markdown', R'''
+    2 つの数値をとり、加算した結果を返します。
+
+    例を以下に示します:
+
+        ans = add(3, 4)
+    '''
     }
 
 A predefined variable `sys.langcode` determines which help should be printed by default.
 If a function doesn't have a help in the specified language,
 what appears at first in the declaration will be used.
 
-You can also pass a language symbol to `help` function as below.
+You can also pass a language symbol to `function.gethelp` function as below.
 
-    help(add, `en)
-    help(add, `ja)
+    function.gethelp(add, `en)
+    function.gethelp(add, `ja)
 
 
 ## {{ page.chapter }}.7. Anonymous Function
