@@ -611,18 +611,20 @@ to a function declaration.
 The content in the block has a format of `{lang:symbol, format:string, help:string}`
 which takes following values.
 
-- `lang:symbol` .. Specifies a language symbol, `en` for English and `ja` for Japanese, etc.
+- `lang:symbol` .. Specifies a symbol for the used language: `en` for English and `ja` for Japanese, etc.
 - `format:string` .. Specifies a syntax format. Only `markdown` is available so far.
 - `help:string` .. Help string formatted in a syntax specified by `format`.
 
 You can access the help information by following ways:
 
 - In the interactive mode, evaluating the operator `~` with a function instance
-  would print the help information on the console.
+  would print its help information on the console.
 - Calling function `function.gethelp()` would return a `help` instance
-  that provides information about the help language, format and help string.
+  that provides information about the used language, syntax format and help string.
 
-A function may have multiple help blocks that contain explanatory texts in different languages.
+A function may have multiple help blocks that contain explanatory texts written
+in different languages.
+Below is a function example that has helps written in English and Japanese:
 
     add(x, y) = {
         x + y
