@@ -615,10 +615,14 @@ which takes following values.
 - `format:string` .. Specifies a syntax format. Only `markdown` is available so far.
 - `help:string` .. Help string formatted in a syntax specified by `format`.
 
-Evaluating an operator `~` with a function instance prints the help information like "`~add`".
+You can access the help information by following ways:
 
-A function may have multiple help blocks that contain explanatory text in different languages
-by describing them in sequence after a function declaration.
+- In the interactive mode, evaluating the operator `~` with a function instance
+  would print the help information on the console.
+- Calling function `function.gethelp()` would return a `help` instance
+  that provides information about the help language, format and help string.
+
+A function may have multiple help blocks that contain explanatory texts in different languages.
 
     add(x, y) = {
         x + y
