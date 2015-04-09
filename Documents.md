@@ -8,30 +8,35 @@ title: Documents
 <h1 name="documents">Documents</h1>
 
 <table>
-<tr><th>Title</th><th>Language</th><th>Note</th></tr>
+<tr><th>Title</th><th>Language</th></tr>
 
 <tr><td>
 <a href="language-manual/index.html">
 Gura Language Manual (HTML)
-</a><td>English</td><td></td></tr>
+</a><td>English</td></tr>
+
+<tr><td>
+<a href="library-reference/index.html">
+Gura Library Reference (HTML)
+</a><td>English</td></tr>
 
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-lang-j.pdf?raw=true"
   onClick="ga('send', 'event', 'document', 'click', 'gura-lang-j.pdf');">
 Gura Language Manual (PDF)
-</a><td>Japanese</td><td></td></tr>
+</a><td>Japanese</td></tr>
 
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-lib-j.pdf?raw=true"
   onClick="ga('send', 'event', 'document', 'click', 'gura-lib-j.pdf');">
 Gura Library Reference (PDF)
-</a><td>Japanese</td><td></td></tr>
+</a><td>Japanese</td></tr>
 
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-dev-j.pdf?raw=true"
   onClick="ga('send', 'event', 'document', 'click', 'gura-dev-j.pdf');">
 Gura Developer's Manual (PDF)
-</a><td>Japanese</td><td></td></tr>
+</a><td>Japanese</td></tr>
 
 </table>
 
@@ -61,25 +66,25 @@ Introduction to Gura Programming Language
 <h1>Articles</h1>
 
 <table>
-<tr><th>Title</th><th>Language</th><th>Note</th></tr>
+<tr><th>Title</th><th>Language</th></tr>
 
 <tr><td>
 <a href="articles/Comparison-between-Java8-and-Gura.html">
 Comparison between Java 8 and Gura
 </a></td>
-<td>English</td><td></td></tr>
+<td>English</td></tr>
 
 <tr><td>
 <a href="articles/Script-to-Generate-Prime-Numbers.html">
 Script to Generate Prime Numbers
 </a></td>
-<td>English</td><td></td></tr>
+<td>English</td></tr>
 
 <tr><td>
 <a href="articles/Database-Access.html">
 Database Access
 </a></td>
-<td>English</td><td></td></tr>
+<td>English</td></tr>
 
 </table>
 
