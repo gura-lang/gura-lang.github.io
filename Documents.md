@@ -11,23 +11,27 @@ title: Documents
 <tr><th>Title</th><th>Language</th><th>Note</th></tr>
 
 <tr><td>
-<a href="documents/index.html">Gura Language Manual (HTML)</a>
-<td>English</td><td></td></tr>
+<a href="language-manual/index.html">
+Gura Language Manual (HTML)
+</a><td>English</td><td></td></tr>
 
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-lang-j.pdf?raw=true"
-  onClick="ga('send', 'event', 'document', 'click', 'gura-lang-j.pdf');">Gura Language Manual (PDF)</a>
-<td>Japanese</td><td></td></tr>
+  onClick="ga('send', 'event', 'document', 'click', 'gura-lang-j.pdf');">
+Gura Language Manual (PDF)
+</a><td>Japanese</td><td></td></tr>
 
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-lib-j.pdf?raw=true"
-  onClick="ga('send', 'event', 'document', 'click', 'gura-lib-j.pdf');">Gura Library Reference (PDF)</a>
-<td>Japanese</td><td></td></tr>
+  onClick="ga('send', 'event', 'document', 'click', 'gura-lib-j.pdf');">
+Gura Library Reference (PDF)
+</a><td>Japanese</td><td></td></tr>
 
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-dev-j.pdf?raw=true"
-  onClick="ga('send', 'event', 'document', 'click', 'gura-dev-j.pdf');">Gura Developer's Manual (PDF)</a>
-<td>Japanese</td><td></td></tr>
+  onClick="ga('send', 'event', 'document', 'click', 'gura-dev-j.pdf');">
+Gura Developer's Manual (PDF)
+</a><td>Japanese</td><td></td></tr>
 
 </table>
 
