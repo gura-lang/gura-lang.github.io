@@ -6,7 +6,6 @@ title: Gura Library Reference
 
 <h1>Gura Library Reference</h1>
 
-<h1>Table of Contents</h1>
 <div><span class="toc-index-1">1</span><a href="chapter-01.html#anchor-1">About This Reference</a></div>
 <div><span class="toc-index-1">2</span><a href="chapter-02.html#anchor-2">Explanatory Note</a></div>
 <div><span class="toc-index-1">3</span><a href="chapter-03.html#anchor-3">Predefined Variables</a></div>

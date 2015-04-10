@@ -198,7 +198,6 @@ fileName = path.join(dirNameOut, 'index.md')
 println('rendering ', fileName)
 open(fileName, 'w') {|out|
 	out.print(headerForIndex)
-	out.println('<h1>Table of Contents</h1>')
 	doc.render@toc {|level:number, indices[]:number, anchorName:string, text:string|
 		if (level == 0) {
 			out.printf(
