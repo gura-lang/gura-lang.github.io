@@ -5,55 +5,54 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">38</span><a name="anchor-38"></a>ppm Module</h1>
+<h1><span class="caption-index-1">38</span><a name="anchor-38"></a>tar Module</h1>
 <p>
-The <code>ppm</code> module provides measures to read/write image data in PPM format. To utilize it, import the <code>ppm</code> module using <code>import</code> function.
+The <code>tar</code> module provides measures to read/write TAR files. To utilize it, import the <code>tar</code> module using <code>import</code> function.
+</p>
+<h2><span class="caption-index-2">38.1</span><a name="anchor-38-1"></a>tar.reader Class</h2>
+<h3><span class="caption-index-3">38.1.1</span><a name="anchor-38-1-1"></a>Function To Create Instance</h3>
+<p>
+<strong>tar.reader</strong>
 </p>
 <p>
-Below is an example to read a PPM file:
+<code>tar.reader(stream:stream:r, compression?:symbol) {block?}</code>
 </p>
-<pre><code>import(ppm)
-img = image('foo.ppm')
-</code></pre>
-<h2><span class="caption-index-2">38.1</span><a name="anchor-38-1"></a>Exntension to Function's Capability</h2>
+<h3><span class="caption-index-3">38.1.2</span><a name="anchor-38-1-2"></a>Method</h3>
 <p>
-This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write PPM files.
+<strong>tar.reader#entries</strong>
 </p>
 <p>
-When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a PPM file.
+<code>tar.reader#entries() {block?}</code>
+</p>
+<h2><span class="caption-index-2">38.2</span><a name="anchor-38-2"></a>tar.writer Class</h2>
+<h3><span class="caption-index-3">38.2.1</span><a name="anchor-38-2-1"></a>Function To Create Instance</h3>
+<p>
+<strong>tar.writer</strong>
+</p>
+<p>
+<code>tar.writer(stream:stream:w, compression?:symbol) {block?}</code>
+</p>
+<h3><span class="caption-index-3">38.2.2</span><a name="anchor-38-2-2"></a>Method</h3>
+<p>
+<strong>tar.writer#add</strong>
+</p>
+<p>
+<code>tar.writer#add(stream:stream:r, filename?:string):map:reduce</code>
+</p>
+<p>
+<strong>tar.writer#close</strong>
+</p>
+<p>
+<code>tar.writer#close():reduce</code>
+</p>
+<h2><span class="caption-index-2">38.3</span><a name="anchor-38-3"></a>Thanks</h2>
+<p>
+This module uses zlib and bzip2 library which are distributed in the following sites:
 </p>
 <ul>
-<li>The identifier of the stream ends with a suffix "<code>.ppm</code>" or "<code>.pbm</code>".</li>
-<li>The stream data begins with a byte sequence "<code>P2</code>", "<code>P3</code>" or "<code>P6</code>".</li>
+<li><a href="http://zlib.net/">http://zlib.net/</a></li>
+<li><a href="http://www.bzip.org/">http://www.bzip.org/</a></li>
 </ul>
-<p>
-When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in PPM format.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.ppm</code>" or "<code>.pbm</code>".</li>
-</ul>
-<h2><span class="caption-index-2">38.2</span><a name="anchor-38-2"></a>Extension to image Class</h2>
-<p>
-This module extends the <code>image</code> class with methods described here.
-</p>
-<p>
-<strong>image#read@ppm</strong>
-</p>
-<p>
-<code>image#read@ppm(stream:stream:r):reduce</code>
-</p>
-<p>
-Reads a PPM/PGM image from a stream.
-</p>
-<p>
-<strong>image#write@ppm</strong>
-</p>
-<p>
-<code>image#write@ppm(stream:stream:w):reduce:[gray]</code>
-</p>
-<p>
-Writes a PPM/PGM image to a stream.
-</p>
 <p />
 
 {% endraw %}

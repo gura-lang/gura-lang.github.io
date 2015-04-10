@@ -5,51 +5,41 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">45</span><a name="anchor-45"></a>tiff Module</h1>
+<h1><span class="caption-index-1">45</span><a name="anchor-45"></a>yaml Module</h1>
 <p>
-The <code>tiff</code> module provides measures to read/write image data in TIFF format. To utilize it, import the <code>tiff</code> module using <code>import</code> function.
+The <code>yaml</code> module provides measures to read/write YAML files.
+</p>
+<h2><span class="caption-index-2">45.1</span><a name="anchor-45-1"></a>Module Function</h2>
+<p>
+<strong>yaml.compose</strong>
 </p>
 <p>
-Below is an example to read a TIFF file:
-</p>
-<pre><code>import(tiff)
-img = image('foo.tiff')
-</code></pre>
-<h2><span class="caption-index-2">45.1</span><a name="anchor-45-1"></a>Exntension to Function's Capability</h2>
-<p>
-This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write TIFF files.
+<code>yaml.compose(obj)</code>
 </p>
 <p>
-When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a TIFF file.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.tif</code>" or "<code>.tiff</code>".</li>
-</ul>
-<p>
-When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in TIFF format.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.tif</code>" or "<code>.tiff</code>".</li>
-</ul>
-<h2><span class="caption-index-2">45.2</span><a name="anchor-45-2"></a>Extension to image Class</h2>
-<p>
-This module extends the <code>image</code> class with methods described here.
+<strong>yaml.parse</strong>
 </p>
 <p>
-<strong>image#read@tiff</strong>
+<code>yaml.parse(str:string)</code>
 </p>
 <p>
-<code>image#read@tiff(stream:stream:r):reduce</code>
+<strong>yaml.read</strong>
 </p>
 <p>
-Reads a TIFF image from a stream.
-</p>
-<h2><span class="caption-index-2">45.3</span><a name="anchor-45-3"></a>Thanks</h2>
-<p>
-This module uses libtiff which is distributed in the following site:
+<code>yaml.read(stream:stream:r)</code>
 </p>
 <p>
-<a href="http://www.libtiff.org/">http://www.libtiff.org/</a>
+<strong>yaml.write</strong>
+</p>
+<p>
+<code>yaml.write(stream:stream:w, obj):reduce</code>
+</p>
+<h2><span class="caption-index-2">45.2</span><a name="anchor-45-2"></a>Thanks</h2>
+<p>
+This module uses yaml library which is distributed in the following site:
+</p>
+<p>
+<a href="http://pyyaml.org/wiki/LibYAML">http://pyyaml.org/wiki/LibYAML</a>
 </p>
 <p />
 

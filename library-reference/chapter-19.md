@@ -5,340 +5,755 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">19</span><a name="anchor-19"></a>glu Module</h1>
+<h1><span class="caption-index-1">19</span><a name="anchor-19"></a>glut Module</h1>
 <p>
-The <code>glu</code> module provides functions of GLU library.
+The <code>glut</code> module provides functions of GLUT library.
 </p>
 <h2><span class="caption-index-2">19.1</span><a name="anchor-19-1"></a>Module Functions</h2>
 <p>
-<strong>glu.gluBeginCurve</strong>
+<strong>glut.glutInit</strong>
 </p>
 <p>
-<code>glu.gluBeginCurve(nurb:glu.Nurbs):void {block?}</code>
+<code>glut.glutInit(argv[]:string) {block?}</code>
 </p>
 <p>
-<strong>glu.gluBeginPolygon</strong>
+<code>glutInit</code> is used to initialize the GLUT library.
 </p>
 <p>
-<code>glu.gluBeginPolygon(tess:glu.Tesselator):void {block?}</code>
+<strong>glut.glutInitDisplayMode</strong>
 </p>
 <p>
-<strong>glu.gluBeginSurface</strong>
+<code>glut.glutInitDisplayMode(mode:number):map:void</code>
 </p>
 <p>
-<code>glu.gluBeginSurface(nurb:glu.Nurbs):void {block?}</code>
+<code>glutInitDisplayMode</code> sets the <em>initial display mode</em>.
 </p>
 <p>
-<strong>glu.gluBeginTrim</strong>
+<strong>glut.glutInitDisplayString</strong>
 </p>
 <p>
-<code>glu.gluBeginTrim(nurb:glu.Nurbs):void {block?}</code>
+<code>glut.glutInitDisplayString(string:string):map:void</code>
 </p>
 <p>
-<strong>glu.gluBuild1DMipmaps</strong>
+<strong>glut.glutInitWindowPosition</strong>
 </p>
 <p>
-<code>glu.gluBuild1DMipmaps(target:number, internalFormat:number, width:number, format:number, type:number, data)</code>
+<code>glut.glutInitWindowPosition(x:number, y:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluBuild1DMipmapsFromImage</strong>
+<code>glutInitWindowPosition</code> sets the initial window position.	
 </p>
 <p>
-<code>glu.gluBuild1DMipmapsFromImage(target:number, internalFormat:number, image:image)</code>
+<strong>glut.glutInitWindowSize</strong>
 </p>
 <p>
-<strong>glu.gluBuild2DMipmaps</strong>
+<code>glut.glutInitWindowSize(width:number, height:number):map:void</code>
 </p>
 <p>
-<code>glu.gluBuild2DMipmaps(target:number, internalFormat:number, width:number, height:number, format:number, type:number, data)</code>
+<code>glutInitWindowSize</code> sets the initial window size.	
 </p>
 <p>
-<strong>glu.gluBuild2DMipmapsFromImage</strong>
+<strong>glut.glutMainLoop</strong>
 </p>
 <p>
-<code>glu.gluBuild2DMipmapsFromImage(target:number, internalFormat:number, image:image)</code>
+<code>glut.glutMainLoop():void</code>
 </p>
 <p>
-<strong>glu.gluCylinder</strong>
+<code>glutMainLoop</code> enters the GLUT event processing loop.
 </p>
 <p>
-<code>glu.gluCylinder(quad:glu.Quadric, base:number, top:number, height:number, slices:number, stacks:number):void</code>
+<strong>glut.glutCreateWindow</strong>
 </p>
 <p>
-<strong>glu.gluDeleteNurbsRenderer</strong>
+<code>glut.glutCreateWindow(title:string):map {block?}</code>
 </p>
 <p>
-<code>glu.gluDeleteNurbsRenderer(nurb:glu.Nurbs):void</code>
+<code>glutCreateWindow</code> creates a top-level window.
 </p>
 <p>
-<strong>glu.gluDeleteQuadric</strong>
+<strong>glut.glutCreateSubWindow</strong>
 </p>
 <p>
-<code>glu.gluDeleteQuadric(quad:glu.Quadric):void</code>
+<code>glut.glutCreateSubWindow(win:number, x:number, y:number, width:number, height:number):map {block?}</code>
 </p>
 <p>
-<strong>glu.gluDeleteTess</strong>
+<code>glutCreateSubWindow</code> creates a subwindow.
 </p>
 <p>
-<code>glu.gluDeleteTess(tess:glu.Tesselator):void</code>
+<strong>glut.glutDestroyWindow</strong>
 </p>
 <p>
-<strong>glu.gluDisk</strong>
+<code>glut.glutDestroyWindow(win:number):map:void</code>
 </p>
 <p>
-<code>glu.gluDisk(quad:glu.Quadric, inner:number, outer:number, slices:number, loops:number):void</code>
+<code>glutDestroyWindow</code> destroys the specified window.
 </p>
 <p>
-<strong>glu.gluEndCurve</strong>
+<strong>glut.glutPostRedisplay</strong>
 </p>
 <p>
-<code>glu.gluEndCurve(nurb:glu.Nurbs):void</code>
+<code>glut.glutPostRedisplay():void</code>
 </p>
 <p>
-<strong>glu.gluEndPolygon</strong>
+<code>glutPostRedisplay marks the *current window* as needing to be redisplayed.</code>
 </p>
 <p>
-<code>glu.gluEndPolygon(tess:glu.Tesselator):void</code>
+<strong>glut.glutPostWindowRedisplay</strong>
 </p>
 <p>
-<strong>glu.gluEndSurface</strong>
+<code>glut.glutPostWindowRedisplay(win:number):map:void</code>
 </p>
 <p>
-<code>glu.gluEndSurface(nurb:glu.Nurbs):void</code>
+<strong>glut.glutSwapBuffers</strong>
 </p>
 <p>
-<strong>glu.gluEndTrim</strong>
+<code>glut.glutSwapBuffers():void</code>
 </p>
 <p>
-<code>glu.gluEndTrim(nurb:glu.Nurbs):void</code>
+<code>glutSwapBuffers</code> swaps the buffers of the <em>current window</em> if double buffered.
 </p>
 <p>
-<strong>glu.gluErrorString</strong>
+<strong>glut.glutGetWindow</strong>
 </p>
 <p>
-<code>glu.gluErrorString(error:number)</code>
+<code>glut.glutGetWindow() {block?}</code>
 </p>
 <p>
-<strong>glu.gluGetNurbsProperty</strong>
+<code>glutGetWindow</code> returns the identifier of the <em>current window</em>.
 </p>
 <p>
-<code>glu.gluGetNurbsProperty(nurb:glu.Nurbs, property:number, data:array@float:nomap):void</code>
+<strong>glut.glutSetWindow</strong>
 </p>
 <p>
-<strong>glu.gluGetString</strong>
+<code>glut.glutSetWindow(win:number):map:void</code>
 </p>
 <p>
-<code>glu.gluGetString(name:number)</code>
+<code>glutSetWindow</code> sets the <em>current window</em>.
 </p>
 <p>
-<strong>glu.gluGetTessProperty</strong>
+<strong>glut.glutSetWindowTitle</strong>
 </p>
 <p>
-<code>glu.gluGetTessProperty(tess:glu.Tesselator, which:number, data:array@double:nomap):void</code>
+<code>glut.glutSetWindowTitle(title:string):map:void</code>
 </p>
 <p>
-<strong>glu.gluLoadSamplingMatrices</strong>
+<code>glutSetWindowTitle</code> changes the window title of the current top-level window.
 </p>
 <p>
-<code>glu.gluLoadSamplingMatrices(nurb:glu.Nurbs, model:array@float:nomap, perspective:array@float:nomap, view:array@int:nomap):void</code>
+<strong>glut.glutSetIconTitle</strong>
 </p>
 <p>
-<strong>glu.gluLookAt</strong>
+<code>glut.glutSetIconTitle(title:string):map:void</code>
 </p>
 <p>
-<code>glu.gluLookAt(eyeX:number, eyeY:number, eyeZ:number, centerX:number, centerY:number, centerZ:number, upX:number, upY:number, upZ:number):void</code>
+<code>glutSetIconTitle</code> changes the icon title of the current top-level window.
 </p>
 <p>
-<strong>glu.gluNewNurbsRenderer</strong>
+<strong>glut.glutPositionWindow</strong>
 </p>
 <p>
-<code>glu.gluNewNurbsRenderer()</code>
+<code>glut.glutPositionWindow(x:number, y:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluNewQuadric</strong>
+<code>glutPositionWindow</code> requests a change to the position of the <em>current window</em>.
 </p>
 <p>
-<code>glu.gluNewQuadric()</code>
+<strong>glut.glutReshapeWindow</strong>
 </p>
 <p>
-<strong>glu.gluNewTess</strong>
+<code>glut.glutReshapeWindow(width:number, height:number):map:void</code>
 </p>
 <p>
-<code>glu.gluNewTess()</code>
+<code>glutReshapeWindow</code> requests a change to the size of the <em>current window</em>.
 </p>
 <p>
-<strong>glu.gluNextContour</strong>
+<strong>glut.glutPopWindow</strong>
 </p>
 <p>
-<code>glu.gluNextContour(tess:glu.Tesselator, type:number):void</code>
+<code>glut.glutPopWindow():void</code>
 </p>
 <p>
-<strong>glu.gluNurbsCallback</strong>
+<strong>glut.glutPushWindow</strong>
 </p>
 <p>
-<code>glu.gluNurbsCallback(nurbs:glu.Nurbs, which:number, func:function)</code>
+<code>glut.glutPushWindow():void</code>
 </p>
 <p>
-<strong>glu.gluNurbsCallbackData</strong>
+<strong>glut.glutIconifyWindow</strong>
 </p>
 <p>
-<code>glu.gluNurbsCallbackData(nurb:glu.Nurbs, userData):void</code>
+<code>glut.glutIconifyWindow():void</code>
 </p>
 <p>
-<strong>glu.gluNurbsCallbackDataEXT</strong>
+<strong>glut.glutShowWindow</strong>
 </p>
 <p>
-<code>glu.gluNurbsCallbackDataEXT(nurb:glu.Nurbs, userData):void</code>
+<code>glut.glutShowWindow():void</code>
 </p>
 <p>
-<strong>glu.gluNurbsCurve</strong>
+<strong>glut.glutHideWindow</strong>
 </p>
 <p>
-<code>glu.gluNurbsCurve(nurb:glu.Nurbs, knots:array@float:nomap, stride:number, control:array@float:nomap, order:number, type:number):void</code>
+<code>glut.glutHideWindow():void</code>
 </p>
 <p>
-<strong>glu.gluNurbsProperty</strong>
+<strong>glut.glutFullScreen</strong>
 </p>
 <p>
-<code>glu.gluNurbsProperty(nurb:glu.Nurbs, property:number, value:number):void</code>
+<code>glut.glutFullScreen():void</code>
 </p>
 <p>
-<strong>glu.gluNurbsSurface</strong>
+<strong>glut.glutSetCursor</strong>
 </p>
 <p>
-<code>glu.gluNurbsSurface(nurb:glu.Nurbs, sKnots:array@float:nomap, tKnots:array@float:nomap, sStride:number, tStride:number, control:array@float:nomap, sOrder:number, tOrder:number, type:number):void</code>
+<code>glut.glutSetCursor(cursor:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluOrtho2D</strong>
+<strong>glut.glutWarpPointer</strong>
 </p>
 <p>
-<code>glu.gluOrtho2D(left:number, right:number, bottom:number, top:number):void</code>
+<code>glut.glutWarpPointer(x:number, y:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluPartialDisk</strong>
+<strong>glut.glutEstablishOverlay</strong>
 </p>
 <p>
-<code>glu.gluPartialDisk(quad:glu.Quadric, inner:number, outer:number, slices:number, loops:number, start:number, sweep:number):void</code>
+<code>glut.glutEstablishOverlay():void</code>
 </p>
 <p>
-<strong>glu.gluPerspective</strong>
+<strong>glut.glutRemoveOverlay</strong>
 </p>
 <p>
-<code>glu.gluPerspective(fovy:number, aspect:number, zNear:number, zFar:number):void</code>
+<code>glut.glutRemoveOverlay():void</code>
 </p>
 <p>
-<strong>glu.gluPickMatrix</strong>
+<strong>glut.glutUseLayer</strong>
 </p>
 <p>
-<code>glu.gluPickMatrix(x:number, y:number, delX:number, delY:number, viewport:array@int:nomap):void</code>
+<code>glut.glutUseLayer(layer:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluProject</strong>
+<strong>glut.glutPostOverlayRedisplay</strong>
 </p>
 <p>
-<code>glu.gluProject(objX:number, objY:number, objZ:number, model:array@double:nomap, proj:array@double:nomap, view:array@int:nomap, winX:array@double:nomap, winY:array@double:nomap, winZ:array@double:nomap)</code>
+<code>glut.glutPostOverlayRedisplay():void</code>
 </p>
 <p>
-<strong>glu.gluPwlCurve</strong>
+<strong>glut.glutPostWindowOverlayRedisplay</strong>
 </p>
 <p>
-<code>glu.gluPwlCurve(nurb:glu.Nurbs, data:array@float:nomap, stride:number, type:number):void</code>
+<code>glut.glutPostWindowOverlayRedisplay(win:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluQuadricCallback</strong>
+<strong>glut.glutShowOverlay</strong>
 </p>
 <p>
-<code>glu.gluQuadricCallback(quad:glu.Quadric, which:number, func:function:nil):void</code>
+<code>glut.glutShowOverlay():void</code>
 </p>
 <p>
-<strong>glu.gluQuadricDrawStyle</strong>
+<strong>glut.glutHideOverlay</strong>
 </p>
 <p>
-<code>glu.gluQuadricDrawStyle(quad:glu.Quadric, draw:number):void</code>
+<code>glut.glutHideOverlay():void</code>
 </p>
 <p>
-<strong>glu.gluQuadricNormals</strong>
+<strong>glut.glutCreateMenu</strong>
 </p>
 <p>
-<code>glu.gluQuadricNormals(quad:glu.Quadric, normal:number):void</code>
+<code>glut.glutCreateMenu(func:function) {block?}</code>
 </p>
 <p>
-<strong>glu.gluQuadricOrientation</strong>
+<strong>glut.glutDestroyMenu</strong>
 </p>
 <p>
-<code>glu.gluQuadricOrientation(quad:glu.Quadric, orientation:number):void</code>
+<code>glut.glutDestroyMenu(menu:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluQuadricTexture</strong>
+<strong>glut.glutGetMenu</strong>
 </p>
 <p>
-<code>glu.gluQuadricTexture(quad:glu.Quadric, texture:boolean):void</code>
+<code>glut.glutGetMenu() {block?}</code>
 </p>
 <p>
-<strong>glu.gluScaleImage</strong>
+<strong>glut.glutSetMenu</strong>
 </p>
 <p>
-<code>glu.gluScaleImage(imageIn:image, wOut:number, hOut:number)</code>
+<code>glut.glutSetMenu(menu:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluSphere</strong>
+<strong>glut.glutAddMenuEntry</strong>
 </p>
 <p>
-<code>glu.gluSphere(quad:glu.Quadric, radius:number, slices:number, stacks:number):void</code>
+<code>glut.glutAddMenuEntry(label:string, value:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluTessBeginContour</strong>
+<strong>glut.glutAddSubMenu</strong>
 </p>
 <p>
-<code>glu.gluTessBeginContour(tess:glu.Tesselator):void {block?}</code>
+<code>glut.glutAddSubMenu(label:string, submenu:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluTessBeginPolygon</strong>
+<strong>glut.glutChangeToMenuEntry</strong>
 </p>
 <p>
-<code>glu.gluTessBeginPolygon(tess:glu.Tesselator, polygon_data):void {block?}</code>
+<code>glut.glutChangeToMenuEntry(item:number, label:string, value:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluTessCallback</strong>
+<strong>glut.glutChangeToSubMenu</strong>
 </p>
 <p>
-<code>glu.gluTessCallback(tess:glu.Tesselator, which:number, func:function):void</code>
+<code>glut.glutChangeToSubMenu(item:number, label:string, submenu:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluTessEndContour</strong>
+<strong>glut.glutRemoveMenuItem</strong>
 </p>
 <p>
-<code>glu.gluTessEndContour(tess:glu.Tesselator):void</code>
+<code>glut.glutRemoveMenuItem(item:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluTessEndPolygon</strong>
+<strong>glut.glutAttachMenu</strong>
 </p>
 <p>
-<code>glu.gluTessEndPolygon(tess:glu.Tesselator):void</code>
+<code>glut.glutAttachMenu(button:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluTessNormal</strong>
+<strong>glut.glutDetachMenu</strong>
 </p>
 <p>
-<code>glu.gluTessNormal(tess:glu.Tesselator, valueX:number, valueY:number, valueZ:number):void</code>
+<code>glut.glutDetachMenu(button:number):map:void</code>
 </p>
 <p>
-<strong>glu.gluTessProperty</strong>
+<strong>glut.glutDisplayFunc</strong>
 </p>
 <p>
-<code>glu.gluTessProperty(tess:glu.Tesselator, which:number, data:number):void</code>
+<code>glut.glutDisplayFunc(func:function:nil):void</code>
 </p>
 <p>
-<strong>glu.gluTessVertex</strong>
+<strong>glut.glutReshapeFunc</strong>
 </p>
 <p>
-<code>glu.gluTessVertex(tess:glu.Tesselator, location:array@double:nomap, vertex_data):void</code>
+<code>glut.glutReshapeFunc(func:function:nil):void</code>
 </p>
 <p>
-<strong>glu.gluUnProject</strong>
+<strong>glut.glutKeyboardFunc</strong>
 </p>
 <p>
-<code>glu.gluUnProject(winX:number, winY:number, winZ:number, model:array@double:nomap, proj:array@double:nomap, view:array@int:nomap, objX:array@double:nomap, objY:array@double:nomap, objZ:array@double:nomap)</code>
+<code>glut.glutKeyboardFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutMouseFunc</strong>
+</p>
+<p>
+<code>glut.glutMouseFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutMotionFunc</strong>
+</p>
+<p>
+<code>glut.glutMotionFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutPassiveMotionFunc</strong>
+</p>
+<p>
+<code>glut.glutPassiveMotionFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutEntryFunc</strong>
+</p>
+<p>
+<code>glut.glutEntryFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutVisibilityFunc</strong>
+</p>
+<p>
+<code>glut.glutVisibilityFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutIdleFunc</strong>
+</p>
+<p>
+<code>glut.glutIdleFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutTimerFunc</strong>
+</p>
+<p>
+<code>glut.glutTimerFunc(millis:number, func:function:nil, value:number):void</code>
+</p>
+<p>
+<strong>glut.glutMenuStateFunc</strong>
+</p>
+<p>
+<code>glut.glutMenuStateFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutSpecialFunc</strong>
+</p>
+<p>
+<code>glut.glutSpecialFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutSpaceballMotionFunc</strong>
+</p>
+<p>
+<code>glut.glutSpaceballMotionFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutSpaceballRotateFunc</strong>
+</p>
+<p>
+<code>glut.glutSpaceballRotateFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutSpaceballButtonFunc</strong>
+</p>
+<p>
+<code>glut.glutSpaceballButtonFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutButtonBoxFunc</strong>
+</p>
+<p>
+<code>glut.glutButtonBoxFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutDialsFunc</strong>
+</p>
+<p>
+<code>glut.glutDialsFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutTabletMotionFunc</strong>
+</p>
+<p>
+<code>glut.glutTabletMotionFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutTabletButtonFunc</strong>
+</p>
+<p>
+<code>glut.glutTabletButtonFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutMenuStatusFunc</strong>
+</p>
+<p>
+<code>glut.glutMenuStatusFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutOverlayDisplayFunc</strong>
+</p>
+<p>
+<code>glut.glutOverlayDisplayFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutWindowStatusFunc</strong>
+</p>
+<p>
+<code>glut.glutWindowStatusFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutKeyboardUpFunc</strong>
+</p>
+<p>
+<code>glut.glutKeyboardUpFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutSpecialUpFunc</strong>
+</p>
+<p>
+<code>glut.glutSpecialUpFunc(func:function:nil):void</code>
+</p>
+<p>
+<strong>glut.glutJoystickFunc</strong>
+</p>
+<p>
+<code>glut.glutJoystickFunc(func:function:nil, pollInterval:number):void</code>
+</p>
+<p>
+<strong>glut.glutSetColor</strong>
+</p>
+<p>
+<code>glut.glutSetColor(ndx:number, red:number, green:number, blue:number):void</code>
+</p>
+<p>
+<strong>glut.glutGetColor</strong>
+</p>
+<p>
+<code>glut.glutGetColor(ndx:number, component:number):map {block?}</code>
+</p>
+<p>
+<strong>glut.glutCopyColormap</strong>
+</p>
+<p>
+<code>glut.glutCopyColormap(win:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutGet</strong>
+</p>
+<p>
+<code>glut.glutGet(type:number):map {block?}</code>
+</p>
+<p>
+<strong>glut.glutDeviceGet</strong>
+</p>
+<p>
+<code>glut.glutDeviceGet(type:number):map {block?}</code>
+</p>
+<p>
+<strong>glut.glutExtensionSupported</strong>
+</p>
+<p>
+<code>glut.glutExtensionSupported(name:string):map {block?}</code>
+</p>
+<p>
+<strong>glut.glutGetModifiers</strong>
+</p>
+<p>
+<code>glut.glutGetModifiers() {block?}</code>
+</p>
+<p>
+<strong>glut.glutLayerGet</strong>
+</p>
+<p>
+<code>glut.glutLayerGet(type:number):map {block?}</code>
+</p>
+<p>
+<strong>glut.glutGetProcAddress</strong>
+</p>
+<p>
+<code>glut.glutGetProcAddress(procName:string):map:void {block?}</code>
+</p>
+<p>
+<strong>glut.glutBitmapCharacter</strong>
+</p>
+<p>
+<code>glut.glutBitmapCharacter(font:glut.Font, character:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutBitmapWidth</strong>
+</p>
+<p>
+<code>glut.glutBitmapWidth(font:glut.Font, character:number):map {block?}</code>
+</p>
+<p>
+<strong>glut.glutStrokeCharacter</strong>
+</p>
+<p>
+<code>glut.glutStrokeCharacter(font:glut.Font, character:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutStrokeWidth</strong>
+</p>
+<p>
+<code>glut.glutStrokeWidth(font:glut.Font, character:number):map {block?}</code>
+</p>
+<p>
+<strong>glut.glutBitmapLength</strong>
+</p>
+<p>
+<code>glut.glutBitmapLength(font:glut.Font, string:string):map {block?}</code>
+</p>
+<p>
+<strong>glut.glutStrokeLength</strong>
+</p>
+<p>
+<code>glut.glutStrokeLength(font:glut.Font, string:string):map {block?}</code>
+</p>
+<p>
+<strong>glut.glutWireSphere</strong>
+</p>
+<p>
+<code>glut.glutWireSphere(radius:number, slices:number, stacks:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutSolidSphere</strong>
+</p>
+<p>
+<code>glut.glutSolidSphere(radius:number, slices:number, stacks:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutWireCone</strong>
+</p>
+<p>
+<code>glut.glutWireCone(base:number, height:number, slices:number, stacks:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutSolidCone</strong>
+</p>
+<p>
+<code>glut.glutSolidCone(base:number, height:number, slices:number, stacks:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutWireCube</strong>
+</p>
+<p>
+<code>glut.glutWireCube(size:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutSolidCube</strong>
+</p>
+<p>
+<code>glut.glutSolidCube(size:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutWireTorus</strong>
+</p>
+<p>
+<code>glut.glutWireTorus(innerRadius:number, outerRadius:number, sides:number, rings:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutSolidTorus</strong>
+</p>
+<p>
+<code>glut.glutSolidTorus(innerRadius:number, outerRadius:number, sides:number, rings:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutWireDodecahedron</strong>
+</p>
+<p>
+<code>glut.glutWireDodecahedron():void</code>
+</p>
+<p>
+<strong>glut.glutSolidDodecahedron</strong>
+</p>
+<p>
+<code>glut.glutSolidDodecahedron():void</code>
+</p>
+<p>
+<strong>glut.glutWireTeapot</strong>
+</p>
+<p>
+<code>glut.glutWireTeapot(size:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutSolidTeapot</strong>
+</p>
+<p>
+<code>glut.glutSolidTeapot(size:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutWireOctahedron</strong>
+</p>
+<p>
+<code>glut.glutWireOctahedron():void</code>
+</p>
+<p>
+<strong>glut.glutSolidOctahedron</strong>
+</p>
+<p>
+<code>glut.glutSolidOctahedron():void</code>
+</p>
+<p>
+<strong>glut.glutWireTetrahedron</strong>
+</p>
+<p>
+<code>glut.glutWireTetrahedron():void</code>
+</p>
+<p>
+<strong>glut.glutSolidTetrahedron</strong>
+</p>
+<p>
+<code>glut.glutSolidTetrahedron():void</code>
+</p>
+<p>
+<strong>glut.glutWireIcosahedron</strong>
+</p>
+<p>
+<code>glut.glutWireIcosahedron():void</code>
+</p>
+<p>
+<strong>glut.glutSolidIcosahedron</strong>
+</p>
+<p>
+<code>glut.glutSolidIcosahedron():void</code>
+</p>
+<p>
+<strong>glut.glutVideoResizeGet</strong>
+</p>
+<p>
+<code>glut.glutVideoResizeGet(param:number):map {block?}</code>
+</p>
+<p>
+<strong>glut.glutSetupVideoResizing</strong>
+</p>
+<p>
+<code>glut.glutSetupVideoResizing():void</code>
+</p>
+<p>
+<strong>glut.glutStopVideoResizing</strong>
+</p>
+<p>
+<code>glut.glutStopVideoResizing():void</code>
+</p>
+<p>
+<strong>glut.glutVideoResize</strong>
+</p>
+<p>
+<code>glut.glutVideoResize(x:number, y:number, width:number, height:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutVideoPan</strong>
+</p>
+<p>
+<code>glut.glutVideoPan(x:number, y:number, width:number, height:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutReportErrors</strong>
+</p>
+<p>
+<code>glut.glutReportErrors():void</code>
+</p>
+<p>
+<strong>glut.glutIgnoreKeyRepeat</strong>
+</p>
+<p>
+<code>glut.glutIgnoreKeyRepeat(ignore:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutSetKeyRepeat</strong>
+</p>
+<p>
+<code>glut.glutSetKeyRepeat(repeatMode:number):map:void</code>
+</p>
+<p>
+<strong>glut.glutForceJoystickFunc</strong>
+</p>
+<p>
+<code>glut.glutForceJoystickFunc():void</code>
+</p>
+<p>
+<strong>glut.glutGameModeString</strong>
+</p>
+<p>
+<code>glut.glutGameModeString(string:string):map:void</code>
+</p>
+<p>
+<strong>glut.glutEnterGameMode</strong>
+</p>
+<p>
+<code>glut.glutEnterGameMode() {block?}</code>
+</p>
+<p>
+<strong>glut.glutLeaveGameMode</strong>
+</p>
+<p>
+<code>glut.glutLeaveGameMode():void</code>
+</p>
+<p>
+<strong>glut.glutGameModeGet</strong>
+</p>
+<p>
+<code>glut.glutGameModeGet(mode:number):map {block?}</code>
+</p>
+<h2><span class="caption-index-2">19.2</span><a name="anchor-19-2"></a>Thanks</h2>
+<p>
+This module uses freeglut which official site is:
+</p>
+<p>
+<a href="http://freeglut.sourceforge.net/">http://freeglut.sourceforge.net/</a>
 </p>
 <p />
 

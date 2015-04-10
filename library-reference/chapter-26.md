@@ -5,463 +5,304 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">26</span><a name="anchor-26"></a>jpeg Module</h1>
+<h1><span class="caption-index-1">26</span><a name="anchor-26"></a>math Module</h1>
 <p>
-The <code>jpeg</code> module provides measures to read/write image data in JPEG format. To utilize it, import the <code>jpeg</code> module using <code>import</code> function.
+The <code>math</code> module provices functions for mathematical calculation. This is a built-in module, so you can use it without being imported.
+</p>
+<h2><span class="caption-index-2">26.1</span><a name="anchor-26-1"></a>Module Functions</h2>
+<p>
+<strong>math.real</strong>
 </p>
 <p>
-Below is an example to read a JPEG file:
-</p>
-<pre><code>import(jpeg)
-img = image('foo.jpeg')
-</code></pre>
-<h2><span class="caption-index-2">26.1</span><a name="anchor-26-1"></a>Exntension to Function's Capability</h2>
-<p>
-This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write JPEG files.
+<code>math.real(num):map</code>
 </p>
 <p>
-When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a JPEG file.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.jpeg</code>", "<code>.jpg</code>" or "<code>.jpe</code>".</li>
-<li>The stream data begins with a byte sequence "<code>\xff\xd8</code>" that means SOI (start of Image) marker in JPEG specification.</li>
-</ul>
-<p>
-When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in JPEG format.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.jpeg</code>", "<code>.jpg</code>" or "<code>.jpe</code>".</li>
-</ul>
-<h2><span class="caption-index-2">26.2</span><a name="anchor-26-2"></a>jpeg.exif Class</h2>
-<p>
-The <code>jpeg.exif</code> class provides EXIF information in a JPEG stream.
+Returns a real part of a complex number.
 </p>
 <p>
-A <code>jpeg.exif</code> instance contains <code>jpeg.ifd</code> instances as properties named <code>jpeg.exif#ifd0</code> and <code>jpeg.exif#ifd1</code> that include a list of <code>jpeg.tag</code> instances.
-</p>
-<pre><code>+-----------+             +----------+        +----------+
-| jpeg.exif |ifd0, ifd1   | jpeg.ifd |1..     | jpeg.tag |
-|-----------*-------------+----------*--------+----------|
-|           |             |          |        |          |
-+-----------+             +----------+        +----------+
-</code></pre>
-<h3><span class="caption-index-3">26.2.1</span><a name="anchor-26-2-1"></a>Property</h3>
-<p>
-A <code>jpeg.exif</code> instance has the following properties:
+<strong>math.imag</strong>
 </p>
 <p>
-<table>
-
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.exif#endian</code>
-</td>
-<td>
-<code>
-symbol</code>
-</td>
-<td>
-R</td>
-
-<td>
-The endian type: <code>
-`big</code>
- for big-endian and
-<code>
-`little</code>
- for little-endian.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.exif#ifd0</code>
-</td>
-<td>
-<code>
-jpeg.ifd</code>
-</td>
-<td>
-R</td>
-
-<td>
-IFD0 instance.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.exif#ifd1</code>
-</td>
-<td>
-<code>
-jpeg.ifd</code>
-</td>
-<td>
-R</td>
-
-<td>
-IFD1 instance.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.exif#thumbnail</code>
-</td>
-<td>
-<code>
-image</code>
-</td>
-<td>
-R</td>
-
-<td>
-Thumbnail image as <code>
-image</code>
- value.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.exif#thumbnail@jpeg</code>
-</td>
-<td>
-<code>
-binary</code>
-</td>
-<td>
-R</td>
-
-<td>
-Thumbnail image as JPEG binary data.</td>
-</tr>
-
-
-</table>
-
-</p>
-<h3><span class="caption-index-3">26.2.2</span><a name="anchor-26-2-2"></a>Function to Create Instance</h3>
-<p>
-<strong>jpeg.exif</strong>
+<code>math.imag(num):map</code>
 </p>
 <p>
-<code>jpeg.exif(stream?:stream:r):map:[raise] {block?}</code>
+Returns an imaginary part of a complex number.
 </p>
 <p>
-Reads EXIF data from <code>stream</code> and creates a <code>jpeg.exif</code> instance.
+<strong>math.arg</strong>
 </p>
 <p>
-If no EXIF information exists in the stream, this function returns <code>nil</code>. If the attribute <code>:raise</code> is specified, an error occurs for that case.
+<code>math.arg(num):map:[deg]</code>
 </p>
 <p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|exif:jpeg.exif|</code>, where <code>exif</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<h3><span class="caption-index-3">26.2.3</span><a name="anchor-26-2-3"></a>Method</h3>
-<p>
-<strong>jpeg.exif#each</strong>
+Returns an argument value of a complex number in radian.
 </p>
 <p>
-<code>jpeg.exif#each() {block?}</code>
+<strong>math.norm</strong>
 </p>
 <p>
-Creates an iterator that returns <code>jpeg.tag</code> values as elements that are stored in the property <code>jpeg.exif#ifd0</code>.
+<code>math.norm(num):map</code>
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<h2><span class="caption-index-2">26.3</span><a name="anchor-26-3"></a>jpeg.ifd Class</h2>
-<h3><span class="caption-index-3">26.3.1</span><a name="anchor-26-3-1"></a>Property</h3>
-<p>
-A <code>jpeg.ifd</code> instance has the following properties:
+Returns a norm value of a complex number.
 </p>
 <p>
-<table>
-
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.ifd#name</code>
-</td>
-<td>
-<code>
-string</code>
-</td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.ifd#symbol</code>
-</td>
-<td>
-<code>
-symbol</code>
-</td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-</table>
-
-</p>
-<h3><span class="caption-index-3">26.3.2</span><a name="anchor-26-3-2"></a>Method</h3>
-<p>
-<strong>jpeg.ifd#each</strong>
+<strong>math.conj</strong>
 </p>
 <p>
-<code>jpeg.ifd#each() {block?}</code>
+<code>math.conj(num):map</code>
 </p>
 <p>
-Creates an iterator that returns <code>jpeg.tag</code> values as elements that are stored in the target <code>jpeg.ifd</code> instance.
+Returns a conjugate of a complex number.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<h2><span class="caption-index-2">26.4</span><a name="anchor-26-4"></a>jpeg.tag Class</h2>
-<h3><span class="caption-index-3">26.4.1</span><a name="anchor-26-4-1"></a>Property</h3>
-<p>
-A <code>jpeg.tag</code> instance has the following properties:
+<strong>math.acos</strong>
 </p>
 <p>
-<table>
-
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.tag#id</code>
-</td>
-<td>
-<code>
-number</code>
-</td>
-<td>
-R</td>
-
-<td>
-Tag ID.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.tag#name</code>
-</td>
-<td>
-<code>
-string</code>
-</td>
-<td>
-R</td>
-
-<td>
-Tag name.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.tag#symbol</code>
-</td>
-<td>
-<code>
-symbol</code>
-</td>
-<td>
-R</td>
-
-<td>
-Tag name as <code>
-symbol</code>
-.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.tag#type</code>
-</td>
-<td>
-<code>
-number</code>
-</td>
-<td>
-R</td>
-
-<td>
-Tag type.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.tag#typename</code>
-</td>
-<td>
-<code>
-string</code>
-</td>
-<td>
-R</td>
-
-<td>
-Tag type name.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.tag#value</code>
-</td>
-<td>
-<code>
-any</code>
-</td>
-<td>
-R</td>
-
-<td>
-Tag value. When the attribute <code>
-:cooked</code>
- is specified,
-numbers in some tags are translated to human-readable symbols.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-jpeg.tag#ifd</code>
-</td>
-<td>
-<code>
-jpeg.ifd</code>
-</td>
-<td>
-R</td>
-
-<td>
-IFD instance. Valid only for tags <code>
-Exif</code>
-, <code>
-GPSInfo</code>
- and
-<code>
-Interoperability</code>
-.</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">26.5</span><a name="anchor-26-5"></a>Extension to image Class</h2>
-<p>
-This module extends the <code>image</code> class with methods described here.
+<code>math.acos(num):map:[deg]</code>
 </p>
 <p>
-<strong>image#read@jpeg</strong>
+Returns an inverse cosine value.
 </p>
 <p>
-<code>image#read@jpeg(stream:stream:r):reduce</code>
+<strong>math.asin</strong>
 </p>
 <p>
-Reads a JPEG image data from a stream.
+<code>math.asin(num):map:[deg]</code>
 </p>
 <p>
-<strong>image#write@jpeg</strong>
+Returns an inverse sine value.
 </p>
 <p>
-<code>image#write@jpeg(stream:stream:w, quality:number =&gt; 75):reduce</code>
+<strong>math.atan</strong>
 </p>
 <p>
-Writes a JPEG image data to a stream.
-</p>
-<h2><span class="caption-index-2">26.6</span><a name="anchor-26-6"></a>Thanks</h2>
-<p>
-This module uses JPEG library which is distributed in the following site:
+<code>math.atan(num):map:[deg]</code>
 </p>
 <p>
-<a href="http://www.ijg.org/">http://www.ijg.org/</a>
+Returns an inverse tangent value.
+</p>
+<p>
+<strong>math.atan2</strong>
+</p>
+<p>
+<code>math.atan2(num1, num2):map:[deg]</code>
+</p>
+<p>
+Returns an inverse tangent value of a fraction of num1 and num2.
+</p>
+<p>
+<strong>math.ceil</strong>
+</p>
+<p>
+<code>math.ceil(num):map</code>
+</p>
+<p>
+Returns a nearest integer number above or equal to the specified value.
+</p>
+<p>
+<strong>math.cos</strong>
+</p>
+<p>
+<code>math.cos(num):map:[deg]</code>
+</p>
+<p>
+Returns a cosine value.
+</p>
+<p>
+<strong>math.cosh</strong>
+</p>
+<p>
+<code>math.cosh(num):map</code>
+</p>
+<p>
+Returns a hyperbolic cosine value.
+</p>
+<p>
+<strong>math.exp</strong>
+</p>
+<p>
+<code>math.exp(num):map</code>
+</p>
+<p>
+Returns an exponential value.
+</p>
+<p>
+<strong>math.abs</strong>
+</p>
+<p>
+<code>math.abs(num):map</code>
+</p>
+<p>
+Returns an absolute value.
+</p>
+<p>
+<strong>math.floor</strong>
+</p>
+<p>
+<code>math.floor(num):map</code>
+</p>
+<p>
+Returns a nearest integer number below or equal to the specified value.
+</p>
+<p>
+<strong>math.log</strong>
+</p>
+<p>
+<code>math.log(num):map</code>
+</p>
+<p>
+Returns a natural logarithm value.
+</p>
+<p>
+<strong>math.log10</strong>
+</p>
+<p>
+<code>math.log10(num):map</code>
+</p>
+<p>
+Returns a decadic logarithm value.
+</p>
+<p>
+<strong>math.sin</strong>
+</p>
+<p>
+<code>math.sin(num):map:[deg]</code>
+</p>
+<p>
+Returns a sine value.
+</p>
+<p>
+<strong>math.sinh</strong>
+</p>
+<p>
+<code>math.sinh(num):map</code>
+</p>
+<p>
+Returns a hyperbolic sine value.
+</p>
+<p>
+<strong>math.sqrt</strong>
+</p>
+<p>
+<code>math.sqrt(num):map</code>
+</p>
+<p>
+Returns a square root value.
+</p>
+<p>
+<strong>math.tan</strong>
+</p>
+<p>
+<code>math.tan(num):map:[deg]</code>
+</p>
+<p>
+Returns a tangent value.
+</p>
+<p>
+<strong>math.tanh</strong>
+</p>
+<p>
+<code>math.tanh(num):map</code>
+</p>
+<p>
+Returns a hyperbolic tangent value.
+</p>
+<p>
+<strong>math.hypot</strong>
+</p>
+<p>
+<code>math.hypot(x, y):map</code>
+</p>
+<p>
+Returns a hyperbolic tangent value.
+</p>
+<p>
+<strong>math.least_square</strong>
+</p>
+<p>
+<code>math.least_square(x:iterator, y:iterator, dim:number =&gt; 1, var:symbol =&gt; `x)</code>
+</p>
+<p>
+Calculates a least square method using a sequence of pairs of <code>x</code> and <code>y</code>, and returns an expression of the fitted curve. You can specify the dimension by an argument <code>dim</code>. In default, a symbol of the expression's variable is <code>x</code>and it can be changed by specifying an argument <code>var</code>.
+</p>
+<p>
+<strong>math.bezier</strong>
+</p>
+<p>
+<code>math.bezier(nums[]+:number)</code>
+</p>
+<p>
+Returns a list that consists of functions that generate coordinates of bezier curves with specified control points. One or more lists of control points can be specified. This means that if you give it two lists of numbers as arguments, it returns two functions of bezier curve.
+</p>
+<p>
+<strong>math.diff</strong>
+</p>
+<p>
+<code>math.diff(expr:expr, var:symbol):map {block?}</code>
+</p>
+<p>
+Returns a mathematical differential expression of the given <code>expr</code> by a variable <code>var</code>.
+</p>
+<p>
+Example: <code>math.diff(</code>(math.sin(x <strong> 2)), <code>x)</code></strong>
+</p>
+<p>
+<strong>math.optimize</strong>
+</p>
+<p>
+<code>math.optimize(expr:expr):map {block?}</code>
+</p>
+<p>
+<strong>math.fft</strong>
+</p>
+<p>
+<code>math.fft(seq[])</code>
+</p>
+<p>
+<strong>math.dot_product</strong>
+</p>
+<p>
+<code>math.dot_product(a[], b[])</code>
+</p>
+<p>
+<strong>math.cross_product</strong>
+</p>
+<p>
+<code>math.cross_product(a[], b[])</code>
+</p>
+<p>
+<strong>math.covariance</strong>
+</p>
+<p>
+<code>math.covariance(a:iterator, b:iterator)</code>
+</p>
+<p>
+Returns a covariance between the sequences of values.
+</p>
+<p>
+<strong>math.integral</strong>
+</p>
+<p>
+<code>math.integral()</code>
+</p>
+<p>
+<strong>math.gcd</strong>
+</p>
+<p>
+<code>math.gcd(a:number, b+:number):map</code>
+</p>
+<p>
+Returns a greatest common divisor among two or more numbers.
+</p>
+<p>
+<strong>math.lcm</strong>
+</p>
+<p>
+<code>math.lcm(a:number, b+:number):map</code>
+</p>
+<p>
+Returns a least common multiple among two or more numbers.
 </p>
 <p />
 

@@ -1,12 +1,12 @@
 #!/usr/bin/env gura
 import(markdown)
 
-dirNameGura = '../../gura'
 dirNameOut = '.'
 !path.exists(dirNameOut) && fs.mkdir(dirNameOut)
 
 baseNames = [
 	'basement'
+	'guracore'
 	'base64'
 	'bmp'
 	'bzip2'
@@ -16,7 +16,7 @@ baseNames = [
 	'csv'
 	'curl'
 	'diff'
-	'emf'
+	//'emf'
 	'example'
 	'freetype'
 	'fs'
@@ -24,23 +24,23 @@ baseNames = [
 	'glu'
 	'glut'
 	'gmp'
-	'guri'
+	//'guri'
 	'gzip'
 	'hash'
 	'http'
 	'jpeg'
-	'llvm'
+	//'llvm'
 	'markdown'
 	'math'
 	'midi'
 	'msico'
 	//'mswin'
-	'mysql'
+	//'mysql'
 	'opengl'
 	'os'
 	'path'
 	'png'
-	'postgresql'
+	//'postgresql'
 	'ppm'
 	're'
 	//'sdl'
@@ -49,7 +49,7 @@ baseNames = [
 	'sys'
 	'tar'
 	//'tcl'
-	'tester'
+	//'tester'
 	'tiff'
 	'uuid'
 	'wav'
@@ -59,18 +59,7 @@ baseNames = [
 	'yaml'
 	'zip'
 ]
-//baseNames = ['basement']
-moduleNames = 'makedoc_' + baseNames
-!path.exists('tmp') && fs.mkdir('tmp')
-fs.copy(path.join(dirNameGura, 'src/module-' + baseNames + '/makedoc.gura'),
-		'tmp/' + moduleNames + '.gura'):overwrite
-scope {
-	moduleName = 'makedoc_lib'
-	fs.copy(path.join(dirNameGura, 'src/lib/makedoc.gura'),
-			'tmp/' + moduleName + '.gura'):overwrite
-	moduleNames.insert(1, moduleName)
-}
-sys.path.insert(0, 'tmp')
+
 doc = markdown.document()
 doc << R'''
 # About This Reference
@@ -136,8 +125,9 @@ If it is imported by another as a module, this variable is set to that module na
 </table>
 '''
 
-moduleNames.each {|moduleName|
-	println('module: ', moduleName.replace('makedoc_', ''))
+baseNames.each {|baseName|
+	println('module: ', baseName)
+	moduleName = 'makedoc@' + baseName
 	import(&moduleName).write(doc)
 }
 

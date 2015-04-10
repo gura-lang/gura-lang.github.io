@@ -5,158 +5,119 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">17</span><a name="anchor-17"></a>fs Module</h1>
+<h1><span class="caption-index-1">17</span><a name="anchor-17"></a>gif Module</h1>
 <p>
-The <code>fs</code> module provides measures to access and modify information in file systems. This is a built-in module, so you can use it without being imported.
-</p>
-<h2><span class="caption-index-2">17.1</span><a name="anchor-17-1"></a>Module Functions</h2>
-<p>
-<strong>fs.chdir</strong>
+The <code>gif</code> module provides measures to read/write image data in GIF format. To utilize it, import the <code>gif</code> module using <code>import</code> function.
 </p>
 <p>
-<code>fs.chdir(pathname:string) {block?}</code>
+Below is an example to read a GIF file:
 </p>
-<p>
-Changes the current working directory.
-</p>
-<p>
-<strong>fs.chmod</strong>
-</p>
-<p>
-<code>fs.chmod(mode, pathname:string):map:void:[follow_link]</code>
-</p>
-<p>
-Changes the access mode of a file specified by <code>pathname</code>.
-</p>
-<p>
-There are two formats to specify the mode: one is by a number, and another in a string.
-</p>
-<p>
-When specified in a number, following bits are associated with access permissions:
-</p>
-<ul>
-<li><code>b8 b7 b6</code> .. Read, write and executable permissions for owners</li>
-<li><code>b5 b4 b3</code> .. Read, write and executable permissions for groups</li>
-<li><code>b2 b1 b0</code> .. Read, write and executable permissions for others</li>
-</ul>
-<p>
-When set to one, each permission is validated.
-</p>
-<p>
-When specified in a string, it accepts a permission directive in a format of following regular expression
-</p>
-<pre><code>[ugoa]+([-+=][rwx]+)+
+<pre><code>import(gif)
+img = image('foo.gif')
 </code></pre>
 <p>
-It starts with characters that represent target which permissions are modified as described below:
+Below is an example to create a GIF file that contains multiple images:
+</p>
+<pre><code>import(gif)
+g = gif.content()
+g.addimage(['cell1.png', 'cell2.png', 'cell3.png'], 10) g.write('anim.gif')
+</code></pre>
+<h2><span class="caption-index-2">17.1</span><a name="anchor-17-1"></a>Exntension to Function's Capability</h2>
+<p>
+This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write GIF files.
+</p>
+<p>
+When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a GIF file.
 </p>
 <ul>
-<li><code>u</code> .. owners</li>
-<li><code>g</code> .. groups</li>
-<li><code>o</code> .. others</li>
-<li><code>a</code> .. all users</li>
+<li>The identifier of the stream ends with a suffix "<code>.gif</code>".</li>
+<li>The stream data begins with a byte sequence "<code>GIF87a</code>" or "<code>GIF89a</code>".</li>
 </ul>
 <p>
-Then, follows an operation:
+When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in GIF format.
 </p>
 <ul>
-<li><code>-</code> .. remove</li>
-<li><code>+</code> .. append</li>
-<li><code>=</code> .. set</li>
+<li>The identifier of the stream ends with a suffix "<code>.gif</code>".</li>
 </ul>
+<h2><span class="caption-index-2">17.2</span><a name="anchor-17-2"></a>gif.content Class</h2>
 <p>
-At last, permission attributes are specified as below:
+<strong>gif.content</strong>
+</p>
+<p>
+<code>gif.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code>
+</p>
+<p>
+Reads a GIF data from a stream and returns an object that contains GIF related information and images of a specified format. format is is <code>rgb,</code>rgba or <code>noimage. If</code>noimage is specified, only the information data is read
+</p>
+<p>
+<strong>gif.content#addimage</strong>
+</p>
+<p>
+<code>gif.content#addimage(image:image, delayTime:number =&gt; 10, leftPos:number =&gt; 0, topPos:number =&gt; 0, disposalMethod:symbol =&gt; `none):map:reduce</code>
+</p>
+<p>
+Adds an image to GIF information.
+</p>
+<p>
+You can add multiple images that can be played as a motion picture.
+</p>
+<p>
+The argument <code>delayTime</code> specifies the delay time in 10 milli seconds between images.
+</p>
+<p>
+The arguments <code>leftPost</code> and <code>topPos</code> specifies the rendered offset in the screen.
+</p>
+<p>
+The argument <code>disposalMethod</code> takes one of following symbols that specifies how the image will be treated after being rendered.
 </p>
 <ul>
-<li><code>r</code> .. read permission</li>
-<li><code>w</code> .. write permission</li>
-<li><code>x</code> .. executable permission</li>
+<li><code>`none</code> .. </li>
+<li><code>`keep</code> .. </li>
+<li><code>`background</code>.. </li>
+<li><code>`previous</code> .. </li>
 </ul>
 <p>
-If the modification target is a link file, each platform would have different result:
-</p>
-<ul>
-<li>Linux .. Modifies permissions of the link file itself. Specifying <code>:follow_link</code> attribute would modify permsisions of the target file instead.</li>
-<li>MacOS .. Modifies permissions of the target file. Attribute <code>:follow_link</code> has no effect.</li>
-<li>Windows .. Modifies permissions of the link file. Attribute <code>:follow_link</code> has no effect.</li>
-</ul>
-<p>
-<strong>fs.copy</strong>
+This method returns the reference to the target instance itself.
 </p>
 <p>
-<code>fs.copy(src:string, dst:string):map:void:[overwrite]</code>
+<strong>gif.content#write</strong>
 </p>
 <p>
-Copies a file.
+<code>gif.content#write(stream:stream:w):reduce</code>
 </p>
 <p>
-An argument <code>src</code> needs to specify a path name of a file that is to be copied while <code>dst</code> can specify a path name of either a file or a directory. If <code>dst</code> is a directory, the file would be copied into that. Otherwise, it would create a copy of <code>src</code> that has a name specified by <code>dst</code>.
+Writes a GIF image to a stream.
 </p>
 <p>
-If a destination file already exists, an error occurs. Specifying an attribute <code>:overwrite</code> would overwrite an existing one.
+This method returns the reference to the target instance itself.
+</p>
+<h2><span class="caption-index-2">17.3</span><a name="anchor-17-3"></a>Extension to image Class</h2>
+<p>
+This module extends the <code>stream</code> class with methods described here.
 </p>
 <p>
-<strong>fs.cpdir</strong>
+<strong>image#read@gif</strong>
 </p>
 <p>
-<code>fs.cpdir(src:string, dst:string):map:void:[tree]</code>
+<code>image#read@gif(stream:stream:r):reduce</code>
 </p>
 <p>
-Copies a directory.
+Reads a GIF image from a stream.
 </p>
 <p>
-Arguments <code>src</code> and <code>dst</code> specify source directory and destination directory respectively. In default, sub directories are not copied.Specifying <code>:tree</code> attribute would copy all the sub directories in the source.
+This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>fs.getcwd</strong>
+<strong>image#write@gif</strong>
 </p>
 <p>
-<code>fs.getcwd()</code>
+<code>image#write@gif(stream:stream:w):reduce</code>
 </p>
 <p>
-Returns the current working directory.
+Writes a GIF image to a stream.
 </p>
 <p>
-<strong>fs.mkdir</strong>
-</p>
-<p>
-<code>fs.mkdir(pathname:string):map:void:[tree]</code>
-</p>
-<p>
-Creates a directory.
-</p>
-<p>
-If <code>pathname</code> consists of multiple sub directories and some of them still doesn't exist, an error occurs. Specifying <code>:tree</code> attribute would create such directories.
-</p>
-<p>
-<strong>fs.remove</strong>
-</p>
-<p>
-<code>fs.remove(pathname:string):map:void</code>
-</p>
-<p>
-Removes a file from the file system.
-</p>
-<p>
-<strong>fs.rename</strong>
-</p>
-<p>
-<code>fs.rename(src:string, dst:string):map:void</code>
-</p>
-<p>
-Renames a file or directory.
-</p>
-<p>
-<strong>fs.rmdir</strong>
-</p>
-<p>
-<code>fs.rmdir(pathname:string):map:void:[tree]</code>
-</p>
-<p>
-Removes a directory.
-</p>
-<p>
-If the directory contains sub directories, an error occurs. Specifying <code>:tree</code> attribute would delete such a directory.
+This method returns the reference to the target instance itself.
 </p>
 <p />
 
