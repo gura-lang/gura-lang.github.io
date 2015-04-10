@@ -8,35 +8,35 @@ title: Documents
 <h1 name="documents">Documents</h1>
 
 <table>
-<tr><th>Title</th><th>Language</th></tr>
+<tr><th>Title</th><th>Language</th><th>Format</th></tr>
 
 <tr><td>
 <a href="language-manual/index.html">
-Gura Language Manual (HTML)
-</a><td>English</td></tr>
+Gura Language Manual
+</a><td>English</td><td>HTML</td></tr>
 
 <tr><td>
 <a href="library-reference/index.html">
-Gura Library Reference (HTML)
-</a><td>English</td></tr>
+Gura Library Reference
+</a><td>English</td><td>HTML</td></tr>
 
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-lang-j.pdf?raw=true"
   onClick="ga('send', 'event', 'document', 'click', 'gura-lang-j.pdf');">
-Gura 言語マニュアル (PDF)
-</a><td>Japanese</td></tr>
+Gura 言語マニュアル
+</a><td>Japanese</td><td>PDF</td></tr>
 
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-lib-j.pdf?raw=true"
   onClick="ga('send', 'event', 'document', 'click', 'gura-lib-j.pdf');">
-Gura ライブラリリファレンス (PDF)
-</a><td>Japanese</td></tr>
+Gura ライブラリリファレンス
+</a><td>Japanese</td><td>PDF</td></tr>
 
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-dev-j.pdf?raw=true"
   onClick="ga('send', 'event', 'document', 'click', 'gura-dev-j.pdf');">
-Gura 開発者向けマニュアル (PDF)
-</a><td>Japanese</td></tr>
+Gura 開発者向けマニュアル
+</a><td>Japanese</td><td>PDF</td></tr>
 
 </table>
 
