@@ -5,7 +5,7 @@ title: Template Engine
 chapter: 19
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 <!-- --------------------------------------------------------------------- -->
 ## {{ page.chapter }}.1. Overview

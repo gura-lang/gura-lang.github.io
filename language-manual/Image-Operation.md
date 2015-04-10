@@ -5,7 +5,7 @@ title: Image Operation
 chapter: 16
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 ## {{ page.chapter }}.1. Overview
 

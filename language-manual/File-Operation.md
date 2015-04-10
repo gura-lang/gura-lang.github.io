@@ -5,7 +5,7 @@ title: File Operation
 chapter: 14
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 ## {{ page.chapter }}.1. Overview
 

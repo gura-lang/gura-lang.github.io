@@ -5,7 +5,7 @@ title: Mathematic Functions
 chapter: 18
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 ## Complex Number
 

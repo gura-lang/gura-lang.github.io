@@ -5,7 +5,7 @@ title: Environment
 chapter: 5
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 ## {{ page.chapter }}.1. Overview
 

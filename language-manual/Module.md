@@ -5,7 +5,7 @@ title: Module
 chapter: 11
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 ## {{ page.chapter }}.1. Module as Environment
 

@@ -5,7 +5,7 @@ title: Interpreter
 chapter: 6
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 ## {{ page.chapter }}.1. How Interpreter Works
 

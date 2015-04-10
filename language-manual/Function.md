@@ -5,7 +5,7 @@ title: Function
 chapter: 7
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 ## {{ page.chapter }}.1. Definition and Evaluation
 

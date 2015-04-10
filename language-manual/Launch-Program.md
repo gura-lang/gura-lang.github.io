@@ -5,7 +5,7 @@ title: Launch Program
 chapter: 1
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 
 ## {{ page.chapter }}.1. Program Files

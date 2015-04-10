@@ -5,7 +5,7 @@ title: Mapping Process
 chapter: 10
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 ## {{ page.chapter }}.1. About This Chapter
 

@@ -5,7 +5,7 @@ title: Iterator/List Operation
 chapter: 13
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 ## {{ page.chapter }}.1. Overview
 

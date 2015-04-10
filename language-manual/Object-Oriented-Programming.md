@@ -5,7 +5,7 @@ title: Object Oriented Programming
 chapter: 9
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 
 ## {{ page.chapter }}.1. Class and Instance

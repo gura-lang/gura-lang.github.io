@@ -5,7 +5,7 @@ title: Data Type
 chapter: 3
 ---
 
-# Chapter {{ page.chapter }}. {{ page.title }}
+# {{ page.chapter }}. {{ page.title }}
 
 ## {{ page.chapter }}.1. Overview
 
