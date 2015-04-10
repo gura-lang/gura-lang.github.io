@@ -15,16 +15,10 @@ title: Documents
 Gura Language Manual (HTML)
 </a><td>English</td></tr>
 
-<!--
 <tr><td>
 <a href="library-reference/index.html">
 Gura Library Reference (HTML)
 </a><td>English</td></tr>
--->
-
-<tr><td>
-Gura Library Reference (HTML)
-<td>English</td></tr>
 
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-lang-j.pdf?raw=true"

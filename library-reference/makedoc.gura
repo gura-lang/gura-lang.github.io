@@ -163,18 +163,23 @@ lang: en
 title: Gura Library Reference
 ---
 
+{% raw %}
 '''
 
 footerForPage = R'''
 <p />
+
+{% endraw %}
 '''
 
 Renderer@html = class(markdown.Renderer@html) {
 	__init__() = {|sys.stdout, true|
+		this.out = nil
 	}
 	OnRenderItemPre(item:item) = {
 		if (item.type == `h1) {
-			fileName = path.join(dirNameOut, 'chapter-%d.md' % (this.indices[0] + 1))
+			this.out && this.out.print(footerForPage)
+			fileName = path.join(dirNameOut, 'chapter-%02d.md' % (this.indices[0] + 1))
 			println('rendering ', fileName)
 			this.out = open(fileName, 'w')
 			this.out.print(headerForPage)
@@ -183,6 +188,7 @@ Renderer@html = class(markdown.Renderer@html) {
 	}
 	OnRenderItemPost(item:item):void = {
 		if (item.type == `root) {
+			this.out && this.out.print(footerForPage)
 			this.out = nil
 		}
 	}
@@ -196,15 +202,14 @@ open(fileName, 'w') {|out|
 	doc.render@toc {|level:number, indices[]:number, anchorName:string, text:string|
 		if (level == 0) {
 			out.printf(
-					'<div><span class="toc-index-1">%d</span><a href="chapter-%d.html#%s">%s</a>\</div>\n',
+					'<div><span class="toc-index-1">%d</span><a href="chapter-%02d.html#%s">%s</a>\</div>\n',
 					indices[0], indices[0], anchorName, text)
 		} elsif (level == 1 && indices[0] in [4, 6]) {
 			out.printf(
-					'<div><span class="toc-index-2">%d.%d</span><a href="chapter-%d.html#%s">%s</a>\</div>\n',
+					'<div><span class="toc-index-2">%d.%d</span><a href="chapter-%02d.html#%s">%s</a>\</div>\n',
 					indices[0], indices[1], indices[0], anchorName, text)
 		}
 	}
-	out.println('<hr />')
 	out.print(footerForIndex)
 }
 Renderer@html().Render(doc)
