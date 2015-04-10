@@ -23,19 +23,19 @@ Gura Library Reference (HTML)
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-lang-j.pdf?raw=true"
   onClick="ga('send', 'event', 'document', 'click', 'gura-lang-j.pdf');">
-Gura Language Manual (PDF)
+Gura 言語マニュアル (PDF)
 </a><td>Japanese</td></tr>
 
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-lib-j.pdf?raw=true"
   onClick="ga('send', 'event', 'document', 'click', 'gura-lib-j.pdf');">
-Gura Library Reference (PDF)
+Gura ライブラリリファレンス (PDF)
 </a><td>Japanese</td></tr>
 
 <tr><td>
 <a href="https://github.com/gura-lang/gura-doc/blob/master/gura-dev-j.pdf?raw=true"
   onClick="ga('send', 'event', 'document', 'click', 'gura-dev-j.pdf');">
-Gura Developer's Manual (PDF)
+Gura 開発者向けマニュアル (PDF)
 </a><td>Japanese</td></tr>
 
 </table>
