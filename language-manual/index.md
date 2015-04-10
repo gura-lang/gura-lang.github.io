@@ -26,3 +26,5 @@ title: Gura Language Manual
 <div><span class="toc-index-1">17</span><a href="Graphical-User-Interface.html">Graphical User Interface</a></div>
 <div><span class="toc-index-1">18</span>Mathematic Functions</div>
 <div><span class="toc-index-1">19</span><a href="Template-Engine.html">Template Engine</a></div>
+
+<p />
