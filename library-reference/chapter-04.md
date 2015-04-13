@@ -32,7 +32,7 @@ Prints out <code>values</code> to standard output.
 <code>printf(format:string, values*):map:void</code>
 </p>
 <p>
-Prints out <code>values</code> to standard output depending on formatter specifiers in <code>format</code>. The format specifier has a format of <code>%[flags][width][.precision]specifier</code>.
+Prints out <code>values</code> to standard output according to formatter specifiers in <code>format</code>. The format specifier has a format of <code>%[flags][width][.precision]specifier</code>.
 </p>
 <p>
 The <code>specifier</code> takes one of the following characters:
@@ -93,7 +93,7 @@ For other specifiers, it has no effect.
 <code>println(values*):map:void</code>
 </p>
 <p>
-Prints out <code>values</code> and a line-break to the standard output.
+Prints out <code>values</code> and an end-of-line character to the standard output.
 </p>
 <h2><span class="caption-index-2">4.2</span><a name="anchor-4-2"></a>Repetition</h2>
 <p>

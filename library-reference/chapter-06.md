@@ -7531,18 +7531,73 @@ Using the above casting feature, you can call a function <code>f(stream:stream)<
 <code>open(pathname:string, mode?:string, codec?:codec):map {block?}</code>
 </p>
 <p>
+Creates a <code>stream</code> instance from the specified <code>pathname</code>.
+</p>
+<p>
+The argument <code>mode</code> takes one of the strings that specifies what access should be allowed with the stream. If omitted, the stream would be opened with read mode.
+</p>
+<ul>
+<li><code>'r'</code> .. read</li>
+<li><code>'w'</code> .. write</li>
+<li><code>'a'</code> .. append</li>
+</ul>
+<p>
+The argument <code>codec</code> specifies a name of the character codec that converts between the stream's character code and UTF-8, which is a code used in the iterpreter's internal process.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
 <strong>stream</strong>
 </p>
 <p>
 <code>stream(pathname:string, mode?:string, codec?:codec):map {block?}</code>
 </p>
 <p>
+Creates a <code>stream</code> instance from the specified <code>pathname</code>.
+</p>
+<p>
+The argument <code>mode</code> takes one of the strings that specifies what access should be allowed with the stream. If omitted, the stream would be opened with read mode.
+</p>
+<ul>
+<li><code>'r'</code> .. read</li>
+<li><code>'w'</code> .. write</li>
+<li><code>'a'</code> .. append</li>
+</ul>
+<p>
+The argument <code>codec</code> specifies a name of the character codec that converts between the stream's character code and UTF-8, which is a code used in the iterpreter's internal process.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<h3><span class="caption-index-3">6.31.5</span><a name="anchor-6-31-5"></a>Utility Function</h3>
+<p>
 <strong>readlines</strong>
 </p>
 <p>
 <code>readlines(stream?:stream:r):[chop] {block?}</code>
 </p>
-<h3><span class="caption-index-3">6.31.5</span><a name="anchor-6-31-5"></a>Method</h3>
+<p>
+Creates an iterator that reads text from the specified stream line by line.
+</p>
+<p>
+If attribute <code>:chop</code> is specified, it eliminates an end-of-line character that appears at the end of each line.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<h3><span class="caption-index-3">6.31.6</span><a name="anchor-6-31-6"></a>Method</h3>
 <p>
 <strong>stream#addcr</strong>
 </p>
@@ -7687,16 +7742,28 @@ Flushes cached data to the stream.
 <code>stream#print(values*):map:void</code>
 </p>
 <p>
+Prints out <code>values</code> to the <code>stream</code> instance.
+</p>
+<p>
 <strong>stream#printf</strong>
 </p>
 <p>
 <code>stream#printf(format:string, values*):map:void</code>
 </p>
 <p>
+Prints out <code>values</code> to the <code>stream</code> instance according to formatter specifiers in <code>format</code>.
+</p>
+<p>
+Refer to the help of <code>printf()</code> function to see information about formatter specifiers.
+</p>
+<p>
 <strong>stream#println</strong>
 </p>
 <p>
 <code>stream#println(values*):map:void</code>
+</p>
+<p>
+Prints out <code>values</code> and an end-of-line character to the <code>stream</code> instance.
 </p>
 <p>
 <strong>stream#read</strong>
@@ -7721,6 +7788,29 @@ Flushes cached data to the stream.
 </p>
 <p>
 <code>stream#readlines(nlines?:number):[chop] {block?}</code>
+</p>
+<p>
+Creates an iterator that reads text from the specified stream line by line.
+</p>
+<p>
+The argument <code>nlines</code> specifies how many lines should be read from the stream. If omitted, it would read all the lines.
+</p>
+<p>
+If attribute <code>:chop</code> is specified, it eliminates an end-of-line character that appears at the end of each line.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
 <strong>stream#readtext</strong>
