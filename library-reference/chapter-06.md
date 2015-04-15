@@ -3505,26 +3505,24 @@ Adds help information to a <code>function</code> instance taking the following a
 You can add multiple help information with different <code>lang</code>.
 </p>
 <p>
-Following two codes have the same effect with each other.
+Below is an example to add help information to a function using the method <code>function#addhelp()</code>:
 </p>
 <pre><code>f(a:number, b:number, c:number) = {
     (a + b + c) / 3
 }
 
-function.addhelp(
-    f, `en, 'markdown'
-    R'''
-    Computes a mean value of the provided three numbers.
-    ''')
+function.addhelp(f, `en, 'markdown', R'''
+Computes a mean value of the provided three numbers.
+''')
 </code></pre>
+<p>
+That has the same result with the code below:
+</p>
 <pre><code>f(a:number, b:number, c:number) = {
     (a + b + c) / 3
-} % {
-    `en, 'markdown'
-    R'''
-    Computes a mean value of the provided three numbers.
-    '''
-}
+} % {`en, 'markdown', R'''
+Computes a mean value of the provided three numbers.
+'''}
 </code></pre>
 <p>
 <strong>function.getdecls</strong>

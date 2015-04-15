@@ -118,6 +118,10 @@ th {
   color:#444;
 }
 
+td {
+  vertical-align:top;
+}
+
 img {
   max-width:100%;
 }
