@@ -28,12 +28,6 @@ markdown.document('foo.md').render@html('foo.html')
 </p>
 <h2><span class="caption-index-2">25.2</span><a name="anchor-25-2"></a>Module Functions</h2>
 <p>
-<strong>markdown.funcdoc</strong>
-</p>
-<p>
-<code>markdown.funcdoc(funcs*:function)</code>
-</p>
-<p>
 <strong>markdown.setpresenter</strong>
 </p>
 <p>
