@@ -188,6 +188,36 @@ It returns the last evaluated value in the block as its own result, but, if one 
 <p>
 Block parameter format is <code>|idx:number|</code> where <code>idx</code> indicates an index of the loop.
 </p>
+<p>
+<strong>break</strong>
+</p>
+<p>
+<code>break(value?):symbol_func:void</code>
+</p>
+<p>
+Exits from an inside of a loop that is formed with repeating functions like <code>repeat()</code>, <code>while()</code>, <code>for()</code> and <code>cross(),</code> as well as other functions generating an iterator.
+</p>
+<p>
+After this function is called, the current loop value would be set to <code>value</code> given in the function's argument. If the argument is omitted, that would be set to <code>nil</code>.
+</p>
+<p>
+However, when the loop function is called with one of the attributes, <code>:list</code>, <code>:xlist</code>, <code>:set</code>, <code>:xset</code>, <code>:iter</code> and <code>:xiter</code>, the argument value of <code>break()</code> is NOT included as an element in the list or iterator.
+</p>
+<p>
+<strong>continue</strong>
+</p>
+<p>
+<code>continue(value?):symbol_func:void</code>
+</p>
+<p>
+Cancels the current turn of a loop and continues on to the next. This function can be used in a loop that is formed with repeating functions like <code>repeat()</code>, <code>while()</code>, <code>for()</code> and <code>cross()</code>, as well as other functions generating an iterator.
+</p>
+<p>
+After this function is called, the current loop value would be set to <code>value</code> given in the function's argument. If the argument is omitted, that would be set to <code>nil</code>.
+</p>
+<p>
+If the loop function is specified with one of the attributes <code>:list</code>, <code>:xlist</code>, <code>:set</code>, <code>:xset</code>, <code>:iter</code> and <code>:xiter</code>, the argument value of <code>continue()</code> is included as an element in the list or iterator.
+</p>
 <h2><span class="caption-index-2">4.3</span><a name="anchor-4-3"></a>Value Generator</h2>
 <p>
 <strong>consts</strong>
@@ -317,50 +347,7 @@ x = range(3, 10)
 x = range(3, 10, 2)
 // x generates 3, 5, 7, 9
 </code></pre>
-<h2><span class="caption-index-2">4.4</span><a name="anchor-4-4"></a>Flow Control</h2>
-<p>
-<strong>break</strong>
-</p>
-<p>
-<code>break(value?):symbol_func:void</code>
-</p>
-<p>
-Exits from an inside of a loop that is formed with repeating functions like <code>repeat()</code>, <code>while()</code>, <code>for()</code> and <code>cross(),</code> as well as other functions generating an iterator.
-</p>
-<p>
-After this function is called, the current loop value would be set to <code>value</code> given in the function's argument. If the argument is omitted, that would be set to <code>nil</code>.
-</p>
-<p>
-However, when the loop function is called with one of the attributes, <code>:list</code>, <code>:xlist</code>, <code>:set</code>, <code>:xset</code>, <code>:iter</code> and <code>:xiter</code>, the argument value of <code>break()</code> is NOT included as an element in the list or iterator.
-</p>
-<p>
-<strong>continue</strong>
-</p>
-<p>
-<code>continue(value?):symbol_func:void</code>
-</p>
-<p>
-Cancels the current turn of a loop and continues on to the next. This function can be used in a loop that is formed with repeating functions like <code>repeat()</code>, <code>while()</code>, <code>for()</code> and <code>cross()</code>, as well as other functions generating an iterator.
-</p>
-<p>
-After this function is called, the current loop value would be set to <code>value</code> given in the function's argument. If the argument is omitted, that would be set to <code>nil</code>.
-</p>
-<p>
-If the loop function is specified with one of the attributes <code>:list</code>, <code>:xlist</code>, <code>:set</code>, <code>:xset</code>, <code>:iter</code> and <code>:xiter</code>, the argument value of <code>continue()</code> is included as an element in the list or iterator.
-</p>
-<p>
-<strong>return</strong>
-</p>
-<p>
-<code>return(value?):symbol_func:void</code>
-</p>
-<p>
-Skips the remaining procedure of the current function and returns to the context that calls it.
-</p>
-<p>
-If it takes an argument, the value is treated as a result of the function. Otherwise, the returned value would be <code>nil</code>.
-</p>
-<h2><span class="caption-index-2">4.5</span><a name="anchor-4-5"></a>Branch Sequence</h2>
+<h2><span class="caption-index-2">4.4</span><a name="anchor-4-4"></a>Branch and Flow Control</h2>
 <p>
 <strong>if</strong>
 </p>
@@ -439,7 +426,19 @@ Specify an case block within a switch block. After evaluating an expr object con
 <p>
 Specify a default block within a switch block. If all the preceding condition of case block are not evaluated as true, this block shall be executed.
 </p>
-<h2><span class="caption-index-2">4.6</span><a name="anchor-4-6"></a>Exception Handling</h2>
+<p>
+<strong>return</strong>
+</p>
+<p>
+<code>return(value?):symbol_func:void</code>
+</p>
+<p>
+Skips the remaining procedure of the current function and returns to the context that calls it.
+</p>
+<p>
+If it takes an argument, the value is treated as a result of the function. Otherwise, the returned value would be <code>nil</code>.
+</p>
+<h2><span class="caption-index-2">4.5</span><a name="anchor-4-5"></a>Exception Handling</h2>
 <p>
 <strong>try</strong>
 </p>
@@ -473,7 +472,7 @@ Specify an catch block of a statement of try-catch-else. It can take multiple nu
 <p>
 Raises an error signal with a specified error object, a message string and an additional value.
 </p>
-<h2><span class="caption-index-2">4.7</span><a name="anchor-4-7"></a>Data Converter</h2>
+<h2><span class="caption-index-2">4.6</span><a name="anchor-4-6"></a>Data Converter</h2>
 <p>
 <strong>chr</strong>
 </p>
@@ -560,7 +559,7 @@ Converts a value into a string.
 <p>
 Converts a string into a symbol.
 </p>
-<h2><span class="caption-index-2">4.8</span><a name="anchor-4-8"></a>Class Operations</h2>
+<h2><span class="caption-index-2">4.7</span><a name="anchor-4-7"></a>Class Operations</h2>
 <p>
 <strong>class</strong>
 </p>
@@ -644,7 +643,7 @@ b = B()
 b.func()         // B#func() is called.
 super(b).func()  // A#func() is called.
 </code></pre>
-<h2><span class="caption-index-2">4.9</span><a name="anchor-4-9"></a>Scope Operations</h2>
+<h2><span class="caption-index-2">4.8</span><a name="anchor-4-8"></a>Scope Operations</h2>
 <p>
 <strong>local</strong>
 </p>
@@ -695,7 +694,7 @@ If you want to make <code>foo</code> and <code>bar</code> accessible, call this 
 <p>
 Evaluates block with a local scope.
 </p>
-<h2><span class="caption-index-2">4.10</span><a name="anchor-4-10"></a>Module Operations</h2>
+<h2><span class="caption-index-2">4.9</span><a name="anchor-4-9"></a>Module Operations</h2>
 <p>
 <strong>import</strong>
 </p>
@@ -742,7 +741,7 @@ import(&amp;var)
 <p>
 Creates a module that contains functions and variables defined in the block and returns it as a module object. This can be used to realize a namespace.
 </p>
-<h2><span class="caption-index-2">4.11</span><a name="anchor-4-11"></a>Value Type Information</h2>
+<h2><span class="caption-index-2">4.10</span><a name="anchor-4-10"></a>Value Type Information</h2>
 <p>
 <strong>isbinary</strong>
 </p>
@@ -986,7 +985,7 @@ Returns a type name of the value.
 <p>
 Undefines <code>identifier</code> in the current scope.
 </p>
-<h2><span class="caption-index-2">4.12</span><a name="anchor-4-12"></a>Data Processing</h2>
+<h2><span class="caption-index-2">4.11</span><a name="anchor-4-11"></a>Data Processing</h2>
 <p>
 <strong>choose</strong>
 </p>
@@ -1068,7 +1067,7 @@ Returns the maximum value among the given arguments.
 <p>
 Returns the minimum value among the given arguments.
 </p>
-<h2><span class="caption-index-2">4.13</span><a name="anchor-4-13"></a>Random</h2>
+<h2><span class="caption-index-2">4.12</span><a name="anchor-4-12"></a>Random</h2>
 <p>
 <strong>rand</strong>
 </p>
@@ -1122,7 +1121,7 @@ Below is an example to create a create that generates random numbers:
 <p>
 Initializes random seed with a specified number.
 </p>
-<h2><span class="caption-index-2">4.14</span><a name="anchor-4-14"></a>Property Listing</h2>
+<h2><span class="caption-index-2">4.13</span><a name="anchor-4-13"></a>Property Listing</h2>
 <p>
 <strong>dir</strong>
 </p>

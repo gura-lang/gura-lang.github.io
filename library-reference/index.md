@@ -13,17 +13,16 @@ title: Gura Library Reference
 <div><span class="toc-index-2">4.1</span><a href="chapter-04.html#anchor-4-1">Formatting and Printing of Text</a></div>
 <div><span class="toc-index-2">4.2</span><a href="chapter-04.html#anchor-4-2">Repetition</a></div>
 <div><span class="toc-index-2">4.3</span><a href="chapter-04.html#anchor-4-3">Value Generator</a></div>
-<div><span class="toc-index-2">4.4</span><a href="chapter-04.html#anchor-4-4">Flow Control</a></div>
-<div><span class="toc-index-2">4.5</span><a href="chapter-04.html#anchor-4-5">Branch Sequence</a></div>
-<div><span class="toc-index-2">4.6</span><a href="chapter-04.html#anchor-4-6">Exception Handling</a></div>
-<div><span class="toc-index-2">4.7</span><a href="chapter-04.html#anchor-4-7">Data Converter</a></div>
-<div><span class="toc-index-2">4.8</span><a href="chapter-04.html#anchor-4-8">Class Operations</a></div>
-<div><span class="toc-index-2">4.9</span><a href="chapter-04.html#anchor-4-9">Scope Operations</a></div>
-<div><span class="toc-index-2">4.10</span><a href="chapter-04.html#anchor-4-10">Module Operations</a></div>
-<div><span class="toc-index-2">4.11</span><a href="chapter-04.html#anchor-4-11">Value Type Information</a></div>
-<div><span class="toc-index-2">4.12</span><a href="chapter-04.html#anchor-4-12">Data Processing</a></div>
-<div><span class="toc-index-2">4.13</span><a href="chapter-04.html#anchor-4-13">Random</a></div>
-<div><span class="toc-index-2">4.14</span><a href="chapter-04.html#anchor-4-14">Property Listing</a></div>
+<div><span class="toc-index-2">4.4</span><a href="chapter-04.html#anchor-4-4">Branch and Flow Control</a></div>
+<div><span class="toc-index-2">4.5</span><a href="chapter-04.html#anchor-4-5">Exception Handling</a></div>
+<div><span class="toc-index-2">4.6</span><a href="chapter-04.html#anchor-4-6">Data Converter</a></div>
+<div><span class="toc-index-2">4.7</span><a href="chapter-04.html#anchor-4-7">Class Operations</a></div>
+<div><span class="toc-index-2">4.8</span><a href="chapter-04.html#anchor-4-8">Scope Operations</a></div>
+<div><span class="toc-index-2">4.9</span><a href="chapter-04.html#anchor-4-9">Module Operations</a></div>
+<div><span class="toc-index-2">4.10</span><a href="chapter-04.html#anchor-4-10">Value Type Information</a></div>
+<div><span class="toc-index-2">4.11</span><a href="chapter-04.html#anchor-4-11">Data Processing</a></div>
+<div><span class="toc-index-2">4.12</span><a href="chapter-04.html#anchor-4-12">Random</a></div>
+<div><span class="toc-index-2">4.13</span><a href="chapter-04.html#anchor-4-13">Property Listing</a></div>
 <div><span class="toc-index-1">5</span><a href="chapter-05.html#anchor-5">Built-in Operators</a></div>
 <div><span class="toc-index-1">6</span><a href="chapter-06.html#anchor-6">Built-in Classes</a></div>
 <div><span class="toc-index-2">6.1</span><a href="chapter-06.html#anchor-6-1">args Class</a></div>
