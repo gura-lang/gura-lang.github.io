@@ -4463,1076 +4463,11 @@ You can also explicitly specify the image data format by the argument <code>imag
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<h2><span class="caption-index-2">6.20</span><a name="anchor-6-20"></a>iterator Class</h2>
-<h3><span class="caption-index-3">6.20.1</span><a name="anchor-6-20-1"></a>Function to Create Instance</h3>
-<p>
-<strong>iterator</strong>
-</p>
-<p>
-<code>iterator(value+) {block?}</code>
-</p>
-<p>
-Creates an iterator that combines iterators given in the argument.
-</p>
-<p>
-If an argument is not an iterator, that would be added as an element.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<h3><span class="caption-index-3">6.20.2</span><a name="anchor-6-20-2"></a>Method Specific to Iterator Class</h3>
-<p>
-<strong>iterator#delay</strong>
-</p>
-<p>
-<code>iterator#delay(delay:number) {block?}</code>
-</p>
-<p>
-Creates an iterator that returns each element with an interval time specified by the argument <code>delay</code> in seconds.
-</p>
-<p>
-<strong>iterator#isinfinite</strong>
-</p>
-<p>
-<code>iterator#isinfinite()</code>
-</p>
-<p>
-Returns <code>true</code> if the iterator is infinite one.
-</p>
-<p>
-The trait of iterator's infinity is used to avoid an endless process by evaluating an infinite iterator. An attempt to evaluate an infinite iterator such as creation of a list from it would occur an error.
-</p>
-<p>
-<strong>iterator#next</strong>
-</p>
-<p>
-<code>iterator#next()</code>
-</p>
-<p>
-Returns a next element of the iterator. This operation updates the iterator's internal status.
-</p>
-<p>
-<strong>iterator#repeater</strong>
-</p>
-<p>
-<code>iterator#repeater()</code>
-</p>
-<p>
-Makes the iterator behave as a "repeater". This would allow the iterator be evaulated when it appears as an element of another "repeater" iterator.
-</p>
-<p>
-Below is an example:
-</p>
-<pre><code>x = repeat(3):iter {
-    ['apple', 'orange', 'grape'].each()
-}
-println(x)
-// Just prints iterator instance three times
-// since x can't evaluate the internal iterator.
-
-x = repeat(3):iter {
-    ['apple', 'orange', 'grape'].each().repeater()
-}
-println(x)
-// Prints 'apple', 'orange' and  'grape' three times
-// after evaluating the internal iterator.
-</code></pre>
-<h3><span class="caption-index-3">6.20.3</span><a name="anchor-6-20-3"></a>Method Common between Iterator and List Class</h3>
-<p>
-<strong>iterator#after</strong>
-</p>
-<p>
-<code>iterator#after(criteria) {block?}</code>
-</p>
-<p>
-Creates an iterator that picks up elements that appear at positions after the criteria is evaluated to be <code>true</code>.
-</p>
-<p>
-You can specify a function, a list or an iterator as the criteria.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<strong>iterator#align</strong>
-</p>
-<p>
-<code>iterator#align(n:number, value?) {block?}</code>
-</p>
-<p>
-Creates an iterator that returns the specified number of elements in the source iterator. If the number is larger than the length of the source iterator, the lacking part is filled with <code>value</code>. If the argument <code>value</code> is omitted, <code>nil</code> is used for the filling.
-</p>
-<p>
-Below is an example to specify a number less than the source length:
-</p>
-<pre><code>x = [`A, `B, `C, `D, `E, `F].align(3)
-// x generates `A, `B, `C.
-</code></pre>
-<p>
-Below is an example to specify a number that exceeds the source length:
-</p>
-<pre><code>x = [`A, `B, `C, `D, `E, `F].align(8)
-// x generates `A, `B, `C, `D, `E, `F, nil, nil.
-</code></pre>
-<p>
-<strong>iterator#and</strong>
-</p>
-<p>
-<code>iterator#and()</code>
-</p>
-<p>
-Calculates a logical AND result of all the values in the iterable.
-</p>
-<p>
-<strong>iterator#average</strong>
-</p>
-<p>
-<code>iterator#average()</code>
-</p>
-<p>
-Calculates an average of elements in the iterable.
-</p>
-<p>
-It can work on an iterable with elements of type that supports addition and division operators. Below is a list of such value types:
-</p>
-<ul>
-<li><code>number</code></li>
-<li><code>complex</code></li>
-<li><code>matrix</code></li>
-<li><code>rational</code></li>
-<li><code>gmp.mpz</code></li>
-<li><code>gmp.mpq</code></li>
-<li><code>gmp.mpf</code></li>
-</ul>
-<p>
-<strong>iterator#before</strong>
-</p>
-<p>
-<code>iterator#before(criteria) {block?}</code>
-</p>
-<p>
-Creates an iterator that extracts elements in the iterable before criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<strong>iterator#contains</strong>
-</p>
-<p>
-<code>iterator#contains(value)</code>
-</p>
-<p>
-Returns <code>true</code> if the specified value appears in the iterable.
-</p>
-<p>
-<strong>iterator#count</strong>
-</p>
-<p>
-<code>iterator#count(criteria?)</code>
-</p>
-<p>
-Returns a number of elements that matches the given criteria which is a single-argument function or a value.
-</p>
-<p>
-When a function is applied, it counts the number of true after evaluating element value with the function. If a value is applied, it counts the number of elements that are equal to the value.
-</p>
-<p>
-<strong>iterator#cycle</strong>
-</p>
-<p>
-<code>iterator#cycle(n?:number) {block?}</code>
-</p>
-<p>
-Creates an iterator that iterates elements in the source iterator cyclically.
-</p>
-<p>
-The argument <code>n</code> specifies the number of elements the created iterator returns. If omitted, it would iterates elements infinitely.
-</p>
-<p>
-Below is an example:
-</p>
-<pre><code>x = [`A, `B, `C, `D, `E].cycle()
-// x generates `A, `B, `C, `D, `E, `A, `B, `C, `D, `E, `A, `B, ..
-</code></pre>
-<p>
-<strong>iterator#each</strong>
-</p>
-<p>
-<code>iterator#each() {block?}</code>
-</p>
-<p>
-Creates an iterator that iterates each element in the list.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<strong>iterator#filter</strong>
-</p>
-<p>
-<code>iterator#filter(criteria?) {block?}</code>
-</p>
-<p>
-Creates an iterable that filters values in the source iterable by a criteria.
-</p>
-<p>
-A criteria can be an iterable or a function instance.
-</p>
-<ul>
-<li>When the criteria is an iterable, the created iterator would scan the source and the criteria iterable simultaneously and would return a value of the source when the corresponding criteria value is evaluated as <code>true</code>.</li>
-<li>When the criteria is a function instance, the created iterator would give it a value of the source as an argument and would return the value when the function has returned <code>true</code>.</li>
-</ul>
-<p>
-Below is an example to use an iterable as its criteria:
-</p>
-<pre><code>x = [3, 1, 4, 1, 5, 9]
-y = filter(x &gt; 3)
-// (x &gt; 3) makes a list [false, false, true, false, true, true]
-// y generates 4, 5, 9
-</code></pre>
-<p>
-Below is an example to use a function as its criteria:
-</p>
-<pre><code>x = [3, 1, 4, 1, 5, 9]
-y = filter(&amp;{$x &gt; 3})
-// y generates 4, 5, 9
-</code></pre>
-<p>
-<strong>iterator#find</strong>
-</p>
-<p>
-<code>iterator#find(criteria?):[index]</code>
-</p>
-<p>
-<strong>iterator#flat</strong>
-</p>
-<p>
-<code>iterator#flat():[bfs,dfs] {block?}</code>
-</p>
-<p>
-Creates an iterator that searches items recursively if they are lists or iterators.
-</p>
-<p>
-Specifying an attribute could customize searching order as below:
-</p>
-<ul>
-<li><code>:dfs</code> .. Searches in depth-first order. This is the default behavior.</li>
-<li><code>:bfs</code> .. Searches in breadth-first order.</li>
-</ul>
-<p>
-Unlike <code>iterator#walk()</code>, <code>iterator#flat()</code> creates an iterator without an infinite flag. This means that the created iterator can be converted to a list. You have to confirm that the source iterable doesn't contain any infinite iterators.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-Below is an example:
-</p>
-<pre><code>x = [[`A, `B, `C], [`D, `E, [`F, `G, `H], `I, `J], `K, `L]
-
-y = x.flat():dfs
-// y generates `A, `B, `C, `D, `E, `F, `G, `H, `I, `J, `K, `L
-
-y = x.flat():bfs
-// y generates `K, `L, `A, `B, `C, `D, `E, `I, `J, `F, `G, `H
-</code></pre>
-<p>
-<strong>iterator#fold</strong>
-</p>
-<p>
-<code>iterator#fold(n:number, nstep?:number):map:[iteritem,neat] {block?}</code>
-</p>
-<p>
-Creates an iterator that packs <code>n</code> elements of the source iterator into a list and returns it as its element.
-</p>
-<p>
-The argument <code>nstep</code> specifies the shift amount to the next packing.If omitted, the next packing is shifted by <code>n</code> elements.
-</p>
-<p>
-Specifying the attribute <code>:iteritem</code> returns an iterator as its element instead of a list
-</p>
-<p>
-If the last packing doesn't satisfy <code>n</code> elements, its list would be shorter than <code>n</code>. When specifying the attribute <code>:neat</code>, such an immature list would be eliminated.
-</p>
-<p>
-Following is an example to fold elements by 3:
-</p>
-<pre><code>x = [`A, `B, `C, `D, `E, `F, `G, `H].fold(3)
-// x generates [`A, `B, `C], [`D, `E, `F], [`G, `H].
-</code></pre>
-<p>
-Following is an example to fold elements by 3 with a step of 2:
-</p>
-<pre><code>x = [`A, `B, `C, `D, `E, `F, `G, `H].fold(3, 2)
-// x generates [`A, `B, `C], [`C, `D, `E], [`E, `F, `G], [`G, `H].
-</code></pre>
-<p>
-<strong>iterator#format</strong>
-</p>
-<p>
-<code>iterator#format(format:string):map {block?}</code>
-</p>
-<p>
-Creates an iterator that converts element values in the source iterable into strings depending on formatter specifier in <code>format</code>.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<strong>iterator#head</strong>
-</p>
-<p>
-<code>iterator#head(n:number):map {block?}</code>
-</p>
-<p>
-Creates an iterator that takes the first <code>n</code> elements from the source iterable.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<strong>iterator#join</strong>
-</p>
-<p>
-<code>iterator#join(sep?:string):map</code>
-</p>
-<p>
-Joins all the elements in the iterable as strings while inserting the specified separator <code>sep</code> and returns the result.
-</p>
-<p>
-If an element is not a <code>string</code> value, it would be converted to a <code>string</code> before being joined.
-</p>
-<p>
-<strong>iterator#joinb</strong>
-</p>
-<p>
-<code>iterator#joinb()</code>
-</p>
-<p>
-Joins all the <code>binary</code> values in the iterable and returns the result.
-</p>
-<p>
-<strong>iterator#len</strong>
-</p>
-<p>
-<code>iterator#len()</code>
-</p>
-<p>
-Returns the length of the iterable.
-</p>
-<p>
-<strong>iterator#map</strong>
-</p>
-<p>
-<code>iterator#map(func:function) {block?}</code>
-</p>
-<p>
-Creates an iterator that generates element values after applying the specfied function on them. The function must take one argument.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<strong>iterator#max</strong>
-</p>
-<p>
-<code>iterator#max():[index,indices,last_index]</code>
-</p>
-<p>
-Returns the maximum value in the iterable.
-</p>
-<p>
-It would return a position index where the maximum value is found when one of the following attribute is specified:
-</p>
-<ul>
-<li><code>:index</code> .. an index of the maximum value.</li>
-<li><code>:indices</code> .. a list of indices where the maximum value is found.</li>
-<li><code>:last_index</code> .. the last index of the maximum value when the value exists at multiple positions.</li>
-</ul>
-<p>
-<strong>iterator#min</strong>
-</p>
-<p>
-<code>iterator#min():[index,indices,last_index]</code>
-</p>
-<p>
-Returns the minimum value in the iterable.
-</p>
-<p>
-It would return a position index where the minimum value is found when one of the following attribute is specified:
-</p>
-<ul>
-<li><code>:index</code> .. an index of the minimum value.</li>
-<li><code>:indices</code> .. a list of indices where the minimum value is found.</li>
-<li><code>:last_index</code> .. the last index of the minimum value when the value exists at multiple positions.</li>
-</ul>
-<p>
-<strong>iterator#nilto</strong>
-</p>
-<p>
-<code>iterator#nilto(replace) {block?}</code>
-</p>
-<p>
-Creates an iterator that converts <code>nil</code> in the source iterable to the specified value.
-</p>
-<p>
-<strong>iterator#offset</strong>
-</p>
-<p>
-<code>iterator#offset(n:number) {block?}</code>
-</p>
-<p>
-Creates an iterator that returns skips the first <code>n</code> elements in the source iterable.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-Below is an example:
-</p>
-<pre><code>x = [`A, `B, `C, `D, `E, `F, `G, `H].offset(3)
-// x generates `D, `E, `F, `G, `H
-</code></pre>
-<p>
-<strong>iterator#or</strong>
-</p>
-<p>
-<code>iterator#or()</code>
-</p>
-<p>
-Calculates a logical OR result of all the values in the iterable.
-</p>
-<p>
-<strong>iterator#pack</strong>
-</p>
-<p>
-<code>iterator#pack(format:string) {block?}</code>
-</p>
-<p>
-Creates a <code>binary</code> instance that has packed elements in the iterable according to specifiers in the <code>format</code>.
-</p>
-<p>
-A specifier has a format of "<code>nX</code>" where <code>X</code> is a format character that represents a packing format and <code>n</code> is a number of packing size. The number can be omitted, and it would be treated as <code>1</code> in that case.
-</p>
-<p>
-Following format characters would take a <code>number</code> value from the argument list and pack them into a binary sequence.
-</p>
-<ul>
-<li><code>b</code> .. A one-byte signed number.</li>
-<li><code>B</code> .. A one-byte unsigned number.</li>
-<li><code>h</code> .. A two-byte signed number.</li>
-<li><code>H</code> .. A two-byte unsigned number.</li>
-<li><code>i</code> .. A four-byte signed number.</li>
-<li><code>I</code> .. A four-byte unsigned number.</li>
-<li><code>l</code> .. A four-byte signed number.</li>
-<li><code>L</code> .. A four-byte unsigned number.</li>
-<li><code>q</code> .. A eight-byte signed number.</li>
-<li><code>Q</code> .. A eight-byte unsigned number.</li>
-<li><code>f</code> .. A float-typed number occupying four bytes.</li>
-<li><code>d</code> .. A double-typed number occupying eight bytes.</li>
-</ul>
-<p>
-As for them, the packing size <code>n</code> means the number of values to be packed.
-</p>
-<p>
-Following format characters would take a <code>string</code> value from the argument list and pack them into a binary sequence.
-</p>
-<ul>
-<li><code>s</code> .. Packs a sequence of UTF-8 codes in the string. The packing size <code>n</code> means the size of the room in bytes where the character codes are to be packed. Only the sequence within the allocated room would be packed. If the string length is smaller than the room, the lacking part would be filled with zero.</li>
-<li><code>c</code> .. Picks the first byte of the string and packs it as a one-byte unsigned number. The packing size <code>n</code> means the number of values to be packed.</li>
-</ul>
-<p>
-Following format character would take no value from the argument list.
-</p>
-<ul>
-<li><code>x</code> .. Fills the binary with zero. The packing size <code>n</code> means the size of the room in bytes to be filled with zero.</li>
-</ul>
-<p>
-The default byte-order for numbers of two-byte, four-byte and eight-byte depends on the system the interpreter is currently running. You can change it by the following specifiers:
-</p>
-<ul>
-<li><code>@</code> .. System-dependent order.</li>
-<li><code>=</code> .. System-dependent order.</li>
-<li><code>&lt;</code> .. Little endian</li>
-<li><code>&gt;</code> .. Big endian</li>
-<li><code>!</code> .. Big endian</li>
-</ul>
-<p>
-You can specify an asterisk character "<code>*</code>" for the number of packing size that picks that number from the argument list.
-</p>
-<p>
-You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>" in the format to change coding character set while packing a string with format character "<code>s</code>" from UTF-8.
-</p>
-<p>
-<strong>iterator#pingpong</strong>
-</p>
-<p>
-<code>iterator#pingpong(n?:number):[sticky,sticky@top,sticky@btm] {block?}</code>
-</p>
-<p>
-Creates an iterator that iterates elements in the source iterator from top to bottom, and then from bottom to top repeatedly.
-</p>
-<p>
-The argument <code>n</code> specifies the number of elements the created iterator returns. If omitted, it would iterates elements infinitely.
-</p>
-<p>
-Below is an example:
-</p>
-<pre><code>x = [`A, `B, `C, `D, `E].pingpong()
-// x generates `A, `B, `C, `D, `E, `D, `C, `B, `A, `B, ..
-</code></pre>
-<p>
-The following attributes specify whether the elements on top and bottom are duplicated:
-</p>
-<ul>
-<li><code>:sticky</code> .. Duplicate the top and bottom elements.</li>
-<li><code>:sticky@top</code> .. Duplicate the top element.</li>
-<li><code>:sticky@btm</code> .. Duplicate the bottom element.</li>
-</ul>
-<p>
-Below is an example:
-</p>
-<pre><code>x = [`A, `B, `C, `D, `E].pingpong():sticky
-// x generates `A, `B, `C, `D, `E, `E, `D, `C, `B, `A, `A, `B, ..
-</code></pre>
-<p>
-<strong>iterator#print</strong>
-</p>
-<p>
-<code>iterator#print(stream?:stream:w):void</code>
-</p>
-<p>
-Prints elements to the specified <code>stream</code>.
-</p>
-<p>
-If omitted, they are printed to the standard output.
-</p>
-<p>
-<strong>iterator#printf</strong>
-</p>
-<p>
-<code>iterator#printf(format:string, stream?:stream:w):void</code>
-</p>
-<p>
-Prints items in the iterable by using the format.
-</p>
-<p>
-<strong>iterator#println</strong>
-</p>
-<p>
-<code>iterator#println(stream?:stream:w):void</code>
-</p>
-<p>
-<strong>iterator#rank</strong>
-</p>
-<p>
-<code>iterator#rank(directive?) {block?}</code>
-</p>
-<p>
-Creates an iterable of rank numbers for elements after sorting them.
-</p>
-<p>
-In default, they are sorted in an ascending order. This means that, if two elements <code>x</code> and <code>y</code> has the relationship of <code>x &lt; y</code>, <code>x</code> would be placed before <code>y</code>. You can change the order by specifying the argument <code>directive</code> with the following symbols:
-</p>
-<ul>
-<li><code>`ascend</code> .. Sorts in an ascending order. This is the default.</li>
-<li><code>`descend</code> .. Sorts in a descending order.</li>
-</ul>
-<p>
-You can also put a function to the argument <code>directive</code> that takes two arguments <code>x</code> and <code>y</code> and is expected to return numbers below:
-</p>
-<ul>
-<li><code>x == y</code> .. Zero.</li>
-<li><code>x &lt; y</code> .. A number less than zero.</li>
-<li><code>x &gt; y</code> .. A number greater than zero.</li>
-</ul>
-<p>
-When an attribute :stable is specified, the original order shall be kept for elements that are determined as the same.
-</p>
-<p>
-<strong>iterator#reduce</strong>
-</p>
-<p>
-<code>iterator#reduce(accum) {block}</code>
-</p>
-<p>
-Evaluates a block with a parameter format <code>|value, accum|</code> and leaves the result as the next <code>accum</code> value.
-</p>
-<p>
-It returns the final <code>accum</code> value as its result.
-</p>
-<p>
-Below is an example to calculate summation of the elements:
-</p>
-<pre><code>x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-n = x.reduce(0) {|value, accum| value + accum}
-// n is 55
-</code></pre>
-<p>
-<strong>iterator#replace</strong>
-</p>
-<p>
-<code>iterator#replace(value, replace) {block?}</code>
-</p>
-<p>
-Creates an iterator that replaces the <code>value</code> in the original iterablewith the value of <code>replace</code>.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<strong>iterator#reverse</strong>
-</p>
-<p>
-<code>iterator#reverse() {block?}</code>
-</p>
-<p>
-Creates an iterator that iterates elements in the source iterable from tail to top.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<strong>iterator#roundoff</strong>
-</p>
-<p>
-<code>iterator#roundoff(threshold:number =&gt; 1e-10) {block?}</code>
-</p>
-<p>
-Creates an iterator that replaces a number with zero if it is less than the specified <code>threshold</code>.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<strong>iterator#runlength</strong>
-</p>
-<p>
-<code>iterator#runlength() {block?}</code>
-</p>
-<p>
-Creates an iterator that counts the number of consecutive same value and generates elements in a form of <code>[cnt, value]</code> where <code>cnt</code> indicates how many <code>value</code> appears in a row.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-Below is an example:
-</p>
-<pre><code>x = [`A, `A, `B, `C, `C, `C, `D, `D].runlength()
-// x generates [2, `A], [1, `B], [3, `C], [2, `D]
-</code></pre>
-<p>
-<strong>iterator#since</strong>
-</p>
-<p>
-<code>iterator#since(criteria) {block?}</code>
-</p>
-<p>
-Creates an iterator that picks up each element in the iterable since criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<strong>iterator#skip</strong>
-</p>
-<p>
-<code>iterator#skip(n:number) {block?}</code>
-</p>
-<p>
-Creates an iterator that skips <code>n</code> elements before picking up next element.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-Below is an example:
-</p>
-<pre><code>x = [`A, `B, `C, `D, `E, `F, `G, `H].skip(2)
-// x generates `A, `D, `G
-</code></pre>
-<p>
-<strong>iterator#skipnil</strong>
-</p>
-<p>
-<code>iterator#skipnil() {block?}</code>
-</p>
-<p>
-Creates an iterator that skips <code>nil</code> in the source iterable.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-Below is an example:
-</p>
-<pre><code>x = [`A, nil, `C, nil, nil, `F, nil, `H].skipnil()
-// x generates `A, `C, `F, `H
-</code></pre>
-<p>
-<strong>iterator#sort</strong>
-</p>
-<p>
-<code>iterator#sort(directive?, keys[]?):[stable] {block?}</code>
-</p>
-<p>
-Creates an iterator of elements after sorting them.
-</p>
-<p>
-In default, they are sorted in an ascending order. This means that, if two elements <code>x</code> and <code>y</code> has the relationship of <code>x &lt; y</code>, <code>x</code> would be placed before <code>y</code>. You can change the order by specifying the argument <code>directive</code> with the following symbols:
-</p>
-<ul>
-<li><code>`ascend</code> .. Sorts in an ascending order. This is the default.</li>
-<li><code>`descend</code> .. Sorts in a descending order.</li>
-</ul>
-<p>
-You can also put a function to the argument <code>directive</code> that takes two arguments <code>x</code> and <code>y</code> and is expected to return numbers below:
-</p>
-<ul>
-<li><code>x == y</code> .. Zero.</li>
-<li><code>x &lt; y</code> .. A number less than zero.</li>
-<li><code>x &gt; y</code> .. A number greater than zero.</li>
-</ul>
-<p>
-When an attribute :stable is specified, the original order shall be kept for elements that are determined as the same. If the argument <code>keys</code> is specified, it would be used as a key instead of element values.
-</p>
-<p>
-<strong>iterator#stddev</strong>
-</p>
-<p>
-<code>iterator#stddev()</code>
-</p>
-<p>
-Calculates a standard deviation of elements in the iterable.
-</p>
-<p>
-<strong>iterator#sum</strong>
-</p>
-<p>
-<code>iterator#sum()</code>
-</p>
-<p>
-Calculates a summation of elements in the iterable.
-</p>
-<p>
-It can work on an iterable with elements of a value type that supports addition operator. Below is a list of such value types:
-</p>
-<ul>
-<li><code>number</code></li>
-<li><code>complex</code></li>
-<li><code>string</code></li>
-<li><code>matrix</code></li>
-<li><code>rational</code></li>
-<li><code>timedelta</code></li>
-<li><code>gmp.mpz</code></li>
-<li><code>gmp.mpq</code></li>
-<li><code>gmp.mpf</code></li>
-</ul>
-<p>
-<strong>iterator#tail</strong>
-</p>
-<p>
-<code>iterator#tail(n:number) {block?}</code>
-</p>
-<p>
-Creates an iterator that takes the last <code>n</code> elements from the source iterable.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<strong>iterator#until</strong>
-</p>
-<p>
-<code>iterator#until(criteria) {block?}</code>
-</p>
-<p>
-Creates an iterator that picks up each element in the list until criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<strong>iterator#variance</strong>
-</p>
-<p>
-<code>iterator#variance()</code>
-</p>
-<p>
-Calculates a variance of elements in the iterable.
-</p>
-<p>
-<strong>iterator#walk</strong>
-</p>
-<p>
-<code>iterator#walk():[bfs,dfs] {block?}</code>
-</p>
-<p>
-Creates an iterator that searches items recursively if they are lists or iterators.
-</p>
-<p>
-Specifying an attribute could customize searching order as below:
-</p>
-<ul>
-<li><code>:dfs</code> .. Searches in depth-first order. This is the default behavior.</li>
-<li><code>:bfs</code> .. Searches in breadth-first order.</li>
-</ul>
-<p>
-Unlike <code>iterator#flat()</code>, <code>iterator#walk()</code> creates an iterator with an infinite flag. This means that the created iterator is intended only for iteration and can not be converted to a list.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-Below is an example:
-</p>
-<pre><code>x = [[`A, `B, `C], [`D, `E, [`F, `G, `H], `I, `J], `K, `L]
-
-y = x.walk():dfs
-// y generates `A, `B, `C, `D, `E, `F, `G, `H, `I, `J, `K, `L
-
-y = x.walk():bfs
-// y generates `K, `L, `A, `B, `C, `D, `E, `I, `J, `F, `G, `H
-</code></pre>
-<p>
-<strong>iterator#while</strong>
-</p>
-<p>
-<code>iterator#while (criteria) {block?}</code>
-</p>
-<p>
-Creates an iterator that picks up each element in the list while criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<h2><span class="caption-index-2">6.21</span><a name="anchor-6-21"></a>list Class</h2>
+<h2><span class="caption-index-2">6.20</span><a name="anchor-6-20"></a>iterator/list Class</h2>
 <p>
 The <code>list</code> class provides measures to handle a list structure, which stores values on memory that can be accessed by indexer.
 </p>
-<h3><span class="caption-index-3">6.21.1</span><a name="anchor-6-21-1"></a>Index Access</h3>
+<h3><span class="caption-index-3">6.20.1</span><a name="anchor-6-20-1"></a>Index Access</h3>
 <p>
 You can read and write element values in a list with an indexer by giving it an index number starting from zero. Below is an example:
 </p>
@@ -5541,7 +4476,7 @@ You can read and write element values in a list with an indexer by giving it an 
 <pre><code>println(x[2]) // prints `C
 x[4] = `e     // replaces `E with `e
 </code></pre>
-<h3><span class="caption-index-3">6.21.2</span><a name="anchor-6-21-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.20.2</span><a name="anchor-6-20-2"></a>Function to Create list Instance</h3>
 <p>
 <strong>list</strong>
 </p>
@@ -5594,7 +4529,34 @@ In default, all the elements in each iterators are added to the created list. Sp
 <li><code>:or</code> .. All the elements are added. This is the default behavior.</li>
 <li><code>:xor</code> .. Elements that exist in only one iterator are added.</li>
 </ul>
-<h3><span class="caption-index-3">6.21.3</span><a name="anchor-6-21-3"></a>Method Specific to List Class</h3>
+<h3><span class="caption-index-3">6.20.3</span><a name="anchor-6-20-3"></a>Function to Create iterator Instance</h3>
+<p>
+<strong>iterator</strong>
+</p>
+<p>
+<code>iterator(value+) {block?}</code>
+</p>
+<p>
+Creates an iterator that combines iterators given in the argument.
+</p>
+<p>
+If an argument is not an iterator, that would be added as an element.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<h3><span class="caption-index-3">6.20.4</span><a name="anchor-6-20-4"></a>Method Specific to list Class</h3>
 <p>
 <strong>list#add</strong>
 </p>
@@ -5816,12 +4778,69 @@ In default, this returns an iterator as its result value. Specifying the followi
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h3><span class="caption-index-3">6.21.4</span><a name="anchor-6-21-4"></a>Method Common between Iterator and List Class</h3>
+<h3><span class="caption-index-3">6.20.5</span><a name="anchor-6-20-5"></a>Method Specific to iterator Class</h3>
 <p>
-<strong>list#after</strong>
+<strong>iterator#delay</strong>
 </p>
 <p>
-<code>list#after(criteria) {block?}</code>
+<code>iterator#delay(delay:number) {block?}</code>
+</p>
+<p>
+Creates an iterator that returns each element with an interval time specified by the argument <code>delay</code> in seconds.
+</p>
+<p>
+<strong>iterator#isinfinite</strong>
+</p>
+<p>
+<code>iterator#isinfinite()</code>
+</p>
+<p>
+Returns <code>true</code> if the iterator is infinite one.
+</p>
+<p>
+The trait of iterator's infinity is used to avoid an endless process by evaluating an infinite iterator. An attempt to evaluate an infinite iterator such as creation of a list from it would occur an error.
+</p>
+<p>
+<strong>iterator#next</strong>
+</p>
+<p>
+<code>iterator#next()</code>
+</p>
+<p>
+Returns a next element of the iterator. This operation updates the iterator's internal status.
+</p>
+<p>
+<strong>iterator#repeater</strong>
+</p>
+<p>
+<code>iterator#repeater()</code>
+</p>
+<p>
+Makes the iterator behave as a "repeater". This would allow the iterator be evaulated when it appears as an element of another "repeater" iterator.
+</p>
+<p>
+Below is an example:
+</p>
+<pre><code>x = repeat(3):iter {
+    ['apple', 'orange', 'grape'].each()
+}
+println(x)
+// Just prints iterator instance three times
+// since x can't evaluate the internal iterator.
+
+x = repeat(3):iter {
+    ['apple', 'orange', 'grape'].each().repeater()
+}
+println(x)
+// Prints 'apple', 'orange' and  'grape' three times
+// after evaluating the internal iterator.
+</code></pre>
+<h3><span class="caption-index-3">6.20.6</span><a name="anchor-6-20-6"></a>Method Common between list and iterator Class</h3>
+<p>
+<strong>iterable#after</strong>
+</p>
+<p>
+<code>iterable#after(criteria) {block?}</code>
 </p>
 <p>
 Creates an iterator that picks up elements that appear at positions after the criteria is evaluated to be <code>true</code>.
@@ -5844,10 +4863,10 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#align</strong>
+<strong>iterable#align</strong>
 </p>
 <p>
-<code>list#align(n:number, value?):map {block?}</code>
+<code>iterable#align(n:number, value?) {block?}</code>
 </p>
 <p>
 Creates an iterator that returns the specified number of elements in the source iterator. If the number is larger than the length of the source iterator, the lacking part is filled with <code>value</code>. If the argument <code>value</code> is omitted, <code>nil</code> is used for the filling.
@@ -5865,19 +4884,19 @@ Below is an example to specify a number that exceeds the source length:
 // x generates `A, `B, `C, `D, `E, `F, nil, nil.
 </code></pre>
 <p>
-<strong>list#and</strong>
+<strong>iterable#and</strong>
 </p>
 <p>
-<code>list#and()</code>
+<code>iterable#and()</code>
 </p>
 <p>
 Calculates a logical AND result of all the values in the iterable.
 </p>
 <p>
-<strong>list#average</strong>
+<strong>iterable#average</strong>
 </p>
 <p>
-<code>list#average()</code>
+<code>iterable#average()</code>
 </p>
 <p>
 Calculates an average of elements in the iterable.
@@ -5895,10 +4914,10 @@ It can work on an iterable with elements of type that supports addition and divi
 <li><code>gmp.mpf</code></li>
 </ul>
 <p>
-<strong>list#before</strong>
+<strong>iterable#before</strong>
 </p>
 <p>
-<code>list#before(criteria) {block?}</code>
+<code>iterable#before(criteria) {block?}</code>
 </p>
 <p>
 Creates an iterator that extracts elements in the iterable before criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
@@ -5918,19 +4937,19 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#contains</strong>
+<strong>iterable#contains</strong>
 </p>
 <p>
-<code>list#contains(value)</code>
+<code>iterable#contains(value)</code>
 </p>
 <p>
 Returns <code>true</code> if the specified value appears in the iterable.
 </p>
 <p>
-<strong>list#count</strong>
+<strong>iterable#count</strong>
 </p>
 <p>
-<code>list#count(criteria?)</code>
+<code>iterable#count(criteria?)</code>
 </p>
 <p>
 Returns a number of elements that matches the given criteria which is a single-argument function or a value.
@@ -5939,10 +4958,10 @@ Returns a number of elements that matches the given criteria which is a single-a
 When a function is applied, it counts the number of true after evaluating element value with the function. If a value is applied, it counts the number of elements that are equal to the value.
 </p>
 <p>
-<strong>list#cycle</strong>
+<strong>iterable#cycle</strong>
 </p>
 <p>
-<code>list#cycle(n?:number) {block?}</code>
+<code>iterable#cycle(n?:number) {block?}</code>
 </p>
 <p>
 Creates an iterator that iterates elements in the source iterator cyclically.
@@ -5957,10 +4976,10 @@ Below is an example:
 // x generates `A, `B, `C, `D, `E, `A, `B, `C, `D, `E, `A, `B, ..
 </code></pre>
 <p>
-<strong>list#each</strong>
+<strong>iterable#each</strong>
 </p>
 <p>
-<code>list#each() {block?}</code>
+<code>iterable#each() {block?}</code>
 </p>
 <p>
 Creates an iterator that iterates each element in the list.
@@ -5980,10 +4999,10 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#filter</strong>
+<strong>iterable#filter</strong>
 </p>
 <p>
-<code>list#filter(criteria?) {block?}</code>
+<code>iterable#filter(criteria?) {block?}</code>
 </p>
 <p>
 Creates an iterable that filters values in the source iterable by a criteria.
@@ -6011,16 +5030,60 @@ y = filter(&amp;{$x &gt; 3})
 // y generates 4, 5, 9
 </code></pre>
 <p>
-<strong>list#find</strong>
+<strong>iterable#find</strong>
 </p>
 <p>
-<code>list#find(criteria?):[index]</code>
+<code>iterable#find(criteria?):[index]</code>
 </p>
 <p>
-<strong>list#fold</strong>
+<strong>iterable#flat</strong>
 </p>
 <p>
-<code>list#fold(n:number, nstep?:number):map:[iteritem,neat] {block?}</code>
+<code>iterable#flat():[bfs,dfs] {block?}</code>
+</p>
+<p>
+Creates an iterator that searches items recursively if they are lists or iterators.
+</p>
+<p>
+Specifying an attribute could customize searching order as below:
+</p>
+<ul>
+<li><code>:dfs</code> .. Searches in depth-first order. This is the default behavior.</li>
+<li><code>:bfs</code> .. Searches in breadth-first order.</li>
+</ul>
+<p>
+Unlike <code>iterator#walk()</code>, <code>iterator#flat()</code> creates an iterator without an infinite flag. This means that the created iterator can be converted to a list. You have to confirm that the source iterable doesn't contain any infinite iterators.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+Below is an example:
+</p>
+<pre><code>x = [[`A, `B, `C], [`D, `E, [`F, `G, `H], `I, `J], `K, `L]
+
+y = x.flat():dfs
+// y generates `A, `B, `C, `D, `E, `F, `G, `H, `I, `J, `K, `L
+
+y = x.flat():bfs
+// y generates `K, `L, `A, `B, `C, `D, `E, `I, `J, `F, `G, `H
+</code></pre>
+<p>
+<strong>iterable#fold</strong>
+</p>
+<p>
+<code>iterable#fold(n:number, nstep?:number):map:[iteritem,neat] {block?}</code>
 </p>
 <p>
 Creates an iterator that packs <code>n</code> elements of the source iterator into a list and returns it as its element.
@@ -6047,10 +5110,10 @@ Following is an example to fold elements by 3 with a step of 2:
 // x generates [`A, `B, `C], [`C, `D, `E], [`E, `F, `G], [`G, `H].
 </code></pre>
 <p>
-<strong>list#format</strong>
+<strong>iterable#format</strong>
 </p>
 <p>
-<code>list#format(format:string):map {block?}</code>
+<code>iterable#format(format:string):map {block?}</code>
 </p>
 <p>
 Creates an iterator that converts element values in the source iterable into strings depending on formatter specifier in <code>format</code>.
@@ -6070,10 +5133,10 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#head</strong>
+<strong>iterable#head</strong>
 </p>
 <p>
-<code>list#head(n:number):map {block?}</code>
+<code>iterable#head(n:number):map {block?}</code>
 </p>
 <p>
 Creates an iterator that takes the first <code>n</code> elements from the source iterable.
@@ -6093,10 +5156,10 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#join</strong>
+<strong>iterable#join</strong>
 </p>
 <p>
-<code>list#join(sep?:string):map</code>
+<code>iterable#join(sep?:string):map</code>
 </p>
 <p>
 Joins all the elements in the iterable as strings while inserting the specified separator <code>sep</code> and returns the result.
@@ -6105,28 +5168,28 @@ Joins all the elements in the iterable as strings while inserting the specified 
 If an element is not a <code>string</code> value, it would be converted to a <code>string</code> before being joined.
 </p>
 <p>
-<strong>list#joinb</strong>
+<strong>iterable#joinb</strong>
 </p>
 <p>
-<code>list#joinb()</code>
+<code>iterable#joinb()</code>
 </p>
 <p>
 Joins all the <code>binary</code> values in the iterable and returns the result.
 </p>
 <p>
-<strong>list#len</strong>
+<strong>iterable#len</strong>
 </p>
 <p>
-<code>list#len()</code>
+<code>iterable#len()</code>
 </p>
 <p>
 Returns the length of the iterable.
 </p>
 <p>
-<strong>list#map</strong>
+<strong>iterable#map</strong>
 </p>
 <p>
-<code>list#map(func:function) {block?}</code>
+<code>iterable#map(func:function) {block?}</code>
 </p>
 <p>
 Creates an iterator that generates element values after applying the specfied function on them. The function must take one argument.
@@ -6146,10 +5209,10 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#max</strong>
+<strong>iterable#max</strong>
 </p>
 <p>
-<code>list#max():[index,indices,last_index]</code>
+<code>iterable#max():[index,indices,last_index]</code>
 </p>
 <p>
 Returns the maximum value in the iterable.
@@ -6163,10 +5226,10 @@ It would return a position index where the maximum value is found when one of th
 <li><code>:last_index</code> .. the last index of the maximum value when the value exists at multiple positions.</li>
 </ul>
 <p>
-<strong>list#min</strong>
+<strong>iterable#min</strong>
 </p>
 <p>
-<code>list#min():[index,indices,last_index]</code>
+<code>iterable#min():[index,indices,last_index]</code>
 </p>
 <p>
 Returns the minimum value in the iterable.
@@ -6180,19 +5243,19 @@ It would return a position index where the minimum value is found when one of th
 <li><code>:last_index</code> .. the last index of the minimum value when the value exists at multiple positions.</li>
 </ul>
 <p>
-<strong>list#nilto</strong>
+<strong>iterable#nilto</strong>
 </p>
 <p>
-<code>list#nilto(replace) {block?}</code>
+<code>iterable#nilto(replace) {block?}</code>
 </p>
 <p>
 Creates an iterator that converts <code>nil</code> in the source iterable to the specified value.
 </p>
 <p>
-<strong>list#offset</strong>
+<strong>iterable#offset</strong>
 </p>
 <p>
-<code>list#offset(n:number):map {block?}</code>
+<code>iterable#offset(n:number) {block?}</code>
 </p>
 <p>
 Creates an iterator that returns skips the first <code>n</code> elements in the source iterable.
@@ -6218,19 +5281,19 @@ Below is an example:
 // x generates `D, `E, `F, `G, `H
 </code></pre>
 <p>
-<strong>list#or</strong>
+<strong>iterable#or</strong>
 </p>
 <p>
-<code>list#or()</code>
+<code>iterable#or()</code>
 </p>
 <p>
 Calculates a logical OR result of all the values in the iterable.
 </p>
 <p>
-<strong>list#pack</strong>
+<strong>iterable#pack</strong>
 </p>
 <p>
-<code>list#pack(format:string)</code>
+<code>iterable#pack(format:string) {block?}</code>
 </p>
 <p>
 Creates a <code>binary</code> instance that has packed elements in the iterable according to specifiers in the <code>format</code>.
@@ -6288,10 +5351,10 @@ You can specify an asterisk character "<code>*</code>" for the number of packing
 You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>" in the format to change coding character set while packing a string with format character "<code>s</code>" from UTF-8.
 </p>
 <p>
-<strong>list#pingpong</strong>
+<strong>iterable#pingpong</strong>
 </p>
 <p>
-<code>list#pingpong(n?:number):[sticky,sticky@top,sticky@btm] {block?}</code>
+<code>iterable#pingpong(n?:number):[sticky,sticky@top,sticky@btm] {block?}</code>
 </p>
 <p>
 Creates an iterator that iterates elements in the source iterator from top to bottom, and then from bottom to top repeatedly.
@@ -6320,10 +5383,10 @@ Below is an example:
 // x generates `A, `B, `C, `D, `E, `E, `D, `C, `B, `A, `A, `B, ..
 </code></pre>
 <p>
-<strong>list#print</strong>
+<strong>iterable#print</strong>
 </p>
 <p>
-<code>list#print(stream?:stream:w)</code>
+<code>iterable#print(stream?:stream:w):void</code>
 </p>
 <p>
 Prints elements to the specified <code>stream</code>.
@@ -6332,25 +5395,25 @@ Prints elements to the specified <code>stream</code>.
 If omitted, they are printed to the standard output.
 </p>
 <p>
-<strong>list#printf</strong>
+<strong>iterable#printf</strong>
 </p>
 <p>
-<code>list#printf(format:string, stream?:stream:w):void</code>
+<code>iterable#printf(format:string, stream?:stream:w):void</code>
 </p>
 <p>
 Prints items in the iterable by using the format.
 </p>
 <p>
-<strong>list#println</strong>
+<strong>iterable#println</strong>
 </p>
 <p>
-<code>list#println(stream?:stream:w)</code>
+<code>iterable#println(stream?:stream:w):void</code>
 </p>
 <p>
-<strong>list#rank</strong>
+<strong>iterable#rank</strong>
 </p>
 <p>
-<code>list#rank(directive?):[stable] {block?}</code>
+<code>iterable#rank(directive?) {block?}</code>
 </p>
 <p>
 Creates an iterable of rank numbers for elements after sorting them.
@@ -6374,10 +5437,10 @@ You can also put a function to the argument <code>directive</code> that takes tw
 When an attribute :stable is specified, the original order shall be kept for elements that are determined as the same.
 </p>
 <p>
-<strong>list#reduce</strong>
+<strong>iterable#reduce</strong>
 </p>
 <p>
-<code>list#reduce(accum) {block}</code>
+<code>iterable#reduce(accum) {block}</code>
 </p>
 <p>
 Evaluates a block with a parameter format <code>|value, accum|</code> and leaves the result as the next <code>accum</code> value.
@@ -6393,10 +5456,10 @@ n = x.reduce(0) {|value, accum| value + accum}
 // n is 55
 </code></pre>
 <p>
-<strong>list#replace</strong>
+<strong>iterable#replace</strong>
 </p>
 <p>
-<code>list#replace(value, replace) {block?}</code>
+<code>iterable#replace(value, replace) {block?}</code>
 </p>
 <p>
 Creates an iterator that replaces the <code>value</code> in the original iterablewith the value of <code>replace</code>.
@@ -6416,10 +5479,10 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#reverse</strong>
+<strong>iterable#reverse</strong>
 </p>
 <p>
-<code>list#reverse() {block?}</code>
+<code>iterable#reverse() {block?}</code>
 </p>
 <p>
 Creates an iterator that iterates elements in the source iterable from tail to top.
@@ -6439,10 +5502,10 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#roundoff</strong>
+<strong>iterable#roundoff</strong>
 </p>
 <p>
-<code>list#roundoff(threshold:number =&gt; 1e-10) {block?}</code>
+<code>iterable#roundoff(threshold:number =&gt; 1e-10) {block?}</code>
 </p>
 <p>
 Creates an iterator that replaces a number with zero if it is less than the specified <code>threshold</code>.
@@ -6462,10 +5525,10 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#runlength</strong>
+<strong>iterable#runlength</strong>
 </p>
 <p>
-<code>list#runlength() {block?}</code>
+<code>iterable#runlength() {block?}</code>
 </p>
 <p>
 Creates an iterator that counts the number of consecutive same value and generates elements in a form of <code>[cnt, value]</code> where <code>cnt</code> indicates how many <code>value</code> appears in a row.
@@ -6491,10 +5554,10 @@ Below is an example:
 // x generates [2, `A], [1, `B], [3, `C], [2, `D]
 </code></pre>
 <p>
-<strong>list#since</strong>
+<strong>iterable#since</strong>
 </p>
 <p>
-<code>list#since(criteria) {block?}</code>
+<code>iterable#since(criteria) {block?}</code>
 </p>
 <p>
 Creates an iterator that picks up each element in the iterable since criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
@@ -6514,10 +5577,10 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#skip</strong>
+<strong>iterable#skip</strong>
 </p>
 <p>
-<code>list#skip(n:number):map {block?}</code>
+<code>iterable#skip(n:number) {block?}</code>
 </p>
 <p>
 Creates an iterator that skips <code>n</code> elements before picking up next element.
@@ -6543,10 +5606,10 @@ Below is an example:
 // x generates `A, `D, `G
 </code></pre>
 <p>
-<strong>list#skipnil</strong>
+<strong>iterable#skipnil</strong>
 </p>
 <p>
-<code>list#skipnil() {block?}</code>
+<code>iterable#skipnil() {block?}</code>
 </p>
 <p>
 Creates an iterator that skips <code>nil</code> in the source iterable.
@@ -6572,10 +5635,10 @@ Below is an example:
 // x generates `A, `C, `F, `H
 </code></pre>
 <p>
-<strong>list#sort</strong>
+<strong>iterable#sort</strong>
 </p>
 <p>
-<code>list#sort(directive?, keys[]?):[stable] {block?}</code>
+<code>iterable#sort(directive?, keys[]?):[stable] {block?}</code>
 </p>
 <p>
 Creates an iterator of elements after sorting them.
@@ -6599,19 +5662,19 @@ You can also put a function to the argument <code>directive</code> that takes tw
 When an attribute :stable is specified, the original order shall be kept for elements that are determined as the same. If the argument <code>keys</code> is specified, it would be used as a key instead of element values.
 </p>
 <p>
-<strong>list#stddev</strong>
+<strong>iterable#stddev</strong>
 </p>
 <p>
-<code>list#stddev()</code>
+<code>iterable#stddev()</code>
 </p>
 <p>
 Calculates a standard deviation of elements in the iterable.
 </p>
 <p>
-<strong>list#sum</strong>
+<strong>iterable#sum</strong>
 </p>
 <p>
-<code>list#sum()</code>
+<code>iterable#sum()</code>
 </p>
 <p>
 Calculates a summation of elements in the iterable.
@@ -6631,10 +5694,10 @@ It can work on an iterable with elements of a value type that supports addition 
 <li><code>gmp.mpf</code></li>
 </ul>
 <p>
-<strong>list#tail</strong>
+<strong>iterable#tail</strong>
 </p>
 <p>
-<code>list#tail(n:number):map {block?}</code>
+<code>iterable#tail(n:number) {block?}</code>
 </p>
 <p>
 Creates an iterator that takes the last <code>n</code> elements from the source iterable.
@@ -6654,10 +5717,10 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#until</strong>
+<strong>iterable#until</strong>
 </p>
 <p>
-<code>list#until(criteria) {block?}</code>
+<code>iterable#until(criteria) {block?}</code>
 </p>
 <p>
 Creates an iterator that picks up each element in the list until criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
@@ -6677,19 +5740,19 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#variance</strong>
+<strong>iterable#variance</strong>
 </p>
 <p>
-<code>list#variance()</code>
+<code>iterable#variance()</code>
 </p>
 <p>
 Calculates a variance of elements in the iterable.
 </p>
 <p>
-<strong>list#walk</strong>
+<strong>iterable#walk</strong>
 </p>
 <p>
-<code>list#walk():[bfs,dfs] {block?}</code>
+<code>iterable#walk():[bfs,dfs] {block?}</code>
 </p>
 <p>
 Creates an iterator that searches items recursively if they are lists or iterators.
@@ -6730,10 +5793,10 @@ y = x.walk():bfs
 // y generates `K, `L, `A, `B, `C, `D, `E, `I, `J, `F, `G, `H
 </code></pre>
 <p>
-<strong>list#while</strong>
+<strong>iterable#while</strong>
 </p>
 <p>
-<code>list#while (criteria) {block?}</code>
+<code>iterable#while (criteria) {block?}</code>
 </p>
 <p>
 Creates an iterator that picks up each element in the list while criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
@@ -6752,8 +5815,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h2><span class="caption-index-2">6.22</span><a name="anchor-6-22"></a>matrix Class</h2>
-<h3><span class="caption-index-3">6.22.1</span><a name="anchor-6-22-1"></a>Function to Create Instance</h3>
+<h2><span class="caption-index-2">6.21</span><a name="anchor-6-21"></a>matrix Class</h2>
+<h3><span class="caption-index-3">6.21.1</span><a name="anchor-6-21-1"></a>Function to Create Instance</h3>
 <p>
 <strong>matrix</strong>
 </p>
@@ -6769,7 +5832,7 @@ The content of the content will be initialized with <code>value</code>. If omitt
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|mat:matrix|</code>, where <code>mat</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">6.22.2</span><a name="anchor-6-22-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.21.2</span><a name="anchor-6-21-2"></a>Method</h3>
 <p>
 <strong>matrix#col</strong>
 </p>
@@ -7036,23 +6099,23 @@ Below is an example with <code>:transpose</code> attribute:
 <p>
 Returns a transposed matrix.
 </p>
-<h2><span class="caption-index-2">6.23</span><a name="anchor-6-23"></a>nil Class</h2>
-<h2><span class="caption-index-2">6.24</span><a name="anchor-6-24"></a>number Class</h2>
+<h2><span class="caption-index-2">6.22</span><a name="anchor-6-22"></a>nil Class</h2>
+<h2><span class="caption-index-2">6.23</span><a name="anchor-6-23"></a>number Class</h2>
 <p>
 The <code>number</code> class provides measures to calculate numbers.
 </p>
-<h3><span class="caption-index-3">6.24.1</span><a name="anchor-6-24-1"></a>Method</h3>
+<h3><span class="caption-index-3">6.23.1</span><a name="anchor-6-23-1"></a>Method</h3>
 <p>
 <strong>number.roundoff</strong>
 </p>
 <p>
 <code>number.roundoff(threshold:number =&gt; 1e-10)</code>
 </p>
-<h2><span class="caption-index-2">6.25</span><a name="anchor-6-25"></a>operator Class</h2>
+<h2><span class="caption-index-2">6.24</span><a name="anchor-6-24"></a>operator Class</h2>
 <p>
 The <code>operator</code> class provides measures to assign operators with a user-defined procedure.
 </p>
-<h3><span class="caption-index-3">6.25.1</span><a name="anchor-6-25-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.24.1</span><a name="anchor-6-24-1"></a>Property</h3>
 <p>
 An <code>operator</code> instance has the following properties:
 </p>
@@ -7091,7 +6154,7 @@ Operator symbol.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.25.2</span><a name="anchor-6-25-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.24.2</span><a name="anchor-6-24-2"></a>Function to Create Instance</h3>
 <p>
 <strong>operator</strong>
 </p>
@@ -7109,7 +6172,7 @@ Below is an example to create an <code>operator</code> instance that is associat
 </p>
 <pre><code>op = operator(`+)
 </code></pre>
-<h3><span class="caption-index-3">6.25.3</span><a name="anchor-6-25-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.24.3</span><a name="anchor-6-24-3"></a>Method</h3>
 <p>
 <strong>operator#assign</strong>
 </p>
@@ -7163,11 +6226,11 @@ The argument <code>type</code> takes a symbol <code>`binary</code> or <code>`una
 <li>If it's omitted or specified with <code>`binary</code>, the method would return a list of pairs of type expressions for its left element and right one.</li>
 <li>If it's specified with <code>`unary</code>, the method would return a list of type expressions for its single element.</li>
 </ul>
-<h2><span class="caption-index-2">6.26</span><a name="anchor-6-26"></a>palette Class</h2>
+<h2><span class="caption-index-2">6.25</span><a name="anchor-6-25"></a>palette Class</h2>
 <p>
 The <code>palette</code> instance has a set of <code>color</code> instance.
 </p>
-<h3><span class="caption-index-3">6.26.1</span><a name="anchor-6-26-1"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.25.1</span><a name="anchor-6-25-1"></a>Function to Create Instance</h3>
 <p>
 <strong>palette</strong>
 </p>
@@ -7195,7 +6258,7 @@ In the second form, it can take one of the following symbols:
 <li><code>`win256</code> .. A palette with 256 colors defined by Windows.</li>
 <li><code>`websafe</code> .. A palette with 216 colors that assure to be displayed correctly in any Web environments. It actually has 256 entries though the last 40 entries are initialized with black.</li>
 </ul>
-<h3><span class="caption-index-3">6.26.2</span><a name="anchor-6-26-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.25.2</span><a name="anchor-6-25-2"></a>Method</h3>
 <p>
 <strong>palette#each</strong>
 </p>
@@ -7252,11 +6315,11 @@ Updates palette entries according to color data in an image or a palette.
 <p>
 The order of existing entries will be kept intact. If attribute shrink is specified, the whole size will be shrinked to a number powered by two that is enough to contain unique entries.
 </p>
-<h2><span class="caption-index-2">6.27</span><a name="anchor-6-27"></a>pointer Class</h2>
+<h2><span class="caption-index-2">6.26</span><a name="anchor-6-26"></a>pointer Class</h2>
 <p>
 The <code>pointer</code> class provides measures to read and write content in a <code>binary</code> instance.
 </p>
-<h3><span class="caption-index-3">6.27.1</span><a name="anchor-6-27-1"></a>Method</h3>
+<h3><span class="caption-index-3">6.26.1</span><a name="anchor-6-26-1"></a>Method</h3>
 <p>
 <strong>pointer#forward</strong>
 </p>
@@ -7287,8 +6350,8 @@ The <code>pointer</code> class provides measures to read and write content in a 
 <p>
 <code>pointer#unpacks(format:string, values*:number)</code>
 </p>
-<h2><span class="caption-index-2">6.28</span><a name="anchor-6-28"></a>quote Class</h2>
-<h2><span class="caption-index-2">6.29</span><a name="anchor-6-29"></a>rational Class</h2>
+<h2><span class="caption-index-2">6.27</span><a name="anchor-6-27"></a>quote Class</h2>
+<h2><span class="caption-index-2">6.28</span><a name="anchor-6-28"></a>rational Class</h2>
 <p>
 The <code>rational</code> class provides measures to handle rational numbers.
 </p>
@@ -7306,7 +6369,7 @@ Below are examples to realize a common fraction two-thirds:
 2r / 3
 2 / 3r
 </code></pre>
-<h3><span class="caption-index-3">6.29.1</span><a name="anchor-6-29-1"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.28.1</span><a name="anchor-6-28-1"></a>Function to Create Instance</h3>
 <p>
 <strong>rational</strong>
 </p>
@@ -7322,7 +6385,7 @@ If the argument <code>denom</code> is omitted, one is set as its denominator.
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|r:rational|</code>, where <code>r</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">6.29.2</span><a name="anchor-6-29-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.28.2</span><a name="anchor-6-28-2"></a>Method</h3>
 <p>
 <strong>rational.reduce</strong>
 </p>
@@ -7332,15 +6395,15 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <p>
 Reduces the rational number by dividing its numerator and denominator by their GCD.
 </p>
-<h2><span class="caption-index-2">6.30</span><a name="anchor-6-30"></a>semaphore Class</h2>
-<h3><span class="caption-index-3">6.30.1</span><a name="anchor-6-30-1"></a>Function to Create Instance</h3>
+<h2><span class="caption-index-2">6.29</span><a name="anchor-6-29"></a>semaphore Class</h2>
+<h3><span class="caption-index-3">6.29.1</span><a name="anchor-6-29-1"></a>Function to Create Instance</h3>
 <p>
 <strong>semaphore</strong>
 </p>
 <p>
 <code>semaphore()</code>
 </p>
-<h3><span class="caption-index-3">6.30.2</span><a name="anchor-6-30-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.29.2</span><a name="anchor-6-29-2"></a>Method</h3>
 <p>
 <strong>semaphore#release</strong>
 </p>
@@ -7368,8 +6431,8 @@ Forms a critical session by grabbing the semaphore's ownership, executing the bl
 <p>
 Watis for the semaphore being released by other threads, and ghen grabs that ownership.
 </p>
-<h2><span class="caption-index-2">6.31</span><a name="anchor-6-31"></a>stream Class</h2>
-<h3><span class="caption-index-3">6.31.1</span><a name="anchor-6-31-1"></a>Property</h3>
+<h2><span class="caption-index-2">6.30</span><a name="anchor-6-30"></a>stream Class</h2>
+<h3><span class="caption-index-3">6.30.1</span><a name="anchor-6-30-1"></a>Property</h3>
 <p>
 A <code>stream</code> instance has the following properties:
 </p>
@@ -7493,7 +6556,7 @@ R</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.31.2</span><a name="anchor-6-31-2"></a>Operator</h3>
+<h3><span class="caption-index-3">6.30.2</span><a name="anchor-6-30-2"></a>Operator</h3>
 <p>
 You can use the operator <code>&lt;&lt;</code> to output a content of a value to a <code>stream</code>. It comes like <code>stream &lt;&lt; obj</code> and <code>obj</code> is converted to a string before output to the stream.
 </p>
@@ -7505,7 +6568,7 @@ Since the operator returns the <code>stream</code> instance specified on the lef
 </p>
 <pre><code>sys.stdout &lt;&lt; 'First' &lt;&lt; 'Second'
 </code></pre>
-<h3><span class="caption-index-3">6.31.3</span><a name="anchor-6-31-3"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">6.30.3</span><a name="anchor-6-30-3"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>stream</code> instance in its argument can also take a value of <code>string</code> and <code>binary</code> as below:
 </p>
@@ -7521,7 +6584,7 @@ Using the above casting feature, you can call a function <code>f(stream:stream)<
 <li><code>f('foo.txt')</code> .. Implicit casting: from <code>string</code> to <code>stream</code>.</li>
 <li><code>f(b'\x00\x12\x34\x56')</code> .. Implicit casting: from <code>binary</code> to <code>stream</code>.</li>
 </ul>
-<h3><span class="caption-index-3">6.31.4</span><a name="anchor-6-31-4"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.30.4</span><a name="anchor-6-30-4"></a>Function to Create Instance</h3>
 <p>
 <strong>open</strong>
 </p>
@@ -7568,7 +6631,7 @@ The argument <code>codec</code> specifies a name of the character codec that con
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">6.31.5</span><a name="anchor-6-31-5"></a>Utility Function</h3>
+<h3><span class="caption-index-3">6.30.5</span><a name="anchor-6-30-5"></a>Utility Function</h3>
 <p>
 <strong>readlines</strong>
 </p>
@@ -7595,7 +6658,7 @@ In default, this returns an iterator as its result value. Specifying the followi
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h3><span class="caption-index-3">6.31.6</span><a name="anchor-6-31-6"></a>Method</h3>
+<h3><span class="caption-index-3">6.30.6</span><a name="anchor-6-30-6"></a>Method</h3>
 <p>
 <strong>stream#addcr</strong>
 </p>
@@ -7846,7 +6909,7 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 <p>
 <code>stream#write(buff:binary, len?:number):reduce</code>
 </p>
-<h2><span class="caption-index-2">6.32</span><a name="anchor-6-32"></a>string Class</h2>
+<h2><span class="caption-index-2">6.31</span><a name="anchor-6-31"></a>string Class</h2>
 <p>
 The <code>string</code> class provides measures to operate on strings.
 </p>
@@ -7870,11 +6933,11 @@ second line
 third line
 """
 </code></pre>
-<h3><span class="caption-index-3">6.32.1</span><a name="anchor-6-32-1"></a>Suffix Management</h3>
+<h3><span class="caption-index-3">6.31.1</span><a name="anchor-6-31-1"></a>Suffix Management</h3>
 <p>
 When an string literal is suffixed by a character <code>$</code>, a handler registered by <code>string.translate()</code> function that is supposed to translate the string into other natural languages would be evaluated.
 </p>
-<h3><span class="caption-index-3">6.32.2</span><a name="anchor-6-32-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.31.2</span><a name="anchor-6-31-2"></a>Method</h3>
 <p>
 <strong>string#align</strong>
 </p>
@@ -8354,7 +7417,7 @@ This method takes into account the character width based on the specification of
 <p>
 Converts zenkaku to hankaku characters
 </p>
-<h2><span class="caption-index-2">6.33</span><a name="anchor-6-33"></a>suffixmgr Class</h2>
+<h2><span class="caption-index-2">6.32</span><a name="anchor-6-32"></a>suffixmgr Class</h2>
 <p>
 The <code>suffixmgr</code> class provides measures to access suffix managers that are responsible to handle suffix symbols appended to number or string literals.
 </p>
@@ -8368,7 +7431,7 @@ You can use that suffix like below:
 </p>
 <pre><code>'hello world'X
 </code></pre>
-<h3><span class="caption-index-3">6.33.1</span><a name="anchor-6-33-1"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.32.1</span><a name="anchor-6-32-1"></a>Function to Create Instance</h3>
 <p>
 <strong>suffixmgr</strong>
 </p>
@@ -8385,7 +7448,7 @@ Creates a reference to one of two suffix managers, number and string.
 <p>
 Specify the argument <code>type</code> with a symbol <code>`number</code> for a number suffix manager and <code>`string</code> for a string suffix manager.
 </p>
-<h3><span class="caption-index-3">6.33.2</span><a name="anchor-6-33-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.32.2</span><a name="anchor-6-32-2"></a>Method</h3>
 <p>
 <strong>suffixmgr#assign</strong>
 </p>
@@ -8398,8 +7461,8 @@ Assigns a procedure to a specified symbol in the suffix manager. The procedure i
 <p>
 An error occurs if the same suffix symbol has already been assigned. Specifying <code>:overwrite</code> attribute will forcibly overwrite an existing assignment.
 </p>
-<h2><span class="caption-index-2">6.34</span><a name="anchor-6-34"></a>symbol Class</h2>
-<h3><span class="caption-index-3">6.34.1</span><a name="anchor-6-34-1"></a>Method</h3>
+<h2><span class="caption-index-2">6.33</span><a name="anchor-6-33"></a>symbol Class</h2>
+<h3><span class="caption-index-3">6.33.1</span><a name="anchor-6-33-1"></a>Method</h3>
 <p>
 <strong>symbol#eval</strong>
 </p>
@@ -8409,8 +7472,8 @@ An error occurs if the same suffix symbol has already been assigned. Specifying 
 <p>
 Evaluate a symbol object.
 </p>
-<h2><span class="caption-index-2">6.35</span><a name="anchor-6-35"></a>template Class</h2>
-<h3><span class="caption-index-3">6.35.1</span><a name="anchor-6-35-1"></a>Cast Operation</h3>
+<h2><span class="caption-index-2">6.34</span><a name="anchor-6-34"></a>template Class</h2>
+<h3><span class="caption-index-3">6.34.1</span><a name="anchor-6-34-1"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>template</code> instance in its argument can also take a value of <code>stream</code> as below:
 </p>
@@ -8429,7 +7492,7 @@ Using the above casting feature, you can call a function <code>f(tmpl:template)<
 <li><code>f(template('foo.txt'))</code> .. Implicit casting: from <code>string</code> to <code>stream</code>.</li>
 <li><code>f('foo.txt')</code> .. Implicit casting: from <code>string</code> to <code>stream</code>, then from <code>stream</code> to <code>template</code>.</li>
 </ul>
-<h3><span class="caption-index-3">6.35.2</span><a name="anchor-6-35-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.34.2</span><a name="anchor-6-34-2"></a>Function to Create Instance</h3>
 <p>
 <strong>template</strong>
 </p>
@@ -8449,7 +7512,7 @@ Following attributes would customize the parser's behavior:
 <li><code>:lasteol</code></li>
 <li><code>:noindent</code></li>
 </ul>
-<h3><span class="caption-index-3">6.35.3</span><a name="anchor-6-35-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.34.3</span><a name="anchor-6-34-3"></a>Method</h3>
 <p>
 <strong>template#parse</strong>
 </p>
@@ -8494,7 +7557,7 @@ Renders stored content to the specified stream.
 <p>
 If the stream is omitted, the function returns the rendered result as a string.
 </p>
-<h3><span class="caption-index-3">6.35.4</span><a name="anchor-6-35-4"></a>Method Called by Template Directive</h3>
+<h3><span class="caption-index-3">6.34.4</span><a name="anchor-6-34-4"></a>Method Called by Template Directive</h3>
 <p>
 <strong>template#block</strong>
 </p>
@@ -8683,11 +7746,11 @@ Content of base.
 Content of derived.
 Block ends here.
 </code></pre>
-<h2><span class="caption-index-2">6.36</span><a name="anchor-6-36"></a>timedelta Class</h2>
+<h2><span class="caption-index-2">6.35</span><a name="anchor-6-35"></a>timedelta Class</h2>
 <p>
 The <code>timedelta</code> instance provides a time delta information that works with <code>datetime</code> instance. You can shift time information of <code>datetime</code> by applying addition or subtraction of <code>timedelta</code> to it.
 </p>
-<h3><span class="caption-index-3">6.36.1</span><a name="anchor-6-36-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.35.1</span><a name="anchor-6-35-1"></a>Property</h3>
 <p>
 A <code>timedelta</code> instance has the following properties:
 </p>
@@ -8760,7 +7823,7 @@ Offset of micro seconds.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.36.2</span><a name="anchor-6-36-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.35.2</span><a name="anchor-6-35-2"></a>Function to Create Instance</h3>
 <p>
 <strong>timedelta</strong>
 </p>
@@ -8770,8 +7833,8 @@ Offset of micro seconds.</td>
 <p>
 Returns a timedelta instance with specified values. The instance actually holds properties of days, secs and usecs.
 </p>
-<h2><span class="caption-index-2">6.37</span><a name="anchor-6-37"></a>uri Class</h2>
-<h3><span class="caption-index-3">6.37.1</span><a name="anchor-6-37-1"></a>Property</h3>
+<h2><span class="caption-index-2">6.36</span><a name="anchor-6-36"></a>uri Class</h2>
+<h3><span class="caption-index-3">6.36.1</span><a name="anchor-6-36-1"></a>Property</h3>
 <p>
 A <code>uri</code> instance has the following properties:
 </p>
@@ -8912,7 +7975,7 @@ R/W</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.37.2</span><a name="anchor-6-37-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.36.2</span><a name="anchor-6-36-2"></a>Function to Create Instance</h3>
 <p>
 <strong>uri</strong>
 </p>
@@ -8928,7 +7991,7 @@ If the argument <code>str</code> is specified, it would be parsed as a URI which
 <p>
 If omitted, the instance would be initialized as an empty one.
 </p>
-<h3><span class="caption-index-3">6.37.3</span><a name="anchor-6-37-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.36.3</span><a name="anchor-6-36-3"></a>Method</h3>
 <p>
 <strong>uri#getfragment</strong>
 </p>
