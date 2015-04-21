@@ -6,6 +6,17 @@ title: Gallery
 
 # {{ page.title }}
 
+## Application
+
+<table>
+<tr>
+<td><a href="http://app.gura-lang.org/gurashot/">Gura Shot</a></td>
+</tr>
+<tr>
+<td><img src="images/gurashot-image.png"></td>
+</tr>
+</table>
+
 
 ## OpenGL Demo
 
