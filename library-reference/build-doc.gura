@@ -1,8 +1,8 @@
 #!/usr/bin/env gura
 import(markdown)
 
-dirNameOut = '.'
-!path.exists(dirNameOut) && fs.mkdir(dirNameOut)
+dirNameOut = path.dirname(sys.argv[0])
+//!path.exists(dirNameOut) && fs.mkdir(dirNameOut)
 
 baseNames = [
 	'basement'
@@ -170,7 +170,7 @@ Renderer@html = class(markdown.Renderer@html) {
 		if (item.type == `h1) {
 			this.out && this.out.print(footerForPage)
 			fileName = path.join(dirNameOut, 'chapter-%02d.md' % (this.indices[0] + 1))
-			println('rendering ', fileName)
+			println('rendering ', path.filename(fileName))
 			this.out = open(fileName, 'w')
 			this.out.print(headerForPage)
 		}
@@ -184,8 +184,9 @@ Renderer@html = class(markdown.Renderer@html) {
 	}
 }
 
+println('Output directory: ', dirNameOut)
 fileName = path.join(dirNameOut, 'index.md')
-println('rendering ', fileName)
+println('rendering ', path.filename(fileName))
 open(fileName, 'w') {|out|
 	out.print(headerForIndex)
 	doc.render@toc {|level:number, indices[]:number, anchorName:string, text:string|

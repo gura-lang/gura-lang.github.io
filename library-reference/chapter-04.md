@@ -1069,6 +1069,9 @@ Returns the minimum value among the given arguments.
 </p>
 <h2><span class="caption-index-2">4.12</span><a name="anchor-4-12"></a>Random</h2>
 <p>
+Random numbers are generated using<a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT/index.html">SIMD-oriented Fast Mersenne Twister (SFMT)</a> library.
+</p>
+<p>
 <strong>rand</strong>
 </p>
 <p>
