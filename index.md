@@ -8,27 +8,32 @@ title: Top
 
 <table>
 
-<tr><td valign="top" style="white-space:nowrap">2015-01-07</td><td>
+<tr><td style="white-space:nowrap">2015-04-10</td><td>
+<a href="library-reference/index.html">Gura Library Reference</a> was published.
+</td></tr>
+
+<tr><td style="white-space:nowrap">2015-01-07</td><td>
 <a href="Download.html">Gura v0.6.1</a> was released.
 </td></tr>
 
-<tr><td valign="top" style="white-space:nowrap">2014-11-20</td><td>
+<!--
+<tr><td style="white-space:nowrap">2014-11-20</td><td>
 Stopped providing Gura v0.6.0 due to a bug that
 Gura Shot, one of its applications, doesn't work well with it.
 </td></tr>
 
-<tr><td valign="top" style="white-space:nowrap">2014-11-03</td><td>
+<tr><td style="white-space:nowrap">2014-11-03</td><td>
 Gura v0.6.0 was released.
 </td></tr>
 
-<tr><td valign="top" style="white-space:nowrap">2014-08-26</td><td>
+<tr><td style="white-space:nowrap">2014-08-26</td><td>
 I've began using Twitter account
 <a href="https://twitter.com/ypsitau">@ypsitau</a>.
 Feel free to contact me when you have any questions and opinions about Gura.
 Japanese and English are avaiable.
 </td></tr>
 
-<tr><td valign="top" style="white-space:nowrap">2014-08-25</td><td>
+<tr><td style="white-space:nowrap">2014-08-25</td><td>
 I made a presentation about Gura at <a href="http://ll.jus.or.jp/2014/">LL Diver</a>,
 a conference concerning light-weight language, on Aug 23rd in Tokyo.
 Presentation material is available
@@ -36,7 +41,7 @@ Presentation material is available
 Thank you for attending the presentation.
 </td></tr>
 
-<tr><td valign="top" style="white-space:nowrap">2014-08-25</td><td>
+<tr><td style="white-space:nowrap">2014-08-25</td><td>
 8 月 23 日にお台場日本未来科学館で行われた軽量プログラミング言語カンファレンス
 <a href="http://ll.jus.or.jp/2014/">LL Diver</a> にて
 Gura のプレゼンテーションを行いました。発表資料は
@@ -44,9 +49,10 @@ Gura のプレゼンテーションを行いました。発表資料は
 参加者のみなさん、ありがとうございました。
 </td></tr>
 
-<tr><td valign="top" style="white-space:nowrap">2014-07-10</td><td>
+<tr><td style="white-space:nowrap">2014-07-10</td><td>
 Gura v0.5.2 was released.
 </td></tr>
+-->
 
 </table>
 
