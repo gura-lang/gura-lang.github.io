@@ -7073,6 +7073,21 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
+<strong>string#embed</strong>
+</p>
+<p>
+<code>string#embed(dst?:stream:w):[lasteol,noindent]</code>
+</p>
+<p>
+Evaluates a string that contains embedded scripts and renders the result to the specified stream.
+</p>
+<p>
+If the stream is omitted, the function returns the rendered result as a string.
+</p>
+<p>
+Calling this method is equivalent to calling a method <code>string#template()</code> to create a <code>template</code> instance on which a method <code>template#render()</code> is applied afterward.
+</p>
+<p>
 <strong>string.encode</strong>
 </p>
 <p>
