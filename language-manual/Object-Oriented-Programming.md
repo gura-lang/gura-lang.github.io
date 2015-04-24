@@ -157,7 +157,7 @@ You can also call a class method by specifying an instance.
 
 ## {{ page.chapter }}.3. Inheritance
 
-## {{ page.chapter }}.3.1. Basic
+### {{ page.chapter }}.3.1. Basic
 
 You can create an inherited class by specifying a super class in an argument of `class()`.
 
@@ -168,7 +168,7 @@ You can create an inherited class by specifying a super class in an argument of 
 If you don't declare `__init__()` method in the derived class, it would inherit a constructor of the super class.
 
 
-## {{ page.chapter }}.3.2. Constructor in Derived Class
+### {{ page.chapter }}.3.2. Constructor in Derived Class
 
 When you declare `__init__()` method in the derived class,
 you have to specify block parameters that satisfies the argument declaration of the super class's constructor.
@@ -208,7 +208,7 @@ See the example below:
     }
 
 
-## {{ page.chapter }}.3.3. Method Override
+### {{ page.chapter }}.3.3. Method Override
 
 Take a look at a behavior of instance methods in an inherited class.
 Consider the following script:
