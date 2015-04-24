@@ -227,20 +227,20 @@ It's categorized in the following types:
 
         +  -  ~  !
 
-  An example code of a Prefixed Unary Operator comes like `+x`.
+  An example code of a Prefixed Unary Operator comes like "`+x`".
 
 * **Suffixed Unary Operator** takes an input value specified before it.
 
         ?  ..
 
-  An example code of a Suffixed Unary Operator comes like `x?`.
+  An example code of a Suffixed Unary Operator comes like "`x?`".
 
 * **Binary Operator** takes two input values specified on both sides of them.
 
         +  -  *  /  %  **  ==  !=  >  <  >=  <=  <=>
         in  &  |  ^  <<  >>  ||  &&  ..  =>
 
-  An example code of a Binary Operator comes like `x + y`.
+  An example code of a Binary Operator comes like "`x + y`".
 
 See section [Operator](Operator.html) for more detail.
 
@@ -288,7 +288,7 @@ There are three types of brackets as listed below.
   
         repeat (3) {|i| println(i)}
 
-  If an element contains an operator `|` in it,
+  If an element contains an operator "`|`" in it,
   it must be embraced by parentheses to avoid the parser
   from mistaking the operator as Block Parameter's terminater.
 
@@ -482,7 +482,7 @@ Consider the following expression:
 
 * `-foo`
 
-  It has an operator `-` and owns an Identifer expression as its child.
+  It has an operator "`-`" and owns an Identifer expression as its child.
 
 
 ### {{ page.chapter }}.3.6. Quote
@@ -528,7 +528,7 @@ Consider the following expression:
 
 * `x + y`
 
-  It has an operator `+` and owns an Identifer expression `x` as its left
+  It has an operator "`+`" and owns an Identifer expression `x` as its left
   and also an Identifier expression `y` as its right.
 
 
@@ -569,7 +569,7 @@ Consider the following expressions:
 
   It owns an Identifer expression `x` as its left
   and also an Identifier expression `y` as its right.
-  It also has an operator `+`.
+  It also has an operator "`+`".
 
 ### {{ page.chapter }}.3.9. Member
 
