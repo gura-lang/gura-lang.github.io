@@ -9,7 +9,7 @@ title: Gura Library Reference
 <div><span class="toc-index-1">1</span><a href="chapter-01.html#anchor-1">About This Reference</a></div>
 <div><span class="toc-index-1">2</span><a href="chapter-02.html#anchor-2">Explanatory Note</a></div>
 <div><span class="toc-index-1">3</span><a href="chapter-03.html#anchor-3">Predefined Variables</a></div>
-<div><span class="toc-index-1">4</span><a href="chapter-04.html#anchor-4">Built-in Functions</a></div>
+<div><span class="toc-index-1">4</span><a href="chapter-04.html#anchor-4">Built-in Function</a></div>
 <div><span class="toc-index-2">4.1</span><a href="chapter-04.html#anchor-4-1">Formatting and Printing of Text</a></div>
 <div><span class="toc-index-2">4.2</span><a href="chapter-04.html#anchor-4-2">Repetition</a></div>
 <div><span class="toc-index-2">4.3</span><a href="chapter-04.html#anchor-4-3">Value Generator</a></div>
@@ -23,8 +23,8 @@ title: Gura Library Reference
 <div><span class="toc-index-2">4.11</span><a href="chapter-04.html#anchor-4-11">Data Processing</a></div>
 <div><span class="toc-index-2">4.12</span><a href="chapter-04.html#anchor-4-12">Random</a></div>
 <div><span class="toc-index-2">4.13</span><a href="chapter-04.html#anchor-4-13">Property Listing</a></div>
-<div><span class="toc-index-1">5</span><a href="chapter-05.html#anchor-5">Built-in Operators</a></div>
-<div><span class="toc-index-1">6</span><a href="chapter-06.html#anchor-6">Built-in Classes</a></div>
+<div><span class="toc-index-1">5</span><a href="chapter-05.html#anchor-5">Built-in Operator</a></div>
+<div><span class="toc-index-1">6</span><a href="chapter-06.html#anchor-6">Built-in Class</a></div>
 <div><span class="toc-index-2">6.1</span><a href="chapter-06.html#anchor-6-1">args Class</a></div>
 <div><span class="toc-index-2">6.2</span><a href="chapter-06.html#anchor-6-2">array Class</a></div>
 <div><span class="toc-index-2">6.3</span><a href="chapter-06.html#anchor-6-3">audio Class</a></div>

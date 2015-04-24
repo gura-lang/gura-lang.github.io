@@ -5,7 +5,7 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">4</span><a name="anchor-4"></a>Built-in Functions</h1>
+<h1><span class="caption-index-1">4</span><a name="anchor-4"></a>Built-in Function</h1>
 <h2><span class="caption-index-2">4.1</span><a name="anchor-4-1"></a>Formatting and Printing of Text</h2>
 <p>
 <strong>format</strong>

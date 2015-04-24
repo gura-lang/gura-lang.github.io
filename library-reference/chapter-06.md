@@ -5,7 +5,7 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">6</span><a name="anchor-6"></a>Built-in Classes</h1>
+<h1><span class="caption-index-1">6</span><a name="anchor-6"></a>Built-in Class</h1>
 <h2><span class="caption-index-2">6.1</span><a name="anchor-6-1"></a>args Class</h2>
 <p>
 The <code>args</code> class provides measures to access argument information that is passed to a function. One of its purposes is to check if an attribute is specified in the function call. It also provides a method to control a leader-trailer sequence, a mechanism that flow controls such as <code>if-elsif-else</code> and <code>try-catch</code> utilize.

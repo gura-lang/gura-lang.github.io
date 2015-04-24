@@ -5,7 +5,7 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">5</span><a name="anchor-5"></a>Built-in Operators</h1>
+<h1><span class="caption-index-1">5</span><a name="anchor-5"></a>Built-in Operator</h1>
 <p>
 <table>
 
