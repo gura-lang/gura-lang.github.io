@@ -202,7 +202,7 @@ See the example below:
     }
 
     B = class(A) {
-        __init__() = {|'hello', (1 | 4 | 6|)|
+        __init__() = {|'hello', (1 | 4 | 8)|
             // any jobs
         }
     }
