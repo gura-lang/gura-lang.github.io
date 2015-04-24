@@ -42,6 +42,7 @@ that renders the result to the standard output like below:
 
     Current time is 12:34:56.
 
+
 ### {{ page.chapter}}.2.2. Invoke from Script
 
 In a script, you can create a `template` instance to work with the engine.
@@ -49,16 +50,28 @@ Below is an example to read the above sample file and create the instance:
 
     tmpl = template('sample.tmpl')
 
-Then, you can order the instance to render its result by the following code:
+Then, you can render the result of the template with `template#render()` method.
+Below is an example to put the result to standard output:
 
-	tmpl.render(sys.stdout)
+    tmpl.render(sys.stdout)
+
+If the method takes no argument, it would return the result as a string.
+
+    result = tmpl.render()
 
 It may sometimes happen that you want to describe a template containing embedded scripts
 as a `string` value in a script. The `string` class provides method `string#template()`
-that create a `template` instance from the string as below:
+that create a `template` instance from the string.
 
     str = 'Current time is ${datetime.now().format('%H:%M:%S')}.'
-	tmpl = str.template()
+    result = str.template().render()
+
+As it's thought to be a common process to create a `template` instance from a string
+and then render it, a utility method called `string#embed()` is prepared.
+The above code can also be writen as below:
+
+    str = 'Current time is ${datetime.now().format('%H:%M:%S')}.'
+    result = str.embed()
 
 
 <!-- --------------------------------------------------------------------- -->
