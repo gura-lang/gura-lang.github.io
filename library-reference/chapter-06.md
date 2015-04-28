@@ -3464,7 +3464,7 @@ symbol</code>
 </p>
 <h3><span class="caption-index-3">6.17.2</span><a name="anchor-6-17-2"></a>Operator</h3>
 <p>
-You can print a function's help from the interactive prompt using the unary operator <code>~</code>. Below is an example to print the help of <code>printf()</code> function:
+You can print a function's help from the interactive prompt using the unary operator "<code>~</code>". Below is an example to print the help of <code>printf()</code> function:
 </p>
 <pre><code>&gt;&gt;&gt; ~printf
 </code></pre>
@@ -6452,6 +6452,9 @@ Forms a critical session by grabbing the semaphore's ownership, executing the bl
 Watis for the semaphore being released by other threads, and ghen grabs that ownership.
 </p>
 <h2><span class="caption-index-2">6.29</span><a name="anchor-6-29"></a>stream Class</h2>
+<p>
+The <code>stream</code> class provides methods to read and write data through a stream, an abstract structure to handle a byte sequence. It also provides information of the stream such as the pathname and the creation date and time.
+</p>
 <h3><span class="caption-index-3">6.29.1</span><a name="anchor-6-29-1"></a>Property</h3>
 <p>
 A <code>stream</code> instance has the following properties:
@@ -6578,7 +6581,7 @@ R</td>
 </p>
 <h3><span class="caption-index-3">6.29.2</span><a name="anchor-6-29-2"></a>Operator</h3>
 <p>
-You can use the operator <code>&lt;&lt;</code> to output a content of a value to a <code>stream</code>. It comes like <code>stream &lt;&lt; obj</code> and <code>obj</code> is converted to a string before output to the stream.
+You can use the operator "<code>&lt;&lt;</code>" to output a content of a value to a <code>stream</code>. It comes like "<code>stream &lt;&lt; obj</code>" where <code>obj</code> is converted to a string before output to the stream.
 </p>
 <pre><code>sys.stdout &lt;&lt; 'Hello World.'
 

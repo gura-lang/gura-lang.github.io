@@ -27,10 +27,10 @@ Checks whether an error has previously occurred for this context.
 <code>cairo.context#save():reduce {block?}</code>
 </p>
 <p>
-Makes a copy of the current state of cr and saves it on an internal stack of saved states for cr. When cairo.context#restore() is called, cr will be restored to the saved state. Multiple calls to cairo.context#save() and cairo.context#restore() can be nested; each call to cairo.context#restore() restores the state from the matching paired cairo.context#save().
+Makes a copy of the current state of cr and saves it on an internal stack of saved states for cr. When <code>cairo.context#restore()</code> is called, cr will be restored to the saved state. Multiple calls to <code>cairo.context#save()</code> and <code>cairo.context#restore()</code> can be nested; each call to <code>cairo.context#restore()</code> restores the state from the matching paired <code>cairo.context#save()</code>.
 </p>
 <p>
-It isn't necessary to clear all saved states before a cairo<em>t is freed.</em>If the reference count of a cairo<em>t drops to zero in response to a call to cairo.context#destroy(),</em>any saved states will be freed along with the cairo<em>t.</em>
+It isn't necessary to clear all saved states before a cairo<em>t is freed.</em>If the reference count of a cairo<em>t drops to zero in response to a call to <code>cairo.context#destroy()</code>,</em>any saved states will be freed along with the cairo<em>t.</em>
 </p>
 <p>
 <strong>cairo.context#restore</strong>
@@ -39,7 +39,7 @@ It isn't necessary to clear all saved states before a cairo<em>t is freed.</em>I
 <code>cairo.context#restore():reduce</code>
 </p>
 <p>
-Restores cr to the state saved by a preceding call to cairo.context#save() and removes that state from the stack of saved states.
+Restores cr to the state saved by a preceding call to <code>cairo.context#save()</code> and removes that state from the stack of saved states.
 </p>
 <p>
 <strong>cairo.context#get_target</strong>
@@ -57,19 +57,19 @@ Gets the target surface for the cairo context as passed to cairo.context constru
 <code>cairo.context#push_group():reduce</code>
 </p>
 <p>
-Temporarily redirects drawing to an intermediate surface known as a group. The redirection lasts until the group is completed by a call to cairo.context#pop<em>group() or cairo.context#pop</em>group<em>to</em>source(). These calls provide the result of any drawing to the group as a pattern, (either as an explicit object, or set as the source pattern).
+Temporarily redirects drawing to an intermediate surface known as a group. The redirection lasts until the group is completed by a call to <code>cairo.context#pop_group()</code> or <code>cairo.context#pop_group_to_source()</code>. These calls provide the result of any drawing to the group as a pattern, (either as an explicit object, or set as the source pattern).
 </p>
 <p>
 This group functionality can be convenient for performing intermediate compositing. One common use of a group is to render objects as opaque within the group, (so that they occlude each other), and then blend the result with translucence onto the destination.
 </p>
 <p>
-Groups can be nested arbitrarily deep by making balanced calls to cairo.context#push<em>group()/cairo.context#pop</em>group(). Each call pushes/pops the new target group onto/from a stack.
+Groups can be nested arbitrarily deep by making balanced calls to <code>cairo.context#push_group()</code>/<code>cairo.context#pop_group()</code>. Each call pushes/pops the new target group onto/from a stack.
 </p>
 <p>
-The cairo.context#push<em>group() function calls cairo</em>save() so that any changes to the graphics state will not be visible outside the group, (the pop<em>group functions call cairo</em>restore()).
+The <code>cairo.context#push_group()</code> function calls cairo<em>save()</em>so that any changes to the graphics state will not be visible outside the group, (the pop<em>group functions call cairo</em>restore()).
 </p>
 <p>
-By default the intermediate group will have a content type of cairo.CONTENT<em>COLOR</em>ALPHA. Other content types can be chosen for the group by using cairo.context#push<em>group</em>with<em>content() instead.</em>
+By default the intermediate group will have a content type of <code>cairo.CONTENT_COLOR_ALPHA</code>. Other content types can be chosen for the group by using <code>cairo.context#push_group_with_content()</code> instead.
 </p>
 <p>
 As an example, here is how one might fill and stroke a path with translucence, but without any portion of the fill being visible under the stroke:
@@ -81,10 +81,10 @@ As an example, here is how one might fill and stroke a path with translucence, b
 <code>cairo.context#push_group_with_content(content:number):reduce</code>
 </p>
 <p>
-Temporarily redirects drawing to an intermediate surface known as a group. The redirection lasts until the group is completed by a call to cairo.context#pop<em>group() or cairo.context#pop</em>group<em>to</em>source(). These calls provide the result of any drawing to the group as a pattern, (either as an explicit object, or set as the source pattern).
+Temporarily redirects drawing to an intermediate surface known as a group. The redirection lasts until the group is completed by a call to <code>cairo.context#pop_group()</code> or <code>cairo.context#pop_group_to_source()</code>. These calls provide the result of any drawing to the group as a pattern, (either as an explicit object, or set as the source pattern).
 </p>
 <p>
-The group will have a content type of content. The ability to control this content type is the only distinction between this function and cairo.context#push<em>group()</em>which you should see for a more detailed description of group rendering.
+The group will have a content type of content. The ability to control this content type is the only distinction between this function and <code>cairo.context#push_group()</code> which you should see for a more detailed description of group rendering.
 </p>
 <p>
 <strong>cairo.context#pop_group</strong>
@@ -93,10 +93,10 @@ The group will have a content type of content. The ability to control this conte
 <code>cairo.context#pop_group()</code>
 </p>
 <p>
-Terminates the redirection begun by a call to cairo.context#push<em>group() or cairo.context#push</em>group<em>with</em>content() and returns a new pattern containing the results of all drawing operations performed to the group.
+Terminates the redirection begun by a call to <code>cairo.context#push_group()</code> or <code>cairo.context#push_group_with_content()</code> and returns a new pattern containing the results of all drawing operations performed to the group.
 </p>
 <p>
-The cairo.context#pop<em>group() function calls cairo</em>restore(), (balancing a call to cairo<em>save() by the push</em>group function), so that any changes to the graphics state will not be visible outside the group.
+The <code>cairo.context#pop_group()</code> function calls cairo<em>restore(),</em>(balancing a call to <code>cairo_save()</code> by the <code>push_group</code> function), so that any changes to the graphics state will not be visible outside the group.
 </p>
 <p>
 <strong>cairo.context#pop_group_to_source</strong>
@@ -105,10 +105,10 @@ The cairo.context#pop<em>group() function calls cairo</em>restore(), (balancing 
 <code>cairo.context#pop_group_to_source():reduce</code>
 </p>
 <p>
-Terminates the redirection begun by a call to cairo.context#push<em>group() or cairo.context#push</em>group<em>with</em>content() and installs the resulting pattern as the source pattern in the given cairo context.
+Terminates the redirection begun by a call to <code>cairo.context#push_group()</code> or <code>cairo.context#push_group_with_content()</code> and installs the resulting pattern as the source pattern in the given cairo context.
 </p>
 <p>
-The cairo.context#pop<em>group() function calls cairo</em>restore(), (balancing a call to cairo<em>save() by the push</em>group function), so that any changes to the graphics state will not be visible outside the group.
+The <code>cairo.context#pop_group()</code> function calls cairo<em>restore(),</em>(balancing a call to cairo<em>save() by the push</em>group function), so that any changes to the graphics state will not be visible outside the group.
 </p>
 <p>
 <strong>cairo.context#get_group_target</strong>
@@ -117,7 +117,7 @@ The cairo.context#pop<em>group() function calls cairo</em>restore(), (balancing 
 <code>cairo.context#get_group_target()</code>
 </p>
 <p>
-Gets the current destination surface for the context. This is either the original target surface as passed to cairo.context constructor or the target surface for the current group as started by the most recent call to cairo.context#push<em>group() or cairo.context#push</em>group<em>with</em>content().
+Gets the current destination surface for the context. This is either the original target surface as passed to <code>cairo.context</code> constructor or the target surface for the current group as started by the most recent call to <code>cairo.context#push_group()</code> or <code>cairo.context#push_group_with_content()</code>.
 </p>
 <p>
 <strong>cairo.context#set_source_rgb</strong>
@@ -132,7 +132,7 @@ Sets the source pattern within cr to an opaque color. This opaque color will the
 The color components are floating point numbers in the range 0 to 1. If the values passed in are outside that range, they will be clamped.
 </p>
 <p>
-The default source pattern is opaque black, (that is, it is equivalent to cr.set<em>source</em>rgb(0.0, 0.0, 0.0)).
+The default source pattern is opaque black, (that is, it is equivalent to <code>cr.set_source_rgb(0.0, 0.0, 0.0))</code>.
 </p>
 <p>
 <strong>cairo.context#set_source_rgba</strong>
@@ -147,7 +147,7 @@ Sets the source pattern within cr to a translucent color. This color will then b
 The color and alpha components are floating point numbers in the range 0 to 1. If the values passed in are outside that range, they will be clamped.
 </p>
 <p>
-The default source pattern is opaque black, (that is, it is equivalent to cr.set<em>source</em>rgba(0.0, 0.0, 0.0, 1.0)).
+The default source pattern is opaque black, (that is, it is equivalent to <code>cr.set_source_rgba(0.0, 0.0, 0.0, 1.0))</code>.
 </p>
 <p>
 <strong>cairo.context#set_source</strong>
@@ -159,10 +159,10 @@ The default source pattern is opaque black, (that is, it is equivalent to cr.set
 Sets the source pattern within cr to source. This pattern will then be used for any subsequent drawing operation until a new source pattern is set.
 </p>
 <p>
-Note: The pattern's transformation matrix will be locked to the user space in effect at the time of cairo.context#set<em>source().</em>This means that further modifications of the current transformation matrix will not affect the source pattern. See cairo.pattern#set<em>matrix().</em>
+Note: The pattern's transformation matrix will be locked to the user space in effect at the time of <code>cairo.context#set_source()</code>. This means that further modifications of the current transformation matrix will not affect the source pattern. See <code>cairo.pattern#set_matrix()</code>.
 </p>
 <p>
-The default source pattern is a solid pattern that is opaque black, (that is, it is equivalent to cr.set<em>source</em>rgb(0.0, 0.0, 0.0)).
+The default source pattern is a solid pattern that is opaque black, (that is, it is equivalent to <code>cr.set_source_rgb(0.0, 0.0, 0.0))</code>.
 </p>
 <p>
 <strong>cairo.context#set_source_surface</strong>
@@ -171,13 +171,13 @@ The default source pattern is a solid pattern that is opaque black, (that is, it
 <code>cairo.context#set_source_surface(surface:cairo.surface, x:number, y:number):reduce</code>
 </p>
 <p>
-This is a convenience function for creating a pattern from surface and setting it as the source in cr with cairo.context#set<em>source().</em>
+This is a convenience function for creating a pattern from <code>surface</code> and setting it as the source in <code>cr</code> with <code>cairo.context#set_source()</code>.
 </p>
 <p>
-The x and y parameters give the user-space coordinate at which the surface origin should appear. (The surface origin is its upper-left corner before any transformation has been applied.) The x and y parameters are negated and then set as translation values in the pattern matrix.
+The <code>x</code> and <code>y</code> parameters give the user-space coordinate at which the surface origin should appear. (The surface origin is its upper-left corner before any transformation has been applied.) The x and y parameters are negated and then set as translation values in the pattern matrix.
 </p>
 <p>
-Other than the initial translation pattern matrix, as described above, all other pattern attributes, (such as its extend mode), are set to the default values as in cairo.pattern.create<em>for</em>surface(). The resulting pattern can be queried with cairo.context#get<em>source() so that these attributes can be modified if desired,</em>(eg. to create a repeating pattern with cairo.pattern#set<em>extend()).</em>
+Other than the initial translation pattern matrix, as described above, all other pattern attributes, (such as its extend mode), are set to the default values as in <code>cairo.pattern.create_for_surface()</code>. The resulting pattern can be queried with <code>cairo.context#get_source()</code> so that these attributes can be modified if desired, (eg. to create a repeating pattern with <code>cairo.pattern#set_extend()</code>).
 </p>
 <p>
 <strong>cairo.context#get_source</strong>
@@ -186,7 +186,7 @@ Other than the initial translation pattern matrix, as described above, all other
 <code>cairo.context#get_source()</code>
 </p>
 <p>
-Gets the current source pattern for cr.
+Gets the current source pattern for <code>cr</code>.
 </p>
 <p>
 <strong>cairo.context#set_antialias</strong>
@@ -195,10 +195,10 @@ Gets the current source pattern for cr.
 <code>cairo.context#set_antialias(antialias:number):reduce</code>
 </p>
 <p>
-Set the antialiasing mode of the rasterizer used for drawing shapes. This value is a hint, and a particular backend may or may not support a particular value. At the current time, no backend supports cairo.ANTIALIAS<em>SUBPIXEL when drawing shapes.</em>
+Set the antialiasing mode of the rasterizer used for drawing shapes. This value is a hint, and a particular backend may or may not support a particular value. At the current time, no backend supports <code>cairo.ANTIALIAS_SUBPIXEL</code> when drawing shapes.
 </p>
 <p>
-Note that this option does not affect text rendering, instead see cairo.font<em>options#set</em>antialias().
+Note that this option does not affect text rendering, instead see <code>cairo.font_options#set_antialias()</code>.
 </p>
 <p>
 <strong>cairo.context#get_antialias</strong>
@@ -207,7 +207,7 @@ Note that this option does not affect text rendering, instead see cairo.font<em>
 <code>cairo.context#get_antialias()</code>
 </p>
 <p>
-Gets the current shape antialiasing mode, as set by cairo.context#set<em>antialias().</em>
+Gets the current shape antialiasing mode, as set by <code>cairo.context#set_antialias()</code>.
 </p>
 <p>
 <strong>cairo.context#set_dash</strong>
@@ -216,13 +216,13 @@ Gets the current shape antialiasing mode, as set by cairo.context#set<em>antiali
 <code>cairo.context#set_dash(dashes[]:number, offset:number):reduce</code>
 </p>
 <p>
-Sets the dash pattern to be used by cairo.context#stroke(). A dash pattern is specified by dashes, an array of positive values. Each value provides the length of alternate "on" and "off" portions of the stroke. The offset specifies an offset into the pattern at which the stroke begins.
+Sets the dash pattern to be used by <code>cairo.context#stroke()</code>. A dash pattern is specified by dashes, an array of positive values. Each value provides the length of alternate "on" and "off" portions of the stroke. The offset specifies an offset into the pattern at which the stroke begins.
 </p>
 <p>
-Each "on" segment will have caps applied as if the segment were a separate sub-path. In particular, it is valid to use an "on" length of 0.0 with cairo.LINE<em>CAP</em>ROUND or cairo.LINE<em>CAP</em>SQUARE in order to distributed dots or squares along a path.
+Each "on" segment will have caps applied as if the segment were a separate sub-path. In particular, it is valid to use an "on" length of 0.0 with <code>cairo.LINE_CAP_ROUND</code> or <code>cairo.LINE_CAP_SQUARE</code> in order to distributed dots or squares along a path.
 </p>
 <p>
-Note: The length values are in user-space units as evaluated at the time of stroking. This is not necessarily the same as the user space at the time of cairo.context#set<em>dash().</em>
+Note: The length values are in user-space units as evaluated at the time of stroking. This is not necessarily the same as the user space at the time of <code>cairo.context#set_dash()</code>.
 </p>
 <p>
 If length of dashes is 0 dashing is disabled.
@@ -231,7 +231,7 @@ If length of dashes is 0 dashing is disabled.
 If length of dashes is 1 a symmetric pattern is assumed with alternating on and off portions of the size specified by the single value in dashes.
 </p>
 <p>
-If any value in dashes is negative, or if all values are 0, then cr will be put into an error state with a status of cairo.STATUS<em>INVALID</em>DASH.
+If any value in dashes is negative, or if all values are 0, then cr will be put into an error state with a status of <code>cairo.STATUS_INVALID_DASH</code>.
 </p>
 <p>
 <strong>cairo.context#get_dash</strong>
@@ -249,10 +249,10 @@ Gets the current dash array.
 <code>cairo.context#set_fill_rule(fill_rule:number):reduce</code>
 </p>
 <p>
-Set the current fill rule within the cairo context. The fill rule is used to determine which regions are inside or outside a complex (potentially self-intersecting) path. The current fill rule affects both cairo.context#fill() and cairo.context#clip(). See cairo<em>fill</em>rule<em>t for details on the semantics of each available fill rule.</em>
+Set the current fill rule within the cairo context. The fill rule is used to determine which regions are inside or outside a complex (potentially self-intersecting) path. The current fill rule affects both <code>cairo.context#fill()</code> and <code>cairo.context#clip()</code>. See cairo<em>fill</em>rule<em>t for details on the semantics of each available fill rule.</em>
 </p>
 <p>
-The default fill rule is cairo.FILL<em>RULE</em>WINDING.
+The default fill rule is <code>cairo.FILL_RULE_WINDING</code>.
 </p>
 <p>
 <strong>cairo.context#get_fill_rule</strong>
@@ -261,7 +261,7 @@ The default fill rule is cairo.FILL<em>RULE</em>WINDING.
 <code>cairo.context#get_fill_rule()</code>
 </p>
 <p>
-Gets the current fill rule, as set by cairo.context#set<em>fill</em>rule().
+Gets the current fill rule, as set by <code>cairo.context#set_fill_rule()</code>.
 </p>
 <p>
 <strong>cairo.context#set_line_cap</strong>
@@ -270,7 +270,7 @@ Gets the current fill rule, as set by cairo.context#set<em>fill</em>rule().
 <code>cairo.context#set_line_cap(line_cap:number):reduce</code>
 </p>
 <p>
-Sets the current line cap style within the cairo context. See cairo<em>line</em>cap<em>t for details about how the available line cap styles are drawn.</em>
+Sets the current line cap style within the cairo context. See <code>cairo_line_cap_t</code> for details about how the available line cap styles are drawn.
 </p>
 <p>
 As with the other stroke parameters, the current line cap style is examined by cairo.context#stroke(), cairo.context#stroke<em>extents(),</em>and cairo.context#stroke<em>to</em>path(), but does not have any effect during path construction.
@@ -285,7 +285,7 @@ The default line cap style is cairo.LINE<em>CAP</em>BUTT.
 <code>cairo.context#get_line_cap()</code>
 </p>
 <p>
-Gets the current line cap style, as set by cairo.context#set<em>line</em>cap().
+Gets the current line cap style, as set by <code>cairo.context#set_line_cap()</code>.
 </p>
 <p>
 <strong>cairo.context#set_line_join</strong>
@@ -297,10 +297,10 @@ Gets the current line cap style, as set by cairo.context#set<em>line</em>cap().
 Sets the current line join style within the cairo context. See cairo<em>line</em>join<em>t for details about how the available line join styles are drawn.</em>
 </p>
 <p>
-As with the other stroke parameters, the current line join style is examined by cairo.context#stroke(), cairo.context#stroke<em>extents(),</em>and cairo.context#stroke<em>to</em>path(), but does not have any effect during path construction.
+As with the other stroke parameters, the current line join style is examined by <code>cairo.context#stroke()</code>, <code>cairo.context#stroke_extents()</code>, and <code>cairo.context#stroke_to_path()</code>, but does not have any effect during path construction.
 </p>
 <p>
-The default line join style is cairo.LINE<em>JOIN</em>MITER.
+The default line join style is <code>cairo.LINE_JOIN_MITER</code>.
 </p>
 <p>
 <strong>cairo.context#get_line_join</strong>
@@ -309,7 +309,7 @@ The default line join style is cairo.LINE<em>JOIN</em>MITER.
 <code>cairo.context#get_line_join()</code>
 </p>
 <p>
-Gets the current line join style, as set by cairo.context#set<em>line</em>join().
+Gets the current line join style, as set by <code>cairo.context#set_line_join()</code>.
 </p>
 <p>
 <strong>cairo.context#set_line_width</strong>
