@@ -1727,10 +1727,16 @@ You can also use a function named <code>%</code> to create an instance that is a
 <code>dict(elems?):[icase] {block?}</code>
 </p>
 <p>
-Creates a <code>dict</code> instance. It takes a list of key-value pairs in an argument or in a block as shown below.
+Creates a <code>dict</code> instance.
+</p>
+<p>
+It takes a list of key-value pairs in an argument as shown below:
 </p>
 <pre><code>d = dict([['apple', 100], ['grape', 200], ['banana', 80]])
 </code></pre>
+<p>
+Or, you can use a block to describe them like below:
+</p>
 <pre><code>d = dict {
     ['apple', 100], ['grape', 200], ['banana', 80]
 }
@@ -1743,6 +1749,9 @@ You can also use the operator <code>=&gt;</code> to create a key-value pair like
 </p>
 <pre><code>d = dict(['apple' =&gt; 100, 'grape' =&gt; 200, 'banana' =&gt; 80])
 </code></pre>
+<p>
+Below is an example using a block:
+</p>
 <pre><code>d = dict {
     'apple' =&gt; 100, 'grape' =&gt; 200, 'banana' =&gt; 80
 }
@@ -1817,10 +1826,10 @@ When the attribute <code>:raise</code> is specified, an error occurs in the case
 <p>
 Another measure to get a value associated with a key is to use an index operator. The following two codes have the same effect.
 </p>
-<pre><code>v = d['foo']
-</code></pre>
-<pre><code>v = d.get('foo'):raise
-</code></pre>
+<ul>
+<li><code>v = d['foo']</code></li>
+<li><code>v = d.get('foo'):raise</code></li>
+</ul>
 <p>
 <strong>dict#haskey</strong>
 </p>
@@ -1905,10 +1914,10 @@ If the specified key already exists in the dictionary, it would be overwritten. 
 <p>
 Another measure to add a key-value pair is to use an index operator. The following two codes have the same effect.
 </p>
-<pre><code>d['foo'] = 3
-</code></pre>
-<pre><code>d.put('foo', 3)
-</code></pre>
+<ul>
+<li><code>d['foo'] = 3</code></li>
+<li><code>d.put('foo', 3)</code></li>
+</ul>
 <p>
 <strong>dict#values</strong>
 </p>
@@ -3313,8 +3322,8 @@ All the functions are instances of <code>function</code> class, so an implementa
 <pre><code>f(a:number, b:number, c:number) = {
     (a + b + c) / 3
 }
-</code></pre>
-<pre><code>f = function(a:number, b:number, c:number) {
+
+f = function(a:number, b:number, c:number) {
     (a + b + c) / 3
 }
 </code></pre>
@@ -3481,10 +3490,10 @@ Creates a <code>function</code> instance with an argument list of <code>args</co
 <p>
 Following two codes have the same effect with each other.
 </p>
-<pre><code>f = function(a, b, c) { /* any job */ }
-</code></pre>
-<pre><code>f(a, b, c) = { /* any job */ }
-</code></pre>
+<ul>
+<li><code>f = function(a, b, c) { /* any job */ }</code></li>
+<li><code>f(a, b, c) = { /* any job */ }</code></li>
+</ul>
 <h3><span class="caption-index-3">6.17.4</span><a name="anchor-6-17-4"></a>Method</h3>
 <p>
 <strong>function.addhelp</strong>
@@ -4483,8 +4492,8 @@ There are several ways to create a list.
 You can read and write element values in a list with an indexer by giving it an index number starting from zero. Below is an example:
 </p>
 <pre><code>x = [`A, `B, `C, `D, `E, `F]
-</code></pre>
-<pre><code>println(x[2]) // prints `C
+
+println(x[2]) // prints `C
 x[4] = `e     // replaces `E with `e
 </code></pre>
 <h4><span class="caption-index-4">6.20.1.3</span><a name="anchor-6-20-1-3"></a>Function to Create list Instance</h4>
@@ -6584,7 +6593,6 @@ R</td>
 You can use the operator "<code>&lt;&lt;</code>" to output a content of a value to a <code>stream</code>. It comes like "<code>stream &lt;&lt; obj</code>" where <code>obj</code> is converted to a string before output to the stream.
 </p>
 <pre><code>sys.stdout &lt;&lt; 'Hello World.'
-
 </code></pre>
 <p>
 Since the operator returns the <code>stream</code> instance specified on the left as its result, you can chain multiple operations as below:
@@ -6940,8 +6948,8 @@ The <code>string</code> class provides measures to operate on strings.
 You can create a <code>string</code> instance by embracing a sequence of characters with a pair of single- or double-quotes.
 </p>
 <pre><code>'Hello World'
-</code></pre>
-<pre><code>"Hello World'
+
+"Hello World"
 </code></pre>
 <p>
 If you need to declare a string that contains multiple lines, embrace it with a pair of sequences of three single- or double-quotes.
@@ -6950,11 +6958,6 @@ If you need to declare a string that contains multiple lines, embrace it with a 
 second line
 third line
 '''
-</code></pre>
-<pre><code>"""first line
-second line
-third line
-"""
 </code></pre>
 <h3><span class="caption-index-3">6.30.1</span><a name="anchor-6-30-1"></a>Suffix Management</h3>
 <p>
