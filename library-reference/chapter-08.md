@@ -5,60 +5,92 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">8</span><a name="anchor-8"></a>bmp Module</h1>
+<h1><span class="caption-index-1">8</span><a name="anchor-8"></a>base64 Module</h1>
 <p>
-The <code>bmp</code> module provides measures to read/write image data in Microsoft BMP format. To utilize it, import the <code>bmp</code> module using <code>import</code> function.
+The <code>base64</code> module provides measures to read/write text stream that is formatted in base64 format.
+</p>
+<h2><span class="caption-index-2">8.1</span><a name="anchor-8-1"></a>Module Function</h2>
+<p>
+<strong>base64.decode</strong>
 </p>
 <p>
-Below is an example to read a BMP file:
-</p>
-<pre><code>import(bmp)
-img = image('foo.bmp')
-</code></pre>
-<h2><span class="caption-index-2">8.1</span><a name="anchor-8-1"></a>Exntension to Function's Capability</h2>
-<p>
-This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write BMP files.
+<code>base64.decode(stream:stream:r) {block?}</code>
 </p>
 <p>
-When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a BMP file.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.bmp</code>".</li>
-<li>The stream data begins with a byte sequence "<code>BM</code>".</li>
-</ul>
-<p>
-When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in BMP format.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.bmp</code>".</li>
-</ul>
-<h2><span class="caption-index-2">8.2</span><a name="anchor-8-2"></a>Extension to image Class</h2>
-<p>
-This module extends the <code>image</code> class with methods described here.
+Reads text stream that is formatted in base64 and returns the decoded result in binary.
 </p>
 <p>
-<strong>image#read@bmp</strong>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|data:binary|</code>, where <code>data</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<code>image#read@bmp(stream:stream:r):reduce</code>
+<strong>base64.encode</strong>
 </p>
 <p>
-Reads an BMP image from a stream.
+<code>base64.encode(stream:stream:r, linelen:number:nil =&gt; 76) {block?}</code>
 </p>
 <p>
-This method returns the reference to the target instance itself.
+Encodes content of the stream into base64 format and returns the result in binary.
 </p>
 <p>
-<strong>image#write@bmp</strong>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|data:binary|</code>, where <code>data</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<code>image#write@bmp(stream:stream:w):reduce</code>
+<strong>base64.reader</strong>
 </p>
 <p>
-Writes a BMP image to a stream.
+<code>base64.reader(stream:stream:r) {block?}</code>
 </p>
 <p>
-This method returns the reference to the target instance itself.
+Creates a stream instance that reads data formatted in base64 from <code>stream</code>.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<strong>base64.writer</strong>
+</p>
+<p>
+<code>base64.writer(stream:stream:w, linelen:number:nil =&gt; 76) {block?}</code>
+</p>
+<p>
+Creates a stream instance that encodes data to base64 format and writes it to the <code>stream</code>.
+</p>
+<p>
+The number of characters per line is specified by an argument <code>linelen</code>. If omitted, that is 76.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<h2><span class="caption-index-2">8.2</span><a name="anchor-8-2"></a>Extension to stream Class</h2>
+<p>
+This module extends the <code>stream</code> class with methods described here.
+</p>
+<p>
+<strong>stream#reader@base64</strong>
+</p>
+<p>
+<code>stream#reader@base64() {block?}</code>
+</p>
+<p>
+Creates a stream instance that reads data formatted in base64 from the target stream instance.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<strong>stream#writer@base64</strong>
+</p>
+<p>
+<code>stream#writer@base64(linelen:number:nil =&gt; 76) {block?}</code>
+</p>
+<p>
+Creates a stream instance that encodes data to base64 format and writes it to the target stream instance.
+</p>
+<p>
+The number of characters per line is specified by an argument <code>linelen</code>. If omitted, that is 76.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p />
 

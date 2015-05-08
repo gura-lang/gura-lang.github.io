@@ -5,755 +5,158 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">19</span><a name="anchor-19"></a>glut Module</h1>
+<h1><span class="caption-index-1">19</span><a name="anchor-19"></a>fs Module</h1>
 <p>
-The <code>glut</code> module provides functions of GLUT library.
+The <code>fs</code> module provides measures to access and modify information in file systems. This is a built-in module, so you can use it without being imported.
 </p>
-<h2><span class="caption-index-2">19.1</span><a name="anchor-19-1"></a>Module Functions</h2>
+<h2><span class="caption-index-2">19.1</span><a name="anchor-19-1"></a>Module Function</h2>
 <p>
-<strong>glut.glutInit</strong>
+<strong>fs.chdir</strong>
 </p>
 <p>
-<code>glut.glutInit(argv[]:string) {block?}</code>
+<code>fs.chdir(pathname:string) {block?}</code>
 </p>
 <p>
-<code>glutInit</code> is used to initialize the GLUT library.
+Changes the current working directory.
 </p>
 <p>
-<strong>glut.glutInitDisplayMode</strong>
+<strong>fs.chmod</strong>
 </p>
 <p>
-<code>glut.glutInitDisplayMode(mode:number):map:void</code>
+<code>fs.chmod(mode, pathname:string):map:void:[follow_link]</code>
 </p>
 <p>
-<code>glutInitDisplayMode</code> sets the <em>initial display mode</em>.
+Changes the access mode of a file specified by <code>pathname</code>.
 </p>
 <p>
-<strong>glut.glutInitDisplayString</strong>
+There are two formats to specify the mode: one is by a number, and another in a string.
 </p>
 <p>
-<code>glut.glutInitDisplayString(string:string):map:void</code>
+When specified in a number, following bits are associated with access permissions:
 </p>
+<ul>
+<li><code>b8 b7 b6</code> .. Read, write and executable permissions for owners</li>
+<li><code>b5 b4 b3</code> .. Read, write and executable permissions for groups</li>
+<li><code>b2 b1 b0</code> .. Read, write and executable permissions for others</li>
+</ul>
 <p>
-<strong>glut.glutInitWindowPosition</strong>
+When set to one, each permission is validated.
 </p>
 <p>
-<code>glut.glutInitWindowPosition(x:number, y:number):map:void</code>
+When specified in a string, it accepts a permission directive in a format of following regular expression
 </p>
+<pre><code>[ugoa]+([-+=][rwx]+)+
+</code></pre>
 <p>
-<code>glutInitWindowPosition</code> sets the initial window position.	
+It starts with characters that represent target which permissions are modified as described below:
 </p>
+<ul>
+<li><code>u</code> .. owners</li>
+<li><code>g</code> .. groups</li>
+<li><code>o</code> .. others</li>
+<li><code>a</code> .. all users</li>
+</ul>
 <p>
-<strong>glut.glutInitWindowSize</strong>
+Then, follows an operation:
 </p>
+<ul>
+<li><code>-</code> .. remove</li>
+<li><code>+</code> .. append</li>
+<li><code>=</code> .. set</li>
+</ul>
 <p>
-<code>glut.glutInitWindowSize(width:number, height:number):map:void</code>
+At last, permission attributes are specified as below:
 </p>
+<ul>
+<li><code>r</code> .. read permission</li>
+<li><code>w</code> .. write permission</li>
+<li><code>x</code> .. executable permission</li>
+</ul>
 <p>
-<code>glutInitWindowSize</code> sets the initial window size.	
+If the modification target is a link file, each platform would have different result:
 </p>
+<ul>
+<li>Linux .. Modifies permissions of the link file itself. Specifying <code>:follow_link</code> attribute would modify permsisions of the target file instead.</li>
+<li>MacOS .. Modifies permissions of the target file. Attribute <code>:follow_link</code> has no effect.</li>
+<li>Windows .. Modifies permissions of the link file. Attribute <code>:follow_link</code> has no effect.</li>
+</ul>
 <p>
-<strong>glut.glutMainLoop</strong>
+<strong>fs.copy</strong>
 </p>
 <p>
-<code>glut.glutMainLoop():void</code>
+<code>fs.copy(src:string, dst:string):map:void:[overwrite]</code>
 </p>
 <p>
-<code>glutMainLoop</code> enters the GLUT event processing loop.
+Copies a file.
 </p>
 <p>
-<strong>glut.glutCreateWindow</strong>
+An argument <code>src</code> needs to specify a path name of a file that is to be copied while <code>dst</code> can specify a path name of either a file or a directory. If <code>dst</code> is a directory, the file would be copied into that. Otherwise, it would create a copy of <code>src</code> that has a name specified by <code>dst</code>.
 </p>
 <p>
-<code>glut.glutCreateWindow(title:string):map {block?}</code>
+If a destination file already exists, an error occurs. Specifying an attribute <code>:overwrite</code> would overwrite an existing one.
 </p>
 <p>
-<code>glutCreateWindow</code> creates a top-level window.
+<strong>fs.cpdir</strong>
 </p>
 <p>
-<strong>glut.glutCreateSubWindow</strong>
+<code>fs.cpdir(src:string, dst:string):map:void:[tree]</code>
 </p>
 <p>
-<code>glut.glutCreateSubWindow(win:number, x:number, y:number, width:number, height:number):map {block?}</code>
+Copies a directory.
 </p>
 <p>
-<code>glutCreateSubWindow</code> creates a subwindow.
+Arguments <code>src</code> and <code>dst</code> specify source directory and destination directory respectively. In default, sub directories are not copied.Specifying <code>:tree</code> attribute would copy all the sub directories in the source.
 </p>
 <p>
-<strong>glut.glutDestroyWindow</strong>
+<strong>fs.getcwd</strong>
 </p>
 <p>
-<code>glut.glutDestroyWindow(win:number):map:void</code>
+<code>fs.getcwd()</code>
 </p>
 <p>
-<code>glutDestroyWindow</code> destroys the specified window.
+Returns the current working directory.
 </p>
 <p>
-<strong>glut.glutPostRedisplay</strong>
+<strong>fs.mkdir</strong>
 </p>
 <p>
-<code>glut.glutPostRedisplay():void</code>
+<code>fs.mkdir(pathname:string):map:void:[tree]</code>
 </p>
 <p>
-<code>glutPostRedisplay marks the *current window* as needing to be redisplayed.</code>
+Creates a directory.
 </p>
 <p>
-<strong>glut.glutPostWindowRedisplay</strong>
+If <code>pathname</code> consists of multiple sub directories and some of them still doesn't exist, an error occurs. Specifying <code>:tree</code> attribute would create such directories.
 </p>
 <p>
-<code>glut.glutPostWindowRedisplay(win:number):map:void</code>
+<strong>fs.remove</strong>
 </p>
 <p>
-<strong>glut.glutSwapBuffers</strong>
+<code>fs.remove(pathname:string):map:void</code>
 </p>
 <p>
-<code>glut.glutSwapBuffers():void</code>
+Removes a file from the file system.
 </p>
 <p>
-<code>glutSwapBuffers</code> swaps the buffers of the <em>current window</em> if double buffered.
+<strong>fs.rename</strong>
 </p>
 <p>
-<strong>glut.glutGetWindow</strong>
+<code>fs.rename(src:string, dst:string):map:void</code>
 </p>
 <p>
-<code>glut.glutGetWindow() {block?}</code>
+Renames a file or directory.
 </p>
 <p>
-<code>glutGetWindow</code> returns the identifier of the <em>current window</em>.
+<strong>fs.rmdir</strong>
 </p>
 <p>
-<strong>glut.glutSetWindow</strong>
+<code>fs.rmdir(pathname:string):map:void:[tree]</code>
 </p>
 <p>
-<code>glut.glutSetWindow(win:number):map:void</code>
+Removes a directory.
 </p>
 <p>
-<code>glutSetWindow</code> sets the <em>current window</em>.
-</p>
-<p>
-<strong>glut.glutSetWindowTitle</strong>
-</p>
-<p>
-<code>glut.glutSetWindowTitle(title:string):map:void</code>
-</p>
-<p>
-<code>glutSetWindowTitle</code> changes the window title of the current top-level window.
-</p>
-<p>
-<strong>glut.glutSetIconTitle</strong>
-</p>
-<p>
-<code>glut.glutSetIconTitle(title:string):map:void</code>
-</p>
-<p>
-<code>glutSetIconTitle</code> changes the icon title of the current top-level window.
-</p>
-<p>
-<strong>glut.glutPositionWindow</strong>
-</p>
-<p>
-<code>glut.glutPositionWindow(x:number, y:number):map:void</code>
-</p>
-<p>
-<code>glutPositionWindow</code> requests a change to the position of the <em>current window</em>.
-</p>
-<p>
-<strong>glut.glutReshapeWindow</strong>
-</p>
-<p>
-<code>glut.glutReshapeWindow(width:number, height:number):map:void</code>
-</p>
-<p>
-<code>glutReshapeWindow</code> requests a change to the size of the <em>current window</em>.
-</p>
-<p>
-<strong>glut.glutPopWindow</strong>
-</p>
-<p>
-<code>glut.glutPopWindow():void</code>
-</p>
-<p>
-<strong>glut.glutPushWindow</strong>
-</p>
-<p>
-<code>glut.glutPushWindow():void</code>
-</p>
-<p>
-<strong>glut.glutIconifyWindow</strong>
-</p>
-<p>
-<code>glut.glutIconifyWindow():void</code>
-</p>
-<p>
-<strong>glut.glutShowWindow</strong>
-</p>
-<p>
-<code>glut.glutShowWindow():void</code>
-</p>
-<p>
-<strong>glut.glutHideWindow</strong>
-</p>
-<p>
-<code>glut.glutHideWindow():void</code>
-</p>
-<p>
-<strong>glut.glutFullScreen</strong>
-</p>
-<p>
-<code>glut.glutFullScreen():void</code>
-</p>
-<p>
-<strong>glut.glutSetCursor</strong>
-</p>
-<p>
-<code>glut.glutSetCursor(cursor:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutWarpPointer</strong>
-</p>
-<p>
-<code>glut.glutWarpPointer(x:number, y:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutEstablishOverlay</strong>
-</p>
-<p>
-<code>glut.glutEstablishOverlay():void</code>
-</p>
-<p>
-<strong>glut.glutRemoveOverlay</strong>
-</p>
-<p>
-<code>glut.glutRemoveOverlay():void</code>
-</p>
-<p>
-<strong>glut.glutUseLayer</strong>
-</p>
-<p>
-<code>glut.glutUseLayer(layer:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutPostOverlayRedisplay</strong>
-</p>
-<p>
-<code>glut.glutPostOverlayRedisplay():void</code>
-</p>
-<p>
-<strong>glut.glutPostWindowOverlayRedisplay</strong>
-</p>
-<p>
-<code>glut.glutPostWindowOverlayRedisplay(win:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutShowOverlay</strong>
-</p>
-<p>
-<code>glut.glutShowOverlay():void</code>
-</p>
-<p>
-<strong>glut.glutHideOverlay</strong>
-</p>
-<p>
-<code>glut.glutHideOverlay():void</code>
-</p>
-<p>
-<strong>glut.glutCreateMenu</strong>
-</p>
-<p>
-<code>glut.glutCreateMenu(func:function) {block?}</code>
-</p>
-<p>
-<strong>glut.glutDestroyMenu</strong>
-</p>
-<p>
-<code>glut.glutDestroyMenu(menu:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutGetMenu</strong>
-</p>
-<p>
-<code>glut.glutGetMenu() {block?}</code>
-</p>
-<p>
-<strong>glut.glutSetMenu</strong>
-</p>
-<p>
-<code>glut.glutSetMenu(menu:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutAddMenuEntry</strong>
-</p>
-<p>
-<code>glut.glutAddMenuEntry(label:string, value:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutAddSubMenu</strong>
-</p>
-<p>
-<code>glut.glutAddSubMenu(label:string, submenu:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutChangeToMenuEntry</strong>
-</p>
-<p>
-<code>glut.glutChangeToMenuEntry(item:number, label:string, value:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutChangeToSubMenu</strong>
-</p>
-<p>
-<code>glut.glutChangeToSubMenu(item:number, label:string, submenu:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutRemoveMenuItem</strong>
-</p>
-<p>
-<code>glut.glutRemoveMenuItem(item:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutAttachMenu</strong>
-</p>
-<p>
-<code>glut.glutAttachMenu(button:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutDetachMenu</strong>
-</p>
-<p>
-<code>glut.glutDetachMenu(button:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutDisplayFunc</strong>
-</p>
-<p>
-<code>glut.glutDisplayFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutReshapeFunc</strong>
-</p>
-<p>
-<code>glut.glutReshapeFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutKeyboardFunc</strong>
-</p>
-<p>
-<code>glut.glutKeyboardFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutMouseFunc</strong>
-</p>
-<p>
-<code>glut.glutMouseFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutMotionFunc</strong>
-</p>
-<p>
-<code>glut.glutMotionFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutPassiveMotionFunc</strong>
-</p>
-<p>
-<code>glut.glutPassiveMotionFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutEntryFunc</strong>
-</p>
-<p>
-<code>glut.glutEntryFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutVisibilityFunc</strong>
-</p>
-<p>
-<code>glut.glutVisibilityFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutIdleFunc</strong>
-</p>
-<p>
-<code>glut.glutIdleFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutTimerFunc</strong>
-</p>
-<p>
-<code>glut.glutTimerFunc(millis:number, func:function:nil, value:number):void</code>
-</p>
-<p>
-<strong>glut.glutMenuStateFunc</strong>
-</p>
-<p>
-<code>glut.glutMenuStateFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutSpecialFunc</strong>
-</p>
-<p>
-<code>glut.glutSpecialFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutSpaceballMotionFunc</strong>
-</p>
-<p>
-<code>glut.glutSpaceballMotionFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutSpaceballRotateFunc</strong>
-</p>
-<p>
-<code>glut.glutSpaceballRotateFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutSpaceballButtonFunc</strong>
-</p>
-<p>
-<code>glut.glutSpaceballButtonFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutButtonBoxFunc</strong>
-</p>
-<p>
-<code>glut.glutButtonBoxFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutDialsFunc</strong>
-</p>
-<p>
-<code>glut.glutDialsFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutTabletMotionFunc</strong>
-</p>
-<p>
-<code>glut.glutTabletMotionFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutTabletButtonFunc</strong>
-</p>
-<p>
-<code>glut.glutTabletButtonFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutMenuStatusFunc</strong>
-</p>
-<p>
-<code>glut.glutMenuStatusFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutOverlayDisplayFunc</strong>
-</p>
-<p>
-<code>glut.glutOverlayDisplayFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutWindowStatusFunc</strong>
-</p>
-<p>
-<code>glut.glutWindowStatusFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutKeyboardUpFunc</strong>
-</p>
-<p>
-<code>glut.glutKeyboardUpFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutSpecialUpFunc</strong>
-</p>
-<p>
-<code>glut.glutSpecialUpFunc(func:function:nil):void</code>
-</p>
-<p>
-<strong>glut.glutJoystickFunc</strong>
-</p>
-<p>
-<code>glut.glutJoystickFunc(func:function:nil, pollInterval:number):void</code>
-</p>
-<p>
-<strong>glut.glutSetColor</strong>
-</p>
-<p>
-<code>glut.glutSetColor(ndx:number, red:number, green:number, blue:number):void</code>
-</p>
-<p>
-<strong>glut.glutGetColor</strong>
-</p>
-<p>
-<code>glut.glutGetColor(ndx:number, component:number):map {block?}</code>
-</p>
-<p>
-<strong>glut.glutCopyColormap</strong>
-</p>
-<p>
-<code>glut.glutCopyColormap(win:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutGet</strong>
-</p>
-<p>
-<code>glut.glutGet(type:number):map {block?}</code>
-</p>
-<p>
-<strong>glut.glutDeviceGet</strong>
-</p>
-<p>
-<code>glut.glutDeviceGet(type:number):map {block?}</code>
-</p>
-<p>
-<strong>glut.glutExtensionSupported</strong>
-</p>
-<p>
-<code>glut.glutExtensionSupported(name:string):map {block?}</code>
-</p>
-<p>
-<strong>glut.glutGetModifiers</strong>
-</p>
-<p>
-<code>glut.glutGetModifiers() {block?}</code>
-</p>
-<p>
-<strong>glut.glutLayerGet</strong>
-</p>
-<p>
-<code>glut.glutLayerGet(type:number):map {block?}</code>
-</p>
-<p>
-<strong>glut.glutGetProcAddress</strong>
-</p>
-<p>
-<code>glut.glutGetProcAddress(procName:string):map:void {block?}</code>
-</p>
-<p>
-<strong>glut.glutBitmapCharacter</strong>
-</p>
-<p>
-<code>glut.glutBitmapCharacter(font:glut.Font, character:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutBitmapWidth</strong>
-</p>
-<p>
-<code>glut.glutBitmapWidth(font:glut.Font, character:number):map {block?}</code>
-</p>
-<p>
-<strong>glut.glutStrokeCharacter</strong>
-</p>
-<p>
-<code>glut.glutStrokeCharacter(font:glut.Font, character:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutStrokeWidth</strong>
-</p>
-<p>
-<code>glut.glutStrokeWidth(font:glut.Font, character:number):map {block?}</code>
-</p>
-<p>
-<strong>glut.glutBitmapLength</strong>
-</p>
-<p>
-<code>glut.glutBitmapLength(font:glut.Font, string:string):map {block?}</code>
-</p>
-<p>
-<strong>glut.glutStrokeLength</strong>
-</p>
-<p>
-<code>glut.glutStrokeLength(font:glut.Font, string:string):map {block?}</code>
-</p>
-<p>
-<strong>glut.glutWireSphere</strong>
-</p>
-<p>
-<code>glut.glutWireSphere(radius:number, slices:number, stacks:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutSolidSphere</strong>
-</p>
-<p>
-<code>glut.glutSolidSphere(radius:number, slices:number, stacks:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutWireCone</strong>
-</p>
-<p>
-<code>glut.glutWireCone(base:number, height:number, slices:number, stacks:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutSolidCone</strong>
-</p>
-<p>
-<code>glut.glutSolidCone(base:number, height:number, slices:number, stacks:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutWireCube</strong>
-</p>
-<p>
-<code>glut.glutWireCube(size:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutSolidCube</strong>
-</p>
-<p>
-<code>glut.glutSolidCube(size:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutWireTorus</strong>
-</p>
-<p>
-<code>glut.glutWireTorus(innerRadius:number, outerRadius:number, sides:number, rings:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutSolidTorus</strong>
-</p>
-<p>
-<code>glut.glutSolidTorus(innerRadius:number, outerRadius:number, sides:number, rings:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutWireDodecahedron</strong>
-</p>
-<p>
-<code>glut.glutWireDodecahedron():void</code>
-</p>
-<p>
-<strong>glut.glutSolidDodecahedron</strong>
-</p>
-<p>
-<code>glut.glutSolidDodecahedron():void</code>
-</p>
-<p>
-<strong>glut.glutWireTeapot</strong>
-</p>
-<p>
-<code>glut.glutWireTeapot(size:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutSolidTeapot</strong>
-</p>
-<p>
-<code>glut.glutSolidTeapot(size:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutWireOctahedron</strong>
-</p>
-<p>
-<code>glut.glutWireOctahedron():void</code>
-</p>
-<p>
-<strong>glut.glutSolidOctahedron</strong>
-</p>
-<p>
-<code>glut.glutSolidOctahedron():void</code>
-</p>
-<p>
-<strong>glut.glutWireTetrahedron</strong>
-</p>
-<p>
-<code>glut.glutWireTetrahedron():void</code>
-</p>
-<p>
-<strong>glut.glutSolidTetrahedron</strong>
-</p>
-<p>
-<code>glut.glutSolidTetrahedron():void</code>
-</p>
-<p>
-<strong>glut.glutWireIcosahedron</strong>
-</p>
-<p>
-<code>glut.glutWireIcosahedron():void</code>
-</p>
-<p>
-<strong>glut.glutSolidIcosahedron</strong>
-</p>
-<p>
-<code>glut.glutSolidIcosahedron():void</code>
-</p>
-<p>
-<strong>glut.glutVideoResizeGet</strong>
-</p>
-<p>
-<code>glut.glutVideoResizeGet(param:number):map {block?}</code>
-</p>
-<p>
-<strong>glut.glutSetupVideoResizing</strong>
-</p>
-<p>
-<code>glut.glutSetupVideoResizing():void</code>
-</p>
-<p>
-<strong>glut.glutStopVideoResizing</strong>
-</p>
-<p>
-<code>glut.glutStopVideoResizing():void</code>
-</p>
-<p>
-<strong>glut.glutVideoResize</strong>
-</p>
-<p>
-<code>glut.glutVideoResize(x:number, y:number, width:number, height:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutVideoPan</strong>
-</p>
-<p>
-<code>glut.glutVideoPan(x:number, y:number, width:number, height:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutReportErrors</strong>
-</p>
-<p>
-<code>glut.glutReportErrors():void</code>
-</p>
-<p>
-<strong>glut.glutIgnoreKeyRepeat</strong>
-</p>
-<p>
-<code>glut.glutIgnoreKeyRepeat(ignore:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutSetKeyRepeat</strong>
-</p>
-<p>
-<code>glut.glutSetKeyRepeat(repeatMode:number):map:void</code>
-</p>
-<p>
-<strong>glut.glutForceJoystickFunc</strong>
-</p>
-<p>
-<code>glut.glutForceJoystickFunc():void</code>
-</p>
-<p>
-<strong>glut.glutGameModeString</strong>
-</p>
-<p>
-<code>glut.glutGameModeString(string:string):map:void</code>
-</p>
-<p>
-<strong>glut.glutEnterGameMode</strong>
-</p>
-<p>
-<code>glut.glutEnterGameMode() {block?}</code>
-</p>
-<p>
-<strong>glut.glutLeaveGameMode</strong>
-</p>
-<p>
-<code>glut.glutLeaveGameMode():void</code>
-</p>
-<p>
-<strong>glut.glutGameModeGet</strong>
-</p>
-<p>
-<code>glut.glutGameModeGet(mode:number):map {block?}</code>
-</p>
-<h2><span class="caption-index-2">19.2</span><a name="anchor-19-2"></a>Thanks</h2>
-<p>
-This module uses freeglut which official site is:
-</p>
-<p>
-<a href="http://freeglut.sourceforge.net/">http://freeglut.sourceforge.net/</a>
+If the directory contains sub directories, an error occurs. Specifying <code>:tree</code> attribute would delete such a directory.
 </p>
 <p />
 

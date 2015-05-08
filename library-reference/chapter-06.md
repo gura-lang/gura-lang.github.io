@@ -228,7 +228,7 @@ double</code>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.2.1</span><a name="anchor-6-2-1"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.2.1</span><a name="anchor-6-2-1"></a>Constructor</h3>
 <p>
 <strong>array@T</strong>
 </p>
@@ -414,7 +414,7 @@ Indicates if the content of the binary object is writable.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.4.2</span><a name="anchor-6-4-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.4.2</span><a name="anchor-6-4-2"></a>Constructor</h3>
 <p>
 <strong>binary</strong>
 </p>
@@ -699,7 +699,7 @@ BOM sequence of UTF-32 big endian: <code>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.6.2</span><a name="anchor-6-6-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.6.2</span><a name="anchor-6-6-2"></a>Constructor</h3>
 <p>
 <strong>codec</strong>
 </p>
@@ -929,7 +929,7 @@ With the above casting feature, you can call a function <code>f(c:color)</code> 
 <li><code>f('purple')</code> .. Implicit casting: from <code>string</code> to <code>color</code>.</li>
 <li><code>f([128, 0, 128])</code> .. Implicit casting: from <code>list</code> to <code>color</code>.</li>
 </ul>
-<h3><span class="caption-index-3">6.7.4</span><a name="anchor-6-7-4"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.7.4</span><a name="anchor-6-7-4"></a>Constructor</h3>
 <p>
 <strong>color</strong>
 </p>
@@ -995,7 +995,7 @@ You can create a <code>complex</code> instance by following ways:
 <li>Use <code>complex.polar()</code> function. eg) <code>complex.polar(5, math.pi / 6)</code></li>
 <li>Append <code>j</code> suffix after a number literal. eg) <code>2 + 3j</code></li>
 </ul>
-<h3><span class="caption-index-3">6.8.1</span><a name="anchor-6-8-1"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.8.1</span><a name="anchor-6-8-1"></a>Constructor</h3>
 <p>
 <strong>complex</strong>
 </p>
@@ -1406,7 +1406,7 @@ Seconds passed from 00:00:00 on January 1st in 1970 in UTC.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.9.3</span><a name="anchor-6-9-3"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.9.3</span><a name="anchor-6-9-3"></a>Constructor</h3>
 <p>
 <strong>datetime</strong>
 </p>
@@ -1719,7 +1719,7 @@ You can create a <code>dict</code> instance by calling <code>dict()</code> funct
 <p>
 You can also use a function named <code>%</code> to create an instance that is an alias of <code>dict()</code> function.
 </p>
-<h3><span class="caption-index-3">6.11.1</span><a name="anchor-6-11-1"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.11.1</span><a name="anchor-6-11-1"></a>Constructor</h3>
 <p>
 <strong>dict</strong>
 </p>
@@ -1948,7 +1948,7 @@ The <code>directory</code> class handles information necessary to seek directory
 <p>
 Though the instance can be created by <code>directory()</code> function, you don't have to use it in many cases because a casting from <code>string</code> to <code>directory</code> instance works implicitly in a function call.
 </p>
-<h3><span class="caption-index-3">6.12.1</span><a name="anchor-6-12-1"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.12.1</span><a name="anchor-6-12-1"></a>Constructor</h3>
 <p>
 <strong>directory</strong>
 </p>
@@ -2818,7 +2818,7 @@ Exists in "value".</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.15.2</span><a name="anchor-6-15-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.15.2</span><a name="anchor-6-15-2"></a>Constructor</h3>
 <p>
 <strong>expr</strong>
 </p>
@@ -3477,7 +3477,7 @@ You can print a function's help from the interactive prompt using the unary oper
 </p>
 <pre><code>&gt;&gt;&gt; ~printf
 </code></pre>
-<h3><span class="caption-index-3">6.17.3</span><a name="anchor-6-17-3"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.17.3</span><a name="anchor-6-17-3"></a>Constructor</h3>
 <p>
 <strong>function</strong>
 </p>
@@ -3963,7 +3963,7 @@ nil</code>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.19.2</span><a name="anchor-6-19-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.19.2</span><a name="anchor-6-19-2"></a>Constructor</h3>
 <p>
 <strong>image</strong>
 </p>
@@ -5846,7 +5846,7 @@ Below shows a way to create a matrix instance:
 </p>
 <pre><code>@@{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
 </code></pre>
-<h3><span class="caption-index-3">6.21.1</span><a name="anchor-6-21-1"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.21.1</span><a name="anchor-6-21-1"></a>Constructor</h3>
 <p>
 <strong>matrix</strong>
 </p>
@@ -6184,7 +6184,7 @@ Operator symbol.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.24.2</span><a name="anchor-6-24-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.24.2</span><a name="anchor-6-24-2"></a>Constructor</h3>
 <p>
 <strong>operator</strong>
 </p>
@@ -6260,7 +6260,7 @@ The argument <code>type</code> takes a symbol <code>`binary</code> or <code>`una
 <p>
 The <code>palette</code> instance has a set of <code>color</code> instance.
 </p>
-<h3><span class="caption-index-3">6.25.1</span><a name="anchor-6-25-1"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.25.1</span><a name="anchor-6-25-1"></a>Constructor</h3>
 <p>
 <strong>palette</strong>
 </p>
@@ -6398,7 +6398,7 @@ Below are examples to realize a common fraction two-thirds:
 2r / 3
 2 / 3r
 </code></pre>
-<h3><span class="caption-index-3">6.27.1</span><a name="anchor-6-27-1"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.27.1</span><a name="anchor-6-27-1"></a>Constructor</h3>
 <p>
 <strong>rational</strong>
 </p>
@@ -6425,7 +6425,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 Reduces the rational number by dividing its numerator and denominator by their GCD.
 </p>
 <h2><span class="caption-index-2">6.28</span><a name="anchor-6-28"></a>semaphore Class</h2>
-<h3><span class="caption-index-3">6.28.1</span><a name="anchor-6-28-1"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.28.1</span><a name="anchor-6-28-1"></a>Constructor</h3>
 <p>
 <strong>semaphore</strong>
 </p>
@@ -6615,7 +6615,7 @@ Using the above casting feature, you can call a function <code>f(stream:stream)<
 <li><code>f('foo.txt')</code> .. Implicit casting: from <code>string</code> to <code>stream</code>.</li>
 <li><code>f(b'\x00\x12\x34\x56')</code> .. Implicit casting: from <code>binary</code> to <code>stream</code>.</li>
 </ul>
-<h3><span class="caption-index-3">6.29.4</span><a name="anchor-6-29-4"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.29.4</span><a name="anchor-6-29-4"></a>Constructor</h3>
 <p>
 <strong>open</strong>
 </p>
@@ -7472,7 +7472,7 @@ You can use that suffix like below:
 </p>
 <pre><code>'hello world'X
 </code></pre>
-<h3><span class="caption-index-3">6.31.1</span><a name="anchor-6-31-1"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.31.1</span><a name="anchor-6-31-1"></a>Constructor</h3>
 <p>
 <strong>suffixmgr</strong>
 </p>
@@ -7533,7 +7533,7 @@ Using the above casting feature, you can call a function <code>f(tmpl:template)<
 <li><code>f(template('foo.txt'))</code> .. Implicit casting: from <code>string</code> to <code>stream</code>.</li>
 <li><code>f('foo.txt')</code> .. Implicit casting: from <code>string</code> to <code>stream</code>, then from <code>stream</code> to <code>template</code>.</li>
 </ul>
-<h3><span class="caption-index-3">6.33.2</span><a name="anchor-6-33-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.33.2</span><a name="anchor-6-33-2"></a>Constructor</h3>
 <p>
 <strong>template</strong>
 </p>
@@ -7864,7 +7864,7 @@ Offset of micro seconds.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.34.2</span><a name="anchor-6-34-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.34.2</span><a name="anchor-6-34-2"></a>Constructor</h3>
 <p>
 <strong>timedelta</strong>
 </p>
@@ -8016,7 +8016,7 @@ R/W</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.35.2</span><a name="anchor-6-35-2"></a>Function to Create Instance</h3>
+<h3><span class="caption-index-3">6.35.2</span><a name="anchor-6-35-2"></a>Constructor</h3>
 <p>
 <strong>uri</strong>
 </p>

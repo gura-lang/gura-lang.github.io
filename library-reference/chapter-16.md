@@ -5,158 +5,84 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">16</span><a name="anchor-16"></a>fs Module</h1>
+<h1><span class="caption-index-1">16</span><a name="anchor-16"></a>curl Module</h1>
 <p>
-The <code>fs</code> module provides measures to access and modify information in file systems. This is a built-in module, so you can use it without being imported.
+The <code>curl</code> module provices measures to access Internet resources using cURL library. To utilize it, import the <code>curl</code> module using <code>import</code> function.
 </p>
-<h2><span class="caption-index-2">16.1</span><a name="anchor-16-1"></a>Module Functions</h2>
+<h2><span class="caption-index-2">16.1</span><a name="anchor-16-1"></a>Module Function</h2>
 <p>
-<strong>fs.chdir</strong>
-</p>
-<p>
-<code>fs.chdir(pathname:string) {block?}</code>
+<strong>curl.version</strong>
 </p>
 <p>
-Changes the current working directory.
+<code>curl.version() {block?}</code>
 </p>
 <p>
-<strong>fs.chmod</strong>
+Returns a string of the libcurl version.
 </p>
 <p>
-<code>fs.chmod(mode, pathname:string):map:void:[follow_link]</code>
+<strong>curl.easy_init</strong>
 </p>
 <p>
-Changes the access mode of a file specified by <code>pathname</code>.
+<code>curl.easy_init() {block?}</code>
 </p>
 <p>
-There are two formats to specify the mode: one is by a number, and another in a string.
+Initializes cURL and returns a easy<em>handle object.</em>
+</p>
+<h2><span class="caption-index-2">16.2</span><a name="anchor-16-2"></a>curl.easy_handle Class</h2>
+<p>
+<strong>curl.easy_handle#escape</strong>
 </p>
 <p>
-When specified in a number, following bits are associated with access permissions:
-</p>
-<ul>
-<li><code>b8 b7 b6</code> .. Read, write and executable permissions for owners</li>
-<li><code>b5 b4 b3</code> .. Read, write and executable permissions for groups</li>
-<li><code>b2 b1 b0</code> .. Read, write and executable permissions for others</li>
-</ul>
-<p>
-When set to one, each permission is validated.
+<code>curl.easy_handle#escape(string:string):void</code>
 </p>
 <p>
-When specified in a string, it accepts a permission directive in a format of following regular expression
-</p>
-<pre><code>[ugoa]+([-+=][rwx]+)+
-</code></pre>
-<p>
-It starts with characters that represent target which permissions are modified as described below:
-</p>
-<ul>
-<li><code>u</code> .. owners</li>
-<li><code>g</code> .. groups</li>
-<li><code>o</code> .. others</li>
-<li><code>a</code> .. all users</li>
-</ul>
-<p>
-Then, follows an operation:
-</p>
-<ul>
-<li><code>-</code> .. remove</li>
-<li><code>+</code> .. append</li>
-<li><code>=</code> .. set</li>
-</ul>
-<p>
-At last, permission attributes are specified as below:
-</p>
-<ul>
-<li><code>r</code> .. read permission</li>
-<li><code>w</code> .. write permission</li>
-<li><code>x</code> .. executable permission</li>
-</ul>
-<p>
-If the modification target is a link file, each platform would have different result:
-</p>
-<ul>
-<li>Linux .. Modifies permissions of the link file itself. Specifying <code>:follow_link</code> attribute would modify permsisions of the target file instead.</li>
-<li>MacOS .. Modifies permissions of the target file. Attribute <code>:follow_link</code> has no effect.</li>
-<li>Windows .. Modifies permissions of the link file. Attribute <code>:follow_link</code> has no effect.</li>
-</ul>
-<p>
-<strong>fs.copy</strong>
+<strong>curl.easy_handle#getinfo</strong>
 </p>
 <p>
-<code>fs.copy(src:string, dst:string):map:void:[overwrite]</code>
+<code>curl.easy_handle#getinfo(info:number)</code>
 </p>
 <p>
-Copies a file.
+<strong>curl.easy_handle#perform</strong>
 </p>
 <p>
-An argument <code>src</code> needs to specify a path name of a file that is to be copied while <code>dst</code> can specify a path name of either a file or a directory. If <code>dst</code> is a directory, the file would be copied into that. Otherwise, it would create a copy of <code>src</code> that has a name specified by <code>dst</code>.
+<code>curl.easy_handle#perform(stream?:stream:w):void</code>
 </p>
 <p>
-If a destination file already exists, an error occurs. Specifying an attribute <code>:overwrite</code> would overwrite an existing one.
+<strong>curl.easy_handle#recv</strong>
 </p>
 <p>
-<strong>fs.cpdir</strong>
+<code>curl.easy_handle#recv(buflen:number)</code>
 </p>
 <p>
-<code>fs.cpdir(src:string, dst:string):map:void:[tree]</code>
+<strong>curl.easy_handle#reset</strong>
 </p>
 <p>
-Copies a directory.
+<code>curl.easy_handle#reset():void</code>
 </p>
 <p>
-Arguments <code>src</code> and <code>dst</code> specify source directory and destination directory respectively. In default, sub directories are not copied.Specifying <code>:tree</code> attribute would copy all the sub directories in the source.
+<strong>curl.easy_handle#send</strong>
 </p>
 <p>
-<strong>fs.getcwd</strong>
+<code>curl.easy_handle#send(buffer:binary)</code>
 </p>
 <p>
-<code>fs.getcwd()</code>
+<strong>curl.easy_handle#setopt</strong>
 </p>
 <p>
-Returns the current working directory.
+<code>curl.easy_handle#setopt(option:number, arg):void</code>
 </p>
 <p>
-<strong>fs.mkdir</strong>
+<strong>curl.easy_handle#unescape</strong>
 </p>
 <p>
-<code>fs.mkdir(pathname:string):map:void:[tree]</code>
+<code>curl.easy_handle#unescape(string:string):void</code>
+</p>
+<h2><span class="caption-index-2">16.3</span><a name="anchor-16-3"></a>Thanks</h2>
+<p>
+This module uses libcurl which is distributed in the following site:
 </p>
 <p>
-Creates a directory.
-</p>
-<p>
-If <code>pathname</code> consists of multiple sub directories and some of them still doesn't exist, an error occurs. Specifying <code>:tree</code> attribute would create such directories.
-</p>
-<p>
-<strong>fs.remove</strong>
-</p>
-<p>
-<code>fs.remove(pathname:string):map:void</code>
-</p>
-<p>
-Removes a file from the file system.
-</p>
-<p>
-<strong>fs.rename</strong>
-</p>
-<p>
-<code>fs.rename(src:string, dst:string):map:void</code>
-</p>
-<p>
-Renames a file or directory.
-</p>
-<p>
-<strong>fs.rmdir</strong>
-</p>
-<p>
-<code>fs.rmdir(pathname:string):map:void:[tree]</code>
-</p>
-<p>
-Removes a directory.
-</p>
-<p>
-If the directory contains sub directories, an error occurs. Specifying <code>:tree</code> attribute would delete such a directory.
+<a href="http://curl.haxx.se/libcurl/">http://curl.haxx.se/libcurl/</a>
 </p>
 <p />
 

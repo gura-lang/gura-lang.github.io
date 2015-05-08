@@ -5,212 +5,322 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">31</span><a name="anchor-31"></a>path Module</h1>
+<h1><span class="caption-index-1">31</span><a name="anchor-31"></a>midi Module</h1>
 <p>
-The <code>path</code> module provides functions related to path operations. This is a built-in module, so you can use it without being imported.
+The <code>midi</code> module provides measures to read/write MIDI files. To utilize it, import the <code>midi</code> module using <code>import</code> function.
 </p>
-<p>
-Below is an example to list path names that exist in the current directory.
-</p>
-<pre><code>println(path.dir('.'))
-</code></pre>
-<p>
-Below is an example to list path names that exist in the current directory and its child directories.
-</p>
-<pre><code>println(path.walk('.'))
-</code></pre>
-<p>
-Below is an example to list path names that matches a wild card pattern "<code>*.txt</code>".
-</p>
-<pre><code>println(path.glob('*.txt'))
-</code></pre>
 <h2><span class="caption-index-2">31.1</span><a name="anchor-31-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">31.2</span><a name="anchor-31-2"></a>midi.event Class</h2>
+<h2><span class="caption-index-2">31.3</span><a name="anchor-31-3"></a>midi.track Class</h2>
 <p>
-<strong>path.absname</strong>
+<strong>midi.track#seek</strong>
 </p>
 <p>
-<code>path.absname(name:string):map:[uri]</code>
+<code>midi.track#seek(offset:number, origin?:symbol):reduce</code>
 </p>
 <p>
-Returns an absolute path name of the given name.
+Moves the insertion point in the track at which the next event is inserted. If <code>origin</code> is omitted or set to <code>`set</code>, the insertion point will be set to absolute offset from the beginning. If <code>origin</code> is set to <code>`cur</code>, the insertion point will be moved by offset from the current position.
 </p>
 <p>
-<strong>path.basename</strong>
+<strong>midi.track#tell</strong>
 </p>
 <p>
-<code>path.basename(pathname:string):map</code>
+<code>midi.track#tell()</code>
 </p>
 <p>
-Removes a suffix part of a path name.
+Returns the current insertion point in the track.
 </p>
 <p>
-<strong>path.bottom</strong>
+<strong>midi.track#erase</strong>
 </p>
 <p>
-<code>path.bottom(pathname:string):map</code>
+<code>midi.track#erase(n?:number):reduce</code>
 </p>
 <p>
-Returns the last part of a path name.
+Deletes an event at the current insertion point in the track. The argument <code>n</code> specifies the number of events to be deleted. If <code>n</code> is omitted, one event will be deleted.
 </p>
 <p>
-<strong>path.cutbottom</strong>
+<strong>midi.track#mml</strong>
 </p>
 <p>
-<code>path.cutbottom(pathname:string):map</code>
+<code>midi.track#mml(str:string, max_velocity?:number):map:reduce</code>
 </p>
 <p>
-Returns a path name after eliminating its bottom part.
+Parses MML in the string <code>str</code> and inserts resulted MIDI events at the current insertion point in the track.
 </p>
 <p>
-<strong>path.dir</strong>
+The argument <code>max_velocity</code> specifies the maximum number of velocity in the MML. If omitted, it will be set to 127.
 </p>
 <p>
-<code>path.dir(directory?:directory, pattern*:string):map:flat:[dir,file,stat] {block?}</code>
+<strong>midi.track#note_off</strong>
 </p>
 <p>
-Creates an iterator that lists item names in the specified directory. If pathname is omitted, the current directory shall be listed. In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+<code>midi.track#note_off(channel:number, note:number, velocity:number, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-<strong>path.dirname</strong>
+<strong>midi.track#note_on</strong>
 </p>
 <p>
-<code>path.dirname(pathname:string):map</code>
+<code>midi.track#note_on(channel:number, note:number, velocity:number, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-Splits a pathname by a directory separator and returns a directory name part.
+<strong>midi.track#poly_pressure</strong>
 </p>
 <p>
-<strong>path.exists</strong>
+<code>midi.track#poly_pressure(channel:number, note:number, value:number, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-<code>path.exists(pathname:string):map</code>
+<strong>midi.track#control_change</strong>
 </p>
 <p>
-Returns true if the specified file exists in a file system.
+<code>midi.track#control_change(channel:number, controller, value:number, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-<strong>path.extname</strong>
+<strong>midi.track#program_change</strong>
 </p>
 <p>
-<code>path.extname(pathname:string):map</code>
+<code>midi.track#program_change(channel:number, program, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-Extracts a suffix part of a path name.
+<strong>midi.track#channel_pressure</strong>
 </p>
 <p>
-<strong>path.filename</strong>
+<code>midi.track#channel_pressure(channel:number, pressure:number, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-<code>path.filename(pathname:string):map</code>
+<strong>midi.track#pitch_bend</strong>
 </p>
 <p>
-Splits a pathname by a directory separator and returns a file name part.
+<code>midi.track#pitch_bend(channel:number, value:number, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-<strong>path.glob</strong>
+<strong>midi.track#sequence_number</strong>
 </p>
 <p>
-<code>path.glob(pattern:string):map:flat:[dir,file,stat] {block?}</code>
+<code>midi.track#sequence_number(number:number, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-Creates an iterator for item names that match with a pattern supporting UNIX shell-style wild cards. In default, case of characters is distinguished. In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+<strong>midi.track#text_event</strong>
 </p>
 <p>
-<strong>path.join</strong>
+<code>midi.track#text_event(text:string, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-<code>path.join(paths+:string):map:[uri]</code>
+<strong>midi.track#copyright_notice</strong>
 </p>
 <p>
-Returns a path name that joins given strings with directory separators.
+<code>midi.track#copyright_notice(text:string, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-<strong>path.match</strong>
+<strong>midi.track#sequence_or_track_name</strong>
 </p>
 <p>
-<code>path.match(pattern:string, name:string):map</code>
+<code>midi.track#sequence_or_track_name(text:string, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-Returns true if a name matches with a pattern that supports UNIX shell-style wild cards. In default, case of characters is distinguished.
+<strong>midi.track#instrument_name</strong>
 </p>
 <p>
-<strong>path.regulate</strong>
+<code>midi.track#instrument_name(text:string, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-<code>path.regulate(name:string):map:[uri]</code>
+<strong>midi.track#lyric_text</strong>
 </p>
 <p>
-Returns a regulated path name of the given name.
+<code>midi.track#lyric_text(text:string, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-<strong>path.split</strong>
+<strong>midi.track#marker_text</strong>
 </p>
 <p>
-<code>path.split(pathname:string):map:[bottom]</code>
+<code>midi.track#marker_text(text:string, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-Splits a pathname by a directory separator and returns a list containing a directory name as the first element and a base name as the second one. This has the same result as calling path.dirname() and path.filename().
+<strong>midi.track#cue_point</strong>
 </p>
 <p>
-<strong>path.splitext</strong>
+<code>midi.track#cue_point(text:string, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-<code>path.splitext(pathname:string):map</code>
+<strong>midi.track#midi_channel_prefix_assignment</strong>
 </p>
 <p>
-Splits a pathname by a dot character indicating a beginning of an extension and returns a list containing a path name without an extention and an extention part.
+<code>midi.track#midi_channel_prefix_assignment(channel:number, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-<strong>path.stat</strong>
+<strong>midi.track#end_of_track</strong>
 </p>
 <p>
-<code>path.stat(directory:directory):map</code>
+<code>midi.track#end_of_track(deltaTime?:number):map:reduce</code>
 </p>
 <p>
-Returns a stat object associated with the specified item.
+<strong>midi.track#tempo_setting</strong>
 </p>
 <p>
-<strong>path.walk</strong>
+<code>midi.track#tempo_setting(mpqn:number, deltaTime?:number):map:reduce</code>
 </p>
 <p>
-<code>path.walk(directory?:directory, maxdepth?:number, pattern*:string):map:flat:[dir,file,stat] {block?}</code>
+<strong>midi.track#smpte_offset</strong>
 </p>
 <p>
-Creates an iterator that recursively lists item names under the specified directory. If pathname is omitted, search starts at the current directory In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+<code>midi.track#smpte_offset(hour:number, minute:number, second:number, frame:number, subFrame:number, deltaTime?:number):map:reduce</code>
 </p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
 <p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+<strong>midi.track#time_signature</strong>
 </p>
+<p>
+<code>midi.track#time_signature(numerator:number, denominator:number, metronome:number, cnt32nd:number, deltaTime?:number):map:reduce</code>
+</p>
+<p>
+<strong>midi.track#key_signature</strong>
+</p>
+<p>
+<code>midi.track#key_signature(key:number, scale:number, deltaTime?:number):map:reduce</code>
+</p>
+<p>
+<strong>midi.track#sequencer_specific_event</strong>
+</p>
+<p>
+<code>midi.track#sequencer_specific_event(binary:binary, deltaTime?:number):map:reduce</code>
+</p>
+<h2><span class="caption-index-2">31.4</span><a name="anchor-31-4"></a>midi.sequence Class</h2>
+<p>
+<strong>midi.sequence</strong>
+</p>
+<p>
+<code>midi.sequence(stream?:stream) {block?}</code>
+</p>
+<p>
+It creates an instance that contains SMF information.
+</p>
+<p>
+<strong>midi.sequence#read</strong>
+</p>
+<p>
+<code>midi.sequence#read(stream:stream:r):map:reduce</code>
+</p>
+<p>
+<strong>midi.sequence#write</strong>
+</p>
+<p>
+<code>midi.sequence#write(stream:stream:w):map:reduce</code>
+</p>
+<p>
+<strong>midi.sequence#play</strong>
+</p>
+<p>
+<code>midi.sequence#play(port:midi.port, speed?:number, repeat:number:nil =&gt; 1):[background,player]</code>
+</p>
+<p>
+<strong>midi.sequence#track</strong>
+</p>
+<p>
+<code>midi.sequence#track(index:number):map {block?}</code>
+</p>
+<p>
+<strong>midi.sequence#mml</strong>
+</p>
+<p>
+<code>midi.sequence#mml(str:string, max_velocity?:number):reduce</code>
+</p>
+<p>
+<strong>midi.sequence#readmml</strong>
+</p>
+<p>
+<code>midi.sequence#readmml(stream:stream, max_velocity?:number):reduce</code>
+</p>
+<h2><span class="caption-index-2">31.5</span><a name="anchor-31-5"></a>midi.port Class</h2>
+<p>
+<strong>midi.port#send</strong>
+</p>
+<p>
+<code>midi.port#send(msg+:number):map:reduce</code>
+</p>
+<p>
+<strong>midi.port#play</strong>
+</p>
+<p>
+<code>midi.port#play(sequence:midi.sequence, speed?:number, repeat:number:nil =&gt; 1):map:[background,player]</code>
+</p>
+<p>
+<strong>midi.port#mml</strong>
+</p>
+<p>
+<code>midi.port#mml(str:string, max_velocity?:number):[background,player]</code>
+</p>
+<p>
+<strong>midi.port#readmml</strong>
+</p>
+<p>
+<code>midi.port#readmml(stream:stream, max_velocity?:number):[background,player]</code>
+</p>
+<p>
+<strong>midi.port#note_off</strong>
+</p>
+<p>
+<code>midi.port#note_off(channel:number, note:number, velocity:number):map:reduce</code>
+</p>
+<p>
+<strong>midi.port#note_on</strong>
+</p>
+<p>
+<code>midi.port#note_on(channel:number, note:number, velocity:number):map:reduce</code>
+</p>
+<p>
+<strong>midi.port#poly_pressure</strong>
+</p>
+<p>
+<code>midi.port#poly_pressure(channel:number, note:number, value:number):map:reduce</code>
+</p>
+<p>
+<strong>midi.port#control_change</strong>
+</p>
+<p>
+<code>midi.port#control_change(channel:number, controller:number, value:number):map:reduce</code>
+</p>
+<p>
+<strong>midi.port#program_change</strong>
+</p>
+<p>
+<code>midi.port#program_change(channel:number, program:number):map:reduce</code>
+</p>
+<p>
+<strong>midi.port#channel_pressure</strong>
+</p>
+<p>
+<code>midi.port#channel_pressure(channel:number, pressure:number):map:reduce</code>
+</p>
+<p>
+<strong>midi.port#pitch_bend</strong>
+</p>
+<p>
+<code>midi.port#pitch_bend(channel:number, value:number):map:reduce</code>
+</p>
+<h2><span class="caption-index-2">31.6</span><a name="anchor-31-6"></a>midi.controller Class</h2>
+<h2><span class="caption-index-2">31.7</span><a name="anchor-31-7"></a>midi.program Class</h2>
+<h2><span class="caption-index-2">31.8</span><a name="anchor-31-8"></a>midi.soundfont Class</h2>
+<p>
+<strong>midi.soundfont</strong>
+</p>
+<p>
+<code>midi.soundfont(stream:stream) {block?}</code>
+</p>
+<p>
+It creates an instance to access data in SoundFont file.
+</p>
+<p>
+<strong>midi.soundfont#synthesizer</strong>
+</p>
+<p>
+<code>midi.soundfont#synthesizer(preset:number, bank:number, key:number, velocity:number):map {block?}</code>
+</p>
+<p>
+<strong>midi.soundfont#print</strong>
+</p>
+<p>
+<code>midi.soundfont#print():void</code>
+</p>
+<h2><span class="caption-index-2">31.9</span><a name="anchor-31-9"></a>midi.synthesizer Class</h2>
 <p />
 
 {% endraw %}

@@ -5,3220 +5,2113 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">35</span><a name="anchor-35"></a>sdl2 Module</h1>
+<h1><span class="caption-index-1">35</span><a name="anchor-35"></a>opengl Module</h1>
 <p>
-The <code>sdl2</code> module provices functions of SDL2 library.
+The <code>opengl</code> module provides functions of OpenGL library.
 </p>
-<h2><span class="caption-index-2">35.1</span><a name="anchor-35-1"></a>Module Functions</h2>
+<h2><span class="caption-index-2">35.1</span><a name="anchor-35-1"></a>Module Function</h2>
 <p>
-<strong>sdl2.Init</strong>
+<strong>opengl.glAccum</strong>
 </p>
 <p>
-<code>sdl2.Init(flags:number):void</code>
+<code>opengl.glAccum(op:number, value:number):map:void</code>
 </p>
 <p>
-Use this function to initialize the SDL library. This must be called before using any other SDL function.
+operate on the accumulation buffer
 </p>
 <p>
-The Event Handling, File I/O, and Threading subsystems are initialized by default. You must specifically initialize other subsystems if you use them in your application.
+<strong>opengl.glAlphaFunc</strong>
 </p>
 <p>
-<code>flags</code> may be any of the following OR'd together:
+<code>opengl.glAlphaFunc(func:number, ref:number):map:void</code>
 </p>
-<ul>
-<li><code>sdl2.INIT_TIMER</code> .. timer subsystem</li>
-<li><code>sdl2.INIT_AUDIO</code> .. audio subsystem</li>
-<li><code>sdl2.INIT_VIDEO</code> .. video subsystem</li>
-<li><code>sdl2.INIT_JOYSTICK</code> .. joystick subsystem</li>
-<li><code>sdl2.INIT_HAPTIC</code> .. haptic (force feedback) subsystem</li>
-<li><code>sdl2.INIT_GAMECONTROLLER</code> .. controller subsystem</li>
-<li><code>sdl2.INIT_EVENTS</code> .. events subsystem</li>
-<li><code>sdl2.INIT_EVERYTHING</code> .. all of the above subsystems</li>
-<li><code>sdl2.INIT_NOPARACHUTE</code> .. compatibility; this flag is ignored</li>
-</ul>
 <p>
-If you want to initialize subsystems separately you would call <code>SDL_Init(0)</code> followed by <code>SDL_InitSubSystem()</code> with the desired subsystem flag.
+specify the alpha test function
 </p>
 <p>
-<strong>sdl2.InitSubSystem</strong>
+<strong>opengl.glAreTexturesResident</strong>
 </p>
 <p>
-<code>sdl2.InitSubSystem(flags:number):void</code>
+<code>opengl.glAreTexturesResident(textures:array@uint:nomap):map {block?}</code>
 </p>
 <p>
-Use this function to initialize specific SDL subsystems.
+determine if textures are loaded in texture memory
 </p>
 <p>
-After SDL has been initialized with <code>SDL_Init()</code> you may initialize uninitialized subsystems with <code>SDL_InitSubSystem()</code>.
+<strong>opengl.glArrayElement</strong>
 </p>
 <p>
-These are the flags which may be passed to <code>SDL_InitSubSystem()</code> and may be OR'd together to initialize multiple subsystems simultaneously.
+<code>opengl.glArrayElement(i:number):map:void</code>
 </p>
-<ul>
-<li><code>sdl2.INIT_TIMER</code> .. timer subsystem</li>
-<li><code>sdl2.INIT_AUDIO</code> .. audio subsystem</li>
-<li><code>sdl2.INIT_VIDEO</code> .. video subsystem</li>
-<li><code>sdl2.INIT_JOYSTICK</code> .. joystick subsystem</li>
-<li><code>sdl2.INIT_HAPTIC</code> .. haptic (force feedback) subsystem</li>
-<li><code>sdl2.INIT_GAMECONTROLLER</code> .. controller subsystem</li>
-<li><code>sdl2.INIT_EVENTS</code> .. events subsystem</li>
-<li><code>sdl2.INIT_EVERYTHING</code> .. all of the above subsystems</li>
-<li><code>sdl2.INIT_NOPARACHUTE</code> .. compatibility; this flag is ignored</li>
-</ul>
 <p>
-If you want to initialize subsystems separately you would call <code>SDL_Init(0)</code> followed by <code>SDL_InitSubSystem()</code> with the desired subsystem flag.
+render a vertex using the specified vertex array element
 </p>
 <p>
-<strong>sdl2.Quit</strong>
+<strong>opengl.glBegin</strong>
 </p>
 <p>
-<code>sdl2.Quit():void</code>
+<code>opengl.glBegin(mode:number):map:void {block?}</code>
 </p>
 <p>
-Use this function to clean up all initialized subsystems. You should call it upon all exit conditions.
+delimit the vertices of a primitive or a group of like primitives
 </p>
 <p>
-You should call this function even if you have already shutdown each initialized subsystem with <code>SDL_QuitSubSystem()</code>.
+<strong>opengl.glBindTexture</strong>
 </p>
 <p>
-If you start a subsystem using a call to that subsystem's init function (for example <code>SDL_VideoInit()</code>) instead of <code>SDL_Init()</code> or <code>SDL_InitSubSystem()</code>, then you must use that subsystem's quit function (<code>SDL_VideoQuit()</code>) to shut it down before calling <code>SDL_Quit()</code>.
+<code>opengl.glBindTexture(target:number, texture:number):map:void</code>
 </p>
 <p>
-You can use this function with <code>atexit()</code> to ensure that it is run when your application is shutdown, but it is not wise to do this from a library or other dynamically loaded code.
+<strong>opengl.glBitmap</strong>
 </p>
 <p>
-<strong>sdl2.QuitSubSystem</strong>
+<code>opengl.glBitmap(width:number, height:number, xorig:number, yorig:number, xmove:number, ymove:number, bitmap:array@uchar:nomap:nil):map:void</code>
 </p>
 <p>
-<code>sdl2.QuitSubSystem(flags:number):void</code>
+<strong>opengl.glBlendFunc</strong>
 </p>
 <p>
-Use this function to shut down specific SDL subsystems.
+<code>opengl.glBlendFunc(sfactor:number, dfactor:number):map:void</code>
 </p>
 <p>
-These are the flags which may be passed to <code>SDL_QuitSubSystem()</code> and may be OR'd together to quit multiple subsystems simultaneously.
+<strong>opengl.glCallList</strong>
 </p>
-<ul>
-<li><code>sdl2.INIT_TIMER</code> .. timer subsystem</li>
-<li><code>sdl2.INIT_AUDIO</code> .. audio subsystem</li>
-<li><code>sdl2.INIT_VIDEO</code> .. video subsystem</li>
-<li><code>sdl2.INIT_JOYSTICK</code> .. joystick subsystem</li>
-<li><code>sdl2.INIT_HAPTIC</code> .. haptic (force feedback) subsystem</li>
-<li><code>sdl2.INIT_GAMECONTROLLER</code> .. controller subsystem</li>
-<li><code>sdl2.INIT_EVENTS</code> .. events subsystem</li>
-<li><code>sdl2.INIT_EVERYTHING</code> .. all of the above subsystems</li>
-<li><code>sdl2.INIT_NOPARACHUTE</code> .. compatibility; this flag is ignored</li>
-</ul>
 <p>
-If you want to initialize subsystems separately you would call <code>SDL_Init(0)</code> followed by <code>SDL_InitSubSystem()</code> with the desired subsystem flag.
+<code>opengl.glCallList(list:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetMainReady</strong>
+<strong>opengl.glCallLists</strong>
 </p>
 <p>
-<code>sdl2.SetMainReady():void</code>
+<code>opengl.glCallLists(type:number, lists[]:number):map:void</code>
 </p>
 <p>
-Use this function to circumvent failure of <code>SDL_Init()</code> when not using <code>SDL_main()</code> as an entry point.
+<strong>opengl.glClear</strong>
 </p>
 <p>
-This function is defined in SDL<em>main.h, along with the preprocessor</em>rule to redefine <code>main()</code> as <code>SDL_main()</code>. Thus to ensure that your <code>main()</code> function will not be changed it is necessary to define <code>SDL_MAIN_HANDLED</code> before including SDL.h.
+<code>opengl.glClear(mask:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.WasInit</strong>
+<strong>opengl.glClearAccum</strong>
 </p>
 <p>
-<code>sdl2.WasInit(flags:number) {block?}</code>
+<code>opengl.glClearAccum(red:number, green:number, blue:number, alpha:number):map:void</code>
 </p>
 <p>
-Use this function to return a mask of the specified subsystems which have previously been initialized.
+<strong>opengl.glClearColor</strong>
 </p>
 <p>
-These are the flags which may be passed to <code>SDL_WasInit()</code> and may be OR'd together to query multiple subsystems simultaneously.
+<code>opengl.glClearColor(red:number, green:number, blue:number, alpha:number):map:void</code>
 </p>
-<ul>
-<li><code>sdl2.INIT_TIMER</code> .. timer subsystem</li>
-<li><code>sdl2.INIT_AUDIO</code> .. audio subsystem</li>
-<li><code>sdl2.INIT_VIDEO</code> .. video subsystem</li>
-<li><code>sdl2.INIT_JOYSTICK</code> .. joystick subsystem</li>
-<li><code>sdl2.INIT_HAPTIC</code> .. haptic (force feedback) subsystem</li>
-<li><code>sdl2.INIT_GAMECONTROLLER</code> .. controller subsystem</li>
-<li><code>sdl2.INIT_EVENTS</code> .. events subsystem</li>
-<li><code>sdl2.INIT_EVERYTHING</code> .. all of the above subsystems</li>
-<li><code>sdl2.INIT_NOPARACHUTE</code> .. compatibility; this flag is ignored</li>
-</ul>
 <p>
-If you want to initialize subsystems separately you would call <code>SDL_Init(0)</code> followed by <code>SDL_InitSubSystem()</code> with the desired subsystem flag.
+<strong>opengl.glClearDepth</strong>
 </p>
 <p>
-<strong>sdl2.AddHintCallback</strong>
+<code>opengl.glClearDepth(depth:number):map:void</code>
 </p>
 <p>
-<code>sdl2.AddHintCallback():void</code>
+<strong>opengl.glClearIndex</strong>
 </p>
 <p>
-<strong>sdl2.ClearHints</strong>
+<code>opengl.glClearIndex(c:number):map:void</code>
 </p>
 <p>
-<code>sdl2.ClearHints():void</code>
+<strong>opengl.glClearStencil</strong>
 </p>
 <p>
-<strong>sdl2.DelhintCallback</strong>
+<code>opengl.glClearStencil(s:number):map:void</code>
 </p>
 <p>
-<code>sdl2.DelhintCallback():void</code>
+<strong>opengl.glClipPlane</strong>
 </p>
 <p>
-<strong>sdl2.GetHint</strong>
+<code>opengl.glClipPlane(plane:number, equation:array@double:nomap):map {block?}</code>
 </p>
 <p>
-<code>sdl2.GetHint():void</code>
+<strong>opengl.glColor3b</strong>
 </p>
 <p>
-<strong>sdl2.SetHint</strong>
+<code>opengl.glColor3b(red:number, green:number, blue:number):map:void</code>
 </p>
 <p>
-<code>sdl2.SetHint():void</code>
+<strong>opengl.glColor3bv</strong>
 </p>
 <p>
-<strong>sdl2.SetHintWithPriority</strong>
+<code>opengl.glColor3bv(v:array@char:nomap):map:void</code>
 </p>
 <p>
-<code>sdl2.SetHintWithPriority():void</code>
+<strong>opengl.glColor3d</strong>
 </p>
 <p>
-<strong>sdl2.ClearError</strong>
+<code>opengl.glColor3d(red:number, green:number, blue:number):map:void</code>
 </p>
 <p>
-<code>sdl2.ClearError():void</code>
+<strong>opengl.glColor3dv</strong>
 </p>
 <p>
-Use this function to clear any previous error message.
+<code>opengl.glColor3dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetError</strong>
+<strong>opengl.glColor3f</strong>
 </p>
 <p>
-<code>sdl2.GetError() {block?}</code>
+<code>opengl.glColor3f(red:number, green:number, blue:number):map:void</code>
 </p>
 <p>
-Use this function to retrieve a message about the last error that occurred.
+<strong>opengl.glColor3fv</strong>
 </p>
 <p>
-Returns a message with information about the specific error that occurred, or an empty string if there hasn't been an error since the last call to <code>SDL_ClearError()</code>. Without calling <code>SDL_ClearError()</code>, the message is only applicable when an SDL function has signaled an error. You must check the return values of SDL function calls to determine when to appropriately call <code>SDL_GetError()</code>.
+<code>opengl.glColor3fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-This string is statically allocated and must not be freed by the application.
+<strong>opengl.glColor3i</strong>
 </p>
 <p>
-It is possible for multiple errors to occur before calling <code>SDL_GetError()</code>. Only the last error is returned.
+<code>opengl.glColor3i(red:number, green:number, blue:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetError</strong>
+<strong>opengl.glColor3iv</strong>
 </p>
 <p>
-<code>sdl2.SetError():void</code>
+<code>opengl.glColor3iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.Log</strong>
+<strong>opengl.glColor3s</strong>
 </p>
 <p>
-<code>sdl2.Log():void</code>
+<code>opengl.glColor3s(red:number, green:number, blue:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogCritical</strong>
+<strong>opengl.glColor3sv</strong>
 </p>
 <p>
-<code>sdl2.LogCritical():void</code>
+<code>opengl.glColor3sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogDebug</strong>
+<strong>opengl.glColor3ub</strong>
 </p>
 <p>
-<code>sdl2.LogDebug():void</code>
+<code>opengl.glColor3ub(red:number, green:number, blue:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogError</strong>
+<strong>opengl.glColor3ubv</strong>
 </p>
 <p>
-<code>sdl2.LogError():void</code>
+<code>opengl.glColor3ubv(v:array@uchar:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogGetOutputFunction</strong>
+<strong>opengl.glColor3ui</strong>
 </p>
 <p>
-<code>sdl2.LogGetOutputFunction():void</code>
+<code>opengl.glColor3ui(red:number, green:number, blue:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogGetPriority</strong>
+<strong>opengl.glColor3uiv</strong>
 </p>
 <p>
-<code>sdl2.LogGetPriority():void</code>
+<code>opengl.glColor3uiv(v:array@uint:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogInfo</strong>
+<strong>opengl.glColor3us</strong>
 </p>
 <p>
-<code>sdl2.LogInfo():void</code>
+<code>opengl.glColor3us(red:number, green:number, blue:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogMessage</strong>
+<strong>opengl.glColor3usv</strong>
 </p>
 <p>
-<code>sdl2.LogMessage():void</code>
+<code>opengl.glColor3usv(v:array@ushort:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogMessageV</strong>
+<strong>opengl.glColor4b</strong>
 </p>
 <p>
-<code>sdl2.LogMessageV():void</code>
+<code>opengl.glColor4b(red:number, green:number, blue:number, alpha:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogResetPriorities</strong>
+<strong>opengl.glColor4bv</strong>
 </p>
 <p>
-<code>sdl2.LogResetPriorities():void</code>
+<code>opengl.glColor4bv(v:array@char:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogSetAllPriority</strong>
+<strong>opengl.glColor4d</strong>
 </p>
 <p>
-<code>sdl2.LogSetAllPriority():void</code>
+<code>opengl.glColor4d(red:number, green:number, blue:number, alpha:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogSetOutputFunction</strong>
+<strong>opengl.glColor4dv</strong>
 </p>
 <p>
-<code>sdl2.LogSetOutputFunction():void</code>
+<code>opengl.glColor4dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogSetPriority</strong>
+<strong>opengl.glColor4f</strong>
 </p>
 <p>
-<code>sdl2.LogSetPriority():void</code>
+<code>opengl.glColor4f(red:number, green:number, blue:number, alpha:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogVerbose</strong>
+<strong>opengl.glColor4fv</strong>
 </p>
 <p>
-<code>sdl2.LogVerbose():void</code>
+<code>opengl.glColor4fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.LogWarn</strong>
+<strong>opengl.glColor4i</strong>
 </p>
 <p>
-<code>sdl2.LogWarn():void</code>
+<code>opengl.glColor4i(red:number, green:number, blue:number, alpha:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetAssertionHandler</strong>
+<strong>opengl.glColor4iv</strong>
 </p>
 <p>
-<code>sdl2.GetAssertionHandler():void</code>
+<code>opengl.glColor4iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetAssertionReport</strong>
+<strong>opengl.glColor4s</strong>
 </p>
 <p>
-<code>sdl2.GetAssertionReport():void</code>
+<code>opengl.glColor4s(red:number, green:number, blue:number, alpha:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetDefaultAssertionHandler</strong>
+<strong>opengl.glColor4sv</strong>
 </p>
 <p>
-<code>sdl2.GetDefaultAssertionHandler():void</code>
+<code>opengl.glColor4sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.ResetAssertionReport</strong>
+<strong>opengl.glColor4ub</strong>
 </p>
 <p>
-<code>sdl2.ResetAssertionReport():void</code>
+<code>opengl.glColor4ub(red:number, green:number, blue:number, alpha:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetAssertionHandler</strong>
+<strong>opengl.glColor4ubv</strong>
 </p>
 <p>
-<code>sdl2.SetAssertionHandler():void</code>
+<code>opengl.glColor4ubv(v:array@uchar:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.TriggerBreakpoint</strong>
+<strong>opengl.glColor4ui</strong>
 </p>
 <p>
-<code>sdl2.TriggerBreakpoint():void</code>
+<code>opengl.glColor4ui(red:number, green:number, blue:number, alpha:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.assert</strong>
+<strong>opengl.glColor4uiv</strong>
 </p>
 <p>
-<code>sdl2.assert():void</code>
+<code>opengl.glColor4uiv(v:array@uint:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.assert_paranoid</strong>
+<strong>opengl.glColor4us</strong>
 </p>
 <p>
-<code>sdl2.assert_paranoid():void</code>
+<code>opengl.glColor4us(red:number, green:number, blue:number, alpha:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.assert_release</strong>
+<strong>opengl.glColor4usv</strong>
 </p>
 <p>
-<code>sdl2.assert_release():void</code>
+<code>opengl.glColor4usv(v:array@ushort:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetRevision</strong>
+<strong>opengl.glColorMask</strong>
 </p>
 <p>
-<code>sdl2.GetRevision() {block?}</code>
+<code>opengl.glColorMask(red:boolean, green:boolean, blue:boolean, alpha:boolean):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetRevisionNumber</strong>
+<strong>opengl.glColorMaterial</strong>
 </p>
 <p>
-<code>sdl2.GetRevisionNumber() {block?}</code>
+<code>opengl.glColorMaterial(face:number, mode:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetVersion</strong>
+<strong>opengl.glCopyPixels</strong>
 </p>
 <p>
-<code>sdl2.GetVersion() {block?}</code>
+<code>opengl.glCopyPixels(x:number, y:number, width:number, height:number, type:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.VERSION</strong>
+<strong>opengl.glCopyTexImage1D</strong>
 </p>
 <p>
-<code>sdl2.VERSION() {block?}</code>
+<code>opengl.glCopyTexImage1D(target:number, level:number, internalformat:number, x:number, y:number, width:number, border:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.VERSION_ATLEAST</strong>
+<strong>opengl.glCopyTexImage2D</strong>
 </p>
 <p>
-<code>sdl2.VERSION_ATLEAST(X:number, Y:number, Z:number) {block?}</code>
+<code>opengl.glCopyTexImage2D(target:number, level:number, internalformat:number, x:number, y:number, width:number, height:number, border:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateWindow</strong>
+<strong>opengl.glCopyTexSubImage1D</strong>
 </p>
 <p>
-<code>sdl2.CreateWindow(title:string, x:number, y:number, w:number, h:number, flags:number) {block?}</code>
+<code>opengl.glCopyTexSubImage1D(target:number, level:number, xoffset:number, x:number, y:number, width:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateWindowAndRenderer</strong>
+<strong>opengl.glCopyTexSubImage2D</strong>
 </p>
 <p>
-<code>sdl2.CreateWindowAndRenderer(width:number, height:number, window_flags:number) {block?}</code>
+<code>opengl.glCopyTexSubImage2D(target:number, level:number, xoffset:number, yoffset:number, x:number, y:number, width:number, height:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateWindowFrom</strong>
+<strong>opengl.glCullFace</strong>
 </p>
 <p>
-<code>sdl2.CreateWindowFrom():void</code>
+<code>opengl.glCullFace(mode:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.DestroyWindow</strong>
+<strong>opengl.glDeleteLists</strong>
 </p>
 <p>
-<code>sdl2.DestroyWindow(window:sdl2.Window):void</code>
+<code>opengl.glDeleteLists(list:number, range:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.DisableScreenSaver</strong>
+<strong>opengl.glDeleteTextures</strong>
 </p>
 <p>
-<code>sdl2.DisableScreenSaver():void</code>
+<code>opengl.glDeleteTextures(textures:array@uint:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.EnableScreenSaver</strong>
+<strong>opengl.glDepthFunc</strong>
 </p>
 <p>
-<code>sdl2.EnableScreenSaver():void</code>
+<code>opengl.glDepthFunc(func:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_CreateContext</strong>
+<strong>opengl.glDepthMask</strong>
 </p>
 <p>
-<code>sdl2.GL_CreateContext(window:sdl2.Window) {block?}</code>
+<code>opengl.glDepthMask(flag:boolean):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_DeleteContext</strong>
+<strong>opengl.glDepthRange</strong>
 </p>
 <p>
-<code>sdl2.GL_DeleteContext(context:sdl2.GLContext):void</code>
+<code>opengl.glDepthRange(zNear:number, zFar:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_ExtensionSupported</strong>
+<strong>opengl.glDisable</strong>
 </p>
 <p>
-<code>sdl2.GL_ExtensionSupported(extension:string) {block?}</code>
+<code>opengl.glDisable(cap:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_GetAttribute</strong>
+<strong>opengl.glDisableClientState</strong>
 </p>
 <p>
-<code>sdl2.GL_GetAttribute(attr:number) {block?}</code>
+<code>opengl.glDisableClientState(array:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_GetCurrentContext</strong>
+<strong>opengl.glDrawArrays</strong>
 </p>
 <p>
-<code>sdl2.GL_GetCurrentContext() {block?}</code>
+<code>opengl.glDrawArrays(mode:number, first:number, count:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_GetCurrentWindow</strong>
+<strong>opengl.glDrawBuffer</strong>
 </p>
 <p>
-<code>sdl2.GL_GetCurrentWindow() {block?}</code>
+<code>opengl.glDrawBuffer(mode:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_GetDrawableSize</strong>
+<strong>opengl.glDrawPixels</strong>
 </p>
 <p>
-<code>sdl2.GL_GetDrawableSize(window:sdl2.Window) {block?}</code>
+<code>opengl.glDrawPixels(width:number, height:number, format:number, type:number, pixels):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_GetProcAddress</strong>
+<strong>opengl.glDrawPixelsFromImage</strong>
 </p>
 <p>
-<code>sdl2.GL_GetProcAddress():void</code>
+<code>opengl.glDrawPixelsFromImage(image:image):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_GetSwapInterval</strong>
+<strong>opengl.glEdgeFlag</strong>
 </p>
 <p>
-<code>sdl2.GL_GetSwapInterval() {block?}</code>
+<code>opengl.glEdgeFlag(flag:boolean):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_LoadLibrary</strong>
+<strong>opengl.glEdgeFlagv</strong>
 </p>
 <p>
-<code>sdl2.GL_LoadLibrary(path:string):void</code>
+<code>opengl.glEdgeFlagv(flag[]:boolean):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_MakeCurrent</strong>
+<strong>opengl.glEnable</strong>
 </p>
 <p>
-<code>sdl2.GL_MakeCurrent(window:sdl2.Window, context:sdl2.GLContext):void</code>
+<code>opengl.glEnable(cap:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_ResetAttributes</strong>
+<strong>opengl.glEnableClientState</strong>
 </p>
 <p>
-<code>sdl2.GL_ResetAttributes():void</code>
+<code>opengl.glEnableClientState(array:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_SetAttribute</strong>
+<strong>opengl.glEnd</strong>
 </p>
 <p>
-<code>sdl2.GL_SetAttribute(attr:number, value:number):void</code>
+<code>opengl.glEnd():void</code>
 </p>
 <p>
-<strong>sdl2.GL_SetSwapInterval</strong>
+<strong>opengl.glEndList</strong>
 </p>
 <p>
-<code>sdl2.GL_SetSwapInterval(interval:number):void</code>
+<code>opengl.glEndList():void</code>
 </p>
 <p>
-<strong>sdl2.GL_SwapWindow</strong>
+<strong>opengl.glEvalCoord1d</strong>
 </p>
 <p>
-<code>sdl2.GL_SwapWindow(window:sdl2.Window):void</code>
+<code>opengl.glEvalCoord1d(u:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GL_UnloadLibrary</strong>
+<strong>opengl.glEvalCoord1dv</strong>
 </p>
 <p>
-<code>sdl2.GL_UnloadLibrary():void</code>
+<code>opengl.glEvalCoord1dv(u:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetClosestDisplayMode</strong>
+<strong>opengl.glEvalCoord1f</strong>
 </p>
 <p>
-<code>sdl2.GetClosestDisplayMode(displayIndex:number, mode:sdl2.DisplayMode) {block?}</code>
+<code>opengl.glEvalCoord1f(u:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetCurrentDisplayMode</strong>
+<strong>opengl.glEvalCoord1fv</strong>
 </p>
 <p>
-<code>sdl2.GetCurrentDisplayMode(displayIndex:number) {block?}</code>
+<code>opengl.glEvalCoord1fv(u:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetCurrentVideoDriver</strong>
+<strong>opengl.glEvalCoord2d</strong>
 </p>
 <p>
-<code>sdl2.GetCurrentVideoDriver() {block?}</code>
+<code>opengl.glEvalCoord2d(u:number, v:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetDesktopDisplayMode</strong>
+<strong>opengl.glEvalCoord2dv</strong>
 </p>
 <p>
-<code>sdl2.GetDesktopDisplayMode(displayIndex:number) {block?}</code>
+<code>opengl.glEvalCoord2dv(u:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetDisplayBounds</strong>
+<strong>opengl.glEvalCoord2f</strong>
 </p>
 <p>
-<code>sdl2.GetDisplayBounds(displayIndex:number) {block?}</code>
+<code>opengl.glEvalCoord2f(u:number, v:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetDisplayMode</strong>
+<strong>opengl.glEvalCoord2fv</strong>
 </p>
 <p>
-<code>sdl2.GetDisplayMode(displayIndex:number, modeIndex:number) {block?}</code>
+<code>opengl.glEvalCoord2fv(u:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetDisplayName</strong>
+<strong>opengl.glEvalMesh1</strong>
 </p>
 <p>
-<code>sdl2.GetDisplayName(dipslayIndex:number) {block?}</code>
+<code>opengl.glEvalMesh1(mode:number, i1:number, i2:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetNumDisplayModes</strong>
+<strong>opengl.glEvalMesh2</strong>
 </p>
 <p>
-<code>sdl2.GetNumDisplayModes(displayIndex:number) {block?}</code>
+<code>opengl.glEvalMesh2(mode:number, i1:number, i2:number, j1:number, j2:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetNumVideoDisplays</strong>
+<strong>opengl.glEvalPoint1</strong>
 </p>
 <p>
-<code>sdl2.GetNumVideoDisplays() {block?}</code>
+<code>opengl.glEvalPoint1(i:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetNumVideoDrivers</strong>
+<strong>opengl.glEvalPoint2</strong>
 </p>
 <p>
-<code>sdl2.GetNumVideoDrivers() {block?}</code>
+<code>opengl.glEvalPoint2(i:number, j:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetVideoDriver</strong>
+<strong>opengl.glFeedbackBuffer</strong>
 </p>
 <p>
-<code>sdl2.GetVideoDriver(index:number) {block?}</code>
+<code>opengl.glFeedbackBuffer(type:number, buffer:array@float:nomap:nil):void</code>
 </p>
 <p>
-<strong>sdl2.GetWindowBrightness</strong>
+<strong>opengl.glFinish</strong>
 </p>
 <p>
-<code>sdl2.GetWindowBrightness(window:sdl2.Window) {block?}</code>
+<code>opengl.glFinish():void</code>
 </p>
 <p>
-<strong>sdl2.GetWindowData</strong>
+<strong>opengl.glFlush</strong>
 </p>
 <p>
-<code>sdl2.GetWindowData(window:sdl2.Window, name:string):void</code>
+<code>opengl.glFlush():void</code>
 </p>
 <p>
-<strong>sdl2.GetWindowDisplayIndex</strong>
+<strong>opengl.glFogf</strong>
 </p>
 <p>
-<code>sdl2.GetWindowDisplayIndex(window:sdl2.Window) {block?}</code>
+<code>opengl.glFogf(pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetWindowDisplayMode</strong>
+<strong>opengl.glFogfv</strong>
 </p>
 <p>
-<code>sdl2.GetWindowDisplayMode(window:sdl2.Window, mode:sdl2.DisplayMode):void</code>
+<code>opengl.glFogfv(pname:number, params:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetWindowFlags</strong>
+<strong>opengl.glFogi</strong>
 </p>
 <p>
-<code>sdl2.GetWindowFlags(window:sdl2.Window) {block?}</code>
+<code>opengl.glFogi(pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetWindowFromID</strong>
+<strong>opengl.glFogiv</strong>
 </p>
 <p>
-<code>sdl2.GetWindowFromID(id:number) {block?}</code>
+<code>opengl.glFogiv(pname:number, params:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetWindowGammaRamp</strong>
+<strong>opengl.glFrontFace</strong>
 </p>
 <p>
-<code>sdl2.GetWindowGammaRamp(window:sdl2.Window) {block?}</code>
+<code>opengl.glFrontFace(mode:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetWindowGrab</strong>
+<strong>opengl.glFrustum</strong>
 </p>
 <p>
-<code>sdl2.GetWindowGrab(window:sdl2.Window) {block?}</code>
+<code>opengl.glFrustum(left:number, right:number, bottom:number, top:number, zNear:number, zFar:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetWindowID</strong>
+<strong>opengl.glGenLists</strong>
 </p>
 <p>
-<code>sdl2.GetWindowID(window:sdl2.Window) {block?}</code>
+<code>opengl.glGenLists(range:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.GetWindowMaximumSize</strong>
+<strong>opengl.glGenTextures</strong>
 </p>
 <p>
-<code>sdl2.GetWindowMaximumSize(window:sdl2.Window) {block?}</code>
+<code>opengl.glGenTextures(n:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.GetWindowMinimumSize</strong>
+<strong>opengl.glGetBooleanv</strong>
 </p>
 <p>
-<code>sdl2.GetWindowMinimumSize(window:sdl2.Window) {block?}</code>
+<code>opengl.glGetBooleanv(pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.GetWindowPixelFormat</strong>
+<strong>opengl.glGetClipPlane</strong>
 </p>
 <p>
-<code>sdl2.GetWindowPixelFormat(window:sdl2.Window) {block?}</code>
+<code>opengl.glGetClipPlane(plane:number):map</code>
 </p>
 <p>
-<strong>sdl2.GetWindowPosition</strong>
+<strong>opengl.glGetDoublev</strong>
 </p>
 <p>
-<code>sdl2.GetWindowPosition(window:sdl2.Window) {block?}</code>
+<code>opengl.glGetDoublev(pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.GetWindowSize</strong>
+<strong>opengl.glGetError</strong>
 </p>
 <p>
-<code>sdl2.GetWindowSize(window:sdl2.Window) {block?}</code>
+<code>opengl.glGetError() {block?}</code>
 </p>
 <p>
-<strong>sdl2.GetWindowSurface</strong>
+<strong>opengl.glGetFloatv</strong>
 </p>
 <p>
-<code>sdl2.GetWindowSurface(window:sdl2.Window) {block?}</code>
+<code>opengl.glGetFloatv(pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.GetWindowTitle</strong>
+<strong>opengl.glGetIntegerv</strong>
 </p>
 <p>
-<code>sdl2.GetWindowTitle(window:sdl2.Window) {block?}</code>
+<code>opengl.glGetIntegerv(pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.GetWindowWMInfo</strong>
+<strong>opengl.glGetLightfv</strong>
 </p>
 <p>
-<code>sdl2.GetWindowWMInfo(window:sdl2.Window):void</code>
+<code>opengl.glGetLightfv(light:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.HideWindow</strong>
+<strong>opengl.glGetLightiv</strong>
 </p>
 <p>
-<code>sdl2.HideWindow(window:sdl2.Window):void</code>
+<code>opengl.glGetLightiv(light:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.IsScreenSaverEnabled</strong>
+<strong>opengl.glGetMapdv</strong>
 </p>
 <p>
-<code>sdl2.IsScreenSaverEnabled() {block?}</code>
+<code>opengl.glGetMapdv(target:number, query:number, v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.MaximizeWindow</strong>
+<strong>opengl.glGetMapfv</strong>
 </p>
 <p>
-<code>sdl2.MaximizeWindow(window:sdl2.Window):void</code>
+<code>opengl.glGetMapfv(target:number, query:number, v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.MinimizeWindow</strong>
+<strong>opengl.glGetMapiv</strong>
 </p>
 <p>
-<code>sdl2.MinimizeWindow(window:sdl2.Window):void</code>
+<code>opengl.glGetMapiv(target:number, query:number, v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.RaiseWindow</strong>
+<strong>opengl.glGetMaterialfv</strong>
 </p>
 <p>
-<code>sdl2.RaiseWindow(window:sdl2.Window):void</code>
+<code>opengl.glGetMaterialfv(face:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.RestoreWindow</strong>
+<strong>opengl.glGetMaterialiv</strong>
 </p>
 <p>
-<code>sdl2.RestoreWindow(window:sdl2.Window):void</code>
+<code>opengl.glGetMaterialiv(face:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.SetWindowBordered</strong>
+<strong>opengl.glGetPixelMapfv</strong>
 </p>
 <p>
-<code>sdl2.SetWindowBordered(window:sdl2.Window, bordered:boolean):void</code>
+<code>opengl.glGetPixelMapfv(map:number, values:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetWindowBrightness</strong>
+<strong>opengl.glGetPixelMapuiv</strong>
 </p>
 <p>
-<code>sdl2.SetWindowBrightness(window:sdl2.Window, brightness:number):void</code>
+<code>opengl.glGetPixelMapuiv(map:number, values:array@uint:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetWindowData</strong>
+<strong>opengl.glGetPixelMapusv</strong>
 </p>
 <p>
-<code>sdl2.SetWindowData(window:sdl2.Window, name:string):void</code>
+<code>opengl.glGetPixelMapusv(map:number, values:array@ushort:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetWindowDisplayMode</strong>
+<strong>opengl.glGetPolygonStipple</strong>
 </p>
 <p>
-<code>sdl2.SetWindowDisplayMode(window:sdl2.Window, mode:sdl2.DisplayMode):void</code>
+<code>opengl.glGetPolygonStipple(mask:array@uchar:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetWindowFullscreen</strong>
+<strong>opengl.glGetString</strong>
 </p>
 <p>
-<code>sdl2.SetWindowFullscreen(window:sdl2.Window, flags:number):void</code>
+<code>opengl.glGetString(name:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.SetWindowGammaRamp</strong>
+<strong>opengl.glGetTexEnvfv</strong>
 </p>
 <p>
-<code>sdl2.SetWindowGammaRamp(window:sdl2.Window, red[]:number, green[]:number, blue[]:number):void</code>
+<code>opengl.glGetTexEnvfv(target:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.SetWindowGrab</strong>
+<strong>opengl.glGetTexEnviv</strong>
 </p>
 <p>
-<code>sdl2.SetWindowGrab(window:sdl2.Window, grabbed:boolean):void</code>
+<code>opengl.glGetTexEnviv(target:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.SetWindowHitTest</strong>
+<strong>opengl.glGetTexGendv</strong>
 </p>
 <p>
-<code>sdl2.SetWindowHitTest(window:sdl2.Window):void</code>
+<code>opengl.glGetTexGendv(coord:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.SetWindowIcon</strong>
+<strong>opengl.glGetTexGenfv</strong>
 </p>
 <p>
-<code>sdl2.SetWindowIcon(window:sdl2.Window, icon:sdl2.Surface):void</code>
+<code>opengl.glGetTexGenfv(coord:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.SetWindowMaximumSize</strong>
+<strong>opengl.glGetTexGeniv</strong>
 </p>
 <p>
-<code>sdl2.SetWindowMaximumSize(window:sdl2.Window, max_w:number, max_h:number):void</code>
+<code>opengl.glGetTexGeniv(coord:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.SetWindowMinimumSize</strong>
+<strong>opengl.glGetTexLevelParameterfv</strong>
 </p>
 <p>
-<code>sdl2.SetWindowMinimumSize(window:sdl2.Window, min_w:number, min_h:number):void</code>
+<code>opengl.glGetTexLevelParameterfv(target:number, level:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.SetWindowPosition</strong>
+<strong>opengl.glGetTexLevelParameteriv</strong>
 </p>
 <p>
-<code>sdl2.SetWindowPosition(window:sdl2.Window, x:number, y:number):void</code>
+<code>opengl.glGetTexLevelParameteriv(target:number, level:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.SetWindowSize</strong>
+<strong>opengl.glGetTexParameterfv</strong>
 </p>
 <p>
-<code>sdl2.SetWindowSize(window:sdl2.Window, w:number, h:number):void</code>
+<code>opengl.glGetTexParameterfv(target:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.SetWindowTitle</strong>
+<strong>opengl.glGetTexParameteriv</strong>
 </p>
 <p>
-<code>sdl2.SetWindowTitle(window:sdl2.Window, title:string):void</code>
+<code>opengl.glGetTexParameteriv(target:number, pname:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.ShowMessageBox</strong>
+<strong>opengl.glHint</strong>
 </p>
 <p>
-<code>sdl2.ShowMessageBox():void</code>
+<code>opengl.glHint(target:number, mode:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.ShowSimpleMessageBox</strong>
+<strong>opengl.glIndexMask</strong>
 </p>
 <p>
-<code>sdl2.ShowSimpleMessageBox(flags:number, title:string, message:string, window:sdl2.Window):void</code>
+<code>opengl.glIndexMask(mask:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.ShowWindow</strong>
+<strong>opengl.glIndexd</strong>
 </p>
 <p>
-<code>sdl2.ShowWindow(window:sdl2.Window):void</code>
+<code>opengl.glIndexd(c:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.UpdateWindowSurface</strong>
+<strong>opengl.glIndexdv</strong>
 </p>
 <p>
-<code>sdl2.UpdateWindowSurface(window:sdl2.Window):void</code>
+<code>opengl.glIndexdv(c:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.UpdateWindowSurfaceRects</strong>
+<strong>opengl.glIndexf</strong>
 </p>
 <p>
-<code>sdl2.UpdateWindowSurfaceRects(window:sdl2.Window, rects[]:sdl2.Rect):void</code>
+<code>opengl.glIndexf(c:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.VideoInit</strong>
+<strong>opengl.glIndexfv</strong>
 </p>
 <p>
-<code>sdl2.VideoInit(driver_name:string):void</code>
+<code>opengl.glIndexfv(c:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.VideoQuit</strong>
+<strong>opengl.glIndexi</strong>
 </p>
 <p>
-<code>sdl2.VideoQuit():void</code>
+<code>opengl.glIndexi(c:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateRenderer</strong>
+<strong>opengl.glIndexiv</strong>
 </p>
 <p>
-<code>sdl2.CreateRenderer(window:sdl2.Window, index:number, flags:number) {block?}</code>
+<code>opengl.glIndexiv(c:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateSoftwareRenderer</strong>
+<strong>opengl.glIndexs</strong>
 </p>
 <p>
-<code>sdl2.CreateSoftwareRenderer(surface:sdl2.Surface) {block?}</code>
+<code>opengl.glIndexs(c:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateTexture</strong>
+<strong>opengl.glIndexsv</strong>
 </p>
 <p>
-<code>sdl2.CreateTexture(renderer:sdl2.Renderer, format:number, access:number, w:number, h:number) {block?}</code>
+<code>opengl.glIndexsv(c:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateTextureFromSurface</strong>
+<strong>opengl.glIndexub</strong>
 </p>
 <p>
-<code>sdl2.CreateTextureFromSurface(renderer:sdl2.Renderer, surface:sdl2.Surface) {block?}</code>
+<code>opengl.glIndexub(c:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.DestroyRenderer</strong>
+<strong>opengl.glIndexubv</strong>
 </p>
 <p>
-<code>sdl2.DestroyRenderer(renderer:sdl2.Renderer):void</code>
+<code>opengl.glIndexubv(c:array@uchar:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.DestroyTexture</strong>
+<strong>opengl.glInitNames</strong>
 </p>
 <p>
-<code>sdl2.DestroyTexture(texture:sdl2.Texture):void</code>
+<code>opengl.glInitNames():void</code>
 </p>
 <p>
-<strong>sdl2.GL_BindTexture</strong>
+<strong>opengl.glIsEnabled</strong>
 </p>
 <p>
-<code>sdl2.GL_BindTexture(texture:sdl2.Texture) {block?}</code>
+<code>opengl.glIsEnabled(cap:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.GL_UnbindTexture</strong>
+<strong>opengl.glIsList</strong>
 </p>
 <p>
-<code>sdl2.GL_UnbindTexture(texture:sdl2.Texture):void</code>
+<code>opengl.glIsList(list:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.GetNumRenderDrivers</strong>
+<strong>opengl.glIsTexture</strong>
 </p>
 <p>
-<code>sdl2.GetNumRenderDrivers() {block?}</code>
+<code>opengl.glIsTexture(texture:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.GetRenderDrawBlendMode</strong>
+<strong>opengl.glLightModelf</strong>
 </p>
 <p>
-<code>sdl2.GetRenderDrawBlendMode(renderer:sdl2.Renderer) {block?}</code>
+<code>opengl.glLightModelf(pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetRenderDrawColor</strong>
+<strong>opengl.glLightModelfv</strong>
 </p>
 <p>
-<code>sdl2.GetRenderDrawColor(renderer:sdl2.Renderer) {block?}</code>
+<code>opengl.glLightModelfv(pname:number, params:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetRenderDriverInfo</strong>
+<strong>opengl.glLightModeli</strong>
 </p>
 <p>
-<code>sdl2.GetRenderDriverInfo(index:number) {block?}</code>
+<code>opengl.glLightModeli(pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetRenderTarget</strong>
+<strong>opengl.glLightModeliv</strong>
 </p>
 <p>
-<code>sdl2.GetRenderTarget(renderer:sdl2.Renderer) {block?}</code>
+<code>opengl.glLightModeliv(pname:number, params:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetRenderer</strong>
+<strong>opengl.glLightf</strong>
 </p>
 <p>
-<code>sdl2.GetRenderer(window:sdl2.Window) {block?}</code>
+<code>opengl.glLightf(light:number, pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetRendererInfo</strong>
+<strong>opengl.glLightfv</strong>
 </p>
 <p>
-<code>sdl2.GetRendererInfo(renderer:sdl2.Renderer) {block?}</code>
+<code>opengl.glLightfv(light:number, pname:number, params:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetRenderOutputSize</strong>
+<strong>opengl.glLighti</strong>
 </p>
 <p>
-<code>sdl2.GetRenderOutputSize(renderer:sdl2.Renderer) {block?}</code>
+<code>opengl.glLighti(light:number, pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetTextureAlphaMod</strong>
+<strong>opengl.glLightiv</strong>
 </p>
 <p>
-<code>sdl2.GetTextureAlphaMod(texture:sdl2.Texture) {block?}</code>
+<code>opengl.glLightiv(light:number, pname:number, params:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetTextureBlendMode</strong>
+<strong>opengl.glLineStipple</strong>
 </p>
 <p>
-<code>sdl2.GetTextureBlendMode(texture:sdl2.Texture) {block?}</code>
+<code>opengl.glLineStipple(factor:number, pattern:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetTextureColorMod</strong>
+<strong>opengl.glLineWidth</strong>
 </p>
 <p>
-<code>sdl2.GetTextureColorMod(texture:sdl2.Texture) {block?}</code>
+<code>opengl.glLineWidth(width:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.LockTexture</strong>
+<strong>opengl.glListBase</strong>
 </p>
 <p>
-<code>sdl2.LockTexture(texture:sdl2.Texture, rect:sdl2.Rect):void</code>
+<code>opengl.glListBase(base:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.QueryTexture</strong>
+<strong>opengl.glLoadIdentity</strong>
 </p>
 <p>
-<code>sdl2.QueryTexture(texture:sdl2.Texture) {block?}</code>
+<code>opengl.glLoadIdentity():void</code>
 </p>
 <p>
-<strong>sdl2.RenderClear</strong>
+<strong>opengl.glLoadMatrixd</strong>
 </p>
 <p>
-<code>sdl2.RenderClear(renderer:sdl2.Renderer):void</code>
+<code>opengl.glLoadMatrixd(m):void</code>
 </p>
 <p>
-<strong>sdl2.RenderCopy</strong>
+<strong>opengl.glLoadMatrixf</strong>
 </p>
 <p>
-<code>sdl2.RenderCopy(renderer:sdl2.Renderer, texture:sdl2.Texture, srcrect:sdl2.Rect:nil, dstrect:sdl2.Rect:nil):void</code>
+<code>opengl.glLoadMatrixf(m):void</code>
 </p>
 <p>
-<strong>sdl2.RenderCopyEx</strong>
+<strong>opengl.glLoadName</strong>
 </p>
 <p>
-<code>sdl2.RenderCopyEx(renderer:sdl2.Renderer, texture:sdl2.Texture, srcrect:sdl2.Rect:nil, dstrect:sdl2.Rect:nil, angle:number, center:sdl2.Point:nil, flip:number):void</code>
+<code>opengl.glLoadName(name:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderDrawLine</strong>
+<strong>opengl.glLogicOp</strong>
 </p>
 <p>
-<code>sdl2.RenderDrawLine(renderer:sdl2.Renderer, x1:number, y1:number, x2:number, y2:number):void</code>
+<code>opengl.glLogicOp(opcode:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderDrawLines</strong>
+<strong>opengl.glMap1d</strong>
 </p>
 <p>
-<code>sdl2.RenderDrawLines(renderer:sdl2.Renderer, points[]:sdl2.Point):void</code>
+<code>opengl.glMap1d(target:number, u1:number, u2:number, stride:number, order:number, points:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderDrawPoint</strong>
+<strong>opengl.glMap1f</strong>
 </p>
 <p>
-<code>sdl2.RenderDrawPoint(renderer:sdl2.Renderer, x:number, y:number):void</code>
+<code>opengl.glMap1f(target:number, u1:number, u2:number, stride:number, order:number, points:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderDrawPoints</strong>
+<strong>opengl.glMap2d</strong>
 </p>
 <p>
-<code>sdl2.RenderDrawPoints(renderer:sdl2.Renderer, points[]:sdl2.Point):void</code>
+<code>opengl.glMap2d(target:number, u1:number, u2:number, ustride:number, uorder:number, v1:number, v2:number, vstride:number, vorder:number, points:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderDrawRect</strong>
+<strong>opengl.glMap2f</strong>
 </p>
 <p>
-<code>sdl2.RenderDrawRect(renderer:sdl2.Renderer, rect:sdl2.Rect:nil):void</code>
+<code>opengl.glMap2f(target:number, u1:number, u2:number, ustride:number, uorder:number, v1:number, v2:number, vstride:number, vorder:number, points:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderDrawRects</strong>
+<strong>opengl.glMapGrid1d</strong>
 </p>
 <p>
-<code>sdl2.RenderDrawRects(renderer:sdl2.Renderer, rects[]:sdl2.Rect):void</code>
+<code>opengl.glMapGrid1d(un:number, u1:number, u2:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderFillRect</strong>
+<strong>opengl.glMapGrid1f</strong>
 </p>
 <p>
-<code>sdl2.RenderFillRect(renderer:sdl2.Renderer, rect:sdl2.Rect:nil):void</code>
+<code>opengl.glMapGrid1f(un:number, u1:number, u2:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderFillRects</strong>
+<strong>opengl.glMapGrid2d</strong>
 </p>
 <p>
-<code>sdl2.RenderFillRects(renderer:sdl2.Renderer, rects[]:sdl2.Rect):void</code>
+<code>opengl.glMapGrid2d(un:number, u1:number, u2:number, vn:number, v1:number, v2:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderGetClipRect</strong>
+<strong>opengl.glMapGrid2f</strong>
 </p>
 <p>
-<code>sdl2.RenderGetClipRect(renderer:sdl2.Renderer) {block?}</code>
+<code>opengl.glMapGrid2f(un:number, u1:number, u2:number, vn:number, v1:number, v2:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderGetLogicalSize</strong>
+<strong>opengl.glMaterialf</strong>
 </p>
 <p>
-<code>sdl2.RenderGetLogicalSize(renderer:sdl2.Renderer) {block?}</code>
+<code>opengl.glMaterialf(face:number, pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderGetScale</strong>
+<strong>opengl.glMaterialfv</strong>
 </p>
 <p>
-<code>sdl2.RenderGetScale(renderer:sdl2.Renderer) {block?}</code>
+<code>opengl.glMaterialfv(face:number, pname:number, params:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderGetViewport</strong>
+<strong>opengl.glMateriali</strong>
 </p>
 <p>
-<code>sdl2.RenderGetViewport(renderer:sdl2.Renderer) {block?}</code>
+<code>opengl.glMateriali(face:number, pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderIsClipEnabled</strong>
+<strong>opengl.glMaterialiv</strong>
 </p>
 <p>
-<code>sdl2.RenderIsClipEnabled(renderer:sdl2.Renderer)</code>
+<code>opengl.glMaterialiv(face:number, pname:number, params:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderPresent</strong>
+<strong>opengl.glMatrixMode</strong>
 </p>
 <p>
-<code>sdl2.RenderPresent(renderer:sdl2.Renderer):void</code>
+<code>opengl.glMatrixMode(mode:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderReadPixels</strong>
+<strong>opengl.glMultMatrixd</strong>
 </p>
 <p>
-<code>sdl2.RenderReadPixels(renderer:sdl2.Renderer, rect:sdl2.Rect:nil, format:symbol) {block?}</code>
+<code>opengl.glMultMatrixd(m):void</code>
 </p>
 <p>
-<strong>sdl2.RenderSetClipRect</strong>
+<strong>opengl.glMultMatrixf</strong>
 </p>
 <p>
-<code>sdl2.RenderSetClipRect(renderer:sdl2.Renderer, rect:sdl2.Rect:nil):void</code>
+<code>opengl.glMultMatrixf(m):void</code>
 </p>
 <p>
-<strong>sdl2.RenderSetLogicalSize</strong>
+<strong>opengl.glNewList</strong>
 </p>
 <p>
-<code>sdl2.RenderSetLogicalSize(renderer:sdl2.Renderer, w:number, h:number):void</code>
+<code>opengl.glNewList(list:number, mode:number):map:void {block?}</code>
 </p>
 <p>
-<strong>sdl2.RenderSetScale</strong>
+<strong>opengl.glNormal3b</strong>
 </p>
 <p>
-<code>sdl2.RenderSetScale(renderer:sdl2.Renderer, scaleX:number, scaleY:number):void</code>
+<code>opengl.glNormal3b(nx:number, ny:number, nz:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderSetViewport</strong>
+<strong>opengl.glNormal3bv</strong>
 </p>
 <p>
-<code>sdl2.RenderSetViewport(renderer:sdl2.Renderer, rect:sdl2.Rect:nil):void</code>
+<code>opengl.glNormal3bv(v:array@char:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.RenderTargetSupported</strong>
+<strong>opengl.glNormal3d</strong>
 </p>
 <p>
-<code>sdl2.RenderTargetSupported(renderer:sdl2.Renderer) {block?}</code>
+<code>opengl.glNormal3d(nx:number, ny:number, nz:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetRenderDrawBlendMode</strong>
+<strong>opengl.glNormal3dv</strong>
 </p>
 <p>
-<code>sdl2.SetRenderDrawBlendMode(renderer:sdl2.Renderer, blendMode:number):void</code>
+<code>opengl.glNormal3dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetRenderDrawColor</strong>
+<strong>opengl.glNormal3f</strong>
 </p>
 <p>
-<code>sdl2.SetRenderDrawColor(renderer:sdl2.Renderer, r:number, g:number, b:number, a:number):void</code>
+<code>opengl.glNormal3f(nx:number, ny:number, nz:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetRenderTarget</strong>
+<strong>opengl.glNormal3fv</strong>
 </p>
 <p>
-<code>sdl2.SetRenderTarget(renderer:sdl2.Renderer, texture:sdl2.Texture:nil):void</code>
+<code>opengl.glNormal3fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetTextureAlphaMod</strong>
+<strong>opengl.glNormal3i</strong>
 </p>
 <p>
-<code>sdl2.SetTextureAlphaMod(texture:sdl2.Texture, alpha:number):void</code>
+<code>opengl.glNormal3i(nx:number, ny:number, nz:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetTextureBlendMode</strong>
+<strong>opengl.glNormal3iv</strong>
 </p>
 <p>
-<code>sdl2.SetTextureBlendMode(texture:sdl2.Texture, blendMode:number):void</code>
+<code>opengl.glNormal3iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetTextureColorMod</strong>
+<strong>opengl.glNormal3s</strong>
 </p>
 <p>
-<code>sdl2.SetTextureColorMod(texture:sdl2.Texture, r:number, g:number, b:number):void</code>
+<code>opengl.glNormal3s(nx:number, ny:number, nz:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.UnlockTexture</strong>
+<strong>opengl.glNormal3sv</strong>
 </p>
 <p>
-<code>sdl2.UnlockTexture(texture:sdl2.Texture):void</code>
+<code>opengl.glNormal3sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.UpdateTexture</strong>
+<strong>opengl.glOrtho</strong>
 </p>
 <p>
-<code>sdl2.UpdateTexture(texture:sdl2.Texture, rect:sdl2.Rect:nil, pitch:number):void</code>
+<code>opengl.glOrtho(left:number, right:number, bottom:number, top:number, zNear:number, zFar:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.UpdateYUVTexture</strong>
+<strong>opengl.glPassThrough</strong>
 </p>
 <p>
-<code>sdl2.UpdateYUVTexture():void</code>
+<code>opengl.glPassThrough(token:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.AllocFormat</strong>
+<strong>opengl.glPixelMapfv</strong>
 </p>
 <p>
-<code>sdl2.AllocFormat(pixel_format:number) {block?}</code>
+<code>opengl.glPixelMapfv(map:number, mapsize:number, values:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.AllocPalette</strong>
+<strong>opengl.glPixelMapuiv</strong>
 </p>
 <p>
-<code>sdl2.AllocPalette(ncolors:number) {block?}</code>
+<code>opengl.glPixelMapuiv(map:number, mapsize:number, values:array@uint:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.CalculateGammaRamp</strong>
+<strong>opengl.glPixelMapusv</strong>
 </p>
 <p>
-<code>sdl2.CalculateGammaRamp(gamma:number) {block?}</code>
+<code>opengl.glPixelMapusv(map:number, mapsize:number, values:array@ushort:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.FreeFormat</strong>
+<strong>opengl.glPixelStoref</strong>
 </p>
 <p>
-<code>sdl2.FreeFormat(format:sdl2.PixelFormat):void</code>
+<code>opengl.glPixelStoref(pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.FreePalette</strong>
+<strong>opengl.glPixelStorei</strong>
 </p>
 <p>
-<code>sdl2.FreePalette(palette:sdl2.Palette):void</code>
+<code>opengl.glPixelStorei(pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetPixelFormatName</strong>
+<strong>opengl.glPixelTransferf</strong>
 </p>
 <p>
-<code>sdl2.GetPixelFormatName(format:number) {block?}</code>
+<code>opengl.glPixelTransferf(pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetRGB</strong>
+<strong>opengl.glPixelTransferi</strong>
 </p>
 <p>
-<code>sdl2.GetRGB(pixel:number, format:sdl2.PixelFormat) {block?}</code>
+<code>opengl.glPixelTransferi(pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetRGBA</strong>
+<strong>opengl.glPixelZoom</strong>
 </p>
 <p>
-<code>sdl2.GetRGBA(pixel:number, format:sdl2.PixelFormat) {block?}</code>
+<code>opengl.glPixelZoom(xfactor:number, yfactor:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.MapRGB</strong>
+<strong>opengl.glPointSize</strong>
 </p>
 <p>
-<code>sdl2.MapRGB(format:sdl2.PixelFormat, r:number, g:number, b:number) {block?}</code>
+<code>opengl.glPointSize(size:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.MapRGBA</strong>
+<strong>opengl.glPolygonMode</strong>
 </p>
 <p>
-<code>sdl2.MapRGBA(format:sdl2.PixelFormat, r:number, g:number, b:number, a:number) {block?}</code>
+<code>opengl.glPolygonMode(face:number, mode:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.MasksToPixelFormatEnum</strong>
+<strong>opengl.glPolygonOffset</strong>
 </p>
 <p>
-<code>sdl2.MasksToPixelFormatEnum(bpp:number, Rmask:number, Gmask:number, Bmask:number, Amask:number) {block?}</code>
+<code>opengl.glPolygonOffset(factor:number, units:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.PixelFormatEnumToMasks</strong>
+<strong>opengl.glPolygonStipple</strong>
 </p>
 <p>
-<code>sdl2.PixelFormatEnumToMasks(format:number) {block?}</code>
+<code>opengl.glPolygonStipple(mask:array@uchar:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetPaletteColors</strong>
+<strong>opengl.glPopAttrib</strong>
 </p>
 <p>
-<code>sdl2.SetPaletteColors(palette:sdl2.Palette, colors[]:sdl2.Color, firstcolor:number, ncolors:number):void</code>
+<code>opengl.glPopAttrib():void</code>
 </p>
 <p>
-<strong>sdl2.SetPixelFormatPalette</strong>
+<strong>opengl.glPopClientAttrib</strong>
 </p>
 <p>
-<code>sdl2.SetPixelFormatPalette(format:sdl2.PixelFormat, palette:sdl2.Palette):void</code>
+<code>opengl.glPopClientAttrib():void</code>
 </p>
 <p>
-<strong>sdl2.EnclosePoints</strong>
+<strong>opengl.glPopMatrix</strong>
 </p>
 <p>
-<code>sdl2.EnclosePoints(points[]:sdl2.Point, clip:sdl2.Rect) {block?}</code>
+<code>opengl.glPopMatrix():void</code>
 </p>
 <p>
-<strong>sdl2.HasIntersection</strong>
+<strong>opengl.glPopName</strong>
 </p>
 <p>
-<code>sdl2.HasIntersection(A:sdl2.Rect, B:sdl2.Rect) {block?}</code>
+<code>opengl.glPopName():void</code>
 </p>
 <p>
-<strong>sdl2.IntersectRect</strong>
+<strong>opengl.glPrioritizeTextures</strong>
 </p>
 <p>
-<code>sdl2.IntersectRect(A:sdl2.Rect, B:sdl2.Rect) {block?}</code>
+<code>opengl.glPrioritizeTextures(textures:array@uint:nomap, priorities:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.IntersectRectAndLine</strong>
+<strong>opengl.glPushAttrib</strong>
 </p>
 <p>
-<code>sdl2.IntersectRectAndLine(rect:sdl2.Rect, X1:number, Y1:number, X2:number, Y2:number)</code>
+<code>opengl.glPushAttrib(mask:number):map:void {block?}</code>
 </p>
 <p>
-<strong>sdl2.PointInRect</strong>
+<strong>opengl.glPushClientAttrib</strong>
 </p>
 <p>
-<code>sdl2.PointInRect(p:sdl2.Point, r:sdl2.Rect)</code>
+<code>opengl.glPushClientAttrib(mask:number):map:void {block?}</code>
 </p>
 <p>
-<strong>sdl2.RectEmpty</strong>
+<strong>opengl.glPushMatrix</strong>
 </p>
 <p>
-<code>sdl2.RectEmpty(r:sdl2.Rect) {block?}</code>
+<code>opengl.glPushMatrix():void {block?}</code>
 </p>
 <p>
-<strong>sdl2.RectEquals</strong>
+<strong>opengl.glPushName</strong>
 </p>
 <p>
-<code>sdl2.RectEquals(a:sdl2.Rect, b:sdl2.Rect) {block?}</code>
+<code>opengl.glPushName(name:number):map:void {block?}</code>
 </p>
 <p>
-<strong>sdl2.UnionRect</strong>
+<strong>opengl.glRasterPos2d</strong>
 </p>
 <p>
-<code>sdl2.UnionRect(A:sdl2.Rect, B:sdl2.Rect) {block?}</code>
+<code>opengl.glRasterPos2d(x:number, y:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.BlitScaled</strong>
+<strong>opengl.glRasterPos2dv</strong>
 </p>
 <p>
-<code>sdl2.BlitScaled(src:sdl2.Surface, srcrect:sdl2.Rect:nil, dst:sdl2.Surface, dstrect:sdl2.Rect:nil):void</code>
+<code>opengl.glRasterPos2dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.BlitSurface</strong>
+<strong>opengl.glRasterPos2f</strong>
 </p>
 <p>
-<code>sdl2.BlitSurface(src:sdl2.Surface, srcrect:sdl2.Rect:nil, dst:sdl2.Surface, dstrect:sdl2.Rect:nil):void</code>
+<code>opengl.glRasterPos2f(x:number, y:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.ConvertPixels</strong>
+<strong>opengl.glRasterPos2fv</strong>
 </p>
 <p>
-<code>sdl2.ConvertPixels(width:number, height:number, src_format:number, dst_format:number):void</code>
+<code>opengl.glRasterPos2fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.ConvertSurface</strong>
+<strong>opengl.glRasterPos2i</strong>
 </p>
 <p>
-<code>sdl2.ConvertSurface(src:sdl2.Surface, fmt:sdl2.PixelFormat, flags:number) {block?}</code>
+<code>opengl.glRasterPos2i(x:number, y:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.ConvertSurfaceFormat</strong>
+<strong>opengl.glRasterPos2iv</strong>
 </p>
 <p>
-<code>sdl2.ConvertSurfaceFormat(src:sdl2.Surface, pixel_format:number, flags:number) {block?}</code>
+<code>opengl.glRasterPos2iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateRGBSurface</strong>
+<strong>opengl.glRasterPos2s</strong>
 </p>
 <p>
-<code>sdl2.CreateRGBSurface(flags:number, width:number, height:number, depth:number, Rmask:number, Gmask:number, Bmask:number, Amask:number) {block?}</code>
+<code>opengl.glRasterPos2s(x:number, y:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateRGBSurfaceFrom</strong>
+<strong>opengl.glRasterPos2sv</strong>
 </p>
 <p>
-<code>sdl2.CreateRGBSurfaceFrom(pixels, width:number, height:number, depth:number, pitch:number, Rmask:number, Gmask:number, Bmask:number, Amask:number) {block?}</code>
+<code>opengl.glRasterPos2sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateRGBSurfaceFromImage</strong>
+<strong>opengl.glRasterPos3d</strong>
 </p>
 <p>
-<code>sdl2.CreateRGBSurfaceFromImage(image:image) {block?}</code>
+<code>opengl.glRasterPos3d(x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.FillRect</strong>
+<strong>opengl.glRasterPos3dv</strong>
 </p>
 <p>
-<code>sdl2.FillRect(dst:sdl2.Surface, rect:sdl2.Rect:nil, color:number):void</code>
+<code>opengl.glRasterPos3dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.FillRects</strong>
+<strong>opengl.glRasterPos3f</strong>
 </p>
 <p>
-<code>sdl2.FillRects(dst:sdl2.Surface, rects[]:sdl2.Rect, color:number):void</code>
+<code>opengl.glRasterPos3f(x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.FreeSurface</strong>
+<strong>opengl.glRasterPos3fv</strong>
 </p>
 <p>
-<code>sdl2.FreeSurface(surface:sdl2.Surface):void</code>
+<code>opengl.glRasterPos3fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetClipRect</strong>
+<strong>opengl.glRasterPos3i</strong>
 </p>
 <p>
-<code>sdl2.GetClipRect(surface:sdl2.Surface) {block?}</code>
+<code>opengl.glRasterPos3i(x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetColorKey</strong>
+<strong>opengl.glRasterPos3iv</strong>
 </p>
 <p>
-<code>sdl2.GetColorKey(surface:sdl2.Surface) {block?}</code>
+<code>opengl.glRasterPos3iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetSurfaceAlphaMod</strong>
+<strong>opengl.glRasterPos3s</strong>
 </p>
 <p>
-<code>sdl2.GetSurfaceAlphaMod(surface:sdl2.Surface) {block?}</code>
+<code>opengl.glRasterPos3s(x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetSurfaceBlendMode</strong>
+<strong>opengl.glRasterPos3sv</strong>
 </p>
 <p>
-<code>sdl2.GetSurfaceBlendMode(surface:sdl2.Surface) {block?}</code>
+<code>opengl.glRasterPos3sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetSurfaceColorMod</strong>
+<strong>opengl.glRasterPos4d</strong>
 </p>
 <p>
-<code>sdl2.GetSurfaceColorMod(surface:sdl2.Surface) {block?}</code>
+<code>opengl.glRasterPos4d(x:number, y:number, z:number, w:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.LoadBMP</strong>
+<strong>opengl.glRasterPos4dv</strong>
 </p>
 <p>
-<code>sdl2.LoadBMP(src:stream) {block?}</code>
+<code>opengl.glRasterPos4dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.LoadBMP_RW</strong>
+<strong>opengl.glRasterPos4f</strong>
 </p>
 <p>
-<code>sdl2.LoadBMP_RW():void</code>
+<code>opengl.glRasterPos4f(x:number, y:number, z:number, w:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.LockSurface</strong>
+<strong>opengl.glRasterPos4fv</strong>
 </p>
 <p>
-<code>sdl2.LockSurface(surface:sdl2.Surface):void</code>
+<code>opengl.glRasterPos4fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.LowerBlit</strong>
+<strong>opengl.glRasterPos4i</strong>
 </p>
 <p>
-<code>sdl2.LowerBlit(src:sdl2.Surface, srcrect:sdl2.Rect:nil, dst:sdl2.Surface, dstrect:sdl2.Rect:nil):void</code>
+<code>opengl.glRasterPos4i(x:number, y:number, z:number, w:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.LowerBlitScaled</strong>
+<strong>opengl.glRasterPos4iv</strong>
 </p>
 <p>
-<code>sdl2.LowerBlitScaled(src:sdl2.Surface, srcrect:sdl2.Rect:nil, dst:sdl2.Surface, dstrect:sdl2.Rect:nil):void</code>
+<code>opengl.glRasterPos4iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.MUSTLOCK</strong>
+<strong>opengl.glRasterPos4s</strong>
 </p>
 <p>
-<code>sdl2.MUSTLOCK(surface:sdl2.Surface) {block?}</code>
+<code>opengl.glRasterPos4s(x:number, y:number, z:number, w:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SaveBMP</strong>
+<strong>opengl.glRasterPos4sv</strong>
 </p>
 <p>
-<code>sdl2.SaveBMP(surface:sdl2.Surface, dst:stream) {block?}</code>
+<code>opengl.glRasterPos4sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SaveBMP_RW</strong>
+<strong>opengl.glReadBuffer</strong>
 </p>
 <p>
-<code>sdl2.SaveBMP_RW():void</code>
+<code>opengl.glReadBuffer(mode:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetClipRect</strong>
+<strong>opengl.glReadPixels</strong>
 </p>
 <p>
-<code>sdl2.SetClipRect(surface:sdl2.Surface, rect:sdl2.Rect) {block?}</code>
+<code>opengl.glReadPixels(x:number, y:number, width:number, height:number, format:symbol):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.SetColorKey</strong>
+<strong>opengl.glRectd</strong>
 </p>
 <p>
-<code>sdl2.SetColorKey(surface:sdl2.Surface, flag:number, key:number):void</code>
+<code>opengl.glRectd(x1:number, y1:number, x2:number, y2:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetSurfaceAlphaMod</strong>
+<strong>opengl.glRectdv</strong>
 </p>
 <p>
-<code>sdl2.SetSurfaceAlphaMod(surface:sdl2.Surface, alpha:number):void</code>
+<code>opengl.glRectdv(v1:array@double:nomap, v2:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetSurfaceBlendMode</strong>
+<strong>opengl.glRectf</strong>
 </p>
 <p>
-<code>sdl2.SetSurfaceBlendMode(surface:sdl2.Surface, blendMode:number):void</code>
+<code>opengl.glRectf(x1:number, y1:number, x2:number, y2:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetSurfaceColorMod</strong>
+<strong>opengl.glRectfv</strong>
 </p>
 <p>
-<code>sdl2.SetSurfaceColorMod(surface:sdl2.Surface, r:number, g:number, b:number):void</code>
+<code>opengl.glRectfv(v1:array@float:nomap, v2:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetSurfacePalette</strong>
+<strong>opengl.glRecti</strong>
 </p>
 <p>
-<code>sdl2.SetSurfacePalette(surface:sdl2.Surface, palette:sdl2.Palette):void</code>
+<code>opengl.glRecti(x1:number, y1:number, x2:number, y2:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetSurfaceRLE</strong>
+<strong>opengl.glRectiv</strong>
 </p>
 <p>
-<code>sdl2.SetSurfaceRLE(surface:sdl2.Surface, flag:number):void</code>
+<code>opengl.glRectiv(v1:array@int:nomap, v2:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.UnlockSurface</strong>
+<strong>opengl.glRects</strong>
 </p>
 <p>
-<code>sdl2.UnlockSurface(surface:sdl2.Surface):void</code>
+<code>opengl.glRects(x1:number, y1:number, x2:number, y2:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetClipboardText</strong>
+<strong>opengl.glRectsv</strong>
 </p>
 <p>
-<code>sdl2.GetClipboardText() {block?}</code>
+<code>opengl.glRectsv(v1:array@short:nomap, v2:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.HasClipboardText</strong>
+<strong>opengl.glRenderMode</strong>
 </p>
 <p>
-<code>sdl2.HasClipboardText() {block?}</code>
+<code>opengl.glRenderMode(mode:number):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.SetClipboardText</strong>
+<strong>opengl.glRotated</strong>
 </p>
 <p>
-<code>sdl2.SetClipboardText(text:string):void</code>
+<code>opengl.glRotated(angle:number, x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.AddEventWatch</strong>
+<strong>opengl.glRotatef</strong>
 </p>
 <p>
-<code>sdl2.AddEventWatch():void</code>
+<code>opengl.glRotatef(angle:number, x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.DelEventWatch</strong>
+<strong>opengl.glScaled</strong>
 </p>
 <p>
-<code>sdl2.DelEventWatch():void</code>
+<code>opengl.glScaled(x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.EventState</strong>
+<strong>opengl.glScalef</strong>
 </p>
 <p>
-<code>sdl2.EventState(type:number, state:number) {block?}</code>
+<code>opengl.glScalef(x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.FilterEvents</strong>
+<strong>opengl.glScissor</strong>
 </p>
 <p>
-<code>sdl2.FilterEvents():void</code>
+<code>opengl.glScissor(x:number, y:number, width:number, height:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.FlushEvent</strong>
+<strong>opengl.glSelectBuffer</strong>
 </p>
 <p>
-<code>sdl2.FlushEvent(type:number):void</code>
+<code>opengl.glSelectBuffer(buffer:array@uint:nomap:nil):void</code>
 </p>
 <p>
-<strong>sdl2.FlushEvents</strong>
+<strong>opengl.glShadeModel</strong>
 </p>
 <p>
-<code>sdl2.FlushEvents(minType:number, maxType:number):void</code>
+<code>opengl.glShadeModel(mode:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetEventFilter</strong>
+<strong>opengl.glStencilFunc</strong>
 </p>
 <p>
-<code>sdl2.GetEventFilter():void</code>
+<code>opengl.glStencilFunc(func:number, ref:number, mask:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetNumTouchDevices</strong>
+<strong>opengl.glStencilMask</strong>
 </p>
 <p>
-<code>sdl2.GetNumTouchDevices() {block?}</code>
+<code>opengl.glStencilMask(mask:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetNumTouchFingers</strong>
+<strong>opengl.glStencilOp</strong>
 </p>
 <p>
-<code>sdl2.GetNumTouchFingers(touchId:number) {block?}</code>
+<code>opengl.glStencilOp(fail:number, zfail:number, zpass:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetTouchDevice</strong>
+<strong>opengl.glTexCoord1d</strong>
 </p>
 <p>
-<code>sdl2.GetTouchDevice(index:number) {block?}</code>
+<code>opengl.glTexCoord1d(s:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetTouchFinger</strong>
+<strong>opengl.glTexCoord1dv</strong>
 </p>
 <p>
-<code>sdl2.GetTouchFinger(touchId:number, index:number) {block?}</code>
+<code>opengl.glTexCoord1dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.HasEvent</strong>
+<strong>opengl.glTexCoord1f</strong>
 </p>
 <p>
-<code>sdl2.HasEvent(type:number) {block?}</code>
+<code>opengl.glTexCoord1f(s:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.HasEvents</strong>
+<strong>opengl.glTexCoord1fv</strong>
 </p>
 <p>
-<code>sdl2.HasEvents(minType:number, maxType:number) {block?}</code>
+<code>opengl.glTexCoord1fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.LoadDollarTemplates</strong>
+<strong>opengl.glTexCoord1i</strong>
 </p>
 <p>
-<code>sdl2.LoadDollarTemplates(touchId:number, src:stream) {block?}</code>
+<code>opengl.glTexCoord1i(s:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.AddEvents</strong>
+<strong>opengl.glTexCoord1iv</strong>
 </p>
 <p>
-<code>sdl2.AddEvents(events[]:sdl2.Event) {block?}</code>
+<code>opengl.glTexCoord1iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.PeekEvents</strong>
+<strong>opengl.glTexCoord1s</strong>
 </p>
 <p>
-<code>sdl2.PeekEvents(numevents:number, minType:number, maxType:number) {block?}</code>
+<code>opengl.glTexCoord1s(s:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetEvents</strong>
+<strong>opengl.glTexCoord1sv</strong>
 </p>
 <p>
-<code>sdl2.GetEvents(numevents:number, minType:number, maxType:number) {block?}</code>
+<code>opengl.glTexCoord1sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.PollEvent</strong>
+<strong>opengl.glTexCoord2d</strong>
 </p>
 <p>
-<code>sdl2.PollEvent() {block?}</code>
+<code>opengl.glTexCoord2d(s:number, t:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.PumpEvents</strong>
+<strong>opengl.glTexCoord2dv</strong>
 </p>
 <p>
-<code>sdl2.PumpEvents():void</code>
+<code>opengl.glTexCoord2dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.PushEvent</strong>
+<strong>opengl.glTexCoord2f</strong>
 </p>
 <p>
-<code>sdl2.PushEvent(event:sdl2.Event) {block?}</code>
+<code>opengl.glTexCoord2f(s:number, t:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.QuitRequested</strong>
+<strong>opengl.glTexCoord2fv</strong>
 </p>
 <p>
-<code>sdl2.QuitRequested() {block?}</code>
+<code>opengl.glTexCoord2fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.RecordGesture</strong>
+<strong>opengl.glTexCoord2i</strong>
 </p>
 <p>
-<code>sdl2.RecordGesture(touchId:number) {block?}</code>
+<code>opengl.glTexCoord2i(s:number, t:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.RegisterEvents</strong>
+<strong>opengl.glTexCoord2iv</strong>
 </p>
 <p>
-<code>sdl2.RegisterEvents(numevents:number) {block?}</code>
+<code>opengl.glTexCoord2iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SaveAllDollarTemplates</strong>
+<strong>opengl.glTexCoord2s</strong>
 </p>
 <p>
-<code>sdl2.SaveAllDollarTemplates(dst:stream) {block?}</code>
+<code>opengl.glTexCoord2s(s:number, t:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SaveDollarTemplate</strong>
+<strong>opengl.glTexCoord2sv</strong>
 </p>
 <p>
-<code>sdl2.SaveDollarTemplate(gestureId:number, dst:stream):void</code>
+<code>opengl.glTexCoord2sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetEventFilter</strong>
+<strong>opengl.glTexCoord3d</strong>
 </p>
 <p>
-<code>sdl2.SetEventFilter():void</code>
+<code>opengl.glTexCoord3d(s:number, t:number, r:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.WaitEvent</strong>
+<strong>opengl.glTexCoord3dv</strong>
 </p>
 <p>
-<code>sdl2.WaitEvent() {block?}</code>
+<code>opengl.glTexCoord3dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.WaitEventTimeout</strong>
+<strong>opengl.glTexCoord3f</strong>
 </p>
 <p>
-<code>sdl2.WaitEventTimeout(timeout:number) {block?}</code>
+<code>opengl.glTexCoord3f(s:number, t:number, r:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.CheckKeyboardState</strong>
+<strong>opengl.glTexCoord3fv</strong>
 </p>
 <p>
-<code>sdl2.CheckKeyboardState(scancode:number) {block?}</code>
+<code>opengl.glTexCoord3fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetKeyFromName</strong>
+<strong>opengl.glTexCoord3i</strong>
 </p>
 <p>
-<code>sdl2.GetKeyFromName(name:string) {block?}</code>
+<code>opengl.glTexCoord3i(s:number, t:number, r:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetKeyFromScancode</strong>
+<strong>opengl.glTexCoord3iv</strong>
 </p>
 <p>
-<code>sdl2.GetKeyFromScancode(scancode:number) {block?}</code>
+<code>opengl.glTexCoord3iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetKeyName</strong>
+<strong>opengl.glTexCoord3s</strong>
 </p>
 <p>
-<code>sdl2.GetKeyName(key:number) {block?}</code>
+<code>opengl.glTexCoord3s(s:number, t:number, r:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetKeyboardFocus</strong>
+<strong>opengl.glTexCoord3sv</strong>
 </p>
 <p>
-<code>sdl2.GetKeyboardFocus() {block?}</code>
+<code>opengl.glTexCoord3sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetKeyboardState</strong>
+<strong>opengl.glTexCoord4d</strong>
 </p>
 <p>
-<code>sdl2.GetKeyboardState() {block?}</code>
+<code>opengl.glTexCoord4d(s:number, t:number, r:number, q:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetModState</strong>
+<strong>opengl.glTexCoord4dv</strong>
 </p>
 <p>
-<code>sdl2.GetModState() {block?}</code>
+<code>opengl.glTexCoord4dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetScancodeFromKey</strong>
+<strong>opengl.glTexCoord4f</strong>
 </p>
 <p>
-<code>sdl2.GetScancodeFromKey(key:number) {block?}</code>
+<code>opengl.glTexCoord4f(s:number, t:number, r:number, q:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetScancodeFromName</strong>
+<strong>opengl.glTexCoord4fv</strong>
 </p>
 <p>
-<code>sdl2.GetScancodeFromName(name:string) {block?}</code>
+<code>opengl.glTexCoord4fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetScancodeName</strong>
+<strong>opengl.glTexCoord4i</strong>
 </p>
 <p>
-<code>sdl2.GetScancodeName(scancode:number) {block?}</code>
+<code>opengl.glTexCoord4i(s:number, t:number, r:number, q:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.HasScreenKeyboardSupport</strong>
+<strong>opengl.glTexCoord4iv</strong>
 </p>
 <p>
-<code>sdl2.HasScreenKeyboardSupport() {block?}</code>
+<code>opengl.glTexCoord4iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.IsScreenKeyboardShown</strong>
+<strong>opengl.glTexCoord4s</strong>
 </p>
 <p>
-<code>sdl2.IsScreenKeyboardShown(window:sdl2.Window) {block?}</code>
+<code>opengl.glTexCoord4s(s:number, t:number, r:number, q:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.IsTextInputActive</strong>
+<strong>opengl.glTexCoord4sv</strong>
 </p>
 <p>
-<code>sdl2.IsTextInputActive() {block?}</code>
+<code>opengl.glTexCoord4sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetModState</strong>
+<strong>opengl.glTexEnvf</strong>
 </p>
 <p>
-<code>sdl2.SetModState(modstate:number):void</code>
+<code>opengl.glTexEnvf(target:number, pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetTextInputRect</strong>
+<strong>opengl.glTexEnvfv</strong>
 </p>
 <p>
-<code>sdl2.SetTextInputRect(rect:sdl2.Rect):void</code>
+<code>opengl.glTexEnvfv(target:number, pname:number, params:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.StartTextInput</strong>
+<strong>opengl.glTexEnvi</strong>
 </p>
 <p>
-<code>sdl2.StartTextInput():void</code>
+<code>opengl.glTexEnvi(target:number, pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.StopTextInput</strong>
+<strong>opengl.glTexEnviv</strong>
 </p>
 <p>
-<code>sdl2.StopTextInput():void</code>
+<code>opengl.glTexEnviv(target:number, pname:number, params:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.CaptureMouse</strong>
+<strong>opengl.glTexGend</strong>
 </p>
 <p>
-<code>sdl2.CaptureMouse(enalbed:boolean):void</code>
+<code>opengl.glTexGend(coord:number, pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateColorCursor</strong>
+<strong>opengl.glTexGendv</strong>
 </p>
 <p>
-<code>sdl2.CreateColorCursor(surface:sdl2.Surface, hot_x:number, hot_y:number) {block?}</code>
+<code>opengl.glTexGendv(coord:number, pname:number, params:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateCursor</strong>
+<strong>opengl.glTexGenf</strong>
 </p>
 <p>
-<code>sdl2.CreateCursor(data:array@uchar:nomap, mask:array@uchar:nomap, w:number, h:number, hot_x:number, hot_y:number) {block?}</code>
+<code>opengl.glTexGenf(coord:number, pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.CreateSystemCursor</strong>
+<strong>opengl.glTexGenfv</strong>
 </p>
 <p>
-<code>sdl2.CreateSystemCursor(id:number) {block?}</code>
+<code>opengl.glTexGenfv(coord:number, pname:number, params:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.FreeCursor</strong>
+<strong>opengl.glTexGeni</strong>
 </p>
 <p>
-<code>sdl2.FreeCursor(cursor:sdl2.Cursor):void</code>
+<code>opengl.glTexGeni(coord:number, pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetCursor</strong>
+<strong>opengl.glTexGeniv</strong>
 </p>
 <p>
-<code>sdl2.GetCursor() {block?}</code>
+<code>opengl.glTexGeniv(coord:number, pname:number, params:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetDefaultCursor</strong>
+<strong>opengl.glTexImage1D</strong>
 </p>
 <p>
-<code>sdl2.GetDefaultCursor() {block?}</code>
+<code>opengl.glTexImage1D(target:number, level:number, internalformat:number, width:number, border:number, format:number, type:number, pixels):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetGlobalMouseState</strong>
+<strong>opengl.glTexImage1DFromImage</strong>
 </p>
 <p>
-<code>sdl2.GetGlobalMouseState():void</code>
+<code>opengl.glTexImage1DFromImage(target:number, level:number, internalformat:number, border:number, image:image):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetMouseFocus</strong>
+<strong>opengl.glTexImage2D</strong>
 </p>
 <p>
-<code>sdl2.GetMouseFocus() {block?}</code>
+<code>opengl.glTexImage2D(target:number, level:number, internalformat:number, width:number, height:number, border:number, format:number, type:number, pixels):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetMouseState</strong>
+<strong>opengl.glTexImage2DFromImage</strong>
 </p>
 <p>
-<code>sdl2.GetMouseState() {block?}</code>
+<code>opengl.glTexImage2DFromImage(target:number, level:number, internalformat:number, border:number, image:image):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetRelativeMouseMode</strong>
+<strong>opengl.glTexParameterf</strong>
 </p>
 <p>
-<code>sdl2.GetRelativeMouseMode() {block?}</code>
+<code>opengl.glTexParameterf(target:number, pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GetRelativeMouseState</strong>
+<strong>opengl.glTexParameterfv</strong>
 </p>
 <p>
-<code>sdl2.GetRelativeMouseState() {block?}</code>
+<code>opengl.glTexParameterfv(target:number, pname:number, params:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetCursor</strong>
+<strong>opengl.glTexParameteri</strong>
 </p>
 <p>
-<code>sdl2.SetCursor(cursor:sdl2.Cursor):void</code>
+<code>opengl.glTexParameteri(target:number, pname:number, param:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.SetRelativeMouseMode</strong>
+<strong>opengl.glTexParameteriv</strong>
 </p>
 <p>
-<code>sdl2.SetRelativeMouseMode(enabled:boolean):void</code>
+<code>opengl.glTexParameteriv(target:number, pname:number, params:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.ShowCursor</strong>
+<strong>opengl.glTexSubImage1D</strong>
 </p>
 <p>
-<code>sdl2.ShowCursor(toggle:number):void</code>
+<code>opengl.glTexSubImage1D(target:number, level:number, xoffset:number, width:number, format:number, type:number, pixels):map:void</code>
 </p>
 <p>
-<strong>sdl2.WarpMouseGlobal</strong>
+<strong>opengl.glTexSubImage1DFromImage</strong>
 </p>
 <p>
-<code>sdl2.WarpMouseGlobal(x:number, y:number):void</code>
+<code>opengl.glTexSubImage1DFromImage(target:number, level:number, xoffset:number, image:image):map:void</code>
 </p>
 <p>
-<strong>sdl2.WarpMouseInWindow</strong>
+<strong>opengl.glTexSubImage2D</strong>
 </p>
 <p>
-<code>sdl2.WarpMouseInWindow(window:sdl2.Window, x:number, y:number):void</code>
+<code>opengl.glTexSubImage2D(target:number, level:number, xoffset:number, yoffset:number, width:number, height:number, format:number, type:number, pixels):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickClose</strong>
+<strong>opengl.glTexSubImage2DFromImage</strong>
 </p>
 <p>
-<code>sdl2.JoystickClose(joystick:sdl2.Joystick):void</code>
+<code>opengl.glTexSubImage2DFromImage(target:number, level:number, xoffset:number, yoffset:number, image:image):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickEventState</strong>
+<strong>opengl.glTranslated</strong>
 </p>
 <p>
-<code>sdl2.JoystickEventState(state:number) {block?}</code>
+<code>opengl.glTranslated(x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickGetAttached</strong>
+<strong>opengl.glTranslatef</strong>
 </p>
 <p>
-<code>sdl2.JoystickGetAttached(joystick:sdl2.Joystick) {block?}</code>
+<code>opengl.glTranslatef(x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickGetAxis</strong>
+<strong>opengl.glVertex2d</strong>
 </p>
 <p>
-<code>sdl2.JoystickGetAxis(joystick:sdl2.Joystick, axis:number) {block?}</code>
+<code>opengl.glVertex2d(x:number, y:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickGetBall</strong>
+<strong>opengl.glVertex2dv</strong>
 </p>
 <p>
-<code>sdl2.JoystickGetBall(joystick:sdl2.Joystick, ball:number) {block?}</code>
+<code>opengl.glVertex2dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickGetButton</strong>
+<strong>opengl.glVertex2f</strong>
 </p>
 <p>
-<code>sdl2.JoystickGetButton(joystick:sdl2.Joystick, button:number) {block?}</code>
+<code>opengl.glVertex2f(x:number, y:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickGetDeviceGUID</strong>
+<strong>opengl.glVertex2fv</strong>
 </p>
 <p>
-<code>sdl2.JoystickGetDeviceGUID(device_index:number) {block?}</code>
+<code>opengl.glVertex2fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickGetGUID</strong>
+<strong>opengl.glVertex2i</strong>
 </p>
 <p>
-<code>sdl2.JoystickGetGUID(joystick:sdl2.Joystick) {block?}</code>
+<code>opengl.glVertex2i(x:number, y:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickGetGUIDFromString</strong>
+<strong>opengl.glVertex2iv</strong>
 </p>
 <p>
-<code>sdl2.JoystickGetGUIDFromString(pchGUID:string) {block?}</code>
+<code>opengl.glVertex2iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickGetGUIDString</strong>
+<strong>opengl.glVertex2s</strong>
 </p>
 <p>
-<code>sdl2.JoystickGetGUIDString(guid:sdl2.JoystickGUID) {block?}</code>
+<code>opengl.glVertex2s(x:number, y:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickGetHat</strong>
+<strong>opengl.glVertex2sv</strong>
 </p>
 <p>
-<code>sdl2.JoystickGetHat(joystick:sdl2.Joystick, hat:number) {block?}</code>
+<code>opengl.glVertex2sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickInstanceID</strong>
+<strong>opengl.glVertex3d</strong>
 </p>
 <p>
-<code>sdl2.JoystickInstanceID(joystick:sdl2.Joystick) {block?}</code>
+<code>opengl.glVertex3d(x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickName</strong>
+<strong>opengl.glVertex3dv</strong>
 </p>
 <p>
-<code>sdl2.JoystickName(joystick:sdl2.Joystick) {block?}</code>
+<code>opengl.glVertex3dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickNameForIndex</strong>
+<strong>opengl.glVertex3f</strong>
 </p>
 <p>
-<code>sdl2.JoystickNameForIndex(device_index:number) {block?}</code>
+<code>opengl.glVertex3f(x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickNumAxes</strong>
+<strong>opengl.glVertex3fv</strong>
 </p>
 <p>
-<code>sdl2.JoystickNumAxes(joystick:sdl2.Joystick) {block?}</code>
+<code>opengl.glVertex3fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickNumBalls</strong>
+<strong>opengl.glVertex3i</strong>
 </p>
 <p>
-<code>sdl2.JoystickNumBalls(joystick:sdl2.Joystick) {block?}</code>
+<code>opengl.glVertex3i(x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickNumButtons</strong>
+<strong>opengl.glVertex3iv</strong>
 </p>
 <p>
-<code>sdl2.JoystickNumButtons(joystick:sdl2.Joystick) {block?}</code>
+<code>opengl.glVertex3iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickNumHats</strong>
+<strong>opengl.glVertex3s</strong>
 </p>
 <p>
-<code>sdl2.JoystickNumHats(joystick:sdl2.Joystick) {block?}</code>
+<code>opengl.glVertex3s(x:number, y:number, z:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickOpen</strong>
+<strong>opengl.glVertex3sv</strong>
 </p>
 <p>
-<code>sdl2.JoystickOpen(device_index:number) {block?}</code>
+<code>opengl.glVertex3sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.JoystickUpdate</strong>
+<strong>opengl.glVertex4d</strong>
 </p>
 <p>
-<code>sdl2.JoystickUpdate():void</code>
+<code>opengl.glVertex4d(x:number, y:number, z:number, w:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.NumJoysticks</strong>
+<strong>opengl.glVertex4dv</strong>
 </p>
 <p>
-<code>sdl2.NumJoysticks() {block?}</code>
+<code>opengl.glVertex4dv(v:array@double:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerAddMapping</strong>
+<strong>opengl.glVertex4f</strong>
 </p>
 <p>
-<code>sdl2.GameControllerAddMapping(mappingString:string) {block?}</code>
+<code>opengl.glVertex4f(x:number, y:number, z:number, w:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerAddMappingsFromFile</strong>
+<strong>opengl.glVertex4fv</strong>
 </p>
 <p>
-<code>sdl2.GameControllerAddMappingsFromFile(file:stream) {block?}</code>
+<code>opengl.glVertex4fv(v:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerAddMappingsFromRW</strong>
+<strong>opengl.glVertex4i</strong>
 </p>
 <p>
-<code>sdl2.GameControllerAddMappingsFromRW():void</code>
+<code>opengl.glVertex4i(x:number, y:number, z:number, w:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerClose</strong>
+<strong>opengl.glVertex4iv</strong>
 </p>
 <p>
-<code>sdl2.GameControllerClose(gamecontroller:sdl2.GameController):void</code>
+<code>opengl.glVertex4iv(v:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerEventState</strong>
+<strong>opengl.glVertex4s</strong>
 </p>
 <p>
-<code>sdl2.GameControllerEventState(state:number) {block?}</code>
+<code>opengl.glVertex4s(x:number, y:number, z:number, w:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerGetAttached</strong>
+<strong>opengl.glVertex4sv</strong>
 </p>
 <p>
-<code>sdl2.GameControllerGetAttached(gamecontroller:sdl2.GameController) {block?}</code>
+<code>opengl.glVertex4sv(v:array@short:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerGetAxis</strong>
+<strong>opengl.glViewport</strong>
 </p>
 <p>
-<code>sdl2.GameControllerGetAxis(gamecontroller:sdl2.GameController, axis:number) {block?}</code>
+<code>opengl.glViewport(x:number, y:number, width:number, height:number):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerGetAxisFromString</strong>
+<strong>opengl.glGetAttachedShaders</strong>
 </p>
 <p>
-<code>sdl2.GameControllerGetAxisFromString(pchString:string) {block?}</code>
+<code>opengl.glGetAttachedShaders(program:number, maxCount:number, count[]:number, shaders:array@uint:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerGetBindForAxis</strong>
+<strong>opengl.glGetShaderInfoLog</strong>
 </p>
 <p>
-<code>sdl2.GameControllerGetBindForAxis(gamecontroller:sdl2.GameController, axis:number) {block?}</code>
+<code>opengl.glGetShaderInfoLog(shader:number, bufSize:number, length[]:number, infoLog:array@char:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerGetBindForButton</strong>
+<strong>opengl.glGetProgramInfoLog</strong>
 </p>
 <p>
-<code>sdl2.GameControllerGetBindForButton(gamecontroller:sdl2.GameController, button:number) {block?}</code>
+<code>opengl.glGetProgramInfoLog(program:number, bufSize:number, length[]:number, infoLog:array@char:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerGetButton</strong>
+<strong>opengl.glGetUniformLocation</strong>
 </p>
 <p>
-<code>sdl2.GameControllerGetButton(gamecontroller:sdl2.GameController, button:number) {block?}</code>
+<code>opengl.glGetUniformLocation(program:number, name:array@char:nomap):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.GameControllerGetButtonFromString</strong>
+<strong>opengl.glGetActiveUniform</strong>
 </p>
 <p>
-<code>sdl2.GameControllerGetButtonFromString(pchString:string) {block?}</code>
+<code>opengl.glGetActiveUniform(program:number, index:number, bufSize:number, length[]:number, size:array@int:nomap, type[]:number, name:array@char:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerGetJoystick</strong>
+<strong>opengl.glGetUniformfv</strong>
 </p>
 <p>
-<code>sdl2.GameControllerGetJoystick(gamecontroller:sdl2.GameController) {block?}</code>
+<code>opengl.glGetUniformfv(program:number, location:number, params:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerGetStringForAxis</strong>
+<strong>opengl.glGetUniformiv</strong>
 </p>
 <p>
-<code>sdl2.GameControllerGetStringForAxis(axis:number) {block?}</code>
+<code>opengl.glGetUniformiv(program:number, location:number, params:array@int:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerGetStringForButton</strong>
+<strong>opengl.glGetShaderSource</strong>
 </p>
 <p>
-<code>sdl2.GameControllerGetStringForButton(button:number) {block?}</code>
+<code>opengl.glGetShaderSource(shader:number, bufSize:number, length[]:number, source:array@char:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerMapping</strong>
+<strong>opengl.glBindAttribLocation</strong>
 </p>
 <p>
-<code>sdl2.GameControllerMapping(gamecontroller:sdl2.GameController) {block?}</code>
+<code>opengl.glBindAttribLocation(program:number, index:number, name:array@char:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerMappingForGUID</strong>
+<strong>opengl.glGetActiveAttrib</strong>
 </p>
 <p>
-<code>sdl2.GameControllerMappingForGUID(guid:sdl2.JoystickGUID) {block?}</code>
+<code>opengl.glGetActiveAttrib(program:number, index:number, bufSize:number, length[]:number, size:array@int:nomap, type[]:number, name:array@char:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerName</strong>
+<strong>opengl.glGetAttribLocation</strong>
 </p>
 <p>
-<code>sdl2.GameControllerName(gamecontroller:sdl2.GameController) {block?}</code>
+<code>opengl.glGetAttribLocation(program:number, name:array@char:nomap):map {block?}</code>
 </p>
 <p>
-<strong>sdl2.GameControllerNameForIndex</strong>
+<strong>opengl.glUniformMatrix2x3fv</strong>
 </p>
 <p>
-<code>sdl2.GameControllerNameForIndex(joystick_index:number) {block?}</code>
+<code>opengl.glUniformMatrix2x3fv(location:number, count:number, transpose:boolean, value:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerOpen</strong>
+<strong>opengl.glUniformMatrix3x2fv</strong>
 </p>
 <p>
-<code>sdl2.GameControllerOpen(joystick_index:number) {block?}</code>
+<code>opengl.glUniformMatrix3x2fv(location:number, count:number, transpose:boolean, value:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.GameControllerUpdate</strong>
+<strong>opengl.glUniformMatrix2x4fv</strong>
 </p>
 <p>
-<code>sdl2.GameControllerUpdate():void</code>
+<code>opengl.glUniformMatrix2x4fv(location:number, count:number, transpose:boolean, value:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.IsGameController</strong>
+<strong>opengl.glUniformMatrix4x2fv</strong>
 </p>
 <p>
-<code>sdl2.IsGameController(joystick_index:number) {block?}</code>
+<code>opengl.glUniformMatrix4x2fv(location:number, count:number, transpose:boolean, value:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.HapticClose</strong>
+<strong>opengl.glUniformMatrix3x4fv</strong>
 </p>
 <p>
-<code>sdl2.HapticClose(haptic:sdl2.Haptic):void</code>
+<code>opengl.glUniformMatrix3x4fv(location:number, count:number, transpose:boolean, value:array@float:nomap):map:void</code>
 </p>
 <p>
-<strong>sdl2.HapticDestroyEffect</strong>
+<strong>opengl.glUniformMatrix4x3fv</strong>
 </p>
 <p>
-<code>sdl2.HapticDestroyEffect(haptic:sdl2.Haptic, effect:number):void</code>
-</p>
-<p>
-<strong>sdl2.HapticEffectSupported</strong>
-</p>
-<p>
-<code>sdl2.HapticEffectSupported(haptic:sdl2.Haptic, effect:sdl2.HapticEffect) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticGetEffectStatus</strong>
-</p>
-<p>
-<code>sdl2.HapticGetEffectStatus(haptic:sdl2.Haptic, effect:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticIndex</strong>
-</p>
-<p>
-<code>sdl2.HapticIndex(haptic:sdl2.Haptic) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticName</strong>
-</p>
-<p>
-<code>sdl2.HapticName(device_index:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticNewEffect</strong>
-</p>
-<p>
-<code>sdl2.HapticNewEffect(haptic:sdl2.Haptic, effect:sdl2.HapticEffect) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticNumAxes</strong>
-</p>
-<p>
-<code>sdl2.HapticNumAxes(haptic:sdl2.Haptic) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticNumEffects</strong>
-</p>
-<p>
-<code>sdl2.HapticNumEffects(haptic:sdl2.Haptic) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticNumEffectsPlaying</strong>
-</p>
-<p>
-<code>sdl2.HapticNumEffectsPlaying(haptic:sdl2.Haptic) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticOpen</strong>
-</p>
-<p>
-<code>sdl2.HapticOpen(device_index:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticOpenFromJoystick</strong>
-</p>
-<p>
-<code>sdl2.HapticOpenFromJoystick(joystick:sdl2.Joystick) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticOpenFromMouse</strong>
-</p>
-<p>
-<code>sdl2.HapticOpenFromMouse() {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticOpened</strong>
-</p>
-<p>
-<code>sdl2.HapticOpened(device_index:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticPause</strong>
-</p>
-<p>
-<code>sdl2.HapticPause(haptic:sdl2.Haptic):void</code>
-</p>
-<p>
-<strong>sdl2.HapticQuery</strong>
-</p>
-<p>
-<code>sdl2.HapticQuery(haptic:sdl2.Haptic) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticRumbleInit</strong>
-</p>
-<p>
-<code>sdl2.HapticRumbleInit(haptic:sdl2.Haptic):void</code>
-</p>
-<p>
-<strong>sdl2.HapticRumblePlay</strong>
-</p>
-<p>
-<code>sdl2.HapticRumblePlay(haptic:sdl2.Haptic, strength:number, length:number):void</code>
-</p>
-<p>
-<strong>sdl2.HapticRumbleStop</strong>
-</p>
-<p>
-<code>sdl2.HapticRumbleStop(haptic:sdl2.Haptic):void</code>
-</p>
-<p>
-<strong>sdl2.HapticRumbleSupported</strong>
-</p>
-<p>
-<code>sdl2.HapticRumbleSupported(haptic:sdl2.Haptic) {block?}</code>
-</p>
-<p>
-<strong>sdl2.HapticRunEffect</strong>
-</p>
-<p>
-<code>sdl2.HapticRunEffect(haptic:sdl2.Haptic, effect:number, iterations:number):void</code>
-</p>
-<p>
-<strong>sdl2.HapticSetAutocenter</strong>
-</p>
-<p>
-<code>sdl2.HapticSetAutocenter(haptic:sdl2.Haptic, autocenter:number):void</code>
-</p>
-<p>
-<strong>sdl2.HapticSetGain</strong>
-</p>
-<p>
-<code>sdl2.HapticSetGain(haptic:sdl2.Haptic, gain:number):void</code>
-</p>
-<p>
-<strong>sdl2.HapticStopAll</strong>
-</p>
-<p>
-<code>sdl2.HapticStopAll(haptic:sdl2.Haptic):void</code>
-</p>
-<p>
-<strong>sdl2.HapticStopEffect</strong>
-</p>
-<p>
-<code>sdl2.HapticStopEffect(haptic:sdl2.Haptic, effect:number):void</code>
-</p>
-<p>
-<strong>sdl2.HapticUnpause</strong>
-</p>
-<p>
-<code>sdl2.HapticUnpause(haptic:sdl2.Haptic):void</code>
-</p>
-<p>
-<strong>sdl2.HapticUpdateEffect</strong>
-</p>
-<p>
-<code>sdl2.HapticUpdateEffect(haptic:sdl2.Haptic, effect:number, data:sdl2.HapticEffect):void</code>
-</p>
-<p>
-<strong>sdl2.JoystickIsHaptic</strong>
-</p>
-<p>
-<code>sdl2.JoystickIsHaptic(joystick:sdl2.Joystick) {block?}</code>
-</p>
-<p>
-<strong>sdl2.MouseIsHaptic</strong>
-</p>
-<p>
-<code>sdl2.MouseIsHaptic() {block?}</code>
-</p>
-<p>
-<strong>sdl2.NumHaptics</strong>
-</p>
-<p>
-<code>sdl2.NumHaptics() {block?}</code>
-</p>
-<p>
-<strong>sdl2.AudioInit</strong>
-</p>
-<p>
-<code>sdl2.AudioInit(driver_name:string):void</code>
-</p>
-<p>
-<strong>sdl2.AudioQuit</strong>
-</p>
-<p>
-<code>sdl2.AudioQuit():void</code>
-</p>
-<p>
-<strong>sdl2.BuildAudioCVT</strong>
-</p>
-<p>
-<code>sdl2.BuildAudioCVT(cvt:sdl2.AudioCVT, src_format:number, src_channels:number, src_rate:number, dst_format:number, dst_channels:number, dst_rate:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.ClearQueuedAudio</strong>
-</p>
-<p>
-<code>sdl2.ClearQueuedAudio(dev:number):void</code>
-</p>
-<p>
-<strong>sdl2.CloseAudio</strong>
-</p>
-<p>
-<code>sdl2.CloseAudio():void</code>
-</p>
-<p>
-<strong>sdl2.CloseAudioDevice</strong>
-</p>
-<p>
-<code>sdl2.CloseAudioDevice(dev:number):void</code>
-</p>
-<p>
-<strong>sdl2.ConvertAudio</strong>
-</p>
-<p>
-<code>sdl2.ConvertAudio(cvt:sdl2.AudioCVT):void</code>
-</p>
-<p>
-<strong>sdl2.FreeWAV</strong>
-</p>
-<p>
-<code>sdl2.FreeWAV(wav:sdl2.Wav):void</code>
-</p>
-<p>
-<strong>sdl2.GetAudioDeviceName</strong>
-</p>
-<p>
-<code>sdl2.GetAudioDeviceName(index:number, iscapture:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetAudioDeviceStatus</strong>
-</p>
-<p>
-<code>sdl2.GetAudioDeviceStatus(dev:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetAudioDriver</strong>
-</p>
-<p>
-<code>sdl2.GetAudioDriver(index:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetAudioStatus</strong>
-</p>
-<p>
-<code>sdl2.GetAudioStatus() {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetCurrentAudioDriver</strong>
-</p>
-<p>
-<code>sdl2.GetCurrentAudioDriver() {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetNumAudioDevices</strong>
-</p>
-<p>
-<code>sdl2.GetNumAudioDevices(iscapture:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetNumAudioDrivers</strong>
-</p>
-<p>
-<code>sdl2.GetNumAudioDrivers() {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetQueuedAudioSize</strong>
-</p>
-<p>
-<code>sdl2.GetQueuedAudioSize(dev:number)</code>
-</p>
-<p>
-<strong>sdl2.LoadWAV</strong>
-</p>
-<p>
-<code>sdl2.LoadWAV(file:stream) {block?}</code>
-</p>
-<p>
-<strong>sdl2.LoadWAV_RW</strong>
-</p>
-<p>
-<code>sdl2.LoadWAV_RW():void</code>
-</p>
-<p>
-<strong>sdl2.LockAudio</strong>
-</p>
-<p>
-<code>sdl2.LockAudio():void</code>
-</p>
-<p>
-<strong>sdl2.LockAudioDevice</strong>
-</p>
-<p>
-<code>sdl2.LockAudioDevice(dev:number):void</code>
-</p>
-<p>
-<strong>sdl2.MixAudio</strong>
-</p>
-<p>
-<code>sdl2.MixAudio(volume:number):void</code>
-</p>
-<p>
-<strong>sdl2.MixAudioFormat</strong>
-</p>
-<p>
-<code>sdl2.MixAudioFormat(format:number, volume:number):void</code>
-</p>
-<p>
-<strong>sdl2.OpenAudio</strong>
-</p>
-<p>
-<code>sdl2.OpenAudio(desired:sdl2.AudioSpec) {block?}</code>
-</p>
-<p>
-<strong>sdl2.OpenAudioDevice</strong>
-</p>
-<p>
-<code>sdl2.OpenAudioDevice(device:string, iscapture:number, desired:sdl2.AudioSpec, allowed_changes:number)</code>
-</p>
-<p>
-<strong>sdl2.PauseAudio</strong>
-</p>
-<p>
-<code>sdl2.PauseAudio(pause_on:number):void</code>
-</p>
-<p>
-<strong>sdl2.PauseAudioDevice</strong>
-</p>
-<p>
-<code>sdl2.PauseAudioDevice(dev:number, pause_on:number):void</code>
-</p>
-<p>
-<strong>sdl2.QueueAudio</strong>
-</p>
-<p>
-<code>sdl2.QueueAudio(dev:number):void</code>
-</p>
-<p>
-<strong>sdl2.UnlockAudio</strong>
-</p>
-<p>
-<code>sdl2.UnlockAudio():void</code>
-</p>
-<p>
-<strong>sdl2.UnlockAudioDevice</strong>
-</p>
-<p>
-<code>sdl2.UnlockAudioDevice(dev:number):void</code>
-</p>
-<p>
-<strong>sdl2.AUDIO_BITSIZE</strong>
-</p>
-<p>
-<code>sdl2.AUDIO_BITSIZE(x:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.AUDIO_ISFLOAT</strong>
-</p>
-<p>
-<code>sdl2.AUDIO_ISFLOAT(x:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.AUDIO_ISBIGENDIAN</strong>
-</p>
-<p>
-<code>sdl2.AUDIO_ISBIGENDIAN(x:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.AUDIO_ISSIGNED</strong>
-</p>
-<p>
-<code>sdl2.AUDIO_ISSIGNED(x:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.AUDIO_ISINT</strong>
-</p>
-<p>
-<code>sdl2.AUDIO_ISINT(x:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.AUDIO_ISLITTLEENDIAN</strong>
-</p>
-<p>
-<code>sdl2.AUDIO_ISLITTLEENDIAN(x:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.AUDIO_ISUNSIGNED</strong>
-</p>
-<p>
-<code>sdl2.AUDIO_ISUNSIGNED(x:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.CreateThread</strong>
-</p>
-<p>
-<code>sdl2.CreateThread():void</code>
-</p>
-<p>
-<strong>sdl2.DetachThread</strong>
-</p>
-<p>
-<code>sdl2.DetachThread():void</code>
-</p>
-<p>
-<strong>sdl2.GetThreadID</strong>
-</p>
-<p>
-<code>sdl2.GetThreadID():void</code>
-</p>
-<p>
-<strong>sdl2.GetThreadName</strong>
-</p>
-<p>
-<code>sdl2.GetThreadName():void</code>
-</p>
-<p>
-<strong>sdl2.GetThreadPriority</strong>
-</p>
-<p>
-<code>sdl2.GetThreadPriority():void</code>
-</p>
-<p>
-<strong>sdl2.TLSCreate</strong>
-</p>
-<p>
-<code>sdl2.TLSCreate():void</code>
-</p>
-<p>
-<strong>sdl2.TLSGet</strong>
-</p>
-<p>
-<code>sdl2.TLSGet():void</code>
-</p>
-<p>
-<strong>sdl2.TLSSet</strong>
-</p>
-<p>
-<code>sdl2.TLSSet():void</code>
-</p>
-<p>
-<strong>sdl2.ThreadID</strong>
-</p>
-<p>
-<code>sdl2.ThreadID():void</code>
-</p>
-<p>
-<strong>sdl2.WaitThread</strong>
-</p>
-<p>
-<code>sdl2.WaitThread():void</code>
-</p>
-<p>
-<strong>sdl2.CondBroadcast</strong>
-</p>
-<p>
-<code>sdl2.CondBroadcast():void</code>
-</p>
-<p>
-<strong>sdl2.CondSignal</strong>
-</p>
-<p>
-<code>sdl2.CondSignal():void</code>
-</p>
-<p>
-<strong>sdl2.CondWait</strong>
-</p>
-<p>
-<code>sdl2.CondWait():void</code>
-</p>
-<p>
-<strong>sdl2.CondWaitTimeout</strong>
-</p>
-<p>
-<code>sdl2.CondWaitTimeout():void</code>
-</p>
-<p>
-<strong>sdl2.CreateCond</strong>
-</p>
-<p>
-<code>sdl2.CreateCond():void</code>
-</p>
-<p>
-<strong>sdl2.CreateMutex</strong>
-</p>
-<p>
-<code>sdl2.CreateMutex():void</code>
-</p>
-<p>
-<strong>sdl2.CreateSemaphore</strong>
-</p>
-<p>
-<code>sdl2.CreateSemaphore():void</code>
-</p>
-<p>
-<strong>sdl2.DestroyCond</strong>
-</p>
-<p>
-<code>sdl2.DestroyCond():void</code>
-</p>
-<p>
-<strong>sdl2.DestroyMutex</strong>
-</p>
-<p>
-<code>sdl2.DestroyMutex():void</code>
-</p>
-<p>
-<strong>sdl2.DestroySemaphore</strong>
-</p>
-<p>
-<code>sdl2.DestroySemaphore():void</code>
-</p>
-<p>
-<strong>sdl2.LockMutex</strong>
-</p>
-<p>
-<code>sdl2.LockMutex():void</code>
-</p>
-<p>
-<strong>sdl2.SemPost</strong>
-</p>
-<p>
-<code>sdl2.SemPost():void</code>
-</p>
-<p>
-<strong>sdl2.SemTryWait</strong>
-</p>
-<p>
-<code>sdl2.SemTryWait():void</code>
-</p>
-<p>
-<strong>sdl2.SemValue</strong>
-</p>
-<p>
-<code>sdl2.SemValue():void</code>
-</p>
-<p>
-<strong>sdl2.SemWait</strong>
-</p>
-<p>
-<code>sdl2.SemWait():void</code>
-</p>
-<p>
-<strong>sdl2.SemWaitTimeout</strong>
-</p>
-<p>
-<code>sdl2.SemWaitTimeout():void</code>
-</p>
-<p>
-<strong>sdl2.TryLockMutex</strong>
-</p>
-<p>
-<code>sdl2.TryLockMutex():void</code>
-</p>
-<p>
-<strong>sdl2.UnlockMutex</strong>
-</p>
-<p>
-<code>sdl2.UnlockMutex():void</code>
-</p>
-<p>
-<strong>sdl2.AtomicAdd</strong>
-</p>
-<p>
-<code>sdl2.AtomicAdd():void</code>
-</p>
-<p>
-<strong>sdl2.AtomicCAS</strong>
-</p>
-<p>
-<code>sdl2.AtomicCAS():void</code>
-</p>
-<p>
-<strong>sdl2.AtomicCASPtr</strong>
-</p>
-<p>
-<code>sdl2.AtomicCASPtr():void</code>
-</p>
-<p>
-<strong>sdl2.AtomicDecRef</strong>
-</p>
-<p>
-<code>sdl2.AtomicDecRef():void</code>
-</p>
-<p>
-<strong>sdl2.AtomicGet</strong>
-</p>
-<p>
-<code>sdl2.AtomicGet():void</code>
-</p>
-<p>
-<strong>sdl2.AtomicGetPtr</strong>
-</p>
-<p>
-<code>sdl2.AtomicGetPtr():void</code>
-</p>
-<p>
-<strong>sdl2.AtomicIncRef</strong>
-</p>
-<p>
-<code>sdl2.AtomicIncRef():void</code>
-</p>
-<p>
-<strong>sdl2.AtomicLock</strong>
-</p>
-<p>
-<code>sdl2.AtomicLock():void</code>
-</p>
-<p>
-<strong>sdl2.AtomicSet</strong>
-</p>
-<p>
-<code>sdl2.AtomicSet():void</code>
-</p>
-<p>
-<strong>sdl2.AtomicSetPtr</strong>
-</p>
-<p>
-<code>sdl2.AtomicSetPtr():void</code>
-</p>
-<p>
-<strong>sdl2.AtomicTryLock</strong>
-</p>
-<p>
-<code>sdl2.AtomicTryLock():void</code>
-</p>
-<p>
-<strong>sdl2.AtomicUnlock</strong>
-</p>
-<p>
-<code>sdl2.AtomicUnlock():void</code>
-</p>
-<p>
-<strong>sdl2.CompilerBarrier</strong>
-</p>
-<p>
-<code>sdl2.CompilerBarrier():void</code>
-</p>
-<p>
-<strong>sdl2.AddTimer</strong>
-</p>
-<p>
-<code>sdl2.AddTimer(interval:number)</code>
-</p>
-<p>
-<strong>sdl2.Delay</strong>
-</p>
-<p>
-<code>sdl2.Delay(ms:number):void</code>
-</p>
-<p>
-<strong>sdl2.GetPerformanceCounter</strong>
-</p>
-<p>
-<code>sdl2.GetPerformanceCounter() {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetPerformanceFrequency</strong>
-</p>
-<p>
-<code>sdl2.GetPerformanceFrequency() {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetTicks</strong>
-</p>
-<p>
-<code>sdl2.GetTicks() {block?}</code>
-</p>
-<p>
-<strong>sdl2.RemoveTimer</strong>
-</p>
-<p>
-<code>sdl2.RemoveTimer(id:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.TICKS_PASSED</strong>
-</p>
-<p>
-<code>sdl2.TICKS_PASSED(A:number, B:number) {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetBasePath</strong>
-</p>
-<p>
-<code>sdl2.GetBasePath()</code>
-</p>
-<p>
-<strong>sdl2.GetPrefPath</strong>
-</p>
-<p>
-<code>sdl2.GetPrefPath(org:string, app:string)</code>
-</p>
-<p>
-<strong>sdl2.AllocRW</strong>
-</p>
-<p>
-<code>sdl2.AllocRW():void</code>
-</p>
-<p>
-<strong>sdl2.FreeRW</strong>
-</p>
-<p>
-<code>sdl2.FreeRW():void</code>
-</p>
-<p>
-<strong>sdl2.RWFromConstMem</strong>
-</p>
-<p>
-<code>sdl2.RWFromConstMem():void</code>
-</p>
-<p>
-<strong>sdl2.RWFromFP</strong>
-</p>
-<p>
-<code>sdl2.RWFromFP():void</code>
-</p>
-<p>
-<strong>sdl2.RWFromFile</strong>
-</p>
-<p>
-<code>sdl2.RWFromFile():void</code>
-</p>
-<p>
-<strong>sdl2.RWFromMem</strong>
-</p>
-<p>
-<code>sdl2.RWFromMem():void</code>
-</p>
-<p>
-<strong>sdl2.RWclose</strong>
-</p>
-<p>
-<code>sdl2.RWclose():void</code>
-</p>
-<p>
-<strong>sdl2.RWread</strong>
-</p>
-<p>
-<code>sdl2.RWread():void</code>
-</p>
-<p>
-<strong>sdl2.RWseek</strong>
-</p>
-<p>
-<code>sdl2.RWseek():void</code>
-</p>
-<p>
-<strong>sdl2.RWtell</strong>
-</p>
-<p>
-<code>sdl2.RWtell():void</code>
-</p>
-<p>
-<strong>sdl2.RWwrite</strong>
-</p>
-<p>
-<code>sdl2.RWwrite():void</code>
-</p>
-<p>
-<strong>sdl2.ReadBE16</strong>
-</p>
-<p>
-<code>sdl2.ReadBE16():void</code>
-</p>
-<p>
-<strong>sdl2.ReadBE32</strong>
-</p>
-<p>
-<code>sdl2.ReadBE32():void</code>
-</p>
-<p>
-<strong>sdl2.ReadBE64</strong>
-</p>
-<p>
-<code>sdl2.ReadBE64():void</code>
-</p>
-<p>
-<strong>sdl2.ReadLE16</strong>
-</p>
-<p>
-<code>sdl2.ReadLE16():void</code>
-</p>
-<p>
-<strong>sdl2.ReadLE32</strong>
-</p>
-<p>
-<code>sdl2.ReadLE32():void</code>
-</p>
-<p>
-<strong>sdl2.ReadLE64</strong>
-</p>
-<p>
-<code>sdl2.ReadLE64():void</code>
-</p>
-<p>
-<strong>sdl2.WriteBE16</strong>
-</p>
-<p>
-<code>sdl2.WriteBE16():void</code>
-</p>
-<p>
-<strong>sdl2.WriteBE32</strong>
-</p>
-<p>
-<code>sdl2.WriteBE32():void</code>
-</p>
-<p>
-<strong>sdl2.WriteBE64</strong>
-</p>
-<p>
-<code>sdl2.WriteBE64():void</code>
-</p>
-<p>
-<strong>sdl2.WriteLE16</strong>
-</p>
-<p>
-<code>sdl2.WriteLE16():void</code>
-</p>
-<p>
-<strong>sdl2.WriteLE32</strong>
-</p>
-<p>
-<code>sdl2.WriteLE32():void</code>
-</p>
-<p>
-<strong>sdl2.WriteLE64</strong>
-</p>
-<p>
-<code>sdl2.WriteLE64():void</code>
-</p>
-<p>
-<strong>sdl2.GetPlatform</strong>
-</p>
-<p>
-<code>sdl2.GetPlatform() {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetCPUCacheLineSize</strong>
-</p>
-<p>
-<code>sdl2.GetCPUCacheLineSize() {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetCPUCount</strong>
-</p>
-<p>
-<code>sdl2.GetCPUCount() {block?}</code>
-</p>
-<p>
-<strong>sdl2.GetSystemRAM</strong>
-</p>
-<p>
-<code>sdl2.GetSystemRAM() {block?}</code>
-</p>
-<p>
-<strong>sdl2.Has3DNow</strong>
-</p>
-<p>
-<code>sdl2.Has3DNow() {block?}</code>
-</p>
-<p>
-<strong>sdl2.HasAVX</strong>
-</p>
-<p>
-<code>sdl2.HasAVX() {block?}</code>
-</p>
-<p>
-<strong>sdl2.HasAVX2</strong>
-</p>
-<p>
-<code>sdl2.HasAVX2()</code>
-</p>
-<p>
-<strong>sdl2.HasAltiVec</strong>
-</p>
-<p>
-<code>sdl2.HasAltiVec() {block?}</code>
-</p>
-<p>
-<strong>sdl2.HasMMX</strong>
-</p>
-<p>
-<code>sdl2.HasMMX() {block?}</code>
-</p>
-<p>
-<strong>sdl2.HasRDTSC</strong>
-</p>
-<p>
-<code>sdl2.HasRDTSC() {block?}</code>
-</p>
-<p>
-<strong>sdl2.HasSSE</strong>
-</p>
-<p>
-<code>sdl2.HasSSE() {block?}</code>
-</p>
-<p>
-<strong>sdl2.HasSSE2</strong>
-</p>
-<p>
-<code>sdl2.HasSSE2() {block?}</code>
-</p>
-<p>
-<strong>sdl2.HasSSE3</strong>
-</p>
-<p>
-<code>sdl2.HasSSE3() {block?}</code>
-</p>
-<p>
-<strong>sdl2.HasSSE41</strong>
-</p>
-<p>
-<code>sdl2.HasSSE41() {block?}</code>
-</p>
-<p>
-<strong>sdl2.HasSSE42</strong>
-</p>
-<p>
-<code>sdl2.HasSSE42() {block?}</code>
-</p>
-<p>
-<strong>sdl2.Swap16</strong>
-</p>
-<p>
-<code>sdl2.Swap16():void</code>
-</p>
-<p>
-<strong>sdl2.Swap32</strong>
-</p>
-<p>
-<code>sdl2.Swap32():void</code>
-</p>
-<p>
-<strong>sdl2.Swap64</strong>
-</p>
-<p>
-<code>sdl2.Swap64():void</code>
-</p>
-<p>
-<strong>sdl2.SwapBE16</strong>
-</p>
-<p>
-<code>sdl2.SwapBE16():void</code>
-</p>
-<p>
-<strong>sdl2.SwapBE32</strong>
-</p>
-<p>
-<code>sdl2.SwapBE32():void</code>
-</p>
-<p>
-<strong>sdl2.SwapBE64</strong>
-</p>
-<p>
-<code>sdl2.SwapBE64():void</code>
-</p>
-<p>
-<strong>sdl2.SwapFloat</strong>
-</p>
-<p>
-<code>sdl2.SwapFloat():void</code>
-</p>
-<p>
-<strong>sdl2.SwapFloatBE</strong>
-</p>
-<p>
-<code>sdl2.SwapFloatBE():void</code>
-</p>
-<p>
-<strong>sdl2.SwapFloatLE</strong>
-</p>
-<p>
-<code>sdl2.SwapFloatLE():void</code>
-</p>
-<p>
-<strong>sdl2.SwapLE16</strong>
-</p>
-<p>
-<code>sdl2.SwapLE16():void</code>
-</p>
-<p>
-<strong>sdl2.SwapLE32</strong>
-</p>
-<p>
-<code>sdl2.SwapLE32():void</code>
-</p>
-<p>
-<strong>sdl2.SwapLE64</strong>
-</p>
-<p>
-<code>sdl2.SwapLE64():void</code>
-</p>
-<p>
-<strong>sdl2.MostSignificantBitIndex32</strong>
-</p>
-<p>
-<code>sdl2.MostSignificantBitIndex32(x:number)</code>
-</p>
-<p>
-<strong>sdl2.GetPowerInfo</strong>
-</p>
-<p>
-<code>sdl2.GetPowerInfo() {block?}</code>
-</p>
-<p>
-<strong>sdl2.AndroidGetActivity</strong>
-</p>
-<p>
-<code>sdl2.AndroidGetActivity():void</code>
-</p>
-<p>
-<strong>sdl2.AndroidGetExternalStoragePath</strong>
-</p>
-<p>
-<code>sdl2.AndroidGetExternalStoragePath():void</code>
-</p>
-<p>
-<strong>sdl2.AndroidGetExternalStorageState</strong>
-</p>
-<p>
-<code>sdl2.AndroidGetExternalStorageState():void</code>
-</p>
-<p>
-<strong>sdl2.AndroidGetInternalStoragePath</strong>
-</p>
-<p>
-<code>sdl2.AndroidGetInternalStoragePath():void</code>
-</p>
-<p>
-<strong>sdl2.AndroidGetJNIEnv</strong>
-</p>
-<p>
-<code>sdl2.AndroidGetJNIEnv():void</code>
-</p>
-<p>
-<strong>sdl2.acos</strong>
-</p>
-<p>
-<code>sdl2.acos(x:number) {block?}</code>
-</p>
-<h2><span class="caption-index-2">35.2</span><a name="anchor-35-2"></a>sdl2.Window Class</h2>
-<h2><span class="caption-index-2">35.3</span><a name="anchor-35-3"></a>sdl2.Renderer Class</h2>
-<h2><span class="caption-index-2">35.4</span><a name="anchor-35-4"></a>sdl2.Texture Class</h2>
-<h2><span class="caption-index-2">35.5</span><a name="anchor-35-5"></a>sdl2.Event Class</h2>
-<h2><span class="caption-index-2">35.6</span><a name="anchor-35-6"></a>sdl2.Point Class</h2>
-<h2><span class="caption-index-2">35.7</span><a name="anchor-35-7"></a>sdl2.Rect Class</h2>
-<h2><span class="caption-index-2">35.8</span><a name="anchor-35-8"></a>sdl2.Color Class</h2>
-<h2><span class="caption-index-2">35.9</span><a name="anchor-35-9"></a>sdl2.Palette Class</h2>
-<h2><span class="caption-index-2">35.10</span><a name="anchor-35-10"></a>sdl2.PixelFormat Class</h2>
-<h2><span class="caption-index-2">35.11</span><a name="anchor-35-11"></a>sdl2.Keysym Class</h2>
-<h2><span class="caption-index-2">35.12</span><a name="anchor-35-12"></a>sdl2.Cursor Class</h2>
-<h2><span class="caption-index-2">35.13</span><a name="anchor-35-13"></a>sdl2.Joystick Class</h2>
-<h2><span class="caption-index-2">35.14</span><a name="anchor-35-14"></a>sdl2.JoystickGUID Class</h2>
-<h2><span class="caption-index-2">35.15</span><a name="anchor-35-15"></a>sdl2.GameController Class</h2>
-<h2><span class="caption-index-2">35.16</span><a name="anchor-35-16"></a>sdl2.GameControllerButtonBind Class</h2>
-<h2><span class="caption-index-2">35.17</span><a name="anchor-35-17"></a>sdl2.AudioCVT Class</h2>
-<h2><span class="caption-index-2">35.18</span><a name="anchor-35-18"></a>sdl2.AudioSpec Class</h2>
-<h2><span class="caption-index-2">35.19</span><a name="anchor-35-19"></a>sdl2.Wav Class</h2>
-<h2><span class="caption-index-2">35.20</span><a name="anchor-35-20"></a>sdl2.RendererInfo Class</h2>
-<h2><span class="caption-index-2">35.21</span><a name="anchor-35-21"></a>sdl2.DisplayMode Class</h2>
-<h2><span class="caption-index-2">35.22</span><a name="anchor-35-22"></a>sdl2.GLContext Class</h2>
-<h2><span class="caption-index-2">35.23</span><a name="anchor-35-23"></a>sdl2.HapticEffect Class</h2>
-<h2><span class="caption-index-2">35.24</span><a name="anchor-35-24"></a>sdl2.Surface Class</h2>
-<h2><span class="caption-index-2">35.25</span><a name="anchor-35-25"></a>sdl2.Finger Class</h2>
-<h2><span class="caption-index-2">35.26</span><a name="anchor-35-26"></a>Thanks</h2>
-<p>
-This module uses SDL2 library which is distributed in the following site:
-</p>
-<p>
-<a href="http://www.libsdl.org/">http://www.libsdl.org/</a>
+<code>opengl.glUniformMatrix4x3fv(location:number, count:number, transpose:boolean, value:array@float:nomap):map:void</code>
 </p>
 <p />
 

@@ -5,13 +5,16 @@ dirNameOut = path.dirname(sys.argv[0])
 //!path.exists(dirNameOut) && fs.mkdir(dirNameOut)
 
 baseNames = [
-	'basement'
-	'guracore'
+	'basement' // this must come at first
+	'guracore' // this must come at second
+	'argopt'
 	'base64'
 	'bmp'
 	'bzip2'
 	'cairo'
+	'calendar'
 	//'canvas'
+	'cbridge'
 	'conio'
 	'csv'
 	'curl'
@@ -24,6 +27,7 @@ baseNames = [
 	'glu'
 	'glut'
 	'gmp'
+	'gurcbuild'
 	//'guri'
 	'gzip'
 	'hash'
@@ -33,6 +37,9 @@ baseNames = [
 	'markdown'
 	'math'
 	'midi'
+	'modbuild'
+	'moddoc'
+	//'modgen'
 	'msico'
 	//'mswin'
 	//'mysql'
@@ -43,6 +50,7 @@ baseNames = [
 	//'postgresql'
 	'ppm'
 	're'
+	'show'
 	//'sdl'
 	'sdl2'
 	'sqlite3'
@@ -51,6 +59,8 @@ baseNames = [
 	//'tcl'
 	//'tester'
 	'tiff'
+	'tokenizer'
+	'units'
 	'uuid'
 	'wav'
 	'wx'

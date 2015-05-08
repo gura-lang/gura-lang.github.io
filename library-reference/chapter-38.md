@@ -5,54 +5,63 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">38</span><a name="anchor-38"></a>tar Module</h1>
+<h1><span class="caption-index-1">38</span><a name="anchor-38"></a>png Module</h1>
 <p>
-The <code>tar</code> module provides measures to read/write TAR files. To utilize it, import the <code>tar</code> module using <code>import</code> function.
-</p>
-<h2><span class="caption-index-2">38.1</span><a name="anchor-38-1"></a>tar.reader Class</h2>
-<h3><span class="caption-index-3">38.1.1</span><a name="anchor-38-1-1"></a>Function To Create Instance</h3>
-<p>
-<strong>tar.reader</strong>
+The <code>png</code> module provides measures to read/write image data in PNG format. To utilize it, import the <code>png</code> module using <code>import</code> function.
 </p>
 <p>
-<code>tar.reader(stream:stream:r, compression?:symbol) {block?}</code>
+Below is an example to read a PNG file:
 </p>
-<h3><span class="caption-index-3">38.1.2</span><a name="anchor-38-1-2"></a>Method</h3>
+<pre><code>import(png)
+img = image('foo.png')
+</code></pre>
+<h2><span class="caption-index-2">38.1</span><a name="anchor-38-1"></a>Exntension to Function's Capability</h2>
 <p>
-<strong>tar.reader#entries</strong>
-</p>
-<p>
-<code>tar.reader#entries() {block?}</code>
-</p>
-<h2><span class="caption-index-2">38.2</span><a name="anchor-38-2"></a>tar.writer Class</h2>
-<h3><span class="caption-index-3">38.2.1</span><a name="anchor-38-2-1"></a>Function To Create Instance</h3>
-<p>
-<strong>tar.writer</strong>
+This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write PNG files.
 </p>
 <p>
-<code>tar.writer(stream:stream:w, compression?:symbol) {block?}</code>
-</p>
-<h3><span class="caption-index-3">38.2.2</span><a name="anchor-38-2-2"></a>Method</h3>
-<p>
-<strong>tar.writer#add</strong>
-</p>
-<p>
-<code>tar.writer#add(stream:stream:r, filename?:string):map:reduce</code>
-</p>
-<p>
-<strong>tar.writer#close</strong>
-</p>
-<p>
-<code>tar.writer#close():reduce</code>
-</p>
-<h2><span class="caption-index-2">38.3</span><a name="anchor-38-3"></a>Thanks</h2>
-<p>
-This module uses zlib and bzip2 library which are distributed in the following sites:
+When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a PNG file.
 </p>
 <ul>
-<li><a href="http://zlib.net/">http://zlib.net/</a></li>
-<li><a href="http://www.bzip.org/">http://www.bzip.org/</a></li>
+<li>The identifier of the stream ends with a suffix "<code>.png</code>".</li>
+<li>The stream data begins with a byte sequence "<code>\x89\x50\x4e\x47\x0d\x0a\x1a\x0a</code>".</li>
 </ul>
+<p>
+When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in PNG format.
+</p>
+<ul>
+<li>The identifier of the stream ends with a suffix "<code>.png</code>".</li>
+</ul>
+<h2><span class="caption-index-2">38.2</span><a name="anchor-38-2"></a>Module Function</h2>
+<h2><span class="caption-index-2">38.3</span><a name="anchor-38-3"></a>Extension to image Class</h2>
+<p>
+This module extends the <code>image</code> class with methods described here.
+</p>
+<p>
+<strong>image#read@png</strong>
+</p>
+<p>
+<code>image#read@png(stream:stream:r):reduce</code>
+</p>
+<p>
+Reads a PNG image from a stream.
+</p>
+<p>
+<strong>image#write@png</strong>
+</p>
+<p>
+<code>image#write@png(stream:stream:w):reduce</code>
+</p>
+<p>
+Writes a PNG image to a stream.
+</p>
+<h2><span class="caption-index-2">38.4</span><a name="anchor-38-4"></a>Thanks</h2>
+<p>
+This module uses libpng library which is distributed in the following site:
+</p>
+<p>
+<a href="http://www.libpng.org/pub/png/libpng.html">http://www.libpng.org/pub/png/libpng.html</a>
+</p>
 <p />
 
 {% endraw %}

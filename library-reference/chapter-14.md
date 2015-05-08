@@ -5,707 +5,147 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">14</span><a name="anchor-14"></a>diff Module</h1>
+<h1><span class="caption-index-1">14</span><a name="anchor-14"></a>conio Module</h1>
 <p>
-The <code>diff</code> module provices measures to detect differences between texts. To utilize it, import the <code>diff</code> module using <code>import</code> function.
+The <code>conio</code> module provides following measures to work on a console screen:
+</p>
+<ul>
+<li>Moves the cursor where texts are printed.</li>
+<li>Changes text colors.</li>
+<li>Retrieves console size.</li>
+<li>Waits for keyboard input.</li>
+</ul>
+<p>
+To utilize it, import the <code>conio</code> module using <code>import</code> function.
 </p>
 <p>
-Below is an example to show differences between files <code>file1.txt</code> and <code>file2.txt</code>:
+Below is an example to print a frame around a console:
 </p>
-<pre><code>diff.compose(stream('file1.txt'), stream('file2.txt')).render(sys.stdout)
+<pre><code>import(conio)
+
+conio.clear()
+[w, h] = conio.getwinsize()
+conio.moveto(0, 0) {
+    print('*' * w)
+}
+conio.moveto(0, 1 .. (h - 2)) {
+    print('*', ' ' * (w - 2), '*')
+}
+conio.moveto(0, h - 1) {
+    print('*' * w)
+}
+conio.waitkey():raise
 </code></pre>
 <h2><span class="caption-index-2">14.1</span><a name="anchor-14-1"></a>Module Function</h2>
 <p>
-<strong>diff.compose</strong>
+<strong>conio.clear</strong>
 </p>
 <p>
-<code>diff.compose(src1, src2):[icase,sync] {block?}</code>
+<code>conio.clear(region?:symbol):void</code>
 </p>
 <p>
-Extracts differences between two sets of line sequence and returns <code>diff.diff@line</code> instance that contains the difference information.
+Clears the screen.
 </p>
 <p>
-You can specify a value of <code>string</code>, <code>stream</code>, <code>iterator</code> or <code>list</code> for the argument <code>src1</code> and <code>src2</code>. In the result, the content of <code>src1</code> is referred to as an "original" one and that of <code>src2</code> as a "new" one.
-</p>
-<p>
-Below is an example to compare between two strings:
-</p>
-<pre><code>str1 = '...'
-str2 = '...'
-result = diff.compose(str1, str2)
-</code></pre>
-<p>
-Below is an example to compare between two files:
-</p>
-<pre><code>file1 = stream('file1.txt')
-file2 = stream('file2.txt')
-result = diff.compose(file1, file2)
-</code></pre>
-<p>
-Below is an example to compare between two iterators:
-</p>
-<pre><code>chars1 = '...'.each()
-chars2 = '...'.each()
-result = diff.compose(chars1, chars2)
-</code></pre>
-<p>
-Below is an example to compare between a file and a string:
-</p>
-<pre><code>file = stream('file.txt')
-str = '...'
-result = diff.compose(file, str)
-</code></pre>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|d:diff.diff@line|</code>, where <code>d</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-If attribute <code>:icase</code> is specified, it wouldn't distinguish upper and lower case of characters.
-</p>
-<p>
-<strong>diff.compose@char</strong>
-</p>
-<p>
-<code>diff.compose@char(src1:string, src2:string):[icase] {block?}</code>
-</p>
-<p>
-Extracts differences between two strings and returns <code>diff.diff@line</code> instance that contains the difference information.
-</p>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|d:diff.diff@char|</code>, where <code>d</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-If attribute <code>:icase</code> is specified, it wouldn't distinguish upper and lower case of characters.
-</p>
-<h2><span class="caption-index-2">14.2</span><a name="anchor-14-2"></a>diff.diff@line Class</h2>
-<p>
-The <code>diff.diff@line</code> instance is created by function <code>diff.compose()</code> and provides information about differences between two texts by lines.
-</p>
-<h3><span class="caption-index-3">14.2.1</span><a name="anchor-14-2-1"></a>Property</h3>
-<p>
-<table>
-
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.diff@line#distance</code>
-</td>
-<td>
-<code>
-number</code>
-</td>
-<td>
-R</td>
-
-<td>
-The distance between the texts. Zero means that they are identical each other.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.diff@line#edits</code>
-</td>
-<td>
-<code>
-iterator</code>
-</td>
-<td>
-R</td>
-
-<td>
-An iterator that returns <code>
-diff.edit@line</code>
- instances stored in the result.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.diff@line#nlines@org</code>
-</td>
-<td>
-<code>
-number</code>
-</td>
-<td>
-R</td>
-
-<td>
-Number of lines in the "original" text.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.diff@line#nlines@new</code>
-</td>
-<td>
-<code>
-number</code>
-</td>
-<td>
-R</td>
-
-<td>
-Number of lines in the "new" text.</td>
-</tr>
-
-
-</table>
-
-</p>
-<h3><span class="caption-index-3">14.2.2</span><a name="anchor-14-2-2"></a>Method</h3>
-<p>
-<strong>diff.diff@line#eachhunk</strong>
-</p>
-<p>
-<code>diff.diff@line#eachhunk(format?:symbol, lines?:number) {block?}</code>
-</p>
-<p>
-Creates an iterator that returns <code>diff.hunk@line</code> instance stored in the result.
-</p>
-<p>
-The argument <code>format</code> takes one of the symbols that specifies the hunk format:
+In default, it clears whole the screen. Argument <code>region</code> that takes one of the symbols below would specify the region to be cleared.
 </p>
 <ul>
-<li><code>`normal</code> .. Normal format (not supported yet).</li>
-<li><code>`context</code> .. Context format (not supported yet).</li>
-<li><code>`unified</code> .. Unified format. This is the default.</li>
+<li><code>`line</code> .. clears characters in the line where the cursor exists.</li>
+<li><code>`left</code> .. clears characters on the left side of the cursor.</li>
+<li><code>`right</code> .. clears characters on the right side of the cursor.</li>
+<li><code>`top</code> .. clears characters on the above side of the cursor.</li>
+<li><code>`bottom</code> .. clears characters on the below side of the cursor.</li>
 </ul>
 <p>
-The argument <code>lines</code> specifies a number of common lines appended before and after different lines
+<strong>conio.getwinsize</strong>
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+<code>conio.getwinsize()</code>
+</p>
+<p>
+Returns the screen size as a list <code>[width, height]</code>.
+</p>
+<p>
+<strong>conio.setcolor</strong>
+</p>
+<p>
+<code>conio.setcolor(fg:symbol:nil, bg?:symbol):map:void {block?}</code>
+</p>
+<p>
+Sets foreground and background color of text by specifying a color symbol. Available color symbols are listed below:
 </p>
 <ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+<li><code>`black</code></li>
+<li><code>`blue</code></li>
+<li><code>`green</code></li>
+<li><code>`aqua</code></li>
+<li><code>`cyan</code></li>
+<li><code>`red</code></li>
+<li><code>`purple</code></li>
+<li><code>`magenta</code></li>
+<li><code>`yellow</code></li>
+<li><code>`white</code></li>
+<li><code>`gray</code></li>
+<li><code>`bright_blue</code></li>
+<li><code>`bright_green</code></li>
+<li><code>`bright_aqua</code></li>
+<li><code>`bright_cyan</code></li>
+<li><code>`bright_red</code></li>
+<li><code>`bright_purple</code></li>
+<li><code>`bright_magenta</code></li>
+<li><code>`bright_yellow</code></li>
+<li><code>`bright_white</code></li>
 </ul>
 <p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+If <code>fg</code> is set to nil, the foreground color remains unchanged. If <code>bg</code> is omitted or set to nil, the background color remains unchanged.
 </p>
 <p>
-<strong>diff.diff@line#render</strong>
+If <code>block</code> is specified, the color is changed before evaluating the block, and then gets back to what has been set when done.
 </p>
 <p>
-<code>diff.diff@line#render(out?:stream:w, format?:symbol, lines?:number) {block?}</code>
+<strong>conio.moveto</strong>
 </p>
 <p>
-Renders diff result to the specified stream.
+<code>conio.moveto(x:number, y:number):map:void {block?}</code>
 </p>
 <p>
-If the argument <code>out</code> is omitted, this method returns a string of the rendered text. Otherwise, it returns <code>nil</code>.
+Moves cursor to the specified position. The most top-left position on the screen is represented as <code>0, 0</code>.
 </p>
 <p>
-The argument <code>format</code> takes one of the symbols that specifies the rendering format:
+If <code>block</code> is specified, the cursor is moved before evaluating the block, and then gets back to where it has been when done.
+</p>
+<p>
+<strong>conio.waitkey</strong>
+</p>
+<p>
+<code>conio.waitkey():[raise]</code>
+</p>
+<p>
+Waits for a keyboard input and returns a character code number associated with the key.
+</p>
+<p>
+If <code>:raise</code> attribute is specified, hitting <code>Ctrl-C</code> issues a terminating signal that causes the program done.
+</p>
+<p>
+Character code numbers of some of the special keys are defined as below:
 </p>
 <ul>
-<li><code>`normal</code> .. Normal format (not supported yet).</li>
-<li><code>`context</code> .. Context format (not supported yet).</li>
-<li><code>`unified</code> .. Unified format. This is the default.</li>
+<li><code>conio.K_BACKSPACE</code></li>
+<li><code>conio.K_TAB</code></li>
+<li><code>conio.K_RETURN</code></li>
+<li><code>conio.K_ESCAPE</code></li>
+<li><code>conio.K_SPACE</code></li>
+<li><code>conio.K_UP</code></li>
+<li><code>conio.K_DOWN</code></li>
+<li><code>conio.K_RIGHT</code></li>
+<li><code>conio.K_LEFT</code></li>
+<li><code>conio.K_INSERT</code></li>
+<li><code>conio.K_HOME</code></li>
+<li><code>conio.K_END</code></li>
+<li><code>conio.K_PAGEUP</code></li>
+<li><code>conio.K_PAGEDOWN</code></li>
+<li><code>conio.K_DELETE</code></li>
 </ul>
-<p>
-The argument <code>lines</code> specifies a number of common lines appended before and after different lines
-</p>
-<h2><span class="caption-index-2">14.3</span><a name="anchor-14-3"></a>diff.hunk@line Class</h2>
-<p>
-The <code>diff.hunk@line</code> instance provides information about a hunk.
-</p>
-<h3><span class="caption-index-3">14.3.1</span><a name="anchor-14-3-1"></a>Property</h3>
-<p>
-<table>
-
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.hunk@line#edits</code>
-</td>
-<td>
-<code>
-iterator</code>
-</td>
-<td>
-R</td>
-
-<td>
-An iterator that returns <code>
-diff.edit@line</code>
- instances stored in the hunk.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.hunk@line#lineno@org</code>
-</td>
-<td>
-<code>
-number</code>
-</td>
-<td>
-R</td>
-
-<td>
-Top line number of the "original" text covered by the hunk.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.hunk@line#lineno@new</code>
-</td>
-<td>
-<code>
-number</code>
-</td>
-<td>
-R</td>
-
-<td>
-Top line number of the "new" text covered by the hunk.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.hunk@line#nlines@org</code>
-</td>
-<td>
-<code>
-number</code>
-</td>
-<td>
-R</td>
-
-<td>
-Number of lines in the "original" text covered by the hunk.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.hunk@line#nlines@new</code>
-</td>
-<td>
-<code>
-number</code>
-</td>
-<td>
-R</td>
-
-<td>
-Number of lines in the "new" text covered by the hunk.</td>
-</tr>
-
-
-</table>
-
-</p>
-<h3><span class="caption-index-3">14.3.2</span><a name="anchor-14-3-2"></a>Method</h3>
-<p>
-<strong>diff.hunk@line#print</strong>
-</p>
-<p>
-<code>diff.hunk@line#print(out?:stream):void {block?}</code>
-</p>
-<p>
-Prints the content of the <code>diff.hunk</code> instance to the specified stream.
-</p>
-<h2><span class="caption-index-2">14.4</span><a name="anchor-14-4"></a>diff.edit@line Class</h2>
-<p>
-The <code>diff.edit@line</code> provides information about an edit operation.
-</p>
-<h3><span class="caption-index-3">14.4.1</span><a name="anchor-14-4-1"></a>Property</h3>
-<p>
-<table>
-
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.edit@line#type</code>
-</td>
-<td>
-<code>
-symbol</code>
-</td>
-<td>
-R</td>
-
-<td>
-Edit operation:
-<ul>
-
-<li>
-<code>
-`copy</code>
- .. Copy the line.</li>
-
-<li>
-<code>
-`add</code>
- .. Add the line.</li>
-
-<li>
-<code>
-`delete</code>
- .. Delete the line.</li>
-
-</ul>
-
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.edit@line#mark</code>
-</td>
-<td>
-<code>
-string</code>
-</td>
-<td>
-R</td>
-
-<td>
-A mark string that appears on the top of each line in Unified format.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.edit@line#lineno@org</code>
-</td>
-<td>
-<code>
-number</code>
-</td>
-<td>
-R</td>
-
-<td>
-Line number of the "original" text correspond to the edit.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.edit@line#lineno@new</code>
-</td>
-<td>
-<code>
-number</code>
-</td>
-<td>
-R</td>
-
-<td>
-Lop line number of the "new" text correspond to the edit.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.edit@line#source</code>
-</td>
-<td>
-<code>
-string</code>
-</td>
-<td>
-R</td>
-
-<td>
-A source text.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.edit@line#unified</code>
-</td>
-<td>
-<code>
-string</code>
-</td>
-<td>
-R</td>
-
-<td>
-A composed string in Unified format.</td>
-</tr>
-
-
-</table>
-
-</p>
-<h3><span class="caption-index-3">14.4.2</span><a name="anchor-14-4-2"></a>Method</h3>
-<p>
-<strong>diff.edit@line#print</strong>
-</p>
-<p>
-<code>diff.edit@line#print(out?:stream):void {block?}</code>
-</p>
-<p>
-Prints the content of the <code>diff.edit</code> instance to the specified stream.
-</p>
-<h2><span class="caption-index-2">14.5</span><a name="anchor-14-5"></a>diff.diff@char Class</h2>
-<p>
-The <code>diff.diff@char</code> instance is created by function <code>diff.compose@char()</code> and provides information about differences between two texts by characters.
-</p>
-<h3><span class="caption-index-3">14.5.1</span><a name="anchor-14-5-1"></a>Property</h3>
-<p>
-<table>
-
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.diff@line#distance</code>
-</td>
-<td>
-<code>
-number</code>
-</td>
-<td>
-R</td>
-
-<td>
-The distance between the texts. Zero means that they are identical each other.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.diff@line#edits</code>
-</td>
-<td>
-<code>
-iterator</code>
-</td>
-<td>
-R</td>
-
-<td>
-An iterator that returns <code>
-diff.edit@char</code>
- instances stored in the result.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.diff@line#edits@org</code>
-</td>
-<td>
-<code>
-iterator</code>
-</td>
-<td>
-R</td>
-
-<td>
-An iterator that returns <code>
-diff.edit@char</code>
- instances
-that are applied to the "original" string.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.diff@line#edits@new</code>
-</td>
-<td>
-<code>
-iterator</code>
-</td>
-<td>
-R</td>
-
-<td>
-An iterator that returns <code>
-diff.edit@char</code>
- instances
-that are applied to the "new" string.</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">14.6</span><a name="anchor-14-6"></a>diff.edit@char Class</h2>
-<p>
-The <code>diff.edit@char</code> provides information about an edit operation.
-</p>
-<h3><span class="caption-index-3">14.6.1</span><a name="anchor-14-6-1"></a>Property</h3>
-<p>
-<table>
-
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.edit@char#type</code>
-</td>
-<td>
-<code>
-symbol</code>
-</td>
-<td>
-R</td>
-
-<td>
-Edit operation:
-<ul>
-
-<li>
-<code>
-`copy</code>
- .. Copy the line.</li>
-
-<li>
-<code>
-`add</code>
- .. Add the line.</li>
-
-<li>
-<code>
-`delete</code>
- .. Delete the line.</li>
-
-</ul>
-
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.edit@char#mark</code>
-</td>
-<td>
-<code>
-string</code>
-</td>
-<td>
-R</td>
-
-<td>
-A mark string that appears on the top of each line in Unified format.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>
-diff.edit@char#source</code>
-</td>
-<td>
-<code>
-string</code>
-</td>
-<td>
-R</td>
-
-<td>
-A source text.</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">14.7</span><a name="anchor-14-7"></a>Thanks</h2>
-<p>
-This module uses dtl (Diff Template Library) which is distributed in the following site:
-</p>
-<p>
-<a href="https://code.google.com/p/dtl-cpp/">https://code.google.com/p/dtl-cpp/</a>
-</p>
-<h2><span class="caption-index-2">14.8</span><a name="anchor-14-8"></a>example Module</h2>
-<p>
-The <code>example</code> module is just an example that is supposed to be referenced as a skeleton when you want to create a new module.
-</p>
 <p />
 
 {% endraw %}

@@ -5,119 +5,706 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">17</span><a name="anchor-17"></a>gif Module</h1>
+<h1><span class="caption-index-1">17</span><a name="anchor-17"></a>diff Module</h1>
 <p>
-The <code>gif</code> module provides measures to read/write image data in GIF format. To utilize it, import the <code>gif</code> module using <code>import</code> function.
+The <code>diff</code> module provices measures to detect differences between texts. To utilize it, import the <code>diff</code> module using <code>import</code> function.
 </p>
 <p>
-Below is an example to read a GIF file:
+Below is an example to show differences between files <code>file1.txt</code> and <code>file2.txt</code>:
 </p>
-<pre><code>import(gif)
-img = image('foo.gif')
+<pre><code>diff.compose(stream('file1.txt'), stream('file2.txt')).render(sys.stdout)
+</code></pre>
+<h2><span class="caption-index-2">17.1</span><a name="anchor-17-1"></a>Module Function</h2>
+<p>
+<strong>diff.compose</strong>
+</p>
+<p>
+<code>diff.compose(src1, src2):[icase,sync] {block?}</code>
+</p>
+<p>
+Extracts differences between two sets of line sequence and returns <code>diff.diff@line</code> instance that contains the difference information.
+</p>
+<p>
+You can specify a value of <code>string</code>, <code>stream</code>, <code>iterator</code> or <code>list</code> for the argument <code>src1</code> and <code>src2</code>. In the result, the content of <code>src1</code> is referred to as an "original" one and that of <code>src2</code> as a "new" one.
+</p>
+<p>
+Below is an example to compare between two strings:
+</p>
+<pre><code>str1 = '...'
+str2 = '...'
+result = diff.compose(str1, str2)
 </code></pre>
 <p>
-Below is an example to create a GIF file that contains multiple images:
+Below is an example to compare between two files:
 </p>
-<pre><code>import(gif)
-g = gif.content()
-g.addimage(['cell1.png', 'cell2.png', 'cell3.png'], 10) g.write('anim.gif')
+<pre><code>file1 = stream('file1.txt')
+file2 = stream('file2.txt')
+result = diff.compose(file1, file2)
 </code></pre>
-<h2><span class="caption-index-2">17.1</span><a name="anchor-17-1"></a>Exntension to Function's Capability</h2>
 <p>
-This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write GIF files.
+Below is an example to compare between two iterators:
+</p>
+<pre><code>chars1 = '...'.each()
+chars2 = '...'.each()
+result = diff.compose(chars1, chars2)
+</code></pre>
+<p>
+Below is an example to compare between a file and a string:
+</p>
+<pre><code>file = stream('file.txt')
+str = '...'
+result = diff.compose(file, str)
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|d:diff.diff@line|</code>, where <code>d</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a GIF file.
+If attribute <code>:icase</code> is specified, it wouldn't distinguish upper and lower case of characters.
+</p>
+<p>
+<strong>diff.compose@char</strong>
+</p>
+<p>
+<code>diff.compose@char(src1:string, src2:string):[icase] {block?}</code>
+</p>
+<p>
+Extracts differences between two strings and returns <code>diff.diff@line</code> instance that contains the difference information.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|d:diff.diff@char|</code>, where <code>d</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+If attribute <code>:icase</code> is specified, it wouldn't distinguish upper and lower case of characters.
+</p>
+<h2><span class="caption-index-2">17.2</span><a name="anchor-17-2"></a>diff.diff@line Class</h2>
+<p>
+The <code>diff.diff@line</code> instance is created by function <code>diff.compose()</code> and provides information about differences between two texts by lines.
+</p>
+<h3><span class="caption-index-3">17.2.1</span><a name="anchor-17-2-1"></a>Property</h3>
+<p>
+<table>
+
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.diff@line#distance</code>
+</td>
+<td>
+<code>
+number</code>
+</td>
+<td>
+R</td>
+
+<td>
+The distance between the texts. Zero means that they are identical each other.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.diff@line#edits</code>
+</td>
+<td>
+<code>
+iterator</code>
+</td>
+<td>
+R</td>
+
+<td>
+An iterator that returns <code>
+diff.edit@line</code>
+ instances stored in the result.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.diff@line#nlines@org</code>
+</td>
+<td>
+<code>
+number</code>
+</td>
+<td>
+R</td>
+
+<td>
+Number of lines in the "original" text.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.diff@line#nlines@new</code>
+</td>
+<td>
+<code>
+number</code>
+</td>
+<td>
+R</td>
+
+<td>
+Number of lines in the "new" text.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h3><span class="caption-index-3">17.2.2</span><a name="anchor-17-2-2"></a>Method</h3>
+<p>
+<strong>diff.diff@line#eachhunk</strong>
+</p>
+<p>
+<code>diff.diff@line#eachhunk(format?:symbol, lines?:number) {block?}</code>
+</p>
+<p>
+Creates an iterator that returns <code>diff.hunk@line</code> instance stored in the result.
+</p>
+<p>
+The argument <code>format</code> takes one of the symbols that specifies the hunk format:
 </p>
 <ul>
-<li>The identifier of the stream ends with a suffix "<code>.gif</code>".</li>
-<li>The stream data begins with a byte sequence "<code>GIF87a</code>" or "<code>GIF89a</code>".</li>
+<li><code>`normal</code> .. Normal format (not supported yet).</li>
+<li><code>`context</code> .. Context format (not supported yet).</li>
+<li><code>`unified</code> .. Unified format. This is the default.</li>
 </ul>
 <p>
-When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in GIF format.
+The argument <code>lines</code> specifies a number of common lines appended before and after different lines
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
 </p>
 <ul>
-<li>The identifier of the stream ends with a suffix "<code>.gif</code>".</li>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
-<h2><span class="caption-index-2">17.2</span><a name="anchor-17-2"></a>gif.content Class</h2>
 <p>
-<strong>gif.content</strong>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<code>gif.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code>
+<strong>diff.diff@line#render</strong>
 </p>
 <p>
-Reads a GIF data from a stream and returns an object that contains GIF related information and images of a specified format. format is is <code>rgb,</code>rgba or <code>noimage. If</code>noimage is specified, only the information data is read
+<code>diff.diff@line#render(out?:stream:w, format?:symbol, lines?:number) {block?}</code>
 </p>
 <p>
-<strong>gif.content#addimage</strong>
+Renders diff result to the specified stream.
 </p>
 <p>
-<code>gif.content#addimage(image:image, delayTime:number =&gt; 10, leftPos:number =&gt; 0, topPos:number =&gt; 0, disposalMethod:symbol =&gt; `none):map:reduce</code>
+If the argument <code>out</code> is omitted, this method returns a string of the rendered text. Otherwise, it returns <code>nil</code>.
 </p>
 <p>
-Adds an image to GIF information.
-</p>
-<p>
-You can add multiple images that can be played as a motion picture.
-</p>
-<p>
-The argument <code>delayTime</code> specifies the delay time in 10 milli seconds between images.
-</p>
-<p>
-The arguments <code>leftPost</code> and <code>topPos</code> specifies the rendered offset in the screen.
-</p>
-<p>
-The argument <code>disposalMethod</code> takes one of following symbols that specifies how the image will be treated after being rendered.
+The argument <code>format</code> takes one of the symbols that specifies the rendering format:
 </p>
 <ul>
-<li><code>`none</code> .. </li>
-<li><code>`keep</code> .. </li>
-<li><code>`background</code>.. </li>
-<li><code>`previous</code> .. </li>
+<li><code>`normal</code> .. Normal format (not supported yet).</li>
+<li><code>`context</code> .. Context format (not supported yet).</li>
+<li><code>`unified</code> .. Unified format. This is the default.</li>
 </ul>
 <p>
-This method returns the reference to the target instance itself.
+The argument <code>lines</code> specifies a number of common lines appended before and after different lines
+</p>
+<h2><span class="caption-index-2">17.3</span><a name="anchor-17-3"></a>diff.hunk@line Class</h2>
+<p>
+The <code>diff.hunk@line</code> instance provides information about a hunk.
+</p>
+<h3><span class="caption-index-3">17.3.1</span><a name="anchor-17-3-1"></a>Property</h3>
+<p>
+<table>
+
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.hunk@line#edits</code>
+</td>
+<td>
+<code>
+iterator</code>
+</td>
+<td>
+R</td>
+
+<td>
+An iterator that returns <code>
+diff.edit@line</code>
+ instances stored in the hunk.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.hunk@line#lineno@org</code>
+</td>
+<td>
+<code>
+number</code>
+</td>
+<td>
+R</td>
+
+<td>
+Top line number of the "original" text covered by the hunk.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.hunk@line#lineno@new</code>
+</td>
+<td>
+<code>
+number</code>
+</td>
+<td>
+R</td>
+
+<td>
+Top line number of the "new" text covered by the hunk.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.hunk@line#nlines@org</code>
+</td>
+<td>
+<code>
+number</code>
+</td>
+<td>
+R</td>
+
+<td>
+Number of lines in the "original" text covered by the hunk.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.hunk@line#nlines@new</code>
+</td>
+<td>
+<code>
+number</code>
+</td>
+<td>
+R</td>
+
+<td>
+Number of lines in the "new" text covered by the hunk.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h3><span class="caption-index-3">17.3.2</span><a name="anchor-17-3-2"></a>Method</h3>
+<p>
+<strong>diff.hunk@line#print</strong>
 </p>
 <p>
-<strong>gif.content#write</strong>
+<code>diff.hunk@line#print(out?:stream):void {block?}</code>
 </p>
 <p>
-<code>gif.content#write(stream:stream:w):reduce</code>
+Prints the content of the <code>diff.hunk</code> instance to the specified stream.
+</p>
+<h2><span class="caption-index-2">17.4</span><a name="anchor-17-4"></a>diff.edit@line Class</h2>
+<p>
+The <code>diff.edit@line</code> provides information about an edit operation.
+</p>
+<h3><span class="caption-index-3">17.4.1</span><a name="anchor-17-4-1"></a>Property</h3>
+<p>
+<table>
+
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.edit@line#type</code>
+</td>
+<td>
+<code>
+symbol</code>
+</td>
+<td>
+R</td>
+
+<td>
+Edit operation:
+<ul>
+
+<li>
+<code>
+`copy</code>
+ .. Copy the line.</li>
+
+<li>
+<code>
+`add</code>
+ .. Add the line.</li>
+
+<li>
+<code>
+`delete</code>
+ .. Delete the line.</li>
+
+</ul>
+
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.edit@line#mark</code>
+</td>
+<td>
+<code>
+string</code>
+</td>
+<td>
+R</td>
+
+<td>
+A mark string that appears on the top of each line in Unified format.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.edit@line#lineno@org</code>
+</td>
+<td>
+<code>
+number</code>
+</td>
+<td>
+R</td>
+
+<td>
+Line number of the "original" text correspond to the edit.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.edit@line#lineno@new</code>
+</td>
+<td>
+<code>
+number</code>
+</td>
+<td>
+R</td>
+
+<td>
+Lop line number of the "new" text correspond to the edit.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.edit@line#source</code>
+</td>
+<td>
+<code>
+string</code>
+</td>
+<td>
+R</td>
+
+<td>
+A source text.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.edit@line#unified</code>
+</td>
+<td>
+<code>
+string</code>
+</td>
+<td>
+R</td>
+
+<td>
+A composed string in Unified format.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h3><span class="caption-index-3">17.4.2</span><a name="anchor-17-4-2"></a>Method</h3>
+<p>
+<strong>diff.edit@line#print</strong>
 </p>
 <p>
-Writes a GIF image to a stream.
+<code>diff.edit@line#print(out?:stream):void {block?}</code>
 </p>
 <p>
-This method returns the reference to the target instance itself.
+Prints the content of the <code>diff.edit</code> instance to the specified stream.
 </p>
-<h2><span class="caption-index-2">17.3</span><a name="anchor-17-3"></a>Extension to image Class</h2>
+<h2><span class="caption-index-2">17.5</span><a name="anchor-17-5"></a>diff.diff@char Class</h2>
 <p>
-This module extends the <code>stream</code> class with methods described here.
+The <code>diff.diff@char</code> instance is created by function <code>diff.compose@char()</code> and provides information about differences between two texts by characters.
+</p>
+<h3><span class="caption-index-3">17.5.1</span><a name="anchor-17-5-1"></a>Property</h3>
+<p>
+<table>
+
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.diff@line#distance</code>
+</td>
+<td>
+<code>
+number</code>
+</td>
+<td>
+R</td>
+
+<td>
+The distance between the texts. Zero means that they are identical each other.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.diff@line#edits</code>
+</td>
+<td>
+<code>
+iterator</code>
+</td>
+<td>
+R</td>
+
+<td>
+An iterator that returns <code>
+diff.edit@char</code>
+ instances stored in the result.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.diff@line#edits@org</code>
+</td>
+<td>
+<code>
+iterator</code>
+</td>
+<td>
+R</td>
+
+<td>
+An iterator that returns <code>
+diff.edit@char</code>
+ instances
+that are applied to the "original" string.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.diff@line#edits@new</code>
+</td>
+<td>
+<code>
+iterator</code>
+</td>
+<td>
+R</td>
+
+<td>
+An iterator that returns <code>
+diff.edit@char</code>
+ instances
+that are applied to the "new" string.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">17.6</span><a name="anchor-17-6"></a>diff.edit@char Class</h2>
+<p>
+The <code>diff.edit@char</code> provides information about an edit operation.
+</p>
+<h3><span class="caption-index-3">17.6.1</span><a name="anchor-17-6-1"></a>Property</h3>
+<p>
+<table>
+
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.edit@char#type</code>
+</td>
+<td>
+<code>
+symbol</code>
+</td>
+<td>
+R</td>
+
+<td>
+Edit operation:
+<ul>
+
+<li>
+<code>
+`copy</code>
+ .. Copy the line.</li>
+
+<li>
+<code>
+`add</code>
+ .. Add the line.</li>
+
+<li>
+<code>
+`delete</code>
+ .. Delete the line.</li>
+
+</ul>
+
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.edit@char#mark</code>
+</td>
+<td>
+<code>
+string</code>
+</td>
+<td>
+R</td>
+
+<td>
+A mark string that appears on the top of each line in Unified format.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+diff.edit@char#source</code>
+</td>
+<td>
+<code>
+string</code>
+</td>
+<td>
+R</td>
+
+<td>
+A source text.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">17.7</span><a name="anchor-17-7"></a>Thanks</h2>
+<p>
+This module uses dtl (Diff Template Library) which is distributed in the following site:
 </p>
 <p>
-<strong>image#read@gif</strong>
+<a href="https://code.google.com/p/dtl-cpp/">https://code.google.com/p/dtl-cpp/</a>
 </p>
+<h2><span class="caption-index-2">17.8</span><a name="anchor-17-8"></a>example Module</h2>
 <p>
-<code>image#read@gif(stream:stream:r):reduce</code>
-</p>
-<p>
-Reads a GIF image from a stream.
-</p>
-<p>
-This method returns the reference to the target instance itself.
-</p>
-<p>
-<strong>image#write@gif</strong>
-</p>
-<p>
-<code>image#write@gif(stream:stream:w):reduce</code>
-</p>
-<p>
-Writes a GIF image to a stream.
-</p>
-<p>
-This method returns the reference to the target instance itself.
+The <code>example</code> module is just an example that is supposed to be referenced as a skeleton when you want to create a new module.
 </p>
 <p />
 

@@ -5,102 +5,77 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">43</span><a name="anchor-43"></a>xml Module</h1>
+<h1><span class="caption-index-1">43</span><a name="anchor-43"></a>sqlite3 Module</h1>
+<p>
+The <code>sqlite3</code> module provices measures to access SQLite3 database. To utilize it, import the <code>sqlite3</code> module using <code>import</code> function.
+</p>
 <h2><span class="caption-index-2">43.1</span><a name="anchor-43-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">43.2</span><a name="anchor-43-2"></a>sqlite3.db Class</h2>
 <p>
-<strong>xml.comment</strong>
+<strong>sqlite3.db</strong>
 </p>
 <p>
-<code>xml.comment(comment:string)</code>
-</p>
-<h2><span class="caption-index-2">43.2</span><a name="anchor-43-2"></a>xml.attribute Class</h2>
-<h2><span class="caption-index-2">43.3</span><a name="anchor-43-3"></a>xml.document Class</h2>
-<h3><span class="caption-index-3">43.3.1</span><a name="anchor-43-3-1"></a>Function to Create Instance</h3>
-<p>
-<strong>xml.document</strong>
+<code>sqlite3.db(filename:string) {block?}</code>
 </p>
 <p>
-<code>xml.document(stream?:stream:r) {block?}</code>
-</p>
-<h3><span class="caption-index-3">43.3.2</span><a name="anchor-43-3-2"></a>Method</h3>
-<p>
-<strong>xml.document#parse</strong>
+Opens an sqlite3 database file. If block is not specified, it returns a connection handle with an sqlite3 server. If block is specified, it executes the program in the block with a connection handle as a block parameter, and returns the result afterwards. The connection handle will automatically closed when the block finishes.
 </p>
 <p>
-<code>xml.document#parse(str:string):void</code>
+Block parameter format: <code>|db:sqlite3|</code>
 </p>
 <p>
-<strong>xml.document#read</strong>
+<strong>sqlite3.db#close</strong>
 </p>
 <p>
-<code>xml.document#read(stream:stream:r):void</code>
+<code>sqlite3.db#close()</code>
 </p>
 <p>
-<strong>xml.document#textize</strong>
+Shuts down the connection with an sqlite3 server.
 </p>
 <p>
-<code>xml.document#textize(fancy?:boolean, tabs?:number)</code>
+<strong>sqlite3.db#exec</strong>
 </p>
 <p>
-<strong>xml.document#write</strong>
+<code>sqlite3.db#exec(sql:string):map</code>
 </p>
 <p>
-<code>xml.document#write(stream:stream:w, fancy?:boolean, tabs?:number):void</code>
-</p>
-<h2><span class="caption-index-2">43.4</span><a name="anchor-43-4"></a>xml.element Class</h2>
-<h3><span class="caption-index-3">43.4.1</span><a name="anchor-43-4-1"></a>Function to Create Instance</h3>
-<p>
-<strong>xml.element</strong>
+Executes an SQL statement and returns the result as a list.
 </p>
 <p>
-<code>xml.element(_tagname_:string, attrs%):map {block?}</code>
-</p>
-<h3><span class="caption-index-3">43.4.2</span><a name="anchor-43-4-2"></a>Method</h3>
-<p>
-<strong>xml.element#addchild</strong>
+<strong>sqlite3.db#getcolnames</strong>
 </p>
 <p>
-<code>xml.element#addchild(value):map:void</code>
+<code>sqlite3.db#getcolnames(sql:string):map {block?}</code>
 </p>
 <p>
-<strong>xml.element#gettext</strong>
+<strong>sqlite3.db#query</strong>
 </p>
 <p>
-<code>xml.element#gettext()</code>
+<code>sqlite3.db#query(sql:string):map {block?}</code>
 </p>
 <p>
-<strong>xml.element#textize</strong>
+Executes an SQL statement and returns the result as an iterator. You should use <code>sqlite3.db#query()</code> instead of <code>sqlite3.db#exec()</code> when it's likely that you get a large size of data as the result.
 </p>
 <p>
-<code>xml.element#textize(fancy?:boolean, indentLevel?:number, tabs?:number)</code>
+<strong>sqlite3.db#transaction</strong>
 </p>
 <p>
-<strong>xml.element#write</strong>
+<code>sqlite3.db#transaction() {block}</code>
 </p>
 <p>
-<code>xml.element#write(stream:stream:w, fancy?:boolean, indentLevel?:number, tabs?:number):void</code>
+Executes the block within a transaction. The process is like following:
 </p>
-<h2><span class="caption-index-2">43.5</span><a name="anchor-43-5"></a>xml.parser Class</h2>
-<h3><span class="caption-index-3">43.5.1</span><a name="anchor-43-5-1"></a>Function to Create Instance</h3>
+<ol>
+<li>Executes a sqlit3 command 'BEGIN TRANSACTION'</li>
+<li>Executes code in the block</li>
+<li>Executes a sqlite3 command 'END TRANSACTION'</li>
+</ol>
+<h2><span class="caption-index-2">43.3</span><a name="anchor-43-3"></a>Thanks</h2>
 <p>
-<strong>xml.parser</strong>
-</p>
-<p>
-<code>xml.parser() {block?}</code>
-</p>
-<h3><span class="caption-index-3">43.5.2</span><a name="anchor-43-5-2"></a>Method</h3>
-<p>
-<strong>xml.parser#parse</strong>
+This module uses SQlite3 library which is distributed in the following site:
 </p>
 <p>
-<code>xml.parser#parse(stream:stream:r):void</code>
-</p>
-<h2><span class="caption-index-2">43.6</span><a name="anchor-43-6"></a>Thanks</h2>
-<p>
-This module uses expat library which is distributed in the following site:
-</p>
-<p>
-<a href="http://expat.sourceforge.net/">http://expat.sourceforge.net/</a>
+<a href="http://www.sqlite.org/index.html">http://www.sqlite.org/index.html</a>
 </p>
 <p />
 

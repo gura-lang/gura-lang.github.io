@@ -5,340 +5,286 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">18</span><a name="anchor-18"></a>glu Module</h1>
+<h1><span class="caption-index-1">18</span><a name="anchor-18"></a>freetype Module</h1>
 <p>
-The <code>glu</code> module provides functions of GLU library.
+The <code>freetype</code> module provices measures to access vectorized font data using freetype library. To utilize it, import the <code>freetype</code> module using <code>import</code> function.
 </p>
-<h2><span class="caption-index-2">18.1</span><a name="anchor-18-1"></a>Module Functions</h2>
+<h2><span class="caption-index-2">18.1</span><a name="anchor-18-1"></a>Module Function</h2>
 <p>
-<strong>glu.gluBeginCurve</strong>
+<strong>freetype.sysfontpath</strong>
 </p>
 <p>
-<code>glu.gluBeginCurve(nurb:glu.Nurbs):void {block?}</code>
+<code>freetype.sysfontpath(name?:string):map</code>
 </p>
+<h2><span class="caption-index-2">18.2</span><a name="anchor-18-2"></a>freetype.BBox Class</h2>
+<h2><span class="caption-index-2">18.3</span><a name="anchor-18-3"></a>freetype.BDF_Property Class</h2>
+<h2><span class="caption-index-2">18.4</span><a name="anchor-18-4"></a>freetype.Bitmap Class</h2>
+<h3><span class="caption-index-3">18.4.1</span><a name="anchor-18-4-1"></a>Method</h3>
 <p>
-<strong>glu.gluBeginPolygon</strong>
+<strong>freetype.Bitmap#Embolden</strong>
 </p>
 <p>
-<code>glu.gluBeginPolygon(tess:glu.Tesselator):void {block?}</code>
+<code>freetype.Bitmap#Embolden(strength:number):reduce</code>
 </p>
+<h2><span class="caption-index-2">18.5</span><a name="anchor-18-5"></a>freetype.CharMap Class</h2>
+<h3><span class="caption-index-3">18.5.1</span><a name="anchor-18-5-1"></a>Method</h3>
 <p>
-<strong>glu.gluBeginSurface</strong>
+<strong>freetype.CharMap#Get_Index</strong>
 </p>
 <p>
-<code>glu.gluBeginSurface(nurb:glu.Nurbs):void {block?}</code>
+<code>freetype.CharMap#Get_Index()</code>
 </p>
+<h2><span class="caption-index-2">18.6</span><a name="anchor-18-6"></a>freetype.FTC_CMapCache Class</h2>
+<h2><span class="caption-index-2">18.7</span><a name="anchor-18-7"></a>freetype.FTC_ImageCache Class</h2>
+<h2><span class="caption-index-2">18.8</span><a name="anchor-18-8"></a>freetype.FTC_ImageType Class</h2>
+<h2><span class="caption-index-2">18.9</span><a name="anchor-18-9"></a>freetype.FTC_Manager Class</h2>
+<h2><span class="caption-index-2">18.10</span><a name="anchor-18-10"></a>freetype.FTC_Node Class</h2>
+<h2><span class="caption-index-2">18.11</span><a name="anchor-18-11"></a>freetype.FTC_SBit Class</h2>
+<h2><span class="caption-index-2">18.12</span><a name="anchor-18-12"></a>freetype.FTC_SBitCache Class</h2>
+<h2><span class="caption-index-2">18.13</span><a name="anchor-18-13"></a>freetype.FTC_Scaler Class</h2>
+<h2><span class="caption-index-2">18.14</span><a name="anchor-18-14"></a>freetype.Face Class</h2>
+<h3><span class="caption-index-3">18.14.1</span><a name="anchor-18-14-1"></a>Constructor</h3>
 <p>
-<strong>glu.gluBeginTrim</strong>
+<strong>freetype.Face</strong>
 </p>
 <p>
-<code>glu.gluBeginTrim(nurb:glu.Nurbs):void {block?}</code>
+<code>freetype.Face(stream:stream, face_index:number =&gt; 0):map {block?}</code>
 </p>
+<h3><span class="caption-index-3">18.14.2</span><a name="anchor-18-14-2"></a>Method</h3>
 <p>
-<strong>glu.gluBuild1DMipmaps</strong>
+<strong>freetype.Face#CheckTrueTypePatents</strong>
 </p>
 <p>
-<code>glu.gluBuild1DMipmaps(target:number, internalFormat:number, width:number, format:number, type:number, data)</code>
+<code>freetype.Face#CheckTrueTypePatents()</code>
 </p>
 <p>
-<strong>glu.gluBuild1DMipmapsFromImage</strong>
+<strong>freetype.Face#Get_Advance</strong>
 </p>
 <p>
-<code>glu.gluBuild1DMipmapsFromImage(target:number, internalFormat:number, image:image)</code>
+<code>freetype.Face#Get_Advance(glyph_index:number, load_flags:number)</code>
 </p>
 <p>
-<strong>glu.gluBuild2DMipmaps</strong>
+<strong>freetype.Face#Get_Advances</strong>
 </p>
 <p>
-<code>glu.gluBuild2DMipmaps(target:number, internalFormat:number, width:number, height:number, format:number, type:number, data)</code>
+<code>freetype.Face#Get_Advances(glyph_index_start:number, count:number, load_flags:number)</code>
 </p>
 <p>
-<strong>glu.gluBuild2DMipmapsFromImage</strong>
+<strong>freetype.Face#Get_Glyph_Name</strong>
 </p>
 <p>
-<code>glu.gluBuild2DMipmapsFromImage(target:number, internalFormat:number, image:image)</code>
+<code>freetype.Face#Get_Glyph_Name(glyph_index:number)</code>
 </p>
 <p>
-<strong>glu.gluCylinder</strong>
+<strong>freetype.Face#Get_Postscript_Name</strong>
 </p>
 <p>
-<code>glu.gluCylinder(quad:glu.Quadric, base:number, top:number, height:number, slices:number, stacks:number):void</code>
+<code>freetype.Face#Get_Postscript_Name()</code>
 </p>
 <p>
-<strong>glu.gluDeleteNurbsRenderer</strong>
+<strong>freetype.Face#Get_Kerning</strong>
 </p>
 <p>
-<code>glu.gluDeleteNurbsRenderer(nurb:glu.Nurbs):void</code>
+<code>freetype.Face#Get_Kerning(left_glyph:number, right_glyph:number, kern_mode:number)</code>
 </p>
 <p>
-<strong>glu.gluDeleteQuadric</strong>
+<strong>freetype.Face#Load_Char</strong>
 </p>
 <p>
-<code>glu.gluDeleteQuadric(quad:glu.Quadric):void</code>
+<code>freetype.Face#Load_Char(char_code:number, load_flags:number):reduce</code>
 </p>
 <p>
-<strong>glu.gluDeleteTess</strong>
+<strong>freetype.Face#Load_Glyph</strong>
 </p>
 <p>
-<code>glu.gluDeleteTess(tess:glu.Tesselator):void</code>
+<code>freetype.Face#Load_Glyph(glyph_index:number, load_flags:number):reduce</code>
 </p>
 <p>
-<strong>glu.gluDisk</strong>
+<strong>freetype.Face#Set_Charmap</strong>
 </p>
 <p>
-<code>glu.gluDisk(quad:glu.Quadric, inner:number, outer:number, slices:number, loops:number):void</code>
+<code>freetype.Face#Set_Charmap(charmap:freetype.CharMap):reduce</code>
 </p>
 <p>
-<strong>glu.gluEndCurve</strong>
+<strong>freetype.Face#Set_Pixel_Sizes</strong>
 </p>
 <p>
-<code>glu.gluEndCurve(nurb:glu.Nurbs):void</code>
+<code>freetype.Face#Set_Pixel_Sizes(pixel_width:number, pixel_height:number):reduce</code>
 </p>
+<h2><span class="caption-index-2">18.15</span><a name="anchor-18-15"></a>freetype.Glyph Class</h2>
+<h3><span class="caption-index-3">18.15.1</span><a name="anchor-18-15-1"></a>Method</h3>
 <p>
-<strong>glu.gluEndPolygon</strong>
+<strong>freetype.Glyph#Copy</strong>
 </p>
 <p>
-<code>glu.gluEndPolygon(tess:glu.Tesselator):void</code>
+<code>freetype.Glyph#Copy()</code>
 </p>
 <p>
-<strong>glu.gluEndSurface</strong>
+<strong>freetype.Glyph#Stroke</strong>
 </p>
 <p>
-<code>glu.gluEndSurface(nurb:glu.Nurbs):void</code>
+<code>freetype.Glyph#Stroke(stroker:freetype.Stroker):reduce</code>
 </p>
 <p>
-<strong>glu.gluEndTrim</strong>
+<strong>freetype.Glyph#StrokeBorder</strong>
 </p>
 <p>
-<code>glu.gluEndTrim(nurb:glu.Nurbs):void</code>
+<code>freetype.Glyph#StrokeBorder(stroker:freetype.Stroker, inside:boolean):reduce</code>
 </p>
+<h2><span class="caption-index-2">18.16</span><a name="anchor-18-16"></a>freetype.GlyphSlot Class</h2>
+<h3><span class="caption-index-3">18.16.1</span><a name="anchor-18-16-1"></a>Method</h3>
 <p>
-<strong>glu.gluErrorString</strong>
+<strong>freetype.GlyphSlot#Get_Glyph</strong>
 </p>
 <p>
-<code>glu.gluErrorString(error:number)</code>
+<code>freetype.GlyphSlot#Get_Glyph()</code>
 </p>
 <p>
-<strong>glu.gluGetNurbsProperty</strong>
+<strong>freetype.GlyphSlot#Render</strong>
 </p>
 <p>
-<code>glu.gluGetNurbsProperty(nurb:glu.Nurbs, property:number, data:array@float:nomap):void</code>
+<code>freetype.GlyphSlot#Render(render_mode:number):reduce</code>
 </p>
+<h2><span class="caption-index-2">18.17</span><a name="anchor-18-17"></a>freetype.Matrix Class</h2>
+<h3><span class="caption-index-3">18.17.1</span><a name="anchor-18-17-1"></a>Constructor</h3>
 <p>
-<strong>glu.gluGetString</strong>
+<strong>freetype.Matrix</strong>
 </p>
 <p>
-<code>glu.gluGetString(name:number)</code>
+<code>freetype.Matrix(matrix:matrix):map {block?}</code>
 </p>
+<h3><span class="caption-index-3">18.17.2</span><a name="anchor-18-17-2"></a>Method</h3>
 <p>
-<strong>glu.gluGetTessProperty</strong>
+<strong>freetype.Matrix#Multiply</strong>
 </p>
 <p>
-<code>glu.gluGetTessProperty(tess:glu.Tesselator, which:number, data:array@double:nomap):void</code>
+<code>freetype.Matrix#Multiply(matrix:freetype.Matrix):reduce</code>
 </p>
 <p>
-<strong>glu.gluLoadSamplingMatrices</strong>
+<strong>freetype.Matrix#Invert</strong>
 </p>
 <p>
-<code>glu.gluLoadSamplingMatrices(nurb:glu.Nurbs, model:array@float:nomap, perspective:array@float:nomap, view:array@int:nomap):void</code>
+<code>freetype.Matrix#Invert():reduce</code>
 </p>
+<h2><span class="caption-index-2">18.18</span><a name="anchor-18-18"></a>freetype.Outline Class</h2>
+<h3><span class="caption-index-3">18.18.1</span><a name="anchor-18-18-1"></a>Method</h3>
 <p>
-<strong>glu.gluLookAt</strong>
+<strong>freetype.Outline#Translate</strong>
 </p>
 <p>
-<code>glu.gluLookAt(eyeX:number, eyeY:number, eyeZ:number, centerX:number, centerY:number, centerZ:number, upX:number, upY:number, upZ:number):void</code>
+<code>freetype.Outline#Translate(xOffset:freetype.Matrix, yOffset:freetype.Matrix):reduce</code>
 </p>
 <p>
-<strong>glu.gluNewNurbsRenderer</strong>
+<strong>freetype.Outline#Transform</strong>
 </p>
 <p>
-<code>glu.gluNewNurbsRenderer()</code>
+<code>freetype.Outline#Transform(matrix:freetype.Matrix):reduce</code>
 </p>
 <p>
-<strong>glu.gluNewQuadric</strong>
+<strong>freetype.Outline#Embolden</strong>
 </p>
 <p>
-<code>glu.gluNewQuadric()</code>
+<code>freetype.Outline#Embolden(strength:number):reduce</code>
 </p>
 <p>
-<strong>glu.gluNewTess</strong>
+<strong>freetype.Outline#Reverse</strong>
 </p>
 <p>
-<code>glu.gluNewTess()</code>
+<code>freetype.Outline#Reverse():reduce</code>
 </p>
+<h2><span class="caption-index-2">18.19</span><a name="anchor-18-19"></a>freetype.Raster Class</h2>
+<h2><span class="caption-index-2">18.20</span><a name="anchor-18-20"></a>freetype.Span Class</h2>
+<h2><span class="caption-index-2">18.21</span><a name="anchor-18-21"></a>freetype.Stroker Class</h2>
+<h3><span class="caption-index-3">18.21.1</span><a name="anchor-18-21-1"></a>Constructor</h3>
 <p>
-<strong>glu.gluNextContour</strong>
+<strong>freetype.Stroker</strong>
 </p>
 <p>
-<code>glu.gluNextContour(tess:glu.Tesselator, type:number):void</code>
+<code>freetype.Stroker():map {block?}</code>
 </p>
+<h3><span class="caption-index-3">18.21.2</span><a name="anchor-18-21-2"></a>Method</h3>
 <p>
-<strong>glu.gluNurbsCallback</strong>
+<strong>freetype.Stroker#BeginSubPath</strong>
 </p>
 <p>
-<code>glu.gluNurbsCallback(nurbs:glu.Nurbs, which:number, func:function)</code>
+<code>freetype.Stroker#BeginSubPath(to:freetype.Vector, open:boolean):reduce</code>
 </p>
+<h2><span class="caption-index-2">18.22</span><a name="anchor-18-22"></a>freetype.Vector Class</h2>
+<h3><span class="caption-index-3">18.22.1</span><a name="anchor-18-22-1"></a>Constructor</h3>
 <p>
-<strong>glu.gluNurbsCallbackData</strong>
+<strong>freetype.Vector</strong>
 </p>
 <p>
-<code>glu.gluNurbsCallbackData(nurb:glu.Nurbs, userData):void</code>
+<code>freetype.Vector(x:number, y:number):map {block?}</code>
 </p>
+<h3><span class="caption-index-3">18.22.2</span><a name="anchor-18-22-2"></a>Method</h3>
 <p>
-<strong>glu.gluNurbsCallbackDataEXT</strong>
+<strong>freetype.Vector#Length</strong>
 </p>
 <p>
-<code>glu.gluNurbsCallbackDataEXT(nurb:glu.Nurbs, userData):void</code>
+<code>freetype.Vector#Length()</code>
 </p>
 <p>
-<strong>glu.gluNurbsCurve</strong>
+<strong>freetype.Vector#Transform</strong>
 </p>
 <p>
-<code>glu.gluNurbsCurve(nurb:glu.Nurbs, knots:array@float:nomap, stride:number, control:array@float:nomap, order:number, type:number):void</code>
+<code>freetype.Vector#Transform(matrix:freetype.Matrix):reduce</code>
 </p>
+<h2><span class="caption-index-2">18.23</span><a name="anchor-18-23"></a>freetype.font Class</h2>
+<h2><span class="caption-index-2">18.24</span><a name="anchor-18-24"></a>Constructor</h2>
 <p>
-<strong>glu.gluNurbsProperty</strong>
+<strong>freetype.font</strong>
 </p>
 <p>
-<code>glu.gluNurbsProperty(nurb:glu.Nurbs, property:number, value:number):void</code>
+<code>freetype.font(face:freetype.Face):map {block?}</code>
 </p>
+<h3><span class="caption-index-3">18.24.1</span><a name="anchor-18-24-1"></a>Method</h3>
 <p>
-<strong>glu.gluNurbsSurface</strong>
+<strong>freetype.font#cleardeco</strong>
 </p>
 <p>
-<code>glu.gluNurbsSurface(nurb:glu.Nurbs, sKnots:array@float:nomap, tKnots:array@float:nomap, sStride:number, tStride:number, control:array@float:nomap, sOrder:number, tOrder:number, type:number):void</code>
+<code>freetype.font#cleardeco():reduce</code>
 </p>
 <p>
-<strong>glu.gluOrtho2D</strong>
+<strong>freetype.font#drawtext</strong>
 </p>
 <p>
-<code>glu.gluOrtho2D(left:number, right:number, bottom:number, top:number):void</code>
+<code>freetype.font#drawtext(image:image, x:number, y:number, str:string):map:reduce {block?}</code>
 </p>
 <p>
-<strong>glu.gluPartialDisk</strong>
+Draws a text on the image.
 </p>
 <p>
-<code>glu.gluPartialDisk(quad:glu.Quadric, inner:number, outer:number, slices:number, loops:number, start:number, sweep:number):void</code>
+<strong>freetype.font#calcsize</strong>
 </p>
 <p>
-<strong>glu.gluPerspective</strong>
+<code>freetype.font#calcsize(str:string):map</code>
 </p>
 <p>
-<code>glu.gluPerspective(fovy:number, aspect:number, zNear:number, zFar:number):void</code>
+<strong>freetype.font#calcbbox</strong>
 </p>
 <p>
-<strong>glu.gluPickMatrix</strong>
+<code>freetype.font#calcbbox(x:number, y:number, str:string):map</code>
 </p>
+<h2><span class="caption-index-2">18.25</span><a name="anchor-18-25"></a>Extension to image Class</h2>
 <p>
-<code>glu.gluPickMatrix(x:number, y:number, delX:number, delY:number, viewport:array@int:nomap):void</code>
+This module extends the <code>image</code> class with methods described here.
 </p>
 <p>
-<strong>glu.gluProject</strong>
+<strong>image#drawtext</strong>
 </p>
 <p>
-<code>glu.gluProject(objX:number, objY:number, objZ:number, model:array@double:nomap, proj:array@double:nomap, view:array@int:nomap, winX:array@double:nomap, winY:array@double:nomap, winZ:array@double:nomap)</code>
+<code>image#drawtext(font:freetype.font, x:number, y:number, str:string):map:reduce {block?}</code>
 </p>
 <p>
-<strong>glu.gluPwlCurve</strong>
+Draws a text on the image.
 </p>
+<h2><span class="caption-index-2">18.26</span><a name="anchor-18-26"></a>Thanks</h2>
 <p>
-<code>glu.gluPwlCurve(nurb:glu.Nurbs, data:array@float:nomap, stride:number, type:number):void</code>
+This module uses FreeType library which is distributed in the following site:
 </p>
 <p>
-<strong>glu.gluQuadricCallback</strong>
-</p>
-<p>
-<code>glu.gluQuadricCallback(quad:glu.Quadric, which:number, func:function:nil):void</code>
-</p>
-<p>
-<strong>glu.gluQuadricDrawStyle</strong>
-</p>
-<p>
-<code>glu.gluQuadricDrawStyle(quad:glu.Quadric, draw:number):void</code>
-</p>
-<p>
-<strong>glu.gluQuadricNormals</strong>
-</p>
-<p>
-<code>glu.gluQuadricNormals(quad:glu.Quadric, normal:number):void</code>
-</p>
-<p>
-<strong>glu.gluQuadricOrientation</strong>
-</p>
-<p>
-<code>glu.gluQuadricOrientation(quad:glu.Quadric, orientation:number):void</code>
-</p>
-<p>
-<strong>glu.gluQuadricTexture</strong>
-</p>
-<p>
-<code>glu.gluQuadricTexture(quad:glu.Quadric, texture:boolean):void</code>
-</p>
-<p>
-<strong>glu.gluScaleImage</strong>
-</p>
-<p>
-<code>glu.gluScaleImage(imageIn:image, wOut:number, hOut:number)</code>
-</p>
-<p>
-<strong>glu.gluSphere</strong>
-</p>
-<p>
-<code>glu.gluSphere(quad:glu.Quadric, radius:number, slices:number, stacks:number):void</code>
-</p>
-<p>
-<strong>glu.gluTessBeginContour</strong>
-</p>
-<p>
-<code>glu.gluTessBeginContour(tess:glu.Tesselator):void {block?}</code>
-</p>
-<p>
-<strong>glu.gluTessBeginPolygon</strong>
-</p>
-<p>
-<code>glu.gluTessBeginPolygon(tess:glu.Tesselator, polygon_data):void {block?}</code>
-</p>
-<p>
-<strong>glu.gluTessCallback</strong>
-</p>
-<p>
-<code>glu.gluTessCallback(tess:glu.Tesselator, which:number, func:function):void</code>
-</p>
-<p>
-<strong>glu.gluTessEndContour</strong>
-</p>
-<p>
-<code>glu.gluTessEndContour(tess:glu.Tesselator):void</code>
-</p>
-<p>
-<strong>glu.gluTessEndPolygon</strong>
-</p>
-<p>
-<code>glu.gluTessEndPolygon(tess:glu.Tesselator):void</code>
-</p>
-<p>
-<strong>glu.gluTessNormal</strong>
-</p>
-<p>
-<code>glu.gluTessNormal(tess:glu.Tesselator, valueX:number, valueY:number, valueZ:number):void</code>
-</p>
-<p>
-<strong>glu.gluTessProperty</strong>
-</p>
-<p>
-<code>glu.gluTessProperty(tess:glu.Tesselator, which:number, data:number):void</code>
-</p>
-<p>
-<strong>glu.gluTessVertex</strong>
-</p>
-<p>
-<code>glu.gluTessVertex(tess:glu.Tesselator, location:array@double:nomap, vertex_data):void</code>
-</p>
-<p>
-<strong>glu.gluUnProject</strong>
-</p>
-<p>
-<code>glu.gluUnProject(winX:number, winY:number, winZ:number, model:array@double:nomap, proj:array@double:nomap, view:array@int:nomap, objX:array@double:nomap, objY:array@double:nomap, objZ:array@double:nomap)</code>
+<a href="http://www.freetype.org/">http://www.freetype.org/</a>
 </p>
 <p />
 

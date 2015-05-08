@@ -5,113 +5,52 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">46</span><a name="anchor-46"></a>zip Module</h1>
+<h1><span class="caption-index-1">46</span><a name="anchor-46"></a>tiff Module</h1>
 <p>
-The <code>zip</code> module provides measures to read/write ZIP files.
+The <code>tiff</code> module provides measures to read/write image data in TIFF format. To utilize it, import the <code>tiff</code> module using <code>import</code> function.
 </p>
 <p>
-Below is an example to reads entries from an archive file:
+Below is an example to read a TIFF file:
 </p>
-<pre><code>import(zip)
-zip.reader('foo.zip') {|r|
-    println(r.entries():*stat:*filename)
-}
+<pre><code>import(tiff)
+img = image('foo.tiff')
 </code></pre>
+<h2><span class="caption-index-2">46.1</span><a name="anchor-46-1"></a>Exntension to Function's Capability</h2>
 <p>
-Below is an exapmple to create a ZIP archive file:
-</p>
-<pre><code>import(zip)
-zip.writer('foo.zip') {|w|
-    w.add('file1.txt')
-    w.add('file2.txt')
-    w.add('file3.txt')
-    w.close()
-}		
-</code></pre>
-<h2><span class="caption-index-2">46.1</span><a name="anchor-46-1"></a>zip.reader Class</h2>
-<h3><span class="caption-index-3">46.1.1</span><a name="anchor-46-1-1"></a>Function to Create Instance</h3>
-<p>
-<strong>zip.reader</strong>
+This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write TIFF files.
 </p>
 <p>
-<code>zip.reader(stream:stream:r) {block?}</code>
-</p>
-<p>
-Creates <code>zip.reader</code> instance from the stream.
-</p>
-<h3><span class="caption-index-3">46.1.2</span><a name="anchor-46-1-2"></a>Method</h3>
-<p>
-<strong>zip.reader#entry</strong>
-</p>
-<p>
-<code>zip.reader#entry(name:string) {block?}</code>
-</p>
-<p>
-Seeks entry in the zip file that matches the specified name and returns the stream instance.
-</p>
-<p>
-<strong>zip.reader#entries</strong>
-</p>
-<p>
-<code>zip.reader#entries() {block?}</code>
-</p>
-<p>
-Creates an iterator that returns stream instances for each entry in the zip file.
-</p>
-<h2><span class="caption-index-2">46.2</span><a name="anchor-46-2"></a>zip.writer Class</h2>
-<h3><span class="caption-index-3">46.2.1</span><a name="anchor-46-2-1"></a>Function to Create Instance</h3>
-<p>
-<strong>zip.writer</strong>
-</p>
-<p>
-<code>zip.writer(stream:stream:w, compression?:symbol) {block?}</code>
-</p>
-<p>
-Creates <code>zip.writer</code> instance from the stream.
-</p>
-<p>
-Argument <code>compression</code> specifies the compression method and takes one of the following symbol.
+When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a TIFF file.
 </p>
 <ul>
-<li><code>`store</code></li>
-<li><code>`deflate</code></li>
-<li><code>`bzip2</code></li>
+<li>The identifier of the stream ends with a suffix "<code>.tif</code>" or "<code>.tiff</code>".</li>
 </ul>
-<h3><span class="caption-index-3">46.2.2</span><a name="anchor-46-2-2"></a>Method</h3>
 <p>
-<strong>zip.writer#add</strong>
-</p>
-<p>
-<code>zip.writer#add(stream:stream:r, filename?:string, compression?:symbol):map:reduce</code>
-</p>
-<p>
-Reads data from <code>stream</code> and adds it to the zip file. Entry name is decided by the file name associated with the stream unless it's specified by argument <code>filename</code>.
-</p>
-<p>
-Argument <code>compression</code> specifies the compression method and takes one of the following symbol.
+When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in TIFF format.
 </p>
 <ul>
-<li><code>`store</code></li>
-<li><code>`deflate</code></li>
-<li><code>`bzip2</code></li>
+<li>The identifier of the stream ends with a suffix "<code>.tif</code>" or "<code>.tiff</code>".</li>
 </ul>
+<h2><span class="caption-index-2">46.2</span><a name="anchor-46-2"></a>Extension to image Class</h2>
 <p>
-<strong>zip.writer#close</strong>
+This module extends the <code>image</code> class with methods described here.
 </p>
 <p>
-<code>zip.writer#close():void</code>
+<strong>image#read@tiff</strong>
 </p>
 <p>
-Closes the zip file after flushing cached data.
+<code>image#read@tiff(stream:stream:r):reduce</code>
+</p>
+<p>
+Reads a TIFF image from a stream.
 </p>
 <h2><span class="caption-index-2">46.3</span><a name="anchor-46-3"></a>Thanks</h2>
 <p>
-This module uses zlib and bzip2 library which are distributed in the following sites:
+This module uses libtiff which is distributed in the following site:
 </p>
-<ul>
-<li><a href="http://zlib.net/">http://zlib.net/</a></li>
-<li><a href="http://www.bzip.org/">http://www.bzip.org/</a></li>
-</ul>
+<p>
+<a href="http://www.libtiff.org/">http://www.libtiff.org/</a>
+</p>
 <p />
 
 {% endraw %}
