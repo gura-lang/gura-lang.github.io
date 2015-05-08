@@ -127,7 +127,7 @@ If it is imported by another as a module, this variable is set to that module na
 
 baseNames.each {|baseName|
 	println('module: ', baseName)
-	moduleName = 'doc@' + baseName
+	moduleName = baseName + '.doc'
 	import(&moduleName).write(doc, `en)
 }
 
