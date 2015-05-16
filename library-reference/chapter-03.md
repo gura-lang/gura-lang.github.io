@@ -8,7 +8,6 @@ title: Gura Library Reference
 <h1><span class="caption-index-1">3</span><a name="anchor-3"></a>Predefined Variables</h1>
 <p>
 <table>
-
 <tr>
 <th>
 Variable</th>

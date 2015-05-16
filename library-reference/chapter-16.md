@@ -26,7 +26,7 @@ Returns a string of the libcurl version.
 <code>curl.easy_init() {block?}</code>
 </p>
 <p>
-Initializes cURL and returns a easy<em>handle object.</em>
+Initializes cURL and returns a easy_handle object.
 </p>
 <h2><span class="caption-index-2">16.2</span><a name="anchor-16-2"></a>curl.easy_handle Class</h2>
 <p>

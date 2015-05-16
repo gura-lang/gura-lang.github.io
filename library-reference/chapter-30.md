@@ -245,7 +245,7 @@ Returns a list that consists of functions that generate coordinates of bezier cu
 Returns a mathematical differential expression of the given <code>expr</code> by a variable <code>var</code>.
 </p>
 <p>
-Example: <code>math.diff(</code>(math.sin(x <strong> 2)), <code>x)</code></strong>
+Example: <code>math.diff(</code>(math.sin(x 2)), <code>x)</code>**
 </p>
 <p>
 <strong>math.optimize</strong>

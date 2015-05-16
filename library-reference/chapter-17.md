@@ -83,7 +83,6 @@ The <code>diff.diff@line</code> instance is created by function <code>diff.compo
 <h3><span class="caption-index-3">17.2.1</span><a name="anchor-17-2-1"></a>Property</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -234,7 +233,6 @@ The <code>diff.hunk@line</code> instance provides information about a hunk.
 <h3><span class="caption-index-3">17.3.1</span><a name="anchor-17-3-1"></a>Property</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -354,7 +352,6 @@ The <code>diff.edit@line</code> provides information about an edit operation.
 <h3><span class="caption-index-3">17.4.1</span><a name="anchor-17-4-1"></a>Property</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -382,7 +379,6 @@ R</td>
 <td>
 Edit operation:
 <ul>
-
 <li>
 <code>
 `copy</code>
@@ -509,7 +505,6 @@ The <code>diff.diff@char</code> instance is created by function <code>diff.compo
 <h3><span class="caption-index-3">17.5.1</span><a name="anchor-17-5-1"></a>Property</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -608,7 +603,6 @@ The <code>diff.edit@char</code> provides information about an edit operation.
 <h3><span class="caption-index-3">17.6.1</span><a name="anchor-17-6-1"></a>Property</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -636,7 +630,6 @@ R</td>
 <td>
 Edit operation:
 <ul>
-
 <li>
 <code>
 `copy</code>

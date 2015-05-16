@@ -51,7 +51,6 @@ A <code>jpeg.exif</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -206,7 +205,6 @@ A <code>jpeg.ifd</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -287,7 +285,6 @@ A <code>jpeg.tag</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>

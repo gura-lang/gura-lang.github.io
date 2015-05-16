@@ -122,7 +122,7 @@ If you want to initialize subsystems separately you would call <code>SDL_Init(0)
 Use this function to circumvent failure of <code>SDL_Init()</code> when not using <code>SDL_main()</code> as an entry point.
 </p>
 <p>
-This function is defined in SDL<em>main.h, along with the preprocessor</em>rule to redefine <code>main()</code> as <code>SDL_main()</code>. Thus to ensure that your <code>main()</code> function will not be changed it is necessary to define <code>SDL_MAIN_HANDLED</code> before including SDL.h.
+This function is defined in SDL_main.h, along with the preprocessor rule to redefine <code>main()</code> as <code>SDL_main()</code>. Thus to ensure that your <code>main()</code> function will not be changed it is necessary to define <code>SDL_MAIN_HANDLED</code> before including SDL.h.
 </p>
 <p>
 <strong>sdl2.WasInit</strong>

@@ -19,7 +19,6 @@ As the class inhefits from <code>stream</code>, you can call methods of <code>st
 <h3><span class="caption-index-3">26.1.1</span><a name="anchor-26-1-1"></a>Property</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>

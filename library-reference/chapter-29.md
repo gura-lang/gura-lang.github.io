@@ -53,7 +53,6 @@ You can get the parsed result by inspecting a property <code>markdown.document#r
 <h3><span class="caption-index-3">29.3.1</span><a name="anchor-29-3-1"></a>Property</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -167,8 +166,6 @@ Below is a table of item type:
 </p>
 <p>
 <table>
-
-
 <tr>
 <th>
 Item Type</th>
@@ -409,7 +406,6 @@ no-content</td>
 <h3><span class="caption-index-3">29.4.1</span><a name="anchor-29-4-1"></a>Property</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -520,6 +516,31 @@ string</code>
 R</td>
 
 <td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>
+markdown.item#align</code>
+</td>
+<td>
+<code>
+symbol</code>
+</td>
+<td>
+R</td>
+
+<td>
+<code>
+none</code>
+, <code>
+left</code>
+, <code>
+center</code>
+, <code>
+right</code>
 </td>
 </tr>
 

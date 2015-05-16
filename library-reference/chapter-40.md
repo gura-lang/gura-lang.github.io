@@ -40,7 +40,6 @@ The table below shows the features related to regular-expression and functions t
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Feature</th>
@@ -160,7 +159,6 @@ An instance of <code>re.match</code> class is used as a result value of <code>re
 <h3><span class="caption-index-3">40.2.1</span><a name="anchor-40-2-1"></a>Property</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -338,7 +336,6 @@ The <code>re.group</code> instance provides information of capturing groups that
 <h3><span class="caption-index-3">40.3.1</span><a name="anchor-40-3-1"></a>Property</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>

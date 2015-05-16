@@ -18,7 +18,6 @@ Following tables show values types of operands and returned value for each opera
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -74,7 +73,6 @@ gmp.mpf</b>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -130,7 +128,6 @@ gmp.mpf</b>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -186,7 +183,6 @@ gmp.mpf</b>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -404,7 +400,6 @@ rational</code>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -622,7 +617,6 @@ rational</b>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -840,7 +834,6 @@ rational</b>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -1058,7 +1051,6 @@ rational</b>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -1279,7 +1271,6 @@ rational</b>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -1497,7 +1488,6 @@ rational</b>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -1715,7 +1705,6 @@ rational</b>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -1933,7 +1922,6 @@ rational</b>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -2151,7 +2139,6 @@ rational</b>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>
@@ -2369,7 +2356,6 @@ rational</b>
 </p>
 <p>
 <table>
-
 <tr>
 <td>
 <code>

@@ -27,7 +27,6 @@ An <code>args</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -107,7 +106,6 @@ There are several <code>array</code> classes depending on the element type they 
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Class Name</th>
@@ -381,7 +379,6 @@ A <code>binary</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -600,7 +597,6 @@ The <code>codec</code> class provides measures to convert character codes.
 <h3><span class="caption-index-3">6.6.1</span><a name="anchor-6-6-1"></a>Predefined Variable</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Variable</th>
@@ -770,7 +766,6 @@ There are class variables as shown below:
 <h3><span class="caption-index-3">6.7.1</span><a name="anchor-6-7-1"></a>Predefined Variable</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Variable</th>
@@ -827,7 +822,6 @@ A <code>color</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -1060,7 +1054,6 @@ You can calculate a <code>datetime</code> with a <code>timedelta</code> to put i
 <h3><span class="caption-index-3">6.9.1</span><a name="anchor-6-9-1"></a>Predefined Variable</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Variable</th>
@@ -1185,7 +1178,6 @@ A <code>datetime</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -1347,7 +1339,6 @@ number</code>
 R</td>
 
 <td>
-
 Week symbol that takes one of the followings:
 <code>
 `sunday</code>
@@ -1607,7 +1598,6 @@ A <code>declaration</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -2003,7 +1993,6 @@ In the following code, <code>e</code> is an instance that contains information a
 <h3><span class="caption-index-3">6.14.1</span><a name="anchor-6-14-1"></a>Predefined Variable</h3>
 <p>
 <table>
-
 <tr>
 <th>
 Variable</th>
@@ -2285,7 +2274,6 @@ An <code>error</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -2411,7 +2399,6 @@ An <code>expr</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -3101,7 +3088,6 @@ The <code>formatter</code> instance is created for each specifier and passed to 
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Specifier</th>
@@ -3347,7 +3333,6 @@ A <code>function</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -3657,7 +3642,6 @@ A <code>help</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -3745,7 +3729,6 @@ Acceptable image data formats can be extended by importing modules. Below is a t
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Image Format</th>
@@ -3855,7 +3838,6 @@ An <code>image</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -3881,12 +3863,10 @@ symbol</code>
 R</td>
 
 <td>
-
 <p>
 Takes one of the following symbols indicating what elements are stored in the memory:</p>
 
 <ul>
-
 <li>
 <code>
 `rgb</code>
@@ -4327,7 +4307,6 @@ The arguments <code>x</code>, <code>y</code>, <code>width</code> and <code>heigh
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Symbol</th>
@@ -6151,7 +6130,6 @@ An <code>operator</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -6470,7 +6448,6 @@ A <code>stream</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -7797,7 +7774,6 @@ A <code>timedelta</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>
@@ -7881,7 +7857,6 @@ A <code>uri</code> instance has the following properties:
 </p>
 <p>
 <table>
-
 <tr>
 <th>
 Property</th>

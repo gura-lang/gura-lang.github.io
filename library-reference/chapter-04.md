@@ -455,7 +455,7 @@ Specify a try block of a statement of try-catch-else. It catches signals that oc
 <code>catch(errors*:error):leader:trailer {block}</code>
 </p>
 <p>
-Specify an catch block of a statement of try-catch-else. It can take multiple numbers of arguments of error objects to handle. If there's no error objects specified, it handles all the errors that are not handled in the preceding <code>catch()</code> function calls. Block parameter format: <code>|error:error|</code> <code>error</code> is an error object that contains information of the handled error.
+Specify an catch block of a statement of try-catch-else. It can take multiple numbers of arguments of error objects to handle. If there's no error objects specified, it handles all the errors that are not handled in the preceding <code>catch()</code> function calls. Block parameter format: <code>|error:error|error</code> is an error object that contains information of the handled error.
 </p>
 <p>
 <strong>finally</strong>
