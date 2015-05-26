@@ -67,32 +67,22 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-markdown.document#refs</code>
-</td>
+<code>markdown.document#refs</code></td>
 <td>
-<code>
-iterator</code>
-</td>
+<code>iterator</code></td>
 <td>
 R</td>
 
 <td>
-An iterator that returns referee items as <code>
-markdown.item</code>
-.</td>
+An iterator that returns referee items as <code>markdown.item</code>.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-markdown.document#root</code>
-</td>
+<code>markdown.document#root</code></td>
 <td>
-<code>
-markdown.item</code>
-</td>
+<code>markdown.item</code></td>
 <td>
 R</td>
 
@@ -176,225 +166,175 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-root</code>
-</td>
+<code>root</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-h1</code>
-</td>
+<code>h1</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-h2</code>
-</td>
+<code>h2</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-h3</code>
-</td>
+<code>h3</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-h4</code>
-</td>
+<code>h4</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-h5</code>
-</td>
+<code>h5</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-h6</code>
-</td>
+<code>h6</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-p</code>
-</td>
+<code>p</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-blockquote</code>
-</td>
+<code>blockquote</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-em</code>
-</td>
+<code>em</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-strong</code>
-</td>
+<code>strong</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-codeblock</code>
-</td>
+<code>codeblock</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-ol</code>
-</td>
+<code>ol</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-ul</code>
-</td>
+<code>ul</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-li</code>
-</td>
+<code>li</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-line</code>
-</td>
+<code>line</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-a</code>
-</td>
+<code>a</code></td>
 <td>
 container</td>
 </tr>
 
 <tr>
 <td>
-<code>
-img</code>
-</td>
+<code>img</code></td>
 <td>
 text</td>
 </tr>
 
 <tr>
 <td>
-<code>
-text</code>
-</td>
+<code>text</code></td>
 <td>
 text</td>
 </tr>
 
 <tr>
 <td>
-<code>
-code</code>
-</td>
+<code>code</code></td>
 <td>
 text</td>
 </tr>
 
 <tr>
 <td>
-<code>
-entity</code>
-</td>
+<code>entity</code></td>
 <td>
 text</td>
 </tr>
 
 <tr>
 <td>
-<code>
-tag</code>
-</td>
+<code>tag</code></td>
 <td>
 container/text</td>
 </tr>
 
 <tr>
 <td>
-<code>
-hr</code>
-</td>
+<code>hr</code></td>
 <td>
 no-content</td>
 </tr>
 
 <tr>
 <td>
-<code>
-br</code>
-</td>
+<code>br</code></td>
 <td>
 no-content</td>
 </tr>
 
 <tr>
 <td>
-<code>
-referee</code>
-</td>
+<code>referee</code></td>
 <td>
 no-content</td>
 </tr>
@@ -420,13 +360,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-markdown.item#type</code>
-</td>
+<code>markdown.item#type</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -437,13 +373,9 @@ R</td>
 
 <tr>
 <td>
-<code>
-markdown.item#text</code>
-</td>
+<code>markdown.item#text</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -454,13 +386,9 @@ R</td>
 
 <tr>
 <td>
-<code>
-markdown.item#children</code>
-</td>
+<code>markdown.item#children</code></td>
 <td>
-<code>
-iterator</code>
-</td>
+<code>iterator</code></td>
 <td>
 R</td>
 
@@ -471,13 +399,9 @@ R</td>
 
 <tr>
 <td>
-<code>
-markdown.item#url</code>
-</td>
+<code>markdown.item#url</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -488,13 +412,9 @@ R</td>
 
 <tr>
 <td>
-<code>
-markdown.item#title</code>
-</td>
+<code>markdown.item#title</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -505,13 +425,9 @@ R</td>
 
 <tr>
 <td>
-<code>
-markdown.item#attrs</code>
-</td>
+<code>markdown.item#attrs</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -522,26 +438,14 @@ R</td>
 
 <tr>
 <td>
-<code>
-markdown.item#align</code>
-</td>
+<code>markdown.item#align</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
 <td>
-<code>
-none</code>
-, <code>
-left</code>
-, <code>
-center</code>
-, <code>
-right</code>
-</td>
+<code>none</code>, <code>left</code>, <code>center</code>, <code>right</code></td>
 </tr>
 
 

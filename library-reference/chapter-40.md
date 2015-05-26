@@ -56,19 +56,13 @@ Method of string</th>
 Match</td>
 
 <td>
-<code>
-re.match()</code>
-</td>
+<code>re.match()</code></td>
 
 <td>
-<code>
-re.pattern#match()</code>
-</td>
+<code>re.pattern#match()</code></td>
 
 <td>
-<code>
-string#match()</code>
-</td>
+<code>string#match()</code></td>
 
 </tr>
 
@@ -77,19 +71,13 @@ string#match()</code>
 Subtraction</td>
 
 <td>
-<code>
-re.sub()</code>
-</td>
+<code>re.sub()</code></td>
 
 <td>
-<code>
-re.pattern#sub()</code>
-</td>
+<code>re.pattern#sub()</code></td>
 
 <td>
-<code>
-string#sub()</code>
-</td>
+<code>string#sub()</code></td>
 
 </tr>
 
@@ -98,19 +86,13 @@ string#sub()</code>
 Split</td>
 
 <td>
-<code>
-re.split()</code>
-</td>
+<code>re.split()</code></td>
 
 <td>
-<code>
-re.pattern#split()</code>
-</td>
+<code>re.pattern#split()</code></td>
 
 <td>
-<code>
-string#splitsub()</code>
-</td>
+<code>string#splitsub()</code></td>
 
 </tr>
 
@@ -119,19 +101,13 @@ string#splitsub()</code>
 Scan</td>
 
 <td>
-<code>
-re.scan()</code>
-</td>
+<code>re.scan()</code></td>
 
 <td>
-<code>
-re.pattern#scan()</code>
-</td>
+<code>re.pattern#scan()</code></td>
 
 <td>
-<code>
-string#scan()</code>
-</td>
+<code>string#scan()</code></td>
 
 </tr>
 
@@ -173,13 +149,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-re.match#source</code>
-</td>
+<code>re.match#source</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -190,13 +162,9 @@ String that has been matched.</td>
 
 <tr>
 <td>
-<code>
-re.match#string</code>
-</td>
+<code>re.match#string</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -207,13 +175,9 @@ String of the matched part.</td>
 
 <tr>
 <td>
-<code>
-re.match#begin</code>
-</td>
+<code>re.match#begin</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -224,13 +188,9 @@ Beginning position of the matched part.</td>
 
 <tr>
 <td>
-<code>
-re.match#end</code>
-</td>
+<code>re.match#end</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -350,13 +310,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-re.group#string</code>
-</td>
+<code>re.group#string</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -367,13 +323,9 @@ String of the group.</td>
 
 <tr>
 <td>
-<code>
-re.group#begin</code>
-</td>
+<code>re.group#begin</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -384,13 +336,9 @@ Beginning position of the group.</td>
 
 <tr>
 <td>
-<code>
-re.group#end</code>
-</td>
+<code>re.group#end</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 

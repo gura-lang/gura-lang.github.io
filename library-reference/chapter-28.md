@@ -65,35 +65,23 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-jpeg.exif#endian</code>
-</td>
+<code>jpeg.exif#endian</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
 <td>
-The endian type: <code>
-`big</code>
- for big-endian and
-<code>
-`little</code>
- for little-endian.</td>
+The endian type: <code>`big</code> for big-endian and
+<code>`little</code> for little-endian.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-jpeg.exif#ifd0</code>
-</td>
+<code>jpeg.exif#ifd0</code></td>
 <td>
-<code>
-jpeg.ifd</code>
-</td>
+<code>jpeg.ifd</code></td>
 <td>
 R</td>
 
@@ -104,13 +92,9 @@ IFD0 instance.</td>
 
 <tr>
 <td>
-<code>
-jpeg.exif#ifd1</code>
-</td>
+<code>jpeg.exif#ifd1</code></td>
 <td>
-<code>
-jpeg.ifd</code>
-</td>
+<code>jpeg.ifd</code></td>
 <td>
 R</td>
 
@@ -121,32 +105,22 @@ IFD1 instance.</td>
 
 <tr>
 <td>
-<code>
-jpeg.exif#thumbnail</code>
-</td>
+<code>jpeg.exif#thumbnail</code></td>
 <td>
-<code>
-image</code>
-</td>
+<code>image</code></td>
 <td>
 R</td>
 
 <td>
-Thumbnail image as <code>
-image</code>
- value.</td>
+Thumbnail image as <code>image</code> value.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-jpeg.exif#thumbnail@jpeg</code>
-</td>
+<code>jpeg.exif#thumbnail@jpeg</code></td>
 <td>
-<code>
-binary</code>
-</td>
+<code>binary</code></td>
 <td>
 R</td>
 
@@ -219,13 +193,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-jpeg.ifd#name</code>
-</td>
+<code>jpeg.ifd#name</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -236,13 +206,9 @@ R</td>
 
 <tr>
 <td>
-<code>
-jpeg.ifd#symbol</code>
-</td>
+<code>jpeg.ifd#symbol</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
@@ -299,13 +265,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-jpeg.tag#id</code>
-</td>
+<code>jpeg.tag#id</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -316,13 +278,9 @@ Tag ID.</td>
 
 <tr>
 <td>
-<code>
-jpeg.tag#name</code>
-</td>
+<code>jpeg.tag#name</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -333,32 +291,22 @@ Tag name.</td>
 
 <tr>
 <td>
-<code>
-jpeg.tag#symbol</code>
-</td>
+<code>jpeg.tag#symbol</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
 <td>
-Tag name as <code>
-symbol</code>
-.</td>
+Tag name as <code>symbol</code>.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-jpeg.tag#type</code>
-</td>
+<code>jpeg.tag#type</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -369,13 +317,9 @@ Tag type.</td>
 
 <tr>
 <td>
-<code>
-jpeg.tag#typename</code>
-</td>
+<code>jpeg.tag#typename</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -386,45 +330,29 @@ Tag type name.</td>
 
 <tr>
 <td>
-<code>
-jpeg.tag#value</code>
-</td>
+<code>jpeg.tag#value</code></td>
 <td>
-<code>
-any</code>
-</td>
+<code>any</code></td>
 <td>
 R</td>
 
 <td>
-Tag value. When the attribute <code>
-:cooked</code>
- is specified,
+Tag value. When the attribute <code>:cooked</code> is specified,
 numbers in some tags are translated to human-readable symbols.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-jpeg.tag#ifd</code>
-</td>
+<code>jpeg.tag#ifd</code></td>
 <td>
-<code>
-jpeg.ifd</code>
-</td>
+<code>jpeg.ifd</code></td>
 <td>
 R</td>
 
 <td>
-IFD instance. Valid only for tags <code>
-Exif</code>
-, <code>
-GPSInfo</code>
- and
-<code>
-Interoperability</code>
-.</td>
+IFD instance. Valid only for tags <code>Exif</code>, <code>GPSInfo</code> and
+<code>Interoperability</code>.</td>
 </tr>
 
 

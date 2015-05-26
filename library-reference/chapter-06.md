@@ -41,13 +41,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-args#values</code>
-</td>
+<code>args#values</code></td>
 <td>
-<code>
-list</code>
-</td>
+<code>list</code></td>
 <td>
 R</td>
 
@@ -115,112 +111,72 @@ Element Type</th>
 
 <tr>
 <td>
-<code>
-array@char</code>
-</td>
+<code>array@char</code></td>
 <td>
-<code>
-char</code>
-</td>
+<code>char</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-array@uchar</code>
-</td>
+<code>array@uchar</code></td>
 <td>
-<code>
-unsigned char</code>
-</td>
+<code>unsigned char</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-array@short</code>
-</td>
+<code>array@short</code></td>
 <td>
-<code>
-short</code>
-</td>
+<code>short</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-array@ushort</code>
-</td>
+<code>array@ushort</code></td>
 <td>
-<code>
-unsigned short</code>
-</td>
+<code>unsigned short</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-array@long</code>
-</td>
+<code>array@long</code></td>
 <td>
-<code>
-long</code>
-</td>
+<code>long</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-array@ulong</code>
-</td>
+<code>array@ulong</code></td>
 <td>
-<code>
-unsigned long</code>
-</td>
+<code>unsigned long</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-array@int</code>
-</td>
+<code>array@int</code></td>
 <td>
-<code>
-int</code>
-</td>
+<code>int</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-array@uint</code>
-</td>
+<code>array@uint</code></td>
 <td>
-<code>
-unsigned int</code>
-</td>
+<code>unsigned int</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-array@float</code>
-</td>
+<code>array@float</code></td>
 <td>
-<code>
-float</code>
-</td>
+<code>float</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-array@double</code>
-</td>
+<code>array@double</code></td>
 <td>
-<code>
-double</code>
-</td>
+<code>double</code></td>
 </tr>
 
 </table>
@@ -393,13 +349,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-binary#writable</code>
-</td>
+<code>binary#writable</code></td>
 <td>
-<code>
-boolean</code>
-</td>
+<code>boolean</code></td>
 <td>
 R</td>
 
@@ -609,86 +561,56 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-codec.bom@utf8</code>
-</td>
+<code>codec.bom@utf8</code></td>
 <td>
-<code>
-binary</code>
-</td>
+<code>binary</code></td>
 
 <td>
-BOM sequence of UTF-8: <code>
-'\xef\xbb\xbf'</code>
-</td>
+BOM sequence of UTF-8: <code>'\xef\xbb\xbf'</code></td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-codec.bom@utf16le</code>
-</td>
+<code>codec.bom@utf16le</code></td>
 <td>
-<code>
-binary</code>
-</td>
+<code>binary</code></td>
 
 <td>
-BOM sequence of UTF-16 little endian: <code>
-'\xff\xfe'</code>
-</td>
+BOM sequence of UTF-16 little endian: <code>'\xff\xfe'</code></td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-codec.bom@utf16be</code>
-</td>
+<code>codec.bom@utf16be</code></td>
 <td>
-<code>
-binary</code>
-</td>
+<code>binary</code></td>
 
 <td>
-BOM sequence of UTF-16 big endian: <code>
-'\xfe\xff'</code>
-</td>
+BOM sequence of UTF-16 big endian: <code>'\xfe\xff'</code></td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-codec.bom@utf32le</code>
-</td>
+<code>codec.bom@utf32le</code></td>
 <td>
-<code>
-binary</code>
-</td>
+<code>binary</code></td>
 
 <td>
-BOM sequence of UTF-32 little endian<code>
-'\xff\xfe\x00\x00'</code>
-</td>
+BOM sequence of UTF-32 little endian<code>'\xff\xfe\x00\x00'</code></td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-codec.bom@utf32be</code>
-</td>
+<code>codec.bom@utf32be</code></td>
 <td>
-<code>
-binary</code>
-</td>
+<code>binary</code></td>
 
 <td>
-BOM sequence of UTF-32 big endian: <code>
-'\x00\x00\xfe\xff'</code>
-</td>
+BOM sequence of UTF-32 big endian: <code>'\x00\x00\xfe\xff'</code></td>
 </tr>
 
 
@@ -778,35 +700,23 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-color.names</code>
-</td>
+<code>color.names</code></td>
 <td>
-<code>
-string[]</code>
-</td>
+<code>string[]</code></td>
 
 <td>
-A list of color names that can be passed to <code>
-color()</code>
- function.</td>
+A list of color names that can be passed to <code>color()</code> function.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-color.zero</code>
-</td>
+<code>color.zero</code></td>
 <td>
-<code>
-color</code>
-</td>
+<code>color</code></td>
 
 <td>
-color instance created by <code>
-color(0, 0, 0, 0)</code>
-</td>
+color instance created by <code>color(0, 0, 0, 0)</code></td>
 </tr>
 
 
@@ -836,13 +746,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-color#r</code>
-</td>
+<code>color#r</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -853,13 +759,9 @@ Value of the red element.</td>
 
 <tr>
 <td>
-<code>
-color#g</code>
-</td>
+<code>color#g</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -870,13 +772,9 @@ Value of the green element.</td>
 
 <tr>
 <td>
-<code>
-color#b</code>
-</td>
+<code>color#b</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -887,13 +785,9 @@ Value of the blue element.</td>
 
 <tr>
 <td>
-<code>
-color#a</code>
-</td>
+<code>color#a</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -1066,13 +960,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-datetime.Sunday</code>
-</td>
+<code>datetime.Sunday</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 
 <td>
 Assigned with number 0 that represents Sunday.</td>
@@ -1081,13 +971,9 @@ Assigned with number 0 that represents Sunday.</td>
 
 <tr>
 <td>
-<code>
-datetime.Monday</code>
-</td>
+<code>datetime.Monday</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 
 <td>
 Assigned with number 1 that represents Monday.</td>
@@ -1096,13 +982,9 @@ Assigned with number 1 that represents Monday.</td>
 
 <tr>
 <td>
-<code>
-datetime.Tuesday</code>
-</td>
+<code>datetime.Tuesday</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 
 <td>
 Assigned with number 2 that represents Tuesday.</td>
@@ -1111,13 +993,9 @@ Assigned with number 2 that represents Tuesday.</td>
 
 <tr>
 <td>
-<code>
-datetime.Wednesday</code>
-</td>
+<code>datetime.Wednesday</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 
 <td>
 Assigned with number 3 that represents Wednesday.</td>
@@ -1126,13 +1004,9 @@ Assigned with number 3 that represents Wednesday.</td>
 
 <tr>
 <td>
-<code>
-datetime.Thursday</code>
-</td>
+<code>datetime.Thursday</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 
 <td>
 Assigned with number 4 that represents Thursday.</td>
@@ -1141,13 +1015,9 @@ Assigned with number 4 that represents Thursday.</td>
 
 <tr>
 <td>
-<code>
-datetime.Friday</code>
-</td>
+<code>datetime.Friday</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 
 <td>
 Assigned with number 5 that represents Friday.</td>
@@ -1156,13 +1026,9 @@ Assigned with number 5 that represents Friday.</td>
 
 <tr>
 <td>
-<code>
-datetime.Saturday</code>
-</td>
+<code>datetime.Saturday</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 
 <td>
 Assigned with number 6 that represents Saturday.</td>
@@ -1192,13 +1058,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-datetime#year</code>
-</td>
+<code>datetime#year</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -1209,13 +1071,9 @@ Chritian year.</td>
 
 <tr>
 <td>
-<code>
-datetime#month</code>
-</td>
+<code>datetime#month</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -1226,13 +1084,9 @@ Month starting from 1. Numbers from 1 to 12 correspond to January to December.</
 
 <tr>
 <td>
-<code>
-datetime#day</code>
-</td>
+<code>datetime#day</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -1243,13 +1097,9 @@ Day in a month starting from 1. </td>
 
 <tr>
 <td>
-<code>
-datetime#hour</code>
-</td>
+<code>datetime#hour</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -1260,13 +1110,9 @@ Hour in a day between 0 and 23.</td>
 
 <tr>
 <td>
-<code>
-datetime#min</code>
-</td>
+<code>datetime#min</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -1277,13 +1123,9 @@ Minute in an hour between 0 and 59.</td>
 
 <tr>
 <td>
-<code>
-datetime#sec</code>
-</td>
+<code>datetime#sec</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -1294,13 +1136,9 @@ Second in a minute between 0 and 59.</td>
 
 <tr>
 <td>
-<code>
-datetime#usec</code>
-</td>
+<code>datetime#usec</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -1311,13 +1149,9 @@ Millisecond in a second between 0 and 999.</td>
 
 <tr>
 <td>
-<code>
-datetime#wday</code>
-</td>
+<code>datetime#wday</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -1328,47 +1162,25 @@ Week number starting from 0. Number from 0 to 6 corresponds to Sunday to Saturda
 
 <tr>
 <td>
-<code>
-datetime#week</code>
-</td>
+<code>datetime#week</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
 <td>
 Week symbol that takes one of the followings:
-<code>
-`sunday</code>
-, <code>
-`monday</code>
-, <code>
-`tuesday</code>
-, <code>
-`wednesday</code>
-,
-<code>
-`thursday</code>
-, <code>
-`friday</code>
-, <code>
-`saturday</code>
-
+<code>`sunday</code>, <code>`monday</code>, <code>`tuesday</code>, <code>`wednesday</code>,
+<code>`thursday</code>, <code>`friday</code>, <code>`saturday</code>
 </td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-datetime#yday</code>
-</td>
+<code>datetime#yday</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -1379,13 +1191,9 @@ Day in a year starting from 1.</td>
 
 <tr>
 <td>
-<code>
-datetime#unixtime</code>
-</td>
+<code>datetime#unixtime</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -1612,13 +1420,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-declaration#symbol</code>
-</td>
+<code>declaration#symbol</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
@@ -1629,13 +1433,9 @@ The name of the declaration in symbol.</td>
 
 <tr>
 <td>
-<code>
-declaration#name</code>
-</td>
+<code>declaration#name</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -1646,13 +1446,9 @@ The name of the declaration in string.</td>
 
 <tr>
 <td>
-<code>
-declaration#default</code>
-</td>
+<code>declaration#default</code></td>
 <td>
-<code>
-expr</code>
-</td>
+<code>expr</code></td>
 <td>
 R</td>
 
@@ -2003,9 +1799,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-error.ArgumentError</code>
-</td>
+<code>error.ArgumentError</code></td>
 
 <td>
 </td>
@@ -2014,9 +1808,7 @@ error.ArgumentError</code>
 
 <tr>
 <td>
-<code>
-error.ArithmeticError</code>
-</td>
+<code>error.ArithmeticError</code></td>
 
 <td>
 </td>
@@ -2025,9 +1817,7 @@ error.ArithmeticError</code>
 
 <tr>
 <td>
-<code>
-error.AttributeError</code>
-</td>
+<code>error.AttributeError</code></td>
 
 <td>
 </td>
@@ -2036,9 +1826,7 @@ error.AttributeError</code>
 
 <tr>
 <td>
-<code>
-error.CodecError</code>
-</td>
+<code>error.CodecError</code></td>
 
 <td>
 </td>
@@ -2047,9 +1835,7 @@ error.CodecError</code>
 
 <tr>
 <td>
-<code>
-error.CommandError</code>
-</td>
+<code>error.CommandError</code></td>
 
 <td>
 </td>
@@ -2058,9 +1844,7 @@ error.CommandError</code>
 
 <tr>
 <td>
-<code>
-error.DeclarationError</code>
-</td>
+<code>error.DeclarationError</code></td>
 
 <td>
 </td>
@@ -2069,9 +1853,7 @@ error.DeclarationError</code>
 
 <tr>
 <td>
-<code>
-error.FormatError</code>
-</td>
+<code>error.FormatError</code></td>
 
 <td>
 </td>
@@ -2080,9 +1862,7 @@ error.FormatError</code>
 
 <tr>
 <td>
-<code>
-error.IOError</code>
-</td>
+<code>error.IOError</code></td>
 
 <td>
 </td>
@@ -2091,9 +1871,7 @@ error.IOError</code>
 
 <tr>
 <td>
-<code>
-error.ImportError</code>
-</td>
+<code>error.ImportError</code></td>
 
 <td>
 </td>
@@ -2102,9 +1880,7 @@ error.ImportError</code>
 
 <tr>
 <td>
-<code>
-error.IndexError</code>
-</td>
+<code>error.IndexError</code></td>
 
 <td>
 </td>
@@ -2113,9 +1889,7 @@ error.IndexError</code>
 
 <tr>
 <td>
-<code>
-error.IteratorError</code>
-</td>
+<code>error.IteratorError</code></td>
 
 <td>
 </td>
@@ -2124,9 +1898,7 @@ error.IteratorError</code>
 
 <tr>
 <td>
-<code>
-error.KeyError</code>
-</td>
+<code>error.KeyError</code></td>
 
 <td>
 </td>
@@ -2135,9 +1907,7 @@ error.KeyError</code>
 
 <tr>
 <td>
-<code>
-error.MemberAccessError</code>
-</td>
+<code>error.MemberAccessError</code></td>
 
 <td>
 </td>
@@ -2146,9 +1916,7 @@ error.MemberAccessError</code>
 
 <tr>
 <td>
-<code>
-error.MemoryError</code>
-</td>
+<code>error.MemoryError</code></td>
 
 <td>
 </td>
@@ -2157,9 +1925,7 @@ error.MemoryError</code>
 
 <tr>
 <td>
-<code>
-error.NameError</code>
-</td>
+<code>error.NameError</code></td>
 
 <td>
 </td>
@@ -2168,9 +1934,7 @@ error.NameError</code>
 
 <tr>
 <td>
-<code>
-error.NotImplementedError</code>
-</td>
+<code>error.NotImplementedError</code></td>
 
 <td>
 </td>
@@ -2179,9 +1943,7 @@ error.NotImplementedError</code>
 
 <tr>
 <td>
-<code>
-error.OutOfRange</code>
-</td>
+<code>error.OutOfRange</code></td>
 
 <td>
 </td>
@@ -2190,9 +1952,7 @@ error.OutOfRange</code>
 
 <tr>
 <td>
-<code>
-error.ResourceError</code>
-</td>
+<code>error.ResourceError</code></td>
 
 <td>
 </td>
@@ -2201,9 +1961,7 @@ error.ResourceError</code>
 
 <tr>
 <td>
-<code>
-error.RuntimeError</code>
-</td>
+<code>error.RuntimeError</code></td>
 
 <td>
 </td>
@@ -2212,9 +1970,7 @@ error.RuntimeError</code>
 
 <tr>
 <td>
-<code>
-error.SyntaxError</code>
-</td>
+<code>error.SyntaxError</code></td>
 
 <td>
 </td>
@@ -2223,9 +1979,7 @@ error.SyntaxError</code>
 
 <tr>
 <td>
-<code>
-error.SystemError</code>
-</td>
+<code>error.SystemError</code></td>
 
 <td>
 </td>
@@ -2234,9 +1988,7 @@ error.SystemError</code>
 
 <tr>
 <td>
-<code>
-error.TypeError</code>
-</td>
+<code>error.TypeError</code></td>
 
 <td>
 </td>
@@ -2245,9 +1997,7 @@ error.TypeError</code>
 
 <tr>
 <td>
-<code>
-error.ValueError</code>
-</td>
+<code>error.ValueError</code></td>
 
 <td>
 </td>
@@ -2256,9 +2006,7 @@ error.ValueError</code>
 
 <tr>
 <td>
-<code>
-error.ZeroDivisionError</code>
-</td>
+<code>error.ZeroDivisionError</code></td>
 
 <td>
 </td>
@@ -2288,13 +2036,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-error#source</code>
-</td>
+<code>error#source</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -2305,13 +2049,9 @@ The name of the file that causes this error.</td>
 
 <tr>
 <td>
-<code>
-error#lineno</code>
-</td>
+<code>error#lineno</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -2322,13 +2062,9 @@ The number of line where the expression that causes this error starts.</td>
 
 <tr>
 <td>
-<code>
-error#linenobtm</code>
-</td>
+<code>error#linenobtm</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -2339,13 +2075,9 @@ The number of line where the expression that causes this error ends.</td>
 
 <tr>
 <td>
-<code>
-error#postext</code>
-</td>
+<code>error#postext</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -2356,13 +2088,9 @@ A text that consists of a source name and a line number.</td>
 
 <tr>
 <td>
-<code>
-error#text</code>
-</td>
+<code>error#text</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -2374,13 +2102,9 @@ If an attribute `:lineno` is specified, it would contain a line number.</td>
 
 <tr>
 <td>
-<code>
-error#trace</code>
-</td>
+<code>error#trace</code></td>
 <td>
-<code>
-expr[]</code>
-</td>
+<code>expr[]</code></td>
 <td>
 R</td>
 
@@ -2413,13 +2137,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-expr#attrfront</code>
-</td>
+<code>expr#attrfront</code></td>
 <td>
-<code>
-symbol[]</code>
-</td>
+<code>symbol[]</code></td>
 <td>
 R</td>
 
@@ -2430,13 +2150,9 @@ Exists in "identifier" and "caller".</td>
 
 <tr>
 <td>
-<code>
-expr#attrs</code>
-</td>
+<code>expr#attrs</code></td>
 <td>
-<code>
-symbol[]</code>
-</td>
+<code>symbol[]</code></td>
 <td>
 R</td>
 
@@ -2447,13 +2163,9 @@ Exists in "identifier" and "caller".</td>
 
 <tr>
 <td>
-<code>
-expr#attrsopt</code>
-</td>
+<code>expr#attrsopt</code></td>
 <td>
-<code>
-symbol[]</code>
-</td>
+<code>symbol[]</code></td>
 <td>
 R</td>
 
@@ -2464,13 +2176,9 @@ Exists in "identifier" and "caller".</td>
 
 <tr>
 <td>
-<code>
-expr#block</code>
-</td>
+<code>expr#block</code></td>
 <td>
-<code>
-expr</code>
-</td>
+<code>expr</code></td>
 <td>
 R</td>
 
@@ -2481,13 +2189,9 @@ Exists in "caller".</td>
 
 <tr>
 <td>
-<code>
-expr#blockparam</code>
-</td>
+<code>expr#blockparam</code></td>
 <td>
-<code>
-iterator</code>
-</td>
+<code>iterator</code></td>
 <td>
 R</td>
 
@@ -2498,13 +2202,9 @@ Exists in "block".</td>
 
 <tr>
 <td>
-<code>
-expr#body</code>
-</td>
+<code>expr#body</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -2515,13 +2215,9 @@ Exists in "suffixed".</td>
 
 <tr>
 <td>
-<code>
-expr#car</code>
-</td>
+<code>expr#car</code></td>
 <td>
-<code>
-expr</code>
-</td>
+<code>expr</code></td>
 <td>
 R</td>
 
@@ -2532,13 +2228,9 @@ Exists in "compound".</td>
 
 <tr>
 <td>
-<code>
-expr#cdr</code>
-</td>
+<code>expr#cdr</code></td>
 <td>
-<code>
-iterator</code>
-</td>
+<code>iterator</code></td>
 <td>
 R</td>
 
@@ -2549,13 +2241,9 @@ Exists in "compound".</td>
 
 <tr>
 <td>
-<code>
-expr#child</code>
-</td>
+<code>expr#child</code></td>
 <td>
-<code>
-expr</code>
-</td>
+<code>expr</code></td>
 <td>
 R</td>
 
@@ -2566,13 +2254,9 @@ Exists in "unary".</td>
 
 <tr>
 <td>
-<code>
-expr#children</code>
-</td>
+<code>expr#children</code></td>
 <td>
-<code>
-iterator</code>
-</td>
+<code>iterator</code></td>
 <td>
 R</td>
 
@@ -2583,13 +2267,9 @@ Exists in "collector".</td>
 
 <tr>
 <td>
-<code>
-expr#left</code>
-</td>
+<code>expr#left</code></td>
 <td>
-<code>
-expr</code>
-</td>
+<code>expr</code></td>
 <td>
 R</td>
 
@@ -2600,13 +2280,9 @@ Exists in "binary".</td>
 
 <tr>
 <td>
-<code>
-expr#lineno</code>
-</td>
+<code>expr#lineno</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -2617,13 +2293,9 @@ R</td>
 
 <tr>
 <td>
-<code>
-expr#linenobtm</code>
-</td>
+<code>expr#linenobtm</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -2634,13 +2306,9 @@ R</td>
 
 <tr>
 <td>
-<code>
-expr#operator</code>
-</td>
+<code>expr#operator</code></td>
 <td>
-<code>
-operator</code>
-</td>
+<code>operator</code></td>
 <td>
 R</td>
 
@@ -2651,13 +2319,9 @@ Exists in "unaryop", "binaryop" and "assign".</td>
 
 <tr>
 <td>
-<code>
-expr#postext</code>
-</td>
+<code>expr#postext</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -2668,13 +2332,9 @@ R</td>
 
 <tr>
 <td>
-<code>
-expr#right</code>
-</td>
+<code>expr#right</code></td>
 <td>
-<code>
-expr</code>
-</td>
+<code>expr</code></td>
 <td>
 R</td>
 
@@ -2685,13 +2345,9 @@ Exists in "binary".</td>
 
 <tr>
 <td>
-<code>
-expr#source</code>
-</td>
+<code>expr#source</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -2702,13 +2358,9 @@ R</td>
 
 <tr>
 <td>
-<code>
-expr#suffix</code>
-</td>
+<code>expr#suffix</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
@@ -2719,13 +2371,9 @@ Exists in "suffixed".</td>
 
 <tr>
 <td>
-<code>
-expr#symbol</code>
-</td>
+<code>expr#symbol</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
@@ -2736,13 +2384,9 @@ Exists in "identifier".</td>
 
 <tr>
 <td>
-<code>
-expr#trailer</code>
-</td>
+<code>expr#trailer</code></td>
 <td>
-<code>
-expr</code>
-</td>
+<code>expr</code></td>
 <td>
 R</td>
 
@@ -2753,13 +2397,9 @@ Exists in "caller".</td>
 
 <tr>
 <td>
-<code>
-expr#typename</code>
-</td>
+<code>expr#typename</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -2770,13 +2410,9 @@ R</td>
 
 <tr>
 <td>
-<code>
-expr#typesym</code>
-</td>
+<code>expr#typesym</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
@@ -2787,13 +2423,9 @@ R</td>
 
 <tr>
 <td>
-<code>
-expr#value</code>
-</td>
+<code>expr#value</code></td>
 <td>
-<code>
-any</code>
-</td>
+<code>any</code></td>
 <td>
 R</td>
 
@@ -3097,112 +2729,72 @@ Method Name</th>
 
 <tr>
 <td>
-<code>
-%d</code>
-</td>
+<code>%d</code></td>
 <td>
-<code>
-__format_d__</code>
-</td>
+<code>__format_d__</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-%u</code>
-</td>
+<code>%u</code></td>
 <td>
-<code>
-__format_u__</code>
-</td>
+<code>__format_u__</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-%b</code>
-</td>
+<code>%b</code></td>
 <td>
-<code>
-__format_b__</code>
-</td>
+<code>__format_b__</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-%o</code>
-</td>
+<code>%o</code></td>
 <td>
-<code>
-__format_o__</code>
-</td>
+<code>__format_o__</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-%x</code>
-</td>
+<code>%x</code></td>
 <td>
-<code>
-__format_x__</code>
-</td>
+<code>__format_x__</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-%e</code>
-</td>
+<code>%e</code></td>
 <td>
-<code>
-__format_e__</code>
-</td>
+<code>__format_e__</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-%f</code>
-</td>
+<code>%f</code></td>
 <td>
-<code>
-__format_f__</code>
-</td>
+<code>__format_f__</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-%g</code>
-</td>
+<code>%g</code></td>
 <td>
-<code>
-__format_g__</code>
-</td>
+<code>__format_g__</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-%s</code>
-</td>
+<code>%s</code></td>
 <td>
-<code>
-__format_s__</code>
-</td>
+<code>__format_s__</code></td>
 </tr>
 
 <tr>
 <td>
-<code>
-%c</code>
-</td>
+<code>%c</code></td>
 <td>
-<code>
-__format_c__</code>
-</td>
+<code>__format_c__</code></td>
 </tr>
 
 </table>
@@ -3347,32 +2939,22 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-function#decls</code>
-</td>
+<code>function#decls</code></td>
 <td>
-<code>
-iterator</code>
-</td>
+<code>iterator</code></td>
 <td>
 R</td>
 
 <td>
-iterator of <code>
-declaration</code>
- instances that provide information about argument declaration the function defines.</td>
+iterator of <code>declaration</code> instances that provide information about argument declaration the function defines.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-function#expr</code>
-</td>
+<code>function#expr</code></td>
 <td>
-<code>
-expr</code>
-</td>
+<code>expr</code></td>
 <td>
 R/W</td>
 
@@ -3383,13 +2965,9 @@ an expression of the function.</td>
 
 <tr>
 <td>
-<code>
-function#format</code>
-</td>
+<code>function#format</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -3400,13 +2978,9 @@ a string showing a declared format of the function.</td>
 
 <tr>
 <td>
-<code>
-function#fullname</code>
-</td>
+<code>function#fullname</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -3417,39 +2991,27 @@ a full name of the function that is prefixed by a name of the module or the clas
 
 <tr>
 <td>
-<code>
-function#name</code>
-</td>
+<code>function#name</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
 <td>
-a name of the function in <code>
-string</code>
-.</td>
+a name of the function in <code>string</code>.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-function#symbol</code>
-</td>
+<code>function#symbol</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R/W</td>
 
 <td>
-a name of the function in <code>
-symbol</code>
-. </td>
+a name of the function in <code>symbol</code>. </td>
 </tr>
 
 
@@ -3656,54 +3218,36 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-help#format</code>
-</td>
+<code>help#format</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
 <td>
-A name of the syntax format in which the help text is described such as <code>
-'markdown'</code>
-.</td>
+A name of the syntax format in which the help text is described such as <code>'markdown'</code>.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-help#lang</code>
-</td>
+<code>help#lang</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
 <td>
 A symbol of the natural language in which the help text is written.
-For example, <code>
-`en</code>
- for English and <code>
-`ja</code>
- for Japanese.</td>
+For example, <code>`en</code> for English and <code>`ja</code> for Japanese.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-help#text</code>
-</td>
+<code>help#text</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -3742,91 +3286,63 @@ imagetype</th>
 <td>
 BMP</td>
 <td>
-<code>
-bmp</code>
-</td>
+<code>bmp</code></td>
 <td>
-<code>
-'bmp'</code>
-</td>
+<code>'bmp'</code></td>
 </tr>
 
 <tr>
 <td>
 GIF</td>
 <td>
-<code>
-gif</code>
-</td>
+<code>gif</code></td>
 <td>
-<code>
-'gif'</code>
-</td>
+<code>'gif'</code></td>
 </tr>
 
 <tr>
 <td>
 JPEG</td>
 <td>
-<code>
-jpeg</code>
-</td>
+<code>jpeg</code></td>
 <td>
-<code>
-'jpeg'</code>
-</td>
+<code>'jpeg'</code></td>
 </tr>
 
 <tr>
 <td>
 Microsoft Icon</td>
 <td>
-<code>
-msico</code>
-</td>
+<code>msico</code></td>
 <td>
-<code>
-'msico'</code>
-</td>
+<code>'msico'</code></td>
 </tr>
 
 <tr>
 <td>
 PNG</td>
 <td>
-<code>
-png</code>
-</td>
+<code>png</code></td>
 <td>
-<code>
-'png'</code>
-</td>
+<code>'png'</code></td>
 </tr>
 
 <tr>
 <td>
 PPM</td>
 <td>
-<code>
-ppm</code>
-</td>
+<code>ppm</code></td>
 <td>
-<code>
-'ppm'</code>
-</td>
+<code>'ppm'</code></td>
 </tr>
 
 <tr>
 <td>
 TIFF</td>
 <td>
-<code>
-tiff</code>
-</td>
+<code>tiff</code></td>
 <td>
-<code>
-'tiff'</code>
-</td>
+<code>'tiff'</code></td>
 </tr>
 
 </table>
@@ -3852,13 +3368,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-image#format</code>
-</td>
+<code>image#format</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
@@ -3868,14 +3380,10 @@ Takes one of the following symbols indicating what elements are stored in the me
 
 <ul>
 <li>
-<code>
-`rgb</code>
- .. red, green and blue</li>
+<code>`rgb</code> .. red, green and blue</li>
 
 <li>
-<code>
-`rgba</code>
- .. red, green, blue and alpha</li>
+<code>`rgba</code> .. red, green, blue and alpha</li>
 
 </ul>
 
@@ -3886,13 +3394,9 @@ Takes one of the following symbols indicating what elements are stored in the me
 
 <tr>
 <td>
-<code>
-image#width</code>
-</td>
+<code>image#width</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -3903,13 +3407,9 @@ Image width.</td>
 
 <tr>
 <td>
-<code>
-image#height</code>
-</td>
+<code>image#height</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -3920,23 +3420,15 @@ Image height.</td>
 
 <tr>
 <td>
-<code>
-image#palette</code>
-</td>
+<code>image#palette</code></td>
 <td>
-<code>
-palette</code>
-</td>
+<code>palette</code></td>
 <td>
 R/W</td>
 
 <td>
-A <code>
-palette</code>
- instance associated with this image.
-If there's no palette associated, this property returns <code>
-nil</code>
-.</td>
+A <code>palette</code> instance associated with this image.
+If there's no palette associated, this property returns <code>nil</code>.</td>
 </tr>
 
 
@@ -4318,9 +3810,7 @@ Direction</th>
 
 <tr>
 <td>
-<code>
-`left_top_horz</code>
-</td>
+<code>`left_top_horz</code></td>
 <td>
 left-top</td>
 <td>
@@ -4329,9 +3819,7 @@ horizontal</td>
 
 <tr>
 <td>
-<code>
-`left_top_vert</code>
-</td>
+<code>`left_top_vert</code></td>
 <td>
 left-top</td>
 <td>
@@ -4340,9 +3828,7 @@ vertical</td>
 
 <tr>
 <td>
-<code>
-`left_bottom_horz</code>
-</td>
+<code>`left_bottom_horz</code></td>
 <td>
 left-bottom</td>
 <td>
@@ -4351,9 +3837,7 @@ horizontal</td>
 
 <tr>
 <td>
-<code>
-`left_bottom_vert</code>
-</td>
+<code>`left_bottom_vert</code></td>
 <td>
 left-bottom</td>
 <td>
@@ -4362,9 +3846,7 @@ vertical</td>
 
 <tr>
 <td>
-<code>
-`right_top_horz</code>
-</td>
+<code>`right_top_horz</code></td>
 <td>
 right-top</td>
 <td>
@@ -4373,9 +3855,7 @@ horizontal</td>
 
 <tr>
 <td>
-<code>
-`right_top_vert</code>
-</td>
+<code>`right_top_vert</code></td>
 <td>
 right-top</td>
 <td>
@@ -4384,9 +3864,7 @@ vertical</td>
 
 <tr>
 <td>
-<code>
-`right_bottom_horz</code>
-</td>
+<code>`right_bottom_horz</code></td>
 <td>
 right-bottom</td>
 <td>
@@ -4395,9 +3873,7 @@ horizontal</td>
 
 <tr>
 <td>
-<code>
-`right_bottom_vert</code>
-</td>
+<code>`right_bottom_vert</code></td>
 <td>
 right-bottom</td>
 <td>
@@ -6144,13 +5620,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-operator#symbol</code>
-</td>
+<code>operator#symbol</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
@@ -6462,13 +5934,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-stream#stat</code>
-</td>
+<code>stream#stat</code></td>
 <td>
-<code>
-object</code>
-</td>
+<code>object</code></td>
 <td>
 R</td>
 
@@ -6479,13 +5947,9 @@ Status of the stream.</td>
 
 <tr>
 <td>
-<code>
-stream#name</code>
-</td>
+<code>stream#name</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -6496,13 +5960,9 @@ Name of the stream.</td>
 
 <tr>
 <td>
-<code>
-stream#identifier</code>
-</td>
+<code>stream#identifier</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -6513,13 +5973,9 @@ Identifier of the stream.</td>
 
 <tr>
 <td>
-<code>
-stream#readable</code>
-</td>
+<code>stream#readable</code></td>
 <td>
-<code>
-boolean</code>
-</td>
+<code>boolean</code></td>
 <td>
 R</td>
 
@@ -6530,13 +5986,9 @@ Indicates whether the stream is readable.</td>
 
 <tr>
 <td>
-<code>
-stream#writable</code>
-</td>
+<code>stream#writable</code></td>
 <td>
-<code>
-boolean</code>
-</td>
+<code>boolean</code></td>
 <td>
 R</td>
 
@@ -6547,13 +5999,9 @@ Indicates whether the stream is writable.</td>
 
 <tr>
 <td>
-<code>
-stream#codec</code>
-</td>
+<code>stream#codec</code></td>
 <td>
-<code>
-codec</code>
-</td>
+<code>codec</code></td>
 <td>
 R</td>
 
@@ -7788,13 +7236,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-timedelta#days</code>
-</td>
+<code>timedelta#days</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -7805,13 +7249,9 @@ Offset of days.</td>
 
 <tr>
 <td>
-<code>
-timedelta#secs</code>
-</td>
+<code>timedelta#secs</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -7822,13 +7262,9 @@ Offset of seconds.</td>
 
 <tr>
 <td>
-<code>
-timedelta#usec</code>
-</td>
+<code>timedelta#usec</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R/W</td>
 
@@ -7871,13 +7307,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-uri#scheme</code>
-</td>
+<code>uri#scheme</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R/W</td>
 
@@ -7888,13 +7320,9 @@ R/W</td>
 
 <tr>
 <td>
-<code>
-uri#user</code>
-</td>
+<code>uri#user</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R/W</td>
 
@@ -7905,13 +7333,9 @@ R/W</td>
 
 <tr>
 <td>
-<code>
-uri#password</code>
-</td>
+<code>uri#password</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R/W</td>
 
@@ -7922,13 +7346,9 @@ R/W</td>
 
 <tr>
 <td>
-<code>
-uri#host</code>
-</td>
+<code>uri#host</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R/W</td>
 
@@ -7939,13 +7359,9 @@ R/W</td>
 
 <tr>
 <td>
-<code>
-uri#port</code>
-</td>
+<code>uri#port</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R/W</td>
 
@@ -7956,13 +7372,9 @@ R/W</td>
 
 <tr>
 <td>
-<code>
-uri#urlpath</code>
-</td>
+<code>uri#urlpath</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R/W</td>
 
@@ -7973,13 +7385,9 @@ R/W</td>
 
 <tr>
 <td>
-<code>
-uri#misc</code>
-</td>
+<code>uri#misc</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R/W</td>
 

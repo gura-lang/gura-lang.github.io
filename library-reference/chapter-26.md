@@ -33,58 +33,40 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-hash.accumulator#digest</code>
-</td>
+<code>hash.accumulator#digest</code></td>
 <td>
-<code>
-binary</code>
-</td>
+<code>binary</code></td>
 <td>
 R</td>
 
 <td>
-Returns the hashed result as <code>
-binary</code>
-.</td>
+Returns the hashed result as <code>binary</code>.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-hash.accumulator#hexdigest</code>
-</td>
+<code>hash.accumulator#hexdigest</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
 <td>
-Returns the hashed result as <code>
-string</code>
- in hexadecimal format.</td>
+Returns the hashed result as <code>string</code> in hexadecimal format.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-hash.accumulator#number</code>
-</td>
+<code>hash.accumulator#number</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
 <td>
-Returns the hashed result as <code>
-number</code>
-.
+Returns the hashed result as <code>number</code>.
 This field is valid only for CRC32 and returns `nil` for other hashes.</td>
 </tr>
 

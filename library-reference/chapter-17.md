@@ -97,13 +97,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-diff.diff@line#distance</code>
-</td>
+<code>diff.diff@line#distance</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -114,32 +110,22 @@ The distance between the texts. Zero means that they are identical each other.</
 
 <tr>
 <td>
-<code>
-diff.diff@line#edits</code>
-</td>
+<code>diff.diff@line#edits</code></td>
 <td>
-<code>
-iterator</code>
-</td>
+<code>iterator</code></td>
 <td>
 R</td>
 
 <td>
-An iterator that returns <code>
-diff.edit@line</code>
- instances stored in the result.</td>
+An iterator that returns <code>diff.edit@line</code> instances stored in the result.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-diff.diff@line#nlines@org</code>
-</td>
+<code>diff.diff@line#nlines@org</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -150,13 +136,9 @@ Number of lines in the "original" text.</td>
 
 <tr>
 <td>
-<code>
-diff.diff@line#nlines@new</code>
-</td>
+<code>diff.diff@line#nlines@new</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -247,32 +229,22 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-diff.hunk@line#edits</code>
-</td>
+<code>diff.hunk@line#edits</code></td>
 <td>
-<code>
-iterator</code>
-</td>
+<code>iterator</code></td>
 <td>
 R</td>
 
 <td>
-An iterator that returns <code>
-diff.edit@line</code>
- instances stored in the hunk.</td>
+An iterator that returns <code>diff.edit@line</code> instances stored in the hunk.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-diff.hunk@line#lineno@org</code>
-</td>
+<code>diff.hunk@line#lineno@org</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -283,13 +255,9 @@ Top line number of the "original" text covered by the hunk.</td>
 
 <tr>
 <td>
-<code>
-diff.hunk@line#lineno@new</code>
-</td>
+<code>diff.hunk@line#lineno@new</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -300,13 +268,9 @@ Top line number of the "new" text covered by the hunk.</td>
 
 <tr>
 <td>
-<code>
-diff.hunk@line#nlines@org</code>
-</td>
+<code>diff.hunk@line#nlines@org</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -317,13 +281,9 @@ Number of lines in the "original" text covered by the hunk.</td>
 
 <tr>
 <td>
-<code>
-diff.hunk@line#nlines@new</code>
-</td>
+<code>diff.hunk@line#nlines@new</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -366,13 +326,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-diff.edit@line#type</code>
-</td>
+<code>diff.edit@line#type</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
@@ -380,19 +336,13 @@ R</td>
 Edit operation:
 <ul>
 <li>
-<code>
-`copy</code>
- .. Copy the line.</li>
+<code>`copy</code> .. Copy the line.</li>
 
 <li>
-<code>
-`add</code>
- .. Add the line.</li>
+<code>`add</code> .. Add the line.</li>
 
 <li>
-<code>
-`delete</code>
- .. Delete the line.</li>
+<code>`delete</code> .. Delete the line.</li>
 
 </ul>
 
@@ -402,13 +352,9 @@ Edit operation:
 
 <tr>
 <td>
-<code>
-diff.edit@line#mark</code>
-</td>
+<code>diff.edit@line#mark</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -419,13 +365,9 @@ A mark string that appears on the top of each line in Unified format.</td>
 
 <tr>
 <td>
-<code>
-diff.edit@line#lineno@org</code>
-</td>
+<code>diff.edit@line#lineno@org</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -436,13 +378,9 @@ Line number of the "original" text correspond to the edit.</td>
 
 <tr>
 <td>
-<code>
-diff.edit@line#lineno@new</code>
-</td>
+<code>diff.edit@line#lineno@new</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -453,13 +391,9 @@ Lop line number of the "new" text correspond to the edit.</td>
 
 <tr>
 <td>
-<code>
-diff.edit@line#source</code>
-</td>
+<code>diff.edit@line#source</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -470,13 +404,9 @@ A source text.</td>
 
 <tr>
 <td>
-<code>
-diff.edit@line#unified</code>
-</td>
+<code>diff.edit@line#unified</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -519,13 +449,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-diff.diff@line#distance</code>
-</td>
+<code>diff.diff@line#distance</code></td>
 <td>
-<code>
-number</code>
-</td>
+<code>number</code></td>
 <td>
 R</td>
 
@@ -536,59 +462,41 @@ The distance between the texts. Zero means that they are identical each other.</
 
 <tr>
 <td>
-<code>
-diff.diff@line#edits</code>
-</td>
+<code>diff.diff@line#edits</code></td>
 <td>
-<code>
-iterator</code>
-</td>
+<code>iterator</code></td>
 <td>
 R</td>
 
 <td>
-An iterator that returns <code>
-diff.edit@char</code>
- instances stored in the result.</td>
+An iterator that returns <code>diff.edit@char</code> instances stored in the result.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-diff.diff@line#edits@org</code>
-</td>
+<code>diff.diff@line#edits@org</code></td>
 <td>
-<code>
-iterator</code>
-</td>
+<code>iterator</code></td>
 <td>
 R</td>
 
 <td>
-An iterator that returns <code>
-diff.edit@char</code>
- instances
+An iterator that returns <code>diff.edit@char</code> instances
 that are applied to the "original" string.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>
-diff.diff@line#edits@new</code>
-</td>
+<code>diff.diff@line#edits@new</code></td>
 <td>
-<code>
-iterator</code>
-</td>
+<code>iterator</code></td>
 <td>
 R</td>
 
 <td>
-An iterator that returns <code>
-diff.edit@char</code>
- instances
+An iterator that returns <code>diff.edit@char</code> instances
 that are applied to the "new" string.</td>
 </tr>
 
@@ -617,13 +525,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>
-diff.edit@char#type</code>
-</td>
+<code>diff.edit@char#type</code></td>
 <td>
-<code>
-symbol</code>
-</td>
+<code>symbol</code></td>
 <td>
 R</td>
 
@@ -631,19 +535,13 @@ R</td>
 Edit operation:
 <ul>
 <li>
-<code>
-`copy</code>
- .. Copy the line.</li>
+<code>`copy</code> .. Copy the line.</li>
 
 <li>
-<code>
-`add</code>
- .. Add the line.</li>
+<code>`add</code> .. Add the line.</li>
 
 <li>
-<code>
-`delete</code>
- .. Delete the line.</li>
+<code>`delete</code> .. Delete the line.</li>
 
 </ul>
 
@@ -653,13 +551,9 @@ Edit operation:
 
 <tr>
 <td>
-<code>
-diff.edit@char#mark</code>
-</td>
+<code>diff.edit@char#mark</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -670,13 +564,9 @@ A mark string that appears on the top of each line in Unified format.</td>
 
 <tr>
 <td>
-<code>
-diff.edit@char#source</code>
-</td>
+<code>diff.edit@char#source</code></td>
 <td>
-<code>
-string</code>
-</td>
+<code>string</code></td>
 <td>
 R</td>
 
