@@ -6736,16 +6736,34 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <strong>string#replace</strong>
 </p>
 <p>
-<code>string#replace(sub:string, replace:string, count?:number):map:[icase] {block?}</code>
+<code>string#replace(match:string, sub:string, count?:number):map:[icase] {block?}</code>
 </p>
 <p>
-Replaces string parts that match <code>sub</code> with <code>replace</code> and returns the result.
+Replaces sub strings that matches the string <code>match</code> with a string specified by <code>sub</code> and returns the result.
 </p>
 <p>
 The argument <code>count</code> limits the maximum number of substitution. If omitted, there's no limit of the work.
 </p>
 <p>
-With an attribute <code>:icase</code>, character cases are ignored while matching strings.
+With an attribute <code>:icase</code>, character cases are ignored while matching strings. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|result:string, replaced:boolean|</code>, where <code>result</code> is the result string and <code>replaced</code> indicates if there is any change between the result and its original string. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<strong>string#replaces</strong>
+</p>
+<p>
+<code>string#replaces(map[]:string, count?:number):map:[icase] {block?}</code>
+</p>
+<p>
+Replaces string parts according to a list of pairs of a matching and a substituting string and returns the result.
+</p>
+<p>
+The argument <code>map</code> contains the replacing list in a format of <code>[match1, sub1, match2, sub2, ..]</code>.
+</p>
+<p>
+The argument <code>count</code> limits the maximum number of substitution. If omitted, there's no limit of the work.
+</p>
+<p>
+With an attribute <code>:icase</code>, character cases are ignored while matching strings. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|result:string, replaced:boolean|</code>, where <code>result</code> is the result string and <code>replaced</code> indicates if there is any change between the result and its original string. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <strong>string#right</strong>
