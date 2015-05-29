@@ -477,13 +477,10 @@ Raises an error signal with a specified error object, a message string and an ad
 <strong>chr</strong>
 </p>
 <p>
-<code>chr(num:number):map:[nil]</code>
+<code>chr(code:number):map</code>
 </p>
 <p>
-Converts a UTF-8 code into a string.
-</p>
-<p>
-A number between 128 and 255 is an invalid number and is converted to a null string. If attribute <code>:nil</code> is specified, it returns <code>nil</code> for that case.
+Converts a UTF-32 code into a string.
 </p>
 <p>
 <strong>hex</strong>
@@ -519,7 +516,7 @@ Converts a value into an integer number like below:
 <code>ord(str:string):map</code>
 </p>
 <p>
-Converts the first character of a string into a number of UTF-8 code. If the string contains more than one characters, it simply neglects trailing ones.
+Converts the first character of a string into a number of UTF-32 code. If the string contains more than one characters, it simply neglects trailing ones.
 </p>
 <p>
 <strong>tonumber</strong>
