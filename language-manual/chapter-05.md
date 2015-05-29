@@ -129,7 +129,7 @@ Basically, Operators are used for mathematical and logical calculation. This sub
 </p>
 <h3><span class="caption-index-3">5.3.1</span><a name="anchor-5-3-1"></a>Prefixed Unary Operators</h3>
 <p>
-<strong>Operation <code>+x</code></strong> returns the value of <code>x</code> itself.
+Operation <code>+x</code> returns the value of <code>x</code> itself.
 </p>
 <p>
 <table>
@@ -179,7 +179,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>-x</code></strong> returns a negaive value of <code>x</code>.
+Operation <code>-x</code> returns a negaive value of <code>x</code>.
 </p>
 <p>
 <table>
@@ -229,7 +229,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>~x</code></strong> returns a bit-inverted value of <code>x</code>.
+Operation <code>~x</code> returns a bit-inverted value of <code>x</code>.
 </p>
 <p>
 <table>
@@ -251,7 +251,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>!x</code></strong> returns a logically inverted value of <code>x</code> after evaluating it as a boolean value.
+Operation <code>!x</code> returns a logically inverted value of <code>x</code> after evaluating it as a boolean value.
 </p>
 <p>
 <table>
@@ -274,7 +274,7 @@ Result Data Type</th>
 </p>
 <h3><span class="caption-index-3">5.3.2</span><a name="anchor-5-3-2"></a>Suffixed Unary Operators</h3>
 <p>
-<strong>Operation <code>x..</code></strong> returns an infinite iterator that starts from <code>x</code> and is increased by one.
+Operation <code>x..</code> returns an infinite iterator that starts from <code>x</code> and is increased by one.
 </p>
 <p>
 <table>
@@ -296,7 +296,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x?</code></strong> returns <code>false</code> if <code>x</code> is <code>false</code> or <code>nil</code>, and <code>true</code> otherwise. This operator is not affected by Implicit Mapping and returns <code>true</code> if <code>x</code> is of <code>list</code> or <code>iterator</code> type.
+Operation <code>x?</code> returns <code>false</code> if <code>x</code> is <code>false</code> or <code>nil</code>, and <code>true</code> otherwise. This operator is not affected by Implicit Mapping and returns <code>true</code> if <code>x</code> is of <code>list</code> or <code>iterator</code> type.
 </p>
 <p>
 <table>
@@ -319,7 +319,7 @@ Result Data Type</th>
 </p>
 <h3><span class="caption-index-3">5.3.3</span><a name="anchor-5-3-3"></a>Binary Operators</h3>
 <p>
-<strong>Operation <code>x + y</code></strong> returns an added result of <code>x</code> and <code>y</code>.
+Operation <code>x + y</code> returns an added result of <code>x</code> and <code>y</code>.
 </p>
 <p>
 <table>
@@ -482,7 +482,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x - y</code></strong> returns a subtracted result of <code>x</code> and <code>y</code>.
+Operation <code>x - y</code> returns a subtracted result of <code>x</code> and <code>y</code>.
 </p>
 <p>
 <table>
@@ -588,7 +588,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x * y</code></strong> returns a multiplied result of <code>x</code> and <code>y</code>.
+Operation <code>x * y</code> returns a multiplied result of <code>x</code> and <code>y</code>.
 </p>
 <p>
 <table>
@@ -744,7 +744,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x / y</code></strong> returns a divided result of <code>x</code> and <code>y</code>.
+Operation <code>x / y</code> returns a divided result of <code>x</code> and <code>y</code>.
 </p>
 <p>
 <table>
@@ -829,7 +829,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x % y</code></strong> returns a remainder after dividing <code>x</code> by <code>y</code>.
+Operation <code>x % y</code> returns a remainder after dividing <code>x</code> by <code>y</code>.
 </p>
 <p>
 <table>
@@ -851,7 +851,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x ** y</code></strong> returns a powered result of <code>x</code> and <code>y</code>.
+Operation <code>x ** y</code> returns a powered result of <code>x</code> and <code>y</code>.
 </p>
 <p>
 <table>
@@ -894,7 +894,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x == y</code></strong> returns <code>true</code> when <code>x</code> equals to <code>y</code>, and <code>false</code> otherwise.
+Operation <code>x == y</code> returns <code>true</code> when <code>x</code> equals to <code>y</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <table>
@@ -916,7 +916,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x &lt; y</code></strong> returns <code>true</code> when <code>x</code> is less than <code>y</code>, and <code>false</code> otherwise.
+Operation <code>x &lt; y</code> returns <code>true</code> when <code>x</code> is less than <code>y</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <table>
@@ -938,7 +938,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x &gt; y</code></strong> returns <code>true</code> when <code>x</code> is greater than <code>y</code>, and <code>false</code> otherwise.
+Operation <code>x &gt; y</code> returns <code>true</code> when <code>x</code> is greater than <code>y</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <table>
@@ -960,7 +960,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x &lt;= y</code></strong> returns <code>true</code> when <code>x</code> is less than or equal to <code>y</code>, and <code>false</code> otherwise.
+Operation <code>x &lt;= y</code> returns <code>true</code> when <code>x</code> is less than or equal to <code>y</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <table>
@@ -982,7 +982,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x &gt;= y</code></strong> returns <code>true</code> when <code>x</code> is greater than or equal to <code>y</code>, and <code>false</code> otherwise.
+Operation <code>x &gt;= y</code> returns <code>true</code> when <code>x</code> is greater than or equal to <code>y</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <table>
@@ -1004,7 +1004,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x &lt;=&gt; y</code></strong> returns <code>0</code> when <code>x</code> is equal to <code>y</code>, <code>-1</code> when <code>x</code> is less than <code>y</code> and <code>1</code> when <code>x</code> is greater than <code>y</code>.
+Operation <code>x &lt;=&gt; y</code> returns <code>0</code> when <code>x</code> is equal to <code>y</code>, <code>-1</code> when <code>x</code> is less than <code>y</code> and <code>1</code> when <code>x</code> is greater than <code>y</code>.
 </p>
 <p>
 <table>
@@ -1026,7 +1026,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x in y</code></strong> checks if <code>x</code> is contained in <code>y</code>.
+Operation <code>x in y</code> checks if <code>x</code> is contained in <code>y</code>.
 </p>
 <p>
 When Operator <code>in</code> takes a value of any type other than <code>list</code> and <code>iterator</code> at its left, it will check if the value is contained in the container specified at its right. If the right value is not of <code>list</code> or <code>iterator</code>, it would act in the same way as Operator <code>==</code>.
@@ -1125,7 +1125,7 @@ Result Data Type</th>
 When Operator <code>in</code> is used in an argument of <code>for()</code> and <code>cross()</code> function, it would work as an iterable assignment. See <a href="Flow-Control.html">Chapter.8. Flow Control</a> for detail.
 </p>
 <p>
-<strong>Operation <code>x &amp; y</code></strong> returns an AND calculation result of <code>x</code> and <code>y</code>.
+Operation <code>x &amp; y</code> returns an AND calculation result of <code>x</code> and <code>y</code>.
 </p>
 <ul>
 <li>If <code>x</code> and <code>y</code> are of <code>number</code> type, it calculates bitwise AND between them.</li>
@@ -1173,7 +1173,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x | y</code></strong> returns an OR calculation result of <code>x</code> and <code>y</code>.
+Operation <code>x | y</code> returns an OR calculation result of <code>x</code> and <code>y</code>.
 </p>
 <ul>
 <li>If <code>x</code> and <code>y</code> are of <code>number</code> type, it calculates bitwise OR between them.</li>
@@ -1221,7 +1221,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x ^ y</code></strong> returns a XOR calculation result of <code>x</code> and <code>y</code>.
+Operation <code>x ^ y</code> returns a XOR calculation result of <code>x</code> and <code>y</code>.
 </p>
 <ul>
 <li>If <code>x</code> and <code>y</code> are of <code>number</code> type, it calculates bitwise XOR between them.</li>
@@ -1254,7 +1254,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x &lt;&lt; y</code></strong> returns a value of <code>x</code> shifted left by <code>y</code> bits.
+Operation <code>x &lt;&lt; y</code> returns a value of <code>x</code> shifted left by <code>y</code> bits.
 </p>
 <p>
 <table>
@@ -1276,7 +1276,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x &gt;&gt; y</code></strong> returns a value of <code>x</code> shifted right by <code>y</code> bits.
+Operation <code>x &gt;&gt; y</code> returns a value of <code>x</code> shifted right by <code>y</code> bits.
 </p>
 <p>
 <table>
@@ -1298,7 +1298,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x &amp;&amp; y</code></strong> returns a conditional AND result of <code>x</code> and <code>y</code> as described below:
+Operation <code>x &amp;&amp; y</code> returns a conditional AND result of <code>x</code> and <code>y</code> as described below:
 </p>
 <ul>
 <li>If <code>x</code> is not of <code>list</code> nor <code>iterator</code> type, it would return the value of <code>x</code> when <code>x</code> is determined as <code>false</code>, and return the value of <code>y</code> otherwise. It won't evaluate <code>y</code> when <code>x</code> comes out to be in <code>false</code> state.</li>
@@ -1339,7 +1339,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x || y</code></strong> returns a conditional OR result of <code>x</code> and <code>y</code> as described below:
+Operation <code>x || y</code> returns a conditional OR result of <code>x</code> and <code>y</code> as described below:
 </p>
 <ul>
 <li>If <code>x</code> is not of <code>list</code> nor <code>iterator</code> type, it would return the value of <code>x</code> when <code>x</code> is determined as <code>true</code>, and return the value of <code>y</code> otherwise. It won't evaluate <code>y</code> when <code>x</code> comes out to be in <code>true</code> state.</li>
@@ -1380,7 +1380,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x..y</code></strong> creates an iterator that returns <code>number</code> value that starts from <code>x</code> and is increased by one until <code>y</code>.
+Operation <code>x..y</code> creates an iterator that returns <code>number</code> value that starts from <code>x</code> and is increased by one until <code>y</code>.
 </p>
 <p>
 <table>
@@ -1402,7 +1402,7 @@ Result Data Type</th>
 
 </p>
 <p>
-<strong>Operation <code>x =&gt; y</code></strong> returns a list <code>[x, y]</code>.
+Operation <code>x =&gt; y</code> returns a list <code>[x, y]</code>.
 </p>
 <p>
 <table>
@@ -1442,7 +1442,7 @@ When Operator <code>=&gt;</code> is used in an argument declaration of any funct
 </p>
 <h2><span class="caption-index-2">5.4</span><a name="anchor-5-4"></a>Other Operators</h2>
 <p>
-<strong>Operation <code>string % any</code></strong> returns a result formatted by the string containing specifiers of <code>printf</code> format. The value of <code>any</code> must be a list if more than one argument are necessary.
+Operation <code>string % any</code> returns a result formatted by the string containing specifiers of <code>printf</code> format. The value of <code>any</code> must be a list if more than one argument are necessary.
 </p>
 <pre><code>'Name: %s, Age: %d' % [name, age]
 </code></pre>
@@ -1452,10 +1452,10 @@ The code above has the same result as the following.
 <pre><code>format('Name: %s, Age: %d', name, age)
 </code></pre>
 <p>
-<strong>Operation <code>function * any</code></strong> applies the function on <code>any</code>.
+Operation <code>function * any</code> applies the function on <code>any</code>.
 </p>
 <p>
-<strong>Operation <code>stream &lt;&lt; any</code></strong> outputs <code>any</code> to the <code>stream</code>.
+Operation <code>stream &lt;&lt; any</code> outputs <code>any</code> to the <code>stream</code>.
 </p>
 <pre><code>sys.stdout &lt;&lt; 'Hello World\n'
 </code></pre>

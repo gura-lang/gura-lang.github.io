@@ -222,6 +222,20 @@ null character</td>
 any byte of character code <code><em>hh</em></code> in hexadecimal</td>
 </tr>
 
+<tr>
+<td>
+<code>\u<em>hhhh</em></code></td>
+<td>
+<code>Unicode character at codepoint <em>hhhh</em></code> in hexadecimal</td>
+</tr>
+
+<tr>
+<td>
+<code>\U<em>hhhhhhhh</em></code></td>
+<td>
+<code>Unicode character at codepoint <em>hhhhhhhh</em></code> in hexadecimal</td>
+</tr>
+
 </table>
 
 </p>
