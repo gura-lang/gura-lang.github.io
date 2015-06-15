@@ -6,7 +6,38 @@ title: Job Seek
 
 ## {{ page.title }}
 
-(English follows below)
+(日本語があとに続きます)
+
+ypsitau is ready to work as a Software Engineer (as of June 2015).
+
+
+- Name &hellip; Yutaka SAITO
+
+- Objective &hellip; Software Engineer
+
+- Working Style &hellip; negotiable
+
+- Working Area &hellip; Tokyo
+
+- Programming Languages &hellip; C/C++ and my original Gura
+
+- What can I do for you?
+
+  - Development of PC application including GUI. Platforms: Windows and Linux.
+
+  - Development of firmwares that involves interrupt and register controls.
+
+  - Coding of complicated algorithms.
+
+  - Development of programming languages.
+
+
+Feel free to contact [ypsitau@nifty.com](mailto:ypsitau@nifty.com) or
+[@ypsitau](https://twitter.com/ypsitau).
+As he is currently working alone in programming, he would be pleased to
+talk about technological topics even though they don't directly concern about some businesses.
+
+- - -
 
 ソフトウェアエンジニアとして ypsitau を売り出し中です (2015 年 6 月現在)。
 
@@ -36,34 +67,3 @@ title: Job Seek
 [@ypsitau](https://twitter.com/ypsitau) まで。
 彼は一人でプログラミングに勤しんでいる身なので、ビジネスにすぐにつながる話でなくても、
 技術的な雑談ができるとよろこびます。
-
-- - -
-
-ypsitau is ready to work as a software engineer (as of June 2015).
-
-
-- Name &hellip; Yutaka SAITO
-
-- Objective &hellip; Software Engineer
-
-- Working Style &hellip; negotiable
-
-- Working Area &hellip; Tokyo
-
-- Programming Languages &hellip; C/C++ and my original Gura
-
-- What can I do for you?
-
-  - Development of PC application including GUI. Platforms: Windows and Linux.
-
-  - Development of firmwares that involves interrupt and register controls.
-
-  - Coding of complicated algorithms.
-
-  - Development of programming languages.
-
-
-Feel free to contact [ypsitau@nifty.com](mailto:ypsitau@nifty.com) or
-[@ypsitau](https://twitter.com/ypsitau).
-As he is currently working alone in programming, he would be pleased to
-talk about technological topics even though they don't directly concern about some businesses.
