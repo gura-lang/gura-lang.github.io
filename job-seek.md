@@ -6,7 +6,7 @@ title: Job Seek
 
 (日本語があとに続きます)
 
-## Job Seek
+## Software Engineer Ready
 
 ypsitau is ready to work as a Software Engineer (as of June 2015).
 
@@ -38,7 +38,7 @@ As he is currently working alone in programming, he would be pleased to
 talk about technological topics even though they don't directly concern about some businesses.
 
 
-## エンジニア売り出し中
+## ソフトウェアエンジニア売り出し中
 
 ソフトウェアエンジニアとして ypsitau を売り出し中です (2015 年 6 月現在)。
 
