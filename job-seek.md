@@ -4,14 +4,14 @@ lang: ja
 title: Job Seek
 ---
 
-## {{ page.title }}
-
 (日本語があとに続きます)
+
+## Job Seek
 
 ypsitau is ready to work as a Software Engineer (as of June 2015).
 
 
-- Name &hellip; Yutaka SAITO
+- Real Name &hellip; Yutaka SAITO
 
 - Objective &hellip; Software Engineer
 
@@ -19,7 +19,7 @@ ypsitau is ready to work as a Software Engineer (as of June 2015).
 
 - Working Area &hellip; Tokyo
 
-- Programming Languages &hellip; C/C++ and my original Gura
+- Favorite Programming Languages &hellip; C/C++ and my original Gura
 
 - What can I do for you?
 
@@ -37,7 +37,8 @@ Feel free to contact [ypsitau@nifty.com](mailto:ypsitau@nifty.com) or
 As he is currently working alone in programming, he would be pleased to
 talk about technological topics even though they don't directly concern about some businesses.
 
-- - -
+
+## エンジニア売り出し中
 
 ソフトウェアエンジニアとして ypsitau を売り出し中です (2015 年 6 月現在)。
 
