@@ -13,17 +13,17 @@ ypsitau is ready to work as a Software Engineer (as of June 2015).
 
 - Real Name &hellip; Yutaka SAITO
 
-- Objective &hellip; Software Engineer
+- Job Category &hellip; Software Engineer
 
-- Working Style &hellip; negotiable
+- Employment Conditions &hellip; negotiable
 
-- Working Area &hellip; Tokyo
+- Commuting Range &hellip; Tokyo
 
 - Favorite Programming Languages &hellip; C/C++ and my original Gura
 
 - What can I do for you?
 
-  - Development of PC application including GUI. Platforms: Windows and Linux.
+  - Development of PC applications including GUI that run on Windows and Linux.
 
   - Development of firmwares that involves interrupt and register controls.
 
@@ -47,7 +47,7 @@ talk about technological topics even though they don't directly concern about so
 
 - 希望する職種 &hellip; ソフトウェアエンジニア
 
-- 勤務形態 &hellip; 相談に応じます
+- 雇用条件 &hellip; 相談に応じます
 
 - 通勤できる範囲 &hellip; 東京近辺
 
