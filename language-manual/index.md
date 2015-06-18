@@ -56,6 +56,7 @@ title: Gura Language Manual
 <div><span class="toc-index-2">10.4</span><a href="chapter-10.html#anchor-10-4">Encapsulation</a></div>
 <div><span class="toc-index-2">10.5</span><a href="chapter-10.html#anchor-10-5">Structure</a></div>
 <div><span class="toc-index-2">10.6</span><a href="chapter-10.html#anchor-10-6">Creation of Multiple Instances</a></div>
+<div><span class="toc-index-2">10.7</span><a href="chapter-10.html#anchor-10-7">Forward Declaration</a></div>
 <div><span class="toc-index-1">11</span><a href="chapter-11.html#anchor-11">Mapping Process</a></div>
 <div><span class="toc-index-2">11.1</span><a href="chapter-11.html#anchor-11-1">About This Chapter</a></div>
 <div><span class="toc-index-2">11.2</span><a href="chapter-11.html#anchor-11-2">Implicit Mapping</a></div>

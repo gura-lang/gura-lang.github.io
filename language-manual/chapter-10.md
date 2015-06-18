@@ -340,6 +340,44 @@ Obviously, it's cumbersome to describe a function name <code>Person()</code> for
 <p>
 Function <code>@</code> takes a function such as a constructor, and its block contains a set of argument lists fed into that function.
 </p>
+<h2><span class="caption-index-2">10.7</span><a name="anchor-10-7"></a>Forward Declaration</h2>
+<p>
+Within a block of the <code>class</code> function, it would be no problem for argument declarations to refer to its own class being currently declared.
+</p>
+<pre><code>A = class {
+    func(a:A) = {     // This is OK.
+        // ...
+    }
+}
+</code></pre>
+<p>
+It's not allowed to refer to a class which declaration appears afterwards.
+</p>
+<pre><code>A = class {
+    func(b:B) = {     // *** error ***
+        // ...
+    }
+}
+
+B = class {
+
+}
+</code></pre>
+<p>
+For such a case, you need to prepare a forward declaration of the referenced class before the referencing point by creating an empty class like below:
+</p>
+<pre><code>B = class()           // B's forward declaration.
+
+A = class {
+    func(b:B) = {     // This is OK.
+        // ...
+    }
+}
+
+B = class {           // B's actual declaration.
+    // ...
+}
+</code></pre>
 <p />
 
 {% endraw %}
