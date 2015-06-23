@@ -5,52 +5,54 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">46</span><a name="anchor-46"></a>tiff Module</h1>
+<h1><span class="caption-index-1">46</span><a name="anchor-46"></a>tar Module</h1>
 <p>
-The <code>tiff</code> module provides measures to read/write image data in TIFF format. To utilize it, import the <code>tiff</code> module using <code>import</code> function.
+The <code>tar</code> module provides measures to read/write TAR files. To utilize it, import the <code>tar</code> module using <code>import</code> function.
+</p>
+<h2><span class="caption-index-2">46.1</span><a name="anchor-46-1"></a>tar.reader Class</h2>
+<h3><span class="caption-index-3">46.1.1</span><a name="anchor-46-1-1"></a>Function To Create Instance</h3>
+<p>
+<strong>tar.reader</strong>
 </p>
 <p>
-Below is an example to read a TIFF file:
+<code>tar.reader(stream:stream:r, compression?:symbol) {block?}</code>
 </p>
-<pre><code>import(tiff)
-img = image('foo.tiff')
-</code></pre>
-<h2><span class="caption-index-2">46.1</span><a name="anchor-46-1"></a>Exntension to Function's Capability</h2>
+<h3><span class="caption-index-3">46.1.2</span><a name="anchor-46-1-2"></a>Method</h3>
 <p>
-This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write TIFF files.
+<strong>tar.reader#entries</strong>
 </p>
 <p>
-When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a TIFF file.
+<code>tar.reader#entries() {block?}</code>
 </p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.tif</code>" or "<code>.tiff</code>".</li>
-</ul>
+<h2><span class="caption-index-2">46.2</span><a name="anchor-46-2"></a>tar.writer Class</h2>
+<h3><span class="caption-index-3">46.2.1</span><a name="anchor-46-2-1"></a>Function To Create Instance</h3>
 <p>
-When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in TIFF format.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.tif</code>" or "<code>.tiff</code>".</li>
-</ul>
-<h2><span class="caption-index-2">46.2</span><a name="anchor-46-2"></a>Extension to image Class</h2>
-<p>
-This module extends the <code>image</code> class with methods described here.
+<strong>tar.writer</strong>
 </p>
 <p>
-<strong>image#read@tiff</strong>
+<code>tar.writer(stream:stream:w, compression?:symbol) {block?}</code>
+</p>
+<h3><span class="caption-index-3">46.2.2</span><a name="anchor-46-2-2"></a>Method</h3>
+<p>
+<strong>tar.writer#add</strong>
 </p>
 <p>
-<code>image#read@tiff(stream:stream:r):reduce</code>
+<code>tar.writer#add(stream:stream:r, filename?:string):map:reduce</code>
 </p>
 <p>
-Reads a TIFF image from a stream.
+<strong>tar.writer#close</strong>
+</p>
+<p>
+<code>tar.writer#close():reduce</code>
 </p>
 <h2><span class="caption-index-2">46.3</span><a name="anchor-46-3"></a>Thanks</h2>
 <p>
-This module uses libtiff which is distributed in the following site:
+This module uses zlib and bzip2 library which are distributed in the following sites:
 </p>
-<p>
-<a href="http://www.libtiff.org/">http://www.libtiff.org/</a>
-</p>
+<ul>
+<li><a href="http://zlib.net/">http://zlib.net/</a></li>
+<li><a href="http://www.bzip.org/">http://www.bzip.org/</a></li>
+</ul>
 <p />
 
 {% endraw %}

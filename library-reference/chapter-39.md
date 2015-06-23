@@ -5,54 +5,62 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">39</span><a name="anchor-39"></a>ppm Module</h1>
+<h1><span class="caption-index-1">39</span><a name="anchor-39"></a>png Module</h1>
 <p>
-The <code>ppm</code> module provides measures to read/write image data in PPM format. To utilize it, import the <code>ppm</code> module using <code>import</code> function.
+The <code>png</code> module provides measures to read/write image data in PNG format. To utilize it, import the <code>png</code> module using <code>import</code> function.
 </p>
 <p>
-Below is an example to read a PPM file:
+Below is an example to read a PNG file:
 </p>
-<pre><code>import(ppm)
-img = image('foo.ppm')
+<pre><code>import(png)
+img = image('foo.png')
 </code></pre>
 <h2><span class="caption-index-2">39.1</span><a name="anchor-39-1"></a>Exntension to Function's Capability</h2>
 <p>
-This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write PPM files.
+This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write PNG files.
 </p>
 <p>
-When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a PPM file.
+When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a PNG file.
 </p>
 <ul>
-<li>The identifier of the stream ends with a suffix "<code>.ppm</code>" or "<code>.pbm</code>".</li>
-<li>The stream data begins with a byte sequence "<code>P2</code>", "<code>P3</code>" or "<code>P6</code>".</li>
+<li>The identifier of the stream ends with a suffix "<code>.png</code>".</li>
+<li>The stream data begins with a byte sequence "<code>\x89\x50\x4e\x47\x0d\x0a\x1a\x0a</code>".</li>
 </ul>
 <p>
-When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in PPM format.
+When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in PNG format.
 </p>
 <ul>
-<li>The identifier of the stream ends with a suffix "<code>.ppm</code>" or "<code>.pbm</code>".</li>
+<li>The identifier of the stream ends with a suffix "<code>.png</code>".</li>
 </ul>
-<h2><span class="caption-index-2">39.2</span><a name="anchor-39-2"></a>Extension to image Class</h2>
+<h2><span class="caption-index-2">39.2</span><a name="anchor-39-2"></a>Module Function</h2>
+<h2><span class="caption-index-2">39.3</span><a name="anchor-39-3"></a>Extension to image Class</h2>
 <p>
 This module extends the <code>image</code> class with methods described here.
 </p>
 <p>
-<strong>image#read@ppm</strong>
+<strong>image#read@png</strong>
 </p>
 <p>
-<code>image#read@ppm(stream:stream:r):reduce</code>
+<code>image#read@png(stream:stream:r):reduce</code>
 </p>
 <p>
-Reads a PPM/PGM image from a stream.
+Reads a PNG image from a stream.
 </p>
 <p>
-<strong>image#write@ppm</strong>
+<strong>image#write@png</strong>
 </p>
 <p>
-<code>image#write@ppm(stream:stream:w):reduce:[gray]</code>
+<code>image#write@png(stream:stream:w):reduce</code>
 </p>
 <p>
-Writes a PPM/PGM image to a stream.
+Writes a PNG image to a stream.
+</p>
+<h2><span class="caption-index-2">39.4</span><a name="anchor-39-4"></a>Thanks</h2>
+<p>
+This module uses libpng library which is distributed in the following site:
+</p>
+<p>
+<a href="http://www.libpng.org/pub/png/libpng.html">http://www.libpng.org/pub/png/libpng.html</a>
 </p>
 <p />
 

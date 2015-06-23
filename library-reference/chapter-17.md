@@ -585,10 +585,6 @@ This module uses dtl (Diff Template Library) which is distributed in the followi
 <p>
 <a href="https://code.google.com/p/dtl-cpp/">https://code.google.com/p/dtl-cpp/</a>
 </p>
-<h2><span class="caption-index-2">17.8</span><a name="anchor-17-8"></a>example Module</h2>
-<p>
-The <code>example</code> module is just an example that is supposed to be referenced as a skeleton when you want to create a new module.
-</p>
 <p />
 
 {% endraw %}
