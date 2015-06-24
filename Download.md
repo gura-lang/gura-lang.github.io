@@ -3,11 +3,13 @@ layout: default
 lang: en
 title: Download
 ---
-{% assign gura_version = '0.6.1' %}
-{% assign gura_version_prev = '0.5.2' %}
+{% assign gura_version = '0.6.2' %}
+{% assign gura_version_prev = '0.6.1' %}
 
 # {{ page.title }}
 
+
+Release notes are available [here](https://github.com/gura-lang/gura/releases).
 
 ## Latest Version
 
@@ -57,13 +59,11 @@ title: Download
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}-win32.zip');">gura-{{ gura_version_prev }}-win32.zip</a></td>
 </tr>
 
-<!--
 <tr>
 <td>MacOS Binary</td>
 <td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version_prev }}/gura-{{ gura_version_prev }}.dmg"
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}.dmg');">gura-{{ gura_version_prev }}.dmg</a></td>
 </tr>
--->
 
 <tr>
 <td>Sorce Package</td>
@@ -72,8 +72,6 @@ title: Download
 </tr>
 
 </table>
-
-[Release Notes](https://github.com/gura-lang/gura/releases)
 
 # Installation
 

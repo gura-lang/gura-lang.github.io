@@ -8,6 +8,10 @@ title: Top
 
 <table>
 
+<tr><td style="white-space:nowrap">2015-06-24</td><td>
+<a href="Download.html">Gura v0.6.2</a> was released.
+</td></tr>
+
 <tr><td style="white-space:nowrap">2015-04-10</td><td>
 <a href="library-reference/index.html">Gura Library Reference</a> was published.
 </td></tr>
