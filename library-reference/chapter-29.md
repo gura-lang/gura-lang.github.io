@@ -134,12 +134,8 @@ Thumbnail image as JPEG binary data.</td>
 </p>
 <h3><span class="caption-index-3">29.2.2</span><a name="anchor-29-2-2"></a>Constructor</h3>
 <p>
-<strong>jpeg.exif</strong>
-</p>
-<p>
-<code>jpeg.exif(stream?:stream:r):map:[raise] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">jpeg.exif</strong></div>
+<div style="margin-bottom:1em"><code>jpeg.exif(stream?:stream:r):map:[raise] {block?}</code></div>
 Reads EXIF data from <code>stream</code> and creates a <code>jpeg.exif</code> instance.
 </p>
 <p>
@@ -150,12 +146,8 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <h3><span class="caption-index-3">29.2.3</span><a name="anchor-29-2-3"></a>Method</h3>
 <p>
-<strong>jpeg.exif#each</strong>
-</p>
-<p>
-<code>jpeg.exif#each() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">jpeg.exif#each</strong></div>
+<div style="margin-bottom:1em"><code>jpeg.exif#each() {block?}</code></div>
 Creates an iterator that returns <code>jpeg.tag</code> values as elements that are stored in the property <code>jpeg.exif#ifd0</code>.
 </p>
 <p>
@@ -222,12 +214,8 @@ R</td>
 </p>
 <h3><span class="caption-index-3">29.3.2</span><a name="anchor-29-3-2"></a>Method</h3>
 <p>
-<strong>jpeg.ifd#each</strong>
-</p>
-<p>
-<code>jpeg.ifd#each() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">jpeg.ifd#each</strong></div>
+<div style="margin-bottom:1em"><code>jpeg.ifd#each() {block?}</code></div>
 Creates an iterator that returns <code>jpeg.tag</code> values as elements that are stored in the target <code>jpeg.ifd</code> instance.
 </p>
 <p>
@@ -364,21 +352,13 @@ IFD instance. Valid only for tags <code>Exif</code>, <code>GPSInfo</code> and
 This module extends the <code>image</code> class with methods described here.
 </p>
 <p>
-<strong>image#read@jpeg</strong>
-</p>
-<p>
-<code>image#read@jpeg(stream:stream:r):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#read@jpeg</strong></div>
+<div style="margin-bottom:1em"><code>image#read@jpeg(stream:stream:r):reduce</code></div>
 Reads a JPEG image data from a stream.
 </p>
 <p>
-<strong>image#write@jpeg</strong>
-</p>
-<p>
-<code>image#write@jpeg(stream:stream:w, quality:number =&gt; 75):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#write@jpeg</strong></div>
+<div style="margin-bottom:1em"><code>image#write@jpeg(stream:stream:w, quality:number =&gt; 75):reduce</code></div>
 Writes a JPEG image data to a stream.
 </p>
 <h2><span class="caption-index-2">29.6</span><a name="anchor-29-6"></a>Thanks</h2>

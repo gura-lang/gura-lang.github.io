@@ -28,12 +28,8 @@ markdown.document('foo.md').render@html('foo.html')
 </p>
 <h2><span class="caption-index-2">30.2</span><a name="anchor-30-2"></a>Module Function</h2>
 <p>
-<strong>markdown.setpresenter</strong>
-</p>
-<p>
-<code>markdown.setpresenter():void {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">markdown.setpresenter</strong></div>
+<div style="margin-bottom:1em"><code>markdown.setpresenter():void {block}</code></div>
 Sets a presentation procedure that shows helps written in Markdown format. The procedure is written in the function's block that takes block parameters: <code>|title:string, doc:markdown.document|</code>.
 </p>
 <h2><span class="caption-index-2">30.3</span><a name="anchor-30-3"></a>markdown.document Class</h2>
@@ -96,56 +92,35 @@ The root item of the parsed Markdown document.</td>
 </p>
 <h3><span class="caption-index-3">30.3.2</span><a name="anchor-30-3-2"></a>Constructor</h3>
 <p>
-<strong>markdown.document</strong>
-</p>
-<p>
-<code>markdown.document(stream?:stream:r) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">markdown.document</strong></div>
+<div style="margin-bottom:1em"><code>markdown.document(stream?:stream:r) {block?}</code></div>
 Returns an instance of <code>markdown.document</code>. If <code>stream</code> is specified, the content of the instance shall be initialized with the result of parsing the stream.
 </p>
 <h3><span class="caption-index-3">30.3.3</span><a name="anchor-30-3-3"></a>Method</h3>
 <p>
-<strong>markdown.document#parse</strong>
-</p>
-<p>
-<code>markdown.document#parse(str:string):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">markdown.document#parse</strong></div>
+<div style="margin-bottom:1em"><code>markdown.document#parse(str:string):void</code></div>
 Parses a Markdown text in a string.
 </p>
 <p>
-<strong>markdown.document#read</strong>
-</p>
-<p>
-<code>markdown.document#read(stream:stream:r):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">markdown.document#read</strong></div>
+<div style="margin-bottom:1em"><code>markdown.document#read(stream:stream:r):void</code></div>
 Parses a Markdown text from a stream.
 </p>
 <p>
-<strong>markdown.render@console</strong>
-</p>
-<p>
-<code>markdown.render@console(colorFlag:boolean =&gt; true)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">markdown.render@console</strong></div>
+<div style="margin-bottom:1em"><code>markdown.render@console(colorFlag:boolean =&gt; true)</code></div>
 Renders the content of markdown document to the console.
 </p>
 <p>
 In default, it uses colors to highlight items. Specify the argument <code>colorFlag</code> with <code>false</code> to disable the coloring process.
 </p>
 <p>
-<strong>markdown.render@html</strong>
-</p>
-<p>
-<code>markdown.render@html(out?:stream:w, easyFormatFlag:boolean =&gt; true, captionIndex:boolean =&gt; false)</code>
-</p>
-<p>
-<strong>markdown.render@toc</strong>
-</p>
-<p>
-<code>markdown.render@toc() {block}</code>
+<div><strong style="text-decoration:underline">markdown.render@html</strong></div>
+<div style="margin-bottom:1em"><code>markdown.render@html(out?:stream:w, easyFormatFlag:boolean =&gt; true, captionIndex:boolean =&gt; false)</code></div>
+<div><strong style="text-decoration:underline">markdown.render@toc</strong></div>
+<div style="margin-bottom:1em"><code>markdown.render@toc() {block}</code></div>
+
 </p>
 <h2><span class="caption-index-2">30.4</span><a name="anchor-30-4"></a>markdown.item Class</h2>
 <p>
@@ -454,12 +429,8 @@ R</td>
 </p>
 <h3><span class="caption-index-3">30.4.2</span><a name="anchor-30-4-2"></a>Method</h3>
 <p>
-<strong>markdown.item#print</strong>
-</p>
-<p>
-<code>markdown.item#print(indent?:number):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">markdown.item#print</strong></div>
+<div style="margin-bottom:1em"><code>markdown.item#print(indent?:number):void</code></div>
 Prints structured content of the item. Argument <code>indent</code> specifies an indentation level and is set to zero when omitted.
 </p>
 <p />

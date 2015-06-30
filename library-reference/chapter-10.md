@@ -23,24 +23,16 @@ bzip2.writer('foo.dat.bz2').copyfrom('foo.dat')
 </code></pre>
 <h2><span class="caption-index-2">10.1</span><a name="anchor-10-1"></a>Module Function</h2>
 <p>
-<strong>bzip2.reader</strong>
-</p>
-<p>
-<code>bzip2.reader(stream:stream:r) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">bzip2.reader</strong></div>
+<div style="margin-bottom:1em"><code>bzip2.reader(stream:stream:r) {block?}</code></div>
 Creates a stream instance that decompresses bzip2 data from the specified <code>stream</code> that has readable attribute.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|st:stream|</code>, where <code>st</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>bzip2.writer</strong>
-</p>
-<p>
-<code>bzip2.writer(stream:stream:w, blockSize100k?:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">bzip2.writer</strong></div>
+<div style="margin-bottom:1em"><code>bzip2.writer(stream:stream:w, blockSize100k?:number) {block?}</code></div>
 Creates a stream instance that compresses data into bzip2 format and writes it to the specified <code>stream</code> that has writable attribute.
 </p>
 <p>
@@ -54,24 +46,16 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 This module extends the <code>stream</code> class with methods described here.
 </p>
 <p>
-<strong>stream#reader@bzip2</strong>
-</p>
-<p>
-<code>stream#reader@bzip2() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#reader@bzip2</strong></div>
+<div style="margin-bottom:1em"><code>stream#reader@bzip2() {block?}</code></div>
 Creates a stream instance that decompresses bzip2 data from the specified <code>stream</code> that has readable attribute.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|st:stream|</code>, where <code>st</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>stream#writer@bzip2</strong>
-</p>
-<p>
-<code>stream#writer@bzip2(blockSize100k?:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#writer@bzip2</strong></div>
+<div style="margin-bottom:1em"><code>stream#writer@bzip2(blockSize100k?:number) {block?}</code></div>
 Creates a stream instance that compresses data into bzip2 format and writes it to the specified <code>stream</code> that has writable attribute.
 </p>
 <p>

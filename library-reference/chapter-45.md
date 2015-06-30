@@ -33,30 +33,18 @@ The <code>sys</code> module provides system-related information. This is a built
 </ul>
 <h2><span class="caption-index-2">45.2</span><a name="anchor-45-2"></a>Module Function</h2>
 <p>
-<strong>sys.echo</strong>
-</p>
-<p>
-<code>sys.echo(flag:boolean)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">sys.echo</strong></div>
+<div style="margin-bottom:1em"><code>sys.echo(flag:boolean)</code></div>
 Enables or disables echo-back functionality according to flag.
 </p>
 <p>
-<strong>sys.exit</strong>
-</p>
-<p>
-<code>sys.exit(status?:number)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">sys.exit</strong></div>
+<div style="margin-bottom:1em"><code>sys.exit(status?:number)</code></div>
 Terminates the program with a specified status number.
 </p>
 <p>
-<strong>sys.required_version</strong>
-</p>
-<p>
-<code>sys.required_version(major:number, minor:number, patch:number)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">sys.required_version</strong></div>
+<div style="margin-bottom:1em"><code>sys.required_version(major:number, minor:number, patch:number)</code></div>
 Raises an error if the running interpreter doesn't satisfy the required version.
 </p>
 <p />

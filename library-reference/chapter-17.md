@@ -16,12 +16,8 @@ Below is an example to show differences between files <code>file1.txt</code> and
 </code></pre>
 <h2><span class="caption-index-2">17.1</span><a name="anchor-17-1"></a>Module Function</h2>
 <p>
-<strong>diff.compose</strong>
-</p>
-<p>
-<code>diff.compose(src1, src2):[icase,sync] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">diff.compose</strong></div>
+<div style="margin-bottom:1em"><code>diff.compose(src1, src2):[icase,sync] {block?}</code></div>
 Extracts differences between two sets of line sequence and returns <code>diff.diff@line</code> instance that contains the difference information.
 </p>
 <p>
@@ -62,12 +58,8 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 If attribute <code>:icase</code> is specified, it wouldn't distinguish upper and lower case of characters.
 </p>
 <p>
-<strong>diff.compose@char</strong>
-</p>
-<p>
-<code>diff.compose@char(src1:string, src2:string):[icase] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">diff.compose@char</strong></div>
+<div style="margin-bottom:1em"><code>diff.compose@char(src1:string, src2:string):[icase] {block?}</code></div>
 Extracts differences between two strings and returns <code>diff.diff@line</code> instance that contains the difference information.
 </p>
 <p>
@@ -152,12 +144,8 @@ Number of lines in the "new" text.</td>
 </p>
 <h3><span class="caption-index-3">17.2.2</span><a name="anchor-17-2-2"></a>Method</h3>
 <p>
-<strong>diff.diff@line#eachhunk</strong>
-</p>
-<p>
-<code>diff.diff@line#eachhunk(format?:symbol, lines?:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">diff.diff@line#eachhunk</strong></div>
+<div style="margin-bottom:1em"><code>diff.diff@line#eachhunk(format?:symbol, lines?:number) {block?}</code></div>
 Creates an iterator that returns <code>diff.hunk@line</code> instance stored in the result.
 </p>
 <p>
@@ -186,12 +174,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>diff.diff@line#render</strong>
-</p>
-<p>
-<code>diff.diff@line#render(out?:stream:w, format?:symbol, lines?:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">diff.diff@line#render</strong></div>
+<div style="margin-bottom:1em"><code>diff.diff@line#render(out?:stream:w, format?:symbol, lines?:number) {block?}</code></div>
 Renders diff result to the specified stream.
 </p>
 <p>
@@ -297,12 +281,8 @@ Number of lines in the "new" text covered by the hunk.</td>
 </p>
 <h3><span class="caption-index-3">17.3.2</span><a name="anchor-17-3-2"></a>Method</h3>
 <p>
-<strong>diff.hunk@line#print</strong>
-</p>
-<p>
-<code>diff.hunk@line#print(out?:stream):void {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">diff.hunk@line#print</strong></div>
+<div style="margin-bottom:1em"><code>diff.hunk@line#print(out?:stream):void {block?}</code></div>
 Prints the content of the <code>diff.hunk</code> instance to the specified stream.
 </p>
 <h2><span class="caption-index-2">17.4</span><a name="anchor-17-4"></a>diff.edit@line Class</h2>
@@ -420,12 +400,8 @@ A composed string in Unified format.</td>
 </p>
 <h3><span class="caption-index-3">17.4.2</span><a name="anchor-17-4-2"></a>Method</h3>
 <p>
-<strong>diff.edit@line#print</strong>
-</p>
-<p>
-<code>diff.edit@line#print(out?:stream):void {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">diff.edit@line#print</strong></div>
+<div style="margin-bottom:1em"><code>diff.edit@line#print(out?:stream):void {block?}</code></div>
 Prints the content of the <code>diff.edit</code> instance to the specified stream.
 </p>
 <h2><span class="caption-index-2">17.5</span><a name="anchor-17-5"></a>diff.diff@char Class</h2>

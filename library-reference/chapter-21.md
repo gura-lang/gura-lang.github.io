@@ -41,21 +41,13 @@ When instance method <code>image#write()</code> is provided with a stream that s
 </ul>
 <h2><span class="caption-index-2">21.2</span><a name="anchor-21-2"></a>gif.content Class</h2>
 <p>
-<strong>gif.content</strong>
-</p>
-<p>
-<code>gif.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">gif.content</strong></div>
+<div style="margin-bottom:1em"><code>gif.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code></div>
 Reads a GIF data from a stream and returns an object that contains GIF related information and images of a specified format. format is is <code>rgb,</code>rgba or <code>noimage. If</code>noimage is specified, only the information data is read
 </p>
 <p>
-<strong>gif.content#addimage</strong>
-</p>
-<p>
-<code>gif.content#addimage(image:image, delayTime:number =&gt; 10, leftPos:number =&gt; 0, topPos:number =&gt; 0, disposalMethod:symbol =&gt; `none):map:reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">gif.content#addimage</strong></div>
+<div style="margin-bottom:1em"><code>gif.content#addimage(image:image, delayTime:number =&gt; 10, leftPos:number =&gt; 0, topPos:number =&gt; 0, disposalMethod:symbol =&gt; `none):map:reduce</code></div>
 Adds an image to GIF information.
 </p>
 <p>
@@ -80,12 +72,8 @@ The argument <code>disposalMethod</code> takes one of following symbols that spe
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>gif.content#write</strong>
-</p>
-<p>
-<code>gif.content#write(stream:stream:w):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">gif.content#write</strong></div>
+<div style="margin-bottom:1em"><code>gif.content#write(stream:stream:w):reduce</code></div>
 Writes a GIF image to a stream.
 </p>
 <p>
@@ -96,24 +84,16 @@ This method returns the reference to the target instance itself.
 This module extends the <code>stream</code> class with methods described here.
 </p>
 <p>
-<strong>image#read@gif</strong>
-</p>
-<p>
-<code>image#read@gif(stream:stream:r):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#read@gif</strong></div>
+<div style="margin-bottom:1em"><code>image#read@gif(stream:stream:r):reduce</code></div>
 Reads a GIF image from a stream.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>image#write@gif</strong>
-</p>
-<p>
-<code>image#write@gif(stream:stream:w):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#write@gif</strong></div>
+<div style="margin-bottom:1em"><code>image#write@gif(stream:stream:w):reduce</code></div>
 Writes a GIF image to a stream.
 </p>
 <p>

@@ -38,12 +38,8 @@ conio.waitkey():raise
 </code></pre>
 <h2><span class="caption-index-2">14.1</span><a name="anchor-14-1"></a>Module Function</h2>
 <p>
-<strong>conio.clear</strong>
-</p>
-<p>
-<code>conio.clear(region?:symbol):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">conio.clear</strong></div>
+<div style="margin-bottom:1em"><code>conio.clear(region?:symbol):void</code></div>
 Clears the screen.
 </p>
 <p>
@@ -57,21 +53,13 @@ In default, it clears whole the screen. Argument <code>region</code> that takes 
 <li><code>`bottom</code> .. clears characters on the below side of the cursor.</li>
 </ul>
 <p>
-<strong>conio.getwinsize</strong>
-</p>
-<p>
-<code>conio.getwinsize()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">conio.getwinsize</strong></div>
+<div style="margin-bottom:1em"><code>conio.getwinsize()</code></div>
 Returns the screen size as a list <code>[width, height]</code>.
 </p>
 <p>
-<strong>conio.setcolor</strong>
-</p>
-<p>
-<code>conio.setcolor(fg:symbol:nil, bg?:symbol):map:void {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">conio.setcolor</strong></div>
+<div style="margin-bottom:1em"><code>conio.setcolor(fg:symbol:nil, bg?:symbol):map:void {block?}</code></div>
 Sets foreground and background color of text by specifying a color symbol. Available color symbols are listed below:
 </p>
 <ul>
@@ -103,24 +91,16 @@ If <code>fg</code> is set to nil, the foreground color remains unchanged. If <co
 If <code>block</code> is specified, the color is changed before evaluating the block, and then gets back to what has been set when done.
 </p>
 <p>
-<strong>conio.moveto</strong>
-</p>
-<p>
-<code>conio.moveto(x:number, y:number):map:void {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">conio.moveto</strong></div>
+<div style="margin-bottom:1em"><code>conio.moveto(x:number, y:number):map:void {block?}</code></div>
 Moves cursor to the specified position. The most top-left position on the screen is represented as <code>0, 0</code>.
 </p>
 <p>
 If <code>block</code> is specified, the cursor is moved before evaluating the block, and then gets back to where it has been when done.
 </p>
 <p>
-<strong>conio.waitkey</strong>
-</p>
-<p>
-<code>conio.waitkey():[raise]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">conio.waitkey</strong></div>
+<div style="margin-bottom:1em"><code>conio.waitkey():[raise]</code></div>
 Waits for a keyboard input and returns a character code number associated with the key.
 </p>
 <p>

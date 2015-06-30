@@ -12,57 +12,36 @@ The <code>sqlite3</code> module provices measures to access SQLite3 database. To
 <h2><span class="caption-index-2">44.1</span><a name="anchor-44-1"></a>Module Function</h2>
 <h2><span class="caption-index-2">44.2</span><a name="anchor-44-2"></a>sqlite3.db Class</h2>
 <p>
-<strong>sqlite3.db</strong>
-</p>
-<p>
-<code>sqlite3.db(filename:string) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">sqlite3.db</strong></div>
+<div style="margin-bottom:1em"><code>sqlite3.db(filename:string) {block?}</code></div>
 Opens an sqlite3 database file. If block is not specified, it returns a connection handle with an sqlite3 server. If block is specified, it executes the program in the block with a connection handle as a block parameter, and returns the result afterwards. The connection handle will automatically closed when the block finishes.
 </p>
 <p>
 Block parameter format: <code>|db:sqlite3|</code>
 </p>
 <p>
-<strong>sqlite3.db#close</strong>
-</p>
-<p>
-<code>sqlite3.db#close()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">sqlite3.db#close</strong></div>
+<div style="margin-bottom:1em"><code>sqlite3.db#close()</code></div>
 Shuts down the connection with an sqlite3 server.
 </p>
 <p>
-<strong>sqlite3.db#exec</strong>
-</p>
-<p>
-<code>sqlite3.db#exec(sql:string):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">sqlite3.db#exec</strong></div>
+<div style="margin-bottom:1em"><code>sqlite3.db#exec(sql:string):map</code></div>
 Executes an SQL statement and returns the result as a list.
 </p>
 <p>
-<strong>sqlite3.db#getcolnames</strong>
+<div><strong style="text-decoration:underline">sqlite3.db#getcolnames</strong></div>
+<div style="margin-bottom:1em"><code>sqlite3.db#getcolnames(sql:string):map {block?}</code></div>
+
 </p>
 <p>
-<code>sqlite3.db#getcolnames(sql:string):map {block?}</code>
-</p>
-<p>
-<strong>sqlite3.db#query</strong>
-</p>
-<p>
-<code>sqlite3.db#query(sql:string):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">sqlite3.db#query</strong></div>
+<div style="margin-bottom:1em"><code>sqlite3.db#query(sql:string):map {block?}</code></div>
 Executes an SQL statement and returns the result as an iterator. You should use <code>sqlite3.db#query()</code> instead of <code>sqlite3.db#exec()</code> when it's likely that you get a large size of data as the result.
 </p>
 <p>
-<strong>sqlite3.db#transaction</strong>
-</p>
-<p>
-<code>sqlite3.db#transaction() {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">sqlite3.db#transaction</strong></div>
+<div style="margin-bottom:1em"><code>sqlite3.db#transaction() {block}</code></div>
 Executes the block within a transaction. The process is like following:
 </p>
 <ol>

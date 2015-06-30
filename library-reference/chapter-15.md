@@ -21,47 +21,41 @@ printf('name:%s, age:%d, email:%s¥n',
 </code></pre>
 <h2><span class="caption-index-2">15.1</span><a name="anchor-15-1"></a>Module Function</h2>
 <p>
-<strong>csv.parse</strong>
+<div><strong style="text-decoration:underline">csv.parse</strong></div>
+<div style="margin-bottom:1em"><code>csv.parse(str:string):map</code></div>
+
 </p>
 <p>
-<code>csv.parse(str:string):map</code>
-</p>
-<p>
-<strong>csv.read</strong>
-</p>
-<p>
-<code>csv.read(stream:stream:r) {block?}</code>
+<div><strong style="text-decoration:underline">csv.read</strong></div>
+<div style="margin-bottom:1em"><code>csv.read(stream:stream:r) {block?}</code></div>
+
 </p>
 <h2><span class="caption-index-2">15.2</span><a name="anchor-15-2"></a>csv.writer Class</h2>
 <h3><span class="caption-index-3">15.2.1</span><a name="anchor-15-2-1"></a>Constructor</h3>
 <p>
-<strong>csv.writer</strong>
-</p>
-<p>
-<code>csv.writer(stream:stream:w, format?:string) {block?}</code>
+<div><strong style="text-decoration:underline">csv.writer</strong></div>
+<div style="margin-bottom:1em"><code>csv.writer(stream:stream:w, format?:string) {block?}</code></div>
+
 </p>
 <h3><span class="caption-index-3">15.2.2</span><a name="anchor-15-2-2"></a>Method</h3>
 <p>
-<strong>csv.writer#write</strong>
-</p>
-<p>
-<code>csv.writer#write(fields+):map:reduce</code>
+<div><strong style="text-decoration:underline">csv.writer#write</strong></div>
+<div style="margin-bottom:1em"><code>csv.writer#write(fields+):map:reduce</code></div>
+
 </p>
 <h2><span class="caption-index-2">15.3</span><a name="anchor-15-3"></a>Extension of stream Class</h2>
 <p>
 This module extends the <code>stream</code> class with methods described here.
 </p>
 <p>
-<strong>stream#read@csv</strong>
+<div><strong style="text-decoration:underline">stream#read@csv</strong></div>
+<div style="margin-bottom:1em"><code>stream#read@csv() {block?}</code></div>
+
 </p>
 <p>
-<code>stream#read@csv() {block?}</code>
-</p>
-<p>
-<strong>stream#writer@csv</strong>
-</p>
-<p>
-<code>stream#writer@csv(format?:string) {block?}</code>
+<div><strong style="text-decoration:underline">stream#writer@csv</strong></div>
+<div style="margin-bottom:1em"><code>stream#writer@csv(format?:string) {block?}</code></div>
+
 </p>
 <p />
 

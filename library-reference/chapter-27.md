@@ -76,49 +76,29 @@ This field is valid only for CRC32 and returns `nil` for other hashes.</td>
 </p>
 <h3><span class="caption-index-3">27.1.2</span><a name="anchor-27-1-2"></a>Constructor</h3>
 <p>
-<strong>hash.md5</strong>
-</p>
-<p>
-<code>hash.md5(stream?:stream:r) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">hash.md5</strong></div>
+<div style="margin-bottom:1em"><code>hash.md5(stream?:stream:r) {block?}</code></div>
 Creates an <code>hash.accumulator</code> instance that calculates MD5 hashed value from the content of <code>stream</code>.
 </p>
 <p>
-<strong>hash.sha1</strong>
-</p>
-<p>
-<code>hash.sha1(stream?:stream:r) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">hash.sha1</strong></div>
+<div style="margin-bottom:1em"><code>hash.sha1(stream?:stream:r) {block?}</code></div>
 Creates an <code>hash.accumulator</code> instance that calculates SHA1 hashed value from the content of <code>stream</code>.
 </p>
 <p>
-<strong>hash.crc32</strong>
-</p>
-<p>
-<code>hash.crc32(stream?:stream:r) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">hash.crc32</strong></div>
+<div style="margin-bottom:1em"><code>hash.crc32(stream?:stream:r) {block?}</code></div>
 Creates an <code>hash.accumulator</code> instance that calculates CRC32 hashed value from the content of <code>stream</code>.
 </p>
 <h3><span class="caption-index-3">27.1.3</span><a name="anchor-27-1-3"></a>Method</h3>
 <p>
-<strong>hash.accumulator#init</strong>
-</p>
-<p>
-<code>hash.accumulator#init():reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">hash.accumulator#init</strong></div>
+<div style="margin-bottom:1em"><code>hash.accumulator#init():reduce</code></div>
 Initializes the state of the accumulator.
 </p>
 <p>
-<strong>hash.accumulator#update</strong>
-</p>
-<p>
-<code>hash.accumulator#update(stream:stream:r):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">hash.accumulator#update</strong></div>
+<div style="margin-bottom:1em"><code>hash.accumulator#update(stream:stream:r):reduce</code></div>
 Updates the accumulator with the content of <code>stream</code>.
 </p>
 <p />

@@ -34,38 +34,28 @@ When instance method <code>image#write()</code> is provided with a stream that s
 <h2><span class="caption-index-2">35.2</span><a name="anchor-35-2"></a>msico.content Class</h2>
 <h3><span class="caption-index-3">35.2.1</span><a name="anchor-35-2-1"></a>Constructor</h3>
 <p>
-<strong>msico.content</strong>
-</p>
-<p>
-<code>msico.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code>
+<div><strong style="text-decoration:underline">msico.content</strong></div>
+<div style="margin-bottom:1em"><code>msico.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code></div>
+
 </p>
 <h3><span class="caption-index-3">35.2.2</span><a name="anchor-35-2-2"></a>Method</h3>
 <p>
-<strong>msico.content#write</strong>
-</p>
-<p>
-<code>msico.content#write(stream:stream:w):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">msico.content#write</strong></div>
+<div style="margin-bottom:1em"><code>msico.content#write(stream:stream:w):reduce</code></div>
 Writes an ICO image to a stream.
 </p>
 <p>
-<strong>msico.content#addimage</strong>
-</p>
-<p>
-<code>msico.content#addimage(image:image):map:reduce</code>
+<div><strong style="text-decoration:underline">msico.content#addimage</strong></div>
+<div style="margin-bottom:1em"><code>msico.content#addimage(image:image):map:reduce</code></div>
+
 </p>
 <h2><span class="caption-index-2">35.3</span><a name="anchor-35-3"></a>Extension to image Class</h2>
 <p>
 This module extends the <code>image</code> class with methods described here.
 </p>
 <p>
-<strong>image#read@msico</strong>
-</p>
-<p>
-<code>image#read@msico(stream:stream:r, idx:number =&gt; 0):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#read@msico</strong></div>
+<div style="margin-bottom:1em"><code>image#read@msico(stream:stream:r, idx:number =&gt; 0):reduce</code></div>
 Reads an ICO image from a stream.
 </p>
 <p />

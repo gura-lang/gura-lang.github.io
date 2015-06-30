@@ -11,28 +11,24 @@ The <code>yaml</code> module provides measures to read/write YAML files.
 </p>
 <h2><span class="caption-index-2">55.1</span><a name="anchor-55-1"></a>Module Function</h2>
 <p>
-<strong>yaml.compose</strong>
+<div><strong style="text-decoration:underline">yaml.compose</strong></div>
+<div style="margin-bottom:1em"><code>yaml.compose(obj)</code></div>
+
 </p>
 <p>
-<code>yaml.compose(obj)</code>
+<div><strong style="text-decoration:underline">yaml.parse</strong></div>
+<div style="margin-bottom:1em"><code>yaml.parse(str:string)</code></div>
+
 </p>
 <p>
-<strong>yaml.parse</strong>
+<div><strong style="text-decoration:underline">yaml.read</strong></div>
+<div style="margin-bottom:1em"><code>yaml.read(stream:stream:r)</code></div>
+
 </p>
 <p>
-<code>yaml.parse(str:string)</code>
-</p>
-<p>
-<strong>yaml.read</strong>
-</p>
-<p>
-<code>yaml.read(stream:stream:r)</code>
-</p>
-<p>
-<strong>yaml.write</strong>
-</p>
-<p>
-<code>yaml.write(stream:stream:w, obj):reduce</code>
+<div><strong style="text-decoration:underline">yaml.write</strong></div>
+<div style="margin-bottom:1em"><code>yaml.write(stream:stream:w, obj):reduce</code></div>
+
 </p>
 <h2><span class="caption-index-2">55.2</span><a name="anchor-55-2"></a>Thanks</h2>
 <p>

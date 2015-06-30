@@ -8,30 +8,18 @@ title: Gura Library Reference
 <h1><span class="caption-index-1">4</span><a name="anchor-4"></a>Built-in Function</h1>
 <h2><span class="caption-index-2">4.1</span><a name="anchor-4-1"></a>Formatting and Printing of Text</h2>
 <p>
-<strong>format</strong>
-</p>
-<p>
-<code>format(format:string, values*):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">format</strong></div>
+<div style="margin-bottom:1em"><code>format(format:string, values*):map</code></div>
 Converts <code>values</code> into string depending on formatter specifications in <code>format</code> and returns the result in string. For a detail information about formatter specications, refer to the document of <code>printf()</code> function.
 </p>
 <p>
-<strong>print</strong>
-</p>
-<p>
-<code>print(values*):map:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">print</strong></div>
+<div style="margin-bottom:1em"><code>print(values*):map:void</code></div>
 Prints out <code>values</code> to standard output.
 </p>
 <p>
-<strong>printf</strong>
-</p>
-<p>
-<code>printf(format:string, values*):map:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">printf</strong></div>
+<div style="margin-bottom:1em"><code>printf(format:string, values*):map:void</code></div>
 Prints out <code>values</code> to standard output according to formatter specifiers in <code>format</code>. The format specifier has a format of <code>%[flags][width][.precision]specifier</code>.
 </p>
 <p>
@@ -87,22 +75,14 @@ printf('%.5f', 1 / 3) .. prints "0.33333"
 For other specifiers, it has no effect.
 </p>
 <p>
-<strong>println</strong>
-</p>
-<p>
-<code>println(values*):map:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">println</strong></div>
+<div style="margin-bottom:1em"><code>println(values*):map:void</code></div>
 Prints out <code>values</code> and an end-of-line character to the standard output.
 </p>
 <h2><span class="caption-index-2">4.2</span><a name="anchor-4-2"></a>Repetition</h2>
 <p>
-<strong>cross</strong>
-</p>
-<p>
-<code>cross (`expr+) {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">cross</strong></div>
+<div style="margin-bottom:1em"><code>cross (`expr+) {block}</code></div>
 Executes the block until it evaluates all the combinations of results from exprs "<code>var in iteratable</code>." You can specify one or more such exprs as arguments and they are counted up from the one on the right side. Iterators and lists are the most popular iteratables, but even any objects that are cable of generating iterators can be specified as such.
 </p>
 <p>
@@ -120,12 +100,8 @@ It returns the last evaluated value in the block as its own result, but, if one 
 Block parameter format is <code>|idx:number, i0:number, i1:number, ..|</code> where <code>idx</code> indicates an index of the whole loop and each of <code>i0</code>, <code>i1</code> .. indicates an index of each corresponding iterable.
 </p>
 <p>
-<strong>for</strong>
-</p>
-<p>
-<code>for (`expr+) {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">for</strong></div>
+<div style="margin-bottom:1em"><code>for (`expr+) {block}</code></div>
 Executes the block until any of the exprs of "<code>var in iteratable</code>" reach at their ends. You can specify one or more such exprs as arguments. Iterators and lists are the most popular iteratables, but even any objects that are cable of generating iterators can be specified as such.
 </p>
 <p>
@@ -143,12 +119,8 @@ It returns the last evaluated value in the block as its own result, but, if one 
 Block parameter format is <code>|idx:number|</code> where <code>idx</code> indicates an index of the loop.
 </p>
 <p>
-<strong>repeat</strong>
-</p>
-<p>
-<code>repeat (n?:number) {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">repeat</strong></div>
+<div style="margin-bottom:1em"><code>repeat (n?:number) {block}</code></div>
 Executes the block for <code>n</code> times. If <code>n</code> is omitted, it repeats the block execution forever.
 </p>
 <p>
@@ -166,12 +138,8 @@ It returns the last evaluated value in the block as its own result, but, if one 
 Block parameter format is <code>|idx:number|</code> where <code>idx</code> indicates an index of the loop.
 </p>
 <p>
-<strong>while</strong>
-</p>
-<p>
-<code>while (`cond) {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">while</strong></div>
+<div style="margin-bottom:1em"><code>while (`cond) {block}</code></div>
 Executes the block while the evaluation result of <code>cond</code> is true.
 </p>
 <p>
@@ -189,12 +157,8 @@ It returns the last evaluated value in the block as its own result, but, if one 
 Block parameter format is <code>|idx:number|</code> where <code>idx</code> indicates an index of the loop.
 </p>
 <p>
-<strong>break</strong>
-</p>
-<p>
-<code>break(value?):symbol_func:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">break</strong></div>
+<div style="margin-bottom:1em"><code>break(value?):symbol_func:void</code></div>
 Exits from an inside of a loop that is formed with repeating functions like <code>repeat()</code>, <code>while()</code>, <code>for()</code> and <code>cross(),</code> as well as other functions generating an iterator.
 </p>
 <p>
@@ -204,12 +168,8 @@ After this function is called, the current loop value would be set to <code>valu
 However, when the loop function is called with one of the attributes, <code>:list</code>, <code>:xlist</code>, <code>:set</code>, <code>:xset</code>, <code>:iter</code> and <code>:xiter</code>, the argument value of <code>break()</code> is NOT included as an element in the list or iterator.
 </p>
 <p>
-<strong>continue</strong>
-</p>
-<p>
-<code>continue(value?):symbol_func:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">continue</strong></div>
+<div style="margin-bottom:1em"><code>continue(value?):symbol_func:void</code></div>
 Cancels the current turn of a loop and continues on to the next. This function can be used in a loop that is formed with repeating functions like <code>repeat()</code>, <code>while()</code>, <code>for()</code> and <code>cross()</code>, as well as other functions generating an iterator.
 </p>
 <p>
@@ -220,12 +180,8 @@ If the loop function is specified with one of the attributes <code>:list</code>,
 </p>
 <h2><span class="caption-index-2">4.3</span><a name="anchor-4-3"></a>Value Generator</h2>
 <p>
-<strong>consts</strong>
-</p>
-<p>
-<code>consts(value, num?:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">consts</strong></div>
+<div style="margin-bottom:1em"><code>consts(value, num?:number) {block?}</code></div>
 Creates an iterator that generates the same value specified by the argument <code>value</code>.
 </p>
 <p>
@@ -252,12 +208,8 @@ Below is an example to create an iterator that returns constant values:
 // x generates 'hello' for 10 times
 </code></pre>
 <p>
-<strong>dim</strong>
-</p>
-<p>
-<code>dim(n+:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dim</strong></div>
+<div style="margin-bottom:1em"><code>dim(n+:number) {block?}</code></div>
 Returns a list that contains <code>n</code> values of <code>nil</code>. If you pass multiple numbers for <code>n</code>, it would create a nested list.
 </p>
 <p>
@@ -288,12 +240,8 @@ Below is an example to create a two-dimentional list that consists of strings sh
 // x is [['0-0', '0-1'], ['1-0', '1-1'], ['2-0', '2-1']]
 </code></pre>
 <p>
-<strong>interval</strong>
-</p>
-<p>
-<code>interval(begin:number, end:number, samples:number):map:[open,open_l,open_r] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">interval</strong></div>
+<div style="margin-bottom:1em"><code>interval(begin:number, end:number, samples:number):map:[open,open_l,open_r] {block?}</code></div>
 Creates an iterator that generates a sequence of numbers by specifying the beginning and ending numbers, and the number of samples between them.
 </p>
 <p>
@@ -305,12 +253,8 @@ In default, it creates a sequence that contains the beginning and ending numbers
 <li><code>:open_r</code> .. Numbers in range of <code>[begin, end)</code> that doesn't contain <code>end</code>.</li>
 </ul>
 <p>
-<strong>range</strong>
-</p>
-<p>
-<code>range(num:number, num_end?:number, step?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">range</strong></div>
+<div style="margin-bottom:1em"><code>range(num:number, num_end?:number, step?:number):map {block?}</code></div>
 Creates an iterator that generates a sequence of integer numbers.
 </p>
 <p>
@@ -349,12 +293,8 @@ x = range(3, 10, 2)
 </code></pre>
 <h2><span class="caption-index-2">4.4</span><a name="anchor-4-4"></a>Branch and Flow Control</h2>
 <p>
-<strong>if</strong>
-</p>
-<p>
-<code>if (`cond):leader {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">if</strong></div>
+<div style="margin-bottom:1em"><code>if (`cond):leader {block}</code></div>
 Specify an "if" block within a statement of <code>if-elsif-else</code>.
 </p>
 <p>
@@ -364,12 +304,8 @@ If the evaluation result of <code>cond</code> is determined as true, the block w
 Otherwise, if the function is followed by a trailer <code>elsif</code> or <code>else</code>, that would be evaluated. If no trailer exists, the function returns <code>nil</code> value.
 </p>
 <p>
-<strong>elsif</strong>
-</p>
-<p>
-<code>elsif (`cond):leader:trailer {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">elsif</strong></div>
+<div style="margin-bottom:1em"><code>elsif (`cond):leader:trailer {block}</code></div>
 Specify an "elsif" block within a statement of <code>if-elsif-else</code>.
 </p>
 <p>
@@ -379,60 +315,36 @@ If the evaluation result of <code>cond</code> is determined as true, the block w
 Otherwise, if the function is followed by a trailer <code>elsif</code> or <code>else</code>, that would be evaluated. If no trailer exists, the function returns <code>nil</code> value.
 </p>
 <p>
-<strong>else</strong>
-</p>
-<p>
-<code>else():trailer {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">else</strong></div>
+<div style="margin-bottom:1em"><code>else():trailer {block}</code></div>
 Specify an "else" block within a statement of <code>if-elsif-else</code> or <code>try-catch-else</code>.
 </p>
 <p>
-<strong>end</strong>
-</p>
-<p>
-<code>end(dummy*):symbol_func:trailer:end_marker:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">end</strong></div>
+<div style="margin-bottom:1em"><code>end(dummy*):symbol_func:trailer:end_marker:void</code></div>
 Specify an end of a sequence.
 </p>
 <p>
 This function is supposed to be used as a block terminator in an embedded script of a template
 </p>
 <p>
-<strong>switch</strong>
-</p>
-<p>
-<code>switch() {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">switch</strong></div>
+<div style="margin-bottom:1em"><code>switch() {block}</code></div>
 Form a switch block that contains <code>case()</code> and <code>default()</code> function calls. It calls these functions sequentially and exits the execution when one of the conditions is evaluated as true.
 </p>
 <p>
-<strong>case</strong>
-</p>
-<p>
-<code>case(`cond) {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">case</strong></div>
+<div style="margin-bottom:1em"><code>case(`cond) {block}</code></div>
 Specify an case block within a switch block. After evaluating an expr object cond, the block shall be executed if it has a value of true.
 </p>
 <p>
-<strong>default</strong>
-</p>
-<p>
-<code>default() {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">default</strong></div>
+<div style="margin-bottom:1em"><code>default() {block}</code></div>
 Specify a default block within a switch block. If all the preceding condition of case block are not evaluated as true, this block shall be executed.
 </p>
 <p>
-<strong>return</strong>
-</p>
-<p>
-<code>return(value?):symbol_func:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">return</strong></div>
+<div style="margin-bottom:1em"><code>return(value?):symbol_func:void</code></div>
 Skips the remaining procedure of the current function and returns to the context that calls it.
 </p>
 <p>
@@ -440,67 +352,42 @@ If it takes an argument, the value is treated as a result of the function. Other
 </p>
 <h2><span class="caption-index-2">4.5</span><a name="anchor-4-5"></a>Exception Handling</h2>
 <p>
-<strong>try</strong>
-</p>
-<p>
-<code>try():leader {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">try</strong></div>
+<div style="margin-bottom:1em"><code>try():leader {block}</code></div>
 Specify a try block of a statement of try-catch-else. It catches signals that occur in the block and executes a corresponding <code>catch()</code> or <code>else()</code> function that follow after it.
 </p>
 <p>
-<strong>catch</strong>
-</p>
-<p>
-<code>catch(errors*:error):leader:trailer {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">catch</strong></div>
+<div style="margin-bottom:1em"><code>catch(errors*:error):leader:trailer {block}</code></div>
 Specify an catch block of a statement of try-catch-else. It can take multiple numbers of arguments of error objects to handle. If there's no error objects specified, it handles all the errors that are not handled in the preceding <code>catch()</code> function calls. Block parameter format: <code>|error:error|error</code> is an error object that contains information of the handled error.
 </p>
 <p>
-<strong>finally</strong>
+<div><strong style="text-decoration:underline">finally</strong></div>
+<div style="margin-bottom:1em"><code>finally():trailer:finalizer {block}</code></div>
+
 </p>
 <p>
-<code>finally():trailer:finalizer {block}</code>
-</p>
-<p>
-<strong>raise</strong>
-</p>
-<p>
-<code>raise(error:error, msg:string =&gt; 'error', value?)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">raise</strong></div>
+<div style="margin-bottom:1em"><code>raise(error:error, msg:string =&gt; 'error', value?)</code></div>
 Raises an error signal with a specified error object, a message string and an additional value.
 </p>
 <h2><span class="caption-index-2">4.6</span><a name="anchor-4-6"></a>Data Converter</h2>
 <p>
-<strong>chr</strong>
-</p>
-<p>
-<code>chr(code:number):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">chr</strong></div>
+<div style="margin-bottom:1em"><code>chr(code:number):map</code></div>
 Converts a UTF-32 code into a string.
 </p>
 <p>
-<strong>hex</strong>
-</p>
-<p>
-<code>hex(num:number, digits?:number):map:[upper]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">hex</strong></div>
+<div style="margin-bottom:1em"><code>hex(num:number, digits?:number):map:[upper]</code></div>
 Converts a number into a hexadecimal string. Argument <code>digits</code> specifies a minimum columns of the converted result and fills <code>0</code> in the lacking space.
 </p>
 <p>
 In default, it uses lower-case characters in its conversion, while it uses upper-case ones when <code>:upper</code> attribute is specified.
 </p>
 <p>
-<strong>int</strong>
-</p>
-<p>
-<code>int(value):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">int</strong></div>
+<div style="margin-bottom:1em"><code>int(value):map</code></div>
 Converts a value into an integer number like below:
 </p>
 <ul>
@@ -510,21 +397,13 @@ Converts a value into an integer number like below:
 <li>For other values, an error occurs.</li>
 </ul>
 <p>
-<strong>ord</strong>
-</p>
-<p>
-<code>ord(str:string):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">ord</strong></div>
+<div style="margin-bottom:1em"><code>ord(str:string):map</code></div>
 Converts the first character of a string into a number of UTF-32 code. If the string contains more than one characters, it simply neglects trailing ones.
 </p>
 <p>
-<strong>tonumber</strong>
-</p>
-<p>
-<code>tonumber(value):map:[nil,raise,strict,zero]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">tonumber</strong></div>
+<div style="margin-bottom:1em"><code>tonumber(value):map:[nil,raise,strict,zero]</code></div>
 Converts a string value into a number by a lexical parsing. If the value is not a string, it first tries to convert the value into a string.
 </p>
 <p>
@@ -539,31 +418,19 @@ If it fails the conversion, it would return <code>nil</code> value. Attributes d
 <li><code>:nil</code> .. returns <code>nil</code> value (default)</li>
 </ul>
 <p>
-<strong>tostring</strong>
-</p>
-<p>
-<code>tostring(value):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">tostring</strong></div>
+<div style="margin-bottom:1em"><code>tostring(value):map</code></div>
 Converts a value into a string.
 </p>
 <p>
-<strong>tosymbol</strong>
-</p>
-<p>
-<code>tosymbol(str:string):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">tosymbol</strong></div>
+<div style="margin-bottom:1em"><code>tosymbol(str:string):map</code></div>
 Converts a string into a symbol.
 </p>
 <h2><span class="caption-index-2">4.7</span><a name="anchor-4-7"></a>Class Operations</h2>
 <p>
-<strong>class</strong>
-</p>
-<p>
-<code>class(superclass?:function) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">class</strong></div>
+<div style="margin-bottom:1em"><code>class(superclass?:function) {block?}</code></div>
 Creates a class that includes methods and properties described in the content of the <code>block</code>. The detail information on how to describe the block content for this function is written in "Gura Language Manual".
 </p>
 <p>
@@ -586,21 +453,13 @@ person.Print()
 If the argument <code>superclass</code>, which is expected to be a constructor function of a super class, is specified, the created class would inherit methods and properties from the specified class.
 </p>
 <p>
-<strong>classref</strong>
-</p>
-<p>
-<code>classref(type+:expr):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">classref</strong></div>
+<div style="margin-bottom:1em"><code>classref(type+:expr):map {block?}</code></div>
 Looks up a class by an expression of a type name.
 </p>
 <p>
-<strong>struct</strong>
-</p>
-<p>
-<code>struct(`args+):[loose] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">struct</strong></div>
+<div style="margin-bottom:1em"><code>struct(`args+):[loose] {block?}</code></div>
 Returns a function object of a constructor for a structure that contains properties specified by <code>args</code>. It can optionally take block which declares methods and properties just like <code>class</code> function.
 </p>
 <p>
@@ -617,12 +476,8 @@ printf('name:%s age:%d\n', person.name, person.age)
 If <code>:loose</code> attribute is speicied, the generated constructor would take all the arguments as optional. Omitted variables are set to <code>nil</code>
 </p>
 <p>
-<strong>super</strong>
-</p>
-<p>
-<code>super(obj):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">super</strong></div>
+<div style="margin-bottom:1em"><code>super(obj):map {block?}</code></div>
 Returns a reference to <code>obj</code> that searches methods in a scope of the super class of its own.
 </p>
 <p>
@@ -642,39 +497,23 @@ super(b).func()  // A#func() is called.
 </code></pre>
 <h2><span class="caption-index-2">4.8</span><a name="anchor-4-8"></a>Scope Operations</h2>
 <p>
-<strong>local</strong>
-</p>
-<p>
-<code>local(`syms+)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">local</strong></div>
+<div style="margin-bottom:1em"><code>local(`syms+)</code></div>
 Declares symbols that is supposed to access variables in a local scope.
 </p>
 <p>
-<strong>locals</strong>
-</p>
-<p>
-<code>locals(module?:module) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">locals</strong></div>
+<div style="margin-bottom:1em"><code>locals(module?:module) {block?}</code></div>
 Returns an environment object that belongs to a specified module. If module is omitted, it returns an environment object of the current scope.
 </p>
 <p>
-<strong>outers</strong>
-</p>
-<p>
-<code>outers() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">outers</strong></div>
+<div style="margin-bottom:1em"><code>outers() {block?}</code></div>
 Returns an environment object that accesses to an outer scope.
 </p>
 <p>
-<strong>public</strong>
-</p>
-<p>
-<code>public():void {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">public</strong></div>
+<div style="margin-bottom:1em"><code>public():void {block}</code></div>
 Declares symbols as public ones that are accessible from outer scopes.
 </p>
 <p>
@@ -683,22 +522,14 @@ If you want to make <code>foo</code> and <code>bar</code> accessible, call this 
 <pre><code>public { foo, bar }
 </code></pre>
 <p>
-<strong>scope</strong>
-</p>
-<p>
-<code>scope(target?) {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">scope</strong></div>
+<div style="margin-bottom:1em"><code>scope(target?) {block}</code></div>
 Evaluates block with a local scope.
 </p>
 <h2><span class="caption-index-2">4.9</span><a name="anchor-4-9"></a>Module Operations</h2>
 <p>
-<strong>import</strong>
-</p>
-<p>
-<code>import(`module, `alias?):[binary,mixin_type,overwrite] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">import</strong></div>
+<div style="margin-bottom:1em"><code>import(`module, `alias?):[binary,mixin_type,overwrite] {block?}</code></div>
 Imports a module and creates a variable that represents the imported module. It also returns a value that is a reference to the module.
 </p>
 <p>
@@ -730,266 +561,150 @@ If the argument <code>module</code> is prefixed by an and operator like <code>&a
 import(&amp;var)
 </code></pre>
 <p>
-<strong>module</strong>
-</p>
-<p>
-<code>module() {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">module</strong></div>
+<div style="margin-bottom:1em"><code>module() {block}</code></div>
 Creates a module that contains functions and variables defined in the block and returns it as a module object. This can be used to realize a namespace.
 </p>
 <h2><span class="caption-index-2">4.10</span><a name="anchor-4-10"></a>Value Type Information</h2>
 <p>
-<strong>isbinary</strong>
-</p>
-<p>
-<code>isbinary(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isbinary</strong></div>
+<div style="margin-bottom:1em"><code>isbinary(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is binary, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isboolean</strong>
-</p>
-<p>
-<code>isboolean(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isboolean</strong></div>
+<div style="margin-bottom:1em"><code>isboolean(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is boolean, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isclass</strong>
-</p>
-<p>
-<code>isclass(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isclass</strong></div>
+<div style="margin-bottom:1em"><code>isclass(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is class, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>iscomplex</strong>
-</p>
-<p>
-<code>iscomplex(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iscomplex</strong></div>
+<div style="margin-bottom:1em"><code>iscomplex(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is complex, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isdatetime</strong>
-</p>
-<p>
-<code>isdatetime(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isdatetime</strong></div>
+<div style="margin-bottom:1em"><code>isdatetime(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is datetime, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isdict</strong>
-</p>
-<p>
-<code>isdict(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isdict</strong></div>
+<div style="margin-bottom:1em"><code>isdict(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is dict, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isenvironment</strong>
-</p>
-<p>
-<code>isenvironment(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isenvironment</strong></div>
+<div style="margin-bottom:1em"><code>isenvironment(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is environment, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>iserror</strong>
-</p>
-<p>
-<code>iserror(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iserror</strong></div>
+<div style="margin-bottom:1em"><code>iserror(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is error, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isexpr</strong>
-</p>
-<p>
-<code>isexpr(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isexpr</strong></div>
+<div style="margin-bottom:1em"><code>isexpr(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is expr, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isfunction</strong>
-</p>
-<p>
-<code>isfunction(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isfunction</strong></div>
+<div style="margin-bottom:1em"><code>isfunction(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is function, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isiterator</strong>
-</p>
-<p>
-<code>isiterator(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isiterator</strong></div>
+<div style="margin-bottom:1em"><code>isiterator(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is iterator, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>islist</strong>
-</p>
-<p>
-<code>islist(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">islist</strong></div>
+<div style="margin-bottom:1em"><code>islist(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is list, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>ismatrix</strong>
-</p>
-<p>
-<code>ismatrix(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">ismatrix</strong></div>
+<div style="margin-bottom:1em"><code>ismatrix(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is matrix, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>ismodule</strong>
-</p>
-<p>
-<code>ismodule(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">ismodule</strong></div>
+<div style="margin-bottom:1em"><code>ismodule(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is module, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isnil</strong>
-</p>
-<p>
-<code>isnil(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isnil</strong></div>
+<div style="margin-bottom:1em"><code>isnil(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is nil, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isnumber</strong>
-</p>
-<p>
-<code>isnumber(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isnumber</strong></div>
+<div style="margin-bottom:1em"><code>isnumber(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is number, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isrational</strong>
-</p>
-<p>
-<code>isrational(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isrational</strong></div>
+<div style="margin-bottom:1em"><code>isrational(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is rational, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>issemaphore</strong>
-</p>
-<p>
-<code>issemaphore(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">issemaphore</strong></div>
+<div style="margin-bottom:1em"><code>issemaphore(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is semaphore, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isstring</strong>
-</p>
-<p>
-<code>isstring(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isstring</strong></div>
+<div style="margin-bottom:1em"><code>isstring(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is string, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>issymbol</strong>
-</p>
-<p>
-<code>issymbol(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">issymbol</strong></div>
+<div style="margin-bottom:1em"><code>issymbol(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is symbol, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>istimedelta</strong>
-</p>
-<p>
-<code>istimedelta(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">istimedelta</strong></div>
+<div style="margin-bottom:1em"><code>istimedelta(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is timedelta, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isuri</strong>
-</p>
-<p>
-<code>isuri(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isuri</strong></div>
+<div style="margin-bottom:1em"><code>isuri(value)</code></div>
 Returns <code>true</code> if the type of the specified <code>value</code> is uri, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isdefined</strong>
-</p>
-<p>
-<code>isdefined(`identifier)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isdefined</strong></div>
+<div style="margin-bottom:1em"><code>isdefined(`identifier)</code></div>
 Returns <code>true</code> if <code>identifier</code> is defined, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>isinstance</strong>
-</p>
-<p>
-<code>isinstance(value, type+:expr):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">isinstance</strong></div>
+<div style="margin-bottom:1em"><code>isinstance(value, type+:expr):map</code></div>
 Returns <code>true</code> if <code>value</code> is an instance of <code>type</code> or its descendant, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>istype</strong>
-</p>
-<p>
-<code>istype(value, type+:expr):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">istype</strong></div>
+<div style="margin-bottom:1em"><code>istype(value, type+:expr):map</code></div>
 Returns <code>true</code> if <code>value</code> is of the type of <code>type</code>, and <code>false</code> otherwise.
 </p>
 <p>
-<strong>typename</strong>
-</p>
-<p>
-<code>typename(`value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">typename</strong></div>
+<div style="margin-bottom:1em"><code>typename(`value)</code></div>
 Returns a type name of the value.
 </p>
 <p>
-<strong>undef</strong>
-</p>
-<p>
-<code>undef(`identifier+):[raise]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">undef</strong></div>
+<div style="margin-bottom:1em"><code>undef(`identifier+):[raise]</code></div>
 Undefines <code>identifier</code> in the current scope.
 </p>
 <h2><span class="caption-index-2">4.11</span><a name="anchor-4-11"></a>Data Processing</h2>
 <p>
-<strong>choose</strong>
-</p>
-<p>
-<code>choose(index:number, values+):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">choose</strong></div>
+<div style="margin-bottom:1em"><code>choose(index:number, values+):map</code></div>
 Picks up a value placed at <code>index</code> in the argument list <code>values</code>.
 </p>
 <p>
@@ -999,12 +714,8 @@ Sample:
 choose(2, 'apple', 'orange', 'banana') // returns 'banana'
 </code></pre>
 <p>
-<strong>cond</strong>
-</p>
-<p>
-<code>cond(flag:boolean, value1:nomap, value2?:nomap):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">cond</strong></div>
+<div style="margin-bottom:1em"><code>cond(flag:boolean, value1:nomap, value2?:nomap):map</code></div>
 Returns <code>value1</code> if <code>flag</code> is determined as true, and <code>value2</code> otherwise. If the argument <code>value2</code> is omitted, it will return <code>nil</code> when <code>flag</code> is determined as false.
 </p>
 <p>
@@ -1023,12 +734,8 @@ Notice that they have the following differences:
 The arguments <code>value1</code> and <code>value2</code> are not processed by the implicit mapping, so you can specify a list or an iterator for them as selected items.
 </p>
 <p>
-<strong>conds</strong>
-</p>
-<p>
-<code>conds(flag:boolean, value1, value2?):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">conds</strong></div>
+<div style="margin-bottom:1em"><code>conds(flag:boolean, value1, value2?):map</code></div>
 Returns <code>value1</code> if <code>flag</code> is determined as true, and <code>value2</code> otherwise. If argument <code>value2</code> is omitted, it will return <code>nil</code> when <code>flag</code> is determined as false.
 </p>
 <p>
@@ -1047,21 +754,13 @@ Notice that they have the following differences:
 If you want to specify a list or an iterator for <code>value1</code> and <code>value2</code> as selected values, use <code>cond()</code> function instead.
 </p>
 <p>
-<strong>max</strong>
-</p>
-<p>
-<code>max(values+):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">max</strong></div>
+<div style="margin-bottom:1em"><code>max(values+):map</code></div>
 Returns the maximum value among the given arguments.
 </p>
 <p>
-<strong>min</strong>
-</p>
-<p>
-<code>min(values+):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">min</strong></div>
+<div style="margin-bottom:1em"><code>min(values+):map</code></div>
 Returns the minimum value among the given arguments.
 </p>
 <h2><span class="caption-index-2">4.12</span><a name="anchor-4-12"></a>Random</h2>
@@ -1069,21 +768,13 @@ Returns the minimum value among the given arguments.
 Random numbers are generated using <a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT/index.html">SIMD-oriented Fast Mersenne Twister (SFMT)</a> library.
 </p>
 <p>
-<strong>rand</strong>
-</p>
-<p>
-<code>rand(range?:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">rand</strong></div>
+<div style="margin-bottom:1em"><code>rand(range?:number) {block?}</code></div>
 Returns a random number between <code>0</code> and <code>(range - 1)</code>. If argument <code>range</code> is not specified, it generates random numbers in a range of [0, 1).
 </p>
 <p>
-<strong>rands</strong>
-</p>
-<p>
-<code>rands(range?:number, num?:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">rands</strong></div>
+<div style="margin-bottom:1em"><code>rands(range?:number, num?:number) {block?}</code></div>
 Creates an iterator that returns random numbers between <code>0</code> and <code>(range - 1)</code>.
 </p>
 <p>
@@ -1113,34 +804,22 @@ Below is an example to create a create that generates random numbers:
 // x is an infinite iterator to generates random numbers between 0 and 99
 </code></pre>
 <p>
-<strong>randseed</strong>
-</p>
-<p>
-<code>randseed(seed:number):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">randseed</strong></div>
+<div style="margin-bottom:1em"><code>randseed(seed:number):void</code></div>
 Initializes random seed with a specified number.
 </p>
 <h2><span class="caption-index-2">4.13</span><a name="anchor-4-13"></a>Property Listing</h2>
 <p>
-<strong>dir</strong>
-</p>
-<p>
-<code>dir(obj?):[noesc]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dir</strong></div>
+<div style="margin-bottom:1em"><code>dir(obj?):[noesc]</code></div>
 Returns a symbol list of variables and functions that are assigned in the environment of <code>obj</code>.
 </p>
 <p>
 In default, when the <code>obj</code> is an instance of a class, it also searches symbols assigned in the class that it belongs to and its parent classes. Specifying attribute <code>:noesc</code> avoids that behavior.
 </p>
 <p>
-<strong>dirtype</strong>
-</p>
-<p>
-<code>dirtype(obj?):[noesc]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dirtype</strong></div>
+<div style="margin-bottom:1em"><code>dirtype(obj?):[noesc]</code></div>
 Returns a symbol list of value types that are assigned in the environment of <code>obj</code>.
 </p>
 <p>

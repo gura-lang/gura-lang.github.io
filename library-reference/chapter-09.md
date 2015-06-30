@@ -37,24 +37,16 @@ When instance method <code>image#write()</code> is provided with a stream that s
 This module extends the <code>image</code> class with methods described here.
 </p>
 <p>
-<strong>image#read@bmp</strong>
-</p>
-<p>
-<code>image#read@bmp(stream:stream:r):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#read@bmp</strong></div>
+<div style="margin-bottom:1em"><code>image#read@bmp(stream:stream:r):reduce</code></div>
 Reads an BMP image from a stream.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>image#write@bmp</strong>
-</p>
-<p>
-<code>image#write@bmp(stream:stream:w):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#write@bmp</strong></div>
+<div style="margin-bottom:1em"><code>image#write@bmp(stream:stream:w):reduce</code></div>
 Writes a BMP image to a stream.
 </p>
 <p>

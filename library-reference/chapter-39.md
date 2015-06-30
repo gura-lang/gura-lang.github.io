@@ -38,21 +38,13 @@ When instance method <code>image#write()</code> is provided with a stream that s
 This module extends the <code>image</code> class with methods described here.
 </p>
 <p>
-<strong>image#read@png</strong>
-</p>
-<p>
-<code>image#read@png(stream:stream:r):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#read@png</strong></div>
+<div style="margin-bottom:1em"><code>image#read@png(stream:stream:r):reduce</code></div>
 Reads a PNG image from a stream.
 </p>
 <p>
-<strong>image#write@png</strong>
-</p>
-<p>
-<code>image#write@png(stream:stream:w):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#write@png</strong></div>
+<div style="margin-bottom:1em"><code>image#write@png(stream:stream:w):reduce</code></div>
 Writes a PNG image to a stream.
 </p>
 <h2><span class="caption-index-2">39.4</span><a name="anchor-39-4"></a>Thanks</h2>

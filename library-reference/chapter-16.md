@@ -11,71 +11,55 @@ The <code>curl</code> module provices measures to access Internet resources usin
 </p>
 <h2><span class="caption-index-2">16.1</span><a name="anchor-16-1"></a>Module Function</h2>
 <p>
-<strong>curl.version</strong>
-</p>
-<p>
-<code>curl.version() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">curl.version</strong></div>
+<div style="margin-bottom:1em"><code>curl.version() {block?}</code></div>
 Returns a string of the libcurl version.
 </p>
 <p>
-<strong>curl.easy_init</strong>
-</p>
-<p>
-<code>curl.easy_init() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">curl.easy_init</strong></div>
+<div style="margin-bottom:1em"><code>curl.easy_init() {block?}</code></div>
 Initializes cURL and returns a easy_handle object.
 </p>
 <h2><span class="caption-index-2">16.2</span><a name="anchor-16-2"></a>curl.easy_handle Class</h2>
 <p>
-<strong>curl.easy_handle#escape</strong>
+<div><strong style="text-decoration:underline">curl.easy_handle#escape</strong></div>
+<div style="margin-bottom:1em"><code>curl.easy_handle#escape(string:string):void</code></div>
+
 </p>
 <p>
-<code>curl.easy_handle#escape(string:string):void</code>
+<div><strong style="text-decoration:underline">curl.easy_handle#getinfo</strong></div>
+<div style="margin-bottom:1em"><code>curl.easy_handle#getinfo(info:number)</code></div>
+
 </p>
 <p>
-<strong>curl.easy_handle#getinfo</strong>
+<div><strong style="text-decoration:underline">curl.easy_handle#perform</strong></div>
+<div style="margin-bottom:1em"><code>curl.easy_handle#perform(stream?:stream:w):void</code></div>
+
 </p>
 <p>
-<code>curl.easy_handle#getinfo(info:number)</code>
+<div><strong style="text-decoration:underline">curl.easy_handle#recv</strong></div>
+<div style="margin-bottom:1em"><code>curl.easy_handle#recv(buflen:number)</code></div>
+
 </p>
 <p>
-<strong>curl.easy_handle#perform</strong>
+<div><strong style="text-decoration:underline">curl.easy_handle#reset</strong></div>
+<div style="margin-bottom:1em"><code>curl.easy_handle#reset():void</code></div>
+
 </p>
 <p>
-<code>curl.easy_handle#perform(stream?:stream:w):void</code>
+<div><strong style="text-decoration:underline">curl.easy_handle#send</strong></div>
+<div style="margin-bottom:1em"><code>curl.easy_handle#send(buffer:binary)</code></div>
+
 </p>
 <p>
-<strong>curl.easy_handle#recv</strong>
+<div><strong style="text-decoration:underline">curl.easy_handle#setopt</strong></div>
+<div style="margin-bottom:1em"><code>curl.easy_handle#setopt(option:number, arg):void</code></div>
+
 </p>
 <p>
-<code>curl.easy_handle#recv(buflen:number)</code>
-</p>
-<p>
-<strong>curl.easy_handle#reset</strong>
-</p>
-<p>
-<code>curl.easy_handle#reset():void</code>
-</p>
-<p>
-<strong>curl.easy_handle#send</strong>
-</p>
-<p>
-<code>curl.easy_handle#send(buffer:binary)</code>
-</p>
-<p>
-<strong>curl.easy_handle#setopt</strong>
-</p>
-<p>
-<code>curl.easy_handle#setopt(option:number, arg):void</code>
-</p>
-<p>
-<strong>curl.easy_handle#unescape</strong>
-</p>
-<p>
-<code>curl.easy_handle#unescape(string:string):void</code>
+<div><strong style="text-decoration:underline">curl.easy_handle#unescape</strong></div>
+<div style="margin-bottom:1em"><code>curl.easy_handle#unescape(string:string):void</code></div>
+
 </p>
 <h2><span class="caption-index-2">16.3</span><a name="anchor-16-3"></a>Thanks</h2>
 <p>

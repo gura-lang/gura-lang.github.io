@@ -1498,30 +1498,18 @@ Following tables show values types of operands and returned value for each opera
 </p>
 <h2><span class="caption-index-2">24.2</span><a name="anchor-24-2"></a>Module Function</h2>
 <p>
-<strong>gmp.gcd</strong>
-</p>
-<p>
-<code>gmp.gcd(num1:gmp.mpz, num2:gmp.mpz):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">gmp.gcd</strong></div>
+<div style="margin-bottom:1em"><code>gmp.gcd(num1:gmp.mpz, num2:gmp.mpz):map</code></div>
 Calculates the greatest common divisor, GCD, between <code>num1</code> and <code>num2</code> and returns the result as <code>gmp.mpz</code>.
 </p>
 <p>
-<strong>gmp.lcm</strong>
-</p>
-<p>
-<code>gmp.lcm(num1:gmp.mpz, num2:gmp.mpz):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">gmp.lcm</strong></div>
+<div style="margin-bottom:1em"><code>gmp.lcm(num1:gmp.mpz, num2:gmp.mpz):map</code></div>
 Calculates the least common multiple, LCM, between <code>num1</code> and <code>num2</code> and returns the result as <code>gmp.mpz</code>.
 </p>
 <p>
-<strong>gmp.sqrt</strong>
-</p>
-<p>
-<code>gmp.sqrt(num):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">gmp.sqrt</strong></div>
+<div style="margin-bottom:1em"><code>gmp.sqrt(num):map</code></div>
 Calculates the square root of <code>num</code>.
 </p>
 <p>
@@ -1530,12 +1518,8 @@ The type of the argument <code>num</code> must be <code>gmp.mpz</code>, <code>gm
 <h2><span class="caption-index-2">24.3</span><a name="anchor-24-3"></a>gmp.mpf Class</h2>
 <h3><span class="caption-index-3">24.3.1</span><a name="anchor-24-3-1"></a>Constructor</h3>
 <p>
-<strong>gmp.mpf</strong>
-</p>
-<p>
-<code>gmp.mpf(value?, prec?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">gmp.mpf</strong></div>
+<div style="margin-bottom:1em"><code>gmp.mpf(value?, prec?:number):map {block?}</code></div>
 Creates a <code>gmp.mpf</code> instance.
 </p>
 <p>
@@ -1546,32 +1530,20 @@ You can specify the precision of the number by the argument <code>prec</code>. I
 </p>
 <h3><span class="caption-index-3">24.3.2</span><a name="anchor-24-3-2"></a>Method</h3>
 <p>
-<strong>gmp.mpf.get_default_prec</strong>
-</p>
-<p>
-<code>gmp.mpf.get_default_prec():static</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">gmp.mpf.get_default_prec</strong></div>
+<div style="margin-bottom:1em"><code>gmp.mpf.get_default_prec():static</code></div>
 Gets the default precision for <code>gmp.mpf</code>.
 </p>
 <p>
-<strong>gmp.mpf.set_default_prec</strong>
-</p>
-<p>
-<code>gmp.mpf.set_default_prec(prec:number):static:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">gmp.mpf.set_default_prec</strong></div>
+<div style="margin-bottom:1em"><code>gmp.mpf.set_default_prec(prec:number):static:void</code></div>
 Sets the default precision for <code>gmp.mpf</code>.
 </p>
 <h2><span class="caption-index-2">24.4</span><a name="anchor-24-4"></a>gmp.mpq Class</h2>
 <h3><span class="caption-index-3">24.4.1</span><a name="anchor-24-4-1"></a>Constructor</h3>
 <p>
-<strong>gmp.mpq</strong>
-</p>
-<p>
-<code>gmp.mpq(numer?, denom?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">gmp.mpq</strong></div>
+<div style="margin-bottom:1em"><code>gmp.mpq(numer?, denom?:number):map {block?}</code></div>
 Creates a <code>gmp.mpq</code> instance.
 </p>
 <p>
@@ -1585,12 +1557,8 @@ You can call this function with one of the following form.
 </ul>
 <h3><span class="caption-index-3">24.4.2</span><a name="anchor-24-4-2"></a>Method</h3>
 <p>
-<strong>gmp.mpq#cast@mpf</strong>
-</p>
-<p>
-<code>gmp.mpq#cast@mpf() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">gmp.mpq#cast@mpf</strong></div>
+<div style="margin-bottom:1em"><code>gmp.mpq#cast@mpf() {block?}</code></div>
 Casts the value to <code>gmp.mpf</code>.
 </p>
 <p>
@@ -1599,12 +1567,8 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <h2><span class="caption-index-2">24.5</span><a name="anchor-24-5"></a>gmp.mpz Class</h2>
 <h3><span class="caption-index-3">24.5.1</span><a name="anchor-24-5-1"></a>Constructor</h3>
 <p>
-<strong>gmp.mpz</strong>
-</p>
-<p>
-<code>gmp.mpz(value?):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">gmp.mpz</strong></div>
+<div style="margin-bottom:1em"><code>gmp.mpz(value?):map {block?}</code></div>
 Creates a <code>gmp.mpz</code> instance.
 </p>
 <p>
@@ -1615,12 +1579,8 @@ If the argument <code>value</code> is specified, it would be casted to <code>gmp
 This module extends the <code>string</code> class with methods described here.
 </p>
 <p>
-<strong>string#cast@mpf</strong>
-</p>
-<p>
-<code>string#cast@mpf(prec?:number):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#cast@mpf</strong></div>
+<div style="margin-bottom:1em"><code>string#cast@mpf(prec?:number):map</code></div>
 Casts the string to <code>gmp.mpf</code>.
 </p>
 <p>
@@ -1630,24 +1590,16 @@ You can specify the precision of the number by the argument <code>prec</code>. I
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|num:gmp.mpf|</code>, where <code>num</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>string#cast@mpq</strong>
-</p>
-<p>
-<code>string#cast@mpq():map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#cast@mpq</strong></div>
+<div style="margin-bottom:1em"><code>string#cast@mpq():map {block?}</code></div>
 Casts the string to <code>gmp.mpq</code>.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|num:gmp.mpq|</code>, where <code>num</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>string#cast@mpz</strong>
-</p>
-<p>
-<code>string#cast@mpz(base?:number):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#cast@mpz</strong></div>
+<div style="margin-bottom:1em"><code>string#cast@mpz(base?:number):map</code></div>
 Casts the string to <code>gmp.mpz</code>.
 </p>
 <p>

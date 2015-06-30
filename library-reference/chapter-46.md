@@ -12,38 +12,33 @@ The <code>tar</code> module provides measures to read/write TAR files. To utiliz
 <h2><span class="caption-index-2">46.1</span><a name="anchor-46-1"></a>tar.reader Class</h2>
 <h3><span class="caption-index-3">46.1.1</span><a name="anchor-46-1-1"></a>Function To Create Instance</h3>
 <p>
-<strong>tar.reader</strong>
-</p>
-<p>
-<code>tar.reader(stream:stream:r, compression?:symbol) {block?}</code>
+<div><strong style="text-decoration:underline">tar.reader</strong></div>
+<div style="margin-bottom:1em"><code>tar.reader(stream:stream:r, compression?:symbol) {block?}</code></div>
+
 </p>
 <h3><span class="caption-index-3">46.1.2</span><a name="anchor-46-1-2"></a>Method</h3>
 <p>
-<strong>tar.reader#entries</strong>
-</p>
-<p>
-<code>tar.reader#entries() {block?}</code>
+<div><strong style="text-decoration:underline">tar.reader#entries</strong></div>
+<div style="margin-bottom:1em"><code>tar.reader#entries() {block?}</code></div>
+
 </p>
 <h2><span class="caption-index-2">46.2</span><a name="anchor-46-2"></a>tar.writer Class</h2>
 <h3><span class="caption-index-3">46.2.1</span><a name="anchor-46-2-1"></a>Function To Create Instance</h3>
 <p>
-<strong>tar.writer</strong>
-</p>
-<p>
-<code>tar.writer(stream:stream:w, compression?:symbol) {block?}</code>
+<div><strong style="text-decoration:underline">tar.writer</strong></div>
+<div style="margin-bottom:1em"><code>tar.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
+
 </p>
 <h3><span class="caption-index-3">46.2.2</span><a name="anchor-46-2-2"></a>Method</h3>
 <p>
-<strong>tar.writer#add</strong>
+<div><strong style="text-decoration:underline">tar.writer#add</strong></div>
+<div style="margin-bottom:1em"><code>tar.writer#add(stream:stream:r, filename?:string):map:reduce</code></div>
+
 </p>
 <p>
-<code>tar.writer#add(stream:stream:r, filename?:string):map:reduce</code>
-</p>
-<p>
-<strong>tar.writer#close</strong>
-</p>
-<p>
-<code>tar.writer#close():reduce</code>
+<div><strong style="text-decoration:underline">tar.writer#close</strong></div>
+<div style="margin-bottom:1em"><code>tar.writer#close():reduce</code></div>
+
 </p>
 <h2><span class="caption-index-2">46.3</span><a name="anchor-46-3"></a>Thanks</h2>
 <p>

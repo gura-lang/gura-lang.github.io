@@ -29,41 +29,33 @@ argopt.Parser {|p|
 <h2><span class="caption-index-2">7.1</span><a name="anchor-7-1"></a>argopt.Parser Class</h2>
 <h3><span class="caption-index-3">7.1.1</span><a name="anchor-7-1-1"></a>Constructor</h3>
 <p>
-<strong>argopt.Parser.Parser</strong>
-</p>
-<p>
-<code>argopt.Parser.Parser() {block?}</code>
+<div><strong style="text-decoration:underline">argopt.Parser.Parser</strong></div>
+<div style="margin-bottom:1em"><code>argopt.Parser.Parser() {block?}</code></div>
+
 </p>
 <h3><span class="caption-index-3">7.1.2</span><a name="anchor-7-1-2"></a>Method</h3>
 <p>
-<strong>argopt.Parser#parse</strong>
-</p>
-<p>
-<code>argopt.Parser#parse(argv[]:string)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">argopt.Parser#parse</strong></div>
+<div style="margin-bottom:1em"><code>argopt.Parser#parse(argv[]:string)</code></div>
 Parses an argument list which is usually the value of <code>sys.argv</code> given by <code>sys</code> module.
 </p>
 <p>
 It returns the result in a format <code>[cfg, argv]</code> where <code>cfg</code> is a <code>dict</code> instance containing parameter values and <code>argv</code> a list of arguments that have not been parsed as options.
 </p>
 <p>
-<strong>argopt.Parser#addParam</strong>
+<div><strong style="text-decoration:underline">argopt.Parser#addParam</strong></div>
+<div style="margin-bottom:1em"><code>argopt.Parser#addParam(longName:string, shortName?:string, help?:string, helpValue?:string, defValue?:string)</code></div>
+
 </p>
 <p>
-<code>argopt.Parser#addParam(longName:string, shortName?:string, help?:string, helpValue?:string, defValue?:string)</code>
+<div><strong style="text-decoration:underline">argopt.Parser#addFlag</strong></div>
+<div style="margin-bottom:1em"><code>argopt.Parser#addFlag(longName:string, shortName?:string, help?:string)</code></div>
+
 </p>
 <p>
-<strong>argopt.Parser#addFlag</strong>
-</p>
-<p>
-<code>argopt.Parser#addFlag(longName:string, shortName?:string, help?:string)</code>
-</p>
-<p>
-<strong>argopt.Parser#formatHelp</strong>
-</p>
-<p>
-<code>argopt.Parser#formatHelp(longNameFlag:boolean =&gt; true, shortNameFlag:boolean =&gt; true):[linefeed]</code>
+<div><strong style="text-decoration:underline">argopt.Parser#formatHelp</strong></div>
+<div style="margin-bottom:1em"><code>argopt.Parser#formatHelp(longNameFlag:boolean =&gt; true, shortNameFlag:boolean =&gt; true):[linefeed]</code></div>
+
 </p>
 <p />
 

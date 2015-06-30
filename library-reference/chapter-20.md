@@ -11,21 +11,13 @@ The <code>fs</code> module provides measures to access and modify information in
 </p>
 <h2><span class="caption-index-2">20.1</span><a name="anchor-20-1"></a>Module Function</h2>
 <p>
-<strong>fs.chdir</strong>
-</p>
-<p>
-<code>fs.chdir(pathname:string) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">fs.chdir</strong></div>
+<div style="margin-bottom:1em"><code>fs.chdir(pathname:string) {block?}</code></div>
 Changes the current working directory.
 </p>
 <p>
-<strong>fs.chmod</strong>
-</p>
-<p>
-<code>fs.chmod(mode, pathname:string):map:void:[follow_link]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">fs.chmod</strong></div>
+<div style="margin-bottom:1em"><code>fs.chmod(mode, pathname:string):map:void:[follow_link]</code></div>
 Changes the access mode of a file specified by <code>pathname</code>.
 </p>
 <p>
@@ -81,12 +73,8 @@ If the modification target is a link file, each platform would have different re
 <li>Windows .. Modifies permissions of the link file. Attribute <code>:follow_link</code> has no effect.</li>
 </ul>
 <p>
-<strong>fs.copy</strong>
-</p>
-<p>
-<code>fs.copy(src:string, dst:string):map:void:[overwrite]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">fs.copy</strong></div>
+<div style="margin-bottom:1em"><code>fs.copy(src:string, dst:string):map:void:[overwrite]</code></div>
 Copies a file.
 </p>
 <p>
@@ -96,63 +84,39 @@ An argument <code>src</code> needs to specify a path name of a file that is to b
 If a destination file already exists, an error occurs. Specifying an attribute <code>:overwrite</code> would overwrite an existing one.
 </p>
 <p>
-<strong>fs.cpdir</strong>
-</p>
-<p>
-<code>fs.cpdir(src:string, dst:string):map:void:[tree]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">fs.cpdir</strong></div>
+<div style="margin-bottom:1em"><code>fs.cpdir(src:string, dst:string):map:void:[tree]</code></div>
 Copies a directory.
 </p>
 <p>
 Arguments <code>src</code> and <code>dst</code> specify source directory and destination directory respectively. In default, sub directories are not copied.Specifying <code>:tree</code> attribute would copy all the sub directories in the source.
 </p>
 <p>
-<strong>fs.getcwd</strong>
-</p>
-<p>
-<code>fs.getcwd()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">fs.getcwd</strong></div>
+<div style="margin-bottom:1em"><code>fs.getcwd()</code></div>
 Returns the current working directory.
 </p>
 <p>
-<strong>fs.mkdir</strong>
-</p>
-<p>
-<code>fs.mkdir(pathname:string):map:void:[tree]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">fs.mkdir</strong></div>
+<div style="margin-bottom:1em"><code>fs.mkdir(pathname:string):map:void:[tree]</code></div>
 Creates a directory.
 </p>
 <p>
 If <code>pathname</code> consists of multiple sub directories and some of them still doesn't exist, an error occurs. Specifying <code>:tree</code> attribute would create such directories.
 </p>
 <p>
-<strong>fs.remove</strong>
-</p>
-<p>
-<code>fs.remove(pathname:string):map:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">fs.remove</strong></div>
+<div style="margin-bottom:1em"><code>fs.remove(pathname:string):map:void</code></div>
 Removes a file from the file system.
 </p>
 <p>
-<strong>fs.rename</strong>
-</p>
-<p>
-<code>fs.rename(src:string, dst:string):map:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">fs.rename</strong></div>
+<div style="margin-bottom:1em"><code>fs.rename(src:string, dst:string):map:void</code></div>
 Renames a file or directory.
 </p>
 <p>
-<strong>fs.rmdir</strong>
-</p>
-<p>
-<code>fs.rmdir(pathname:string):map:void:[tree]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">fs.rmdir</strong></div>
+<div style="margin-bottom:1em"><code>fs.rmdir(pathname:string):map:void:[tree]</code></div>
 Removes a directory.
 </p>
 <p>

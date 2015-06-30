@@ -37,21 +37,13 @@ When instance method <code>image#write()</code> is provided with a stream that s
 This module extends the <code>image</code> class with methods described here.
 </p>
 <p>
-<strong>image#read@ppm</strong>
-</p>
-<p>
-<code>image#read@ppm(stream:stream:r):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#read@ppm</strong></div>
+<div style="margin-bottom:1em"><code>image#read@ppm(stream:stream:r):reduce</code></div>
 Reads a PPM/PGM image from a stream.
 </p>
 <p>
-<strong>image#write@ppm</strong>
-</p>
-<p>
-<code>image#write@ppm(stream:stream:w):reduce:[gray]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#write@ppm</strong></div>
+<div style="margin-bottom:1em"><code>image#write@ppm(stream:stream:w):reduce:[gray]</code></div>
 Writes a PPM/PGM image to a stream.
 </p>
 <p />

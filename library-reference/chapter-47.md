@@ -36,12 +36,8 @@ When instance method <code>image#write()</code> is provided with a stream that s
 This module extends the <code>image</code> class with methods described here.
 </p>
 <p>
-<strong>image#read@tiff</strong>
-</p>
-<p>
-<code>image#read@tiff(stream:stream:r):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#read@tiff</strong></div>
+<div style="margin-bottom:1em"><code>image#read@tiff(stream:stream:r):reduce</code></div>
 Reads a TIFF image from a stream.
 </p>
 <h2><span class="caption-index-2">47.3</span><a name="anchor-47-3"></a>Thanks</h2>

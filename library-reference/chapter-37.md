@@ -11,90 +11,53 @@ The <code>os</code> module provides functions that are specific to each OS envir
 </p>
 <h2><span class="caption-index-2">37.1</span><a name="anchor-37-1"></a>Module Function</h2>
 <p>
-<strong>os.clock</strong>
+<div><strong style="text-decoration:underline">os.clock</strong></div>
+<div style="margin-bottom:1em"><code>os.clock()</code></div>
+
 </p>
 <p>
-<code>os.clock()</code>
-</p>
-<p>
-<strong>os.exec</strong>
-</p>
-<p>
-<code>os.exec(pathname:string, args*:string):map:[fork]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">os.exec</strong></div>
+<div style="margin-bottom:1em"><code>os.exec(pathname:string, args*:string):map:[fork]</code></div>
 Executes the specified executable file.
 </p>
 <p>
-<strong>os.fromnative</strong>
-</p>
-<p>
-<code>os.fromnative(buff:binary):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">os.fromnative</strong></div>
+<div style="margin-bottom:1em"><code>os.fromnative(buff:binary):map</code></div>
 Converts binary data that includes OS's native string into Gura's regulated string.
 </p>
 <p>
-<strong>os.getenv</strong>
-</p>
-<p>
-<code>os.getenv(name:string, default?:string):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">os.getenv</strong></div>
+<div style="margin-bottom:1em"><code>os.getenv(name:string, default?:string):map</code></div>
 Returns the value of an environment variable.
 </p>
 <p>
-<strong>os.putenv</strong>
-</p>
-<p>
-<code>os.putenv(name:string, value:string):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">os.putenv</strong></div>
+<div style="margin-bottom:1em"><code>os.putenv(name:string, value:string):void</code></div>
 Set the value of an environment variable.
 </p>
 <p>
-<strong>os.redirect</strong>
-</p>
-<p>
-<code>os.redirect(stdin:stream:nil:r, stdout:stream:nil:w, stderr?:stream:w) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">os.redirect</strong></div>
+<div style="margin-bottom:1em"><code>os.redirect(stdin:stream:nil:r, stdout:stream:nil:w, stderr?:stream:w) {block?}</code></div>
 Modifies variables <code>os.stdin</code>, <code>os.stdout</code> and <code>os.stderr</code> with values of arguments. When <code>block</code> is specified, the modification only has effect within the block.
 </p>
 <p>
-<strong>os.sleep</strong>
-</p>
-<p>
-<code>os.sleep(secs:number)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">os.sleep</strong></div>
+<div style="margin-bottom:1em"><code>os.sleep(secs:number)</code></div>
 Sleeps for a time specified in seconds.
 </p>
 <p>
-<strong>os.symlink</strong>
-</p>
-<p>
-<code>os.symlink(src:string, tgt:string):map:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">os.symlink</strong></div>
+<div style="margin-bottom:1em"><code>os.symlink(src:string, tgt:string):map:void</code></div>
 Creates a symbol link.
 </p>
 <p>
-<strong>os.tonative</strong>
-</p>
-<p>
-<code>os.tonative(str:string):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">os.tonative</strong></div>
+<div style="margin-bottom:1em"><code>os.tonative(str:string):map</code></div>
 Converts Gura's regulated string into binary data that includes OS's native string.
 </p>
 <p>
-<strong>os.unsetenv</strong>
-</p>
-<p>
-<code>os.unsetenv(name:string):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">os.unsetenv</strong></div>
+<div style="margin-bottom:1em"><code>os.unsetenv(name:string):void</code></div>
 Unset an environment variable.
 </p>
 <p />

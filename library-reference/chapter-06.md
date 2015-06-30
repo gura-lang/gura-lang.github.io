@@ -57,30 +57,18 @@ A list of argument values.</td>
 </p>
 <h3><span class="caption-index-3">6.1.2</span><a name="anchor-6-1-2"></a>Method</h3>
 <p>
-<strong>args#finalize_trailer</strong>
-</p>
-<p>
-<code>args#finalize_trailer():void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">args#finalize_trailer</strong></div>
+<div style="margin-bottom:1em"><code>args#finalize_trailer():void</code></div>
 Signals finalizing status to trailers after the current function.
 </p>
 <p>
-<strong>args#isset</strong>
-</p>
-<p>
-<code>args#isset(symbol:symbol)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">args#isset</strong></div>
+<div style="margin-bottom:1em"><code>args#isset(symbol:symbol)</code></div>
 Returns <code>true</code> if the function is called with an attribute that matches the specified symbol.
 </p>
 <p>
-<strong>args#quit_trailer</strong>
-</p>
-<p>
-<code>args#quit_trailer():void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">args#quit_trailer</strong></div>
+<div style="margin-bottom:1em"><code>args#quit_trailer():void</code></div>
 Cancels evaluation of following trailers.
 </p>
 <p>
@@ -184,28 +172,19 @@ Element Type</th>
 </p>
 <h3><span class="caption-index-3">6.2.1</span><a name="anchor-6-2-1"></a>Constructor</h3>
 <p>
-<strong>array@T</strong>
-</p>
-<p>
-<code>array@T(arg, init?:number) {block?}</code>
+<div><strong style="text-decoration:underline">array@T</strong></div>
+<div style="margin-bottom:1em"><code>array@T(arg, init?:number) {block?}</code></div>
+
 </p>
 <h3><span class="caption-index-3">6.2.2</span><a name="anchor-6-2-2"></a>Method</h3>
 <p>
-<strong>array@T#dump</strong>
-</p>
-<p>
-<code>array@T#dump(stream?:stream):void:[upper]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">array@T#dump</strong></div>
+<div style="margin-bottom:1em"><code>array@T#dump(stream?:stream):void:[upper]</code></div>
 Prints out a binary dump of the array's content.
 </p>
 <p>
-<strong>array@T#each</strong>
-</p>
-<p>
-<code>array@T#each() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">array@T#each</strong></div>
+<div style="margin-bottom:1em"><code>array@T#each() {block?}</code></div>
 Creates an iterator that iterates each element in the array.
 </p>
 <p>
@@ -226,57 +205,37 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 The block parameter is <code>|elem:number, idx:number|</code> where <code>elem</code> is the element value.
 </p>
 <p>
-<strong>array@T#fill</strong>
-</p>
-<p>
-<code>array@T#fill(value:number):map:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">array@T#fill</strong></div>
+<div style="margin-bottom:1em"><code>array@T#fill(value:number):map:void</code></div>
 Fills array with a specified value.
 </p>
 <p>
-<strong>array@T#head</strong>
-</p>
-<p>
-<code>array@T#head(n:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">array@T#head</strong></div>
+<div style="margin-bottom:1em"><code>array@T#head(n:number):map {block?}</code></div>
 Creates an array that has extracted specified number of elements from the beginning of the source.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array@T|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>array@T#offset</strong>
-</p>
-<p>
-<code>array@T#offset(n:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">array@T#offset</strong></div>
+<div style="margin-bottom:1em"><code>array@T#offset(n:number):map {block?}</code></div>
 Creates an array that has extracted elements of the source after skipping the first <code>n</code> elements.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array@T|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>array@T#paste</strong>
-</p>
-<p>
-<code>array@T#paste(offset:number, src:array@T):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">array@T#paste</strong></div>
+<div style="margin-bottom:1em"><code>array@T#paste(offset:number, src:array@T):map</code></div>
 Pastes elements of <code>src</code> into the target <code>array</code> instance.
 </p>
 <p>
 The argument <code>offset</code> specifies the posision where elements are pasted in
 </p>
 <p>
-<strong>array@T#tail</strong>
-</p>
-<p>
-<code>array@T#tail(n:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">array@T#tail</strong></div>
+<div style="margin-bottom:1em"><code>array@T#tail(n:number):map {block?}</code></div>
 Creates an array that has extracted specified number of elements from the bottom of the source.
 </p>
 <p>
@@ -288,34 +247,29 @@ The <code>audio</code> class provides measures to work on audio data.
 </p>
 <h3><span class="caption-index-3">6.3.1</span><a name="anchor-6-3-1"></a>Method</h3>
 <p>
-<strong>audio#each</strong>
+<div><strong style="text-decoration:underline">audio#each</strong></div>
+<div style="margin-bottom:1em"><code>audio#each(channel:number, offset?:number):map {block?}</code></div>
+
 </p>
 <p>
-<code>audio#each(channel:number, offset?:number):map {block?}</code>
+<div><strong style="text-decoration:underline">audio#get</strong></div>
+<div style="margin-bottom:1em"><code>audio#get(channel:number, offset:number):map</code></div>
+
 </p>
 <p>
-<strong>audio#get</strong>
+<div><strong style="text-decoration:underline">audio#put</strong></div>
+<div style="margin-bottom:1em"><code>audio#put(channel:number, offset:number, data:number):map:reduce</code></div>
+
 </p>
 <p>
-<code>audio#get(channel:number, offset:number):map</code>
+<div><strong style="text-decoration:underline">audio#sinewave</strong></div>
+<div style="margin-bottom:1em"><code>audio#sinewave(channel:number, freq:number, len:number, amplitude?:number):map:reduce</code></div>
+
 </p>
 <p>
-<strong>audio#put</strong>
-</p>
-<p>
-<code>audio#put(channel:number, offset:number, data:number):map:reduce</code>
-</p>
-<p>
-<strong>audio#sinewave</strong>
-</p>
-<p>
-<code>audio#sinewave(channel:number, freq:number, len:number, amplitude?:number):map:reduce</code>
-</p>
-<p>
-<strong>audio#store</strong>
-</p>
-<p>
-<code>audio#store(channel:number, offset:number, data:iterator):reduce</code>
+<div><strong style="text-decoration:underline">audio#store</strong></div>
+<div style="margin-bottom:1em"><code>audio#store(channel:number, offset:number, data:iterator):reduce</code></div>
+
 </p>
 <h2><span class="caption-index-2">6.4</span><a name="anchor-6-4"></a>binary Class</h2>
 <p>
@@ -365,76 +319,54 @@ Indicates if the content of the binary object is writable.</td>
 </p>
 <h3><span class="caption-index-3">6.4.2</span><a name="anchor-6-4-2"></a>Constructor</h3>
 <p>
-<strong>binary</strong>
-</p>
-<p>
-<code>binary(buff*) {block?}</code>
+<div><strong style="text-decoration:underline">binary</strong></div>
+<div style="margin-bottom:1em"><code>binary(buff*) {block?}</code></div>
+
 </p>
 <h3><span class="caption-index-3">6.4.3</span><a name="anchor-6-4-3"></a>Method</h3>
 <p>
-<strong>binary#add</strong>
+<div><strong style="text-decoration:underline">binary#add</strong></div>
+<div style="margin-bottom:1em"><code>binary#add(buff+:binary):map:reduce</code></div>
+
 </p>
 <p>
-<code>binary#add(buff+:binary):map:reduce</code>
+<div><strong style="text-decoration:underline">binary.alloc</strong></div>
+<div style="margin-bottom:1em"><code>binary.alloc(bytes:number, data?:number):static:map {block?}</code></div>
+
 </p>
 <p>
-<strong>binary.alloc</strong>
+<div><strong style="text-decoration:underline">binary.decode</strong></div>
+<div style="margin-bottom:1em"><code>binary.decode(codec:codec)</code></div>
+
 </p>
 <p>
-<code>binary.alloc(bytes:number, data?:number):static:map {block?}</code>
+<div><strong style="text-decoration:underline">binary#dump</strong></div>
+<div style="margin-bottom:1em"><code>binary#dump(stream?:stream:w):void:[upper]</code></div>
+
 </p>
 <p>
-<strong>binary.decode</strong>
-</p>
-<p>
-<code>binary.decode(codec:codec)</code>
-</p>
-<p>
-<strong>binary#dump</strong>
-</p>
-<p>
-<code>binary#dump(stream?:stream:w):void:[upper]</code>
-</p>
-<p>
-<strong>binary#each</strong>
-</p>
-<p>
-<code>binary#each() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">binary#each</strong></div>
+<div style="margin-bottom:1em"><code>binary#each() {block?}</code></div>
 Returns an iterator picking up each byte in the buffer
 </p>
 <p>
-<strong>binary#encodeuri</strong>
-</p>
-<p>
-<code>binary#encodeuri()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">binary#encodeuri</strong></div>
+<div style="margin-bottom:1em"><code>binary#encodeuri()</code></div>
 Returns a string in which non-URIC characters are percent-encoded.
 </p>
 <p>
-<strong>binary#hex</strong>
+<div><strong style="text-decoration:underline">binary#hex</strong></div>
+<div style="margin-bottom:1em"><code>binary#hex():[carray,cstr,upper]</code></div>
+
 </p>
 <p>
-<code>binary#hex():[carray,cstr,upper]</code>
-</p>
-<p>
-<strong>binary#len</strong>
-</p>
-<p>
-<code>binary#len()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">binary#len</strong></div>
+<div style="margin-bottom:1em"><code>binary#len()</code></div>
 Returns the length of the buffer in binary.
 </p>
 <p>
-<strong>binary.pack</strong>
-</p>
-<p>
-<code>binary.pack(format:string, value*):static:map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">binary.pack</strong></div>
+<div style="margin-bottom:1em"><code>binary.pack(format:string, value*):static:map {block?}</code></div>
 Creates a <code>binary</code> instance that has packed <code>values</code> in the argument list according to specifiers in the <code>format</code>.
 </p>
 <p>
@@ -490,43 +422,34 @@ You can specify an asterisk character "<code>*</code>" for the number of packing
 You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>" in the format to change coding character set while packing a string with format character "<code>s</code>" from UTF-8.
 </p>
 <p>
-<strong>binary#pointer</strong>
-</p>
-<p>
-<code>binary#pointer(offset:number =&gt; 0) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">binary#pointer</strong></div>
+<div style="margin-bottom:1em"><code>binary#pointer(offset:number =&gt; 0) {block?}</code></div>
 Returns a pointer instance that has an initial offset specified by the argument.
 </p>
 <p>
-<strong>binary#reader</strong>
+<div><strong style="text-decoration:underline">binary#reader</strong></div>
+<div style="margin-bottom:1em"><code>binary#reader() {block?}</code></div>
+
 </p>
 <p>
-<code>binary#reader() {block?}</code>
+<div><strong style="text-decoration:underline">binary#store</strong></div>
+<div style="margin-bottom:1em"><code>binary#store(offset:number, buff+:binary):map:reduce</code></div>
+
 </p>
 <p>
-<strong>binary#store</strong>
+<div><strong style="text-decoration:underline">binary#unpack</strong></div>
+<div style="margin-bottom:1em"><code>binary#unpack(format:string, values*:number):[nil]</code></div>
+
 </p>
 <p>
-<code>binary#store(offset:number, buff+:binary):map:reduce</code>
+<div><strong style="text-decoration:underline">binary#unpacks</strong></div>
+<div style="margin-bottom:1em"><code>binary#unpacks(format:string, values*:number) {block?}</code></div>
+
 </p>
 <p>
-<strong>binary#unpack</strong>
-</p>
-<p>
-<code>binary#unpack(format:string, values*:number):[nil]</code>
-</p>
-<p>
-<strong>binary#unpacks</strong>
-</p>
-<p>
-<code>binary#unpacks(format:string, values*:number) {block?}</code>
-</p>
-<p>
-<strong>binary#writer</strong>
-</p>
-<p>
-<code>binary#writer() {block?}</code>
+<div><strong style="text-decoration:underline">binary#writer</strong></div>
+<div style="margin-bottom:1em"><code>binary#writer() {block?}</code></div>
+
 </p>
 <h2><span class="caption-index-2">6.5</span><a name="anchor-6-5"></a>boolean Class</h2>
 <p>
@@ -619,12 +542,8 @@ BOM sequence of UTF-32 big endian: <code>'\x00\x00\xfe\xff'</code></td>
 </p>
 <h3><span class="caption-index-3">6.6.2</span><a name="anchor-6-6-2"></a>Constructor</h3>
 <p>
-<strong>codec</strong>
-</p>
-<p>
-<code>codec(encoding:string) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">codec</strong></div>
+<div style="margin-bottom:1em"><code>codec(encoding:string) {block?}</code></div>
 Creates a <code>codec</code> instance of the specified encoding name. You can call <code>codecs.dir()</code> to get a list of available encoding names.
 </p>
 <p>
@@ -632,12 +551,8 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <h3><span class="caption-index-3">6.6.3</span><a name="anchor-6-6-3"></a>Method</h3>
 <p>
-<strong>codec#addcr</strong>
-</p>
-<p>
-<code>codec#addcr(flag?:boolean):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">codec#addcr</strong></div>
+<div style="margin-bottom:1em"><code>codec#addcr(flag?:boolean):reduce</code></div>
 The codec's encoder has a feature to add a CR code (0x0d) before a LF code (0x0a) so that the lines are joined with CR-LF codes in the encoded result. This method enables or disables the feature.
 </p>
 <ul>
@@ -645,21 +560,13 @@ The codec's encoder has a feature to add a CR code (0x0d) before a LF code (0x0a
 <li>To disable it, call the method with the argument <code>flag</code> set to <code>false</code>.</li>
 </ul>
 <p>
-<strong>codec#decode</strong>
-</p>
-<p>
-<code>codec#decode(buff:binary):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">codec#decode</strong></div>
+<div style="margin-bottom:1em"><code>codec#decode(buff:binary):map</code></div>
 Decodes a binary <code>buff</code> and returns the decoded result as <code>string</code>.
 </p>
 <p>
-<strong>codec#delcr</strong>
-</p>
-<p>
-<code>codec#delcr(flag?:boolean):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">codec#delcr</strong></div>
+<div style="margin-bottom:1em"><code>codec#delcr(flag?:boolean):reduce</code></div>
 The codec's decoder has a feature to delete a CR code (0x0d) before a LF code (0x0a) so that the lines are joined with LF code in the decoded result. This method enables or disables the feature.
 </p>
 <ul>
@@ -667,12 +574,8 @@ The codec's decoder has a feature to delete a CR code (0x0d) before a LF code (0
 <li>To disable it, call the method with the argument <code>flag</code> set to <code>false</code>.</li>
 </ul>
 <p>
-<strong>codec#encode</strong>
-</p>
-<p>
-<code>codec#encode(str:string):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">codec#encode</strong></div>
+<div style="margin-bottom:1em"><code>codec#encode(str:string):map</code></div>
 Encodes a string <code>str</code> and returns the encoded result as <code>binary</code>.
 </p>
 <h2><span class="caption-index-2">6.7</span><a name="anchor-6-7"></a>color Class</h2>
@@ -819,12 +722,8 @@ With the above casting feature, you can call a function <code>f(c:color)</code> 
 </ul>
 <h3><span class="caption-index-3">6.7.4</span><a name="anchor-6-7-4"></a>Constructor</h3>
 <p>
-<strong>color</strong>
-</p>
-<p>
-<code>color(args+):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">color</strong></div>
+<div style="margin-bottom:1em"><code>color(args+):map {block?}</code></div>
 Creates a <code>color</code> instance.
 </p>
 <p>
@@ -839,33 +738,21 @@ There are two forms to call this function as below:
 </ul>
 <h3><span class="caption-index-3">6.7.5</span><a name="anchor-6-7-5"></a>Method</h3>
 <p>
-<strong>color#getgray</strong>
-</p>
-<p>
-<code>color#getgray()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">color#getgray</strong></div>
+<div style="margin-bottom:1em"><code>color#getgray()</code></div>
 Calculates a gray scale from RGB elements in the <code>color</code> instance.
 </p>
 <p>
 This is computed by a formula: <code>gray = 0.299 * red + 0.587 * blue + 0.114 * blue</code>.
 </p>
 <p>
-<strong>color#html</strong>
-</p>
-<p>
-<code>color#html()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">color#html</strong></div>
+<div style="margin-bottom:1em"><code>color#html()</code></div>
 Returns a color string in a format of <code>'#rrggbb'</code> that is used in HTML documents.
 </p>
 <p>
-<strong>color#tolist</strong>
-</p>
-<p>
-<code>color#tolist():[alpha]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">color#tolist</strong></div>
+<div style="margin-bottom:1em"><code>color#tolist():[alpha]</code></div>
 Returns a list of RGB elements in a form <code>[r, g, b]</code>.
 </p>
 <p>
@@ -885,12 +772,8 @@ You can create a <code>complex</code> instance by following ways:
 </ul>
 <h3><span class="caption-index-3">6.8.1</span><a name="anchor-6-8-1"></a>Constructor</h3>
 <p>
-<strong>complex</strong>
-</p>
-<p>
-<code>complex(real:number, imag?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">complex</strong></div>
+<div style="margin-bottom:1em"><code>complex(real:number, imag?:number):map {block?}</code></div>
 Creates a <code>complex</code> instance with a real part <code>real</code> and an imaginary part <code>imag</code>.
 </p>
 <p>
@@ -901,12 +784,8 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <h3><span class="caption-index-3">6.8.2</span><a name="anchor-6-8-2"></a>Method</h3>
 <p>
-<strong>complex.polar</strong>
-</p>
-<p>
-<code>complex.polar(abs:number, arg:number):static:map:[deg] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">complex.polar</strong></div>
+<div style="margin-bottom:1em"><code>complex.polar(abs:number, arg:number):static:map:[deg] {block?}</code></div>
 Creates a <code>complex</code> instance with an absolute number <code>abs</code> and an angle <code>arg</code> in polar coords.
 </p>
 <p>
@@ -916,12 +795,8 @@ The argument <code>arg</code> is specified in a unit of radian. You can give it 
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:complex|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>complex.roundoff</strong>
-</p>
-<p>
-<code>complex.roundoff(threshold:number =&gt; 1e-10) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">complex.roundoff</strong></div>
+<div style="margin-bottom:1em"><code>complex.roundoff(threshold:number =&gt; 1e-10) {block?}</code></div>
 Returns a complex number with real and imaginary parts being rounded off.
 </p>
 <p>
@@ -1207,12 +1082,8 @@ Seconds passed from 00:00:00 on January 1st in 1970 in UTC.</td>
 </p>
 <h3><span class="caption-index-3">6.9.3</span><a name="anchor-6-9-3"></a>Constructor</h3>
 <p>
-<strong>datetime</strong>
-</p>
-<p>
-<code>datetime(year:number, month:number, day:number, hour:number =&gt; 0, min:number =&gt; 0, sec:number =&gt; 0, usec:number =&gt; 0, minsoff?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">datetime</strong></div>
+<div style="margin-bottom:1em"><code>datetime(year:number, month:number, day:number, hour:number =&gt; 0, min:number =&gt; 0, sec:number =&gt; 0, usec:number =&gt; 0, minsoff?:number):map {block?}</code></div>
 Creates an instance of <code>datetime</code> class based on the specified arguments.
 </p>
 <p>
@@ -1236,21 +1107,13 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <h3><span class="caption-index-3">6.9.4</span><a name="anchor-6-9-4"></a>Method</h3>
 <p>
-<strong>datetime#clrtzoff</strong>
-</p>
-<p>
-<code>datetime#clrtzoff():reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">datetime#clrtzoff</strong></div>
+<div style="margin-bottom:1em"><code>datetime#clrtzoff():reduce</code></div>
 Eliminates timezone offset information from the instance.
 </p>
 <p>
-<strong>datetime#format</strong>
-</p>
-<p>
-<code>datetime#format(format =&gt; `w3c)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">datetime#format</strong></div>
+<div style="margin-bottom:1em"><code>datetime#format(format =&gt; `w3c)</code></div>
 Returns a string of the datetime properties based on the specified format. For the argument <code>format</code>, you can specify either a string of user-specific format or a symbol of predefined style.
 </p>
 <p>
@@ -1276,33 +1139,21 @@ Below are the symbols of predefined styles:
 <li><code>`asctime</code> .. a style used by the C function <code>asctime()</code>. eg) <code>'Thu Jan  1 12:34:56 +0900 2015'</code></li>
 </ul>
 <p>
-<strong>datetime.isleap</strong>
-</p>
-<p>
-<code>datetime.isleap(year:number):static:map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">datetime.isleap</strong></div>
+<div style="margin-bottom:1em"><code>datetime.isleap(year:number):static:map</code></div>
 Returns <code>true</code> if the specified year is a leap one.
 </p>
 <p>
-<strong>datetime.monthdays</strong>
-</p>
-<p>
-<code>datetime.monthdays(year:number, month:number):static:map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">datetime.monthdays</strong></div>
+<div style="margin-bottom:1em"><code>datetime.monthdays(year:number, month:number):static:map {block?}</code></div>
 Returns a number of days that exists in the specified month.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:number|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>datetime.now</strong>
-</p>
-<p>
-<code>datetime.now():static:[utc] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">datetime.now</strong></div>
+<div style="margin-bottom:1em"><code>datetime.now():static:[utc] {block?}</code></div>
 Creates a <code>datetime</code> instance of the current time.
 </p>
 <p>
@@ -1312,12 +1163,8 @@ In default, the timezone offset is set to one in the system setting. Specifying 
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|dt:datetime|</code>, where <code>dt</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>datetime.parse</strong>
-</p>
-<p>
-<code>datetime.parse(str:string):static:map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">datetime.parse</strong></div>
+<div style="margin-bottom:1em"><code>datetime.parse(str:string):static:map {block?}</code></div>
 Parses a string that describs date and time information and returns the <code>datetime</code> instance.
 </p>
 <p>
@@ -1333,33 +1180,21 @@ It is capable of parsing the following style:
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|dt:datetime|</code>, where <code>dt</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>datetime#settzoff</strong>
-</p>
-<p>
-<code>datetime#settzoff(mins:number):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">datetime#settzoff</strong></div>
+<div style="margin-bottom:1em"><code>datetime#settzoff(mins:number):reduce</code></div>
 Sets timezone offset in minutes.
 </p>
 <p>
-<strong>datetime.time</strong>
-</p>
-<p>
-<code>datetime.time(hour:number =&gt; 0, minute:number =&gt; 0, sec:number =&gt; 0, usec:number =&gt; 0):static:map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">datetime.time</strong></div>
+<div style="margin-bottom:1em"><code>datetime.time(hour:number =&gt; 0, minute:number =&gt; 0, sec:number =&gt; 0, usec:number =&gt; 0):static:map {block?}</code></div>
 Creates a <code>datetime</code> instance from time information. The date inforomation is set as 1st of January in the Christian year of 0.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|dt:datetime|</code>, where <code>dt</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>datetime.today</strong>
-</p>
-<p>
-<code>datetime.today():static:[utc] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">datetime.today</strong></div>
+<div style="margin-bottom:1em"><code>datetime.today():static:[utc] {block?}</code></div>
 Creates a <code>datetime</code> instance of today. All the time information are cleared to 0.
 </p>
 <p>
@@ -1369,21 +1204,13 @@ In default, the timezone offset is set to one in the system setting. Specifying 
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|dt:datetime|</code>, where <code>dt</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>datetime#utc</strong>
-</p>
-<p>
-<code>datetime#utc()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">datetime#utc</strong></div>
+<div style="margin-bottom:1em"><code>datetime#utc()</code></div>
 Calculates UTC time of the target <code>datetime</code> instance. An error occurs if the instance has no timezone offset
 </p>
 <p>
-<strong>datetime.weekday</strong>
-</p>
-<p>
-<code>datetime.weekday(year:number, month:number, day:number):static:map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">datetime.weekday</strong></div>
+<div style="margin-bottom:1em"><code>datetime.weekday(year:number, month:number, day:number):static:map</code></div>
 Returns a week number for the specified date, which starts from 0 for Sunday.
 </p>
 <h2><span class="caption-index-2">6.10</span><a name="anchor-6-10"></a>declaration Class</h2>
@@ -1462,12 +1289,8 @@ The expression that provides a default value.</td>
 </p>
 <h3><span class="caption-index-3">6.10.2</span><a name="anchor-6-10-2"></a>Method</h3>
 <p>
-<strong>declaration#istype</strong>
-</p>
-<p>
-<code>declaration#istype(type+:expr):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">declaration#istype</strong></div>
+<div style="margin-bottom:1em"><code>declaration#istype(type+:expr):map</code></div>
 Return <code>true</code> if the declaration is defined as a type that is specified in the arguments.
 </p>
 <p>
@@ -1507,12 +1330,8 @@ You can also use a function named <code>%</code> to create an instance that is a
 </p>
 <h3><span class="caption-index-3">6.11.1</span><a name="anchor-6-11-1"></a>Constructor</h3>
 <p>
-<strong>dict</strong>
-</p>
-<p>
-<code>dict(elems?):[icase] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dict</strong></div>
+<div style="margin-bottom:1em"><code>dict(elems?):[icase] {block?}</code></div>
 Creates a <code>dict</code> instance.
 </p>
 <p>
@@ -1554,12 +1373,8 @@ In default, if keys contain alphabet characters, different cases are distinguish
 </p>
 <h3><span class="caption-index-3">6.11.2</span><a name="anchor-6-11-2"></a>Method</h3>
 <p>
-<strong>dict#append</strong>
-</p>
-<p>
-<code>dict#append(elems?):reduce:[overwrite,strict,timid] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dict#append</strong></div>
+<div style="margin-bottom:1em"><code>dict#append(elems?):reduce:[overwrite,strict,timid] {block?}</code></div>
 Adds multiple key-value pairs. It takes a list of key-value pairs in an argument or in a block that has the same format with one for the function <code>dict()</code>.
 </p>
 <p>
@@ -1571,33 +1386,21 @@ If the specified key already exists in the dictionary, it would be overwritten. 
 <li><code>:timid</code> .. keep the existing one</li>
 </ul>
 <p>
-<strong>dict#clear</strong>
-</p>
-<p>
-<code>dict#clear()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dict#clear</strong></div>
+<div style="margin-bottom:1em"><code>dict#clear()</code></div>
 Clears all the key-value pairs in the dictionary.
 </p>
 <p>
-<strong>dict#erase</strong>
-</p>
-<p>
-<code>dict#erase(key):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dict#erase</strong></div>
+<div style="margin-bottom:1em"><code>dict#erase(key):map</code></div>
 Erases a key-value pair that mathces the provided <code>key</code>.
 </p>
 <p>
 The <code>key</code> is either <code>number</code>, <code>string</code> or <code>symbol</code>.
 </p>
 <p>
-<strong>dict#get</strong>
-</p>
-<p>
-<code>dict#get(key, default?):map:[raise]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dict#get</strong></div>
+<div style="margin-bottom:1em"><code>dict#get(key, default?):map:[raise]</code></div>
 Seeks a value that is associated with the specified <code>key</code>.
 </p>
 <p>
@@ -1617,21 +1420,13 @@ Another measure to get a value associated with a key is to use an index operator
 <li><code>v = d.get('foo'):raise</code></li>
 </ul>
 <p>
-<strong>dict#haskey</strong>
-</p>
-<p>
-<code>dict#haskey(key):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dict#haskey</strong></div>
+<div style="margin-bottom:1em"><code>dict#haskey(key):map</code></div>
 Returns <code>true</code> if the specified <code>key</code> exists in the dictionary.
 </p>
 <p>
-<strong>dict#items</strong>
-</p>
-<p>
-<code>dict#items() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dict#items</strong></div>
+<div style="margin-bottom:1em"><code>dict#items() {block?}</code></div>
 Returns an iterator of key-value pairs in the dictionary.
 </p>
 <p>
@@ -1649,12 +1444,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>dict#keys</strong>
-</p>
-<p>
-<code>dict#keys() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dict#keys</strong></div>
+<div style="margin-bottom:1em"><code>dict#keys() {block?}</code></div>
 Returns an iterator of keys in the dictionary.
 </p>
 <p>
@@ -1672,21 +1463,13 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>dict#len</strong>
-</p>
-<p>
-<code>dict#len()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dict#len</strong></div>
+<div style="margin-bottom:1em"><code>dict#len()</code></div>
 Returns the number of key-value pairs in the dictionary.
 </p>
 <p>
-<strong>dict#put</strong>
-</p>
-<p>
-<code>dict#put(key, value):map:reduce:[overwrite,strict,timid]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dict#put</strong></div>
+<div style="margin-bottom:1em"><code>dict#put(key, value):map:reduce:[overwrite,strict,timid]</code></div>
 Adds a new key-value pair.
 </p>
 <p>
@@ -1705,12 +1488,8 @@ Another measure to add a key-value pair is to use an index operator. The followi
 <li><code>d.put('foo', 3)</code></li>
 </ul>
 <p>
-<strong>dict#values</strong>
-</p>
-<p>
-<code>dict#values() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">dict#values</strong></div>
+<div style="margin-bottom:1em"><code>dict#values() {block?}</code></div>
 Returns an iterator of values in the dictionary.
 </p>
 <p>
@@ -1736,12 +1515,8 @@ Though the instance can be created by <code>directory()</code> function, you don
 </p>
 <h3><span class="caption-index-3">6.12.1</span><a name="anchor-6-12-1"></a>Constructor</h3>
 <p>
-<strong>directory</strong>
-</p>
-<p>
-<code>directory(pathname:string):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">directory</strong></div>
+<div style="margin-bottom:1em"><code>directory(pathname:string):map {block?}</code></div>
 Creates a <code>directory</code> instance from the specified path name.
 </p>
 <h2><span class="caption-index-2">6.13</span><a name="anchor-6-13"></a>environment Class</h2>
@@ -1750,25 +1525,19 @@ The <code>environment</code> class provides measures to operate variables in an 
 </p>
 <h3><span class="caption-index-3">6.13.1</span><a name="anchor-6-13-1"></a>Method</h3>
 <p>
-<strong>environment#getprop!</strong>
+<div><strong style="text-decoration:underline">environment#getprop!</strong></div>
+<div style="margin-bottom:1em"><code>environment#getprop!(symbol:symbol):map</code></div>
+
 </p>
 <p>
-<code>environment#getprop!(symbol:symbol):map</code>
-</p>
-<p>
-<strong>environment#lookup</strong>
-</p>
-<p>
-<code>environment#lookup(symbol:symbol, escalate:boolean =&gt; true):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">environment#lookup</strong></div>
+<div style="margin-bottom:1em"><code>environment#lookup(symbol:symbol, escalate:boolean =&gt; true):map</code></div>
 Looks up a specified symbol in the environment and returns the associated value. In default, if the symbol is not defined in the environment, it will be searched in environments outside of the current one. Set escalate flag to false in order to disable such an escalation behaviour. Returns false when the symbol could not be found.
 </p>
 <p>
-<strong>environment#setprop!</strong>
-</p>
-<p>
-<code>environment#setprop!(symbol:symbol, value):map</code>
+<div><strong style="text-decoration:underline">environment#setprop!</strong></div>
+<div style="margin-bottom:1em"><code>environment#setprop!(symbol:symbol, value):map</code></div>
+
 </p>
 <h2><span class="caption-index-2">6.14</span><a name="anchor-6-14"></a>error Class</h2>
 <p>
@@ -2439,12 +2208,8 @@ Exists in "value".</td>
 </p>
 <h3><span class="caption-index-3">6.15.2</span><a name="anchor-6-15-2"></a>Constructor</h3>
 <p>
-<strong>expr</strong>
-</p>
-<p>
-<code>expr(src:stream:r):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr</strong></div>
+<div style="margin-bottom:1em"><code>expr(src:stream:r):map {block?}</code></div>
 Parses a Gura script from the stream <code>src</code> and creates an <code>expr</code> instance.
 </p>
 <p>
@@ -2452,36 +2217,24 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <h3><span class="caption-index-3">6.15.3</span><a name="anchor-6-15-3"></a>Method</h3>
 <p>
-<strong>expr#eval</strong>
-</p>
-<p>
-<code>expr#eval(env?:environment)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#eval</strong></div>
+<div style="margin-bottom:1em"><code>expr#eval(env?:environment)</code></div>
 Evaluates the <code>expr</code> instance.
 </p>
 <p>
 If the argument <code>env</code> is specified, that environment is used for evaluation. If omitted, the current scope is used.
 </p>
 <p>
-<strong>expr.parse</strong>
-</p>
-<p>
-<code>expr.parse(script:string):static:map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr.parse</strong></div>
+<div style="margin-bottom:1em"><code>expr.parse(script:string):static:map {block?}</code></div>
 Parses a Gura script in the string <code>script</code> and creates an <code>expr</code> instance.
 </p>
 <p>
 If <code>block</code> is specified, it will be evaluated with block parameter in a format of <code>|expr:expr|</code> where <code>expr</code> is the created instance.
 </p>
 <p>
-<strong>expr#textize</strong>
-</p>
-<p>
-<code>expr#textize(style?:symbol, indent?:string)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#textize</strong></div>
+<div style="margin-bottom:1em"><code>expr#textize(style?:symbol, indent?:string)</code></div>
 Composes a script text from a content of <code>expr</code>.
 </p>
 <p>
@@ -2497,12 +2250,8 @@ Argument <code>style</code> specifies the text style output, which takes the fol
 The argument <code>indent</code> specifies a string used for indentation. Its default is a sequence of four spaces.
 </p>
 <p>
-<strong>expr#tofunction</strong>
-</p>
-<p>
-<code>expr#tofunction(`args*)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#tofunction</strong></div>
+<div style="margin-bottom:1em"><code>expr#tofunction(`args*)</code></div>
 Converts the <code>expr</code> into a function.
 </p>
 <p>
@@ -2512,21 +2261,13 @@ If the <code>expr</code> is a block that has a block parameter, that would be us
 It would be an error if <code>args</code> is specified and a block parameter exists as well.
 </p>
 <p>
-<strong>expr#unquote</strong>
-</p>
-<p>
-<code>expr#unquote()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#unquote</strong></div>
+<div style="margin-bottom:1em"><code>expr#unquote()</code></div>
 Returns <code>expr</code> instance that has removed quote operator from the original <code>expr</code>.
 </p>
 <p>
-<strong>expr#write</strong>
-</p>
-<p>
-<code>expr#write(dst:stream:w, style?:symbol, indent?:string)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#write</strong></div>
+<div style="margin-bottom:1em"><code>expr#write(dst:stream:w, style?:symbol, indent?:string)</code></div>
 Outputs a script that describes the expression to the specified <code>stream</code>.
 </p>
 <p>
@@ -2542,165 +2283,93 @@ Argument <code>style</code> specifies the text style output, which takes the fol
 The argument <code>indent</code> specifies a string used for indentation. Its default is a sequence of four spaces.
 </p>
 <p>
-<strong>expr#isunary</strong>
-</p>
-<p>
-<code>expr#isunary()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#isunary</strong></div>
+<div style="margin-bottom:1em"><code>expr#isunary()</code></div>
 Returns <code>true</code> if expr is an expression of unary.
 </p>
 <p>
-<strong>expr#isunaryop</strong>
-</p>
-<p>
-<code>expr#isunaryop()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#isunaryop</strong></div>
+<div style="margin-bottom:1em"><code>expr#isunaryop()</code></div>
 Returns <code>true</code> if expr is an expression of unaryop.
 </p>
 <p>
-<strong>expr#isquote</strong>
-</p>
-<p>
-<code>expr#isquote()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#isquote</strong></div>
+<div style="margin-bottom:1em"><code>expr#isquote()</code></div>
 Returns <code>true</code> if expr is an expression of quote.
 </p>
 <p>
-<strong>expr#isbinary</strong>
-</p>
-<p>
-<code>expr#isbinary()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#isbinary</strong></div>
+<div style="margin-bottom:1em"><code>expr#isbinary()</code></div>
 Returns <code>true</code> if expr is an expression of binary.
 </p>
 <p>
-<strong>expr#isbinaryop</strong>
-</p>
-<p>
-<code>expr#isbinaryop()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#isbinaryop</strong></div>
+<div style="margin-bottom:1em"><code>expr#isbinaryop()</code></div>
 Returns <code>true</code> if expr is an expression of binaryop.
 </p>
 <p>
-<strong>expr#isassign</strong>
-</p>
-<p>
-<code>expr#isassign()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#isassign</strong></div>
+<div style="margin-bottom:1em"><code>expr#isassign()</code></div>
 Returns <code>true</code> if expr is an expression of assign.
 </p>
 <p>
-<strong>expr#ismember</strong>
-</p>
-<p>
-<code>expr#ismember()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#ismember</strong></div>
+<div style="margin-bottom:1em"><code>expr#ismember()</code></div>
 Returns <code>true</code> if expr is an expression of member.
 </p>
 <p>
-<strong>expr#iscollector</strong>
-</p>
-<p>
-<code>expr#iscollector()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#iscollector</strong></div>
+<div style="margin-bottom:1em"><code>expr#iscollector()</code></div>
 Returns <code>true</code> if expr is an expression of collector.
 </p>
 <p>
-<strong>expr#isroot</strong>
-</p>
-<p>
-<code>expr#isroot()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#isroot</strong></div>
+<div style="margin-bottom:1em"><code>expr#isroot()</code></div>
 Returns <code>true</code> if expr is an expression of root.
 </p>
 <p>
-<strong>expr#isblock</strong>
-</p>
-<p>
-<code>expr#isblock()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#isblock</strong></div>
+<div style="margin-bottom:1em"><code>expr#isblock()</code></div>
 Returns <code>true</code> if expr is an expression of block.
 </p>
 <p>
-<strong>expr#islister</strong>
-</p>
-<p>
-<code>expr#islister()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#islister</strong></div>
+<div style="margin-bottom:1em"><code>expr#islister()</code></div>
 Returns <code>true</code> if expr is an expression of lister.
 </p>
 <p>
-<strong>expr#isiterer</strong>
-</p>
-<p>
-<code>expr#isiterer()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#isiterer</strong></div>
+<div style="margin-bottom:1em"><code>expr#isiterer()</code></div>
 Returns <code>true</code> if expr is an expression of iterer.
 </p>
 <p>
-<strong>expr#iscompound</strong>
-</p>
-<p>
-<code>expr#iscompound()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#iscompound</strong></div>
+<div style="margin-bottom:1em"><code>expr#iscompound()</code></div>
 Returns <code>true</code> if expr is an expression of compound.
 </p>
 <p>
-<strong>expr#isindexer</strong>
-</p>
-<p>
-<code>expr#isindexer()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#isindexer</strong></div>
+<div style="margin-bottom:1em"><code>expr#isindexer()</code></div>
 Returns <code>true</code> if expr is an expression of indexer.
 </p>
 <p>
-<strong>expr#iscaller</strong>
-</p>
-<p>
-<code>expr#iscaller()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#iscaller</strong></div>
+<div style="margin-bottom:1em"><code>expr#iscaller()</code></div>
 Returns <code>true</code> if expr is an expression of caller.
 </p>
 <p>
-<strong>expr#isvalue</strong>
-</p>
-<p>
-<code>expr#isvalue()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#isvalue</strong></div>
+<div style="margin-bottom:1em"><code>expr#isvalue()</code></div>
 Returns <code>true</code> if expr is an expression of value.
 </p>
 <p>
-<strong>expr#isidentifier</strong>
-</p>
-<p>
-<code>expr#isidentifier()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#isidentifier</strong></div>
+<div style="margin-bottom:1em"><code>expr#isidentifier()</code></div>
 Returns <code>true</code> if expr is an expression of identifier.
 </p>
 <p>
-<strong>expr#issuffixed</strong>
-</p>
-<p>
-<code>expr#issuffixed()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">expr#issuffixed</strong></div>
+<div style="margin-bottom:1em"><code>expr#issuffixed()</code></div>
 Returns <code>true</code> if expr is an expression of suffixed.
 </p>
 <h2><span class="caption-index-2">6.16</span><a name="anchor-6-16"></a>formatter Class</h2>
@@ -2802,24 +2471,16 @@ Method Name</th>
 </p>
 <h3><span class="caption-index-3">6.16.1</span><a name="anchor-6-16-1"></a>Method</h3>
 <p>
-<strong>formatter#getminwidth</strong>
-</p>
-<p>
-<code>formatter#getminwidth()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">formatter#getminwidth</strong></div>
+<div style="margin-bottom:1em"><code>formatter#getminwidth()</code></div>
 Returns an expected minimum width for the field.
 </p>
 <p>
 For example, with <code>'%3d'</code>, this method would return <code>3</code>.
 </p>
 <p>
-<strong>formatter#getpadding</strong>
-</p>
-<p>
-<code>formatter#getpadding()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">formatter#getpadding</strong></div>
+<div style="margin-bottom:1em"><code>formatter#getpadding()</code></div>
 Returns a string containing a padding character, a space or <code>'0'</code>.
 </p>
 <p>
@@ -2829,12 +2490,8 @@ In default, a space is used for padding. For example, with <code>'%3d'</code>, t
 When a character <code>'0'</code> appears after <code>'%'</code>, that becomes the padding character. For example, with <code>'%03d'</code>, this method would return <code>'0'</code>.
 </p>
 <p>
-<strong>formatter#getplusmode</strong>
-</p>
-<p>
-<code>formatter#getplusmode()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">formatter#getplusmode</strong></div>
+<div style="margin-bottom:1em"><code>formatter#getplusmode()</code></div>
 Returns a symbol that indicates an expected action when a positive number appears.
 </p>
 <ul>
@@ -2843,48 +2500,32 @@ Returns a symbol that indicates an expected action when a positive number appear
 <li><code>`plus</code> .. A plus character should be inserted.</li>
 </ul>
 <p>
-<strong>formatter#getprecision</strong>
-</p>
-<p>
-<code>formatter#getprecision()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">formatter#getprecision</strong></div>
+<div style="margin-bottom:1em"><code>formatter#getprecision()</code></div>
 Returns an expected precision for the field.
 </p>
 <p>
 For example, with <code>'%.3d'</code>, this method would return <code>3</code>.
 </p>
 <p>
-<strong>formatter#isleftalign</strong>
-</p>
-<p>
-<code>formatter#isleftalign()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">formatter#isleftalign</strong></div>
+<div style="margin-bottom:1em"><code>formatter#isleftalign()</code></div>
 Returns <code>true</code> if the field is expected to be aligned on left.
 </p>
 <p>
 For example, with <code>'%-3d'</code>, this method would return <code>true</code>.
 </p>
 <p>
-<strong>formatter#issharp</strong>
-</p>
-<p>
-<code>formatter#issharp()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">formatter#issharp</strong></div>
+<div style="margin-bottom:1em"><code>formatter#issharp()</code></div>
 Returns <code>true</code> if the specifier sequence includes <code>'#'</code> flag, which means some literal prefixes such as <code>0x</code> are expected to be appended at the top.
 </p>
 <p>
 For example, with <code>'%#x'</code>, this method would return <code>true</code>.
 </p>
 <p>
-<strong>formatter#isuppercase</strong>
-</p>
-<p>
-<code>formatter#isuppercase()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">formatter#isuppercase</strong></div>
+<div style="margin-bottom:1em"><code>formatter#isuppercase()</code></div>
 Returns <code>true</code> if alphabet characters are expected to be shown in upper case.
 </p>
 <p>
@@ -3026,12 +2667,8 @@ You can print a function's help from the interactive prompt using the unary oper
 </code></pre>
 <h3><span class="caption-index-3">6.17.3</span><a name="anchor-6-17-3"></a>Constructor</h3>
 <p>
-<strong>function</strong>
-</p>
-<p>
-<code>function(`args*) {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">function</strong></div>
+<div style="margin-bottom:1em"><code>function(`args*) {block}</code></div>
 Creates a <code>function</code> instance with an argument list of <code>args</code> and a procedure body provided by <code>block</code>.
 </p>
 <p>
@@ -3043,12 +2680,8 @@ Following two codes have the same effect with each other.
 </ul>
 <h3><span class="caption-index-3">6.17.4</span><a name="anchor-6-17-4"></a>Method</h3>
 <p>
-<strong>function.addhelp</strong>
-</p>
-<p>
-<code>function.addhelp(func:function, lang:symbol, format:string, help:string):static:map:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">function.addhelp</strong></div>
+<div style="margin-bottom:1em"><code>function.addhelp(func:function, lang:symbol, format:string, help:string):static:map:void</code></div>
 Adds help information to a <code>function</code> instance taking the following arguments:
 </p>
 <ul>
@@ -3081,24 +2714,16 @@ Computes a mean value of the provided three numbers.
 '''}
 </code></pre>
 <p>
-<strong>function.getdecls</strong>
-</p>
-<p>
-<code>function.getdecls(func:function):static:map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">function.getdecls</strong></div>
+<div style="margin-bottom:1em"><code>function.getdecls(func:function):static:map</code></div>
 Creates an iterator of <code>declaration</code> instances that provide information about argument declaration that the function instance <code>func</code> defines.
 </p>
 <p>
 This class method returns the same information as the property <code>function#decls</code>.
 </p>
 <p>
-<strong>function.getexpr</strong>
-</p>
-<p>
-<code>function.getexpr(func:function):static:map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">function.getexpr</strong></div>
+<div style="margin-bottom:1em"><code>function.getexpr(func:function):static:map</code></div>
 Returns an expression of the function instance <code>func</code>.
 </p>
 <p>
@@ -3108,72 +2733,48 @@ It would return <code>nil</code> if the function is implemented with binary prog
 This class method returns the same information as the property <code>function#expr</code>.
 </p>
 <p>
-<strong>function.getformat</strong>
-</p>
-<p>
-<code>function.getformat(func:function):static:map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">function.getformat</strong></div>
+<div style="margin-bottom:1em"><code>function.getformat(func:function):static:map</code></div>
 Returns a string showing a declared format of the function instance <code>func</code>.
 </p>
 <p>
 This class method returns the same information as the property <code>function#format</code>.
 </p>
 <p>
-<strong>function.getfullname</strong>
-</p>
-<p>
-<code>function.getfullname(func:function):static:map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">function.getfullname</strong></div>
+<div style="margin-bottom:1em"><code>function.getfullname(func:function):static:map</code></div>
 Returns a full name of the function instance <code>func</code>, which is prefixed by a name of the module or the class the instance belongs to.
 </p>
 <p>
 This class method returns the same information as the property <code>function#fullname</code>.
 </p>
 <p>
-<strong>function.gethelp</strong>
-</p>
-<p>
-<code>function.gethelp(func:function, lang?:symbol):static:map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">function.gethelp</strong></div>
+<div style="margin-bottom:1em"><code>function.gethelp(func:function, lang?:symbol):static:map</code></div>
 Returns a <code>help</code> instance associated with the specified function instance <code>func</code>. If the function instance has no help registred, this function would return <code>nil</code>.
 </p>
 <p>
 The argument <code>lang</code> is a symbol that indicates a natural language in which the help is written. If this argument is omitted or the specified language doesn't exist, help information that has been registered at first would be returned as a default.
 </p>
 <p>
-<strong>function.getname</strong>
-</p>
-<p>
-<code>function.getname(func:function):static:map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">function.getname</strong></div>
+<div style="margin-bottom:1em"><code>function.getname(func:function):static:map</code></div>
 Returns a name of the function instance <code>func</code> in <code>string</code> type.
 </p>
 <p>
 This class method returns the same information as the property <code>function#name</code>.
 </p>
 <p>
-<strong>function.getsymbol</strong>
-</p>
-<p>
-<code>function.getsymbol(func:function):static:map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">function.getsymbol</strong></div>
+<div style="margin-bottom:1em"><code>function.getsymbol(func:function):static:map</code></div>
 Returns a name of the function instance <code>func</code> in <code>symbol</code> type.
 </p>
 <p>
 This class method returns the same information as the property <code>function#symbol</code>.
 </p>
 <p>
-<strong>function#mathdiff</strong>
-</p>
-<p>
-<code>function#mathdiff(var?:symbol):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">function#mathdiff</strong></div>
+<div style="margin-bottom:1em"><code>function#mathdiff(var?:symbol):reduce</code></div>
 Returns a <code>function</code> instance that computes derivation of the target function, which is expected to contain only mathematical procedures. An error occurs if the target function has any elements that have nothing to do with mathematics.
 </p>
 <p>
@@ -3437,12 +3038,8 @@ If there's no palette associated, this property returns <code>nil</code>.</td>
 </p>
 <h3><span class="caption-index-3">6.19.2</span><a name="anchor-6-19-2"></a>Constructor</h3>
 <p>
-<strong>image</strong>
-</p>
-<p>
-<code>image(args+):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image</strong></div>
+<div style="margin-bottom:1em"><code>image(args+):map {block?}</code></div>
 Returns an image instance with specified characteristics. There are three forms to call the function as below:
 </p>
 <ul>
@@ -3465,12 +3062,8 @@ You can also explicitly specify the image data format by the argument <code>imag
 </p>
 <h3><span class="caption-index-3">6.19.3</span><a name="anchor-6-19-3"></a>Method</h3>
 <p>
-<strong>image#allocbuff</strong>
-</p>
-<p>
-<code>image#allocbuff(width:number, height:number, color?:color):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#allocbuff</strong></div>
+<div style="margin-bottom:1em"><code>image#allocbuff(width:number, height:number, color?:color):reduce</code></div>
 Allocates a specified size of buffer in the <code>image</code> instance that is supposed to has no buffer allocated.
 </p>
 <p>
@@ -3484,24 +3077,16 @@ An error occurs in following cases:
 <li>The <code>image</code> instance already has allocated buffer.</li>
 </ul>
 <p>
-<strong>image#blur</strong>
-</p>
-<p>
-<code>image#blur(radius:number, sigma?:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#blur</strong></div>
+<div style="margin-bottom:1em"><code>image#blur(radius:number, sigma?:number) {block?}</code></div>
 Returns a new image that blurs the original image with the given parameters.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|img:image|</code>, where <code>img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>image#clear</strong>
-</p>
-<p>
-<code>image#clear():reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#clear</strong></div>
+<div style="margin-bottom:1em"><code>image#clear():reduce</code></div>
 Fills the buffer in the <code>image</code> instance with zero value.
 </p>
 <p>
@@ -3511,12 +3096,8 @@ This has the same effect with calling <code>image#fill()</code> with <code>color
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>image#crop</strong>
-</p>
-<p>
-<code>image#crop(x:number, y:number, width?:number, height?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#crop</strong></div>
+<div style="margin-bottom:1em"><code>image#crop(x:number, y:number, width?:number, height?:number):map {block?}</code></div>
 Returns a new image instance of the extracted area of the source image.
 </p>
 <p>
@@ -3532,24 +3113,16 @@ The extracted area is specified by the following arguments:
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|img:image|</code>, where <code>img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>image#delpalette</strong>
-</p>
-<p>
-<code>image#delpalette():reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#delpalette</strong></div>
+<div style="margin-bottom:1em"><code>image#delpalette():reduce</code></div>
 Deletes a <code>palette</code> instance the image owns if it does.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>image#extract</strong>
-</p>
-<p>
-<code>image#extract(x:number, y:number, width:number, height:number, element:symbol, dst):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#extract</strong></div>
+<div style="margin-bottom:1em"><code>image#extract(x:number, y:number, width:number, height:number, element:symbol, dst):reduce</code></div>
 Extracts the element values within the specified area of the image, and store them into a list or matrix. The argument <code>x</code> and <code>y</code> specifies the left-top position, and <code>width</code>, and <code>height</code> does the size of the area.
 </p>
 <p>
@@ -3568,36 +3141,24 @@ The argument <code>dst</code> specifies the variable into which the extracted da
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>image#fill</strong>
-</p>
-<p>
-<code>image#fill(color:color):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#fill</strong></div>
+<div style="margin-bottom:1em"><code>image#fill(color:color):reduce</code></div>
 Fills the whole image with the specified color.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>image#fillrect</strong>
-</p>
-<p>
-<code>image#fillrect(x:number, y:number, width:number, height:number, color:color):map:reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#fillrect</strong></div>
+<div style="margin-bottom:1em"><code>image#fillrect(x:number, y:number, width:number, height:number, color:color):map:reduce</code></div>
 Fills the specified area with the specified color. The argument <code>x</code> and <code>y</code> specifies the left-top position, and <code>width</code>, and <code>height</code> does the size of the area.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>image#flip</strong>
-</p>
-<p>
-<code>image#flip(orient:symbol):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#flip</strong></div>
+<div style="margin-bottom:1em"><code>image#flip(orient:symbol):map {block?}</code></div>
 Returns a new <code>image</code> instance that flips the source image horizontally or vertically. You can specify the following symbol to the <code>orient</code> argument.
 </p>
 <ul>
@@ -3609,36 +3170,24 @@ Returns a new <code>image</code> instance that flips the source image horizontal
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|img:image|</code>, where <code>img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>image#getpixel</strong>
-</p>
-<p>
-<code>image#getpixel(x:number, y:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#getpixel</strong></div>
+<div style="margin-bottom:1em"><code>image#getpixel(x:number, y:number):map {block?}</code></div>
 Returns a color of a pixel data at the specified position.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|c:color|</code>, where <code>c</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>image#grayscale</strong>
-</p>
-<p>
-<code>image#grayscale() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#grayscale</strong></div>
+<div style="margin-bottom:1em"><code>image#grayscale() {block?}</code></div>
 Returns a new image instance that converts the source image into gray scale.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|img:image|</code>, where <code>img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>image#mapcolorlevel</strong>
-</p>
-<p>
-<code>image#mapcolorlevel(map@r[]:number, map@g[]?:number, map@b[]?:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#mapcolorlevel</strong></div>
+<div style="margin-bottom:1em"><code>image#mapcolorlevel(map@r[]:number, map@g[]?:number, map@b[]?:number) {block?}</code></div>
 Returns a new image that converts color levels according to the given table.
 </p>
 <p>
@@ -3651,12 +3200,8 @@ If you want to apply a mapping table to all the elements, call the method with a
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|img:image|</code>, where <code>img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>image#paste</strong>
-</p>
-<p>
-<code>image#paste(x:number, y:number, src:image, width?:number, height?:number, xoffset:number =&gt; 0, yoffset:number =&gt; 0, a:number =&gt; 255):map:reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#paste</strong></div>
+<div style="margin-bottom:1em"><code>image#paste(x:number, y:number, src:image, width?:number, height?:number, xoffset:number =&gt; 0, yoffset:number =&gt; 0, a:number =&gt; 255):map:reduce</code></div>
 Pastes the source image <code>src</code> onto the target image instance at the specified position.
 </p>
 <p>
@@ -3669,39 +3214,26 @@ The argument <code>a</code> specifies the alpha value that is put on the target 
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>image#putpixel</strong>
-</p>
-<p>
-<code>image#putpixel(x:number, y:number, color:color):map:reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#putpixel</strong></div>
+<div style="margin-bottom:1em"><code>image#putpixel(x:number, y:number, color:color):map:reduce</code></div>
 Puts a color on the specified position.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>image#size</strong>
-</p>
-<p>
-<code>image#size()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#size</strong></div>
+<div style="margin-bottom:1em"><code>image#size()</code></div>
 Returns the image size as a list <code>[width, height]</code>.
 </p>
 <p>
-<strong>image#store</strong>
+<div><strong style="text-decoration:underline">image#store</strong></div>
+<div style="margin-bottom:1em"><code>image#store(x:number, y:number, width:number, height:number, element:symbol, src):reduce</code></div>
+
 </p>
 <p>
-<code>image#store(x:number, y:number, width:number, height:number, element:symbol, src):reduce</code>
-</p>
-<p>
-<strong>image#read</strong>
-</p>
-<p>
-<code>image#read(stream:stream:r, imagetype?:string):map:reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#read</strong></div>
+<div style="margin-bottom:1em"><code>image#read(stream:stream:r, imagetype?:string):map:reduce</code></div>
 Reads image data from a stream.
 </p>
 <p>
@@ -3714,12 +3246,8 @@ You can also explicitly specify the image data format by the argument <code>imag
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>image#reducecolor</strong>
-</p>
-<p>
-<code>image#reducecolor(palette?:palette) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#reducecolor</strong></div>
+<div style="margin-bottom:1em"><code>image#reducecolor(palette?:palette) {block?}</code></div>
 Creates an image that reduces colors in the original image with a set of colors in the given palette. The specified palette would be associated with the created image.
 </p>
 <p>
@@ -3729,12 +3257,8 @@ If no argument is specified, the associated palette would be used. In this case,
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|img:image|</code>, where <code>img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>image#replacecolor</strong>
-</p>
-<p>
-<code>image#replacecolor(colorOrg:color, color:color, tolerance?:number):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#replacecolor</strong></div>
+<div style="margin-bottom:1em"><code>image#replacecolor(colorOrg:color, color:color, tolerance?:number):reduce</code></div>
 Replaces pixels that have a color matching <code>colorOrg</code> with the <code>color</code>.
 </p>
 <p>
@@ -3744,12 +3268,8 @@ The argument <code>tolerance</code> specifies an acceptable distance for the mat
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<strong>image#resize</strong>
-</p>
-<p>
-<code>image#resize(width?:number, height?:number):map:[box,ratio] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#resize</strong></div>
+<div style="margin-bottom:1em"><code>image#resize(width?:number, height?:number):map:[box,ratio] {block?}</code></div>
 Creates an image that resizes the original image to the sprcified <code>width</code> and <code>height</code>.
 </p>
 <ul>
@@ -3768,12 +3288,8 @@ The following attributes are acceptable:
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|img:image|</code>, where <code>img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>image#rotate</strong>
-</p>
-<p>
-<code>image#rotate(rotate:number, background?:color):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#rotate</strong></div>
+<div style="margin-bottom:1em"><code>image#rotate(rotate:number, background?:color):map {block?}</code></div>
 Creates an image that rotates the original image by the specified angle.
 </p>
 <p>
@@ -3786,12 +3302,8 @@ The created instance has a size that exactly fits the rotated image. The argumen
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|img:image|</code>, where <code>img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>image#scan</strong>
-</p>
-<p>
-<code>image#scan(x?:number, y?:number, width?:number, height?:number, scandir?:symbol) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#scan</strong></div>
+<div style="margin-bottom:1em"><code>image#scan(x?:number, y?:number, width?:number, height?:number, scandir?:symbol) {block?}</code></div>
 Returns an iterator that scans pixels in the image.
 </p>
 <p>
@@ -3898,24 +3410,18 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>image#setalpha</strong>
+<div><strong style="text-decoration:underline">image#setalpha</strong></div>
+<div style="margin-bottom:1em"><code>image#setalpha(a:number, color?:color, tolerance?:number):reduce</code></div>
+
 </p>
 <p>
-<code>image#setalpha(a:number, color?:color, tolerance?:number):reduce</code>
+<div><strong style="text-decoration:underline">image#thumbnail</strong></div>
+<div style="margin-bottom:1em"><code>image#thumbnail(width?:number, height?:number):map:[box] {block?}</code></div>
+
 </p>
 <p>
-<strong>image#thumbnail</strong>
-</p>
-<p>
-<code>image#thumbnail(width?:number, height?:number):map:[box] {block?}</code>
-</p>
-<p>
-<strong>image#write</strong>
-</p>
-<p>
-<code>image#write(stream:stream:w, imagetype?:string):map:reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">image#write</strong></div>
+<div style="margin-bottom:1em"><code>image#write(stream:stream:w, imagetype?:string):map:reduce</code></div>
 Writes image data to a stream.
 </p>
 <p>
@@ -3953,30 +3459,18 @@ x[4] = `e     // replaces `E with `e
 </code></pre>
 <h4><span class="caption-index-4">6.20.1.3</span><a name="anchor-6-20-1-3"></a>Function to Create list Instance</h4>
 <p>
-<strong>list</strong>
-</p>
-<p>
-<code>list(value+)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list</strong></div>
+<div style="margin-bottom:1em"><code>list(value+)</code></div>
 Creates a new list from given values in its argument list. If the value is a list or an iteartor, its elements are added to the created list.
 </p>
 <p>
-<strong>xlist</strong>
-</p>
-<p>
-<code>xlist(value+)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">xlist</strong></div>
+<div style="margin-bottom:1em"><code>xlist(value+)</code></div>
 Creates a new list from given values except for <code>nil</code> in its argument list. If the value is a list or an iteartor, its elements are added to the created list.
 </p>
 <p>
-<strong>set</strong>
-</p>
-<p>
-<code>set(iter+:iterator):[and,or,xor]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">set</strong></div>
+<div style="margin-bottom:1em"><code>set(iter+:iterator):[and,or,xor]</code></div>
 Creates a new list that contains unique values from given iterators in its argument list.
 </p>
 <p>
@@ -3988,12 +3482,8 @@ In default, all the elements in each iterators are added to the created list. Sp
 <li><code>:xor</code> .. Elements that exist in only one iterator are added.</li>
 </ul>
 <p>
-<strong>xset</strong>
-</p>
-<p>
-<code>xset(iter+:iterator):[and,or,xor]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">xset</strong></div>
+<div style="margin-bottom:1em"><code>xset(iter+:iterator):[and,or,xor]</code></div>
 Creates a new list that contains unique values except for <code>nil</code> from given iterators in its argument list.
 </p>
 <p>
@@ -4006,39 +3496,23 @@ In default, all the elements in each iterators are added to the created list. Sp
 </ul>
 <h4><span class="caption-index-4">6.20.1.4</span><a name="anchor-6-20-1-4"></a>Method Specific to list Class</h4>
 <p>
-<strong>list#add</strong>
-</p>
-<p>
-<code>list#add(elem+):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#add</strong></div>
+<div style="margin-bottom:1em"><code>list#add(elem+):reduce</code></div>
 Add specified items to the list.
 </p>
 <p>
-<strong>list#append</strong>
-</p>
-<p>
-<code>list#append(elem+):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#append</strong></div>
+<div style="margin-bottom:1em"><code>list#append(elem+):reduce</code></div>
 Adds specified items to the list. If the item is a list or an iterator, each element in such an item is added to the list.
 </p>
 <p>
-<strong>list#clear</strong>
-</p>
-<p>
-<code>list#clear():reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#clear</strong></div>
+<div style="margin-bottom:1em"><code>list#clear():reduce</code></div>
 Clear the content of the list.
 </p>
 <p>
-<strong>list#combination</strong>
-</p>
-<p>
-<code>list#combination(n:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#combination</strong></div>
+<div style="margin-bottom:1em"><code>list#combination(n:number) {block?}</code></div>
 Creates an iterator that generates lists that contain elements picked up from the original list in a combination manner.
 </p>
 <p>
@@ -4056,30 +3530,18 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#erase</strong>
-</p>
-<p>
-<code>list#erase(idx*:number):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#erase</strong></div>
+<div style="margin-bottom:1em"><code>list#erase(idx*:number):reduce</code></div>
 Erases elements at the specified indices.
 </p>
 <p>
-<strong>list#first</strong>
-</p>
-<p>
-<code>list#first()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#first</strong></div>
+<div style="margin-bottom:1em"><code>list#first()</code></div>
 Returns a first value in the list. An error occurs when the list is empty.
 </p>
 <p>
-<strong>list#flat</strong>
-</p>
-<p>
-<code>list#flat():[bfs,dfs] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#flat</strong></div>
+<div style="margin-bottom:1em"><code>list#flat():[bfs,dfs] {block?}</code></div>
 Creates an iterator that searches items recursively if they are lists or iterators.
 </p>
 <p>
@@ -4118,48 +3580,28 @@ y = x.flat():bfs
 // y generates `K, `L, `A, `B, `C, `D, `E, `I, `J, `F, `G, `H
 </code></pre>
 <p>
-<strong>list#get</strong>
-</p>
-<p>
-<code>list#get(index:number):map:flat</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#get</strong></div>
+<div style="margin-bottom:1em"><code>list#get(index:number):map:flat</code></div>
 Returns a value stored at the specified index in the list. An error occurs when the index is out of range.
 </p>
 <p>
-<strong>list#insert</strong>
-</p>
-<p>
-<code>list#insert(idx:number, elem+):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#insert</strong></div>
+<div style="margin-bottom:1em"><code>list#insert(idx:number, elem+):reduce</code></div>
 Insert specified items to the list from the selected index.
 </p>
 <p>
-<strong>list#isempty</strong>
-</p>
-<p>
-<code>list#isempty()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#isempty</strong></div>
+<div style="margin-bottom:1em"><code>list#isempty()</code></div>
 Return true if the list is empty.
 </p>
 <p>
-<strong>list#last</strong>
-</p>
-<p>
-<code>list#last()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#last</strong></div>
+<div style="margin-bottom:1em"><code>list#last()</code></div>
 Returns a last value in the list. An error occurs when the list is empty.
 </p>
 <p>
-<strong>list#permutation</strong>
-</p>
-<p>
-<code>list#permutation(n?:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#permutation</strong></div>
+<div style="margin-bottom:1em"><code>list#permutation(n?:number) {block?}</code></div>
 Creates an iterator that generates lists that contain elements picked up from the original list in a permutation manner.
 </p>
 <p>
@@ -4177,39 +3619,23 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>list#put</strong>
-</p>
-<p>
-<code>list#put(index:number, value:nomap):map:reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#put</strong></div>
+<div style="margin-bottom:1em"><code>list#put(index:number, value:nomap):map:reduce</code></div>
 Stores a value at the specified index in the list. An error occurs when the index is out of range.
 </p>
 <p>
-<strong>list#shift</strong>
-</p>
-<p>
-<code>list#shift():[raise]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#shift</strong></div>
+<div style="margin-bottom:1em"><code>list#shift():[raise]</code></div>
 Shifts the elements of the list. If the content of the list is [1, 2, 3, 4], it becomes [2, 3, 4] after calling this method. In default, no error occurs even when the list is empty. To raise an error for executing this method on an empty list, specify :raise attribute.
 </p>
 <p>
-<strong>list#shuffle</strong>
-</p>
-<p>
-<code>list#shuffle():reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list#shuffle</strong></div>
+<div style="margin-bottom:1em"><code>list#shuffle():reduce</code></div>
 Shuffle the order of the list content based on random numbers.
 </p>
 <p>
-<strong>list.zip</strong>
-</p>
-<p>
-<code>list.zip(values+):static {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">list.zip</strong></div>
+<div style="margin-bottom:1em"><code>list.zip(values+):static {block?}</code></div>
 Creates an iterator generating lists that bind given argument values. When the value is a list or an iterator, each item in it would be zipped.
 </p>
 <p>
@@ -4229,12 +3655,8 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 <h3><span class="caption-index-3">6.20.2</span><a name="anchor-6-20-2"></a>Iterator-specific Features</h3>
 <h4><span class="caption-index-4">6.20.2.1</span><a name="anchor-6-20-2-1"></a>Function to Create iterator Instance</h4>
 <p>
-<strong>iterator</strong>
-</p>
-<p>
-<code>iterator(value+) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterator</strong></div>
+<div style="margin-bottom:1em"><code>iterator(value+) {block?}</code></div>
 Creates an iterator that combines iterators given in the argument.
 </p>
 <p>
@@ -4256,42 +3678,26 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 </p>
 <h4><span class="caption-index-4">6.20.2.2</span><a name="anchor-6-20-2-2"></a>Method Specific to iterator Class</h4>
 <p>
-<strong>iterator#delay</strong>
-</p>
-<p>
-<code>iterator#delay(delay:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterator#delay</strong></div>
+<div style="margin-bottom:1em"><code>iterator#delay(delay:number) {block?}</code></div>
 Creates an iterator that returns each element with an interval time specified by the argument <code>delay</code> in seconds.
 </p>
 <p>
-<strong>iterator#isinfinite</strong>
-</p>
-<p>
-<code>iterator#isinfinite()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterator#isinfinite</strong></div>
+<div style="margin-bottom:1em"><code>iterator#isinfinite()</code></div>
 Returns <code>true</code> if the iterator is infinite one.
 </p>
 <p>
 The trait of iterator's infinity is used to avoid an endless process by evaluating an infinite iterator. An attempt to evaluate an infinite iterator such as creation of a list from it would occur an error.
 </p>
 <p>
-<strong>iterator#next</strong>
-</p>
-<p>
-<code>iterator#next()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterator#next</strong></div>
+<div style="margin-bottom:1em"><code>iterator#next()</code></div>
 Returns a next element of the iterator. This operation updates the iterator's internal status.
 </p>
 <p>
-<strong>iterator#repeater</strong>
-</p>
-<p>
-<code>iterator#repeater()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterator#repeater</strong></div>
+<div style="margin-bottom:1em"><code>iterator#repeater()</code></div>
 Makes the iterator behave as a "repeater". This would allow the iterator be evaulated when it appears as an element of another "repeater" iterator.
 </p>
 <p>
@@ -4313,12 +3719,8 @@ println(x)
 </code></pre>
 <h3><span class="caption-index-3">6.20.3</span><a name="anchor-6-20-3"></a>Method Common to Both list and iterator Classes</h3>
 <p>
-<strong>iterable#after</strong>
-</p>
-<p>
-<code>iterable#after(criteria) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#after</strong></div>
+<div style="margin-bottom:1em"><code>iterable#after(criteria) {block?}</code></div>
 Creates an iterator that picks up elements that appear at positions after the criteria is evaluated to be <code>true</code>.
 </p>
 <p>
@@ -4339,12 +3741,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>iterable#align</strong>
-</p>
-<p>
-<code>iterable#align(n:number, value?) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#align</strong></div>
+<div style="margin-bottom:1em"><code>iterable#align(n:number, value?) {block?}</code></div>
 Creates an iterator that returns the specified number of elements in the source iterator. If the number is larger than the length of the source iterator, the lacking part is filled with <code>value</code>. If the argument <code>value</code> is omitted, <code>nil</code> is used for the filling.
 </p>
 <p>
@@ -4360,21 +3758,13 @@ Below is an example to specify a number that exceeds the source length:
 // x generates `A, `B, `C, `D, `E, `F, nil, nil.
 </code></pre>
 <p>
-<strong>iterable#and</strong>
-</p>
-<p>
-<code>iterable#and()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#and</strong></div>
+<div style="margin-bottom:1em"><code>iterable#and()</code></div>
 Calculates a logical AND result of all the values in the iterable.
 </p>
 <p>
-<strong>iterable#average</strong>
-</p>
-<p>
-<code>iterable#average()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#average</strong></div>
+<div style="margin-bottom:1em"><code>iterable#average()</code></div>
 Calculates an average of elements in the iterable.
 </p>
 <p>
@@ -4390,12 +3780,8 @@ It can work on an iterable with elements of type that supports addition and divi
 <li><code>gmp.mpf</code></li>
 </ul>
 <p>
-<strong>iterable#before</strong>
-</p>
-<p>
-<code>iterable#before(criteria) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#before</strong></div>
+<div style="margin-bottom:1em"><code>iterable#before(criteria) {block?}</code></div>
 Creates an iterator that extracts elements in the iterable before criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
 </p>
 <p>
@@ -4413,33 +3799,21 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>iterable#contains</strong>
-</p>
-<p>
-<code>iterable#contains(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#contains</strong></div>
+<div style="margin-bottom:1em"><code>iterable#contains(value)</code></div>
 Returns <code>true</code> if the specified value appears in the iterable.
 </p>
 <p>
-<strong>iterable#count</strong>
-</p>
-<p>
-<code>iterable#count(criteria?)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#count</strong></div>
+<div style="margin-bottom:1em"><code>iterable#count(criteria?)</code></div>
 Returns a number of elements that matches the given criteria which is a single-argument function or a value.
 </p>
 <p>
 When a function is applied, it counts the number of true after evaluating element value with the function. If a value is applied, it counts the number of elements that are equal to the value.
 </p>
 <p>
-<strong>iterable#cycle</strong>
-</p>
-<p>
-<code>iterable#cycle(n?:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#cycle</strong></div>
+<div style="margin-bottom:1em"><code>iterable#cycle(n?:number) {block?}</code></div>
 Creates an iterator that iterates elements in the source iterator cyclically.
 </p>
 <p>
@@ -4452,12 +3826,8 @@ Below is an example:
 // x generates `A, `B, `C, `D, `E, `A, `B, `C, `D, `E, `A, `B, ..
 </code></pre>
 <p>
-<strong>iterable#each</strong>
-</p>
-<p>
-<code>iterable#each() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#each</strong></div>
+<div style="margin-bottom:1em"><code>iterable#each() {block?}</code></div>
 Creates an iterator that iterates each element in the list.
 </p>
 <p>
@@ -4475,12 +3845,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>iterable#filter</strong>
-</p>
-<p>
-<code>iterable#filter(criteria?) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#filter</strong></div>
+<div style="margin-bottom:1em"><code>iterable#filter(criteria?) {block?}</code></div>
 Creates an iterable that filters values in the source iterable by a criteria.
 </p>
 <p>
@@ -4506,18 +3872,13 @@ y = filter(&amp;{$x &gt; 3})
 // y generates 4, 5, 9
 </code></pre>
 <p>
-<strong>iterable#find</strong>
+<div><strong style="text-decoration:underline">iterable#find</strong></div>
+<div style="margin-bottom:1em"><code>iterable#find(criteria?):[index]</code></div>
+
 </p>
 <p>
-<code>iterable#find(criteria?):[index]</code>
-</p>
-<p>
-<strong>iterable#flat</strong>
-</p>
-<p>
-<code>iterable#flat():[bfs,dfs] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#flat</strong></div>
+<div style="margin-bottom:1em"><code>iterable#flat():[bfs,dfs] {block?}</code></div>
 Creates an iterator that searches items recursively if they are lists or iterators.
 </p>
 <p>
@@ -4556,12 +3917,8 @@ y = x.flat():bfs
 // y generates `K, `L, `A, `B, `C, `D, `E, `I, `J, `F, `G, `H
 </code></pre>
 <p>
-<strong>iterable#fold</strong>
-</p>
-<p>
-<code>iterable#fold(n:number, nstep?:number):map:[iteritem,neat] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#fold</strong></div>
+<div style="margin-bottom:1em"><code>iterable#fold(n:number, nstep?:number):map:[iteritem,neat] {block?}</code></div>
 Creates an iterator that packs <code>n</code> elements of the source iterator into a list and returns it as its element.
 </p>
 <p>
@@ -4586,12 +3943,8 @@ Following is an example to fold elements by 3 with a step of 2:
 // x generates [`A, `B, `C], [`C, `D, `E], [`E, `F, `G], [`G, `H].
 </code></pre>
 <p>
-<strong>iterable#format</strong>
-</p>
-<p>
-<code>iterable#format(format:string):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#format</strong></div>
+<div style="margin-bottom:1em"><code>iterable#format(format:string):map {block?}</code></div>
 Creates an iterator that converts element values in the source iterable into strings depending on formatter specifier in <code>format</code>.
 </p>
 <p>
@@ -4609,12 +3962,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>iterable#head</strong>
-</p>
-<p>
-<code>iterable#head(n:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#head</strong></div>
+<div style="margin-bottom:1em"><code>iterable#head(n:number):map {block?}</code></div>
 Creates an iterator that takes the first <code>n</code> elements from the source iterable.
 </p>
 <p>
@@ -4632,42 +3981,26 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>iterable#join</strong>
-</p>
-<p>
-<code>iterable#join(sep?:string):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#join</strong></div>
+<div style="margin-bottom:1em"><code>iterable#join(sep?:string):map</code></div>
 Joins all the elements in the iterable as strings while inserting the specified separator <code>sep</code> and returns the result.
 </p>
 <p>
 If an element is not a <code>string</code> value, it would be converted to a <code>string</code> before being joined.
 </p>
 <p>
-<strong>iterable#joinb</strong>
-</p>
-<p>
-<code>iterable#joinb()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#joinb</strong></div>
+<div style="margin-bottom:1em"><code>iterable#joinb()</code></div>
 Joins all the <code>binary</code> values in the iterable and returns the result.
 </p>
 <p>
-<strong>iterable#len</strong>
-</p>
-<p>
-<code>iterable#len()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#len</strong></div>
+<div style="margin-bottom:1em"><code>iterable#len()</code></div>
 Returns the length of the iterable.
 </p>
 <p>
-<strong>iterable#map</strong>
-</p>
-<p>
-<code>iterable#map(func:function) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#map</strong></div>
+<div style="margin-bottom:1em"><code>iterable#map(func:function) {block?}</code></div>
 Creates an iterator that generates element values after applying the specfied function on them. The function must take one argument.
 </p>
 <p>
@@ -4685,12 +4018,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>iterable#max</strong>
-</p>
-<p>
-<code>iterable#max():[index,indices,last_index]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#max</strong></div>
+<div style="margin-bottom:1em"><code>iterable#max():[index,indices,last_index]</code></div>
 Returns the maximum value in the iterable.
 </p>
 <p>
@@ -4702,12 +4031,8 @@ It would return a position index where the maximum value is found when one of th
 <li><code>:last_index</code> .. the last index of the maximum value when the value exists at multiple positions.</li>
 </ul>
 <p>
-<strong>iterable#min</strong>
-</p>
-<p>
-<code>iterable#min():[index,indices,last_index]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#min</strong></div>
+<div style="margin-bottom:1em"><code>iterable#min():[index,indices,last_index]</code></div>
 Returns the minimum value in the iterable.
 </p>
 <p>
@@ -4719,21 +4044,13 @@ It would return a position index where the minimum value is found when one of th
 <li><code>:last_index</code> .. the last index of the minimum value when the value exists at multiple positions.</li>
 </ul>
 <p>
-<strong>iterable#nilto</strong>
-</p>
-<p>
-<code>iterable#nilto(replace) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#nilto</strong></div>
+<div style="margin-bottom:1em"><code>iterable#nilto(replace) {block?}</code></div>
 Creates an iterator that converts <code>nil</code> in the source iterable to the specified value.
 </p>
 <p>
-<strong>iterable#offset</strong>
-</p>
-<p>
-<code>iterable#offset(n:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#offset</strong></div>
+<div style="margin-bottom:1em"><code>iterable#offset(n:number) {block?}</code></div>
 Creates an iterator that returns skips the first <code>n</code> elements in the source iterable.
 </p>
 <p>
@@ -4757,21 +4074,13 @@ Below is an example:
 // x generates `D, `E, `F, `G, `H
 </code></pre>
 <p>
-<strong>iterable#or</strong>
-</p>
-<p>
-<code>iterable#or()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#or</strong></div>
+<div style="margin-bottom:1em"><code>iterable#or()</code></div>
 Calculates a logical OR result of all the values in the iterable.
 </p>
 <p>
-<strong>iterable#pack</strong>
-</p>
-<p>
-<code>iterable#pack(format:string) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#pack</strong></div>
+<div style="margin-bottom:1em"><code>iterable#pack(format:string) {block?}</code></div>
 Creates a <code>binary</code> instance that has packed elements in the iterable according to specifiers in the <code>format</code>.
 </p>
 <p>
@@ -4827,12 +4136,8 @@ You can specify an asterisk character "<code>*</code>" for the number of packing
 You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>" in the format to change coding character set while packing a string with format character "<code>s</code>" from UTF-8.
 </p>
 <p>
-<strong>iterable#pingpong</strong>
-</p>
-<p>
-<code>iterable#pingpong(n?:number):[sticky,sticky@top,sticky@btm] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#pingpong</strong></div>
+<div style="margin-bottom:1em"><code>iterable#pingpong(n?:number):[sticky,sticky@top,sticky@btm] {block?}</code></div>
 Creates an iterator that iterates elements in the source iterator from top to bottom, and then from bottom to top repeatedly.
 </p>
 <p>
@@ -4859,39 +4164,26 @@ Below is an example:
 // x generates `A, `B, `C, `D, `E, `E, `D, `C, `B, `A, `A, `B, ..
 </code></pre>
 <p>
-<strong>iterable#print</strong>
-</p>
-<p>
-<code>iterable#print(stream?:stream:w):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#print</strong></div>
+<div style="margin-bottom:1em"><code>iterable#print(stream?:stream:w):void</code></div>
 Prints elements to the specified <code>stream</code>.
 </p>
 <p>
 If omitted, they are printed to the standard output.
 </p>
 <p>
-<strong>iterable#printf</strong>
-</p>
-<p>
-<code>iterable#printf(format:string, stream?:stream:w):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#printf</strong></div>
+<div style="margin-bottom:1em"><code>iterable#printf(format:string, stream?:stream:w):void</code></div>
 Prints items in the iterable by using the format.
 </p>
 <p>
-<strong>iterable#println</strong>
+<div><strong style="text-decoration:underline">iterable#println</strong></div>
+<div style="margin-bottom:1em"><code>iterable#println(stream?:stream:w):void</code></div>
+
 </p>
 <p>
-<code>iterable#println(stream?:stream:w):void</code>
-</p>
-<p>
-<strong>iterable#rank</strong>
-</p>
-<p>
-<code>iterable#rank(directive?) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#rank</strong></div>
+<div style="margin-bottom:1em"><code>iterable#rank(directive?) {block?}</code></div>
 Creates an iterable of rank numbers for elements after sorting them.
 </p>
 <p>
@@ -4913,12 +4205,8 @@ You can also put a function to the argument <code>directive</code> that takes tw
 When an attribute :stable is specified, the original order shall be kept for elements that are determined as the same.
 </p>
 <p>
-<strong>iterable#reduce</strong>
-</p>
-<p>
-<code>iterable#reduce(accum) {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#reduce</strong></div>
+<div style="margin-bottom:1em"><code>iterable#reduce(accum) {block}</code></div>
 Evaluates a block with a parameter format <code>|value, accum|</code> and leaves the result as the next <code>accum</code> value.
 </p>
 <p>
@@ -4932,12 +4220,8 @@ n = x.reduce(0) {|value, accum| value + accum}
 // n is 55
 </code></pre>
 <p>
-<strong>iterable#replace</strong>
-</p>
-<p>
-<code>iterable#replace(value, replace) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#replace</strong></div>
+<div style="margin-bottom:1em"><code>iterable#replace(value, replace) {block?}</code></div>
 Creates an iterator that replaces the <code>value</code> in the original iterablewith the value of <code>replace</code>.
 </p>
 <p>
@@ -4955,12 +4239,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>iterable#reverse</strong>
-</p>
-<p>
-<code>iterable#reverse() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#reverse</strong></div>
+<div style="margin-bottom:1em"><code>iterable#reverse() {block?}</code></div>
 Creates an iterator that iterates elements in the source iterable from tail to top.
 </p>
 <p>
@@ -4978,12 +4258,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>iterable#roundoff</strong>
-</p>
-<p>
-<code>iterable#roundoff(threshold:number =&gt; 1e-10) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#roundoff</strong></div>
+<div style="margin-bottom:1em"><code>iterable#roundoff(threshold:number =&gt; 1e-10) {block?}</code></div>
 Creates an iterator that replaces a number with zero if it is less than the specified <code>threshold</code>.
 </p>
 <p>
@@ -5001,12 +4277,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>iterable#runlength</strong>
-</p>
-<p>
-<code>iterable#runlength() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#runlength</strong></div>
+<div style="margin-bottom:1em"><code>iterable#runlength() {block?}</code></div>
 Creates an iterator that counts the number of consecutive same value and generates elements in a form of <code>[cnt, value]</code> where <code>cnt</code> indicates how many <code>value</code> appears in a row.
 </p>
 <p>
@@ -5030,12 +4302,8 @@ Below is an example:
 // x generates [2, `A], [1, `B], [3, `C], [2, `D]
 </code></pre>
 <p>
-<strong>iterable#since</strong>
-</p>
-<p>
-<code>iterable#since(criteria) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#since</strong></div>
+<div style="margin-bottom:1em"><code>iterable#since(criteria) {block?}</code></div>
 Creates an iterator that picks up each element in the iterable since criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
 </p>
 <p>
@@ -5053,12 +4321,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>iterable#skip</strong>
-</p>
-<p>
-<code>iterable#skip(n:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#skip</strong></div>
+<div style="margin-bottom:1em"><code>iterable#skip(n:number) {block?}</code></div>
 Creates an iterator that skips <code>n</code> elements before picking up next element.
 </p>
 <p>
@@ -5082,12 +4346,8 @@ Below is an example:
 // x generates `A, `D, `G
 </code></pre>
 <p>
-<strong>iterable#skipnil</strong>
-</p>
-<p>
-<code>iterable#skipnil() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#skipnil</strong></div>
+<div style="margin-bottom:1em"><code>iterable#skipnil() {block?}</code></div>
 Creates an iterator that skips <code>nil</code> in the source iterable.
 </p>
 <p>
@@ -5111,12 +4371,8 @@ Below is an example:
 // x generates `A, `C, `F, `H
 </code></pre>
 <p>
-<strong>iterable#sort</strong>
-</p>
-<p>
-<code>iterable#sort(directive?, keys[]?):[stable] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#sort</strong></div>
+<div style="margin-bottom:1em"><code>iterable#sort(directive?, keys[]?):[stable] {block?}</code></div>
 Creates an iterator of elements after sorting them.
 </p>
 <p>
@@ -5138,21 +4394,13 @@ You can also put a function to the argument <code>directive</code> that takes tw
 When an attribute :stable is specified, the original order shall be kept for elements that are determined as the same. If the argument <code>keys</code> is specified, it would be used as a key instead of element values.
 </p>
 <p>
-<strong>iterable#stddev</strong>
-</p>
-<p>
-<code>iterable#stddev()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#stddev</strong></div>
+<div style="margin-bottom:1em"><code>iterable#stddev()</code></div>
 Calculates a standard deviation of elements in the iterable.
 </p>
 <p>
-<strong>iterable#sum</strong>
-</p>
-<p>
-<code>iterable#sum()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#sum</strong></div>
+<div style="margin-bottom:1em"><code>iterable#sum()</code></div>
 Calculates a summation of elements in the iterable.
 </p>
 <p>
@@ -5170,12 +4418,8 @@ It can work on an iterable with elements of a value type that supports addition 
 <li><code>gmp.mpf</code></li>
 </ul>
 <p>
-<strong>iterable#tail</strong>
-</p>
-<p>
-<code>iterable#tail(n:number) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#tail</strong></div>
+<div style="margin-bottom:1em"><code>iterable#tail(n:number) {block?}</code></div>
 Creates an iterator that takes the last <code>n</code> elements from the source iterable.
 </p>
 <p>
@@ -5193,12 +4437,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>iterable#until</strong>
-</p>
-<p>
-<code>iterable#until(criteria) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#until</strong></div>
+<div style="margin-bottom:1em"><code>iterable#until(criteria) {block?}</code></div>
 Creates an iterator that picks up each element in the list until criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
 </p>
 <p>
@@ -5216,21 +4456,13 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>iterable#variance</strong>
-</p>
-<p>
-<code>iterable#variance()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#variance</strong></div>
+<div style="margin-bottom:1em"><code>iterable#variance()</code></div>
 Calculates a variance of elements in the iterable.
 </p>
 <p>
-<strong>iterable#walk</strong>
-</p>
-<p>
-<code>iterable#walk():[bfs,dfs] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#walk</strong></div>
+<div style="margin-bottom:1em"><code>iterable#walk():[bfs,dfs] {block?}</code></div>
 Creates an iterator that searches items recursively if they are lists or iterators.
 </p>
 <p>
@@ -5269,12 +4501,8 @@ y = x.walk():bfs
 // y generates `K, `L, `A, `B, `C, `D, `E, `I, `J, `F, `G, `H
 </code></pre>
 <p>
-<strong>iterable#while</strong>
-</p>
-<p>
-<code>iterable#while (criteria) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">iterable#while</strong></div>
+<div style="margin-bottom:1em"><code>iterable#while (criteria) {block?}</code></div>
 Creates an iterator that picks up each element in the list while criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
 </p>
 <p>
@@ -5303,12 +4531,8 @@ Below shows a way to create a matrix instance:
 </code></pre>
 <h3><span class="caption-index-3">6.21.1</span><a name="anchor-6-21-1"></a>Constructor</h3>
 <p>
-<strong>matrix</strong>
-</p>
-<p>
-<code>matrix(nrows:number, ncols:number, value?) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix</strong></div>
+<div style="margin-bottom:1em"><code>matrix(nrows:number, ncols:number, value?) {block?}</code></div>
 Creates a <code>matrix</code> instance that has specified rows and columns.
 </p>
 <p>
@@ -5319,81 +4543,48 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <h3><span class="caption-index-3">6.21.2</span><a name="anchor-6-21-2"></a>Method</h3>
 <p>
-<strong>matrix#col</strong>
-</p>
-<p>
-<code>matrix#col(col:number):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#col</strong></div>
+<div style="margin-bottom:1em"><code>matrix#col(col:number):map</code></div>
 Returns a list of values copied from a specified column of the matrix. Modification on the returned sub matrix will affect on the original one.
 </p>
 <p>
-<strong>matrix#colsize</strong>
-</p>
-<p>
-<code>matrix#colsize()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#colsize</strong></div>
+<div style="margin-bottom:1em"><code>matrix#colsize()</code></div>
 Returns the matrix column size.
 </p>
 <p>
-<strong>matrix#each</strong>
-</p>
-<p>
-<code>matrix#each():[transpose]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#each</strong></div>
+<div style="margin-bottom:1em"><code>matrix#each():[transpose]</code></div>
 Returns an iterator that picks up each cell by scanning the matrix. In default, that scan is done in a horizontal direction. When an attribute :transpose is specified, it's done in a vertical direction.
 </p>
 <p>
-<strong>matrix#eachcol</strong>
-</p>
-<p>
-<code>matrix#eachcol()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#eachcol</strong></div>
+<div style="margin-bottom:1em"><code>matrix#eachcol()</code></div>
 Returns an iterator that generates lists of values copied from each column of the matrix.
 </p>
 <p>
-<strong>matrix#eachrow</strong>
-</p>
-<p>
-<code>matrix#eachrow()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#eachrow</strong></div>
+<div style="margin-bottom:1em"><code>matrix#eachrow()</code></div>
 Returns an iterator that generates lists of values copied from each row of the matrix.
 </p>
 <p>
-<strong>matrix.identity</strong>
+<div><strong style="text-decoration:underline">matrix.identity</strong></div>
+<div style="margin-bottom:1em"><code>matrix.identity(n:number):static:map {block?}</code></div>
+
 </p>
 <p>
-<code>matrix.identity(n:number):static:map {block?}</code>
-</p>
-<p>
-<strong>matrix#invert</strong>
-</p>
-<p>
-<code>matrix#invert()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#invert</strong></div>
+<div style="margin-bottom:1em"><code>matrix#invert()</code></div>
 Returns an inverted matrix.
 </p>
 <p>
-<strong>matrix#issquare</strong>
-</p>
-<p>
-<code>matrix#issquare()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#issquare</strong></div>
+<div style="margin-bottom:1em"><code>matrix#issquare()</code></div>
 Returns true if the matrix is a square one.
 </p>
 <p>
-<strong>matrix.rotation</strong>
-</p>
-<p>
-<code>matrix.rotation(angle:number, tx?:number, ty?:number):static:map:[deg] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix.rotation</strong></div>
+<div style="margin-bottom:1em"><code>matrix.rotation(angle:number, tx?:number, ty?:number):static:map:[deg] {block?}</code></div>
 Creates a matrix that rotates a two-dimensional coordinate by the specified angle in radian unit.
 </p>
 <p>
@@ -5411,12 +4602,8 @@ Below is an example to create a matrix that rotates 30 degrees.
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|mat:matrix|</code>, where <code>mat</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>matrix.rotation@x</strong>
-</p>
-<p>
-<code>matrix.rotation@x(angle:number, tx?:number, ty?:number, tz?:number):static:map:[deg] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix.rotation@x</strong></div>
+<div style="margin-bottom:1em"><code>matrix.rotation@x(angle:number, tx?:number, ty?:number, tz?:number):static:map:[deg] {block?}</code></div>
 Creates a matrix that rotates a three-dimensional coordinate around x-axis by the specified angle in radian unit.
 </p>
 <p>
@@ -5434,12 +4621,8 @@ Below is an example to create a matrix that rotates 30 degrees around x-axis.
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|mat:matrix|</code>, where <code>mat</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>matrix.rotation@y</strong>
-</p>
-<p>
-<code>matrix.rotation@y(angle:number, tx?:number, ty?:number, tz?:number):static:map:[deg] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix.rotation@y</strong></div>
+<div style="margin-bottom:1em"><code>matrix.rotation@y(angle:number, tx?:number, ty?:number, tz?:number):static:map:[deg] {block?}</code></div>
 Creates a matrix that rotates a three-dimensional coordinate around y-axis by the specified angle in radian unit.
 </p>
 <p>
@@ -5457,12 +4640,8 @@ Below is an example to create a matrix that rotates 30 degrees around y-axis.
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|mat:matrix|</code>, where <code>mat</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>matrix.rotation@z</strong>
-</p>
-<p>
-<code>matrix.rotation@z(angle:number, tx?:number, ty?:number, tz?:number):static:map:[deg] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix.rotation@z</strong></div>
+<div style="margin-bottom:1em"><code>matrix.rotation@z(angle:number, tx?:number, ty?:number, tz?:number):static:map:[deg] {block?}</code></div>
 Creates a matrix that rotates a three-dimensional coordinate around z-axis by the specified angle in radian unit.
 </p>
 <p>
@@ -5480,12 +4659,8 @@ Below is an example to create a matrix that rotates 30 degrees around z-axis.
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|mat:matrix|</code>, where <code>mat</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>matrix#roundoff</strong>
-</p>
-<p>
-<code>matrix#roundoff(threshold:number =&gt; 1e-10) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#roundoff</strong></div>
+<div style="margin-bottom:1em"><code>matrix#roundoff(threshold:number =&gt; 1e-10) {block?}</code></div>
 Returns a matrix with element values being rounded off.
 </p>
 <p>
@@ -5495,66 +4670,38 @@ The argument <code>threshold</code> specifies the threshold value for the round-
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|mat:matrix|</code>, where <code>mat</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>matrix#row</strong>
-</p>
-<p>
-<code>matrix#row(row:number):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#row</strong></div>
+<div style="margin-bottom:1em"><code>matrix#row(row:number):map</code></div>
 Returns a list of values copied from a specified row of the matrix. Modification on the returned sub matrix will affect on the original one.
 </p>
 <p>
-<strong>matrix#rowsize</strong>
-</p>
-<p>
-<code>matrix#rowsize()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#rowsize</strong></div>
+<div style="margin-bottom:1em"><code>matrix#rowsize()</code></div>
 Returns the matrix row size.
 </p>
 <p>
-<strong>matrix#set</strong>
-</p>
-<p>
-<code>matrix#set(value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#set</strong></div>
+<div style="margin-bottom:1em"><code>matrix#set(value)</code></div>
 Sets all the cells of the matrix with a specified value.
 </p>
 <p>
-<strong>matrix#setcol</strong>
-</p>
-<p>
-<code>matrix#setcol(col:number, value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#setcol</strong></div>
+<div style="margin-bottom:1em"><code>matrix#setcol(col:number, value)</code></div>
 Sets cells in a selected column of the matrix with a specified value.
 </p>
 <p>
-<strong>matrix#setrow</strong>
-</p>
-<p>
-<code>matrix#setrow(row:number, value)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#setrow</strong></div>
+<div style="margin-bottom:1em"><code>matrix#setrow(row:number, value)</code></div>
 Sets cells in a selected row of the matrix with a specified value.
 </p>
 <p>
-<strong>matrix#submat</strong>
-</p>
-<p>
-<code>matrix#submat(row:number, col:number, nrows:number, ncols:number):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#submat</strong></div>
+<div style="margin-bottom:1em"><code>matrix#submat(row:number, col:number, nrows:number, ncols:number):map</code></div>
 Returns a sub matrix that refers to cells in a specified area of the matrix. Modification on the returned sub matrix will affect on the original one.
 </p>
 <p>
-<strong>matrix#tolist</strong>
-</p>
-<p>
-<code>matrix#tolist():[flat,transpose]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#tolist</strong></div>
+<div style="margin-bottom:1em"><code>matrix#tolist():[flat,transpose]</code></div>
 Converts the matrix into a list containing sub-lists that represents its rows.
 </p>
 <p>
@@ -5576,12 +4723,8 @@ Below is an example with <code>:transpose</code> attribute:
 [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
 </code></pre>
 <p>
-<strong>matrix#transpose</strong>
-</p>
-<p>
-<code>matrix#transpose()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">matrix#transpose</strong></div>
+<div style="margin-bottom:1em"><code>matrix#transpose()</code></div>
 Returns a transposed matrix.
 </p>
 <h2><span class="caption-index-2">6.22</span><a name="anchor-6-22"></a>nil Class</h2>
@@ -5591,10 +4734,9 @@ The <code>number</code> class provides measures to calculate numbers.
 </p>
 <h3><span class="caption-index-3">6.23.1</span><a name="anchor-6-23-1"></a>Method</h3>
 <p>
-<strong>number.roundoff</strong>
-</p>
-<p>
-<code>number.roundoff(threshold:number =&gt; 1e-10)</code>
+<div><strong style="text-decoration:underline">number.roundoff</strong></div>
+<div style="margin-bottom:1em"><code>number.roundoff(threshold:number =&gt; 1e-10)</code></div>
+
 </p>
 <h2><span class="caption-index-2">6.24</span><a name="anchor-6-24"></a>operator Class</h2>
 <p>
@@ -5636,12 +4778,8 @@ Operator symbol.</td>
 </p>
 <h3><span class="caption-index-3">6.24.2</span><a name="anchor-6-24-2"></a>Constructor</h3>
 <p>
-<strong>operator</strong>
-</p>
-<p>
-<code>operator(symbol:symbol):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">operator</strong></div>
+<div style="margin-bottom:1em"><code>operator(symbol:symbol):map {block?}</code></div>
 Creates an <code>operator</code> instance that is associated with the specified symbol.
 </p>
 <p>
@@ -5654,12 +4792,8 @@ Below is an example to create an <code>operator</code> instance that is associat
 </code></pre>
 <h3><span class="caption-index-3">6.24.3</span><a name="anchor-6-24-3"></a>Method</h3>
 <p>
-<strong>operator#assign</strong>
-</p>
-<p>
-<code>operator#assign(type_l:expr, type_r?:expr):map:void {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">operator#assign</strong></div>
+<div style="margin-bottom:1em"><code>operator#assign(type_l:expr, type_r?:expr):map:void {block}</code></div>
 Associates the <code>operator</code> instance with a procedure described in <code>block</code> that takes values as a block parameter and returns its operation result.
 </p>
 <p>
@@ -5691,12 +4825,8 @@ Below is an example to assign a procedure to a binary form of operator <code>-</
 }
 </code></pre>
 <p>
-<strong>operator#entries</strong>
-</p>
-<p>
-<code>operator#entries(type?:symbol)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">operator#entries</strong></div>
+<div style="margin-bottom:1em"><code>operator#entries(type?:symbol)</code></div>
 Returns a list that contains type expressions that the operator can accept as its arguments.
 </p>
 <p>
@@ -5712,12 +4842,8 @@ The <code>palette</code> instance has a set of <code>color</code> instance.
 </p>
 <h3><span class="caption-index-3">6.25.1</span><a name="anchor-6-25-1"></a>Constructor</h3>
 <p>
-<strong>palette</strong>
-</p>
-<p>
-<code>palette(type) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">palette</strong></div>
+<div style="margin-bottom:1em"><code>palette(type) {block?}</code></div>
 Creates a <code>palette</code> instance.
 </p>
 <p>
@@ -5740,12 +4866,8 @@ In the second form, it can take one of the following symbols:
 </ul>
 <h3><span class="caption-index-3">6.25.2</span><a name="anchor-6-25-2"></a>Method</h3>
 <p>
-<strong>palette#each</strong>
-</p>
-<p>
-<code>palette#each() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">palette#each</strong></div>
+<div style="margin-bottom:1em"><code>palette#each() {block?}</code></div>
 Creates an iterator that iterates each element in the palette.
 </p>
 <p>
@@ -5763,33 +4885,21 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>palette#nearest</strong>
-</p>
-<p>
-<code>palette#nearest(color:color):map:[index]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">palette#nearest</strong></div>
+<div style="margin-bottom:1em"><code>palette#nearest(color:color):map:[index]</code></div>
 Returns a <code>color</code> instance in the palette that is the nearest with the specified color.
 </p>
 <p>
 If the attribute <code>:index</code> is specified, it would return an index of the nearst entry instead of its <code>color</code> instance.
 </p>
 <p>
-<strong>palette#shrink</strong>
-</p>
-<p>
-<code>palette#shrink():reduce:[align]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">palette#shrink</strong></div>
+<div style="margin-bottom:1em"><code>palette#shrink():reduce:[align]</code></div>
 Shrinks the size of the palette to a number powered by two that is enough to contain unique entries. The ordef of existing entries will be kept intact.
 </p>
 <p>
-<strong>palette#updateby</strong>
-</p>
-<p>
-<code>palette#updateby(image_or_palette):reduce:[align,shrink]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">palette#updateby</strong></div>
+<div style="margin-bottom:1em"><code>palette#updateby(image_or_palette):reduce:[align,shrink]</code></div>
 Updates palette entries according to color data in an image or a palette.
 </p>
 <p>
@@ -5801,34 +4911,29 @@ The <code>pointer</code> class provides measures to read and write content in a 
 </p>
 <h3><span class="caption-index-3">6.26.1</span><a name="anchor-6-26-1"></a>Method</h3>
 <p>
-<strong>pointer#forward</strong>
+<div><strong style="text-decoration:underline">pointer#forward</strong></div>
+<div style="margin-bottom:1em"><code>pointer#forward(distance:number):reduce</code></div>
+
 </p>
 <p>
-<code>pointer#forward(distance:number):reduce</code>
+<div><strong style="text-decoration:underline">pointer#pack</strong></div>
+<div style="margin-bottom:1em"><code>pointer#pack(format:string, value+):reduce:[stay]</code></div>
+
 </p>
 <p>
-<strong>pointer#pack</strong>
+<div><strong style="text-decoration:underline">pointer#reset</strong></div>
+<div style="margin-bottom:1em"><code>pointer#reset()</code></div>
+
 </p>
 <p>
-<code>pointer#pack(format:string, value+):reduce:[stay]</code>
+<div><strong style="text-decoration:underline">pointer#unpack</strong></div>
+<div style="margin-bottom:1em"><code>pointer#unpack(format:string, values*:number):[nil,stay]</code></div>
+
 </p>
 <p>
-<strong>pointer#reset</strong>
-</p>
-<p>
-<code>pointer#reset()</code>
-</p>
-<p>
-<strong>pointer#unpack</strong>
-</p>
-<p>
-<code>pointer#unpack(format:string, values*:number):[nil,stay]</code>
-</p>
-<p>
-<strong>pointer#unpacks</strong>
-</p>
-<p>
-<code>pointer#unpacks(format:string, values*:number)</code>
+<div><strong style="text-decoration:underline">pointer#unpacks</strong></div>
+<div style="margin-bottom:1em"><code>pointer#unpacks(format:string, values*:number)</code></div>
+
 </p>
 <h2><span class="caption-index-2">6.27</span><a name="anchor-6-27"></a>rational Class</h2>
 <p>
@@ -5850,12 +4955,8 @@ Below are examples to realize a common fraction two-thirds:
 </code></pre>
 <h3><span class="caption-index-3">6.27.1</span><a name="anchor-6-27-1"></a>Constructor</h3>
 <p>
-<strong>rational</strong>
-</p>
-<p>
-<code>rational(numer:number, denom?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">rational</strong></div>
+<div style="margin-bottom:1em"><code>rational(numer:number, denom?:number):map {block?}</code></div>
 Creates a rational value from given numerator <code>numer</code> and denominator <code>denom</code>.
 </p>
 <p>
@@ -5866,48 +4967,31 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <h3><span class="caption-index-3">6.27.2</span><a name="anchor-6-27-2"></a>Method</h3>
 <p>
-<strong>rational.reduce</strong>
-</p>
-<p>
-<code>rational.reduce()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">rational.reduce</strong></div>
+<div style="margin-bottom:1em"><code>rational.reduce()</code></div>
 Reduces the rational number by dividing its numerator and denominator by their GCD.
 </p>
 <h2><span class="caption-index-2">6.28</span><a name="anchor-6-28"></a>semaphore Class</h2>
 <h3><span class="caption-index-3">6.28.1</span><a name="anchor-6-28-1"></a>Constructor</h3>
 <p>
-<strong>semaphore</strong>
-</p>
-<p>
-<code>semaphore()</code>
+<div><strong style="text-decoration:underline">semaphore</strong></div>
+<div style="margin-bottom:1em"><code>semaphore()</code></div>
+
 </p>
 <h3><span class="caption-index-3">6.28.2</span><a name="anchor-6-28-2"></a>Method</h3>
 <p>
-<strong>semaphore#release</strong>
-</p>
-<p>
-<code>semaphore#release()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">semaphore#release</strong></div>
+<div style="margin-bottom:1em"><code>semaphore#release()</code></div>
 Releases the owership of the semaphore that is grabbed by semaphore#wait().
 </p>
 <p>
-<strong>semaphore#session</strong>
-</p>
-<p>
-<code>semaphore#session() {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">semaphore#session</strong></div>
+<div style="margin-bottom:1em"><code>semaphore#session() {block}</code></div>
 Forms a critical session by grabbing the semaphore's ownership, executing the block and releasing that ownership. It internally proccesses the same job as semaphore#wait() and semaphore#release() before and after the block execution
 </p>
 <p>
-<strong>semaphore#wait</strong>
-</p>
-<p>
-<code>semaphore#wait()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">semaphore#wait</strong></div>
+<div style="margin-bottom:1em"><code>semaphore#wait()</code></div>
 Watis for the semaphore being released by other threads, and ghen grabs that ownership.
 </p>
 <h2><span class="caption-index-2">6.29</span><a name="anchor-6-29"></a>stream Class</h2>
@@ -6042,12 +5126,8 @@ Using the above casting feature, you can call a function <code>f(stream:stream)<
 </ul>
 <h3><span class="caption-index-3">6.29.4</span><a name="anchor-6-29-4"></a>Constructor</h3>
 <p>
-<strong>open</strong>
-</p>
-<p>
-<code>open(pathname:string, mode?:string, codec?:codec):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">open</strong></div>
+<div style="margin-bottom:1em"><code>open(pathname:string, mode?:string, codec?:codec):map {block?}</code></div>
 Creates a <code>stream</code> instance from the specified <code>pathname</code>.
 </p>
 <p>
@@ -6065,12 +5145,8 @@ The argument <code>codec</code> specifies a name of the character codec that con
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>stream</strong>
-</p>
-<p>
-<code>stream(pathname:string, mode?:string, codec?:codec):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream</strong></div>
+<div style="margin-bottom:1em"><code>stream(pathname:string, mode?:string, codec?:codec):map {block?}</code></div>
 Creates a <code>stream</code> instance from the specified <code>pathname</code>.
 </p>
 <p>
@@ -6089,12 +5165,8 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <h3><span class="caption-index-3">6.29.5</span><a name="anchor-6-29-5"></a>Utility Function</h3>
 <p>
-<strong>readlines</strong>
-</p>
-<p>
-<code>readlines(stream?:stream:r):[chop] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">readlines</strong></div>
+<div style="margin-bottom:1em"><code>readlines(stream?:stream:r):[chop] {block?}</code></div>
 Creates an iterator that reads text from the specified stream line by line.
 </p>
 <p>
@@ -6116,12 +5188,8 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 </p>
 <h3><span class="caption-index-3">6.29.6</span><a name="anchor-6-29-6"></a>Method</h3>
 <p>
-<strong>stream#addcr</strong>
-</p>
-<p>
-<code>stream#addcr(flag?:boolean):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#addcr</strong></div>
+<div style="margin-bottom:1em"><code>stream#addcr(flag?:boolean):reduce</code></div>
 The codec's encoder in the stream has a feature to add a CR code (0x0d) before a LF code (0x0a) so that the lines are joined with CR-LF codes in the encoded result. This method enables or disables the feature.
 </p>
 <ul>
@@ -6129,30 +5197,18 @@ The codec's encoder in the stream has a feature to add a CR code (0x0d) before a
 <li>To disable it, call the method with the argument <code>flag</code> set to <code>false</code>.</li>
 </ul>
 <p>
-<strong>stream#close</strong>
-</p>
-<p>
-<code>stream#close():void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#close</strong></div>
+<div style="margin-bottom:1em"><code>stream#close():void</code></div>
 Closes the stream.
 </p>
 <p>
-<strong>stream#compare</strong>
-</p>
-<p>
-<code>stream#compare(stream:stream:r):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#compare</strong></div>
+<div style="margin-bottom:1em"><code>stream#compare(stream:stream:r):map</code></div>
 Returns <code>true</code> if there's no difference between the binary sequences of the target stream instance and that of <code>stream</code> in the argument.
 </p>
 <p>
-<strong>stream.copy</strong>
-</p>
-<p>
-<code>stream.copy(src:stream:r, dst:stream:w, bytesunit:number =&gt; 65536):static:map:void:[finalize] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream.copy</strong></div>
+<div style="margin-bottom:1em"><code>stream.copy(src:stream:r, dst:stream:w, bytesunit:number =&gt; 65536):static:map:void:[finalize] {block?}</code></div>
 Copies the content in <code>src</code> to the stream <code>dst</code>.
 </p>
 <p>
@@ -6171,12 +5227,8 @@ If the attribute <code>:finalize</code> is specified, some finalizing process wi
 This has the same feature as <code>stream#copyfrom()</code> and <code>stream#copyto()</code>.
 </p>
 <p>
-<strong>stream#copyfrom</strong>
-</p>
-<p>
-<code>stream#copyfrom(src:stream:r, bytesunit:number =&gt; 65536):map:reduce:[finalize] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#copyfrom</strong></div>
+<div style="margin-bottom:1em"><code>stream#copyfrom(src:stream:r, bytesunit:number =&gt; 65536):map:reduce:[finalize] {block?}</code></div>
 Copies the content in <code>src</code> to the target stream instance.
 </p>
 <p>
@@ -6195,12 +5247,8 @@ If the attribute <code>:finalize</code> is specified, some finalizing process wi
 This has the same feature as <code>stream.copy()</code> and <code>stream#copyto()</code>.
 </p>
 <p>
-<strong>stream#copyto</strong>
-</p>
-<p>
-<code>stream#copyto(stream:stream:w, bytesunit:number =&gt; 65536):map:reduce:[finalize] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#copyto</strong></div>
+<div style="margin-bottom:1em"><code>stream#copyto(stream:stream:w, bytesunit:number =&gt; 65536):map:reduce:[finalize] {block?}</code></div>
 Copies the content in the target stream instance to stream <code>dst</code>.
 </p>
 <p>
@@ -6219,12 +5267,8 @@ If the attribute <code>:finalize</code> is specified, some finalizing process wi
 This has the same feature as <code>stream.copy()</code> and <code>stream#copyfrom()</code>.
 </p>
 <p>
-<strong>stream#delcr</strong>
-</p>
-<p>
-<code>stream#delcr(flag?:boolean):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#delcr</strong></div>
+<div style="margin-bottom:1em"><code>stream#delcr(flag?:boolean):reduce</code></div>
 The codec's decoder in the stream has a feature to delete a CR code (0x0d) before a LF code (0x0a) so that the lines are joined with LF code in the decoded result. This method enables or disables the feature.
 </p>
 <ul>
@@ -6232,81 +5276,56 @@ The codec's decoder in the stream has a feature to delete a CR code (0x0d) befor
 <li>To disable it, call the method with the argument <code>flag</code> set to <code>false</code>.</li>
 </ul>
 <p>
-<strong>stream#deserialize</strong>
+<div><strong style="text-decoration:underline">stream#deserialize</strong></div>
+<div style="margin-bottom:1em"><code>stream#deserialize()</code></div>
+
 </p>
 <p>
-<code>stream#deserialize()</code>
-</p>
-<p>
-<strong>stream#flush</strong>
-</p>
-<p>
-<code>stream#flush():void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#flush</strong></div>
+<div style="margin-bottom:1em"><code>stream#flush():void</code></div>
 Flushes cached data to the stream.
 </p>
 <p>
-<strong>stream#peek</strong>
+<div><strong style="text-decoration:underline">stream#peek</strong></div>
+<div style="margin-bottom:1em"><code>stream#peek(len?:number)</code></div>
+
 </p>
 <p>
-<code>stream#peek(len?:number)</code>
-</p>
-<p>
-<strong>stream#print</strong>
-</p>
-<p>
-<code>stream#print(values*):map:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#print</strong></div>
+<div style="margin-bottom:1em"><code>stream#print(values*):map:void</code></div>
 Prints out <code>values</code> to the <code>stream</code> instance.
 </p>
 <p>
-<strong>stream#printf</strong>
-</p>
-<p>
-<code>stream#printf(format:string, values*):map:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#printf</strong></div>
+<div style="margin-bottom:1em"><code>stream#printf(format:string, values*):map:void</code></div>
 Prints out <code>values</code> to the <code>stream</code> instance according to formatter specifiers in <code>format</code>.
 </p>
 <p>
 Refer to the help of <code>printf()</code> function to see information about formatter specifiers.
 </p>
 <p>
-<strong>stream#println</strong>
-</p>
-<p>
-<code>stream#println(values*):map:void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#println</strong></div>
+<div style="margin-bottom:1em"><code>stream#println(values*):map:void</code></div>
 Prints out <code>values</code> and an end-of-line character to the <code>stream</code> instance.
 </p>
 <p>
-<strong>stream#read</strong>
+<div><strong style="text-decoration:underline">stream#read</strong></div>
+<div style="margin-bottom:1em"><code>stream#read(len?:number)</code></div>
+
 </p>
 <p>
-<code>stream#read(len?:number)</code>
+<div><strong style="text-decoration:underline">stream#readchar</strong></div>
+<div style="margin-bottom:1em"><code>stream#readchar()</code></div>
+
 </p>
 <p>
-<strong>stream#readchar</strong>
+<div><strong style="text-decoration:underline">stream#readline</strong></div>
+<div style="margin-bottom:1em"><code>stream#readline():[chop]</code></div>
+
 </p>
 <p>
-<code>stream#readchar()</code>
-</p>
-<p>
-<strong>stream#readline</strong>
-</p>
-<p>
-<code>stream#readline():[chop]</code>
-</p>
-<p>
-<strong>stream#readlines</strong>
-</p>
-<p>
-<code>stream#readlines(nlines?:number):[chop] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">stream#readlines</strong></div>
+<div style="margin-bottom:1em"><code>stream#readlines(nlines?:number):[chop] {block?}</code></div>
 Creates an iterator that reads text from the specified stream line by line.
 </p>
 <p>
@@ -6330,40 +5349,34 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>stream#readtext</strong>
+<div><strong style="text-decoration:underline">stream#readtext</strong></div>
+<div style="margin-bottom:1em"><code>stream#readtext()</code></div>
+
 </p>
 <p>
-<code>stream#readtext()</code>
+<div><strong style="text-decoration:underline">stream#seek</strong></div>
+<div style="margin-bottom:1em"><code>stream#seek(offset:number, origin?:symbol):reduce</code></div>
+
 </p>
 <p>
-<strong>stream#seek</strong>
+<div><strong style="text-decoration:underline">stream#serialize</strong></div>
+<div style="margin-bottom:1em"><code>stream#serialize(value):void</code></div>
+
 </p>
 <p>
-<code>stream#seek(offset:number, origin?:symbol):reduce</code>
+<div><strong style="text-decoration:underline">stream#setcodec</strong></div>
+<div style="margin-bottom:1em"><code>stream#setcodec(codec:codec:nil):reduce</code></div>
+
 </p>
 <p>
-<strong>stream#serialize</strong>
+<div><strong style="text-decoration:underline">stream#tell</strong></div>
+<div style="margin-bottom:1em"><code>stream#tell()</code></div>
+
 </p>
 <p>
-<code>stream#serialize(value):void</code>
-</p>
-<p>
-<strong>stream#setcodec</strong>
-</p>
-<p>
-<code>stream#setcodec(codec:codec:nil):reduce</code>
-</p>
-<p>
-<strong>stream#tell</strong>
-</p>
-<p>
-<code>stream#tell()</code>
-</p>
-<p>
-<strong>stream#write</strong>
-</p>
-<p>
-<code>stream#write(buff:binary, len?:number):reduce</code>
+<div><strong style="text-decoration:underline">stream#write</strong></div>
+<div style="margin-bottom:1em"><code>stream#write(buff:binary, len?:number):reduce</code></div>
+
 </p>
 <h2><span class="caption-index-2">6.30</span><a name="anchor-6-30"></a>string Class</h2>
 <p>
@@ -6390,12 +5403,8 @@ When an string literal is suffixed by a character <code>$</code>, a handler regi
 </p>
 <h3><span class="caption-index-3">6.30.2</span><a name="anchor-6-30-2"></a>Method</h3>
 <p>
-<strong>string#align</strong>
-</p>
-<p>
-<code>string#align(width:number, padding:string =&gt; ' '):map:[center,left,right]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#align</strong></div>
+<div style="margin-bottom:1em"><code>string#align(width:number, padding:string =&gt; ' '):map:[center,left,right]</code></div>
 Align the string to the left, right or center within the specified <code>width</code> and returns the result.
 </p>
 <p>
@@ -6416,51 +5425,31 @@ It uses a string specified by the argument <code>padding</code> to fill lacking 
 This method takes into account the character width based on the specification of East Asian Width. A kanji-character occupies two characters in width.
 </p>
 <p>
-<strong>string.binary</strong>
-</p>
-<p>
-<code>string.binary()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string.binary</strong></div>
+<div style="margin-bottom:1em"><code>string.binary()</code></div>
 Converts the string into <code>binary</code> instance.
 </p>
 <p>
-<strong>string#capitalize</strong>
-</p>
-<p>
-<code>string#capitalize()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#capitalize</strong></div>
+<div style="margin-bottom:1em"><code>string#capitalize()</code></div>
 Returns a string that capitalizes the first character.
 </p>
 <p>
-<strong>string#chop</strong>
-</p>
-<p>
-<code>string#chop(suffix*:string):[eol,icase]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#chop</strong></div>
+<div style="margin-bottom:1em"><code>string#chop(suffix*:string):[eol,icase]</code></div>
 Returns a string that removes a last character.
 </p>
 <p>
 If an attribute <code>:eol</code> is specified, only the end-of-line character shall be removed. In this case, if the end-of-line has a sequence of CR-LF, CR code shall be removed as well.
 </p>
 <p>
-<strong>string#decodeuri</strong>
-</p>
-<p>
-<code>string#decodeuri()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#decodeuri</strong></div>
+<div style="margin-bottom:1em"><code>string#decodeuri()</code></div>
 Returns a string in which percent-encoded characters are decoded.
 </p>
 <p>
-<strong>string#each</strong>
-</p>
-<p>
-<code>string#each():map:[utf32,utf8] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#each</strong></div>
+<div style="margin-bottom:1em"><code>string#each():map:[utf32,utf8] {block?}</code></div>
 Creates an iterator generating strings of each character in the original one.
 </p>
 <p>
@@ -6478,12 +5467,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>string#eachline</strong>
-</p>
-<p>
-<code>string#eachline(nlines?:number):[chop] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#eachline</strong></div>
+<div style="margin-bottom:1em"><code>string#eachline(nlines?:number):[chop] {block?}</code></div>
 Creates an iterator generating strings of each line in the original one.
 </p>
 <p>
@@ -6504,12 +5489,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>string#embed</strong>
-</p>
-<p>
-<code>string#embed(dst?:stream:w):[lasteol,noindent]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#embed</strong></div>
+<div style="margin-bottom:1em"><code>string#embed(dst?:stream:w):[lasteol,noindent]</code></div>
 Evaluates a string that contains embedded scripts and renders the result to the specified stream.
 </p>
 <p>
@@ -6519,30 +5500,18 @@ If the stream is omitted, the function returns the rendered result as a string.
 Calling this method is equivalent to calling a method <code>string#template()</code> to create a <code>template</code> instance on which a method <code>template#render()</code> is applied afterward.
 </p>
 <p>
-<strong>string.encode</strong>
-</p>
-<p>
-<code>string.encode(codec:codec)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string.encode</strong></div>
+<div style="margin-bottom:1em"><code>string.encode(codec:codec)</code></div>
 Encodes the string with the given <code>codec</code> and return the result as a <code>binary</code>.
 </p>
 <p>
-<strong>string#encodeuri</strong>
-</p>
-<p>
-<code>string#encodeuri()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#encodeuri</strong></div>
+<div style="margin-bottom:1em"><code>string#encodeuri()</code></div>
 Returns a string in which non-URIC characters are percent-encoded.
 </p>
 <p>
-<strong>string#endswith</strong>
-</p>
-<p>
-<code>string#endswith(suffix:string, endpos?:number):map:[icase,rest]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#endswith</strong></div>
+<div style="margin-bottom:1em"><code>string#endswith(suffix:string, endpos?:number):map:[icase,rest]</code></div>
 Returns <code>true</code> if the string ends with suffix.
 </p>
 <p>
@@ -6552,21 +5521,13 @@ If attribute <code>:rest</code> is specified, it returns the rest part if the st
 With an attribute <code>:icase</code>, character cases are ignored while matching.
 </p>
 <p>
-<strong>string#escapehtml</strong>
-</p>
-<p>
-<code>string#escapehtml():[quote]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#escapehtml</strong></div>
+<div style="margin-bottom:1em"><code>string#escapehtml():[quote]</code></div>
 Returns a string that converts characters into escape sequences.
 </p>
 <p>
-<strong>string#find</strong>
-</p>
-<p>
-<code>string#find(sub:string, pos:number =&gt; 0):map:[icase,rev]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#find</strong></div>
+<div style="margin-bottom:1em"><code>string#find(sub:string, pos:number =&gt; 0):map:[icase,rev]</code></div>
 Finds a sub string from the string and returns its position.
 </p>
 <p>
@@ -6579,12 +5540,8 @@ With an attribute <code>:icase</code>, case of characters are ignored while find
 When an attribute <code>:rev</code>, finding starts from tail of the string
 </p>
 <p>
-<strong>string#fold</strong>
-</p>
-<p>
-<code>string#fold(len:number, step?:number):[neat] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#fold</strong></div>
+<div style="margin-bottom:1em"><code>string#fold(len:number, step?:number):[neat] {block?}</code></div>
 Creates an iterator that folds the source string by the specified length.
 </p>
 <p>
@@ -6605,12 +5562,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>string#foldw</strong>
-</p>
-<p>
-<code>string#foldw(width:number):[padding] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#foldw</strong></div>
+<div style="margin-bottom:1em"><code>string#foldw(width:number):[padding] {block?}</code></div>
 Creates an iterator that folds the source string by the specified width.
 </p>
 <p>
@@ -6631,60 +5584,36 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>string#format</strong>
-</p>
-<p>
-<code>string#format(values*):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#format</strong></div>
+<div style="margin-bottom:1em"><code>string#format(values*):map</code></div>
 Taking the string instance as a printf-styled formatter string, it converts <code>values</code> into a string depending on formatter specifiers in it.
 </p>
 <p>
-<strong>string#isempty</strong>
-</p>
-<p>
-<code>string#isempty()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#isempty</strong></div>
+<div style="margin-bottom:1em"><code>string#isempty()</code></div>
 Returns <code>true</code> if the string is empty.
 </p>
 <p>
-<strong>string#left</strong>
-</p>
-<p>
-<code>string#left(len?:number):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#left</strong></div>
+<div style="margin-bottom:1em"><code>string#left(len?:number):map</code></div>
 Extracts the specified length of string from left of the source string.
 </p>
 <p>
 If the argument is omitted, it would return whole the source string.
 </p>
 <p>
-<strong>string#len</strong>
-</p>
-<p>
-<code>string#len()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#len</strong></div>
+<div style="margin-bottom:1em"><code>string#len()</code></div>
 Returns the length of the string in characters.
 </p>
 <p>
-<strong>string#lower</strong>
-</p>
-<p>
-<code>string#lower()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#lower</strong></div>
+<div style="margin-bottom:1em"><code>string#lower()</code></div>
 Converts upper-case to lower-case characters.
 </p>
 <p>
-<strong>string#mid</strong>
-</p>
-<p>
-<code>string#mid(pos:number =&gt; 0, len?:number):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#mid</strong></div>
+<div style="margin-bottom:1em"><code>string#mid(pos:number =&gt; 0, len?:number):map</code></div>
 Extracts the specified length of string from the position <code>pos</code> and returns the result.
 </p>
 <p>
@@ -6697,48 +5626,32 @@ Below are examples:
 'Hello world'.mid(5)    // 'world'
 </code></pre>
 <p>
-<strong>string.print</strong>
-</p>
-<p>
-<code>string.print(stream?:stream:w):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string.print</strong></div>
+<div style="margin-bottom:1em"><code>string.print(stream?:stream:w):void</code></div>
 Prints out the string to the specified <code>stream</code>.
 </p>
 <p>
 If the argument is omitted, it would print to the standard output.
 </p>
 <p>
-<strong>string.println</strong>
-</p>
-<p>
-<code>string.println(stream?:stream:w):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string.println</strong></div>
+<div style="margin-bottom:1em"><code>string.println(stream?:stream:w):void</code></div>
 Prints out the string and a line-break to the specified <code>stream</code>.
 </p>
 <p>
 If the argument is omitted, it would print to the standard output.
 </p>
 <p>
-<strong>string#reader</strong>
-</p>
-<p>
-<code>string#reader() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#reader</strong></div>
+<div style="margin-bottom:1em"><code>string#reader() {block?}</code></div>
 Returns a <code>stream</code> instance that reads the string content as a binary sequence.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>string#replace</strong>
-</p>
-<p>
-<code>string#replace(match:string, sub:string, count?:number):map:[icase] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#replace</strong></div>
+<div style="margin-bottom:1em"><code>string#replace(match:string, sub:string, count?:number):map:[icase] {block?}</code></div>
 Replaces sub strings that matches the string <code>match</code> with a string specified by <code>sub</code> and returns the result.
 </p>
 <p>
@@ -6751,12 +5664,8 @@ With an attribute <code>:icase</code>, character cases are ignored while matchin
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|result:string, replaced:boolean|</code>, where <code>result</code> is the result string and <code>replaced</code> indicates if there is any change between the result and its original string. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>string#replaces</strong>
-</p>
-<p>
-<code>string#replaces(map[]:string, count?:number):map:[icase] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#replaces</strong></div>
+<div style="margin-bottom:1em"><code>string#replaces(map[]:string, count?:number):map:[icase] {block?}</code></div>
 Replaces string parts according to a list of pairs of a matching and a substituting string and returns the result.
 </p>
 <p>
@@ -6772,24 +5681,16 @@ With an attribute <code>:icase</code>, character cases are ignored while matchin
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|result:string, replaced:boolean|</code>, where <code>result</code> is the result string and <code>replaced</code> indicates if there is any change between the result and its original string. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>string#right</strong>
-</p>
-<p>
-<code>string#right(len?:number):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#right</strong></div>
+<div style="margin-bottom:1em"><code>string#right(len?:number):map</code></div>
 Extracts the specified length of string from right of the source string.
 </p>
 <p>
 If the argument is omitted, it would return whole the source string.
 </p>
 <p>
-<strong>string#split</strong>
-</p>
-<p>
-<code>string#split(sep?:string, count?:number):[icase] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#split</strong></div>
+<div style="margin-bottom:1em"><code>string#split(sep?:string, count?:number):[icase] {block?}</code></div>
 Creates an iterator generating sub strings extracted from the original one separated by a specified string <code>sep</code>. With an attribute <code>:icase</code>, character cases are ignored while finding the separator.
 </p>
 <p>
@@ -6807,12 +5708,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>string#startswith</strong>
-</p>
-<p>
-<code>string#startswith(prefix:string, pos:number =&gt; 0):map:[icase,rest]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#startswith</strong></div>
+<div style="margin-bottom:1em"><code>string#startswith(prefix:string, pos:number =&gt; 0):map:[icase,rest]</code></div>
 Returns <code>true</code> if the string starts with <code>prefix</code>.
 </p>
 <p>
@@ -6822,12 +5719,8 @@ If attribute <code>:rest</code> is specified, it returns the rest part if the st
 With an attribute <code>:icase</code>, character cases are ignored while matching.
 </p>
 <p>
-<strong>string#strip</strong>
-</p>
-<p>
-<code>string#strip():[both,left,right]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#strip</strong></div>
+<div style="margin-bottom:1em"><code>string#strip():[both,left,right]</code></div>
 Returns a string that removes space characters on the left, the right or the both sides of the original string.
 </p>
 <p>
@@ -6839,72 +5732,44 @@ The following attributes would specify which side of spaces should be removed:
 <li><code>:right</code> .. Removes spaces on the right side.</li>
 </ul>
 <p>
-<strong>string#template</strong>
-</p>
-<p>
-<code>string#template():[lasteol,noindent] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#template</strong></div>
+<div style="margin-bottom:1em"><code>string#template():[lasteol,noindent] {block?}</code></div>
 Parses the content of the string as a text containing embedded scripts and returns a <code>template</code> instance.
 </p>
 <p>
-<strong>string#tosymbol</strong>
-</p>
-<p>
-<code>string#tosymbol()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#tosymbol</strong></div>
+<div style="margin-bottom:1em"><code>string#tosymbol()</code></div>
 Convers the string into a symbol.
 </p>
 <p>
-<strong>string.translator</strong>
-</p>
-<p>
-<code>string.translator():static:void {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string.translator</strong></div>
+<div style="margin-bottom:1em"><code>string.translator():static:void {block}</code></div>
 Register a procedure evaluated when a string literal appears with a suffix symbol "<code>$</code>", which is meant to translate the string into another language.
 </p>
 <p>
 The procedure is described in <code>block</code> takes a block parameter <code>|str:string|</code> where <code>str</code> is the original string, and is expected to return a string translated from the original.
 </p>
 <p>
-<strong>string#unescapehtml</strong>
-</p>
-<p>
-<code>string#unescapehtml()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#unescapehtml</strong></div>
+<div style="margin-bottom:1em"><code>string#unescapehtml()</code></div>
 Converts escape sequences into readable characters.
 </p>
 <p>
-<strong>string#upper</strong>
-</p>
-<p>
-<code>string#upper()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#upper</strong></div>
+<div style="margin-bottom:1em"><code>string#upper()</code></div>
 Converts lower-case to upper-case characters.
 </p>
 <p>
-<strong>string#width</strong>
-</p>
-<p>
-<code>string#width()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#width</strong></div>
+<div style="margin-bottom:1em"><code>string#width()</code></div>
 Returns the width of the string.
 </p>
 <p>
 This method takes into account the character width based on the specification of East Asian Width. A kanji-character occupies two characters in width.
 </p>
 <p>
-<strong>string#zentohan</strong>
-</p>
-<p>
-<code>string#zentohan()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#zentohan</strong></div>
+<div style="margin-bottom:1em"><code>string#zentohan()</code></div>
 Converts zenkaku to hankaku characters
 </p>
 <h2><span class="caption-index-2">6.31</span><a name="anchor-6-31"></a>suffixmgr Class</h2>
@@ -6923,12 +5788,8 @@ You can use that suffix like below:
 </code></pre>
 <h3><span class="caption-index-3">6.31.1</span><a name="anchor-6-31-1"></a>Constructor</h3>
 <p>
-<strong>suffixmgr</strong>
-</p>
-<p>
-<code>suffixmgr(type:symbol) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">suffixmgr</strong></div>
+<div style="margin-bottom:1em"><code>suffixmgr(type:symbol) {block?}</code></div>
 Creates a reference to one of two suffix managers, number and string.
 </p>
 <ul>
@@ -6940,12 +5801,8 @@ Specify the argument <code>type</code> with a symbol <code>`number</code> for a 
 </p>
 <h3><span class="caption-index-3">6.31.2</span><a name="anchor-6-31-2"></a>Method</h3>
 <p>
-<strong>suffixmgr#assign</strong>
-</p>
-<p>
-<code>suffixmgr#assign(suffix:symbol):void:[overwrite] {block}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">suffixmgr#assign</strong></div>
+<div style="margin-bottom:1em"><code>suffixmgr#assign(suffix:symbol):void:[overwrite] {block}</code></div>
 Assigns a procedure to a specified symbol in the suffix manager. The procedure is provided by the <code>block</code> that takes a block parameter <code>|value|</code> where <code>value</code> comes from the preceded literal.
 </p>
 <p>
@@ -6954,12 +5811,8 @@ An error occurs if the same suffix symbol has already been assigned. Specifying 
 <h2><span class="caption-index-2">6.32</span><a name="anchor-6-32"></a>symbol Class</h2>
 <h3><span class="caption-index-3">6.32.1</span><a name="anchor-6-32-1"></a>Method</h3>
 <p>
-<strong>symbol#eval</strong>
-</p>
-<p>
-<code>symbol#eval(env?:environment)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">symbol#eval</strong></div>
+<div style="margin-bottom:1em"><code>symbol#eval(env?:environment)</code></div>
 Evaluate a symbol object.
 </p>
 <h2><span class="caption-index-2">6.33</span><a name="anchor-6-33"></a>template Class</h2>
@@ -6984,12 +5837,8 @@ Using the above casting feature, you can call a function <code>f(tmpl:template)<
 </ul>
 <h3><span class="caption-index-3">6.33.2</span><a name="anchor-6-33-2"></a>Constructor</h3>
 <p>
-<strong>template</strong>
-</p>
-<p>
-<code>template(src?:stream:r):map:[lasteol,noindent] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">template</strong></div>
+<div style="margin-bottom:1em"><code>template(src?:stream:r):map:[lasteol,noindent] {block?}</code></div>
 Creates a <code>template</code> instance.
 </p>
 <p>
@@ -7004,12 +5853,8 @@ Following attributes would customize the parser's behavior:
 </ul>
 <h3><span class="caption-index-3">6.33.3</span><a name="anchor-6-33-3"></a>Method</h3>
 <p>
-<strong>template#parse</strong>
-</p>
-<p>
-<code>template#parse(str:string):void:[lasteol,noindent]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">template#parse</strong></div>
+<div style="margin-bottom:1em"><code>template#parse(str:string):void:[lasteol,noindent]</code></div>
 Creates a <code>template</code> instance by parsing a script-embedded text in a string.
 </p>
 <p>
@@ -7020,12 +5865,8 @@ Following attributes would customize the parser's behavior:
 <li><code>:noindent</code></li>
 </ul>
 <p>
-<strong>template#read</strong>
-</p>
-<p>
-<code>template#read(src:stream:r):void:[lasteol,noindent]</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">template#read</strong></div>
+<div style="margin-bottom:1em"><code>template#read(src:stream:r):void:[lasteol,noindent]</code></div>
 Creates a <code>template</code> instance by parsing a script-embedded text from a stream.
 </p>
 <p>
@@ -7036,12 +5877,8 @@ Following attributes would customize the parser's behavior:
 <li><code>:noindent</code></li>
 </ul>
 <p>
-<strong>template#render</strong>
-</p>
-<p>
-<code>template#render(dst?:stream:w)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">template#render</strong></div>
+<div style="margin-bottom:1em"><code>template#render(dst?:stream:w)</code></div>
 Renders stored content to the specified stream.
 </p>
 <p>
@@ -7049,12 +5886,8 @@ If the stream is omitted, the function returns the rendered result as a string.
 </p>
 <h3><span class="caption-index-3">6.33.4</span><a name="anchor-6-33-4"></a>Method Called by Template Directive</h3>
 <p>
-<strong>template#block</strong>
-</p>
-<p>
-<code>template#block(symbol:symbol):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">template#block</strong></div>
+<div style="margin-bottom:1em"><code>template#block(symbol:symbol):void</code></div>
 Creates a template block which content is supposed to be replaced by a derived template.
 </p>
 <p>
@@ -7103,12 +5936,8 @@ Content of derived.
 Block ends here.
 </code></pre>
 <p>
-<strong>template#call</strong>
-</p>
-<p>
-<code>template#call(symbol:symbol, args*)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">template#call</strong></div>
+<div style="margin-bottom:1em"><code>template#call(symbol:symbol, args*)</code></div>
 Calls a template macro that has been created by directive <code>${=define}</code>.
 </p>
 <p>
@@ -7123,12 +5952,8 @@ Below is an exemple to call a template macro:
 This method would return <code>nil</code> if a line-break character is rendered at last and would return a null string otherwise.
 </p>
 <p>
-<strong>template#define</strong>
-</p>
-<p>
-<code>template#define(symbol:symbol, `args*):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">template#define</strong></div>
+<div style="margin-bottom:1em"><code>template#define(symbol:symbol, `args*):void</code></div>
 Creates a template macro from the specified block, which is supposed to be called by <code>${=call}</code> directive, and associates it with the specified symbol.
 </p>
 <p>
@@ -7142,12 +5967,8 @@ ${name} is ${age} years old.
 ${end}
 </code></pre>
 <p>
-<strong>template#embed</strong>
-</p>
-<p>
-<code>template#embed(template:template)</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">template#embed</strong></div>
+<div style="margin-bottom:1em"><code>template#embed(template:template)</code></div>
 Renders the specified template at the current position.
 </p>
 <p>
@@ -7165,12 +5986,8 @@ As the template rendered by this method runs in a different context from the cur
 This method would return <code>nil</code> if a line-break character is rendered at last and would return a null string otherwise.
 </p>
 <p>
-<strong>template#extends</strong>
-</p>
-<p>
-<code>template#extends(template:template):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">template#extends</strong></div>
+<div style="margin-bottom:1em"><code>template#extends(template:template):void</code></div>
 Declares the current template as a derived one from the specified template.
 </p>
 <p>
@@ -7185,12 +6002,8 @@ Below is an example to declare the current template as one derived from <code>ba
 <pre><code>${=extends('base.tmpl')}
 </code></pre>
 <p>
-<strong>template#super</strong>
-</p>
-<p>
-<code>template#super(symbol:symbol):void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">template#super</strong></div>
+<div style="margin-bottom:1em"><code>template#super(symbol:symbol):void</code></div>
 Evaluates a template block registered with the specified symbol in a template from which the current template has derived.
 </p>
 <p>
@@ -7302,12 +6115,8 @@ Offset of micro seconds.</td>
 </p>
 <h3><span class="caption-index-3">6.34.2</span><a name="anchor-6-34-2"></a>Constructor</h3>
 <p>
-<strong>timedelta</strong>
-</p>
-<p>
-<code>timedelta(days:number =&gt; 0, secs:number =&gt; 0, usecs:number =&gt; 0):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">timedelta</strong></div>
+<div style="margin-bottom:1em"><code>timedelta(days:number =&gt; 0, secs:number =&gt; 0, usecs:number =&gt; 0):map {block?}</code></div>
 Returns a timedelta instance with specified values. The instance actually holds properties of days, secs and usecs.
 </p>
 <h2><span class="caption-index-2">6.35</span><a name="anchor-6-35"></a>uri Class</h2>
@@ -7425,12 +6234,8 @@ R/W</td>
 </p>
 <h3><span class="caption-index-3">6.35.2</span><a name="anchor-6-35-2"></a>Constructor</h3>
 <p>
-<strong>uri</strong>
-</p>
-<p>
-<code>uri(str?:string):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">uri</strong></div>
+<div style="margin-bottom:1em"><code>uri(str?:string):map {block?}</code></div>
 Creates <code>uri</code> instance.
 </p>
 <p>
@@ -7441,39 +6246,23 @@ If omitted, the instance would be initialized as an empty one.
 </p>
 <h3><span class="caption-index-3">6.35.3</span><a name="anchor-6-35-3"></a>Method</h3>
 <p>
-<strong>uri#getfragment</strong>
-</p>
-<p>
-<code>uri#getfragment()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">uri#getfragment</strong></div>
+<div style="margin-bottom:1em"><code>uri#getfragment()</code></div>
 Returns the fragment part contained in the URI path of the <code>uri</code> instance.
 </p>
 <p>
-<strong>uri#getpath</strong>
-</p>
-<p>
-<code>uri#getpath()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">uri#getpath</strong></div>
+<div style="margin-bottom:1em"><code>uri#getpath()</code></div>
 Returns the path part contained in the URI path of the <code>uri</code> instance.
 </p>
 <p>
-<strong>uri#getquery</strong>
-</p>
-<p>
-<code>uri#getquery()</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">uri#getquery</strong></div>
+<div style="margin-bottom:1em"><code>uri#getquery()</code></div>
 Returns the query part contained in the URI path of the <code>uri</code> instance.
 </p>
 <p>
-<strong>uri.parsequery</strong>
-</p>
-<p>
-<code>uri.parsequery(query:string):static:map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">uri.parsequery</strong></div>
+<div style="margin-bottom:1em"><code>uri.parsequery(query:string):static:map</code></div>
 Parses a query string and returns a dictionary that contains key-value pairs of the query.
 </p>
 <p />

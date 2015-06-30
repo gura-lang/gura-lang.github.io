@@ -12,21 +12,13 @@ title: Gura Library Reference
 This module extends the <code>audio</code> class with methods described here.
 </p>
 <p>
-<strong>audio#read@wav</strong>
-</p>
-<p>
-<code>audio#read@wav(stream:stream:r):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">audio#read@wav</strong></div>
+<div style="margin-bottom:1em"><code>audio#read@wav(stream:stream:r):reduce</code></div>
 Reads WAV audio from a stream.
 </p>
 <p>
-<strong>audio#write@wav</strong>
-</p>
-<p>
-<code>audio#write@wav(stream:stream:w):reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">audio#write@wav</strong></div>
+<div style="margin-bottom:1em"><code>audio#write@wav(stream:stream:w):reduce</code></div>
 Writes WAV audio to a stream.
 </p>
 <p />

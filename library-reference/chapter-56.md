@@ -31,42 +31,26 @@ zip.writer('foo.zip') {|w|
 <h2><span class="caption-index-2">56.1</span><a name="anchor-56-1"></a>zip.reader Class</h2>
 <h3><span class="caption-index-3">56.1.1</span><a name="anchor-56-1-1"></a>Constructor</h3>
 <p>
-<strong>zip.reader</strong>
-</p>
-<p>
-<code>zip.reader(stream:stream:r) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">zip.reader</strong></div>
+<div style="margin-bottom:1em"><code>zip.reader(stream:stream:r) {block?}</code></div>
 Creates <code>zip.reader</code> instance from the stream.
 </p>
 <h3><span class="caption-index-3">56.1.2</span><a name="anchor-56-1-2"></a>Method</h3>
 <p>
-<strong>zip.reader#entry</strong>
-</p>
-<p>
-<code>zip.reader#entry(name:string) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">zip.reader#entry</strong></div>
+<div style="margin-bottom:1em"><code>zip.reader#entry(name:string) {block?}</code></div>
 Seeks entry in the zip file that matches the specified name and returns the stream instance.
 </p>
 <p>
-<strong>zip.reader#entries</strong>
-</p>
-<p>
-<code>zip.reader#entries() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">zip.reader#entries</strong></div>
+<div style="margin-bottom:1em"><code>zip.reader#entries() {block?}</code></div>
 Creates an iterator that returns stream instances for each entry in the zip file.
 </p>
 <h2><span class="caption-index-2">56.2</span><a name="anchor-56-2"></a>zip.writer Class</h2>
 <h3><span class="caption-index-3">56.2.1</span><a name="anchor-56-2-1"></a>Constructor</h3>
 <p>
-<strong>zip.writer</strong>
-</p>
-<p>
-<code>zip.writer(stream:stream:w, compression?:symbol) {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">zip.writer</strong></div>
+<div style="margin-bottom:1em"><code>zip.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
 Creates <code>zip.writer</code> instance from the stream.
 </p>
 <p>
@@ -79,12 +63,8 @@ Argument <code>compression</code> specifies the compression method and takes one
 </ul>
 <h3><span class="caption-index-3">56.2.2</span><a name="anchor-56-2-2"></a>Method</h3>
 <p>
-<strong>zip.writer#add</strong>
-</p>
-<p>
-<code>zip.writer#add(stream:stream:r, filename?:string, compression?:symbol):map:reduce</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">zip.writer#add</strong></div>
+<div style="margin-bottom:1em"><code>zip.writer#add(stream:stream:r, filename?:string, compression?:symbol):map:reduce</code></div>
 Reads data from <code>stream</code> and adds it to the zip file. Entry name is decided by the file name associated with the stream unless it's specified by argument <code>filename</code>.
 </p>
 <p>
@@ -96,12 +76,8 @@ Argument <code>compression</code> specifies the compression method and takes one
 <li><code>`bzip2</code></li>
 </ul>
 <p>
-<strong>zip.writer#close</strong>
-</p>
-<p>
-<code>zip.writer#close():void</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">zip.writer#close</strong></div>
+<div style="margin-bottom:1em"><code>zip.writer#close():void</code></div>
 Closes the zip file after flushing cached data.
 </p>
 <h2><span class="caption-index-2">56.3</span><a name="anchor-56-3"></a>Thanks</h2>

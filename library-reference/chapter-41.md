@@ -233,12 +233,8 @@ m['sec']   // returns the group named 'sec': 56\n");
 </code></pre>
 <h3><span class="caption-index-3">41.2.3</span><a name="anchor-41-2-3"></a>Method</h3>
 <p>
-<strong>re.match#group</strong>
-</p>
-<p>
-<code>re.match#group(index):map</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">re.match#group</strong></div>
+<div style="margin-bottom:1em"><code>re.match#group(index):map</code></div>
 Returns a <code>re.group</code> instance that is positioned by the specified index.
 </p>
 <p>
@@ -267,12 +263,8 @@ m.group('min').string  // returns the group named 'min': 34
 m.group('sec').string  // returns the group named 'sec': 56
 </code></pre>
 <p>
-<strong>re.match#groups</strong>
-</p>
-<p>
-<code>re.match#groups() {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">re.match#groups</strong></div>
+<div style="margin-bottom:1em"><code>re.match#groups() {block?}</code></div>
 Creates an iterator that returns <code>re.group</code> instances.
 </p>
 <p>
@@ -370,12 +362,8 @@ Using the above casting feature, you can call a function <code>f(pattern:re.patt
 </ul>
 <h3><span class="caption-index-3">41.4.2</span><a name="anchor-41-4-2"></a>Constructor</h3>
 <p>
-<strong>re.pattern</strong>
-</p>
-<p>
-<code>re.pattern(pattern:string):map:[icase,multiline] {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">re.pattern</strong></div>
+<div style="margin-bottom:1em"><code>re.pattern(pattern:string):map:[icase,multiline] {block?}</code></div>
 Creates a <code>re.pattern</code> instance from the given pattern string.
 </p>
 <p>
@@ -390,12 +378,8 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <h3><span class="caption-index-3">41.4.3</span><a name="anchor-41-4-3"></a>Method</h3>
 <p>
-<strong>re.pattern#match</strong>
-</p>
-<p>
-<code>re.pattern#match(str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">re.pattern#match</strong></div>
+<div style="margin-bottom:1em"><code>re.pattern#match(str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
 Applies a pattern matching to the given string and returns a <code>re.match</code> instance if the matching successes. If not, it would return <code>nil</code>.
 </p>
 <p>
@@ -408,12 +392,8 @@ The argument <code>endpos</code> specifies the ending position for matching proc
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|m:re.match|</code>, where <code>m</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>re.pattern#sub</strong>
-</p>
-<p>
-<code>re.pattern#sub(replace, str:string, count?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">re.pattern#sub</strong></div>
+<div style="margin-bottom:1em"><code>re.pattern#sub(replace, str:string, count?:number):map {block?}</code></div>
 Substitutes strings that matches <code>pattern</code> with the specified replacer.
 </p>
 <p>
@@ -432,12 +412,8 @@ The argument <code>count</code> specifies the maximum number of substitutions. I
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|str:string|</code>, where <code>str</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>re.pattern#split</strong>
-</p>
-<p>
-<code>re.pattern#split(str:string, count?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">re.pattern#split</strong></div>
+<div style="margin-bottom:1em"><code>re.pattern#split(str:string, count?:number):map {block?}</code></div>
 Creates an iterator that splits the source string with the specified pattern.
 </p>
 <p>
@@ -458,12 +434,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>re.pattern#scan</strong>
-</p>
-<p>
-<code>re.pattern#scan(str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">re.pattern#scan</strong></div>
+<div style="margin-bottom:1em"><code>re.pattern#scan(str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
 Creates an iterator that returns strings that match the specified pattern.
 </p>
 <p>
@@ -491,12 +463,8 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 This module extends the <code>string</code> class with methods described here.
 </p>
 <p>
-<strong>string#match</strong>
-</p>
-<p>
-<code>string#match(pattern:re.pattern, pos:number =&gt; 0, endpos?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#match</strong></div>
+<div style="margin-bottom:1em"><code>string#match(pattern:re.pattern, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
 Applies a pattern matching to the given string and returns a <code>re.match</code> instance if the matching successes. If not, it would return <code>nil</code>.
 </p>
 <p>
@@ -509,12 +477,8 @@ The argument <code>endpos</code> specifies the ending position for matching proc
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|m:re.match|</code>, where <code>m</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>string#sub</strong>
-</p>
-<p>
-<code>string#sub(pattern:re.pattern, replace, count?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#sub</strong></div>
+<div style="margin-bottom:1em"><code>string#sub(pattern:re.pattern, replace, count?:number):map {block?}</code></div>
 Substitutes strings that matches <code>pattern</code> with the specified replacer.
 </p>
 <p>
@@ -533,12 +497,8 @@ The argument <code>count</code> specifies the maximum number of substitutions. I
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|str:string|</code>, where <code>str</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>string#splitreg</strong>
-</p>
-<p>
-<code>string#splitreg(pattern:re.pattern, count?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#splitreg</strong></div>
+<div style="margin-bottom:1em"><code>string#splitreg(pattern:re.pattern, count?:number):map {block?}</code></div>
 Creates an iterator that splits the source string with the specified pattern.
 </p>
 <p>
@@ -559,12 +519,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>string#scan</strong>
-</p>
-<p>
-<code>string#scan(pattern:re.pattern, pos:number =&gt; 0, endpos?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">string#scan</strong></div>
+<div style="margin-bottom:1em"><code>string#scan(pattern:re.pattern, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
 Creates an iterator that returns strings that match the specified pattern.
 </p>
 <p>
@@ -592,19 +548,14 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 This module extends the iterable classes, <code>list</code> and <code>iterator</code>, with methods described here.
 </p>
 <p>
-<strong>iterable#grep</strong>
-</p>
-<p>
-<code>iterable#grep(pattern:re.pattern):map {block?}</code>
+<div><strong style="text-decoration:underline">iterable#grep</strong></div>
+<div style="margin-bottom:1em"><code>iterable#grep(pattern:re.pattern):map {block?}</code></div>
+
 </p>
 <h2><span class="caption-index-2">41.7</span><a name="anchor-41-7"></a>Module Function</h2>
 <p>
-<strong>re.match</strong>
-</p>
-<p>
-<code>re.match(pattern:re.pattern, str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">re.match</strong></div>
+<div style="margin-bottom:1em"><code>re.match(pattern:re.pattern, str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
 Applies a pattern matching to the given string and returns a <code>re.match</code> instance if the matching successes. If not, it would return <code>nil</code>.
 </p>
 <p>
@@ -617,12 +568,8 @@ The argument <code>endpos</code> specifies the ending position for matching proc
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|m:re.match|</code>, where <code>m</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>re.sub</strong>
-</p>
-<p>
-<code>re.sub(pattern:re.pattern, replace, str:string, count?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">re.sub</strong></div>
+<div style="margin-bottom:1em"><code>re.sub(pattern:re.pattern, replace, str:string, count?:number):map {block?}</code></div>
 Substitutes strings that matches <code>pattern</code> with the specified replacer.
 </p>
 <p>
@@ -641,12 +588,8 @@ The argument <code>count</code> specifies the maximum number of substitutions. I
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|str:string|</code>, where <code>str</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<strong>re.split</strong>
-</p>
-<p>
-<code>re.split(pattern:re.pattern, str:string, count?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">re.split</strong></div>
+<div style="margin-bottom:1em"><code>re.split(pattern:re.pattern, str:string, count?:number):map {block?}</code></div>
 Creates an iterator that splits the source string with the specified pattern.
 </p>
 <p>
@@ -667,12 +610,8 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<strong>re.scan</strong>
-</p>
-<p>
-<code>re.scan(pattern:re.pattern, str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code>
-</p>
-<p>
+<div><strong style="text-decoration:underline">re.scan</strong></div>
+<div style="margin-bottom:1em"><code>re.scan(pattern:re.pattern, str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
 Creates an iterator that returns strings that match the specified pattern.
 </p>
 <p>
