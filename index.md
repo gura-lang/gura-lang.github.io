@@ -8,6 +8,10 @@ title: Top
 
 <table>
 
+<tr><td style="white-space:nowrap">2015-06-30</td><td>
+<a href="Documents.html">Documents in PDF format were published.
+</td></tr>
+
 <tr><td style="white-space:nowrap">2015-06-24</td><td>
 <a href="Download.html">Gura v0.6.2</a> was released.
 </td></tr>
