@@ -9,7 +9,7 @@ title: Top
 <table>
 
 <tr><td style="white-space:nowrap">2015-06-30</td><td>
-<a href="Documents.html">Documents in PDF format were published.
+<a href="Documents.html">Documents</a> in PDF format were published.
 </td></tr>
 
 <tr><td style="white-space:nowrap">2015-06-24</td><td>
