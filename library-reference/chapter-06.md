@@ -6,24 +6,24 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">6</span><a name="anchor-6"></a>Built-in Class</h1>
-<h2><span class="caption-index-2">6.1</span><a name="anchor-6-1"></a>args Class</h2>
+<h2><span class="caption-index-2">6.1</span><a name="anchor-6-1"></a>argument Class</h2>
 <p>
-The <code>args</code> class provides measures to access argument information that is passed to a function. One of its purposes is to check if an attribute is specified in the function call. It also provides a method to control a leader-trailer sequence, a mechanism that flow controls such as <code>if-elsif-else</code> and <code>try-catch</code> utilize.
+The <code>argument</code> class provides measures to access argument information that is passed to a function. One of its purposes is to check if an attribute is specified in the function call. It also provides a method to control a leader-trailer sequence, a mechanism that flow controls such as <code>if-elsif-else</code> and <code>try-catch</code> utilize.
 </p>
 <p>
-There's no constructor to realize an instance of <code>args</code> class. Its instance is implicitly created when a function is called, and you can refer to it by a variable named <code>__args__</code>.
+There's no constructor to realize an instance of <code>argument</code> class. Its instance is implicitly created when a function is called, and you can refer to it by a variable named <code>__arg__</code>.
 </p>
 <p>
-Below is an example to use <code>args</code> class:
+Below is an example to use <code>argument</code> class:
 </p>
 <pre><code>func(v0, v1, v2):[attr1,attr2] = {
-    printf('arg#%d %s\n', 0.., __args__.values)
-    printf('attr1:%s attr2:%s\n', __args__.isset(`attr1), __args__.isset(`attr2))
+    printf('arg#%d %s\n', 0.., __arg__.values)
+    printf('attr1:%s attr2:%s\n', __arg__.isset(`attr1), __arg__.isset(`attr2))
 }
 </code></pre>
 <h3><span class="caption-index-3">6.1.1</span><a name="anchor-6-1-1"></a>Property</h3>
 <p>
-An <code>args</code> instance has the following properties:
+An <code>argument</code> instance has the following properties:
 </p>
 <p>
 <table>
@@ -41,7 +41,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>args#values</code></td>
+<code>argument#values</code></td>
 <td>
 <code>list</code></td>
 <td>
@@ -57,25 +57,25 @@ A list of argument values.</td>
 </p>
 <h3><span class="caption-index-3">6.1.2</span><a name="anchor-6-1-2"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">args#finalize_trailer</strong></div>
-<div style="margin-bottom:1em"><code>args#finalize_trailer():void</code></div>
+<div><strong style="text-decoration:underline">argument#finalize_trailer</strong></div>
+<div style="margin-bottom:1em"><code>argument#finalize_trailer():void</code></div>
 Signals finalizing status to trailers after the current function.
 </p>
 <p>
-<div><strong style="text-decoration:underline">args#isset</strong></div>
-<div style="margin-bottom:1em"><code>args#isset(symbol:symbol)</code></div>
+<div><strong style="text-decoration:underline">argument#isset</strong></div>
+<div style="margin-bottom:1em"><code>argument#isset(symbol:symbol)</code></div>
 Returns <code>true</code> if the function is called with an attribute that matches the specified symbol.
 </p>
 <p>
-<div><strong style="text-decoration:underline">args#quit_trailer</strong></div>
-<div style="margin-bottom:1em"><code>args#quit_trailer():void</code></div>
+<div><strong style="text-decoration:underline">argument#quit_trailer</strong></div>
+<div style="margin-bottom:1em"><code>argument#quit_trailer():void</code></div>
 Cancels evaluation of following trailers.
 </p>
 <p>
 Example:
 </p>
 <pre><code>f(flag:boolean) = {
-    !flag &amp;&amp; __args__.quit_trailer() 
+    !flag &amp;&amp; __arg__.quit_trailer() 
 }
 
 f(true) println('printed')
@@ -3581,7 +3581,7 @@ y = x.flat():bfs
 </code></pre>
 <p>
 <div><strong style="text-decoration:underline">list#get</strong></div>
-<div style="margin-bottom:1em"><code>list#get(index:number):map:flat</code></div>
+<div style="margin-bottom:1em"><code>list#get(index:number):flat:map</code></div>
 Returns a value stored at the specified index in the list. An error occurs when the index is out of range.
 </p>
 <p>
@@ -3768,7 +3768,7 @@ Calculates a logical AND result of all the values in the iterable.
 Calculates an average of elements in the iterable.
 </p>
 <p>
-It can work on an iterable with elements of type that supports addition and division operators. Below is a list of such value types:
+It can work on an iterable with elements of type that supports addition and division operators. Below is a list of acceptable value types:
 </p>
 <ul>
 <li><code>number</code></li>
@@ -4404,7 +4404,7 @@ Calculates a standard deviation of elements in the iterable.
 Calculates a summation of elements in the iterable.
 </p>
 <p>
-It can work on an iterable with elements of a value type that supports addition operator. Below is a list of such value types:
+It can work on an iterable with elements of a value type that supports addition operator. Below is a list of acceptable value types:
 </p>
 <ul>
 <li><code>number</code></li>
@@ -4701,7 +4701,7 @@ Returns a sub matrix that refers to cells in a specified area of the matrix. Mod
 </p>
 <p>
 <div><strong style="text-decoration:underline">matrix#tolist</strong></div>
-<div style="margin-bottom:1em"><code>matrix#tolist():[flat,transpose]</code></div>
+<div style="margin-bottom:1em"><code>matrix#tolist():[transpose]</code></div>
 Converts the matrix into a list containing sub-lists that represents its rows.
 </p>
 <p>

@@ -5,143 +5,54 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">38</span><a name="anchor-38"></a>path Module</h1>
+<h1><span class="caption-index-1">38</span><a name="anchor-38"></a>png Module</h1>
 <p>
-The <code>path</code> module provides functions related to path operations. This is a built-in module, so you can use it without being imported.
+The <code>png</code> module provides measures to read/write image data in PNG format. To utilize it, import the <code>png</code> module using <code>import</code> function.
 </p>
 <p>
-Below is an example to list path names that exist in the current directory.
+Below is an example to read a PNG file:
 </p>
-<pre><code>println(path.dir('.'))
+<pre><code>import(png)
+img = image('foo.png')
 </code></pre>
+<h2><span class="caption-index-2">38.1</span><a name="anchor-38-1"></a>Exntension to Function's Capability</h2>
 <p>
-Below is an example to list path names that exist in the current directory and its child directories.
-</p>
-<pre><code>println(path.walk('.'))
-</code></pre>
-<p>
-Below is an example to list path names that matches a wild card pattern "<code>*.txt</code>".
-</p>
-<pre><code>println(path.glob('*.txt'))
-</code></pre>
-<h2><span class="caption-index-2">38.1</span><a name="anchor-38-1"></a>Module Function</h2>
-<p>
-<div><strong style="text-decoration:underline">path.absname</strong></div>
-<div style="margin-bottom:1em"><code>path.absname(name:string):map:[uri]</code></div>
-Returns an absolute path name of the given name.
+This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write PNG files.
 </p>
 <p>
-<div><strong style="text-decoration:underline">path.basename</strong></div>
-<div style="margin-bottom:1em"><code>path.basename(pathname:string):map</code></div>
-Removes a suffix part of a path name.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.bottom</strong></div>
-<div style="margin-bottom:1em"><code>path.bottom(pathname:string):map</code></div>
-Returns the last part of a path name.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.cutbottom</strong></div>
-<div style="margin-bottom:1em"><code>path.cutbottom(pathname:string):map</code></div>
-Returns a path name after eliminating its bottom part.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.dir</strong></div>
-<div style="margin-bottom:1em"><code>path.dir(directory?:directory, pattern*:string):map:flat:[dir,file,stat] {block?}</code></div>
-Creates an iterator that lists item names in the specified directory. If pathname is omitted, the current directory shall be listed. In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a PNG file.
 </p>
 <ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+<li>The identifier of the stream ends with a suffix "<code>.png</code>".</li>
+<li>The stream data begins with a byte sequence "<code>\x89\x50\x4e\x47\x0d\x0a\x1a\x0a</code>".</li>
 </ul>
 <p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.dirname</strong></div>
-<div style="margin-bottom:1em"><code>path.dirname(pathname:string):map</code></div>
-Splits a pathname by a directory separator and returns a directory name part.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.exists</strong></div>
-<div style="margin-bottom:1em"><code>path.exists(pathname:string):map</code></div>
-Returns true if the specified file exists in a file system.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.extname</strong></div>
-<div style="margin-bottom:1em"><code>path.extname(pathname:string):map</code></div>
-Extracts a suffix part of a path name.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.filename</strong></div>
-<div style="margin-bottom:1em"><code>path.filename(pathname:string):map</code></div>
-Splits a pathname by a directory separator and returns a file name part.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.glob</strong></div>
-<div style="margin-bottom:1em"><code>path.glob(pattern:string):map:flat:[dir,file,stat] {block?}</code></div>
-Creates an iterator for item names that match with a pattern supporting UNIX shell-style wild cards. In default, case of characters is distinguished. In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in PNG format.
 </p>
 <ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+<li>The identifier of the stream ends with a suffix "<code>.png</code>".</li>
 </ul>
+<h2><span class="caption-index-2">38.2</span><a name="anchor-38-2"></a>Module Function</h2>
+<h2><span class="caption-index-2">38.3</span><a name="anchor-38-3"></a>Extension to image Class</h2>
 <p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+This module extends the <code>image</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">path.join</strong></div>
-<div style="margin-bottom:1em"><code>path.join(paths+:string):map:[uri]</code></div>
-Returns a path name that joins given strings with directory separators.
+<div><strong style="text-decoration:underline">image#read@png</strong></div>
+<div style="margin-bottom:1em"><code>image#read@png(stream:stream:r):reduce</code></div>
+Reads a PNG image from a stream.
 </p>
 <p>
-<div><strong style="text-decoration:underline">path.match</strong></div>
-<div style="margin-bottom:1em"><code>path.match(pattern:string, name:string):map</code></div>
-Returns true if a name matches with a pattern that supports UNIX shell-style wild cards. In default, case of characters is distinguished.
+<div><strong style="text-decoration:underline">image#write@png</strong></div>
+<div style="margin-bottom:1em"><code>image#write@png(stream:stream:w):reduce</code></div>
+Writes a PNG image to a stream.
+</p>
+<h2><span class="caption-index-2">38.4</span><a name="anchor-38-4"></a>Thanks</h2>
+<p>
+This module uses libpng library which is distributed in the following site:
 </p>
 <p>
-<div><strong style="text-decoration:underline">path.regulate</strong></div>
-<div style="margin-bottom:1em"><code>path.regulate(name:string):map:[uri]</code></div>
-Returns a regulated path name of the given name.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.split</strong></div>
-<div style="margin-bottom:1em"><code>path.split(pathname:string):map:[bottom]</code></div>
-Splits a pathname by a directory separator and returns a list containing a directory name as the first element and a base name as the second one. This has the same result as calling path.dirname() and path.filename().
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.splitext</strong></div>
-<div style="margin-bottom:1em"><code>path.splitext(pathname:string):map</code></div>
-Splits a pathname by a dot character indicating a beginning of an extension and returns a list containing a path name without an extention and an extention part.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.stat</strong></div>
-<div style="margin-bottom:1em"><code>path.stat(directory:directory):map</code></div>
-Returns a stat object associated with the specified item.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.walk</strong></div>
-<div style="margin-bottom:1em"><code>path.walk(directory?:directory, maxdepth?:number, pattern*:string):map:flat:[dir,file,stat] {block?}</code></div>
-Creates an iterator that recursively lists item names under the specified directory. If pathname is omitted, search starts at the current directory In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+<a href="http://www.libpng.org/pub/png/libpng.html">http://www.libpng.org/pub/png/libpng.html</a>
 </p>
 <p />
 

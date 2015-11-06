@@ -5,89 +5,47 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">53</span><a name="anchor-53"></a>xml Module</h1>
-<h2><span class="caption-index-2">53.1</span><a name="anchor-53-1"></a>Module Function</h2>
+<h1><span class="caption-index-1">53</span><a name="anchor-53"></a>xpm Module</h1>
 <p>
-<div><strong style="text-decoration:underline">xml.comment</strong></div>
-<div style="margin-bottom:1em"><code>xml.comment(comment:string)</code></div>
-
-</p>
-<h2><span class="caption-index-2">53.2</span><a name="anchor-53-2"></a>xml.attribute Class</h2>
-<h2><span class="caption-index-2">53.3</span><a name="anchor-53-3"></a>xml.document Class</h2>
-<h3><span class="caption-index-3">53.3.1</span><a name="anchor-53-3-1"></a>Constructor</h3>
-<p>
-<div><strong style="text-decoration:underline">xml.document</strong></div>
-<div style="margin-bottom:1em"><code>xml.document(stream?:stream:r) {block?}</code></div>
-
-</p>
-<h3><span class="caption-index-3">53.3.2</span><a name="anchor-53-3-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">xml.document#parse</strong></div>
-<div style="margin-bottom:1em"><code>xml.document#parse(str:string):void</code></div>
-
+The <code>xpm</code> module provides measures to write image data in XPM format and to parse a list of strings that is described in the format. To utilize it, import the <code>xpm</code> module using <code>import</code> function.
 </p>
 <p>
-<div><strong style="text-decoration:underline">xml.document#read</strong></div>
-<div style="margin-bottom:1em"><code>xml.document#read(stream:stream:r):void</code></div>
-
+Below is an example to parse a list of strings described in XPM format.
+</p>
+<pre><code>import(xpm)
+foo_xpm = @{
+"13 13 2 2 0 0",
+"   c #000000",
+"#  c #ffffff",
+"          #               ",
+"          #               ",
+"  # # # # # # # # # #     ",
+"          #               ",
+"          #     #         ",
+"        # # # # # #       ",
+"      #   #     #   #     ",
+"    #     #   #       #   ",
+"  #       #   #       #   ",
+"  #       #   #       #   ",
+"  #       # #         #   ",
+"    # # #           #     ",
+"                # #       ",
+}
+img = image(`rgba).xpmdata(foo_xpm)
+</code></pre>
+<h2><span class="caption-index-2">53.1</span><a name="anchor-53-1"></a>Extension to image Class</h2>
+<p>
+This module extends the <code>image</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">xml.document#textize</strong></div>
-<div style="margin-bottom:1em"><code>xml.document#textize(fancy?:boolean, tabs?:number)</code></div>
-
+<div><strong style="text-decoration:underline">image#write@xpm</strong></div>
+<div style="margin-bottom:1em"><code>image#write@xpm(stream:stream:w):reduce</code></div>
+Writes a xpm image to a stream.
 </p>
 <p>
-<div><strong style="text-decoration:underline">xml.document#write</strong></div>
-<div style="margin-bottom:1em"><code>xml.document#write(stream:stream:w, fancy?:boolean, tabs?:number):void</code></div>
-
-</p>
-<h2><span class="caption-index-2">53.4</span><a name="anchor-53-4"></a>xml.element Class</h2>
-<h3><span class="caption-index-3">53.4.1</span><a name="anchor-53-4-1"></a>Constructor</h3>
-<p>
-<div><strong style="text-decoration:underline">xml.element</strong></div>
-<div style="margin-bottom:1em"><code>xml.element(_tagname_:string, attrs%):map {block?}</code></div>
-
-</p>
-<h3><span class="caption-index-3">53.4.2</span><a name="anchor-53-4-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">xml.element#addchild</strong></div>
-<div style="margin-bottom:1em"><code>xml.element#addchild(value):map:void</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">xml.element#gettext</strong></div>
-<div style="margin-bottom:1em"><code>xml.element#gettext()</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">xml.element#textize</strong></div>
-<div style="margin-bottom:1em"><code>xml.element#textize(fancy?:boolean, indentLevel?:number, tabs?:number)</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">xml.element#write</strong></div>
-<div style="margin-bottom:1em"><code>xml.element#write(stream:stream:w, fancy?:boolean, indentLevel?:number, tabs?:number):void</code></div>
-
-</p>
-<h2><span class="caption-index-2">53.5</span><a name="anchor-53-5"></a>xml.parser Class</h2>
-<h3><span class="caption-index-3">53.5.1</span><a name="anchor-53-5-1"></a>Constructor</h3>
-<p>
-<div><strong style="text-decoration:underline">xml.parser</strong></div>
-<div style="margin-bottom:1em"><code>xml.parser() {block?}</code></div>
-
-</p>
-<h3><span class="caption-index-3">53.5.2</span><a name="anchor-53-5-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">xml.parser#parse</strong></div>
-<div style="margin-bottom:1em"><code>xml.parser#parse(stream:stream:r):void</code></div>
-
-</p>
-<h2><span class="caption-index-2">53.6</span><a name="anchor-53-6"></a>Thanks</h2>
-<p>
-This module uses expat library which is distributed in the following site:
-</p>
-<p>
-<a href="http://expat.sourceforge.net/">http://expat.sourceforge.net/</a>
+<div><strong style="text-decoration:underline">image#xpmdata</strong></div>
+<div style="margin-bottom:1em"><code>image#xpmdata(xpm[]:string):reduce</code></div>
+Read xpm data from a string list.
 </p>
 <p />
 

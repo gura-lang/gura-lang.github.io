@@ -321,7 +321,7 @@ Specify an "else" block within a statement of <code>if-elsif-else</code> or <cod
 </p>
 <p>
 <div><strong style="text-decoration:underline">end</strong></div>
-<div style="margin-bottom:1em"><code>end(dummy*):symbol_func:trailer:end_marker:void</code></div>
+<div style="margin-bottom:1em"><code>end(dummy*):end_marker:symbol_func:trailer:void</code></div>
 Specify an end of a sequence.
 </p>
 <p>
@@ -363,7 +363,7 @@ Specify an catch block of a statement of try-catch-else. It can take multiple nu
 </p>
 <p>
 <div><strong style="text-decoration:underline">finally</strong></div>
-<div style="margin-bottom:1em"><code>finally():trailer:finalizer {block}</code></div>
+<div style="margin-bottom:1em"><code>finally():finalizer:trailer {block}</code></div>
 
 </p>
 <p>
@@ -430,7 +430,7 @@ Converts a string into a symbol.
 <h2><span class="caption-index-2">4.7</span><a name="anchor-4-7"></a>Class Operations</h2>
 <p>
 <div><strong style="text-decoration:underline">class</strong></div>
-<div style="margin-bottom:1em"><code>class(superclass?:function) {block?}</code></div>
+<div style="margin-bottom:1em"><code>class(superclass?:class) {block?}</code></div>
 Creates a class that includes methods and properties described in the content of the <code>block</code>. The detail information on how to describe the block content for this function is written in "Gura Language Manual".
 </p>
 <p>
@@ -459,7 +459,7 @@ Looks up a class by an expression of a type name.
 </p>
 <p>
 <div><strong style="text-decoration:underline">struct</strong></div>
-<div style="margin-bottom:1em"><code>struct(`args+):[loose] {block?}</code></div>
+<div style="margin-bottom:1em"><code>struct(`args+):nonamed:[loose] {block?}</code></div>
 Returns a function object of a constructor for a structure that contains properties specified by <code>args</code>. It can optionally take block which declares methods and properties just like <code>class</code> function.
 </p>
 <p>
