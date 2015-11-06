@@ -41,6 +41,19 @@ Explanation</th>
 
 <tr>
 <td>
+<code>argument#function</code></td>
+<td>
+<code>function</code></td>
+<td>
+R</td>
+
+<td>
+The <code>function</code> instance that has created the argument.</td>
+</tr>
+
+
+<tr>
+<td>
 <code>argument#values</code></td>
 <td>
 <code>list</code></td>
