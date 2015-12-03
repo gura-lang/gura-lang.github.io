@@ -845,7 +845,7 @@ You can define a function inside another function body. In that case, the inner 
 <p>
 A function can also return a <code>function</code> instance that it creates as its result. The environment of the outer function will be held in the inner function.
 </p>
-<pre><code>f() = {
+<pre><code>f():closure = {
     x = 3
     g() = {
         println('x = ', x)
@@ -856,6 +856,9 @@ A function can also return a <code>function</code> instance that it creates as i
 h = f()
 h()
 </code></pre>
+<p>
+Make sure that a function that returns a <code>function</code> instance must be declared with <code>:closure</code> attribute.
+</p>
 <h2><span class="caption-index-2">8.9</span><a name="anchor-8-9"></a>Leader-trailer Relationship</h2>
 <p>
 When a Caller expression is described at the same line with the end of a preceding one, they have a leader-trailer relationship with the preceding one as a leader and the following one as a trailer.
