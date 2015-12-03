@@ -13,7 +13,8 @@ title: Gura Language Manual
 <div><span class="toc-index-2">2.3</span><a href="chapter-02.html#anchor-2-3">Run Script File</a></div>
 <div><span class="toc-index-2">2.4</span><a href="chapter-02.html#anchor-2-4">Composite File</a></div>
 <div><span class="toc-index-2">2.5</span><a href="chapter-02.html#anchor-2-5">Command Line Options</a></div>
-<div><span class="toc-index-2">2.6</span><a href="chapter-02.html#anchor-2-6">Working Directory</a></div>
+<div><span class="toc-index-2">2.6</span><a href="chapter-02.html#anchor-2-6">System Directory</a></div>
+<div><span class="toc-index-2">2.7</span><a href="chapter-02.html#anchor-2-7">Working Directory</a></div>
 <div><span class="toc-index-1">3</span><a href="chapter-03.html#anchor-3">Syntax</a></div>
 <div><span class="toc-index-2">3.1</span><a href="chapter-03.html#anchor-3-1">Overview</a></div>
 <div><span class="toc-index-2">3.2</span><a href="chapter-03.html#anchor-3-2">Token</a></div>

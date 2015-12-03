@@ -723,6 +723,20 @@ Note</th>
 </td>
 </tr>
 
+<tr>
+<td>
+<code>:nonamed</code></td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>:closure</code></td>
+<td>
+</td>
+</tr>
+
 </table>
 
 </p>

@@ -216,7 +216,33 @@ Prints a version number.</td>
 </table>
 
 </p>
-<h2><span class="caption-index-2">2.6</span><a name="anchor-2-6"></a>Working Directory</h2>
+<h2><span class="caption-index-2">2.6</span><a name="anchor-2-6"></a>System Directory</h2>
+<p>
+The distribution package contains the interpreter executable as well as other various files such as Gura modules and dynamic-loaded libraries. When installed, they are stored in directories that are relative to where the interpreter executable is located.
+</p>
+<p>
+For Windows, they are stored in the following directories:
+</p>
+<pre><code>[install directory] -+- bin
+                     +- module
+                     +- include
+                     +- lib
+</code></pre>
+<p>
+For Linux, they are as below:
+</p>
+<pre><code>[install directory] -+- bin
+                     +- include
+                        +- gura
+                     +- lib
+                        +- gura
+                     +- share
+                        +- gura
+</code></pre>
+<p>
+As the interpreter searches these files in directories that are relative to its own location, they are relocatable. This feature makes it easier to install different versions of Gura in a certain system.
+</p>
+<h2><span class="caption-index-2">2.7</span><a name="anchor-2-7"></a>Working Directory</h2>
 <p>
 When the interpret is launched, it creates a working directory if it's not exist, which Gura applications can use to store working files.
 </p>
