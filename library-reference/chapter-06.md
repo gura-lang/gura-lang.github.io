@@ -436,8 +436,8 @@ You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#pointer</strong></div>
-<div style="margin-bottom:1em"><code>binary#pointer(offset:number =&gt; 0) {block?}</code></div>
-Returns a pointer instance that has an initial offset specified by the argument.
+<div style="margin-bottom:1em"><code>binary#pointer(offset?:number) {block?}</code></div>
+Returns a <code>pointer</code> instance that has an initial offset specified by the argument <code>offset</code>. If the argument is omitted, it would return a <code>pointer</code> instance that points to the top of the binary.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#reader</strong></div>
@@ -946,7 +946,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>datetime#year</code></td>
+<code>year</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -959,7 +959,7 @@ Chritian year.</td>
 
 <tr>
 <td>
-<code>datetime#month</code></td>
+<code>month</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -972,7 +972,7 @@ Month starting from 1. Numbers from 1 to 12 correspond to January to December.</
 
 <tr>
 <td>
-<code>datetime#day</code></td>
+<code>day</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -985,7 +985,7 @@ Day in a month starting from 1. </td>
 
 <tr>
 <td>
-<code>datetime#hour</code></td>
+<code>hour</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -998,7 +998,7 @@ Hour in a day between 0 and 23.</td>
 
 <tr>
 <td>
-<code>datetime#min</code></td>
+<code>min</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -1011,7 +1011,7 @@ Minute in an hour between 0 and 59.</td>
 
 <tr>
 <td>
-<code>datetime#sec</code></td>
+<code>sec</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -1024,7 +1024,7 @@ Second in a minute between 0 and 59.</td>
 
 <tr>
 <td>
-<code>datetime#usec</code></td>
+<code>usec</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -1037,7 +1037,7 @@ Millisecond in a second between 0 and 999.</td>
 
 <tr>
 <td>
-<code>datetime#wday</code></td>
+<code>wday</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -1050,7 +1050,7 @@ Week number starting from 0. Number from 0 to 6 corresponds to Sunday to Saturda
 
 <tr>
 <td>
-<code>datetime#week</code></td>
+<code>week</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -1066,7 +1066,7 @@ Week symbol that takes one of the followings:
 
 <tr>
 <td>
-<code>datetime#yday</code></td>
+<code>yday</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -1079,7 +1079,7 @@ Day in a year starting from 1.</td>
 
 <tr>
 <td>
-<code>datetime#unixtime</code></td>
+<code>unixtime</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -4922,7 +4922,60 @@ The order of existing entries will be kept intact. If attribute shrink is specif
 <p>
 The <code>pointer</code> class provides measures to read and write content in a <code>binary</code> instance.
 </p>
-<h3><span class="caption-index-3">6.26.1</span><a name="anchor-6-26-1"></a>Method</h3>
+<h3><span class="caption-index-3">6.26.1</span><a name="anchor-6-26-1"></a>Property</h3>
+<p>
+A <code>pointer</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>binary</code></td>
+<td>
+<code>binary</code></td>
+<td>
+R</td>
+
+<td>
+A <code>binary</code> instance associated with the pointer.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>offset</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+The current offset.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h3><span class="caption-index-3">6.26.2</span><a name="anchor-6-26-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">pointer</strong></div>
+<div style="margin-bottom:1em"><code>pointer(buff:binary, offset?:number) {block?}</code></div>
+Creates a <code>pointer</code> instance that points to the specified <code>binary</code> instance.
+</p>
+<h3><span class="caption-index-3">6.26.3</span><a name="anchor-6-26-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">pointer#forward</strong></div>
 <div style="margin-bottom:1em"><code>pointer#forward(distance:number):reduce</code></div>
@@ -5139,25 +5192,6 @@ Using the above casting feature, you can call a function <code>f(stream:stream)<
 </ul>
 <h3><span class="caption-index-3">6.29.4</span><a name="anchor-6-29-4"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">open</strong></div>
-<div style="margin-bottom:1em"><code>open(pathname:string, mode?:string, codec?:codec):map {block?}</code></div>
-Creates a <code>stream</code> instance from the specified <code>pathname</code>.
-</p>
-<p>
-The argument <code>mode</code> takes one of the strings that specifies what access should be allowed with the stream. If omitted, the stream would be opened with read mode.
-</p>
-<ul>
-<li><code>'r'</code> .. read</li>
-<li><code>'w'</code> .. write</li>
-<li><code>'a'</code> .. append</li>
-</ul>
-<p>
-The argument <code>codec</code> specifies a name of the character codec that converts between the stream's character code and UTF-8, which is a code used in the iterpreter's internal process.
-</p>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
 <div><strong style="text-decoration:underline">stream</strong></div>
 <div style="margin-bottom:1em"><code>stream(pathname:string, mode?:string, codec?:codec):map {block?}</code></div>
 Creates a <code>stream</code> instance from the specified <code>pathname</code>.
@@ -5175,6 +5209,9 @@ The argument <code>codec</code> specifies a name of the character codec that con
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+You can also call <code>open()</code> function that is just an alias of <code>stream()</code> to create a <code>stream</code> instance.
 </p>
 <h3><span class="caption-index-3">6.29.5</span><a name="anchor-6-29-5"></a>Utility Function</h3>
 <p>
@@ -5301,7 +5338,7 @@ Flushes cached data to the stream.
 <p>
 <div><strong style="text-decoration:underline">stream#peek</strong></div>
 <div style="margin-bottom:1em"><code>stream#peek(len?:number)</code></div>
-
+Reads specified length of data from the stream and returns a <code>binary</code> instance that contains it. This doesn't move the stream's current file position.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#print</strong></div>
@@ -5324,17 +5361,20 @@ Prints out <code>values</code> and an end-of-line character to the <code>stream<
 <p>
 <div><strong style="text-decoration:underline">stream#read</strong></div>
 <div style="margin-bottom:1em"><code>stream#read(len?:number)</code></div>
-
+Reads specified length of data from the stream and returns a <code>binary</code> instance that contains it. If the argument <code>len</code> is omitted, all the data available from the stream would be read.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#readchar</strong></div>
 <div style="margin-bottom:1em"><code>stream#readchar()</code></div>
-
+Reads one character from the stream and returns a <code>string</code> instance that contains it.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#readline</strong></div>
 <div style="margin-bottom:1em"><code>stream#readline():[chop]</code></div>
-
+Reads one line from the stream and returns a <code>string</code> instance that contains it.
+</p>
+<p>
+If the attribute <code>:chop</code> is specified, it would remove the last new line character from the result.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#readlines</strong></div>
@@ -5364,7 +5404,7 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 <p>
 <div><strong style="text-decoration:underline">stream#readtext</strong></div>
 <div style="margin-bottom:1em"><code>stream#readtext()</code></div>
-
+Reads the whole data in the stream as a text sequence and returns a <code>string</code> instance that contains it.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#seek</strong></div>
@@ -5384,12 +5424,12 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 <p>
 <div><strong style="text-decoration:underline">stream#tell</strong></div>
 <div style="margin-bottom:1em"><code>stream#tell()</code></div>
-
+Returns the current file position at which read/write operation works.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#write</strong></div>
 <div style="margin-bottom:1em"><code>stream#write(buff:binary, len?:number):reduce</code></div>
-
+Writes binary data contained in <code>buff</code> to the stream. The argument <code>len</code> limits the number of data that is to be written to the stream.
 </p>
 <h2><span class="caption-index-2">6.30</span><a name="anchor-6-30"></a>string Class</h2>
 <p>
@@ -5778,12 +5818,12 @@ Converts lower-case to upper-case characters.
 Returns the width of the string.
 </p>
 <p>
-This method takes into account the character width based on the specification of East Asian Width. A kanji-character occupies two characters in width.
+This method takes into account the character width based on the specification of East Asian Width. For example, a kanji-character of Japanese occupies two characters in width.
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#zentohan</strong></div>
 <div style="margin-bottom:1em"><code>string#zentohan()</code></div>
-Converts zenkaku to hankaku characters
+Converts zenkaku to hankaku characters.
 </p>
 <h2><span class="caption-index-2">6.31</span><a name="anchor-6-31"></a>suffixmgr Class</h2>
 <p>

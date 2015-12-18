@@ -12,7 +12,7 @@ The <code>freetype</code> module provices measures to access vectorized font dat
 <h2><span class="caption-index-2">19.1</span><a name="anchor-19-1"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">freetype.sysfontpath</strong></div>
-<div style="margin-bottom:1em"><code>freetype.sysfontpath(name?:string):map</code></div>
+<div style="margin-bottom:1em"><code>freetype.sysfontpath(name:string):map</code></div>
 
 </p>
 <h2><span class="caption-index-2">19.2</span><a name="anchor-19-2"></a>freetype.BBox Class</h2>

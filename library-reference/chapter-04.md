@@ -317,7 +317,7 @@ Otherwise, if the function is followed by a trailer <code>elsif</code> or <code>
 <p>
 <div><strong style="text-decoration:underline">else</strong></div>
 <div style="margin-bottom:1em"><code>else():trailer {block}</code></div>
-Specify an "else" block within a statement of <code>if-elsif-else</code> or <code>try-catch-else</code>.
+Specify an "else" block within a statement of <code>if-elsif-else</code> or <code>try-catch-else-finally</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">end</strong></div>
@@ -325,7 +325,7 @@ Specify an "else" block within a statement of <code>if-elsif-else</code> or <cod
 Specify an end of a sequence.
 </p>
 <p>
-This function is supposed to be used as a block terminator in an embedded script of a template
+This function is supposed to be used as a block terminator in an embedded script of a template.
 </p>
 <p>
 <div><strong style="text-decoration:underline">switch</strong></div>
@@ -354,12 +354,12 @@ If it takes an argument, the value is treated as a result of the function. Other
 <p>
 <div><strong style="text-decoration:underline">try</strong></div>
 <div style="margin-bottom:1em"><code>try():leader {block}</code></div>
-Specify a try block of a statement of try-catch-else. It catches signals that occur in the block and executes a corresponding <code>catch()</code> or <code>else()</code> function that follow after it.
+Specify a try block of a statement of try-catch-else-finally. It catches signals that occur in the block and executes a corresponding <code>catch()</code> or <code>else()</code> function that follow after it.
 </p>
 <p>
 <div><strong style="text-decoration:underline">catch</strong></div>
 <div style="margin-bottom:1em"><code>catch(errors*:error):leader:trailer {block}</code></div>
-Specify an catch block of a statement of try-catch-else. It can take multiple numbers of arguments of error objects to handle. If there's no error objects specified, it handles all the errors that are not handled in the preceding <code>catch()</code> function calls. Block parameter format: <code>|error:error|error</code> is an error object that contains information of the handled error.
+Specify an catch block of a statement of try-catch-else-finally. It can take multiple numbers of arguments of error objects to handle. If there's no error objects specified, it handles all the errors that are not handled in the preceding <code>catch()</code> function calls. Block parameter format: <code>|error:error|error</code> is an error object that contains information of the handled error.
 </p>
 <p>
 <div><strong style="text-decoration:underline">finally</strong></div>

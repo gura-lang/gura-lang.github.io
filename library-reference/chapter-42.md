@@ -1062,12 +1062,12 @@ It is possible for multiple errors to occur before calling <code>SDL_GetError()<
 </p>
 <p>
 <div><strong style="text-decoration:underline">sdl2.IntersectRectAndLine</strong></div>
-<div style="margin-bottom:1em"><code>sdl2.IntersectRectAndLine(rect:sdl2.Rect, X1:number, Y1:number, X2:number, Y2:number)</code></div>
+<div style="margin-bottom:1em"><code>sdl2.IntersectRectAndLine(rect:sdl2.Rect, X1:number, Y1:number, X2:number, Y2:number):void</code></div>
 
 </p>
 <p>
 <div><strong style="text-decoration:underline">sdl2.PointInRect</strong></div>
-<div style="margin-bottom:1em"><code>sdl2.PointInRect(p:sdl2.Point, r:sdl2.Rect)</code></div>
+<div style="margin-bottom:1em"><code>sdl2.PointInRect(p:sdl2.Point, r:sdl2.Rect):void</code></div>
 
 </p>
 <p>
@@ -2012,7 +2012,7 @@ It is possible for multiple errors to occur before calling <code>SDL_GetError()<
 </p>
 <p>
 <div><strong style="text-decoration:underline">sdl2.GetQueuedAudioSize</strong></div>
-<div style="margin-bottom:1em"><code>sdl2.GetQueuedAudioSize(dev:number)</code></div>
+<div style="margin-bottom:1em"><code>sdl2.GetQueuedAudioSize(dev:number):void</code></div>
 
 </p>
 <p>
@@ -2052,7 +2052,7 @@ It is possible for multiple errors to occur before calling <code>SDL_GetError()<
 </p>
 <p>
 <div><strong style="text-decoration:underline">sdl2.OpenAudioDevice</strong></div>
-<div style="margin-bottom:1em"><code>sdl2.OpenAudioDevice(device:string, iscapture:number, desired:sdl2.AudioSpec, allowed_changes:number)</code></div>
+<div style="margin-bottom:1em"><code>sdl2.OpenAudioDevice(device:string, iscapture:number, desired:sdl2.AudioSpec, allowed_changes:number):void</code></div>
 
 </p>
 <p>
@@ -2322,7 +2322,7 @@ It is possible for multiple errors to occur before calling <code>SDL_GetError()<
 </p>
 <p>
 <div><strong style="text-decoration:underline">sdl2.AddTimer</strong></div>
-<div style="margin-bottom:1em"><code>sdl2.AddTimer(interval:number)</code></div>
+<div style="margin-bottom:1em"><code>sdl2.AddTimer(interval:number):void</code></div>
 
 </p>
 <p>
@@ -2357,12 +2357,12 @@ It is possible for multiple errors to occur before calling <code>SDL_GetError()<
 </p>
 <p>
 <div><strong style="text-decoration:underline">sdl2.GetBasePath</strong></div>
-<div style="margin-bottom:1em"><code>sdl2.GetBasePath()</code></div>
+<div style="margin-bottom:1em"><code>sdl2.GetBasePath():void</code></div>
 
 </p>
 <p>
 <div><strong style="text-decoration:underline">sdl2.GetPrefPath</strong></div>
-<div style="margin-bottom:1em"><code>sdl2.GetPrefPath(org:string, app:string)</code></div>
+<div style="margin-bottom:1em"><code>sdl2.GetPrefPath(org:string, app:string):void</code></div>
 
 </p>
 <p>
@@ -2512,7 +2512,7 @@ It is possible for multiple errors to occur before calling <code>SDL_GetError()<
 </p>
 <p>
 <div><strong style="text-decoration:underline">sdl2.HasAVX2</strong></div>
-<div style="margin-bottom:1em"><code>sdl2.HasAVX2()</code></div>
+<div style="margin-bottom:1em"><code>sdl2.HasAVX2():void</code></div>
 
 </p>
 <p>
@@ -2617,7 +2617,7 @@ It is possible for multiple errors to occur before calling <code>SDL_GetError()<
 </p>
 <p>
 <div><strong style="text-decoration:underline">sdl2.MostSignificantBitIndex32</strong></div>
-<div style="margin-bottom:1em"><code>sdl2.MostSignificantBitIndex32(x:number)</code></div>
+<div style="margin-bottom:1em"><code>sdl2.MostSignificantBitIndex32(x:number):void</code></div>
 
 </p>
 <p>
