@@ -89,7 +89,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>diff.diff@line#distance</code></td>
+<code>distance</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -102,7 +102,7 @@ The distance between the texts. Zero means that they are identical each other.</
 
 <tr>
 <td>
-<code>diff.diff@line#edits</code></td>
+<code>edits</code></td>
 <td>
 <code>iterator</code></td>
 <td>
@@ -115,7 +115,7 @@ An iterator that returns <code>diff.edit@line</code> instances stored in the res
 
 <tr>
 <td>
-<code>diff.diff@line#nlines@org</code></td>
+<code>nlines@org</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -128,7 +128,7 @@ Number of lines in the "original" text.</td>
 
 <tr>
 <td>
-<code>diff.diff@line#nlines@new</code></td>
+<code>nlines@new</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -213,7 +213,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>diff.hunk@line#edits</code></td>
+<code>edits</code></td>
 <td>
 <code>iterator</code></td>
 <td>
@@ -226,7 +226,7 @@ An iterator that returns <code>diff.edit@line</code> instances stored in the hun
 
 <tr>
 <td>
-<code>diff.hunk@line#lineno@org</code></td>
+<code>lineno@org</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -239,7 +239,7 @@ Top line number of the "original" text covered by the hunk.</td>
 
 <tr>
 <td>
-<code>diff.hunk@line#lineno@new</code></td>
+<code>lineno@new</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -252,7 +252,7 @@ Top line number of the "new" text covered by the hunk.</td>
 
 <tr>
 <td>
-<code>diff.hunk@line#nlines@org</code></td>
+<code>nlines@org</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -265,7 +265,7 @@ Number of lines in the "original" text covered by the hunk.</td>
 
 <tr>
 <td>
-<code>diff.hunk@line#nlines@new</code></td>
+<code>nlines@new</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -332,7 +332,7 @@ Edit operation:
 
 <tr>
 <td>
-<code>diff.edit@line#mark</code></td>
+<code>mark</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -345,7 +345,7 @@ A mark string that appears on the top of each line in Unified format.</td>
 
 <tr>
 <td>
-<code>diff.edit@line#lineno@org</code></td>
+<code>lineno@org</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -358,7 +358,7 @@ Line number of the "original" text correspond to the edit.</td>
 
 <tr>
 <td>
-<code>diff.edit@line#lineno@new</code></td>
+<code>lineno@new</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -371,7 +371,7 @@ Lop line number of the "new" text correspond to the edit.</td>
 
 <tr>
 <td>
-<code>diff.edit@line#source</code></td>
+<code>source</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -384,7 +384,7 @@ A source text.</td>
 
 <tr>
 <td>
-<code>diff.edit@line#unified</code></td>
+<code>unified</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -425,7 +425,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>diff.diff@line#distance</code></td>
+<code>distance</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -438,7 +438,7 @@ The distance between the texts. Zero means that they are identical each other.</
 
 <tr>
 <td>
-<code>diff.diff@line#edits</code></td>
+<code>edits</code></td>
 <td>
 <code>iterator</code></td>
 <td>
@@ -451,7 +451,7 @@ An iterator that returns <code>diff.edit@char</code> instances stored in the res
 
 <tr>
 <td>
-<code>diff.diff@line#edits@org</code></td>
+<code>edits@org</code></td>
 <td>
 <code>iterator</code></td>
 <td>
@@ -465,7 +465,7 @@ that are applied to the "original" string.</td>
 
 <tr>
 <td>
-<code>diff.diff@line#edits@new</code></td>
+<code>edits@new</code></td>
 <td>
 <code>iterator</code></td>
 <td>

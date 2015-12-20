@@ -13,7 +13,10 @@ The <code>fs</code> module provides measures to access and modify information in
 <p>
 <div><strong style="text-decoration:underline">fs.chdir</strong></div>
 <div style="margin-bottom:1em"><code>fs.chdir(pathname:string) {block?}</code></div>
-Changes the current working directory.
+Changes the current working directory to <code>pathname</code>.
+</p>
+<p>
+The block would be evaluated if specified, and the working directory would be changed only during that evaluation period.
 </p>
 <p>
 <div><strong style="text-decoration:underline">fs.chmod</strong></div>

@@ -41,7 +41,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>argument#function</code></td>
+<code>function</code></td>
 <td>
 <code>function</code></td>
 <td>
@@ -54,7 +54,7 @@ The <code>function</code> instance that has created the argument.</td>
 
 <tr>
 <td>
-<code>argument#values</code></td>
+<code>values</code></td>
 <td>
 <code>list</code></td>
 <td>
@@ -316,7 +316,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>binary#writable</code></td>
+<code>writable</code></td>
 <td>
 <code>boolean</code></td>
 <td>
@@ -662,7 +662,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>color#r</code></td>
+<code>r</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -675,7 +675,7 @@ Value of the red element.</td>
 
 <tr>
 <td>
-<code>color#g</code></td>
+<code>g</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -688,7 +688,7 @@ Value of the green element.</td>
 
 <tr>
 <td>
-<code>color#b</code></td>
+<code>b</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -701,7 +701,7 @@ Value of the blue element.</td>
 
 <tr>
 <td>
-<code>color#a</code></td>
+<code>a</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -1260,7 +1260,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>declaration#symbol</code></td>
+<code>symbol</code></td>
 <td>
 <code>symbol</code></td>
 <td>
@@ -1273,7 +1273,7 @@ The name of the declaration in symbol.</td>
 
 <tr>
 <td>
-<code>declaration#name</code></td>
+<code>name</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -1286,7 +1286,7 @@ The name of the declaration in string.</td>
 
 <tr>
 <td>
-<code>declaration#default</code></td>
+<code>default</code></td>
 <td>
 <code>expr</code></td>
 <td>
@@ -1818,7 +1818,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>error#source</code></td>
+<code>source</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -1831,7 +1831,7 @@ The name of the file that causes this error.</td>
 
 <tr>
 <td>
-<code>error#lineno</code></td>
+<code>lineno</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -1844,7 +1844,7 @@ The number of line where the expression that causes this error starts.</td>
 
 <tr>
 <td>
-<code>error#linenobtm</code></td>
+<code>linenobtm</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -1857,7 +1857,7 @@ The number of line where the expression that causes this error ends.</td>
 
 <tr>
 <td>
-<code>error#postext</code></td>
+<code>postext</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -1870,7 +1870,7 @@ A text that consists of a source name and a line number.</td>
 
 <tr>
 <td>
-<code>error#text</code></td>
+<code>text</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -1884,7 +1884,7 @@ If an attribute `:lineno` is specified, it would contain a line number.</td>
 
 <tr>
 <td>
-<code>error#trace</code></td>
+<code>trace</code></td>
 <td>
 <code>expr[]</code></td>
 <td>
@@ -1919,7 +1919,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>expr#attrfront</code></td>
+<code>attrfront</code></td>
 <td>
 <code>symbol[]</code></td>
 <td>
@@ -1932,7 +1932,7 @@ Exists in "identifier" and "caller".</td>
 
 <tr>
 <td>
-<code>expr#attrs</code></td>
+<code>attrs</code></td>
 <td>
 <code>symbol[]</code></td>
 <td>
@@ -1945,7 +1945,7 @@ Exists in "identifier" and "caller".</td>
 
 <tr>
 <td>
-<code>expr#attrsopt</code></td>
+<code>attrsopt</code></td>
 <td>
 <code>symbol[]</code></td>
 <td>
@@ -1958,7 +1958,7 @@ Exists in "identifier" and "caller".</td>
 
 <tr>
 <td>
-<code>expr#block</code></td>
+<code>block</code></td>
 <td>
 <code>expr</code></td>
 <td>
@@ -1971,7 +1971,7 @@ Exists in "caller".</td>
 
 <tr>
 <td>
-<code>expr#blockparam</code></td>
+<code>blockparam</code></td>
 <td>
 <code>iterator</code></td>
 <td>
@@ -1984,7 +1984,7 @@ Exists in "block".</td>
 
 <tr>
 <td>
-<code>expr#body</code></td>
+<code>body</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -1997,7 +1997,7 @@ Exists in "suffixed".</td>
 
 <tr>
 <td>
-<code>expr#car</code></td>
+<code>car</code></td>
 <td>
 <code>expr</code></td>
 <td>
@@ -2010,7 +2010,7 @@ Exists in "compound".</td>
 
 <tr>
 <td>
-<code>expr#cdr</code></td>
+<code>cdr</code></td>
 <td>
 <code>iterator</code></td>
 <td>
@@ -2023,7 +2023,7 @@ Exists in "compound".</td>
 
 <tr>
 <td>
-<code>expr#child</code></td>
+<code>child</code></td>
 <td>
 <code>expr</code></td>
 <td>
@@ -2036,7 +2036,7 @@ Exists in "unary".</td>
 
 <tr>
 <td>
-<code>expr#children</code></td>
+<code>children</code></td>
 <td>
 <code>iterator</code></td>
 <td>
@@ -2049,7 +2049,7 @@ Exists in "collector".</td>
 
 <tr>
 <td>
-<code>expr#left</code></td>
+<code>left</code></td>
 <td>
 <code>expr</code></td>
 <td>
@@ -2062,7 +2062,7 @@ Exists in "binary".</td>
 
 <tr>
 <td>
-<code>expr#lineno</code></td>
+<code>lineno</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -2075,7 +2075,7 @@ R</td>
 
 <tr>
 <td>
-<code>expr#linenobtm</code></td>
+<code>linenobtm</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -2088,7 +2088,7 @@ R</td>
 
 <tr>
 <td>
-<code>expr#operator</code></td>
+<code>operator</code></td>
 <td>
 <code>operator</code></td>
 <td>
@@ -2101,7 +2101,7 @@ Exists in "unaryop", "binaryop" and "assign".</td>
 
 <tr>
 <td>
-<code>expr#postext</code></td>
+<code>postext</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -2114,7 +2114,7 @@ R</td>
 
 <tr>
 <td>
-<code>expr#right</code></td>
+<code>right</code></td>
 <td>
 <code>expr</code></td>
 <td>
@@ -2127,7 +2127,7 @@ Exists in "binary".</td>
 
 <tr>
 <td>
-<code>expr#source</code></td>
+<code>source</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -2140,7 +2140,7 @@ R</td>
 
 <tr>
 <td>
-<code>expr#suffix</code></td>
+<code>suffix</code></td>
 <td>
 <code>symbol</code></td>
 <td>
@@ -2153,7 +2153,7 @@ Exists in "suffixed".</td>
 
 <tr>
 <td>
-<code>expr#symbol</code></td>
+<code>symbol</code></td>
 <td>
 <code>symbol</code></td>
 <td>
@@ -2166,7 +2166,7 @@ Exists in "identifier".</td>
 
 <tr>
 <td>
-<code>expr#trailer</code></td>
+<code>trailer</code></td>
 <td>
 <code>expr</code></td>
 <td>
@@ -2179,7 +2179,7 @@ Exists in "caller".</td>
 
 <tr>
 <td>
-<code>expr#typename</code></td>
+<code>typename</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -2192,7 +2192,7 @@ R</td>
 
 <tr>
 <td>
-<code>expr#typesym</code></td>
+<code>typesym</code></td>
 <td>
 <code>symbol</code></td>
 <td>
@@ -2205,7 +2205,7 @@ R</td>
 
 <tr>
 <td>
-<code>expr#value</code></td>
+<code>value</code></td>
 <td>
 <code>any</code></td>
 <td>
@@ -2593,7 +2593,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>function#decls</code></td>
+<code>decls</code></td>
 <td>
 <code>iterator</code></td>
 <td>
@@ -2606,7 +2606,7 @@ iterator of <code>declaration</code> instances that provide information about ar
 
 <tr>
 <td>
-<code>function#expr</code></td>
+<code>expr</code></td>
 <td>
 <code>expr</code></td>
 <td>
@@ -2619,7 +2619,7 @@ an expression of the function.</td>
 
 <tr>
 <td>
-<code>function#format</code></td>
+<code>format</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -2632,7 +2632,7 @@ a string showing a declared format of the function.</td>
 
 <tr>
 <td>
-<code>function#fullname</code></td>
+<code>fullname</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -2645,7 +2645,7 @@ a full name of the function that is prefixed by a name of the module or the clas
 
 <tr>
 <td>
-<code>function#name</code></td>
+<code>name</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -2658,7 +2658,7 @@ a name of the function in <code>string</code>.</td>
 
 <tr>
 <td>
-<code>function#symbol</code></td>
+<code>symbol</code></td>
 <td>
 <code>symbol</code></td>
 <td>
@@ -2832,7 +2832,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>help#format</code></td>
+<code>format</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -2845,7 +2845,7 @@ A name of the syntax format in which the help text is described such as <code>'m
 
 <tr>
 <td>
-<code>help#lang</code></td>
+<code>lang</code></td>
 <td>
 <code>symbol</code></td>
 <td>
@@ -2859,7 +2859,7 @@ For example, <code>`en</code> for English and <code>`ja</code> for Japanese.</td
 
 <tr>
 <td>
-<code>help#text</code></td>
+<code>text</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -2982,7 +2982,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>image#format</code></td>
+<code>format</code></td>
 <td>
 <code>symbol</code></td>
 <td>
@@ -3008,7 +3008,7 @@ Takes one of the following symbols indicating what elements are stored in the me
 
 <tr>
 <td>
-<code>image#width</code></td>
+<code>width</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -3021,7 +3021,7 @@ Image width.</td>
 
 <tr>
 <td>
-<code>image#height</code></td>
+<code>height</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -3034,7 +3034,7 @@ Image height.</td>
 
 <tr>
 <td>
-<code>image#palette</code></td>
+<code>palette</code></td>
 <td>
 <code>palette</code></td>
 <td>
@@ -4775,7 +4775,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>operator#symbol</code></td>
+<code>symbol</code></td>
 <td>
 <code>symbol</code></td>
 <td>
@@ -5084,7 +5084,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>stream#stat</code></td>
+<code>stat</code></td>
 <td>
 <code>object</code></td>
 <td>
@@ -5097,7 +5097,7 @@ Status of the stream.</td>
 
 <tr>
 <td>
-<code>stream#name</code></td>
+<code>name</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -5110,7 +5110,7 @@ Name of the stream.</td>
 
 <tr>
 <td>
-<code>stream#identifier</code></td>
+<code>identifier</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -5123,7 +5123,7 @@ Identifier of the stream.</td>
 
 <tr>
 <td>
-<code>stream#readable</code></td>
+<code>readable</code></td>
 <td>
 <code>boolean</code></td>
 <td>
@@ -5136,7 +5136,7 @@ Indicates whether the stream is readable.</td>
 
 <tr>
 <td>
-<code>stream#writable</code></td>
+<code>writable</code></td>
 <td>
 <code>boolean</code></td>
 <td>
@@ -5149,7 +5149,7 @@ Indicates whether the stream is writable.</td>
 
 <tr>
 <td>
-<code>stream#codec</code></td>
+<code>codec</code></td>
 <td>
 <code>codec</code></td>
 <td>
@@ -6126,7 +6126,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>timedelta#days</code></td>
+<code>days</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -6139,7 +6139,7 @@ Offset of days.</td>
 
 <tr>
 <td>
-<code>timedelta#secs</code></td>
+<code>secs</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -6152,7 +6152,7 @@ Offset of seconds.</td>
 
 <tr>
 <td>
-<code>timedelta#usec</code></td>
+<code>usec</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -6193,7 +6193,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>uri#scheme</code></td>
+<code>scheme</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -6206,7 +6206,7 @@ R/W</td>
 
 <tr>
 <td>
-<code>uri#user</code></td>
+<code>user</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -6219,7 +6219,7 @@ R/W</td>
 
 <tr>
 <td>
-<code>uri#password</code></td>
+<code>password</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -6232,7 +6232,7 @@ R/W</td>
 
 <tr>
 <td>
-<code>uri#host</code></td>
+<code>host</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -6245,7 +6245,7 @@ R/W</td>
 
 <tr>
 <td>
-<code>uri#port</code></td>
+<code>port</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -6258,7 +6258,7 @@ R/W</td>
 
 <tr>
 <td>
-<code>uri#urlpath</code></td>
+<code>urlpath</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -6271,7 +6271,7 @@ R/W</td>
 
 <tr>
 <td>
-<code>uri#misc</code></td>
+<code>misc</code></td>
 <td>
 <code>string</code></td>
 <td>
