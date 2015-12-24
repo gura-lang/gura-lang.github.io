@@ -40,7 +40,55 @@ When instance method <code>image#write()</code> is provided with a stream that s
 <li>The identifier of the stream ends with a suffix "<code>.gif</code>".</li>
 </ul>
 <h2><span class="caption-index-2">21.2</span><a name="anchor-21-2"></a>gif.content Class</h2>
-<h3><span class="caption-index-3">21.2.1</span><a name="anchor-21-2-1"></a>Property</h3>
+<p>
+The <code>gif.content</code> class provides properties to explain GIF information and methods to manipulate contents of GIF file. Below is a class diagram of <code>gif.content</code>:
+</p>
+<pre><code>+-------------+                         +-----------------------------+
+| gif.content |images                   |            image            |
+|-------------*-------------------------+-----------------------------|
+|             |                     1.. +-----------------------------+
+|             |
+|             |                         +-----------------------------+
+|             |Header                   |         gif.Header          |
+|             *-------------------------+-----------------------------|
+|             |                         +-----------------------------+
+|             |
+|             |                         +-----------------------------+
+|             |LogicalScreenDescriptor  | gif.LogicalScreenDescriptor |
+|             *-------------------------+-----------------------------|
+|             |                         +-----------------------------+
+|             |
+|             |                         +-----------------------------+
+|             |CommentExtension         |    gif.CommentExtension     |
+|             *-------------------------+-----------------------------|
+|             |                         +-----------------------------+
+|             |
+|             |                         +-----------------------------+
+|             |PlainTextExntension      |   gif.PlainTextExtension    |
+|             *-------------------------+-----------------------------|
+|             |                         +-----------------------------+
+|             |
+|             |                         +-----------------------------+
+|             |ApplicationExntension    | gif.ApplicationExtension    |
+|             *-------------------------+-----------------------------|
+|             |                         +-----------------------------+
++-------------+
+</code></pre>
+<ul>
+<li>A property of <code>gif.content</code> has one or more images. Multiple images are mainly used for animation.</li>
+<li>The property named <code>Header</code> is an instance of <code>gif.Header</code> class.</li>
+<li>The property named <code>LogicalScreenDescriptor</code> is an instance of <code>gif.LogicalScreenDescriptor</code> class.</li>
+<li>The property named <code>CommentExtension</code> is an instance of <code>gif.CommentExtension</code> class.</li>
+<li>The property named <code>PlainTextExtension</code> is an instance of <code>gif.PlainTextExtension</code> class.</li>
+<li>The property named <code>ApplicationExtension</code> is an instance of <code>gif.ApplicationExtension</code> class.</li>
+</ul>
+<h3><span class="caption-index-3">21.2.1</span><a name="anchor-21-2-1"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gif.content</strong></div>
+<div style="margin-bottom:1em"><code>gif.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code></div>
+Reads a GIF data from a stream and returns an object that contains GIF related information and images of a specified format. format is is <code>rgb,</code>rgba or <code>noimage. If</code>noimage is specified, only the information data is read
+</p>
+<h3><span class="caption-index-3">21.2.2</span><a name="anchor-21-2-2"></a>Property</h3>
 <p>
 A <code>gif.content</code> instance has the following properties:
 </p>
@@ -139,12 +187,7 @@ R</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">21.2.2</span><a name="anchor-21-2-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">gif.content</strong></div>
-<div style="margin-bottom:1em"><code>gif.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code></div>
-Reads a GIF data from a stream and returns an object that contains GIF related information and images of a specified format. format is is <code>rgb,</code>rgba or <code>noimage. If</code>noimage is specified, only the information data is read
-</p>
+<h3><span class="caption-index-3">21.2.3</span><a name="anchor-21-2-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">gif.content#addimage</strong></div>
 <div style="margin-bottom:1em"><code>gif.content#addimage(image:image, delayTime:number =&gt; 10, leftPos:number =&gt; 0, topPos:number =&gt; 0, disposalMethod:symbol =&gt; `none):map:reduce</code></div>
@@ -180,6 +223,9 @@ Writes a GIF image to a stream.
 This method returns the reference to the target instance itself.
 </p>
 <h2><span class="caption-index-2">21.3</span><a name="anchor-21-3"></a>gif.Header Class</h2>
+<p>
+A <code>gif.Header</code> instance provides information of Header structure in GIF format.
+</p>
 <h3><span class="caption-index-3">21.3.1</span><a name="anchor-21-3-1"></a>Property</h3>
 <p>
 A <code>gif.Header</code> instance has the following properties:
@@ -228,6 +274,9 @@ R</td>
 
 </p>
 <h2><span class="caption-index-2">21.4</span><a name="anchor-21-4"></a>gif.LogicalScreenDescriptor Class</h2>
+<p>
+A <code>gif.LogicalScreenDescriptor</code> instance provides information of Logical Screen Descriptor structure in GIF format.
+</p>
 <h3><span class="caption-index-3">21.4.1</span><a name="anchor-21-4-1"></a>Property</h3>
 <p>
 A <code>gif.LogicalScreenDescriptor</code> instance has the following properties:
@@ -367,6 +416,9 @@ R</td>
 
 </p>
 <h2><span class="caption-index-2">21.5</span><a name="anchor-21-5"></a>gif.CommentExtension Class</h2>
+<p>
+A <code>gif.CommentExtnsion</code> instance provides information of Comment Extension structure in GIF format.
+</p>
 <h3><span class="caption-index-3">21.5.1</span><a name="anchor-21-5-1"></a>Property</h3>
 <p>
 A <code>gif.CommentExtension</code> instance has the following properties:
@@ -402,6 +454,9 @@ R</td>
 
 </p>
 <h2><span class="caption-index-2">21.6</span><a name="anchor-21-6"></a>gif.PlainTextExtension Class</h2>
+<p>
+A <code>gif.PlainTextExtnsion</code> instance provides information of Plain Text Extension structure in GIF format.
+</p>
 <h3><span class="caption-index-3">21.6.1</span><a name="anchor-21-6-1"></a>Property</h3>
 <p>
 A <code>gif.PlainTextExtension</code> instance has the following properties:
@@ -541,6 +596,9 @@ R</td>
 
 </p>
 <h2><span class="caption-index-2">21.7</span><a name="anchor-21-7"></a>gif.ApplicationExtension Class</h2>
+<p>
+A <code>gif.ApplicationExtnsion</code> instance provides information of Application Extension structure in GIF format.
+</p>
 <h3><span class="caption-index-3">21.7.1</span><a name="anchor-21-7-1"></a>Property</h3>
 <p>
 A <code>gif.ApplicationExtension</code> instance has the following properties:
@@ -602,6 +660,9 @@ R</td>
 
 </p>
 <h2><span class="caption-index-2">21.8</span><a name="anchor-21-8"></a>gif.GraphicControl Class</h2>
+<p>
+A <code>gif.GraphicControl</code> instance provides information of Graphi Control Extension structure in GIF format.
+</p>
 <h3><span class="caption-index-3">21.8.1</span><a name="anchor-21-8-1"></a>Property</h3>
 <p>
 A <code>gif.GraphicControl</code> instance has the following properties:
@@ -689,6 +750,9 @@ R</td>
 
 </p>
 <h2><span class="caption-index-2">21.9</span><a name="anchor-21-9"></a>gif.ImageDescriptor Class</h2>
+<p>
+A <code>gif.ImageDescriptor</code> instance provides information of Image Descriptor structure in GIF format.
+</p>
 <h3><span class="caption-index-3">21.9.1</span><a name="anchor-21-9-1"></a>Property</h3>
 <p>
 A <code>gif.ImageDescriptor</code> instance has the following properties:
@@ -815,6 +879,25 @@ R</td>
 
 </p>
 <h2><span class="caption-index-2">21.10</span><a name="anchor-21-10"></a>gif.imgprop Class</h2>
+<p>
+Below is a class diagram of <code>gif.imgprop</code>:
+</p>
+<pre><code>+-------------+        +-------------+                  +---------------------+
+|    image    |gif     | gif.imgprop |GraphicControl    | gif.GraphicControl  |
+|-------------*--------+-------------*------------------+---------------------|
++-------------+        |             |                  +---------------------+
+                       |             |
+                       |             |                  +---------------------+
+                       |             |ImageDescriptor   | gif.ImageDescriptor |
+                       |             *------------------+---------------------|
+                       |             |                  +---------------------+
+                       +-------------+
+</code></pre>
+<ul>
+<li>An <code>image</code> instance that the gif module creates from GIF file holds a <code>gif.imgprop</code> instance as its property that is named <code>gif</code>.</li>
+<li>The property named <code>GraphicControl</code> is an instance of <code>gif.GraphiControl</code> class.</li>
+<li>The property named <code>ImageDescriptor</code> is an instance of <code>gif.ImageDescriptor</code> class.</li>
+</ul>
 <h3><span class="caption-index-3">21.10.1</span><a name="anchor-21-10-1"></a>Property</h3>
 <p>
 A <code>gif.imgprop</code> instance has the following properties:

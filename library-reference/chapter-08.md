@@ -7,8 +7,22 @@ title: Gura Library Reference
 {% raw %}
 <h1><span class="caption-index-1">8</span><a name="anchor-8"></a>base64 Module</h1>
 <p>
-The <code>base64</code> module provides measures to read/write text stream that is formatted in base64 format.
+The <code>base64</code> module provides measures to decode/encode data formatted in base64 format.
 </p>
+<p>
+To decode a stream that is formatted in base64, use one of the following functions:
+</p>
+<ul>
+<li><code>base64.decode()</code> .. Reads base64 sequence from the given stream and returns a decoded data as <code>binary</code>. This is convenient when the data size is expected to be small.</li>
+<li><code>base64.reader()</code> .. Creates a stream that decodes base64 sequence from the given stream. You should use this way if the data size is expected to be large.</li>
+</ul>
+<p>
+To encode a data into base64 format, use one of the following functions:
+</p>
+<ul>
+<li><code>base64.encode()</code> .. Encodes the stream from the given stream and returns a encoded data as <code>binary</code>. This is convenient when the data size is expected to be small.</li>
+<li><code>base64.writer()</code> .. Creates a stream that encodes data from <code>write()</code> method into the given stream. You should use this way if the data size is expected to be large.</li>
+</ul>
 <h2><span class="caption-index-2">8.1</span><a name="anchor-8-1"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">base64.decode</strong></div>

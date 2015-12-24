@@ -20,7 +20,7 @@ gurcbuild.build(['hello.gura', 'startimg.jpg', 'README.txt'])
 <p>
 <div><strong style="text-decoration:underline">gurcbuild.build</strong></div>
 <div style="margin-bottom:1em"><code>gurcbuild.build(pathNames[]:string, dirName?:string)</code></div>
-Creates a composite Gura file from files specified by <code>pathNames</code>, which includes script and other data files. The fiest entry of <code>pathNames</code> must be a script file that is to be executed at first as a main script.
+Creates a composite Gura file from files specified by <code>pathNames</code>, which includes script and other data files. The first entry of <code>pathNames</code> must be a script file that is to be executed as a main script.
 </p>
 <p>
 The result file would be created in the directory specified by <code>dirName</code>. If the argument is omitted, the file would be created in the current working directory.

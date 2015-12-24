@@ -340,7 +340,7 @@ Indicates if the content of the binary object is writable.</td>
 <p>
 <div><strong style="text-decoration:underline">binary#add</strong></div>
 <div style="margin-bottom:1em"><code>binary#add(buff+:binary):map:reduce</code></div>
-
+Adds binary data to the <code>binary</code> instance. You can specify one or more binary data to be stored.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary.alloc</strong></div>
@@ -370,7 +370,17 @@ Returns a string in which non-URIC characters are percent-encoded.
 <p>
 <div><strong style="text-decoration:underline">binary#hex</strong></div>
 <div style="margin-bottom:1em"><code>binary#hex():[carray,cstr,upper]</code></div>
-
+Converts the binary into a hexadecimal string.
+</p>
+<p>
+In default, the result string is a sequence of joined hexadecimal values without any space. You can specify the following attribute to change the format:
+</p>
+<ul>
+<li><code>:cstr</code> .. format of C string</li>
+<li><code>:carray</code> .. format of C array</li>
+</ul>
+<p>
+Alphabet characters are described in lower characters unless the attribute <code>:upper</code> is specified.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#len</strong></div>
@@ -389,21 +399,21 @@ A specifier has a format of "<code>nX</code>" where <code>X</code> is a format c
 Following format characters would take a <code>number</code> value from the argument list and pack them into a binary sequence.
 </p>
 <ul>
-<li><code>b</code> .. A one-byte signed number.</li>
-<li><code>B</code> .. A one-byte unsigned number.</li>
-<li><code>h</code> .. A two-byte signed number.</li>
-<li><code>H</code> .. A two-byte unsigned number.</li>
-<li><code>i</code> .. A four-byte signed number.</li>
-<li><code>I</code> .. A four-byte unsigned number.</li>
-<li><code>l</code> .. A four-byte signed number.</li>
-<li><code>L</code> .. A four-byte unsigned number.</li>
-<li><code>q</code> .. A eight-byte signed number.</li>
-<li><code>Q</code> .. A eight-byte unsigned number.</li>
-<li><code>f</code> .. A float-typed number occupying four bytes.</li>
-<li><code>d</code> .. A double-typed number occupying eight bytes.</li>
+<li><code>b</code> .. One-byte signed number.</li>
+<li><code>B</code> .. One-byte unsigned number.</li>
+<li><code>h</code> .. Two-byte signed number.</li>
+<li><code>H</code> .. Two-byte unsigned number.</li>
+<li><code>i</code> .. Four-byte signed number.</li>
+<li><code>I</code> .. Four-byte unsigned number.</li>
+<li><code>l</code> .. Four-byte signed number.</li>
+<li><code>L</code> .. Four-byte unsigned number.</li>
+<li><code>q</code> .. Eight-byte signed number.</li>
+<li><code>Q</code> .. Eight-byte unsigned number.</li>
+<li><code>f</code> .. Float-typed number occupying four bytes.</li>
+<li><code>d</code> .. Double-typed number occupying eight bytes.</li>
 </ul>
 <p>
-As for them, the packing size <code>n</code> means the number of values to be packed. Below is an example to pack four <code>number</code> values as two-byte unsigned numbers into a binary:
+As for them, the packing size <code>n</code> means the number of values to be packed.
 </p>
 <p>
 Following format characters would take a <code>string</code> value from the argument list and pack them into a binary sequence.
@@ -432,7 +442,7 @@ The default byte-order for numbers of two-byte, four-byte and eight-byte depends
 You can specify an asterisk character "<code>*</code>" for the number of packing size that picks that number from the argument list.
 </p>
 <p>
-You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>" in the format to change coding character set while packing a string with format character "<code>s</code>" from UTF-8.
+You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>" in the format to change coding character set from UTF-8 while packing a string with format character "<code>s</code>".
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#pointer</strong></div>
@@ -442,27 +452,88 @@ Returns a <code>pointer</code> instance that has an initial offset specified by 
 <p>
 <div><strong style="text-decoration:underline">binary#reader</strong></div>
 <div style="margin-bottom:1em"><code>binary#reader() {block?}</code></div>
-
+Creates a <code>stream</code> instance with which you can read data from the binary by <code>stream#read()</code> method. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#store</strong></div>
 <div style="margin-bottom:1em"><code>binary#store(offset:number, buff+:binary):map:reduce</code></div>
-
+Stores binary data in the <code>binary</code> instance at the specified offset. You can specify one or more binary data to be stored.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#unpack</strong></div>
 <div style="margin-bottom:1em"><code>binary#unpack(format:string, values*:number):[nil]</code></div>
-
+Extracts values from a <code>binary</code> instance according to specifiers in the <code>format</code> and returns a list containing the values.
+</p>
+<p>
+A specifier has a format of "<code>nX</code>" where <code>X</code> is a format character that represents a packing format and <code>n</code> is a number of packing size. The number can be omitted, and it would be treated as <code>1</code> in that case.
+</p>
+<p>
+Following format characters would extract an integer or float value of specified size from the binary and returns a <code>number</code> value.
+</p>
+<ul>
+<li><code>b</code> .. One-byte signed number.</li>
+<li><code>B</code> .. One-byte unsigned number.</li>
+<li><code>h</code> .. Two-byte signed number.</li>
+<li><code>H</code> .. Two-byte unsigned number.</li>
+<li><code>i</code> .. Four-byte signed number.</li>
+<li><code>I</code> .. Four-byte unsigned number.</li>
+<li><code>l</code> .. Four-byte signed number.</li>
+<li><code>L</code> .. Four-byte unsigned number.</li>
+<li><code>q</code> .. Eight-byte signed number.</li>
+<li><code>Q</code> .. Eight-byte unsigned number.</li>
+<li><code>f</code> .. Float-typed number occupying four bytes.</li>
+<li><code>d</code> .. Double-typed number occupying eight bytes.</li>
+</ul>
+<p>
+As for them, the packing size <code>n</code> means the number of values to be extracted.
+</p>
+<p>
+Following format characters would extract a string sequence from the binary and returns a <code>string</code> value.
+</p>
+<ul>
+<li><code>s</code> .. Extracts a sequence of UTF-8 codes and returns <code>string</code> instance containing it. The unpacking size <code>n</code> means the size of the room in bytes where the character codes are to be unpacked.</li>
+<li><code>c</code> .. Extracts a one-byte unsigned number and returns a <code>string</code> instance containing it. The unpacking size <code>n</code> means the number of values to be extracted.</li>
+</ul>
+<p>
+Following format character would not return any value.
+</p>
+<ul>
+<li><code>x</code> .. Advances the address by one byte. If the unpacking size <code>n</code> is specifies, it would advance the address by <code>n</code> bytes.</li>
+</ul>
+<p>
+The default byte-order for numbers of two-byte, four-byte and eight-byte depends on the system the interpreter is currently running. You can change it by the following specifiers:
+</p>
+<ul>
+<li><code>@</code> .. System-dependent order.</li>
+<li><code>=</code> .. System-dependent order.</li>
+<li><code>&lt;</code> .. Little endian</li>
+<li><code>&gt;</code> .. Big endian</li>
+<li><code>!</code> .. Big endian</li>
+</ul>
+<p>
+You can specify an asterisk character "<code>*</code>" for the number of unpacking size that picks that number from the argument list.
+</p>
+<p>
+You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>" in the format to change coding character set from UTF-8 while extracting a string with format character "<code>s</code>".
+</p>
+<p>
+An error occurs if the binary size is smaller than the format reqeusts. If the attribute <code>:nil</code> is specified, <code>nil</code> value would be returned for such a case.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#unpacks</strong></div>
 <div style="margin-bottom:1em"><code>binary#unpacks(format:string, values*:number) {block?}</code></div>
-
+Returns an iterator that extracts values from the binary instance according to specifiers in <code>format</code>.
+</p>
+<p>
+For detailed information about specifiers, see the help of <code>binary#unpack()</code>.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|iter:iterator|</code>, where <code>iter</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#writer</strong></div>
 <div style="margin-bottom:1em"><code>binary#writer() {block?}</code></div>
-
+Creates a <code>stream</code> instance with which you can append data to the binary by <code>stream#write()</code> method. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h2><span class="caption-index-2">6.5</span><a name="anchor-6-5"></a>boolean Class</h2>
 <p>
@@ -4975,16 +5046,28 @@ The current offset.</td>
 <div style="margin-bottom:1em"><code>pointer(buff:binary, offset?:number) {block?}</code></div>
 Creates a <code>pointer</code> instance that points to the specified <code>binary</code> instance.
 </p>
+<p>
+If the argument <code>offset</code> is specified, the initial offset of the pointer is preset to the value. Otherwise, the offset is set to the top of the binary.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|p:pointer|</code>, where <code>p</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
 <h3><span class="caption-index-3">6.26.3</span><a name="anchor-6-26-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">pointer#forward</strong></div>
 <div style="margin-bottom:1em"><code>pointer#forward(distance:number):reduce</code></div>
-
+Put the pointer offset forward by <code>distance</code>. If a negative number is specified for the argument, the offset would be put backward.
 </p>
 <p>
 <div><strong style="text-decoration:underline">pointer#pack</strong></div>
-<div style="margin-bottom:1em"><code>pointer#pack(format:string, value+):reduce:[stay]</code></div>
-
+<div style="margin-bottom:1em"><code>pointer#pack(format:string, values+):reduce:[stay]</code></div>
+Packs <code>values</code> in the argument list according to specifiers in the <code>format</code> into a binary and adds it to where the pointer points. The pointer offset is automatically incremented by the added length unless <code>:stay</code> attribute is specified.
+</p>
+<p>
+This method returns a reference to the pointer instance itself.
+</p>
+<p>
+For detail information about packing specifiers, see the help of <code>binary#pack()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">pointer#reset</strong></div>
