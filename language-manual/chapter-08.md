@@ -107,7 +107,9 @@ You should put <code>:reduce</code> attribute if the function is supposed to ret
 <p>
 You can specify a type name by describing it as an attribute after an Identifier's symbol.
 </p>
-<pre><code>f(x:number) = { /* body */ }
+<pre><code>f(x:number) = {
+    // any process
+}
 </code></pre>
 <p>
 When calling a function that has arguments with type name, the Interpreter first check the data type of the given value and try to cast it into specified data type if possible. If the type doesn't match and also fails to be casted correctly, it would occur an error.
@@ -115,15 +117,29 @@ When calling a function that has arguments with type name, the Interpreter first
 <p>
 If you expect an argument to take a list, specify a pair of square brackets that has no content after an Identifer's symbol.
 </p>
-<pre><code>f(x[]) = { /* body */ }
+<pre><code>f(x[]) = {
+    // any process
+}
 </code></pre>
 <p>
 A type name can be described after the bracket pair.
 </p>
-<pre><code>f(x[]:number) = { /* body */ }
+<pre><code>f(x[]:number) = {
+    // any process
+}
 </code></pre>
 <p>
-In this case, the Interpreter checks types of all the items in the list and applies casting on them if possible.
+In this case, the interpreter checks types of all the items in the list and applies casting on them if possible.
+</p>
+<p>
+You can also specify how many elements the list should contain by declaring the number in the square brackets.
+</p>
+<pre><code>f(x[8]) = {
+    // any process
+}
+</code></pre>
+<p>
+In the example above, only a list that contains eight elements could be accepted and an error would occur otherwise.
 </p>
 <h3><span class="caption-index-3">8.3.2</span><a name="anchor-8-3-2"></a>Data Type Casting</h3>
 <p>

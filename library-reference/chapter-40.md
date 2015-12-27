@@ -149,7 +149,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>re.match#source</code></td>
+<code>source</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -162,7 +162,7 @@ String that has been matched.</td>
 
 <tr>
 <td>
-<code>re.match#string</code></td>
+<code>string</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -175,7 +175,7 @@ String of the matched part.</td>
 
 <tr>
 <td>
-<code>re.match#begin</code></td>
+<code>begin</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -188,7 +188,7 @@ Beginning position of the matched part.</td>
 
 <tr>
 <td>
-<code>re.match#end</code></td>
+<code>end</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -302,7 +302,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>re.group#string</code></td>
+<code>string</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -315,7 +315,7 @@ String of the group.</td>
 
 <tr>
 <td>
-<code>re.group#begin</code></td>
+<code>begin</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -328,7 +328,7 @@ Beginning position of the group.</td>
 
 <tr>
 <td>
-<code>re.group#end</code></td>
+<code>end</code></td>
 <td>
 <code>number</code></td>
 <td>

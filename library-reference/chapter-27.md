@@ -33,7 +33,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>hash.accumulator#digest</code></td>
+<code>digest</code></td>
 <td>
 <code>binary</code></td>
 <td>
@@ -46,7 +46,7 @@ Returns the hashed result as <code>binary</code>.</td>
 
 <tr>
 <td>
-<code>hash.accumulator#hexdigest</code></td>
+<code>hexdigest</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -59,7 +59,7 @@ Returns the hashed result as <code>string</code> in hexadecimal format.</td>
 
 <tr>
 <td>
-<code>hash.accumulator#number</code></td>
+<code>number</code></td>
 <td>
 <code>number</code></td>
 <td>

@@ -63,7 +63,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>markdown.document#refs</code></td>
+<code>refs</code></td>
 <td>
 <code>iterator</code></td>
 <td>
@@ -76,7 +76,7 @@ An iterator that returns referee items as <code>markdown.item</code>.</td>
 
 <tr>
 <td>
-<code>markdown.document#root</code></td>
+<code>root</code></td>
 <td>
 <code>markdown.item</code></td>
 <td>
@@ -335,7 +335,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>markdown.item#type</code></td>
+<code>type</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -348,7 +348,7 @@ R</td>
 
 <tr>
 <td>
-<code>markdown.item#text</code></td>
+<code>text</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -361,7 +361,7 @@ R</td>
 
 <tr>
 <td>
-<code>markdown.item#children</code></td>
+<code>children</code></td>
 <td>
 <code>iterator</code></td>
 <td>
@@ -374,7 +374,7 @@ R</td>
 
 <tr>
 <td>
-<code>markdown.item#url</code></td>
+<code>url</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -387,7 +387,7 @@ R</td>
 
 <tr>
 <td>
-<code>markdown.item#title</code></td>
+<code>title</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -400,7 +400,7 @@ R</td>
 
 <tr>
 <td>
-<code>markdown.item#attrs</code></td>
+<code>attrs</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -413,7 +413,7 @@ R</td>
 
 <tr>
 <td>
-<code>markdown.item#align</code></td>
+<code>align</code></td>
 <td>
 <code>symbol</code></td>
 <td>

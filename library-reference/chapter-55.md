@@ -33,18 +33,38 @@ zip.writer('foo.zip') {|w|
 <p>
 <div><strong style="text-decoration:underline">zip.reader</strong></div>
 <div style="margin-bottom:1em"><code>zip.reader(stream:stream:r) {block?}</code></div>
-Creates <code>zip.reader</code> instance from the stream.
+Creates <code>zip.reader</code> instance from the specified stream.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|reader:zip.reader|</code>, where <code>reader</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">55.1.2</span><a name="anchor-55-1-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">zip.reader#entry</strong></div>
 <div style="margin-bottom:1em"><code>zip.reader#entry(name:string) {block?}</code></div>
-Seeks entry in the zip file that matches the specified name and returns the stream instance.
+Seeks entry in the zip file that matches the specified name and returns a <code>stream</code> instance associated with the entry.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">zip.reader#entries</strong></div>
 <div style="margin-bottom:1em"><code>zip.reader#entries() {block?}</code></div>
-Creates an iterator that returns stream instances for each entry in the ZIP file.
+Creates an <code>iterator</code> instance that returns <code>stream</code> instances associated with each entry in the ZIP file.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <h2><span class="caption-index-2">55.2</span><a name="anchor-55-2"></a>zip.writer Class</h2>
 <h3><span class="caption-index-3">55.2.1</span><a name="anchor-55-2-1"></a>Constructor</h3>
@@ -61,6 +81,9 @@ Argument <code>compression</code> specifies the compression method and takes one
 <li><code>`deflate</code></li>
 <li><code>`bzip2</code></li>
 </ul>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|writer:zip.writer|</code>, where <code>writer</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
 <h3><span class="caption-index-3">55.2.2</span><a name="anchor-55-2-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">zip.writer#add</strong></div>
@@ -80,7 +103,130 @@ Argument <code>compression</code> specifies the compression method and takes one
 <div style="margin-bottom:1em"><code>zip.writer#close():void</code></div>
 Closes the zip file after flushing cached data.
 </p>
-<h2><span class="caption-index-2">55.3</span><a name="anchor-55-3"></a>Thanks</h2>
+<h2><span class="caption-index-2">55.3</span><a name="anchor-55-3"></a>zip.stat Class</h2>
+<h3><span class="caption-index-3">55.3.1</span><a name="anchor-55-3-1"></a>Property</h3>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>filename</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>comment</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>mtime</code></td>
+<td>
+<code>datetime</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>crc32</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>compression_method</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>compressed_size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>attributes</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">55.4</span><a name="anchor-55-4"></a>Thanks</h2>
 <p>
 This module uses zlib and bzip2 library which are distributed in the following sites:
 </p>

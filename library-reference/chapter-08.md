@@ -14,14 +14,14 @@ To decode a stream that is formatted in base64, use one of the following functio
 </p>
 <ul>
 <li><code>base64.decode()</code> .. Reads base64 sequence from the given stream and returns a decoded data as <code>binary</code>. This is convenient when the data size is expected to be small.</li>
-<li><code>base64.reader()</code> .. Creates a stream that decodes base64 sequence from the given stream. You should use this way if the data size is expected to be large.</li>
+<li><code>base64.reader()</code> .. Creates a stream that decodes base64 sequence from the given stream. <code>stream#reader@base64()</code> method is another form of this function. You should use this way if the data size is expected to be large.</li>
 </ul>
 <p>
 To encode a data into base64 format, use one of the following functions:
 </p>
 <ul>
 <li><code>base64.encode()</code> .. Encodes the stream from the given stream and returns a encoded data as <code>binary</code>. This is convenient when the data size is expected to be small.</li>
-<li><code>base64.writer()</code> .. Creates a stream that encodes data from <code>write()</code> method into the given stream. You should use this way if the data size is expected to be large.</li>
+<li><code>base64.writer()</code> .. Creates a stream that encodes data from <code>write()</code> method into the given stream. <code>stream#writer@base64()</code> method is another form of this function. You should use this way if the data size is expected to be large.</li>
 </ul>
 <h2><span class="caption-index-2">8.1</span><a name="anchor-8-1"></a>Module Function</h2>
 <p>

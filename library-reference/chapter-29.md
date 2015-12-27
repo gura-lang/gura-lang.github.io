@@ -65,7 +65,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>jpeg.exif#endian</code></td>
+<code>endian</code></td>
 <td>
 <code>symbol</code></td>
 <td>
@@ -79,7 +79,7 @@ The endian type: <code>`big</code> for big-endian and
 
 <tr>
 <td>
-<code>jpeg.exif#ifd0</code></td>
+<code>ifd0</code></td>
 <td>
 <code>jpeg.ifd</code></td>
 <td>
@@ -92,7 +92,7 @@ IFD0 instance.</td>
 
 <tr>
 <td>
-<code>jpeg.exif#ifd1</code></td>
+<code>ifd1</code></td>
 <td>
 <code>jpeg.ifd</code></td>
 <td>
@@ -105,7 +105,7 @@ IFD1 instance.</td>
 
 <tr>
 <td>
-<code>jpeg.exif#thumbnail</code></td>
+<code>thumbnail</code></td>
 <td>
 <code>image</code></td>
 <td>
@@ -118,7 +118,7 @@ Thumbnail image as <code>image</code> value.</td>
 
 <tr>
 <td>
-<code>jpeg.exif#thumbnail@jpeg</code></td>
+<code>thumbnail@jpeg</code></td>
 <td>
 <code>binary</code></td>
 <td>
