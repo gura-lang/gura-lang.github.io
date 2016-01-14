@@ -185,7 +185,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>jpeg.ifd#name</code></td>
+<code>name</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -198,7 +198,7 @@ R</td>
 
 <tr>
 <td>
-<code>jpeg.ifd#symbol</code></td>
+<code>symbol</code></td>
 <td>
 <code>symbol</code></td>
 <td>
@@ -253,7 +253,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>jpeg.tag#id</code></td>
+<code>id</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -266,7 +266,7 @@ Tag ID.</td>
 
 <tr>
 <td>
-<code>jpeg.tag#name</code></td>
+<code>name</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -279,7 +279,7 @@ Tag name.</td>
 
 <tr>
 <td>
-<code>jpeg.tag#symbol</code></td>
+<code>symbol</code></td>
 <td>
 <code>symbol</code></td>
 <td>
@@ -292,7 +292,7 @@ Tag name as <code>symbol</code>.</td>
 
 <tr>
 <td>
-<code>jpeg.tag#type</code></td>
+<code>type</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -305,7 +305,7 @@ Tag type.</td>
 
 <tr>
 <td>
-<code>jpeg.tag#typename</code></td>
+<code>typename</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -318,7 +318,7 @@ Tag type name.</td>
 
 <tr>
 <td>
-<code>jpeg.tag#value</code></td>
+<code>value</code></td>
 <td>
 <code>any</code></td>
 <td>
@@ -332,7 +332,7 @@ numbers in some tags are translated to human-readable symbols.</td>
 
 <tr>
 <td>
-<code>jpeg.tag#ifd</code></td>
+<code>ifd</code></td>
 <td>
 <code>jpeg.ifd</code></td>
 <td>

@@ -9,8 +9,12 @@ title: Gura Library Reference
 <p>
 The <code>zip</code> module provides measures to read/write ZIP files.
 </p>
+<h2><span class="caption-index-2">55.1</span><a name="anchor-55-1"></a>zip.reader Class</h2>
 <p>
-Below is an example to reads entries from an archive file:
+The <code>zip.reader</code> class provides methods to read contents and to get information in a ZIP file through <code>stream</code> instance. An instance of <code>stream</code> class created by the methods includes a property named <code>stat</code>, a <code>zip.stat</code> instance, which provides information such as filename and created time stamp that are contained in the ZIP file.
+</p>
+<p>
+Below is an example to list filenames in a ZIP file:
 </p>
 <pre><code>import(zip)
 zip.reader('foo.zip') {|r|
@@ -18,17 +22,13 @@ zip.reader('foo.zip') {|r|
 }
 </code></pre>
 <p>
-Below is an exapmple to create a ZIP archive file:
+Below is an example to print a content of a text file that is stored in a ZIP file:
 </p>
 <pre><code>import(zip)
-zip.writer('foo.zip') {|w|
-    w.add('file1.txt')
-    w.add('file2.txt')
-    w.add('file3.txt')
-    w.close()
-}		
+zip.reader('foo.zip') {|r|
+    print(r.entry('README.txt').readlines())
+}
 </code></pre>
-<h2><span class="caption-index-2">55.1</span><a name="anchor-55-1"></a>zip.reader Class</h2>
 <h3><span class="caption-index-3">55.1.1</span><a name="anchor-55-1-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">zip.reader</strong></div>
@@ -67,6 +67,20 @@ In default, this returns an iterator as its result value. Specifying the followi
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <h2><span class="caption-index-2">55.2</span><a name="anchor-55-2"></a>zip.writer Class</h2>
+<p>
+The <code>zip.writer</code> class provides methods to add entries to a ZIP file. When an instance of <code>zip.writer</code> is created, a new ZIP file would be created.
+</p>
+<p>
+Below is an exapmple to create a ZIP archive file that contains three entries:
+</p>
+<pre><code>import(zip)
+zip.writer('foo.zip') {|w|
+    w.add('file1.txt')
+    w.add('file2.txt')
+    w.add('file3.txt')
+    w.close()
+}		
+</code></pre>
 <h3><span class="caption-index-3">55.2.1</span><a name="anchor-55-2-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">zip.writer</strong></div>
@@ -104,6 +118,9 @@ Argument <code>compression</code> specifies the compression method and takes one
 Closes the zip file after flushing cached data.
 </p>
 <h2><span class="caption-index-2">55.3</span><a name="anchor-55-3"></a>zip.stat Class</h2>
+<p>
+The <code>zip.stat</code> class provides information of entries in a ZIP file.
+</p>
 <h3><span class="caption-index-3">55.3.1</span><a name="anchor-55-3-1"></a>Property</h3>
 <p>
 <table>

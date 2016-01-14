@@ -770,9 +770,9 @@ You can add a help block to a function by appending <code>%</code> and a block c
 The content in the block has a format of <code>{lang:symbol, format:string, help:string}</code> which takes following values.
 </p>
 <ul>
-<li><code>lang:symbol</code> .. Specifies a symbol for the used language: <code>en</code> for English and <code>ja</code> for Japanese, etc.</li>
-<li><code>format:string</code> .. Specifies a syntax format. Only <code>markdown</code> is available so far.</li>
-<li><code>help:string</code> .. Help string formatted in a syntax specified by <code>format</code>.</li>
+<li><code>lang</code> .. Specifies a symbol of language that describes the help document: <code>en</code> for English and <code>ja</code> for Japanese, etc.</li>
+<li><code>format</code> .. Specifies a syntax format. Only <code>'markdown'</code> is available so far.</li>
+<li><code>help</code> .. Help string formatted in a syntax specified by <code>format</code>.</li>
 </ul>
 <p>
 You can access the help information by following ways:
@@ -787,18 +787,19 @@ A function may have multiple help blocks that contain explanatory texts written 
 <pre><code>add(x, y) = {
     x + y
 } % {`en, 'markdown', R'''
-Takes two numbers and returns an added result.
 
-Below is an example:
+(.. help document in English ..)
 
-    ans = add(3, 4)
 '''
 } % {`ja, 'markdown', R'''
-2 つの数値をとり、加算した結果を返します。
 
-例を以下に示します:
+(.. help document in Japanese ..)
 
-    ans = add(3, 4)
+'''
+} % {`de, 'markdown', R'''
+
+(.. help document in German ..)
+
 '''
 }
 </code></pre>
@@ -810,6 +811,7 @@ You can also pass a language symbol to <code>function.gethelp</code> function as
 </p>
 <pre><code>function.gethelp(add, `en)
 function.gethelp(add, `ja)
+function.gethelp(add, `de)
 </code></pre>
 <h2><span class="caption-index-2">8.7</span><a name="anchor-8-7"></a>Anonymous Function</h2>
 <p>
