@@ -29,7 +29,7 @@ Release notes are available [here](https://github.com/gura-lang/gura/releases).
 </tr>
 
 <tr>
-<td>MacOS Binary</td>
+<td>MacOS Disk Image</td>
 <td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}.dmg"
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}.dmg');">gura-{{ gura_version }}.dmg</a></td>
 </tr>
@@ -60,7 +60,7 @@ Release notes are available [here](https://github.com/gura-lang/gura/releases).
 </tr>
 
 <tr>
-<td>MacOS Binary</td>
+<td>MacOS Disk Image</td>
 <td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version_prev }}/gura-{{ gura_version_prev }}.dmg"
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}.dmg');">gura-{{ gura_version_prev }}.dmg</a></td>
 </tr>
@@ -98,7 +98,7 @@ It has been confirmed that Gura runs on the following versions of MacOS.
 
 * OS X 10.9 Mavericks
 
-Open disk image file
+Open the disk image
 <a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}.dmg"
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}.dmg');">gura-{{ gura_version }}.dmg</a>
 and drag `Gura.app` icon to `Applications` folder.
