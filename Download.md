@@ -103,15 +103,27 @@ Open disk image file
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}.dmg');">gura-{{ gura_version }}.dmg</a>
 and drag `Gura.app` icon to `Applications` folder.
 
+<img src="images/install-macos.png" />
+
 **You can't use Launchpad to run `Gura.app`** as it'll be blocked by Gatekeeper.
 This is because Gura hasn't been shipped with an Apple Developer ID so far.
 Instead, browse the application in **Finder** and do "Open" in right-click menu.
 
 Launching `Gura.app` will open a Terminal with Gura command prompt
 in which you can evaluate Gura scripts interactively.
-If you want to write and execute a Gura script file,
-call `setup()` function in the prompt to create a symbolic link `/usr/bin/gura`
-that allows you to execute the interpreter from anywhere in the system.
+Call `setup()` function in the prompt to create a symbolic link `/usr/bin/gura`
+that allows you to execute the interpreter in any direcrtories.
+
+<pre><code>Gura x.x.x [clang v.x.x, xxx xx xxxx] Copyright (C) 2011-xxxx ypsitau
+------------------------------------------------------------------------
+Execute function setup() to create a symbolic link /usr/bin/gura.
+------------------------------------------------------------------------
+>>> <strong>setup()</strong>
+Password:
+Symbolic link /usr/bin/gura was created.
+>>>
+</code></pre>
+
 
 ## Linux
 
