@@ -345,17 +345,23 @@ Adds binary data to the <code>binary</code> instance. You can specify one or mor
 <p>
 <div><strong style="text-decoration:underline">binary.alloc</strong></div>
 <div style="margin-bottom:1em"><code>binary.alloc(bytes:number, data?:number):static:map {block?}</code></div>
-
+Creates a <code>binary</code> instance that has the specified size of buffer. If the argument <code>data</code>, which should have a number between 0 and 255, is specified, the buffer would be initialized with the value.
 </p>
 <p>
-<div><strong style="text-decoration:underline">binary.decode</strong></div>
-<div style="margin-bottom:1em"><code>binary.decode(codec:codec)</code></div>
-
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|bin:binary|</code>, where <code>bin</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">binary#decode</strong></div>
+<div style="margin-bottom:1em"><code>binary#decode(codec:codec)</code></div>
+Decodes the content of the <code>binary</code> as a sequence of string characters using <code>codec</code> and returns the result in <code>string</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#dump</strong></div>
 <div style="margin-bottom:1em"><code>binary#dump(stream?:stream:w):void:[upper]</code></div>
-
+Prints a dump from the content of the <code>binary</code> to the standard output. If the argument <code>stream</code> is specified, the result would be output to the stream.
+</p>
+<p>
+In default, alphabets are printed with lower-case characters. Specifying an attribute <code>:upper</code> would output them with upper-case characters instead.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#each</strong></div>
@@ -385,7 +391,7 @@ Alphabet characters are described in lower characters unless the attribute <code
 <p>
 <div><strong style="text-decoration:underline">binary#len</strong></div>
 <div style="margin-bottom:1em"><code>binary#len()</code></div>
-Returns the length of the buffer in binary.
+Returns the length of the binary in bytes.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary.pack</strong></div>
@@ -443,6 +449,9 @@ You can specify an asterisk character "<code>*</code>" for the number of packing
 </p>
 <p>
 You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>" in the format to change coding character set from UTF-8 while packing a string with format character "<code>s</code>".
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|bin:binary|</code>, where <code>bin</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#pointer</strong></div>
@@ -3199,7 +3208,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <p>
 <div><strong style="text-decoration:underline">image#delpalette</strong></div>
 <div style="margin-bottom:1em"><code>image#delpalette():reduce</code></div>
-Deletes a <code>palette</code> instance the image owns if it does.
+Deletes a <code>palette</code> instance that belongs to the <code>image</code>.
 </p>
 <p>
 This method returns the reference to the target instance itself.
@@ -3354,7 +3363,7 @@ This method returns the reference to the target instance itself.
 <p>
 <div><strong style="text-decoration:underline">image#resize</strong></div>
 <div style="margin-bottom:1em"><code>image#resize(width?:number, height?:number):map:[box,ratio] {block?}</code></div>
-Creates an image that resizes the original image to the sprcified <code>width</code> and <code>height</code>.
+Resizes the image to the size specified by <code>width</code> and <code>height</code> and returns the result.
 </p>
 <ul>
 <li>When both <code>width</code> and <code>height</code> are specified, the image would be resized to the size.</li>
@@ -3365,8 +3374,8 @@ Creates an image that resizes the original image to the sprcified <code>width</c
 The following attributes are acceptable:
 </p>
 <ul>
-<li><code>box</code> .. When only <code>width</code> is specified, the same value is set to <code>height</code>.</li>
-<li><code>ratio</code> .. Treats values of <code>width</code> and <code>height</code> as magnifying ration instead of pixel size.</li>
+<li><code>:box</code> .. When only <code>width</code> is specified, the same value is set to <code>height</code>.</li>
+<li><code>:ratio</code> .. Treats values of <code>width</code> and <code>height</code> as magnifying ration instead of pixel size.</li>
 </ul>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|img:image|</code>, where <code>img</code> is the created instance. In this case, the block's result would become the function's returned value.
@@ -3496,12 +3505,21 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 <p>
 <div><strong style="text-decoration:underline">image#setalpha</strong></div>
 <div style="margin-bottom:1em"><code>image#setalpha(a:number, color?:color, tolerance?:number):reduce</code></div>
-
+Replaces the alpha element of all the pixels in the image with the value specified by <code>a</code>.
+</p>
+<p>
+If the argument <code>color</code> is specified, alpha element of pixels that match with that color would be replaced. The argument <code>tolerance</code> specifies the distance within which the color is determined as matched.
+</p>
+<p>
+This method returns the reference to the target instance itself.
 </p>
 <p>
 <div><strong style="text-decoration:underline">image#thumbnail</strong></div>
 <div style="margin-bottom:1em"><code>image#thumbnail(width?:number, height?:number):map:[box] {block?}</code></div>
-
+Resizes the image so that it fits within a rectangular area specified by <code>width</code> and <code>height</code> and returns the result.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|img:image|</code>, where <code>img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">image#write</strong></div>

@@ -1116,20 +1116,268 @@ Gets the weight a toy font.
 
 </p>
 <h3><span class="caption-index-3">11.2.3</span><a name="anchor-11-2-3"></a>cairo_font_options_t - How a font should be rendered</h3>
-<h3><span class="caption-index-3">11.2.4</span><a name="anchor-11-2-4"></a>FreeType  Fonts - Font support for FreeType</h3>
+<p>
+<div><strong style="text-decoration:underline">cairo.font_options.create</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options.create():static {block?}</code></div>
+<div><strong style="text-decoration:underline">cairo.font_options#status</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options#status()</code></div>
+<div><strong style="text-decoration:underline">cairo.font_options#merge</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options#merge(other:cairo.font_options):void</code></div>
+<div><strong style="text-decoration:underline">cairo.font_options#hash</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options#hash()</code></div>
+<div><strong style="text-decoration:underline">cairo.font_options#equal</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options#equal(other:cairo.font_options)</code></div>
+<div><strong style="text-decoration:underline">cairo.font_options#set_antialias</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options#set_antialias(antialias:number):void</code></div>
+<div><strong style="text-decoration:underline">cairo.font_options#get_antialias</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options#get_antialias()</code></div>
+<div><strong style="text-decoration:underline">cairo.font_options#set_subpixel_order</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options#set_subpixel_order(subpixel_order:number):void</code></div>
+<div><strong style="text-decoration:underline">cairo.font_options#get_subpixel_order</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options#get_subpixel_order()</code></div>
+<div><strong style="text-decoration:underline">cairo.font_options#set_hint_style</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options#set_hint_style(hint_style:number):void</code></div>
+<div><strong style="text-decoration:underline">cairo.font_options#get_hint_style</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options#get_hint_style()</code></div>
+<div><strong style="text-decoration:underline">cairo.font_options#set_hint_metrics</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options#set_hint_metrics(hint_metrics:number):void</code></div>
+<div><strong style="text-decoration:underline">cairo.font_options#get_hint_metrics</strong></div>
+<div style="margin-bottom:1em"><code>cairo.font_options#get_hint_metrics()</code></div>
+
+</p>
+<h3><span class="caption-index-3">11.2.4</span><a name="anchor-11-2-4"></a>FreeType Fonts - Font support for FreeType</h3>
 <h3><span class="caption-index-3">11.2.5</span><a name="anchor-11-2-5"></a>Win32 Fonts - Font support for Microsoft Windows</h3>
 <h3><span class="caption-index-3">11.2.6</span><a name="anchor-11-2-6"></a>Quartz (CGFont) Fonts - Font support via CGFont on OS X</h3>
 <h3><span class="caption-index-3">11.2.7</span><a name="anchor-11-2-7"></a>User Fonts - Font support with font data provided by the user</h3>
 <h2><span class="caption-index-2">11.3</span><a name="anchor-11-3"></a>Surfaces</h2>
 <h3><span class="caption-index-3">11.3.1</span><a name="anchor-11-3-1"></a>cairo_device_t - interface to underlying rendering system</h3>
+<p>
+<div><strong style="text-decoration:underline">cairo.device#status</strong></div>
+<div style="margin-bottom:1em"><code>cairo.device#status()</code></div>
+<div><strong style="text-decoration:underline">cairo.device#finish</strong></div>
+<div style="margin-bottom:1em"><code>cairo.device#finish():reduce</code></div>
+<div><strong style="text-decoration:underline">cairo.device#flush</strong></div>
+<div style="margin-bottom:1em"><code>cairo.device#flush():reduce</code></div>
+<div><strong style="text-decoration:underline">cairo.device#get_type</strong></div>
+<div style="margin-bottom:1em"><code>cairo.device#get_type()</code></div>
+<div><strong style="text-decoration:underline">cairo.device#acquire</strong></div>
+<div style="margin-bottom:1em"><code>cairo.device#acquire()</code></div>
+<div><strong style="text-decoration:underline">cairo.device#release</strong></div>
+<div style="margin-bottom:1em"><code>cairo.device#release():void</code></div>
+
+</p>
 <h3><span class="caption-index-3">11.3.2</span><a name="anchor-11-3-2"></a>cairo_surface_t - Base class for surfaces</h3>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface.create_similar</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface.create_similar(other:cairo.surface, content:number, width:number, height:number):static {block?}</code></div>
+Create a new surface that is as compatible as possible with an existing surface. For example the new surface will have the same fallback resolution and font options as other. Generally, the new surface will also use the same backend as other, unless that is not possible for some reason. The type of the returned surface may be examined with cairo.surface#get_type().
+</p>
+<p>
+Initially the surface contents are all 0 (transparent if contents have transparency, black otherwise.)
+</p>
+<p>
+Use cairo.surface.create_similar_image() if you need an image surface which can be painted quickly to the target surface.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface.create_similar_image</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface.create_similar_image(other:cairo.surface, format:number, width:number, height:number):static {block?}</code></div>
+Create a new image surface that is as compatible as possible for uploading to and the use in conjunction with an existing surface. However, this surface can still be used like any normal image surface.
+</p>
+<p>
+Initially the surface contents are all 0 (transparent if contents have transparency, black otherwise.)
+</p>
+<p>
+Use cairo.surface.create_similar() if you don't need an image surface.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface.create_for_rectangle</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface.create_for_rectangle(other:cairo.surface, format:number, width:number, height:number):static {block?}</code></div>
+Create a new surface that is a rectangle within the target surface. All operations drawn to this surface are then clipped and translated onto the target surface. Nothing drawn via this sub-surface outside of its bounds is drawn onto the target surface, making this a useful method for passing constrained child surfaces to library routines that draw directly onto the parent surface, i.e. with no further backend allocations, double buffering or copies.
+</p>
+<p>
+<em>Note:</em> The semantics of subsurfaces have not been finalized yet unless the rectangle is in full device units, is contained within the extents of the target surface, and the target or subsurface's device transforms are not changed.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#status</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#status()</code></div>
+Checks whether an error has previously occurred for this surface.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#finish</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#finish():reduce</code></div>
+This function finishes the surface and drops all references to external resources. For example, for the Xlib backend it means that cairo will no longer access the drawable, which can be freed. After calling cairo.surface#finish() the only valid operations on a surface are getting and setting user, referencing and destroying, and flushing and finishing it. Further drawing to the surface will not affect the surface but will instead trigger a cairo.STATUS_SURFACE_FINISHED error.
+</p>
+<p>
+When the last call to cairo_surface_destroy() decreases the reference count to zero, cairo will call cairo_surface_finish() if it hasn't been called already, before freeing the resources associated with the surface.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#flush</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#flush():reduce</code></div>
+Do any pending drawing for the surface and also restore any temporary modifications cairo has made to the surface's state. This function must be called before switching from drawing on the surface with cairo to drawing on it directly with native APIs. If the surface doesn't support direct access, then this function does nothing.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#get_device</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#get_device()</code></div>
+This function returns the device for a surface. See cairo.device.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#get_font_options</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#get_font_options()</code></div>
+Retrieves the default font rendering options for the surface. This allows display surfaces to report the correct subpixel order for rendering on them, print surfaces to disable hinting of metrics and so forth. The result can then be used with cairo.scaled_font.create().
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#get_content</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#get_content()</code></div>
+This function returns the content type of surface which indicates whether the surface contains color and/or alpha information. See cairo_content_t.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#mark_dirty</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#mark_dirty():reduce</code></div>
+Tells cairo that drawing has been done to surface using means other than cairo, and that cairo should reread any cached areas. Note that you must call cairo.surface#flush() before doing such drawing.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#mark_dirty_rectangle</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#mark_dirty_rectangle(x:number, y:number, width:number, height:number):reduce</code></div>
+Like cairo.surface#mark_dirty(), but drawing has been done only to the specified rectangle, so that cairo can retain cached contents for other parts of the surface.
+</p>
+<p>
+Any cached clip set on the surface will be reset by this function, to make sure that future cairo calls have the clip set that they expect.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#set_device_offset</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#set_device_offset(x_offset:number, y_offset:number):reduce</code></div>
+Sets an offset that is added to the device coordinates determined by the CTM when drawing to surface. One use case for this function is when we want to create a cairo.surface that redirects drawing for a portion of an onscreen surface to an offscreen surface in a way that is completely invisible to the user of the cairo API. Setting a transformation via cairo.context#translate() isn't sufficient to do this, since functions like cairo.context#device_to_user() will expose the hidden offset.
+</p>
+<p>
+Note that the offset affects drawing to the surface as well as using the surface in a source pattern.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#get_device_offset</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#get_device_offset()</code></div>
+This function returns the previous device offset set by cairo.surface#set_device_offset().
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#set_fallback_resolution</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#set_fallback_resolution(x_pixels_per_inch:number, y_pixels_per_inch:number):reduce</code></div>
+Set the horizontal and vertical resolution for image fallbacks.
+</p>
+<p>
+When certain operations aren't supported natively by a backend, cairo will fallback by rendering operations to an image and then overlaying that image onto the output. For backends that are natively vector-oriented, this function can be used to set the resolution used for these image fallbacks, (larger values will result in more detailed images, but also larger file sizes).
+</p>
+<p>
+Some examples of natively vector-oriented backends are the ps, pdf, and svg backends.
+</p>
+<p>
+For backends that are natively raster-oriented, image fallbacks are still possible, but they are always performed at the native device resolution. So this function has no effect on those backends.
+</p>
+<p>
+Note: The fallback resolution only takes effect at the time of completing a page (with cairo.context#show_page() or cairo.context#copy_page()) so there is currently no way to have more than one fallback resolution in effect on a single page.
+</p>
+<p>
+The default fallback resoultion is 300 pixels per inch in both dimensions.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#get_fallback_resolution</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#get_fallback_resolution()</code></div>
+This function returns the previous fallback resolution set by cairo.surface#set_fallback_resolution(), or default fallback resolution if never set.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#get_type</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#get_type()</code></div>
+This function returns the type of the backend used to create a surface. See cairo_surface_type_t for available types.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#copy_page</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#copy_page():reduce</code></div>
+Emits the current page for backends that support multiple pages, but doesn't clear it, so that the contents of the current page will be retained for the next page. Use cairo.surface#show_page() if you want to get an empty page after the emission.
+</p>
+<p>
+There is a convenience function for this that takes a cairo.context, namely cairo.context#copy_page().
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#show_page</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#show_page():reduce</code></div>
+Emits and clears the current page for backends that support multiple pages. Use cairo.surface#copy_page() if you don't want to clear the page.
+</p>
+<p>
+There is a convenience function for this that takes a cairo.context, namely cairo.context#show_page().
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#has_show_text_glyphs</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#has_show_text_glyphs()</code></div>
+Returns whether the surface supports sophisticated cairo.context#show_text_glyphs() operations. That is, whether it actually uses the provided text and cluster data to a cairo.context#show_text_glyphs() call.
+</p>
+<p>
+Note: Even if this function returns false, a cairo.context#show_text_glyphs() operation targeted at surface will still succeed. It just will act like a cairo.context#show_glyphs() operation. Users can use this function to avoid computing UTF-8 text and cluster mapping if the target surface does not use it.
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#set_mime_data</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#set_mime_data():reduce</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#get_mime_data</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#get_mime_data()</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#supports_mime_type</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#supports_mime_type()</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#map_to_image</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#map_to_image(extents:cairo.rectangle_int)</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#unmap_image</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#unmap_image()</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">cairo.surface#write_to_png</strong></div>
+<div style="margin-bottom:1em"><code>cairo.surface#write_to_png(stream:stream:w):reduce</code></div>
+
+</p>
 <h3><span class="caption-index-3">11.3.3</span><a name="anchor-11-3-3"></a>Image Surfaces - Rendering to memory buffers</h3>
+<p>
+<div><strong style="text-decoration:underline">cairo.image_surface.create</strong></div>
+<div style="margin-bottom:1em"><code>cairo.image_surface.create(image:image):static {block?}</code></div>
+<div><strong style="text-decoration:underline">cairo.image_surface.create_from_png</strong></div>
+<div style="margin-bottom:1em"><code>cairo.image_surface.create_from_png(stream:stream:r):static {block?}</code></div>
+<div><strong style="text-decoration:underline">cairo.image_surface#get_format</strong></div>
+<div style="margin-bottom:1em"><code>cairo.image_surface#get_format()</code></div>
+<div><strong style="text-decoration:underline">cairo.image_surface#get_width</strong></div>
+<div style="margin-bottom:1em"><code>cairo.image_surface#get_width()</code></div>
+<div><strong style="text-decoration:underline">cairo.image_surface#get_height</strong></div>
+<div style="margin-bottom:1em"><code>cairo.image_surface#get_height()</code></div>
+<div><strong style="text-decoration:underline">cairo.image_surface#get_stride</strong></div>
+<div style="margin-bottom:1em"><code>cairo.image_surface#get_stride()</code></div>
+
+</p>
 <h3><span class="caption-index-3">11.3.4</span><a name="anchor-11-3-4"></a>PDF Surfaces - Rendering PDF documents</h3>
+<p>
+<div><strong style="text-decoration:underline">cairo.pdf_surface.create</strong></div>
+<div style="margin-bottom:1em"><code>cairo.pdf_surface.create(stream:stream:w, width_in_points:number, height_in_points:number):static {block?}</code></div>
+<div><strong style="text-decoration:underline">cairo.pdf_surface#restrict_to_version</strong></div>
+<div style="margin-bottom:1em"><code>cairo.pdf_surface#restrict_to_version(version:number):reduce</code></div>
+<div><strong style="text-decoration:underline">cairo.pdf_surface#set_size</strong></div>
+<div style="margin-bottom:1em"><code>cairo.pdf_surface#set_size(width_in_points:number, height_in_points:number):reduce</code></div>
+
+</p>
 <h3><span class="caption-index-3">11.3.5</span><a name="anchor-11-3-5"></a>PNG Support - Reading and writing PNG images</h3>
 <h3><span class="caption-index-3">11.3.6</span><a name="anchor-11-3-6"></a>PostScript Surfaces - Rendering PostScript documents</h3>
 <h3><span class="caption-index-3">11.3.7</span><a name="anchor-11-3-7"></a>Recording Surfaces - Records all drawing operations</h3>
 <h3><span class="caption-index-3">11.3.8</span><a name="anchor-11-3-8"></a>Win32 Surfaces - Microsoft Windows surface support</h3>
 <h3><span class="caption-index-3">11.3.9</span><a name="anchor-11-3-9"></a>SVG Surfaces - Rendering SVG documents</h3>
+<p>
+<div><strong style="text-decoration:underline">cairo.svg_surface.create</strong></div>
+<div style="margin-bottom:1em"><code>cairo.svg_surface.create(stream:stream:w, width_in_points:number, height_in_points:number):static {block?}</code></div>
+<div><strong style="text-decoration:underline">cairo.svg_surface#restrict_to_version</strong></div>
+<div style="margin-bottom:1em"><code>cairo.svg_surface#restrict_to_version(version:number):reduce</code></div>
+
+</p>
 <h3><span class="caption-index-3">11.3.10</span><a name="anchor-11-3-10"></a>Quartz Surfaces - Rendering to Quartz surfaces</h3>
 <h3><span class="caption-index-3">11.3.11</span><a name="anchor-11-3-11"></a>XCB Surfaces - X Window System rendering using the XCB library</h3>
 <h3><span class="caption-index-3">11.3.12</span><a name="anchor-11-3-12"></a>XLib Surfaces - X Window System rendering using XLib</h3>

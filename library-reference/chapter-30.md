@@ -108,18 +108,18 @@ Parses a Markdown text in a string.
 Parses a Markdown text from a stream.
 </p>
 <p>
-<div><strong style="text-decoration:underline">markdown.render@console</strong></div>
-<div style="margin-bottom:1em"><code>markdown.render@console(colorFlag:boolean =&gt; true)</code></div>
+<div><strong style="text-decoration:underline">markdown.document#render@console</strong></div>
+<div style="margin-bottom:1em"><code>markdown.document#render@console(colorFlag:boolean =&gt; true)</code></div>
 Renders the content of markdown document to the console.
 </p>
 <p>
 In default, it uses colors to highlight items. Specify the argument <code>colorFlag</code> with <code>false</code> to disable the coloring process.
 </p>
 <p>
-<div><strong style="text-decoration:underline">markdown.render@html</strong></div>
-<div style="margin-bottom:1em"><code>markdown.render@html(out?:stream:w, easyFormatFlag:boolean =&gt; true, captionIndex:boolean =&gt; false)</code></div>
-<div><strong style="text-decoration:underline">markdown.render@toc</strong></div>
-<div style="margin-bottom:1em"><code>markdown.render@toc() {block}</code></div>
+<div><strong style="text-decoration:underline">markdown.document#render@html</strong></div>
+<div style="margin-bottom:1em"><code>markdown.document#render@html(out?:stream:w, easyFormatFlag:boolean =&gt; true, captionIndex:boolean =&gt; false)</code></div>
+<div><strong style="text-decoration:underline">markdown.document#render@toc</strong></div>
+<div style="margin-bottom:1em"><code>markdown.document#render@toc() {block}</code></div>
 
 </p>
 <h2><span class="caption-index-2">30.4</span><a name="anchor-30-4"></a>markdown.item Class</h2>

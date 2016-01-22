@@ -431,7 +431,7 @@ Converts a string into a symbol.
 <p>
 <div><strong style="text-decoration:underline">class</strong></div>
 <div style="margin-bottom:1em"><code>class(superclass?:class) {block?}</code></div>
-Creates a class that includes methods and properties described in the content of the <code>block</code>. The detail information on how to describe the block content for this function is written in "Gura Language Manual".
+Creates a <code>class</code> that includes methods and properties described in the content of the <code>block</code>. The detail information on how to describe the block content for this function is written in "Gura Language Manual".
 </p>
 <p>
 Below is an example to create a class named <code>Person</code>:
@@ -460,13 +460,13 @@ Looks up a class by an expression of a type name.
 <p>
 <div><strong style="text-decoration:underline">struct</strong></div>
 <div style="margin-bottom:1em"><code>struct(`args+):nonamed:[loose] {block?}</code></div>
-Returns a function object of a constructor for a structure that contains properties specified by <code>args</code>. It can optionally take block which declares methods and properties just like <code>class</code> function.
+Creates a <code>class</code> for a structure that contains properties specified by <code>args</code>. It can optionally take a block which declares methods and properties just like <code>class()</code> function does.
 </p>
 <p>
 An element in <code>args</code> is an expression that has the same format with one in the argument list of a function's declaration. Each variable name becomes a member name in the created instance.
 </p>
 <p>
-Below is an example to create a struct named <code>Person</code>:
+Below is an example to create a structure named <code>Person</code>:
 </p>
 <pre><code>Person = struct(name:string, age:number)
 person = Person('Smith', 26)
@@ -478,7 +478,7 @@ If <code>:loose</code> attribute is speicied, the generated constructor would ta
 <p>
 <div><strong style="text-decoration:underline">super</strong></div>
 <div style="margin-bottom:1em"><code>super(obj):map {block?}</code></div>
-Returns a reference to <code>obj</code> that searches methods in a scope of the super class of its own.
+Returns a reference to <code>obj</code> through which you can call methods of the super class.
 </p>
 <p>
 Example:
@@ -499,12 +499,12 @@ super(b).func()  // A#func() is called.
 <p>
 <div><strong style="text-decoration:underline">local</strong></div>
 <div style="margin-bottom:1em"><code>local(`syms+)</code></div>
-Declares symbols that is supposed to access variables in a local scope.
+Declares symbols of variable that are supposed to be accessed locally in a block.
 </p>
 <p>
 <div><strong style="text-decoration:underline">locals</strong></div>
 <div style="margin-bottom:1em"><code>locals(module?:module) {block?}</code></div>
-Returns an environment object that belongs to a specified module. If module is omitted, it returns an environment object of the current scope.
+Returns an environment object that belongs to a specified module. If the argument <code>module</code> is omitted, it returns an <code>environment</code> object of the current scope.
 </p>
 <p>
 <div><strong style="text-decoration:underline">outers</strong></div>
@@ -569,112 +569,112 @@ Creates a module that contains functions and variables defined in the block and 
 <p>
 <div><strong style="text-decoration:underline">isbinary</strong></div>
 <div style="margin-bottom:1em"><code>isbinary(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is binary, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>binary</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isboolean</strong></div>
 <div style="margin-bottom:1em"><code>isboolean(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is boolean, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>boolean</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isclass</strong></div>
 <div style="margin-bottom:1em"><code>isclass(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is class, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>class</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">iscomplex</strong></div>
 <div style="margin-bottom:1em"><code>iscomplex(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is complex, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>complex</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isdatetime</strong></div>
 <div style="margin-bottom:1em"><code>isdatetime(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is datetime, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>datetime</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isdict</strong></div>
 <div style="margin-bottom:1em"><code>isdict(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is dict, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>dict</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isenvironment</strong></div>
 <div style="margin-bottom:1em"><code>isenvironment(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is environment, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>environment</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">iserror</strong></div>
 <div style="margin-bottom:1em"><code>iserror(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is error, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>error</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isexpr</strong></div>
 <div style="margin-bottom:1em"><code>isexpr(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is expr, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>expr</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isfunction</strong></div>
 <div style="margin-bottom:1em"><code>isfunction(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is function, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>function</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isiterator</strong></div>
 <div style="margin-bottom:1em"><code>isiterator(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is iterator, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>iterator</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">islist</strong></div>
 <div style="margin-bottom:1em"><code>islist(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is list, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>list</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">ismatrix</strong></div>
 <div style="margin-bottom:1em"><code>ismatrix(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is matrix, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>matrix</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">ismodule</strong></div>
 <div style="margin-bottom:1em"><code>ismodule(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is module, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>module</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isnil</strong></div>
 <div style="margin-bottom:1em"><code>isnil(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is nil, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>nil</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isnumber</strong></div>
 <div style="margin-bottom:1em"><code>isnumber(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is number, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>number</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isrational</strong></div>
 <div style="margin-bottom:1em"><code>isrational(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is rational, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>rational</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">issemaphore</strong></div>
 <div style="margin-bottom:1em"><code>issemaphore(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is semaphore, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>semaphore</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isstring</strong></div>
 <div style="margin-bottom:1em"><code>isstring(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is string, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>string</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">issymbol</strong></div>
 <div style="margin-bottom:1em"><code>issymbol(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is symbol, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>symbol</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">istimedelta</strong></div>
 <div style="margin-bottom:1em"><code>istimedelta(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is timedelta, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>timedelta</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isuri</strong></div>
 <div style="margin-bottom:1em"><code>isuri(value)</code></div>
-Returns <code>true</code> if the type of the specified <code>value</code> is uri, and <code>false</code> otherwise.
+Returns <code>true</code> if the <code>value</code> is an instance of <code>uri</code>, and <code>false</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">isdefined</strong></div>
