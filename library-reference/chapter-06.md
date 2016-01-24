@@ -334,7 +334,10 @@ Indicates if the content of the binary object is writable.</td>
 <p>
 <div><strong style="text-decoration:underline">binary</strong></div>
 <div style="margin-bottom:1em"><code>binary(buff*) {block?}</code></div>
-
+Creates a <code>binary</code> instance after combining <code>string</code> or <code>binary</code> specified by the arguments <code>buff</code>. If no argument is specified for <code>buff</code>, an empty <code>binary</code> instance would be created.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|bin:binary|</code>, where <code>bin</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">6.4.3</span><a name="anchor-6-4-3"></a>Method</h3>
 <p>
@@ -358,20 +361,45 @@ Decodes the content of the <code>binary</code> as a sequence of string character
 <p>
 <div><strong style="text-decoration:underline">binary#dump</strong></div>
 <div style="margin-bottom:1em"><code>binary#dump(stream?:stream:w):void:[upper]</code></div>
-Prints a dump from the content of the <code>binary</code> to the standard output. If the argument <code>stream</code> is specified, the result would be output to the stream.
+Prints a hexadecimal dump from the content of the <code>binary</code> to the standard output. If the argument <code>stream</code> is specified, the result would be output to the stream.
 </p>
 <p>
-In default, alphabets are printed with lower-case characters. Specifying an attribute <code>:upper</code> would output them with upper-case characters instead.
+In default, hexadecimal digit are printed with lower-case characters. Specifying an attribute <code>:upper</code> would output them with upper-case characters instead.
 </p>
+<p>
+Example:
+</p>
+<pre><code>&gt;&gt;&gt; b'A quick brown fox jumps over the lazy dog.'.dump():upper
+41 20 71 75 69 63 6B 20 62 72 6F 77 6E 20 66 6F  A quick brown fo
+78 20 6A 75 6D 70 73 20 6F 76 65 72 20 74 68 65  x jumps over the
+20 6C 61 7A 79 20 64 6F 67 2E                     lazy dog.
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">binary#each</strong></div>
 <div style="margin-bottom:1em"><code>binary#each() {block?}</code></div>
-Returns an iterator picking up each byte in the buffer
+Creates an iterator that returns each byte in the buffer.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#encodeuri</strong></div>
 <div style="margin-bottom:1em"><code>binary#encodeuri()</code></div>
-Returns a string in which non-URIC characters are percent-encoded.
+Returns a string in which non-URIC characters are converted to percent-encoded string.
+</p>
+<p>
+For example, <code>b'"Hello"'.encodeuri()</code> would return <code>'%22Hello%22'</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#hex</strong></div>
@@ -459,6 +487,9 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 Returns a <code>pointer</code> instance that has an initial offset specified by the argument <code>offset</code>. If the argument is omitted, it would return a <code>pointer</code> instance that points to the top of the binary.
 </p>
 <p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|p:pointer|</code>, where <code>p</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
 <div><strong style="text-decoration:underline">binary#reader</strong></div>
 <div style="margin-bottom:1em"><code>binary#reader() {block?}</code></div>
 Creates a <code>stream</code> instance with which you can read data from the binary by <code>stream#read()</code> method. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
@@ -466,7 +497,10 @@ Creates a <code>stream</code> instance with which you can read data from the bin
 <p>
 <div><strong style="text-decoration:underline">binary#store</strong></div>
 <div style="margin-bottom:1em"><code>binary#store(offset:number, buff+:binary):map:reduce</code></div>
-Stores binary data in the <code>binary</code> instance at the specified offset. You can specify one or more binary data to be stored.
+Stores binary data <code>buff</code> in the target <code>binary</code> instance at the specified offset. You can specify one or more binary data to be stored.
+</p>
+<p>
+This method returns the target instance itself.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#unpack</strong></div>
@@ -560,7 +594,14 @@ Notice that the number <code>0</code> is treated as true in logical operations.
 </p>
 <h2><span class="caption-index-2">6.6</span><a name="anchor-6-6"></a>codec Class</h2>
 <p>
-The <code>codec</code> class provides measures to convert character codes.
+The <code>codec</code> class has features to decoding/encoding character codes stored in <code>string</code> and <code>binary</code>. Following measures are provided:
+</p>
+<ul>
+<li>Decode ... Converts specific character codes stored in <code>binary</code> into UTF-8 code and generages <code>string</code> containing the result. It can also delete a CR code (<code>0x0d</code>) before a LF code (<code>0x0d</code>) at each end of line so that lines in the result are joined with LF code.</li>
+<li>Encode ... Converts UTF-8 character codes stored in <code>string</code> into specific codes and generates <code>binary</code> containing the result. It can also add a CR code (<code>0x0d</code>) before a LF code (<code>0x0a</code>) at each end of line so that lines in the result are joined with CR-LF sequence.</li>
+</ul>
+<p>
+You can utilize these functions using <code>codec</code> class's methods <code>codec#decode()</code> and <code>codec#encode()</code> as well as using <code>stream</code> class's method to read/write text by specifying <code>codec</code> instance when creating its instance.
 </p>
 <h3><span class="caption-index-3">6.6.1</span><a name="anchor-6-6-1"></a>Predefined Variable</h3>
 <p>
@@ -582,7 +623,7 @@ Explanation</th>
 <code>binary</code></td>
 
 <td>
-BOM sequence of UTF-8: <code>'\xef\xbb\xbf'</code></td>
+BOM for UTF-8: <code>'\xef\xbb\xbf'</code></td>
 </tr>
 
 
@@ -593,7 +634,7 @@ BOM sequence of UTF-8: <code>'\xef\xbb\xbf'</code></td>
 <code>binary</code></td>
 
 <td>
-BOM sequence of UTF-16 little endian: <code>'\xff\xfe'</code></td>
+BOM for UTF-16 little endian: <code>'\xff\xfe'</code></td>
 </tr>
 
 
@@ -604,7 +645,7 @@ BOM sequence of UTF-16 little endian: <code>'\xff\xfe'</code></td>
 <code>binary</code></td>
 
 <td>
-BOM sequence of UTF-16 big endian: <code>'\xfe\xff'</code></td>
+BOM for UTF-16 big endian: <code>'\xfe\xff'</code></td>
 </tr>
 
 
@@ -615,7 +656,7 @@ BOM sequence of UTF-16 big endian: <code>'\xfe\xff'</code></td>
 <code>binary</code></td>
 
 <td>
-BOM sequence of UTF-32 little endian<code>'\xff\xfe\x00\x00'</code></td>
+BOM for UTF-32 little endian: <code>'\xff\xfe\x00\x00'</code></td>
 </tr>
 
 
@@ -626,7 +667,7 @@ BOM sequence of UTF-32 little endian<code>'\xff\xfe\x00\x00'</code></td>
 <code>binary</code></td>
 
 <td>
-BOM sequence of UTF-32 big endian: <code>'\x00\x00\xfe\xff'</code></td>
+BOM for UTF-32 big endian: <code>'\x00\x00\xfe\xff'</code></td>
 </tr>
 
 
@@ -646,7 +687,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <p>
 <div><strong style="text-decoration:underline">codec#addcr</strong></div>
 <div style="margin-bottom:1em"><code>codec#addcr(flag?:boolean):reduce</code></div>
-The codec's encoder has a feature to add a CR code (0x0d) before a LF code (0x0a) so that the lines are joined with CR-LF codes in the encoded result. This method enables or disables the feature.
+The codec's encoder has a feature to add a CR code (<code>0x0d</code>) before a LF code (<code>0x0a</code>) so that the lines are joined with CR-LF codes in the encoded result. This method enables or disables the feature.
 </p>
 <ul>
 <li>To enable it, call the method with the argument <code>flag</code> set to <code>true</code> or without any argument.</li>
@@ -660,7 +701,7 @@ Decodes a binary <code>buff</code> and returns the decoded result as <code>strin
 <p>
 <div><strong style="text-decoration:underline">codec#delcr</strong></div>
 <div style="margin-bottom:1em"><code>codec#delcr(flag?:boolean):reduce</code></div>
-The codec's decoder has a feature to delete a CR code (0x0d) before a LF code (0x0a) so that the lines are joined with LF code in the decoded result. This method enables or disables the feature.
+The codec's decoder has a feature to delete a CR code (<code>0x0d</code>) before a LF code (<code>0x0a</code>) so that the lines are joined with LF code in the decoded result. This method enables or disables the feature.
 </p>
 <ul>
 <li>To enable it, call the method with the argument <code>flag</code> set to <code>true</code> or without any argument.</li>
@@ -671,6 +712,17 @@ The codec's decoder has a feature to delete a CR code (0x0d) before a LF code (0
 <div style="margin-bottom:1em"><code>codec#encode(str:string):map</code></div>
 Encodes a string <code>str</code> and returns the encoded result as <code>binary</code>.
 </p>
+<h3><span class="caption-index-3">6.6.4</span><a name="anchor-6-6-4"></a>Cast Operation</h3>
+<p>
+A function that expects a <code>codec</code> instance in its argument can also take a value of <code>string</code> that is recognized as a codec name.
+</p>
+<p>
+With the above casting feature, you can call a function <code>f(codec:codec)</code> that takes a <code>codec</code> instance in its argument as below:
+</p>
+<ul>
+<li><code>f(codec('utf-16'))</code> .. The most explicit way.</li>
+<li><code>f('utf-16')</code> .. Implicit casting: from <code>string</code> to <code>codec</code>.</li>
+</ul>
 <h2><span class="caption-index-2">6.7</span><a name="anchor-6-7"></a>color Class</h2>
 <p>
 An instance of the <code>color</code> class represents a color data that consists of red, green, blue and alpha elements.
@@ -5165,6 +5217,26 @@ Watis for the semaphore being released by other threads, and ghen grabs that own
 <p>
 The <code>stream</code> class provides methods to read and write data through a stream, an abstract structure to handle a byte sequence. It also provides information of the stream such as the pathname and the creation date and time.
 </p>
+<p>
+You can specify a proper <code>codec</code> when creating the <code>stream</code> instance, which is used to decode/encode character codes that appear in the stream. Features of <code>codec</code> would affect on functions and methods that handle text data like follows:
+</p>
+<ul>
+<li>Decode<ul>
+<li>readlines()</li>
+<li>stream#readchar()</li>
+<li>stream#readline()</li>
+<li>stream#readlines()</li>
+<li>stream#readtext()</li>
+</ul>
+</li>
+<li>Encode<ul>
+<li>operator <code>&lt;&lt;</code></li>
+<li>stream#print()</li>
+<li>stream#printf()</li>
+<li>stream#println()</li>
+</ul>
+</li>
+</ul>
 <h3><span class="caption-index-3">6.29.1</span><a name="anchor-6-29-1"></a>Property</h3>
 <p>
 A <code>stream</code> instance has the following properties:
@@ -5324,6 +5396,9 @@ Creates an iterator that reads text from the specified stream line by line.
 If attribute <code>:chop</code> is specified, it eliminates an end-of-line character that appears at the end of each line.
 </p>
 <p>
+This function decodes character codes in the stream using <code>codec</code> specified when the <code>stream</code> instance is created.
+</p>
+<p>
 In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
 </p>
 <ul>
@@ -5341,7 +5416,7 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 <p>
 <div><strong style="text-decoration:underline">stream#addcr</strong></div>
 <div style="margin-bottom:1em"><code>stream#addcr(flag?:boolean):reduce</code></div>
-The codec's encoder in the stream has a feature to add a CR code (0x0d) before a LF code (0x0a) so that the lines are joined with CR-LF codes in the encoded result. This method enables or disables the feature.
+The codec's encoder in the stream has a feature to add a CR code (<code>0x0d</code>) before a LF code (<code>0x0a</code>) so that the lines are joined with CR-LF codes in the encoded result. This method enables or disables the feature.
 </p>
 <ul>
 <li>To enable it, call the method with the argument <code>flag</code> set to <code>true</code> or without any argument.</li>
@@ -5420,7 +5495,7 @@ This has the same feature as <code>stream.copy()</code> and <code>stream#copyfro
 <p>
 <div><strong style="text-decoration:underline">stream#delcr</strong></div>
 <div style="margin-bottom:1em"><code>stream#delcr(flag?:boolean):reduce</code></div>
-The codec's decoder in the stream has a feature to delete a CR code (0x0d) before a LF code (0x0a) so that the lines are joined with LF code in the decoded result. This method enables or disables the feature.
+The codec's decoder in the stream has a feature to delete a CR code (<code>0x0d</code>) before a LF code (<code>0x0a</code>) so that the lines are joined with LF code in the decoded result. This method enables or disables the feature.
 </p>
 <ul>
 <li>To enable it, call the method with the argument <code>flag</code> set to <code>true</code> or without any argument.</li>
@@ -5444,7 +5519,10 @@ Reads specified length of data from the stream and returns a <code>binary</code>
 <p>
 <div><strong style="text-decoration:underline">stream#print</strong></div>
 <div style="margin-bottom:1em"><code>stream#print(values*):map:void</code></div>
-Prints out <code>values</code> to the <code>stream</code> instance.
+Prints out <code>values</code> to the <code>stream</code> instance after converting them to strings.
+</p>
+<p>
+This function encodes character codes in the string using <code>codec</code> specified when the <code>stream</code> instance is created.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#printf</strong></div>
@@ -5455,27 +5533,45 @@ Prints out <code>values</code> to the <code>stream</code> instance according to 
 Refer to the help of <code>printf()</code> function to see information about formatter specifiers.
 </p>
 <p>
+This function encodes character codes in the string using <code>codec</code> specified when the <code>stream</code> instance is created.
+</p>
+<p>
 <div><strong style="text-decoration:underline">stream#println</strong></div>
 <div style="margin-bottom:1em"><code>stream#println(values*):map:void</code></div>
-Prints out <code>values</code> and an end-of-line character to the <code>stream</code> instance.
+Prints out <code>values</code> and an end-of-line character to the <code>stream</code> instanceafter converting them to strings.
+</p>
+<p>
+This function encodes character codes in the string using <code>codec</code> specified when the <code>stream</code> instance is created.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#read</strong></div>
-<div style="margin-bottom:1em"><code>stream#read(len?:number)</code></div>
+<div style="margin-bottom:1em"><code>stream#read(len?:number) {block?}</code></div>
 Reads specified length of data from the stream and returns a <code>binary</code> instance that contains it. If the argument <code>len</code> is omitted, all the data available from the stream would be read.
 </p>
 <p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|buff:binary|</code>, where <code>buff</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
 <div><strong style="text-decoration:underline">stream#readchar</strong></div>
-<div style="margin-bottom:1em"><code>stream#readchar()</code></div>
+<div style="margin-bottom:1em"><code>stream#readchar() {block?}</code></div>
 Reads one character from the stream and returns a <code>string</code> instance that contains it.
 </p>
 <p>
+This method decodes character codes in the stream using <code>codec</code> specified when the <code>stream</code> instance is created.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|ch:string|</code>, where <code>ch</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
 <div><strong style="text-decoration:underline">stream#readline</strong></div>
-<div style="margin-bottom:1em"><code>stream#readline():[chop]</code></div>
+<div style="margin-bottom:1em"><code>stream#readline():[chop] {block?}</code></div>
 Reads one line from the stream and returns a <code>string</code> instance that contains it.
 </p>
 <p>
-If the attribute <code>:chop</code> is specified, it would remove the last new line character from the result.
+If the attribute <code>:chop</code> is specified, it would remove the last new line character from the result. This method decodes character codes in the stream using <code>codec</code> specified when the <code>stream</code> instance is created.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|line:string|</code>, where <code>line</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#readlines</strong></div>
@@ -5487,6 +5583,9 @@ The argument <code>nlines</code> specifies how many lines should be read from th
 </p>
 <p>
 If attribute <code>:chop</code> is specified, it eliminates an end-of-line character that appears at the end of each line.
+</p>
+<p>
+This method decodes character codes in the stream using <code>codec</code> specified when the <code>stream</code> instance is created.
 </p>
 <p>
 In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
@@ -5504,13 +5603,26 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#readtext</strong></div>
-<div style="margin-bottom:1em"><code>stream#readtext()</code></div>
-Reads the whole data in the stream as a text sequence and returns a <code>string</code> instance that contains it.
+<div style="margin-bottom:1em"><code>stream#readtext() {block?}</code></div>
+Reads the whole data in the stream as a text sequence and returns a <code>string</code> instance that contains it. This method decodes character codes in the stream using <code>codec</code> specified when the <code>stream</code> instance is created.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|text:string|</code>, where <code>text</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#seek</strong></div>
 <div style="margin-bottom:1em"><code>stream#seek(offset:number, origin?:symbol):reduce</code></div>
-
+Seeks the current file position to the offset specified by the argument <code>offset</code>.
+</p>
+<p>
+The argument <code>origin</code> specifies the meaning of <code>offset</code> value as follows:
+</p>
+<ul>
+<li><code>set` ... `offset` is an absolute offset from the begining of the stream.</code></li>
+<li><code>cur` ... `offset` is a relative offset from the current position.</code></li>
+</ul>
+<p>
+This method returns the target stream instance itself.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#serialize</strong></div>
@@ -5520,7 +5632,10 @@ Reads the whole data in the stream as a text sequence and returns a <code>string
 <p>
 <div><strong style="text-decoration:underline">stream#setcodec</strong></div>
 <div style="margin-bottom:1em"><code>stream#setcodec(codec:codec:nil):reduce</code></div>
-
+Sets <code>codec</code> instance to the target stream. If <code>nil</code> is specified for the argument, the current <code>codec</code> instance would be removed.
+</p>
+<p>
+This method returns the target stream instance itself.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#tell</strong></div>
