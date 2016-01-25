@@ -7,7 +7,7 @@ title: Gura Library Reference
 {% raw %}
 <h1><span class="caption-index-1">15</span><a name="anchor-15"></a>csv Module</h1>
 <p>
-The <code>csv</code> module provices measures to read/write CSV files. To utilize it, import the <code>csv</code> module using <code>import</code> function.
+The <code>csv</code> module provices measures to read/write CSV files. To utilize it, import the <code>csv</code> module using <code>import()</code> function.
 </p>
 <p>
 Below is an example to read a CSV file that contains three fields per line:
@@ -22,26 +22,60 @@ printf('name:%s, age:%d, email:%s¥n',
 <h2><span class="caption-index-2">15.1</span><a name="anchor-15-1"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">csv.parse</strong></div>
-<div style="margin-bottom:1em"><code>csv.parse(str:string):map</code></div>
-
+<div style="margin-bottom:1em"><code>csv.parse(str:string):map {block?}</code></div>
+Creates an iterator that parses a text in CSV format that is contained in the specified string and returns a list of fields as its each element.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
 <div><strong style="text-decoration:underline">csv.read</strong></div>
 <div style="margin-bottom:1em"><code>csv.read(stream:stream:r) {block?}</code></div>
-
+Creates an iterator that parses a text in CSV format from the specified stream and returns a list of fields as its each element.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <h2><span class="caption-index-2">15.2</span><a name="anchor-15-2"></a>csv.writer Class</h2>
 <h3><span class="caption-index-3">15.2.1</span><a name="anchor-15-2-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">csv.writer</strong></div>
 <div style="margin-bottom:1em"><code>csv.writer(stream:stream:w, format?:string) {block?}</code></div>
-
+Creates a <code>csv.writer</code> instance that provides methods to write CSV text to the specified stream.
+</p>
+<p>
+The argument <code>format</code> specifies a printf-style format string that is used to convert a <code>number</code> and <code>complex</code> value to a string.
 </p>
 <h3><span class="caption-index-3">15.2.2</span><a name="anchor-15-2-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">csv.writer#write</strong></div>
 <div style="margin-bottom:1em"><code>csv.writer#write(fields+):map:reduce</code></div>
-
+Writes values in CSV format.
+</p>
+<p>
+The argument <code>fields</code> take <code>string</code>, <code>number</code> or <code>complex</code> values that are output in a row.
 </p>
 <h2><span class="caption-index-2">15.3</span><a name="anchor-15-3"></a>Extension of stream Class</h2>
 <p>
@@ -50,12 +84,29 @@ This module extends the <code>stream</code> class with methods described here.
 <p>
 <div><strong style="text-decoration:underline">stream#read@csv</strong></div>
 <div style="margin-bottom:1em"><code>stream#read@csv() {block?}</code></div>
-
+Creates an iterator that parses a text in CSV format from the specified stream and returns a list of fields as its each element.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#writer@csv</strong></div>
 <div style="margin-bottom:1em"><code>stream#writer@csv(format?:string) {block?}</code></div>
-
+Creates a <code>csv.writer</code> instance that provides methods to write CSV text to the target stream.
+</p>
+<p>
+The argument <code>format</code> specifies a printf-style format string that is used to convert a <code>number</code> and <code>complex</code> value to a string.
 </p>
 <p />
 

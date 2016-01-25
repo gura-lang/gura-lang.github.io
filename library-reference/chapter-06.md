@@ -603,6 +603,19 @@ The <code>codec</code> class has features to decoding/encoding character codes s
 <p>
 You can utilize these functions using <code>codec</code> class's methods <code>codec#decode()</code> and <code>codec#encode()</code> as well as using <code>stream</code> class's method to read/write text by specifying <code>codec</code> instance when creating its instance.
 </p>
+<p>
+The actual functions for encoding and decoding are provided by sub modules under <code>codecs</code> module. Each module provides following codecs:
+</p>
+<ul>
+<li><code>codecs.basic</code> ... <code>us-ascii</code>, <code>utf-8</code>, <code>utf-16</code>, <code>utf-16le</code>, <code>utf-16be</code></li>
+<li><code>codecs.iso8859</code>... <code>iso-8859-1</code>, <code>iso-8859-2</code>, <code>iso-8859-3</code>, <code>iso-8859-4</code>, <code>iso-8859-5</code>, <code>iso-8859-6</code>, <code>iso-8859-7</code>, <code>iso-8859-8</code>, <code>iso-8859-9</code>, <code>iso-8859-10</code>, <code>iso-8859-11</code>, <code>iso-8859-13</code>, <code>iso-8859-14</code>, <code>iso-8859-15</code>, <code>iso-8859-16</code></li>
+<li><code>codecs.korean</code> ... <code>cp949</code>, <code>euc-kr</code></li>
+<li><code>codecs.chinese</code> ... <code>cp936</code>, <code>gb2312</code>, <code>gbk</code>, <code>cp950</code>, <code>big5</code></li>
+<li><code>codecs.japanese</code> ... <code>euc-jp</code>, <code>cp932</code>, <code>shift_jis</code>, <code>ms_kanji</code>, <code>jis</code>, <code>iso-2022-jp</code></li>
+</ul>
+<p>
+Importing other codec modules would expand available codecs. You can call <code>codecs.dir()</code> to get a list of codec names currently available.
+</p>
 <h3><span class="caption-index-3">6.6.1</span><a name="anchor-6-6-1"></a>Predefined Variable</h3>
 <p>
 <table>
@@ -623,7 +636,7 @@ Explanation</th>
 <code>binary</code></td>
 
 <td>
-BOM for UTF-8: <code>'\xef\xbb\xbf'</code></td>
+BOM for UTF-8: <code>b'\xef\xbb\xbf'</code></td>
 </tr>
 
 
@@ -634,7 +647,7 @@ BOM for UTF-8: <code>'\xef\xbb\xbf'</code></td>
 <code>binary</code></td>
 
 <td>
-BOM for UTF-16 little endian: <code>'\xff\xfe'</code></td>
+BOM for UTF-16 little endian: <code>b'\xff\xfe'</code></td>
 </tr>
 
 
@@ -645,7 +658,7 @@ BOM for UTF-16 little endian: <code>'\xff\xfe'</code></td>
 <code>binary</code></td>
 
 <td>
-BOM for UTF-16 big endian: <code>'\xfe\xff'</code></td>
+BOM for UTF-16 big endian: <code>b'\xfe\xff'</code></td>
 </tr>
 
 
@@ -656,7 +669,7 @@ BOM for UTF-16 big endian: <code>'\xfe\xff'</code></td>
 <code>binary</code></td>
 
 <td>
-BOM for UTF-32 little endian: <code>'\xff\xfe\x00\x00'</code></td>
+BOM for UTF-32 little endian: <code>b'\xff\xfe\x00\x00'</code></td>
 </tr>
 
 
@@ -667,7 +680,7 @@ BOM for UTF-32 little endian: <code>'\xff\xfe\x00\x00'</code></td>
 <code>binary</code></td>
 
 <td>
-BOM for UTF-32 big endian: <code>'\x00\x00\xfe\xff'</code></td>
+BOM for UTF-32 big endian: <code>b'\x00\x00\xfe\xff'</code></td>
 </tr>
 
 
@@ -2524,13 +2537,13 @@ The <code>formatter</code> class provides information about a format specifier.
 <p>
 The function <code>printf()</code> has the following declaration:
 </p>
-<pre><code>printf(format:string, values*)
+<pre><code>printf('name: %s, age: %d\n', name, age)
 </code></pre>
 <p>
-The argument <code>format</code> is a string containing format specifiers like <code>%d</code> and <code>%s</code> that correspond to instances specified by the arguments <code>values</code>. When a qualifier is found during the evaluation of the function, a format handler associated with an corresponding instance is called. Format handlers are instance methods named like <code>__format_X__()</code> where <code>X</code> is the symbol of the specifier. For example, the instance method <code>__format_d__()</code> is responsible to work on a spcifier <code>%d</code>.
+The first argument is a string containing format specifiers like <code>%s</code> and <code>%d</code> that determine the manner on how the correspoding values <code>name</code> and <code>age</code> should be formatted. In the formatting mechanism, when the specifiers <code>%s</code> and <code>%d</code> appear, it would call methods <code>name.__format_s__()</code> and <code>age.__format_s__()</code> respectively which are format handlers responsible of formatting these values. In general, a format handler has a format like <code>__format_X__(fmt:formatter)</code> where <code>X</code> is the symbol of the specifier and <code>fmt</code> is a <code>formatter</code> instance that carries information about the associated specifier such as minimum width and a padding character. The handler must return a <code>string</code> as its result.
 </p>
 <p>
-The <code>formatter</code> instance is created for each specifier and passed to a method like <code>__format_X__(fmt:formatter)</code>. Below is a table showing specifiers and corresponding method names:
+The table below summarizes associations between specifiers and the method name of their format handlers:
 </p>
 <p>
 <table>
@@ -2614,6 +2627,21 @@ Method Name</th>
 </table>
 
 </p>
+<p>
+This feature is supposed to be used when you want your original class's instance properly formatted in <code>printf</code>. Below is an example to implement a format handler for the specifier <code>%d</code>:
+</p>
+<pre><code>A = class {
+
+    // any implementations
+
+    __format_d__(fmt:format) = {
+        // returns a string for %d specifier.
+    }
+}
+
+a = A()
+printf('%d', a) // a.__format_d__() is called
+</code></pre>
 <h3><span class="caption-index-3">6.16.1</span><a name="anchor-6-16-1"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">formatter#getminwidth</strong></div>
@@ -5352,16 +5380,16 @@ Since the operator returns the <code>stream</code> instance specified on the lef
 A function that expects a <code>stream</code> instance in its argument can also take a value of <code>string</code> and <code>binary</code> as below:
 </p>
 <ul>
-<li><code>string</code> .. Recognized as a path name from which <code>stream</code> instance is created.</li>
-<li><code>binary</code> .. Creates a <code>stream</code> instance that contains the specified binary data.</li>
+<li><code>string</code> .. Recognized the <code>string</code> as a path name from which <code>stream</code> instance is created.</li>
+<li><code>binary</code> .. Creates a <code>stream</code> instance that reads or modifies the content of the specified <code>binary</code> data. If the <code>binary</code> data is a constant one, which might be created from a binary literal such as <code>b'\x00\x12\x34\x56'</code>, the stream is created with read-only attribute.</li>
 </ul>
 <p>
 Using the above casting feature, you can call a function <code>f(stream:stream)</code> that takes a <code>stream</code> instance in its argument as below:
 </p>
 <ul>
 <li><code>f(stream('foo.txt'))</code> .. The most explicit way.</li>
-<li><code>f('foo.txt')</code> .. Implicit casting: from <code>string</code> to <code>stream</code>.</li>
-<li><code>f(b'\x00\x12\x34\x56')</code> .. Implicit casting: from <code>binary</code> to <code>stream</code>.</li>
+<li><code>f('foo.txt')</code> .. Implicit casting from <code>string</code> to <code>stream</code>.</li>
+<li><code>f(b'\x00\x12\x34\x56')</code> .. Implicit casting from <code>binary</code> to <code>stream</code> that reads the content.</li>
 </ul>
 <h3><span class="caption-index-3">6.29.4</span><a name="anchor-6-29-4"></a>Constructor</h3>
 <p>
@@ -5396,7 +5424,7 @@ Creates an iterator that reads text from the specified stream line by line.
 If attribute <code>:chop</code> is specified, it eliminates an end-of-line character that appears at the end of each line.
 </p>
 <p>
-This function decodes character codes in the stream using <code>codec</code> specified when the <code>stream</code> instance is created.
+This function decodes character codes in the stream using <code>codec</code> instance that is specified when the <code>stream</code> instance is created.
 </p>
 <p>
 In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
@@ -5522,7 +5550,7 @@ Reads specified length of data from the stream and returns a <code>binary</code>
 Prints out <code>values</code> to the <code>stream</code> instance after converting them to strings.
 </p>
 <p>
-This function encodes character codes in the string using <code>codec</code> specified when the <code>stream</code> instance is created.
+This function encodes character codes in the string using <code>codec</code> instance that is specified when the <code>stream</code> instance is created.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#printf</strong></div>
@@ -5533,7 +5561,7 @@ Prints out <code>values</code> to the <code>stream</code> instance according to 
 Refer to the help of <code>printf()</code> function to see information about formatter specifiers.
 </p>
 <p>
-This function encodes character codes in the string using <code>codec</code> specified when the <code>stream</code> instance is created.
+This function encodes character codes in the string using <code>codec</code> instance that is specified when the <code>stream</code> instance is created.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#println</strong></div>
@@ -5541,7 +5569,7 @@ This function encodes character codes in the string using <code>codec</code> spe
 Prints out <code>values</code> and an end-of-line character to the <code>stream</code> instanceafter converting them to strings.
 </p>
 <p>
-This function encodes character codes in the string using <code>codec</code> specified when the <code>stream</code> instance is created.
+This function encodes character codes in the string using <code>codec</code> instance that is specified when the <code>stream</code> instance is created.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#read</strong></div>
@@ -5557,7 +5585,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 Reads one character from the stream and returns a <code>string</code> instance that contains it.
 </p>
 <p>
-This method decodes character codes in the stream using <code>codec</code> specified when the <code>stream</code> instance is created.
+This method decodes character codes in the stream using <code>codec</code> instance that is specified when the <code>stream</code> instance is created.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|ch:string|</code>, where <code>ch</code> is the created instance. In this case, the block's result would become the function's returned value.
@@ -5568,7 +5596,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 Reads one line from the stream and returns a <code>string</code> instance that contains it.
 </p>
 <p>
-If the attribute <code>:chop</code> is specified, it would remove the last new line character from the result. This method decodes character codes in the stream using <code>codec</code> specified when the <code>stream</code> instance is created.
+If the attribute <code>:chop</code> is specified, it would remove the last new line character from the result. This method decodes character codes in the stream using <code>codec</code> instance that is specified when the <code>stream</code> instance is created.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|line:string|</code>, where <code>line</code> is the created instance. In this case, the block's result would become the function's returned value.
@@ -5585,7 +5613,7 @@ The argument <code>nlines</code> specifies how many lines should be read from th
 If attribute <code>:chop</code> is specified, it eliminates an end-of-line character that appears at the end of each line.
 </p>
 <p>
-This method decodes character codes in the stream using <code>codec</code> specified when the <code>stream</code> instance is created.
+This method decodes character codes in the stream using <code>codec</code> instance that is specified when the <code>stream</code> instance is created.
 </p>
 <p>
 In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
@@ -5604,7 +5632,7 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 <p>
 <div><strong style="text-decoration:underline">stream#readtext</strong></div>
 <div style="margin-bottom:1em"><code>stream#readtext() {block?}</code></div>
-Reads the whole data in the stream as a text sequence and returns a <code>string</code> instance that contains it. This method decodes character codes in the stream using <code>codec</code> specified when the <code>stream</code> instance is created.
+Reads the whole data in the stream as a text sequence and returns a <code>string</code> instance that contains it. This method decodes character codes in the stream using <code>codec</code> instance that is specified when the <code>stream</code> instance is created.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|text:string|</code>, where <code>text</code> is the created instance. In this case, the block's result would become the function's returned value.

@@ -81,7 +81,7 @@ Another one is to describe a magic comment that specifies a character encoding a
 println('... string that may contain characters in Shift-JIS ...')
 </code></pre>
 <p>
-A magic comment has a format like <code>coding: XXXXXX</code> where <code>XXXXXX</code> indicates what encoding the parser is to use. It can be detected when it appears at the first or second line of a script and is described as a line comment that begins with <code>#</code> or <code>//</code>.
+A magic comment has a format like "<code>coding: XXXXXX</code>" where "<code>XXXXXX</code>" indicates what encoding the parser is to use. It can be detected when it appears at the first or second line of a script and is described as a line comment that begins with "<code>#</code>" or "<code>//</code>".
 </p>
 <p>
 The following format is acceptable too.
@@ -93,8 +93,16 @@ The following format is acceptable too.
 This is good to make Emacs determine what character encoding it should choose for editing.
 </p>
 <p>
-Available encoding names are described in Chapter.X.
+Available encoding names are summarized below:
 </p>
+<pre><code>us-ascii, utf-8, utf-16
+iso8859-1, iso8859-2, iso8859-3, iso8859-4, iso8859-5, iso8859-6
+iso8859-7, iso8859-8, iso8859-9, iso8859-10, iso8859-11, iso8859-13
+iso8859-14, iso8859-15, iso8859-16
+big5, cp936, cp950, gb2312
+cp932, euc-jp, iso-2022-jp, jis, ms_kanji, shift_jis
+cp949, euc-kr
+</code></pre>
 <h2><span class="caption-index-2">2.4</span><a name="anchor-2-4"></a>Composite File</h2>
 <p>
 It often happens that an application consists of multiple script files and other resources such as image files. Consider an application that has following files:
@@ -175,14 +183,15 @@ Imports modules in the same way as
 <code>-I dir</code></td>
 <td>
 Specifies a directory in which modules are searched.
-  You can specify the option in multiple times to add several directories for module search.</td>
+  You can specify the option in multiple times to add several directories for module search.
+  The specified path would be converted to an absolute path unless it starts with <code>"./"</code>.</td>
 </tr>
 
 <tr>
 <td>
 <code>-c cmd</code></td>
 <td>
-Runs <code>cmd</code> as a Gura script.</td>
+Runs a Gura script described in <code>cmd</code>.</td>
 </tr>
 
 <tr>
