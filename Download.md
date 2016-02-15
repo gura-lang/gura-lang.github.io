@@ -29,7 +29,7 @@ Release notes are available [here](https://github.com/gura-lang/gura/releases).
 </tr>
 
 <tr>
-<td>MacOS Disk Image</td>
+<td>Mac OS X Disk Image</td>
 <td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}.dmg"
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}.dmg');">gura-{{ gura_version }}.dmg</a></td>
 </tr>
@@ -60,7 +60,7 @@ Release notes are available [here](https://github.com/gura-lang/gura/releases).
 </tr>
 
 <tr>
-<td>MacOS Disk Image</td>
+<td>Mac OS X Disk Image</td>
 <td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version_prev }}/gura-{{ gura_version_prev }}.dmg"
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}.dmg');">gura-{{ gura_version_prev }}.dmg</a></td>
 </tr>
@@ -92,9 +92,9 @@ If you don't want to modify registry, you can just expand ZIP file
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-win32.zip');">gura-{{ gura_version }}-win32.zip</a>
   in some directory and edit PATH environment so that it includes `gura\bin-x86` directory in the expanded content.
 
-## MacOS
+## Mac OS X
 
-It has been confirmed that Gura runs on the following versions of MacOS.
+It has been confirmed that Gura runs on the following versions of Mac OS X.
 
 * OS X 10.9 Mavericks
 
