@@ -20,7 +20,6 @@ Release notes are available [here](https://github.com/gura-lang/gura/releases).
 <td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}-win32.msi"
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-win32.msi');">gura-{{ gura_version }}-win32.msi</a></td>
 </tr>
-<tr>
 
 <tr>
 <td>Windows Binary</td>
@@ -51,7 +50,6 @@ Release notes are available [here](https://github.com/gura-lang/gura/releases).
 <td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version_prev }}/gura-{{ gura_version_prev }}-win32.msi"
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}-win32.msi');">gura-{{ gura_version_prev }}-win32.msi</a></td>
 </tr>
-<tr>
 
 <tr>
 <td>Windows Binary</td>
