@@ -99,7 +99,7 @@ f(false) println('not printed')
 An instance of the <code>array</code> class stores multiple numeric values in a seamless binary sequence, which can be passed without any conversion to functions in C libraries that expect arrays of <code>char</code>, <code>short</code>, <code>int</code> and so on.
 </p>
 <p>
-There are several <code>array</code> classes depending on the element type they handle. They're listed in the the table below:
+There are several <code>array</code> classes for each element type as shown below:
 </p>
 <p>
 <table>
@@ -140,20 +140,6 @@ Element Type</th>
 
 <tr>
 <td>
-<code>array@long</code></td>
-<td>
-<code>long</code></td>
-</tr>
-
-<tr>
-<td>
-<code>array@ulong</code></td>
-<td>
-<code>unsigned long</code></td>
-</tr>
-
-<tr>
-<td>
 <code>array@int</code></td>
 <td>
 <code>int</code></td>
@@ -164,6 +150,34 @@ Element Type</th>
 <code>array@uint</code></td>
 <td>
 <code>unsigned int</code></td>
+</tr>
+
+<tr>
+<td>
+<code>array@int32</code></td>
+<td>
+<code>int32_t</code></td>
+</tr>
+
+<tr>
+<td>
+<code>array@uint32</code></td>
+<td>
+<code>uint32_t</code></td>
+</tr>
+
+<tr>
+<td>
+<code>array@int64</code></td>
+<td>
+<code>int64_t</code></td>
+</tr>
+
+<tr>
+<td>
+<code>array@uint64</code></td>
+<td>
+<code>uint64_t</code></td>
 </tr>
 
 <tr>
@@ -183,12 +197,37 @@ Element Type</th>
 </table>
 
 </p>
+<p>
+In the specification described here, the class name is is represented as <code>array@T</code> where <code>T</code> means its element type.
+</p>
 <h3><span class="caption-index-3">6.2.1</span><a name="anchor-6-2-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">array@T</strong></div>
 <div style="margin-bottom:1em"><code>array@T(arg, init?:number) {block?}</code></div>
-
+Creates an <code>array@T</code> instance. You can call this function in the following formats:
 </p>
+<ul>
+<li><code>array@T(len:number, init?:number)</code> .. Creates an <code>array@T</code> instance that has specified length of buffer. If the argument <code>init</code> is specified, the buffer would be initialized with the value.</li>
+<li><code>array@T(list:list)</code> .. Creates an <code>array@T</code> instance initialized with numbers contained in <code>list</code>.</li>
+</ul>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array@T|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">@T</strong></div>
+<div style="margin-bottom:1em"><code>@T() {block}</code></div>
+Creates an <code>array@T</code> instance that is initialized with values described in <code>block</code>.
+</p>
+<p>
+The code below creates an <code>array@uchar</code> instance that has four elements.
+</p>
+<pre><code>@uchar { 0x01, 0x23, 0x45, 0x67 }
+</code></pre>
+<p>
+The code below creates an <code>array@ushort</code> instance that has three elements.
+</p>
+<pre><code>@ushort { 0x0123, 0x4567, 0x89ab }
+</code></pre>
 <h3><span class="caption-index-3">6.2.2</span><a name="anchor-6-2-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">array@T#dump</strong></div>
@@ -410,11 +449,54 @@ Converts the binary into a hexadecimal string.
 In default, the result string is a sequence of joined hexadecimal values without any space. You can specify the following attribute to change the format:
 </p>
 <ul>
-<li><code>:cstr</code> .. format of C string</li>
-<li><code>:carray</code> .. format of C array</li>
+<li><code>:cstr</code> .. Format of C string.</li>
+<li><code>:carray</code> .. Format of C array.</li>
 </ul>
 <p>
 Alphabet characters are described in lower characters unless the attribute <code>:upper</code> is specified.
+</p>
+<p>
+Example:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Code</th>
+<th>
+Result</th>
+</tr>
+
+<tr>
+<td>
+<code>b'\x01\x23\xab\xcd'.hex()</code></td>
+<td>
+<code>'0123abcd'</code></td>
+</tr>
+
+<tr>
+<td>
+<code>b'\x01\x23\xab\xcd'.hex():upper</code></td>
+<td>
+<code>'0123ABCD'</code></td>
+</tr>
+
+<tr>
+<td>
+<code>b'\x01\x23\xab\xcd'.hex():cstr</code></td>
+<td>
+<code>'\\x01\\x23\\xab\\xcd'</code></td>
+</tr>
+
+<tr>
+<td>
+<code>b'\x01\x23\xab\xcd'.hex():carray</code></td>
+<td>
+<code>'0x01, 0x23, 0xab, 0xcd'</code></td>
+</tr>
+
+</table>
+
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#len</strong></div>
@@ -580,25 +662,25 @@ Creates a <code>stream</code> instance with which you can append data to the bin
 </p>
 <h2><span class="caption-index-2">6.5</span><a name="anchor-6-5"></a>boolean Class</h2>
 <p>
-The <code>boolean</code> class represents a boolean data type that is used in logical operations such as NOT, AND and OR.
+The <code>boolean</code> class represents a boolean data type that is used in logical operations including NOT, AND, OR and XOR.
 </p>
 <p>
-There are only two values of pure <code>boolean</code> type: <code>true</code> and <code>false</code>. But other types of values can also be specified in logical operations according to the following general rule:
+The <code>boolean</code> type provides two values: <code>true</code> and <code>false</code>. The other types of values can also be calculated in logical operations according to the following general rule:
 </p>
 <ul>
-<li>Values <code>false</code> and <code>nil</code> are evaluated as false value.</li>
-<li>Other values are evaluated as true.</li>
+<li>The <code>nil</code> value is evaluated as <code>false</code> value.</li>
+<li>Other values are evaluated as <code>true</code>.</li>
 </ul>
 <p>
-Notice that the number <code>0</code> is treated as true in logical operations.
+Note that the number <code>0</code> is treated as <code>true</code> in logical operations.
 </p>
 <h2><span class="caption-index-2">6.6</span><a name="anchor-6-6"></a>codec Class</h2>
 <p>
 The <code>codec</code> class has features to decoding/encoding character codes stored in <code>string</code> and <code>binary</code>. Following measures are provided:
 </p>
 <ul>
-<li>Decode ... Converts specific character codes stored in <code>binary</code> into UTF-8 code and generages <code>string</code> containing the result. It can also delete a CR code (<code>0x0d</code>) before a LF code (<code>0x0d</code>) at each end of line so that lines in the result are joined with LF code.</li>
-<li>Encode ... Converts UTF-8 character codes stored in <code>string</code> into specific codes and generates <code>binary</code> containing the result. It can also add a CR code (<code>0x0d</code>) before a LF code (<code>0x0a</code>) at each end of line so that lines in the result are joined with CR-LF sequence.</li>
+<li>Decode .. Converts specific character codes stored in <code>binary</code> into UTF-8 code and generages <code>string</code> containing the result. It can also delete a CR code (<code>0x0d</code>) before a LF code (<code>0x0d</code>) at each end of line so that lines in the result are joined with LF code.</li>
+<li>Encode .. Converts UTF-8 character codes stored in <code>string</code> into specific codes and generates <code>binary</code> containing the result. It can also add a CR code (<code>0x0d</code>) before a LF code (<code>0x0a</code>) at each end of line so that lines in the result are joined with CR-LF sequence.</li>
 </ul>
 <p>
 You can utilize these functions using <code>codec</code> class's methods <code>codec#decode()</code> and <code>codec#encode()</code> as well as using <code>stream</code> class's method to read/write text by specifying <code>codec</code> instance when creating its instance.
@@ -607,11 +689,11 @@ You can utilize these functions using <code>codec</code> class's methods <code>c
 The actual functions for encoding and decoding are provided by sub modules under <code>codecs</code> module. Each module provides following codecs:
 </p>
 <ul>
-<li><code>codecs.basic</code> ... <code>us-ascii</code>, <code>utf-8</code>, <code>utf-16</code>, <code>utf-16le</code>, <code>utf-16be</code></li>
-<li><code>codecs.iso8859</code>... <code>iso-8859-1</code>, <code>iso-8859-2</code>, <code>iso-8859-3</code>, <code>iso-8859-4</code>, <code>iso-8859-5</code>, <code>iso-8859-6</code>, <code>iso-8859-7</code>, <code>iso-8859-8</code>, <code>iso-8859-9</code>, <code>iso-8859-10</code>, <code>iso-8859-11</code>, <code>iso-8859-13</code>, <code>iso-8859-14</code>, <code>iso-8859-15</code>, <code>iso-8859-16</code></li>
-<li><code>codecs.korean</code> ... <code>cp949</code>, <code>euc-kr</code></li>
-<li><code>codecs.chinese</code> ... <code>cp936</code>, <code>gb2312</code>, <code>gbk</code>, <code>cp950</code>, <code>big5</code></li>
-<li><code>codecs.japanese</code> ... <code>euc-jp</code>, <code>cp932</code>, <code>shift_jis</code>, <code>ms_kanji</code>, <code>jis</code>, <code>iso-2022-jp</code></li>
+<li><code>codecs.basic</code> .. <code>us-ascii</code>, <code>utf-8</code>, <code>utf-16</code>, <code>utf-16le</code>, <code>utf-16be</code></li>
+<li><code>codecs.iso8859</code>.. <code>iso-8859-1</code>, <code>iso-8859-2</code>, <code>iso-8859-3</code>, <code>iso-8859-4</code>, <code>iso-8859-5</code>, <code>iso-8859-6</code>, <code>iso-8859-7</code>, <code>iso-8859-8</code>, <code>iso-8859-9</code>, <code>iso-8859-10</code>, <code>iso-8859-11</code>, <code>iso-8859-13</code>, <code>iso-8859-14</code>, <code>iso-8859-15</code>, <code>iso-8859-16</code></li>
+<li><code>codecs.korean</code> .. <code>cp949</code>, <code>euc-kr</code></li>
+<li><code>codecs.chinese</code> .. <code>cp936</code>, <code>gb2312</code>, <code>gbk</code>, <code>cp950</code>, <code>big5</code></li>
+<li><code>codecs.japanese</code> .. <code>euc-jp</code>, <code>cp932</code>, <code>shift_jis</code>, <code>ms_kanji</code>, <code>jis</code>, <code>iso-2022-jp</code></li>
 </ul>
 <p>
 Importing other codec modules would expand available codecs. You can call <code>codecs.dir()</code> to get a list of codec names currently available.
@@ -777,15 +859,188 @@ A list of color names that can be passed to <code>color()</code> function.</td>
 <code>color</code></td>
 
 <td>
-color instance created by <code>color(0, 0, 0, 0)</code></td>
+Color instance equivalent with <code>color(0, 0, 0, 0)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.black</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(0, 0, 0, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.maroon</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(128, 0, 0, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.green</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(0, 128, 0, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.olive</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(128, 128, 0, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.navy</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(0, 0, 128, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.purple</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(128, 0, 128, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.teal</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(0, 128, 128, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.gray</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(128, 128, 128, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.silver</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(192, 192, 192, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.red</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(255, 0, 0, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.lime</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(0, 255, 0, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.yellow</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(255, 255, 0, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.blue</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(0, 0, 255, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.fuchsia</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(255, 0, 255, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.aqua</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(0, 255, 255, 255)</code></td>
+</tr>
+
+
+<tr>
+<td>
+<code>color.white</code></td>
+<td>
+<code>color</code></td>
+
+<td>
+Color instance equivalent with <code>color(255, 255, 255, 255)</code></td>
 </tr>
 
 
 </table>
 
-</p>
-<p>
-There are also predefined variables that are defined with <code>color</code> instances of 16 basic colors: <code>color.black</code>, <code>color.maroon</code>, <code>color.green</code>, <code>color.olive</code>, <code>color.navy</code>, <code>color.purple</code>, <code>color.teal</code>, <code>color.gray</code>, <code>color.silver</code>, <code>color.red</code>, <code>color.lime</code>, <code>color.yellow</code>, <code>color.blue</code>, <code>color.fuchsia</code>, <code>color.aqua</code> and <code>color.white</code>.
 </p>
 <h3><span class="caption-index-3">6.7.2</span><a name="anchor-6-7-2"></a>Property</h3>
 <p>
@@ -1478,14 +1733,42 @@ You can also specify a type by describing factors in separate arguments like bel
 </code></pre>
 <h2><span class="caption-index-2">6.11</span><a name="anchor-6-11"></a>dict Class</h2>
 <p>
-The <code>dict</code> class provides measures to handle dictionary data.
+The <code>dict</code> class provides measures to handle dictionary data that can seek values by indexing with their associated keys. You can specify values of <code>string</code>, <code>number</code> and <code>symbol</code> as a dictionary key.
 </p>
 <p>
-You can create a <code>dict</code> instance by calling <code>dict()</code> function.
+You can create a <code>dict</code> instance by following measures:
 </p>
+<ul>
+<li>Calls <code>dict()</code> constructor.</li>
+<li>Calls a function named <code>%</code> that is an alias of <code>dict()</code> constructor.</li>
+</ul>
 <p>
-You can also use a function named <code>%</code> to create an instance that is an alias of <code>dict()</code> function.
+Below are examples to create a <code>dict</code> instance:
 </p>
+<pre><code>dict {'first' =&gt; 1, 'second' =&gt; 2, 'third' =&gt; 3}
+dict {{'first', 1}, {'second', 2}, {'third', 3}}
+dict {'first', 1, 'second', 2, 'third', 3}
+
+dict(['first' =&gt; 1, 'second' =&gt; 2, 'third' =&gt; 3])
+dict([['first', 1], ['second', 2], ['third', 3]])
+dict(['first', 1, 'second', 2, 'third', 3])
+
+%{'first' =&gt; 1, 'second' =&gt; 2, 'third' =&gt; 3}
+%{{'first', 1}, {'second', 2}, {'third', 3}}
+%{'first', 1, 'second', 2, 'third', 3}
+</code></pre>
+<p>
+You can specify different type of values for keys in the same dictionary. In this case, values of different types are just recognized as different values.
+</p>
+<h4><span class="caption-index-4">6.11.0.1</span><a name="anchor-6-11-0-1"></a>Index Access</h4>
+<p>
+You can read and write element values in a <code>dict</code> with an indexer by giving it a key value which type is <code>string</code>, <code>number</code> or <code>symbol</code>. Below is an example:
+</p>
+<pre><code>x = %{'first' =&gt; 1, 'second' =&gt; 2, 'third' =&gt; 3}
+
+println(x['second']) // prints `2`
+x['third'] = 33      // replaces `3` with `33`
+</code></pre>
 <h3><span class="caption-index-3">6.11.1</span><a name="anchor-6-11-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">dict</strong></div>
@@ -1729,7 +2012,7 @@ Explanation</th>
 <code>error.ArgumentError</code></td>
 
 <td>
-</td>
+Argument error.</td>
 </tr>
 
 
@@ -1738,7 +2021,7 @@ Explanation</th>
 <code>error.ArithmeticError</code></td>
 
 <td>
-</td>
+Arithmetic error.</td>
 </tr>
 
 
@@ -1747,7 +2030,7 @@ Explanation</th>
 <code>error.AttributeError</code></td>
 
 <td>
-</td>
+Invalid attribute is specified.</td>
 </tr>
 
 
@@ -1756,7 +2039,7 @@ Explanation</th>
 <code>error.CodecError</code></td>
 
 <td>
-</td>
+An error that is related to codec process.</td>
 </tr>
 
 
@@ -1765,7 +2048,7 @@ Explanation</th>
 <code>error.CommandError</code></td>
 
 <td>
-</td>
+An error that could happen in command line.</td>
 </tr>
 
 
@@ -1774,7 +2057,7 @@ Explanation</th>
 <code>error.DeclarationError</code></td>
 
 <td>
-</td>
+An error in a function's declarations.</td>
 </tr>
 
 
@@ -1864,7 +2147,7 @@ Explanation</th>
 <code>error.NotImplementedError</code></td>
 
 <td>
-</td>
+An error that could occur when a called function has no implemented body but an entry.</td>
 </tr>
 
 
@@ -1873,7 +2156,7 @@ Explanation</th>
 <code>error.OutOfRange</code></td>
 
 <td>
-</td>
+Index number is out of range.</td>
 </tr>
 
 
@@ -1882,7 +2165,7 @@ Explanation</th>
 <code>error.ResourceError</code></td>
 
 <td>
-</td>
+Resource error.</td>
 </tr>
 
 
@@ -1891,7 +2174,7 @@ Explanation</th>
 <code>error.RuntimeError</code></td>
 
 <td>
-</td>
+Runtime error.</td>
 </tr>
 
 
@@ -1900,7 +2183,7 @@ Explanation</th>
 <code>error.SyntaxError</code></td>
 
 <td>
-</td>
+Syntax error.</td>
 </tr>
 
 
@@ -1909,7 +2192,7 @@ Explanation</th>
 <code>error.SystemError</code></td>
 
 <td>
-</td>
+System error.</td>
 </tr>
 
 
@@ -1918,7 +2201,7 @@ Explanation</th>
 <code>error.TypeError</code></td>
 
 <td>
-</td>
+Type error.</td>
 </tr>
 
 
@@ -1927,7 +2210,7 @@ Explanation</th>
 <code>error.ValueError</code></td>
 
 <td>
-</td>
+Invalid value is specified.</td>
 </tr>
 
 
@@ -1936,7 +2219,7 @@ Explanation</th>
 <code>error.ZeroDivisionError</code></td>
 
 <td>
-</td>
+Zero-division occured in division or modulo operations.</td>
 </tr>
 
 
@@ -2044,6 +2327,9 @@ Stack trace.</td>
 
 </p>
 <h2><span class="caption-index-2">6.15</span><a name="anchor-6-15"></a>expr Class</h2>
+<p>
+The <code>expr</code> class provides inromation about the language's syntax expression.
+</p>
 <h3><span class="caption-index-3">6.15.1</span><a name="anchor-6-15-1"></a>Property</h3>
 <p>
 An <code>expr</code> instance has the following properties:
@@ -3865,6 +4151,22 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 Creates an iterator that returns each element with an interval time specified by the argument <code>delay</code> in seconds.
 </p>
 <p>
+<div><strong style="text-decoration:underline">iterator#finite</strong></div>
+<div style="margin-bottom:1em"><code>iterator#finite():reduce</code></div>
+Marks the iterator as a finite one by clearing its infinite flag.
+</p>
+<p>
+This method returns the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">iterator#infinite</strong></div>
+<div style="margin-bottom:1em"><code>iterator#infinite():reduce</code></div>
+Marks the iterator as an infinite one by setting its infinite flag.
+</p>
+<p>
+This method returns the target instance itself.
+</p>
+<p>
 <div><strong style="text-decoration:underline">iterator#isinfinite</strong></div>
 <div style="margin-bottom:1em"><code>iterator#isinfinite()</code></div>
 Returns <code>true</code> if the iterator is infinite one.
@@ -4910,9 +5212,12 @@ Below is an example with <code>:transpose</code> attribute:
 Returns a transposed matrix.
 </p>
 <h2><span class="caption-index-2">6.22</span><a name="anchor-6-22"></a>nil Class</h2>
+<p>
+The <code>nil</code> class is the class of <code>nil</code> value that is usually used as an invalid value. In a logical operation, the <code>nil</code> value is recognized as <code>false</code>.
+</p>
 <h2><span class="caption-index-2">6.23</span><a name="anchor-6-23"></a>number Class</h2>
 <p>
-The <code>number</code> class provides measures to calculate numbers.
+The <code>number</code> class is a type of number values. A number literal would create a <code>number</code> instance.
 </p>
 <h3><span class="caption-index-3">6.23.1</span><a name="anchor-6-23-1"></a>Method</h3>
 <p>
@@ -5966,7 +6271,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 Replaces string parts according to a list of pairs of a matching and a substituting string and returns the result.
 </p>
 <p>
-The argument <code>map</code> contains the replacing list in a format of <code>[match1, sub1, match2, sub2, ..]</code>.
+The argument <code>map</code> is a <code>list</code> of match-substitution paris like <code>[match1, sub1, match2, sub2, ..]</code> with which a sub string that matches <code>match</code><em>n</em> would be replaced with <code>sub</code><em>n</em>.
 </p>
 <p>
 The argument <code>count</code> limits the maximum number of substitution. If omitted, there's no limit of the work.
@@ -6417,6 +6722,11 @@ Offset of micro seconds.</td>
 Returns a timedelta instance with specified values. The instance actually holds properties of days, secs and usecs.
 </p>
 <h2><span class="caption-index-2">6.35</span><a name="anchor-6-35"></a>uri Class</h2>
+<p>
+The <code>uri</code> instance analyzes a URI string and returns each part in it such as the scheme and path. A generic URI has the following format:
+</p>
+<pre><code>scheme:[//[user:password@]host:port]][/]path[?query][#fragment]
+</code></pre>
 <h3><span class="caption-index-3">6.35.1</span><a name="anchor-6-35-1"></a>Property</h3>
 <p>
 A <code>uri</code> instance has the following properties:
@@ -6444,7 +6754,7 @@ Explanation</th>
 R/W</td>
 
 <td>
-</td>
+Scheme part in the URI.</td>
 </tr>
 
 
@@ -6457,7 +6767,7 @@ R/W</td>
 R/W</td>
 
 <td>
-</td>
+User part in the URI.</td>
 </tr>
 
 
@@ -6470,7 +6780,7 @@ R/W</td>
 R/W</td>
 
 <td>
-</td>
+Password part in the URI.</td>
 </tr>
 
 
@@ -6483,7 +6793,7 @@ R/W</td>
 R/W</td>
 
 <td>
-</td>
+Host part in the URI.</td>
 </tr>
 
 
@@ -6496,7 +6806,7 @@ R/W</td>
 R/W</td>
 
 <td>
-</td>
+Port part in the URI.</td>
 </tr>
 
 
@@ -6509,7 +6819,7 @@ R/W</td>
 R/W</td>
 
 <td>
-</td>
+URL path part in the URI, which contains the path, query and fragment part.</td>
 </tr>
 
 
@@ -6522,7 +6832,7 @@ R/W</td>
 R/W</td>
 
 <td>
-</td>
+Misc part in the URI.</td>
 </tr>
 
 
@@ -6545,22 +6855,170 @@ If omitted, the instance would be initialized as an empty one.
 <p>
 <div><strong style="text-decoration:underline">uri#getfragment</strong></div>
 <div style="margin-bottom:1em"><code>uri#getfragment()</code></div>
-Returns the fragment part contained in the URI path of the <code>uri</code> instance.
+Returns the fragment part contained in the URI path.
 </p>
 <p>
 <div><strong style="text-decoration:underline">uri#getpath</strong></div>
 <div style="margin-bottom:1em"><code>uri#getpath()</code></div>
-Returns the path part contained in the URI path of the <code>uri</code> instance.
+Returns the path part contained in the URI path.
 </p>
 <p>
 <div><strong style="text-decoration:underline">uri#getquery</strong></div>
 <div style="margin-bottom:1em"><code>uri#getquery()</code></div>
-Returns the query part contained in the URI path of the <code>uri</code> instance.
+Returns a <code>dict</code> instance that is made from the query part in the URI path.
 </p>
 <p>
 <div><strong style="text-decoration:underline">uri.parsequery</strong></div>
 <div style="margin-bottom:1em"><code>uri.parsequery(query:string):static:map</code></div>
-Parses a query string and returns a dictionary that contains key-value pairs of the query.
+This is a utility function to parse a query string and return a <code>dict</code> instance that contains key-value pairs for the query.
+</p>
+<h3><span class="caption-index-3">6.35.4</span><a name="anchor-6-35-4"></a>Cast Operation</h3>
+<p>
+A function that expects a <code>uri</code> instance in its argument can also take a value of <code>string</code> that is recognized as a URI string.
+</p>
+<p>
+With the above casting feature, you can call a function <code>f(uri:uri)</code> that takes a <code>uri</code> instance in its argument as below:
+</p>
+<ul>
+<li><code>f(uri('http://example.com'))</code> .. The most explicit way.</li>
+<li><code>f('http://example.com')</code> .. Implicit casting: from <code>string</code> to <code>uri</code>.</li>
+</ul>
+<h2><span class="caption-index-2">6.36</span><a name="anchor-6-36"></a>vertex Class</h2>
+<p>
+The <code>vertex</code> class provides vertex information that consists of x, y, z and w values.
+</p>
+<h3><span class="caption-index-3">6.36.1</span><a name="anchor-6-36-1"></a>Property</h3>
+<p>
+An <code>vertex</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>x</code></td>
+<td>
+<code>number</code></td>
+<td>
+R/W</td>
+
+<td>
+</td>
+
+</tr>
+
+
+<tr>
+<td>
+<code>y</code></td>
+<td>
+<code>number</code></td>
+<td>
+R/W</td>
+
+<td>
+</td>
+
+</tr>
+
+
+<tr>
+<td>
+<code>z</code></td>
+<td>
+<code>number</code></td>
+<td>
+R/W</td>
+
+<td>
+</td>
+
+</tr>
+
+
+<tr>
+<td>
+<code>w</code></td>
+<td>
+<code>number</code></td>
+<td>
+R/W</td>
+
+<td>
+</td>
+
+</tr>
+
+
+</table>
+
+</p>
+<h3><span class="caption-index-3">6.36.2</span><a name="anchor-6-36-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">vertex</strong></div>
+<div style="margin-bottom:1em"><code>vertex(x:number, y:number, z?:number):map {block?}</code></div>
+
+</p>
+<h3><span class="caption-index-3">6.36.3</span><a name="anchor-6-36-3"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">vertex#rotate@x</strong></div>
+<div style="margin-bottom:1em"><code>vertex#rotate@x(angle:number):[deg] {block?}</code></div>
+Creates a <code>vertex</code> that is rotated from the target <code>vertex</code> around X-axis by the specified <code>angle</code> in radian. It would be rotated in a direction of tilting Y-axis toward Z-axis.
+</p>
+<p>
+If the attribute <code>:deg</code> is specified, you can specify the <code>angle</code> in degree unit.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|v:vertex|</code>, where <code>v</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">vertex#rotate@y</strong></div>
+<div style="margin-bottom:1em"><code>vertex#rotate@y(angle:number):[deg] {block?}</code></div>
+Creates a <code>vertex</code> that is rotated from the target <code>vertex</code> around Y-axis by the specified <code>angle</code> in radian. It would be rotated in a direction of tilting Z-axis toward X-axis.
+</p>
+<p>
+If the attribute <code>:deg</code> is specified, you can specify the <code>angle</code> in degree unit.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|v:vertex|</code>, where <code>v</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">vertex#rotate@z</strong></div>
+<div style="margin-bottom:1em"><code>vertex#rotate@z(angle:number):[deg] {block?}</code></div>
+Creates a <code>vertex</code> that is rotated from the target <code>vertex</code> around Z-axis by the specified <code>angle</code> in radian. It would be rotated in a direction of tilting X-axis toward Y-axis.
+</p>
+<p>
+If the attribute <code>:deg</code> is specified, you can specify the <code>angle</code> in degree unit.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|v:vertex|</code>, where <code>v</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">vertex#tolist</strong></div>
+<div style="margin-bottom:1em"><code>vertex#tolist() {block?}</code></div>
+Creates a <code>list</code> that contains coordinate values <code>[x, y, z]</code> of the target <code>vertex</code>.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|list:list|</code>, where <code>list</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">vertex#translate</strong></div>
+<div style="margin-bottom:1em"><code>vertex#translate(tx:number, ty:number, tz?:number) {block?}</code></div>
+Creates a <code>vertex</code> that is translated from the target <code>vertex</code> by the specified offsets <code>tx</code>, <code>ty</code> and <code>tz</code>.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|v:vertex|</code>, where <code>v</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p />
 

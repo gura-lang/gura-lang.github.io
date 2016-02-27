@@ -75,10 +75,11 @@ Release notes are available [here](https://github.com/gura-lang/gura/releases).
 
 ## Windows
 
-It has been confirmed that Gura runs on the following versions of Windows.
+It has been confirmed that Gura runs on the following versions of Windows:
 
 * Windows 7
 * Windows 8.1
+* Windows 10
 
 Launch the installer
 <a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}-win32.msi"

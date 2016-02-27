@@ -15,6 +15,9 @@ Below is an example to read an ICO file:
 <pre><code>import(msico)
 img = image('foo.ico')
 </code></pre>
+<p>
+This module has been implemented referring to the specification: <a href="http://msdn.microsoft.com/en-us/library/ms997538.aspx">http://msdn.microsoft.com/en-us/library/ms997538.aspx</a>.
+</p>
 <h2><span class="caption-index-2">34.1</span><a name="anchor-34-1"></a>Exntension to Function's Capability</h2>
 <p>
 This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write ICO files.

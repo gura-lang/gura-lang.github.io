@@ -10,7 +10,8 @@ title: Gura Library Reference
 The <code>cairo</code> module provides methods to draw 2-D graphics using Cairo library. Official site of Cairo is <a href="http://cairographics.org/">http://cairographics.org/</a>.
 </p>
 <h2><span class="caption-index-2">11.1</span><a name="anchor-11-1"></a>Drawing</h2>
-<h3><span class="caption-index-3">11.1.1</span><a name="anchor-11-1-1"></a>cairo_t - The cairo drawing context</h3>
+<h3><span class="caption-index-3">11.1.1</span><a name="anchor-11-1-1"></a>cairo.context - The cairo drawing context</h3>
+<h4><span class="caption-index-4">11.1.1.1</span><a name="anchor-11-1-1-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#status</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#status()</code></div>
@@ -22,7 +23,7 @@ Checks whether an error has previously occurred for this context.
 Makes a copy of the current state of cr and saves it on an internal stack of saved states for cr. When <code>cairo.context#restore()</code> is called, cr will be restored to the saved state. Multiple calls to <code>cairo.context#save()</code> and <code>cairo.context#restore()</code> can be nested; each call to <code>cairo.context#restore()</code> restores the state from the matching paired <code>cairo.context#save()</code>.
 </p>
 <p>
-It isn't necessary to clear all saved states before a cairo_t is freed. If the reference count of a cairo_t drops to zero in response to a call to <code>cairo.context#destroy()</code>, any saved states will be freed along with the cairo_t.
+It isn't necessary to clear all saved states before a cairo_t is freed. If the reference count of a cairo_t drops to zero in response to a call to <code>cairo.context#destroy()</code>, any saved states will be freed along with the <code>cairo_t</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#restore</strong></div>
@@ -32,7 +33,7 @@ Restores cr to the state saved by a preceding call to <code>cairo.context#save()
 <p>
 <div><strong style="text-decoration:underline">cairo.context#get_target</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#get_target()</code></div>
-Gets the target surface for the cairo context as passed to cairo.context constructor.
+Gets the target surface for the cairo context as passed to <code>cairo.context</code> constructor.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#push_group</strong></div>
@@ -189,10 +190,10 @@ Gets the current fill rule, as set by <code>cairo.context#set_fill_rule()</code>
 Sets the current line cap style within the cairo context. See <code>cairo_line_cap_t</code> for details about how the available line cap styles are drawn.
 </p>
 <p>
-As with the other stroke parameters, the current line cap style is examined by cairo.context#stroke(), cairo.context#stroke_extents(), and cairo.context#stroke_to_path(), but does not have any effect during path construction.
+As with the other stroke parameters, the current line cap style is examined by <code>cairo.context#stroke()</code>, <code>cairo.context#stroke_extents()</code>, and <code>cairo.context#stroke_to_path()</code>, but does not have any effect during path construction.
 </p>
 <p>
-The default line cap style is cairo.LINE_CAP_BUTT.
+The default line cap style is <code>cairo.LINE_CAP_BUTT</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#get_line_cap</strong></div>
@@ -202,7 +203,7 @@ Gets the current line cap style, as set by <code>cairo.context#set_line_cap()</c
 <p>
 <div><strong style="text-decoration:underline">cairo.context#set_line_join</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#set_line_join(line_join:number):reduce</code></div>
-Sets the current line join style within the cairo context. See cairo_line_join_t for details about how the available line join styles are drawn.
+Sets the current line join style within the cairo context. See <code>cairo_line_join_t</code> for details about how the available line join styles are drawn.
 </p>
 <p>
 As with the other stroke parameters, the current line join style is examined by <code>cairo.context#stroke()</code>, <code>cairo.context#stroke_extents()</code>, and <code>cairo.context#stroke_to_path()</code>, but does not have any effect during path construction.
@@ -221,10 +222,10 @@ Gets the current line join style, as set by <code>cairo.context#set_line_join()<
 Sets the current line width within the cairo context. The line width value specifies the diameter of a pen that is circular in user space, (though device-space pen may be an ellipse in general due to scaling/shear/rotation of the CTM).
 </p>
 <p>
-Note: When the description above refers to user space and CTM it refers to the user space and CTM in effect at the time of the stroking operation, not the user space and CTM in effect at the time of the call to cairo.context#set_line_width(). The simplest usage makes both of these spaces identical. That is, if there is no change to the CTM between a call to cairo.context#set_line_width() and the stroking operation, then one can just pass user-space values to cairo.context#set_line_width() and ignore this note.
+Note: When the description above refers to user space and CTM it refers to the user space and CTM in effect at the time of the stroking operation, not the user space and CTM in effect at the time of the call to <code>cairo.context#set_line_width()</code>. The simplest usage makes both of these spaces identical. That is, if there is no change to the CTM between a call to <code>cairo.context#set_line_width()</code> and the stroking operation, then one can just pass user-space values to <code>cairo.context#set_line_width()</code> and ignore this note.
 </p>
 <p>
-As with the other stroke parameters, the current line width is examined by cairo.context#stroke(), cairo.context#stroke_extents(), and cairo.context#stroke_to_path(), but does not have any effect during path construction.
+As with the other stroke parameters, the current line width is examined by <code>cairo.context#stroke()</code>, <code>cairo.context#stroke_extents()</code>, and <code>cairo.context#stroke_to_path()</code>, but does not have any effect during path construction.
 </p>
 <p>
 The default line width value is 2.0.
@@ -232,7 +233,7 @@ The default line width value is 2.0.
 <p>
 <div><strong style="text-decoration:underline">cairo.context#get_line_width</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#get_line_width()</code></div>
-This function returns the current line width value exactly as set by cairo.context#set_line_width(). Note that the value is unchanged even if the CTM has changed between the calls to cairo.context#set_line_width() and cairo.context#get_line_width().
+This function returns the current line width value exactly as set by <code>cairo.context#set_line_width()</code>. Note that the value is unchanged even if the CTM has changed between the calls to <code>cairo.context#set_line_width()</code> and <code>cairo.context#get_line_width()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#set_miter_limit</strong></div>
@@ -240,10 +241,10 @@ This function returns the current line width value exactly as set by cairo.conte
 Sets the current miter limit within the cairo context.
 </p>
 <p>
-If the current line join style is set to cairo.LINE_JOIN_MITER (see cairo_set_line_join()), the miter limit is used to determine whether the lines should be joined with a bevel instead of a miter. Cairo divides the length of the miter by the line width. If the result is greater than the miter limit, the style is converted to a bevel.
+If the current line join style is set to <code>cairo.LINE_JOIN_MITER</code> (see <code>cairo.context#set_line_join()</code>), the miter limit is used to determine whether the lines should be joined with a bevel instead of a miter. Cairo divides the length of the miter by the line width. If the result is greater than the miter limit, the style is converted to a bevel.
 </p>
 <p>
-As with the other stroke parameters, the current line miter limit is examined by cairo.context#stroke(), cairo.context#stroke_extents(), and cairo.context#stroke_to_path(), but does not have any effect during path construction.
+As with the other stroke parameters, the current line miter limit is examined by <code>cairo.context#stroke()</code>, <code>cairo.context#stroke_extents()</code>, and <code>cairo.context#stroke_to_path()</code>, but does not have any effect during path construction.
 </p>
 <p>
 The default miter limit value is 10.0, which will convert joins with interior angles less than 11 degrees to bevels instead of miters. For reference, a miter limit of 2.0 makes the miter cutoff at 60 degrees, and a miter limit of 1.414 makes the cutoff at 90 degrees.
@@ -259,10 +260,10 @@ Gets the current miter limit, as set by cairo.context#set_miter_limit().
 <p>
 <div><strong style="text-decoration:underline">cairo.context#set_operator</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#set_operator(op:number):reduce</code></div>
-Sets the compositing operator to be used for all drawing operations. See cairo_operator_t for details on the semantics of each available compositing operator.
+Sets the compositing operator to be used for all drawing operations. See <code>cairo_operator_t</code> for details on the semantics of each available compositing operator.
 </p>
 <p>
-The default operator is cairo.OPERATOR_OVER.
+The default operator is <code>cairo.OPERATOR_OVER</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#get_operator</strong></div>
@@ -277,32 +278,32 @@ Sets the tolerance used when converting paths into trapezoids. Curved segments o
 <p>
 <div><strong style="text-decoration:underline">cairo.context#get_tolerance</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#get_tolerance()</code></div>
-Gets the current tolerance value, as set by cairo.context#set_tolerance().
+Gets the current tolerance value, as set by <code>cairo.context#set_tolerance()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#clip</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#clip():reduce</code></div>
-Establishes a new clip region by intersecting the current clip region with the current path as it would be filled by cairo.context#fill() and according to the current fill rule (see cairo.context#set_fill_rule()).
+Establishes a new clip region by intersecting the current clip region with the current path as it would be filled by <code>cairo.context#fill()</code> and according to the current fill rule (see <code>cairo.context#set_fill_rule()</code>).
 </p>
 <p>
-After cairo.context#clip(), the current path will be cleared from the cairo context.
+After <code>cairo.context#clip()</code>, the current path will be cleared from the cairo context.
 </p>
 <p>
 The current clip region affects all drawing operations by effectively masking out any changes to the surface that are outside the current clip region.
 </p>
 <p>
-Calling cairo.context#clip() can only make the clip region smaller, never larger. But the current clip is part of the graphics state, so a temporary restriction of the clip region can be achieved by calling cairo.context#clip() within a cairo.context#save()/cairo.context#restore() pair. The only other means of increasing the size of the clip region is cairo.context#reset_clip().
+Calling <code>cairo.context#clip()</code> can only make the clip region smaller, never larger. But the current clip is part of the graphics state, so a temporary restriction of the clip region can be achieved by calling <code>cairo.context#clip()</code> within a <code>cairo.context#save()</code>/<code>cairo.context#restore()</code> pair. The only other means of increasing the size of the clip region is <code>cairo.context#reset_clip()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#clip_preserve</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#clip_preserve():reduce</code></div>
-Establishes a new clip region by intersecting the current clip region with the current path as it would be filled by cairo.context#fill() and according to the current fill rule (see cairo.context#set_fill_rule()). Unlike cairo.context#clip(), cairo.context#clip_preserve() preserves the path within the cairo context.
+Establishes a new clip region by intersecting the current clip region with the current path as it would be filled by <code>cairo.context#fill()</code> and according to the current fill rule (see <code>cairo.context#set_fill_rule()</code>). Unlike <code>cairo.context#clip()</code>, <code>cairo.context#clip_preserve()</code> preserves the path within the cairo context.
 </p>
 <p>
 The current clip region affects all drawing operations by effectively masking out any changes to the surface that are outside the current clip region.
 </p>
 <p>
-Calling cairo.context#clip_preserve() can only make the clip region smaller, never larger. But the current clip is part of the graphics state, so a temporary restriction of the clip region can be achieved by calling cairo.context#clip_preserve() within a cairo.context#save()/cairo.context#restore() pair. The only other means of increasing the size of the clip region is cairo.context#reset_clip().
+Calling <code>cairo.context#clip_preserve()</code> can only make the clip region smaller, never larger. But the current clip is part of the graphics state, so a temporary restriction of the clip region can be achieved by calling <code>cairo.context#clip_preserve()</code> within a <code>cairo.context#save()</code>/<code>cairo.context#restore()</code> pair. The only other means of increasing the size of the clip region is <code>cairo.context#reset_clip()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#clip_extents</strong></div>
@@ -312,10 +313,10 @@ Computes a bounding box in user coordinates covering the area inside the current
 <p>
 <div><strong style="text-decoration:underline">cairo.context#in_clip</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#in_clip(x:number, y:number)</code></div>
-Tests whether the given point is inside the area that would be visible through the current clip, i.e. the area that would be filled by a cairo.context#paint() operation.
+Tests whether the given point is inside the area that would be visible through the current clip, i.e. the area that would be filled by a <code>cairo.context#paint()</code> operation.
 </p>
 <p>
-See cairo.context#clip(), and cairo.context#clip_preserve().
+See <code>cairo.context#clip()</code>, and <code>cairo.context#clip_preserve()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#reset_clip</strong></div>
@@ -323,7 +324,7 @@ See cairo.context#clip(), and cairo.context#clip_preserve().
 Reset the current clip region to its original, unrestricted state. That is, set the clip region to an infinitely large shape containing the target surface. Equivalently, if infinity is too hard to grasp, one can imagine the clip region being reset to the exact bounds of the target surface.
 </p>
 <p>
-Note that code meant to be reusable should not call cairo_reset_clip() as it will cause results unexpected by higher-level code which calls cairo.context#clip(). Consider using cairo.context#save() and cairo.context#restore() around cairo.context#clip() as a more robust means of temporarily restricting the clip region.
+Note that code meant to be reusable should not call <code>cairo.context#reset_clip()</code> as it will cause results unexpected by higher-level code which calls <code>cairo.context#clip()</code>. Consider using <code>cairo.context#save()</code> and <code>cairo.context#restore()</code> around <code>cairo.context#clip()</code> as a more robust means of temporarily restricting the clip region.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#copy_clip_rectangle_list</strong></div>
@@ -331,42 +332,42 @@ Note that code meant to be reusable should not call cairo_reset_clip() as it wil
 Gets the current clip region as a list of rectangles in user coordinates.
 </p>
 <p>
-The status in the list may be cairo.STATUS_CLIP_NOT_REPRESENTABLE to indicate that the clip region cannot be represented as a list of user-space rectangles. The status may have other values to indicate other errors.
+The status in the list may be <code>cairo.STATUS_CLIP_NOT_REPRESENTABLE</code> to indicate that the clip region cannot be represented as a list of user-space rectangles. The status may have other values to indicate other errors.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#fill</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#fill():reduce</code></div>
-A drawing operator that fills the current path according to the current fill rule, (each sub-path is implicitly closed before being filled). After cairo.context#fill(), the current path will be cleared from the cairo context. See cairo.context#set_fill_rule() and cairo.context#fill_preserve().
+A drawing operator that fills the current path according to the current fill rule, (each sub-path is implicitly closed before being filled). After <code>cairo.context#fill()</code>, the current path will be cleared from the cairo context. See <code>cairo.context#set_fill_rule()</code> and <code>cairo.context#fill_preserve()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#fill_preserve</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#fill_preserve():reduce</code></div>
-A drawing operator that fills the current path according to the current fill rule, (each sub-path is implicitly closed before being filled). Unlike cairo.context#fill(), cairo.context#fill_preserve() preserves the path within the cairo context.
+A drawing operator that fills the current path according to the current fill rule, (each sub-path is implicitly closed before being filled). Unlike <code>cairo.context#fill()</code>, <code>cairo.context#fill_preserve()</code> preserves the path within the cairo context.
 </p>
 <p>
-See cairo.context#set_fill_rule() and cairo.context#fill().
+See <code>cairo.context#set_fill_rule()</code> and <code>cairo.context#fill()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#fill_extents</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#fill_extents():reduce</code></div>
-Computes a bounding box in user coordinates covering the area that would be affected, (the "inked" area), by a cairo.context#fill() operation given the current path and fill parameters. If the current path is empty, returns an empty rectangle ((0,0), (0,0)). Surface dimensions and clipping are not taken into account.
+Computes a bounding box in user coordinates covering the area that would be affected, (the "inked" area), by a <code>cairo.context#fill()</code> operation given the current path and fill parameters. If the current path is empty, returns an empty rectangle ((0,0), (0,0)). Surface dimensions and clipping are not taken into account.
 </p>
 <p>
-Contrast with cairo.context#path_extents(), which is similar, but returns non-zero extents for some paths with no inked area, (such as a simple line segment).
+Contrast with <code>cairo.context#path_extents()</code>, which is similar, but returns non-zero extents for some paths with no inked area, (such as a simple line segment).
 </p>
 <p>
-Note that cairo.context#fill_extents() must necessarily do more work to compute the precise inked areas in light of the fill rule, so cairo.context#path_extents() may be more desirable for sake of performance if the non-inked path extents are desired.
+Note that <code>cairo.context#fill_extents()</code> must necessarily do more work to compute the precise inked areas in light of the fill rule, so <code>cairo.context#path_extents()</code> may be more desirable for sake of performance if the non-inked path extents are desired.
 </p>
 <p>
-See cairo.context#fill(), cairo.context#set_fill_rule() and cairo.context#fill_preserve().
+See <code>cairo.context#fill()</code>, <code>cairo.context#set_fill_rule()</code> and <code>cairo.context#fill_preserve()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#in_fill</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#in_fill(x:number, y:number)</code></div>
-Tests whether the given point is inside the area that would be affected by a cairo.context#fill() operation given the current path and filling parameters. Surface dimensions and clipping are not taken into account.
+Tests whether the given point is inside the area that would be affected by a <code>cairo.context#fill()</code> operation given the current path and filling parameters. Surface dimensions and clipping are not taken into account.
 </p>
 <p>
-See cairo.context#fill(), cairo.context#set_fill_rule() and cairo.context#fill_preserve().
+See <code>cairo.context#fill()</code>, <code>cairo.context#set_fill_rule()</code> and <code>cairo.context#fill_preserve()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#mask</strong></div>
@@ -391,25 +392,25 @@ A drawing operator that paints the current source everywhere within the current 
 <p>
 <div><strong style="text-decoration:underline">cairo.context#stroke</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#stroke():reduce</code></div>
-A drawing operator that strokes the current path according to the current line width, line join, line cap, and dash settings. After cairo.context#stroke(), the current path will be cleared from the cairo context. See cairo.context#set_line_width(), cairo.context#set_line_join(), cairo.context#set_line_cap(), cairo.context#set_dash(), and cairo.context#stroke_preserve().
+A drawing operator that strokes the current path according to the current line width, line join, line cap, and dash settings. After <code>cairo.context#stroke()</code>, the current path will be cleared from the cairo context. See <code>cairo.context#set_line_width()</code>, <code>cairo.context#set_line_join()</code>, <code>cairo.context#set_line_cap()</code>, <code>cairo.context#set_dash()</code>, and <code>cairo.context#stroke_preserve()</code>.
 </p>
 <p>
 Note: Degenerate segments and sub-paths are treated specially and provide a useful result. These can result in two different situations:
 </p>
 <ol>
-<li>Zero-length "on" segments set in cairo.context#set_dash(). If the cap style is cairo.LINE_CAP_ROUND or cairo.LINE_CAP_SQUARE then these segments will be drawn as circular dots or squares respectively. In the case of cairo.LINE_CAP_SQUARE, the orientation of the squares is determined by the direction of the underlying path.</li>
-<li>A sub-path created by cairo.context#move_to() followed by either a cairo.context#close_path() or one or more calls to cairo.context#line_to() to the same coordinate as the cairo.context#move_to(). If the cap style is cairo.LINE_CAP_ROUND then these sub-paths will be drawn as circular dots. Note that in the case of cairo.LINE_CAP_SQUARE a degenerate sub-path will not be drawn at all, (since the correct orientation is indeterminate).</li>
+<li>Zero-length "on" segments set in cairo.context#set_dash(). If the cap style is <code>cairo.LINE_CAP_ROUND</code> or <code>cairo.LINE_CAP_SQUARE</code> then these segments will be drawn as circular dots or squares respectively. In the case of <code>cairo.LINE_CAP_SQUARE</code>, the orientation of the squares is determined by the direction of the underlying path.</li>
+<li>A sub-path created by <code>cairo.context#move_to()</code> followed by either a <code>cairo.context#close_path()</code> or one or more calls to <code>cairo.context#line_to()</code> to the same coordinate as the <code>cairo.context#move_to()</code>. If the cap style is <code>cairo.LINE_CAP_ROUND</code> then these sub-paths will be drawn as circular dots. Note that in the case of <code>cairo.LINE_CAP_SQUARE</code> a degenerate sub-path will not be drawn at all, (since the correct orientation is indeterminate).</li>
 </ol>
 <p>
-In no case will a cap style of cairo.LINE_CAP_BUTT cause anything to be drawn in the case of either degenerate segments or sub-paths.
+In no case will a cap style of <code>cairo.LINE_CAP_BUTT</code> cause anything to be drawn in the case of either degenerate segments or sub-paths.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#stroke_preserve</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#stroke_preserve():reduce</code></div>
-A drawing operator that strokes the current path according to the current line width, line join, line cap, and dash settings. Unlike cairo.context#stroke(), cairo.context#stroke_preserve() preserves the path within the cairo context.
+A drawing operator that strokes the current path according to the current line width, line join, line cap, and dash settings. Unlike <code>cairo.context#stroke()</code>, <code>cairo.context#stroke_preserve()</code> preserves the path within the cairo context.
 </p>
 <p>
-See cairo.context#set_line_width(), cairo.context#set_line_join(), cairo.context#set_line_cap(), cairo.context#set_dash(), and cairo.context#stroke_preserve().
+See <code>cairo.context#set_line_width()</code>, <code>cairo.context#set_line_join()</code>, <code>cairo.context#set_line_cap()</code>, <code>cairo.context#set_dash()</code>, and <code>cairo.context#stroke_preserve()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#stroke_extents</strong></div>
@@ -417,47 +418,118 @@ See cairo.context#set_line_width(), cairo.context#set_line_join(), cairo.context
 Computes a bounding box in user coordinates covering the area that would be affected, (the "inked" area), by a cairo.context#stroke() operation given the current path and stroke parameters. If the current path is empty, returns an empty rectangle ((0,0), (0,0)). Surface dimensions and clipping are not taken into account.
 </p>
 <p>
-Note that if the line width is set to exactly zero, then cairo.context#stroke_extents() will return an empty rectangle. Contrast with cairo.context#path_extents() which can be used to compute the non-empty bounds as the line width approaches zero.
+Note that if the line width is set to exactly zero, then <code>cairo.context#stroke_extents()</code> will return an empty rectangle. Contrast with <code>cairo.context#path_extents()</code> which can be used to compute the non-empty bounds as the line width approaches zero.
 </p>
 <p>
-Note that cairo.context#stroke_extents() must necessarily do more work to compute the precise inked areas in light of the stroke parameters, so cairo.context#path_extents() may be more desirable for sake of performance if non-inked path extents are desired.
+Note that <code>cairo.context#stroke_extents()</code> must necessarily do more work to compute the precise inked areas in light of the stroke parameters, so <code>cairo.context#path_extents()</code> may be more desirable for sake of performance if non-inked path extents are desired.
 </p>
 <p>
-See cairo.context#stroke(), cairo.context#set_line_width(), cairo.context#set_line_join(), cairo.context#set_line_cap(), cairo.context#set_dash(), and cairo.context#stroke_preserve().
+See <code>cairo.context#stroke()</code>, <code>cairo.context#set_line_width()</code>, <code>cairo.context#set_line_join()</code>, <code>cairo.context#set_line_cap()</code>, <code>cairo.context#set_dash()</code>, and <code>cairo.context#stroke_preserve()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#in_stroke</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#in_stroke(x:number, y:number)</code></div>
-Tests whether the given point is inside the area that would be affected by a cairo.context#stroke() operation given the current path and stroking parameters. Surface dimensions and clipping are not taken into account. See cairo.context#stroke(), cairo.context#set_line_width(), cairo.context#set_line_join(), cairo.context#set_line_cap(), cairo.context#_set_dash(), and cairo.context#stroke_preserve().
+Tests whether the given point is inside the area that would be affected by a <code>cairo.context#stroke()</code> operation given the current path and stroking parameters. Surface dimensions and clipping are not taken into account. See <code>cairo.context#stroke()</code>, <code>cairo.context#set_line_width()</code>, <code>cairo.context#set_line_join()</code>, <code>cairo.context#set_line_cap()</code>, <code>cairo.context#_set_dash()</code>, and <code>cairo.context#stroke_preserve()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#copy_page</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#copy_page():reduce</code></div>
-Emits the current page for backends that support multiple pages, but doesn't clear it, so, the contents of the current page will be retained for the next page too. Use cairo.cairo#show_page() if you want to get an empty page after the emission.
+Emits the current page for backends that support multiple pages, but doesn't clear it, so, the contents of the current page will be retained for the next page too. Use <code>cairo.cairo#show_page()</code> if you want to get an empty page after the emission.
 </p>
 <p>
-This is a convenience function that simply calls cairo.context#surface_copy_page() on cr's target.
+This is a convenience function that simply calls <code>cairo.context#surface_copy_page()</code> on cr's target.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#show_page</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#show_page():reduce</code></div>
-Emits and clears the current page for backends that support multiple pages. Use cairo.context#copy_page() if you don't want to clear the page.
+Emits and clears the current page for backends that support multiple pages. Use <code>cairo.context#copy_page()</code> if you don't want to clear the page.
 </p>
 <p>
-This is a convenience function that simply calls cairo.context#surface_show_page() on cr's target.
+This is a convenience function that simply calls <code>cairo.context#surface_show_page()</code> on cr's target.
 </p>
+<h4><span class="caption-index-4">11.1.1.2</span><a name="anchor-11-1-1-2"></a>Types and Values</h4>
+<p>
+<code>cairo.antialias</code>
+</p>
+<ul>
+<li><code>cairo.ANTIALIAS_DEFAULT</code></li>
+<li><code>cairo.ANTIALIAS_NONE</code></li>
+<li><code>cairo.ANTIALIAS_GRAY</code></li>
+<li><code>cairo.ANTIALIAS_SUBPIXEL</code></li>
+<li><code>cairo.ANTIALIAS_FAST</code></li>
+<li><code>cairo.ANTIALIAS_GOOD</code></li>
+<li><code>cairo.ANTIALIAS_BEST</code></li>
+</ul>
+<p>
+<code>cairo.fill_fule</code>
+</p>
+<ul>
+<li><code>cairo.FILL_RULE_WINDING</code></li>
+<li><code>cairo.FILL_RULE_EVEN_ODD</code></li>
+</ul>
+<p>
+<code>cairo.line_cap</code>
+</p>
+<ul>
+<li><code>cairo.LINE_CAP_BUTT</code></li>
+<li><code>cairo.LINE_CAP_ROUND</code></li>
+<li><code>cairo.LINE_CAP_SQUARE</code></li>
+</ul>
+<p>
+<code>cairo.line_join</code>
+</p>
+<ul>
+<li><code>cairo.LINE_JOIN_MITER</code></li>
+<li><code>cairo.LINE_JOIN_ROUND</code></li>
+<li><code>cairo.LINE_JOIN_BEVEL</code></li>
+</ul>
+<p>
+<code>cairo.operator</code>
+</p>
+<ul>
+<li><code>cairo.OPERATOR_CLEAR</code></li>
+<li><code>cairo.OPERATOR_SOURCE</code></li>
+<li><code>cairo.OPERATOR_OVER</code></li>
+<li><code>cairo.OPERATOR_IN</code></li>
+<li><code>cairo.OPERATOR_OUT</code></li>
+<li><code>cairo.OPERATOR_ATOP</code></li>
+<li><code>cairo.OPERATOR_DEST</code></li>
+<li><code>cairo.OPERATOR_DEST_OVER</code></li>
+<li><code>cairo.OPERATOR_DEST_IN</code></li>
+<li><code>cairo.OPERATOR_DEST_OUT</code></li>
+<li><code>cairo.OPERATOR_DEST_ATOP</code></li>
+<li><code>cairo.OPERATOR_XOR</code></li>
+<li><code>cairo.OPERATOR_ADD</code></li>
+<li><code>cairo.OPERATOR_SATURATE</code></li>
+<li><code>cairo.OPERATOR_MULTIPLY</code></li>
+<li><code>cairo.OPERATOR_SCREEN</code></li>
+<li><code>cairo.OPERATOR_OVERLAY</code></li>
+<li><code>cairo.OPERATOR_DARKEN</code></li>
+<li><code>cairo.OPERATOR_LIGHTEN</code></li>
+<li><code>cairo.OPERATOR_COLOR_DODGE</code></li>
+<li><code>cairo.OPERATOR_COLOR_BURN</code></li>
+<li><code>cairo.OPERATOR_HARD_LIGHT</code></li>
+<li><code>cairo.OPERATOR_SOFT_LIGHT</code></li>
+<li><code>cairo.OPERATOR_DIFFERENCE</code></li>
+<li><code>cairo.OPERATOR_EXCLUSION</code></li>
+<li><code>cairo.OPERATOR_HSL_HUE</code></li>
+<li><code>cairo.OPERATOR_HSL_SATURATION</code></li>
+<li><code>cairo.OPERATOR_HSL_COLOR</code></li>
+<li><code>cairo.OPERATOR_HSL_LUMINOSITY</code></li>
+</ul>
 <h3><span class="caption-index-3">11.1.2</span><a name="anchor-11-1-2"></a>Paths - Creating paths and manipulating path data</h3>
+<h4><span class="caption-index-4">11.1.2.1</span><a name="anchor-11-1-2-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#copy_path</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#copy_path()</code></div>
-Creates a copy of the current path and returns it to the user as a cairo.path. See cairo_path_data_t for hints on how to iterate over the returned data structure.
+Creates a copy of the current path and returns it to the user as a <code>cairo.path</code>. See <code>cairo_path_data_t</code> for hints on how to iterate over the returned data structure.
 </p>
 <p>
 The result will have no data (data==nullptr and num_data==0), if either of the following conditions hold:
 </p>
 <ol>
-<li>If there is insufficient memory to copy the path. In this case path-&gt;status will be set to cairo.STATUS_NO_MEMORY.</li>
-<li>If cr is already in an error state. In this case path-&gt;status will contain the same status that would be returned by cairo.context#status().</li>
+<li>If there is insufficient memory to copy the path. In this case path-&gt;status will be set to <code>cairo.STATUS_NO_MEMORY</code>.</li>
+<li>If cr is already in an error state. In this case <code>path.status</code> will contain the same status that would be returned by <code>cairo.context#status()</code>.</li>
 </ol>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#copy_path_flat</strong></div>
@@ -465,19 +537,19 @@ The result will have no data (data==nullptr and num_data==0), if either of the f
 Gets a flattened copy of the current path and returns it to the user as a cairo.path. See cairo_path_data_t for hints on how to iterate over the returned data structure.
 </p>
 <p>
-This function is like cairo.context#copy_path() except that any curves in the path will be approximated with piecewise-linear approximations, (accurate to within the current tolerance value). That is, the result is guaranteed to not have any elements of type cairo.PATH_CURVE_TO which will instead be replaced by a series of cairo.PATH_LINE_TO elements.
+This function is like <code>cairo.context#copy_path()</code> except that any curves in the path will be approximated with piecewise-linear approximations, (accurate to within the current tolerance value). That is, the result is guaranteed to not have any elements of type <code>cairo.PATH_CURVE_TO</code> which will instead be replaced by a series of <code>cairo.PATH_LINE_TO</code> elements.
 </p>
 <p>
 The result will have no data (data==nullptr and num_data==0), if either of the following conditions hold:
 </p>
 <ol>
-<li>If there is insufficient memory to copy the path. In this case path-&gt;status will be set to cairo.STATUS_NO_MEMORY.</li>
-<li>If cr is already in an error state. In this case path-&gt;status will contain the same status that would be returned by cairo.context#status().</li>
+<li>If there is insufficient memory to copy the path. In this case path.status will be set to <code>cairo.STATUS_NO_MEMORY</code>.</li>
+<li>If cr is already in an error state. In this case path-&gt;status will contain the same status that would be returned by <code>cairo.context#status()</code>.</li>
 </ol>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#append_path</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#append_path(path:cairo.path):reduce</code></div>
-Append the path onto the current path. The path may be either the return value from one of cairo.context#copy_path() or cairo.context#copy_path_flat() or it may be constructed manually. See cairo_path_t for details on how the path data structure should be initialized, and note that path-&gt;status must be initialized to cairo.STATUS_SUCCESS.
+Append the path onto the current path. The path may be either the return value from one of <code>cairo.context#copy_path()</code> or <code>cairo.context#copy_path_flat()</code> or it may be constructed manually. See <code>cairo.path</code> for details on how the path data structure should be initialized, and note that <code>path.status</code> must be initialized to <code>cairo.STATUS_SUCCESS</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#has_current_point</strong></div>
@@ -661,7 +733,9 @@ The result of cairo.context#path_extents() is defined as equivalent to the limit
 <p>
 Specifically, this means that zero-area sub-paths such as cairo.context#move_to();cairo.context#line_to() segments, (even degenerate cases where the coordinates to both calls are identical), will be considered as contributing to the extents. However, a lone cairo.context#move_to() will not contribute to the results of cairo.context#path_extents().
 </p>
-<h3><span class="caption-index-3">11.1.3</span><a name="anchor-11-1-3"></a>cairo_pattern_t - Sources for drawing</h3>
+<h4><span class="caption-index-4">11.1.2.2</span><a name="anchor-11-1-2-2"></a>Types and Values</h4>
+<h3><span class="caption-index-3">11.1.3</span><a name="anchor-11-1-3"></a>cairo.pattern - Sources for drawing</h3>
+<h4><span class="caption-index-4">11.1.3.1</span><a name="anchor-11-1-3-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.pattern#add_color_stop_rgb</strong></div>
 <div style="margin-bottom:1em"><code>cairo.pattern#add_color_stop_rgb(offset:number, red:number, green:number, blue:number):reduce</code></div>
@@ -866,7 +940,48 @@ Stores the pattern's transformation matrix into matrix.
 <div style="margin-bottom:1em"><code>cairo.pattern#get_type()</code></div>
 This function returns the type a pattern. See cairo_pattern_type_t for available types.
 </p>
+<h4><span class="caption-index-4">11.1.3.2</span><a name="anchor-11-1-3-2"></a>Types and Values</h4>
+<p>
+<code>cairo.extend</code>
+</p>
+<ul>
+<li><code>cairo.EXTEND_NONE</code></li>
+<li><code>cairo.EXTEND_REPEAT</code></li>
+<li><code>cairo.EXTEND_REFLECT</code></li>
+<li><code>cairo.EXTEND_PAD</code></li>
+</ul>
+<p>
+<code>cairo.filter</code>
+</p>
+<ul>
+<li><code>cairo.FILTER_FAST</code></li>
+<li><code>cairo.FILTER_GOOD</code></li>
+<li><code>cairo.FILTER_BEST</code></li>
+<li><code>cairo.FILTER_NEAREST</code></li>
+<li><code>cairo.FILTER_BILINEAR</code></li>
+<li><code>cairo.FILTER_GAUSSIAN</code></li>
+</ul>
+<p>
+<code>cairo.pattern_type</code>
+</p>
+<ul>
+<li><code>cairo.PATTERN_TYPE_SOLID</code></li>
+<li><code>cairo.PATTERN_TYPE_SURFACE</code></li>
+<li><code>cairo.PATTERN_TYPE_LINEAR</code></li>
+<li><code>cairo.PATTERN_TYPE_RADIAL</code></li>
+<li><code>cairo.PATTERN_TYPE_MESH</code></li>
+<li><code>cairo.PATTERN_TYPE_RASTER_SOURCE</code></li>
+</ul>
 <h3><span class="caption-index-3">11.1.4</span><a name="anchor-11-1-4"></a>Regions - Representing a pixel-aligned area</h3>
+<p>
+<code>cairo.region_overlap</code>
+</p>
+<ul>
+<li><code>cairo.REGION_OVERLAP_IN</code></li>
+<li><code>cairo.REGION_OVERLAP_OUT</code></li>
+<li><code>cairo.REGION_OVERLAP_PART</code></li>
+</ul>
+<h4><span class="caption-index-4">11.1.4.1</span><a name="anchor-11-1-4-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.region.create</strong></div>
 <div style="margin-bottom:1em"><code>cairo.region.create():static {block?}</code></div>
@@ -906,7 +1021,9 @@ This function returns the type a pattern. See cairo_pattern_type_t for available
 <div style="margin-bottom:1em"><code>cairo.region#xor_rectangle(rectangle:cairo.rectangle_int)</code></div>
 
 </p>
+<h4><span class="caption-index-4">11.1.4.2</span><a name="anchor-11-1-4-2"></a>Types and Values</h4>
 <h3><span class="caption-index-3">11.1.5</span><a name="anchor-11-1-5"></a>Transformations - Manipulating the current transformation matrix</h3>
+<h4><span class="caption-index-4">11.1.5.1</span><a name="anchor-11-1-5-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#translate</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#translate(tx:number, ty:number):reduce</code></div>
@@ -966,6 +1083,7 @@ Transform a coordinate from device space to user space by multiplying the given 
 Transform a distance vector from device space to user space. This function is similar to cairo.context#device_to_user() except that the translation components of the inverse CTM will be ignored when transforming (dx,dy).
 </p>
 <h3><span class="caption-index-3">11.1.6</span><a name="anchor-11-1-6"></a>text - Rendering text and glyphs</h3>
+<h4><span class="caption-index-4">11.1.6.1</span><a name="anchor-11-1-6-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#select_font_face</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#select_font_face(family:string, slant:number, weight:number):reduce</code></div>
@@ -1106,16 +1224,21 @@ Gets the slant a toy font.
 <div style="margin-bottom:1em"><code>cairo.toy_font_face#get_weight()</code></div>
 Gets the weight a toy font.
 </p>
+<h4><span class="caption-index-4">11.1.6.2</span><a name="anchor-11-1-6-2"></a>Types and Values</h4>
 <h3><span class="caption-index-3">11.1.7</span><a name="anchor-11-1-7"></a>Raster Sources - Supplying arbitary image data</h3>
+<h4><span class="caption-index-4">11.1.7.1</span><a name="anchor-11-1-7-1"></a>Functions</h4>
 <h2><span class="caption-index-2">11.2</span><a name="anchor-11-2"></a>Fonts</h2>
-<h3><span class="caption-index-3">11.2.1</span><a name="anchor-11-2-1"></a>cairo_font_face_t - Base class for font faces</h3>
-<h3><span class="caption-index-3">11.2.2</span><a name="anchor-11-2-2"></a>cairo_scaled_font_t - Font face at particular size and options</h3>
+<h3><span class="caption-index-3">11.2.1</span><a name="anchor-11-2-1"></a>cairo.font_face - Base class for font faces</h3>
+<h4><span class="caption-index-4">11.2.1.1</span><a name="anchor-11-2-1-1"></a>Functions</h4>
+<h3><span class="caption-index-3">11.2.2</span><a name="anchor-11-2-2"></a>cairo.scaled_font - Font face at particular size and options</h3>
+<h4><span class="caption-index-4">11.2.2.1</span><a name="anchor-11-2-2-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.scaled_font.create</strong></div>
 <div style="margin-bottom:1em"><code>cairo.scaled_font.create(font_face:cairo.font_face, font_matrix:matrix, ctm:matrix, options):static {block?}</code></div>
 
 </p>
 <h3><span class="caption-index-3">11.2.3</span><a name="anchor-11-2-3"></a>cairo_font_options_t - How a font should be rendered</h3>
+<h4><span class="caption-index-4">11.2.3.1</span><a name="anchor-11-2-3-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.font_options.create</strong></div>
 <div style="margin-bottom:1em"><code>cairo.font_options.create():static {block?}</code></div>
@@ -1146,11 +1269,16 @@ Gets the weight a toy font.
 
 </p>
 <h3><span class="caption-index-3">11.2.4</span><a name="anchor-11-2-4"></a>FreeType Fonts - Font support for FreeType</h3>
+<h4><span class="caption-index-4">11.2.4.1</span><a name="anchor-11-2-4-1"></a>Functions</h4>
 <h3><span class="caption-index-3">11.2.5</span><a name="anchor-11-2-5"></a>Win32 Fonts - Font support for Microsoft Windows</h3>
+<h4><span class="caption-index-4">11.2.5.1</span><a name="anchor-11-2-5-1"></a>Functions</h4>
 <h3><span class="caption-index-3">11.2.6</span><a name="anchor-11-2-6"></a>Quartz (CGFont) Fonts - Font support via CGFont on OS X</h3>
+<h4><span class="caption-index-4">11.2.6.1</span><a name="anchor-11-2-6-1"></a>Functions</h4>
 <h3><span class="caption-index-3">11.2.7</span><a name="anchor-11-2-7"></a>User Fonts - Font support with font data provided by the user</h3>
+<h4><span class="caption-index-4">11.2.7.1</span><a name="anchor-11-2-7-1"></a>Functions</h4>
 <h2><span class="caption-index-2">11.3</span><a name="anchor-11-3"></a>Surfaces</h2>
-<h3><span class="caption-index-3">11.3.1</span><a name="anchor-11-3-1"></a>cairo_device_t - interface to underlying rendering system</h3>
+<h3><span class="caption-index-3">11.3.1</span><a name="anchor-11-3-1"></a>cairo.device - interface to underlying rendering system</h3>
+<h4><span class="caption-index-4">11.3.1.1</span><a name="anchor-11-3-1-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.device#status</strong></div>
 <div style="margin-bottom:1em"><code>cairo.device#status()</code></div>
@@ -1166,7 +1294,8 @@ Gets the weight a toy font.
 <div style="margin-bottom:1em"><code>cairo.device#release():void</code></div>
 
 </p>
-<h3><span class="caption-index-3">11.3.2</span><a name="anchor-11-3-2"></a>cairo_surface_t - Base class for surfaces</h3>
+<h3><span class="caption-index-3">11.3.2</span><a name="anchor-11-3-2"></a>cairo.surface - Base class for surfaces</h3>
+<h4><span class="caption-index-4">11.3.2.1</span><a name="anchor-11-3-2-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.surface.create_similar</strong></div>
 <div style="margin-bottom:1em"><code>cairo.surface.create_similar(other:cairo.surface, content:number, width:number, height:number):static {block?}</code></div>
@@ -1341,6 +1470,7 @@ Note: Even if this function returns false, a cairo.context#show_text_glyphs() op
 
 </p>
 <h3><span class="caption-index-3">11.3.3</span><a name="anchor-11-3-3"></a>Image Surfaces - Rendering to memory buffers</h3>
+<h4><span class="caption-index-4">11.3.3.1</span><a name="anchor-11-3-3-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.image_surface.create</strong></div>
 <div style="margin-bottom:1em"><code>cairo.image_surface.create(image:image):static {block?}</code></div>
@@ -1357,6 +1487,7 @@ Note: Even if this function returns false, a cairo.context#show_text_glyphs() op
 
 </p>
 <h3><span class="caption-index-3">11.3.4</span><a name="anchor-11-3-4"></a>PDF Surfaces - Rendering PDF documents</h3>
+<h4><span class="caption-index-4">11.3.4.1</span><a name="anchor-11-3-4-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.pdf_surface.create</strong></div>
 <div style="margin-bottom:1em"><code>cairo.pdf_surface.create(stream:stream:w, width_in_points:number, height_in_points:number):static {block?}</code></div>
@@ -1367,10 +1498,15 @@ Note: Even if this function returns false, a cairo.context#show_text_glyphs() op
 
 </p>
 <h3><span class="caption-index-3">11.3.5</span><a name="anchor-11-3-5"></a>PNG Support - Reading and writing PNG images</h3>
+<h4><span class="caption-index-4">11.3.5.1</span><a name="anchor-11-3-5-1"></a>Functions</h4>
 <h3><span class="caption-index-3">11.3.6</span><a name="anchor-11-3-6"></a>PostScript Surfaces - Rendering PostScript documents</h3>
+<h4><span class="caption-index-4">11.3.6.1</span><a name="anchor-11-3-6-1"></a>Functions</h4>
 <h3><span class="caption-index-3">11.3.7</span><a name="anchor-11-3-7"></a>Recording Surfaces - Records all drawing operations</h3>
+<h4><span class="caption-index-4">11.3.7.1</span><a name="anchor-11-3-7-1"></a>Functions</h4>
 <h3><span class="caption-index-3">11.3.8</span><a name="anchor-11-3-8"></a>Win32 Surfaces - Microsoft Windows surface support</h3>
+<h4><span class="caption-index-4">11.3.8.1</span><a name="anchor-11-3-8-1"></a>Functions</h4>
 <h3><span class="caption-index-3">11.3.9</span><a name="anchor-11-3-9"></a>SVG Surfaces - Rendering SVG documents</h3>
+<h4><span class="caption-index-4">11.3.9.1</span><a name="anchor-11-3-9-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.svg_surface.create</strong></div>
 <div style="margin-bottom:1em"><code>cairo.svg_surface.create(stream:stream:w, width_in_points:number, height_in_points:number):static {block?}</code></div>
@@ -1379,12 +1515,19 @@ Note: Even if this function returns false, a cairo.context#show_text_glyphs() op
 
 </p>
 <h3><span class="caption-index-3">11.3.10</span><a name="anchor-11-3-10"></a>Quartz Surfaces - Rendering to Quartz surfaces</h3>
+<h4><span class="caption-index-4">11.3.10.1</span><a name="anchor-11-3-10-1"></a>Functions</h4>
 <h3><span class="caption-index-3">11.3.11</span><a name="anchor-11-3-11"></a>XCB Surfaces - X Window System rendering using the XCB library</h3>
+<h4><span class="caption-index-4">11.3.11.1</span><a name="anchor-11-3-11-1"></a>Functions</h4>
 <h3><span class="caption-index-3">11.3.12</span><a name="anchor-11-3-12"></a>XLib Surfaces - X Window System rendering using XLib</h3>
+<h4><span class="caption-index-4">11.3.12.1</span><a name="anchor-11-3-12-1"></a>Functions</h4>
 <h3><span class="caption-index-3">11.3.13</span><a name="anchor-11-3-13"></a>XLib-XRender Backend - X Window System rendering using XLib and the X Render extension</h3>
+<h4><span class="caption-index-4">11.3.13.1</span><a name="anchor-11-3-13-1"></a>Functions</h4>
 <h3><span class="caption-index-3">11.3.14</span><a name="anchor-11-3-14"></a>Script Surfaces - Rendering to replayable scripts</h3>
+<h4><span class="caption-index-4">11.3.14.1</span><a name="anchor-11-3-14-1"></a>Functions</h4>
 <h2><span class="caption-index-2">11.4</span><a name="anchor-11-4"></a>Utilities</h2>
-<h3><span class="caption-index-3">11.4.1</span><a name="anchor-11-4-1"></a>cairo_matrix_t - Generic matrix operations</h3>
+<h4><span class="caption-index-4">11.4.0.1</span><a name="anchor-11-4-0-1"></a>Functions</h4>
+<h3><span class="caption-index-3">11.4.1</span><a name="anchor-11-4-1"></a>cairo.matrix - Generic matrix operations</h3>
+<h4><span class="caption-index-4">11.4.1.1</span><a name="anchor-11-4-1-1"></a>Functions</h4>
 <h2><span class="caption-index-2">11.5</span><a name="anchor-11-5"></a>Thanks</h2>
 <p>
 This module uses Cairo library which is distributed in the following site:

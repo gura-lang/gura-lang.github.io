@@ -60,6 +60,7 @@ title: Gura Library Reference
 <div><span class="toc-index-2">6.33</span><a href="chapter-06.html#anchor-6-33">template Class</a></div>
 <div><span class="toc-index-2">6.34</span><a href="chapter-06.html#anchor-6-34">timedelta Class</a></div>
 <div><span class="toc-index-2">6.35</span><a href="chapter-06.html#anchor-6-35">uri Class</a></div>
+<div><span class="toc-index-2">6.36</span><a href="chapter-06.html#anchor-6-36">vertex Class</a></div>
 <div><span class="toc-index-1">7</span><a href="chapter-07.html#anchor-7">argopt Module</a></div>
 <div><span class="toc-index-1">8</span><a href="chapter-08.html#anchor-8">base64 Module</a></div>
 <div><span class="toc-index-1">9</span><a href="chapter-09.html#anchor-9">bmp Module</a></div>

@@ -577,7 +577,7 @@ delimit the vertices of a primitive or a group of like primitives
 </p>
 <p>
 <div><strong style="text-decoration:underline">opengl.glGetPolygonStipple</strong></div>
-<div style="margin-bottom:1em"><code>opengl.glGetPolygonStipple(mask:array@uchar:nomap):map:void</code></div>
+<div style="margin-bottom:1em"><code>opengl.glGetPolygonStipple():map</code></div>
 
 </p>
 <p>
@@ -1672,22 +1672,22 @@ delimit the vertices of a primitive or a group of like primitives
 </p>
 <p>
 <div><strong style="text-decoration:underline">opengl.glGetShaderInfoLog</strong></div>
-<div style="margin-bottom:1em"><code>opengl.glGetShaderInfoLog(shader:number, bufSize:number, length[]:number, infoLog:array@char:nomap):map:void</code></div>
+<div style="margin-bottom:1em"><code>opengl.glGetShaderInfoLog(shader:number):map {block?}</code></div>
 
 </p>
 <p>
 <div><strong style="text-decoration:underline">opengl.glGetProgramInfoLog</strong></div>
-<div style="margin-bottom:1em"><code>opengl.glGetProgramInfoLog(program:number, bufSize:number, length[]:number, infoLog:array@char:nomap):map:void</code></div>
+<div style="margin-bottom:1em"><code>opengl.glGetProgramInfoLog(program:number):map {block?}</code></div>
 
 </p>
 <p>
 <div><strong style="text-decoration:underline">opengl.glGetUniformLocation</strong></div>
-<div style="margin-bottom:1em"><code>opengl.glGetUniformLocation(program:number, name:array@char:nomap):map {block?}</code></div>
+<div style="margin-bottom:1em"><code>opengl.glGetUniformLocation(program:number, name:string):map {block?}</code></div>
 
 </p>
 <p>
 <div><strong style="text-decoration:underline">opengl.glGetActiveUniform</strong></div>
-<div style="margin-bottom:1em"><code>opengl.glGetActiveUniform(program:number, index:number, bufSize:number, length[]:number, size:array@int:nomap, type[]:number, name:array@char:nomap):map:void</code></div>
+<div style="margin-bottom:1em"><code>opengl.glGetActiveUniform(program:number, index:number):map {block?}</code></div>
 
 </p>
 <p>
@@ -1702,22 +1702,22 @@ delimit the vertices of a primitive or a group of like primitives
 </p>
 <p>
 <div><strong style="text-decoration:underline">opengl.glGetShaderSource</strong></div>
-<div style="margin-bottom:1em"><code>opengl.glGetShaderSource(shader:number, bufSize:number, length[]:number, source:array@char:nomap):map:void</code></div>
+<div style="margin-bottom:1em"><code>opengl.glGetShaderSource(shader:number):map:void</code></div>
 
 </p>
 <p>
 <div><strong style="text-decoration:underline">opengl.glBindAttribLocation</strong></div>
-<div style="margin-bottom:1em"><code>opengl.glBindAttribLocation(program:number, index:number, name:array@char:nomap):map:void</code></div>
+<div style="margin-bottom:1em"><code>opengl.glBindAttribLocation(program:number, index:number, name:string):map:void</code></div>
 
 </p>
 <p>
 <div><strong style="text-decoration:underline">opengl.glGetActiveAttrib</strong></div>
-<div style="margin-bottom:1em"><code>opengl.glGetActiveAttrib(program:number, index:number, bufSize:number, length[]:number, size:array@int:nomap, type[]:number, name:array@char:nomap):map:void</code></div>
+<div style="margin-bottom:1em"><code>opengl.glGetActiveAttrib(program:number, index:number):map</code></div>
 
 </p>
 <p>
 <div><strong style="text-decoration:underline">opengl.glGetAttribLocation</strong></div>
-<div style="margin-bottom:1em"><code>opengl.glGetAttribLocation(program:number, name:array@char:nomap):map {block?}</code></div>
+<div style="margin-bottom:1em"><code>opengl.glGetAttribLocation(program:number, name:string):map {block?}</code></div>
 
 </p>
 <p>
