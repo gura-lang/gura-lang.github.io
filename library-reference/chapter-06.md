@@ -355,6 +355,33 @@ Explanation</th>
 
 <tr>
 <td>
+<code>p</code></td>
+<td>
+<code>pointer</code></td>
+<td>
+R</td>
+
+<td>
+Returns a <code>pointer</code> instance that accesses the binary.
+This result is equivalent to that of calling the method <code>binary#pointer()</code></td>
+.</tr>
+
+
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Returns the binary size in bytes.</td>
+</tr>
+
+
+<tr>
+<td>
 <code>writable</code></td>
 <td>
 <code>boolean</code></td>
@@ -380,22 +407,12 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <h3><span class="caption-index-3">6.4.3</span><a name="anchor-6-4-3"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">binary#add</strong></div>
-<div style="margin-bottom:1em"><code>binary#add(buff+:binary):map:reduce</code></div>
-Adds binary data to the <code>binary</code> instance. You can specify one or more binary data to be stored.
-</p>
-<p>
 <div><strong style="text-decoration:underline">binary.alloc</strong></div>
 <div style="margin-bottom:1em"><code>binary.alloc(bytes:number, data?:number):static:map {block?}</code></div>
 Creates a <code>binary</code> instance that has the specified size of buffer. If the argument <code>data</code>, which should have a number between 0 and 255, is specified, the buffer would be initialized with the value.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|bin:binary|</code>, where <code>bin</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">binary#decode</strong></div>
-<div style="margin-bottom:1em"><code>binary#decode(codec:codec)</code></div>
-Decodes the content of the <code>binary</code> as a sequence of string characters using <code>codec</code> and returns the result in <code>string</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#dump</strong></div>
@@ -414,158 +431,8 @@ Example:
 20 6C 61 7A 79 20 64 6F 67 2E                     lazy dog.
 </code></pre>
 <p>
-<div><strong style="text-decoration:underline">binary#each</strong></div>
-<div style="margin-bottom:1em"><code>binary#each() {block?}</code></div>
-Creates an iterator that returns each byte in the buffer.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<div><strong style="text-decoration:underline">binary#encodeuri</strong></div>
-<div style="margin-bottom:1em"><code>binary#encodeuri()</code></div>
-Returns a string in which non-URIC characters are converted to percent-encoded string.
-</p>
-<p>
-For example, <code>b'"Hello"'.encodeuri()</code> would return <code>'%22Hello%22'</code>.
-</p>
-<p>
-<div><strong style="text-decoration:underline">binary#hex</strong></div>
-<div style="margin-bottom:1em"><code>binary#hex():[carray,cstr,upper]</code></div>
-Converts the binary into a hexadecimal string.
-</p>
-<p>
-In default, the result string is a sequence of joined hexadecimal values without any space. You can specify the following attribute to change the format:
-</p>
-<ul>
-<li><code>:cstr</code> .. Format of C string.</li>
-<li><code>:carray</code> .. Format of C array.</li>
-</ul>
-<p>
-Alphabet characters are described in lower characters unless the attribute <code>:upper</code> is specified.
-</p>
-<p>
-Example:
-</p>
-<p>
-<table>
-<tr>
-<th>
-Code</th>
-<th>
-Result</th>
-</tr>
-
-<tr>
-<td>
-<code>b'\x01\x23\xab\xcd'.hex()</code></td>
-<td>
-<code>'0123abcd'</code></td>
-</tr>
-
-<tr>
-<td>
-<code>b'\x01\x23\xab\xcd'.hex():upper</code></td>
-<td>
-<code>'0123ABCD'</code></td>
-</tr>
-
-<tr>
-<td>
-<code>b'\x01\x23\xab\xcd'.hex():cstr</code></td>
-<td>
-<code>'\\x01\\x23\\xab\\xcd'</code></td>
-</tr>
-
-<tr>
-<td>
-<code>b'\x01\x23\xab\xcd'.hex():carray</code></td>
-<td>
-<code>'0x01, 0x23, 0xab, 0xcd'</code></td>
-</tr>
-
-</table>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">binary#len</strong></div>
-<div style="margin-bottom:1em"><code>binary#len()</code></div>
-Returns the length of the binary in bytes.
-</p>
-<p>
-<div><strong style="text-decoration:underline">binary.pack</strong></div>
-<div style="margin-bottom:1em"><code>binary.pack(format:string, value*):static:map {block?}</code></div>
-Creates a <code>binary</code> instance that has packed <code>values</code> in the argument list according to specifiers in the <code>format</code>.
-</p>
-<p>
-A specifier has a format of "<code>nX</code>" where <code>X</code> is a format character that represents a packing format and <code>n</code> is a number of packing size. The number can be omitted, and it would be treated as <code>1</code> in that case.
-</p>
-<p>
-Following format characters would take a <code>number</code> value from the argument list and pack them into a binary sequence.
-</p>
-<ul>
-<li><code>b</code> .. One-byte signed number.</li>
-<li><code>B</code> .. One-byte unsigned number.</li>
-<li><code>h</code> .. Two-byte signed number.</li>
-<li><code>H</code> .. Two-byte unsigned number.</li>
-<li><code>i</code> .. Four-byte signed number.</li>
-<li><code>I</code> .. Four-byte unsigned number.</li>
-<li><code>l</code> .. Four-byte signed number.</li>
-<li><code>L</code> .. Four-byte unsigned number.</li>
-<li><code>q</code> .. Eight-byte signed number.</li>
-<li><code>Q</code> .. Eight-byte unsigned number.</li>
-<li><code>f</code> .. Float-typed number occupying four bytes.</li>
-<li><code>d</code> .. Double-typed number occupying eight bytes.</li>
-</ul>
-<p>
-As for them, the packing size <code>n</code> means the number of values to be packed.
-</p>
-<p>
-Following format characters would take a <code>string</code> value from the argument list and pack them into a binary sequence.
-</p>
-<ul>
-<li><code>s</code> .. Packs a sequence of UTF-8 codes in the string. The packing size <code>n</code> means the size of the room in bytes where the character codes are to be packed. Only the sequence within the allocated room would be packed. If the string length is smaller than the room, the lacking part would be filled with zero.</li>
-<li><code>c</code> .. Picks the first byte of the string and packs it as a one-byte unsigned number. The packing size <code>n</code> means the number of values to be packed.</li>
-</ul>
-<p>
-Following format character would take no value from the argument list.
-</p>
-<ul>
-<li><code>x</code> .. Fills the binary with zero. The packing size <code>n</code> means the size of the room in bytes to be filled with zero.</li>
-</ul>
-<p>
-The default byte-order for numbers of two-byte, four-byte and eight-byte depends on the system the interpreter is currently running. You can change it by the following specifiers:
-</p>
-<ul>
-<li><code>@</code> .. System-dependent order.</li>
-<li><code>=</code> .. System-dependent order.</li>
-<li><code>&lt;</code> .. Little endian</li>
-<li><code>&gt;</code> .. Big endian</li>
-<li><code>!</code> .. Big endian</li>
-</ul>
-<p>
-You can specify an asterisk character "<code>*</code>" for the number of packing size that picks that number from the argument list.
-</p>
-<p>
-You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>" in the format to change coding character set from UTF-8 while packing a string with format character "<code>s</code>".
-</p>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|bin:binary|</code>, where <code>bin</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
 <div><strong style="text-decoration:underline">binary#pointer</strong></div>
-<div style="margin-bottom:1em"><code>binary#pointer(offset?:number) {block?}</code></div>
+<div style="margin-bottom:1em"><code>binary#pointer(offset?:number):map {block?}</code></div>
 Returns a <code>pointer</code> instance that has an initial offset specified by the argument <code>offset</code>. If the argument is omitted, it would return a <code>pointer</code> instance that points to the top of the binary.
 </p>
 <p>
@@ -575,85 +442,6 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <div><strong style="text-decoration:underline">binary#reader</strong></div>
 <div style="margin-bottom:1em"><code>binary#reader() {block?}</code></div>
 Creates a <code>stream</code> instance with which you can read data from the binary by <code>stream#read()</code> method. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">binary#store</strong></div>
-<div style="margin-bottom:1em"><code>binary#store(offset:number, buff+:binary):map:reduce</code></div>
-Stores binary data <code>buff</code> in the target <code>binary</code> instance at the specified offset. You can specify one or more binary data to be stored.
-</p>
-<p>
-This method returns the target instance itself.
-</p>
-<p>
-<div><strong style="text-decoration:underline">binary#unpack</strong></div>
-<div style="margin-bottom:1em"><code>binary#unpack(format:string, values*:number):[nil]</code></div>
-Extracts values from a <code>binary</code> instance according to specifiers in the <code>format</code> and returns a list containing the values.
-</p>
-<p>
-A specifier has a format of "<code>nX</code>" where <code>X</code> is a format character that represents a packing format and <code>n</code> is a number of packing size. The number can be omitted, and it would be treated as <code>1</code> in that case.
-</p>
-<p>
-Following format characters would extract an integer or float value of specified size from the binary and returns a <code>number</code> value.
-</p>
-<ul>
-<li><code>b</code> .. One-byte signed number.</li>
-<li><code>B</code> .. One-byte unsigned number.</li>
-<li><code>h</code> .. Two-byte signed number.</li>
-<li><code>H</code> .. Two-byte unsigned number.</li>
-<li><code>i</code> .. Four-byte signed number.</li>
-<li><code>I</code> .. Four-byte unsigned number.</li>
-<li><code>l</code> .. Four-byte signed number.</li>
-<li><code>L</code> .. Four-byte unsigned number.</li>
-<li><code>q</code> .. Eight-byte signed number.</li>
-<li><code>Q</code> .. Eight-byte unsigned number.</li>
-<li><code>f</code> .. Float-typed number occupying four bytes.</li>
-<li><code>d</code> .. Double-typed number occupying eight bytes.</li>
-</ul>
-<p>
-As for them, the packing size <code>n</code> means the number of values to be extracted.
-</p>
-<p>
-Following format characters would extract a string sequence from the binary and returns a <code>string</code> value.
-</p>
-<ul>
-<li><code>s</code> .. Extracts a sequence of UTF-8 codes and returns <code>string</code> instance containing it. The unpacking size <code>n</code> means the size of the room in bytes where the character codes are to be unpacked.</li>
-<li><code>c</code> .. Extracts a one-byte unsigned number and returns a <code>string</code> instance containing it. The unpacking size <code>n</code> means the number of values to be extracted.</li>
-</ul>
-<p>
-Following format character would not return any value.
-</p>
-<ul>
-<li><code>x</code> .. Advances the address by one byte. If the unpacking size <code>n</code> is specifies, it would advance the address by <code>n</code> bytes.</li>
-</ul>
-<p>
-The default byte-order for numbers of two-byte, four-byte and eight-byte depends on the system the interpreter is currently running. You can change it by the following specifiers:
-</p>
-<ul>
-<li><code>@</code> .. System-dependent order.</li>
-<li><code>=</code> .. System-dependent order.</li>
-<li><code>&lt;</code> .. Little endian</li>
-<li><code>&gt;</code> .. Big endian</li>
-<li><code>!</code> .. Big endian</li>
-</ul>
-<p>
-You can specify an asterisk character "<code>*</code>" for the number of unpacking size that picks that number from the argument list.
-</p>
-<p>
-You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>" in the format to change coding character set from UTF-8 while extracting a string with format character "<code>s</code>".
-</p>
-<p>
-An error occurs if the binary size is smaller than the format reqeusts. If the attribute <code>:nil</code> is specified, <code>nil</code> value would be returned for such a case.
-</p>
-<p>
-<div><strong style="text-decoration:underline">binary#unpacks</strong></div>
-<div style="margin-bottom:1em"><code>binary#unpacks(format:string, values*:number) {block?}</code></div>
-Returns an iterator that extracts values from the binary instance according to specifiers in <code>format</code>.
-</p>
-<p>
-For detailed information about specifiers, see the help of <code>binary#unpack()</code>.
-</p>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|iter:iterator|</code>, where <code>iter</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">binary#writer</strong></div>
@@ -5211,25 +4999,168 @@ Below is an example with <code>:transpose</code> attribute:
 <div style="margin-bottom:1em"><code>matrix#transpose()</code></div>
 Returns a transposed matrix.
 </p>
-<h2><span class="caption-index-2">6.22</span><a name="anchor-6-22"></a>nil Class</h2>
+<h2><span class="caption-index-2">6.22</span><a name="anchor-6-22"></a>memory Class</h2>
+<p>
+An instance of the <code>memory</code> class represents a memory that is stored in <code>array</code> instances.
+</p>
+<h3><span class="caption-index-3">6.22.1</span><a name="anchor-6-22-1"></a>Property</h3>
+<p>
+A <code>memory</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>p</code></td>
+<td>
+<code>pointer</code></td>
+<td>
+R</td>
+
+<td>
+Returns a <code>pointer</code> instance that accesses the memory.
+This result is equivalent to that of calling the method <code>memory#pointer()</code></td>
+.</tr>
+
+
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Returns the memory size in bytes.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h3><span class="caption-index-3">6.22.2</span><a name="anchor-6-22-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">memory</strong></div>
+<div style="margin-bottom:1em"><code>memory(bytes:number):map {block?}</code></div>
+
+</p>
+<h3><span class="caption-index-3">6.22.3</span><a name="anchor-6-22-3"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">memory#array@char</strong></div>
+<div style="margin-bottom:1em"><code>memory#array@char():map {block?}</code></div>
+Creates an <code>array@char</code> instance that accesses the content of the target <code>memory</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">memory#array@uchar</strong></div>
+<div style="margin-bottom:1em"><code>memory#array@uchar():map {block?}</code></div>
+Creates an <code>array@uchar</code> instance that accesses the content of the target <code>memory</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">memory#array@short</strong></div>
+<div style="margin-bottom:1em"><code>memory#array@short():map {block?}</code></div>
+Creates an <code>array@short</code> instance that accesses the content of the target <code>memory</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">memory#array@ushort</strong></div>
+<div style="margin-bottom:1em"><code>memory#array@ushort():map {block?}</code></div>
+Creates an <code>array@ushort</code> instance that accesses the content of the target <code>memory</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">memory#array@int</strong></div>
+<div style="margin-bottom:1em"><code>memory#array@int():map {block?}</code></div>
+Creates an <code>array@int</code> instance that accesses the content of the target <code>memory</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">memory#array@uint</strong></div>
+<div style="margin-bottom:1em"><code>memory#array@uint():map {block?}</code></div>
+Creates an <code>array@uint</code> instance that accesses the content of the target <code>memory</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">memory#array@int32</strong></div>
+<div style="margin-bottom:1em"><code>memory#array@int32():map {block?}</code></div>
+Creates an <code>array@int32</code> instance that accesses the content of the target <code>memory</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">memory#array@uint32</strong></div>
+<div style="margin-bottom:1em"><code>memory#array@uint32():map {block?}</code></div>
+Creates an <code>array@uint32</code> instance that accesses the content of the target <code>memory</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">memory#array@int64</strong></div>
+<div style="margin-bottom:1em"><code>memory#array@int64():map {block?}</code></div>
+Creates an <code>array@int64</code> instance that accesses the content of the target <code>memory</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">memory#array@uint64</strong></div>
+<div style="margin-bottom:1em"><code>memory#array@uint64():map {block?}</code></div>
+Creates an <code>array@uint64</code> instance that accesses the content of the target <code>memory</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">memory#array@float</strong></div>
+<div style="margin-bottom:1em"><code>memory#array@float():map {block?}</code></div>
+Creates an <code>array@float</code> instance that accesses the content of the target <code>memory</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">memory#array@double</strong></div>
+<div style="margin-bottom:1em"><code>memory#array@double():map {block?}</code></div>
+Creates an <code>array@double</code> instance that accesses the content of the target <code>memory</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">memory#dump</strong></div>
+<div style="margin-bottom:1em"><code>memory#dump(stream?:stream:w):void:[upper]</code></div>
+Prints a hexadecimal dump from the content of the <code>memory</code> to the standard output. If the argument <code>stream</code> is specified, the result would be output to the stream.
+</p>
+<p>
+In default, hexadecimal digit are printed with lower-case characters. Specifying an attribute <code>:upper</code> would output them with upper-case characters instead.
+</p>
+<p>
+Example:
+</p>
+<pre><code>&gt;&gt;&gt; b'A quick brown fox jumps over the lazy dog.'.dump():upper
+41 20 71 75 69 63 6B 20 62 72 6F 77 6E 20 66 6F  A quick brown fo
+78 20 6A 75 6D 70 73 20 6F 76 65 72 20 74 68 65  x jumps over the
+20 6C 61 7A 79 20 64 6F 67 2E                     lazy dog.
+</code></pre>
+<p>
+<div><strong style="text-decoration:underline">memory#pointer</strong></div>
+<div style="margin-bottom:1em"><code>memory#pointer(offset?:number) {block?}</code></div>
+Returns a <code>pointer</code> instance that has an initial offset specified by the argument <code>offset</code>. If the argument is omitted, it would return a <code>pointer</code> instance that points to the top of the memory.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|p:pointer|</code>, where <code>p</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<h2><span class="caption-index-2">6.23</span><a name="anchor-6-23"></a>nil Class</h2>
 <p>
 The <code>nil</code> class is the class of <code>nil</code> value that is usually used as an invalid value. In a logical operation, the <code>nil</code> value is recognized as <code>false</code>.
 </p>
-<h2><span class="caption-index-2">6.23</span><a name="anchor-6-23"></a>number Class</h2>
+<h2><span class="caption-index-2">6.24</span><a name="anchor-6-24"></a>number Class</h2>
 <p>
 The <code>number</code> class is a type of number values. A number literal would create a <code>number</code> instance.
 </p>
-<h3><span class="caption-index-3">6.23.1</span><a name="anchor-6-23-1"></a>Method</h3>
+<h3><span class="caption-index-3">6.24.1</span><a name="anchor-6-24-1"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">number.roundoff</strong></div>
 <div style="margin-bottom:1em"><code>number.roundoff(threshold:number =&gt; 1e-10)</code></div>
 
 </p>
-<h2><span class="caption-index-2">6.24</span><a name="anchor-6-24"></a>operator Class</h2>
+<h2><span class="caption-index-2">6.25</span><a name="anchor-6-25"></a>operator Class</h2>
 <p>
 The <code>operator</code> class provides measures to assign operators with a user-defined procedure.
 </p>
-<h3><span class="caption-index-3">6.24.1</span><a name="anchor-6-24-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.25.1</span><a name="anchor-6-25-1"></a>Property</h3>
 <p>
 An <code>operator</code> instance has the following properties:
 </p>
@@ -5263,7 +5194,7 @@ Operator symbol.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.24.2</span><a name="anchor-6-24-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.25.2</span><a name="anchor-6-25-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">operator</strong></div>
 <div style="margin-bottom:1em"><code>operator(symbol:symbol):map {block?}</code></div>
@@ -5277,7 +5208,7 @@ Below is an example to create an <code>operator</code> instance that is associat
 </p>
 <pre><code>op = operator(`+)
 </code></pre>
-<h3><span class="caption-index-3">6.24.3</span><a name="anchor-6-24-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.25.3</span><a name="anchor-6-25-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">operator#assign</strong></div>
 <div style="margin-bottom:1em"><code>operator#assign(type_l:expr, type_r?:expr):map:void {block}</code></div>
@@ -5323,11 +5254,11 @@ The argument <code>type</code> takes a symbol <code>`binary</code> or <code>`una
 <li>If it's omitted or specified with <code>`binary</code>, the method would return a list of pairs of type expressions for its left element and right one.</li>
 <li>If it's specified with <code>`unary</code>, the method would return a list of type expressions for its single element.</li>
 </ul>
-<h2><span class="caption-index-2">6.25</span><a name="anchor-6-25"></a>palette Class</h2>
+<h2><span class="caption-index-2">6.26</span><a name="anchor-6-26"></a>palette Class</h2>
 <p>
 The <code>palette</code> instance has a set of <code>color</code> instance.
 </p>
-<h3><span class="caption-index-3">6.25.1</span><a name="anchor-6-25-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.26.1</span><a name="anchor-6-26-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">palette</strong></div>
 <div style="margin-bottom:1em"><code>palette(type) {block?}</code></div>
@@ -5351,7 +5282,7 @@ In the second form, it can take one of the following symbols:
 <li><code>`win256</code> .. A palette with 256 colors defined by Windows.</li>
 <li><code>`websafe</code> .. A palette with 216 colors that assure to be displayed correctly in any Web environments. It actually has 256 entries though the last 40 entries are initialized with black.</li>
 </ul>
-<h3><span class="caption-index-3">6.25.2</span><a name="anchor-6-25-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.26.2</span><a name="anchor-6-26-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">palette#each</strong></div>
 <div style="margin-bottom:1em"><code>palette#each() {block?}</code></div>
@@ -5392,11 +5323,11 @@ Updates palette entries according to color data in an image or a palette.
 <p>
 The order of existing entries will be kept intact. If attribute shrink is specified, the whole size will be shrinked to a number powered by two that is enough to contain unique entries.
 </p>
-<h2><span class="caption-index-2">6.26</span><a name="anchor-6-26"></a>pointer Class</h2>
+<h2><span class="caption-index-2">6.27</span><a name="anchor-6-27"></a>pointer Class</h2>
 <p>
-The <code>pointer</code> class provides measures to read and write content in a <code>binary</code> instance.
+The <code>pointer</code> class provides measures to read and write content in a <code>binary</code> and <code>memory</code> instance.
 </p>
-<h3><span class="caption-index-3">6.26.1</span><a name="anchor-6-26-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.27.1</span><a name="anchor-6-27-1"></a>Property</h3>
 <p>
 A <code>pointer</code> instance has the following properties:
 </p>
@@ -5416,50 +5347,543 @@ Explanation</th>
 
 <tr>
 <td>
-<code>binary</code></td>
-<td>
-<code>binary</code></td>
-<td>
-R</td>
-
-<td>
-A <code>binary</code> instance associated with the pointer.</td>
-</tr>
-
-
-<tr>
-<td>
 <code>offset</code></td>
 <td>
 <code>number</code></td>
 <td>
-R</td>
+R/W</td>
 
 <td>
 The current offset.</td>
 </tr>
 
 
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Returns the size of data accessible from the current offset.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>size@all</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Returns the entire size of the target binary or memory.
+This equals to <code>p.offset + p.size</code> where `p` is a `pointer` instance.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>target</code></td>
+<td>
+<code>any</code></td>
+<td>
+R</td>
+
+<td>
+An instance that is associated with the pointer.
+Currently, this can be an instance of `binary` or `memory`.</td>
+</tr>
+
+
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.26.2</span><a name="anchor-6-26-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.27.2</span><a name="anchor-6-27-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">pointer</strong></div>
-<div style="margin-bottom:1em"><code>pointer(buff:binary, offset?:number) {block?}</code></div>
-Creates a <code>pointer</code> instance that points to the specified <code>binary</code> instance.
+<div style="margin-bottom:1em"><code>pointer(org:pointer):map {block?}</code></div>
+Creates a <code>pointer</code> instance that is cloned from the given instance <code>org</code>. You can use this to cast a <code>binary</code> and <code>memory</code> instance to the <code>pointer</code>.
 </p>
 <p>
-If the argument <code>offset</code> is specified, the initial offset of the pointer is preset to the value. Otherwise, the offset is set to the top of the binary.
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|ptr:pointer|</code>, where <code>ptr</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<h3><span class="caption-index-3">6.27.3</span><a name="anchor-6-27-3"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">pointer#copyfrom</strong></div>
+<div style="margin-bottom:1em"><code>pointer#copyfrom(src:pointer, bytes?:number):map:reduce</code></div>
+Copies data from <code>src</code> to the target pointer.
 </p>
 <p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|p:pointer|</code>, where <code>p</code> is the created instance. In this case, the block's result would become the function's returned value.
+If the argument <code>bytes</code> is specified, it would limit the size of data to be copied. Otherwise, all the data pointerd by <code>src</code> is to be copied.
 </p>
-<h3><span class="caption-index-3">6.26.3</span><a name="anchor-6-26-3"></a>Method</h3>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#copyto</strong></div>
+<div style="margin-bottom:1em"><code>pointer#copyto(dst:pointer, bytes?:number):map:reduce</code></div>
+Copies data from the target pointer to <code>dst</code>.
+</p>
+<p>
+If the argument <code>bytes</code> is specified, it would limit the size of data to be copied. Otherwise, all the data pointerd by the target instance is to be copied.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#decode</strong></div>
+<div style="margin-bottom:1em"><code>pointer#decode(codec:codec, bytes?:number) {block?}</code></div>
+Decodes the content of the <code>pointer</code> as a sequence of string characters using <code>codec</code> and returns the result in <code>string</code>.
+</p>
+<p>
+If the argument <code>bytes</code> is specified, it would limit the size of data to be decoded. Otherwise, all the data pointerd by the target instance is to be decoded.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|str:string|</code>, where <code>str</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#dump</strong></div>
+<div style="margin-bottom:1em"><code>pointer#dump(stream?:stream:w, bytes?:number):reduce:[upper]</code></div>
+Prints a hexadecimal dump from the content of the <code>pointer</code> to the standard output. If the argument <code>stream</code> is specified, the result would be output to the stream.
+</p>
+<p>
+If the argument <code>bytes</code> is specified, it would limit the size of data to be dumped. Otherwise, all the data pointerd by the target instance is to be dumped.
+</p>
+<p>
+In default, hexadecimal digit are printed with lower-case characters. Specifying an attribute <code>:upper</code> would output them with upper-case characters instead.
+</p>
+<p>
+Example:
+</p>
+<pre><code>&gt;&gt;&gt; b'A quick brown fox jumps over the lazy dog.'.p.dump():upper
+41 20 71 75 69 63 6B 20 62 72 6F 77 6E 20 66 6F  A quick brown fo
+78 20 6A 75 6D 70 73 20 6F 76 65 72 20 74 68 65  x jumps over the
+20 6C 61 7A 79 20 64 6F 67 2E                     lazy dog.
+</code></pre>
+<p>
+<div><strong style="text-decoration:underline">pointer#encodeuri</strong></div>
+<div style="margin-bottom:1em"><code>pointer#encodeuri(bytes?:number) {block?}</code></div>
+Returns a string in which non-URIC characters are converted to percent-encoded string.
+</p>
+<p>
+For example, <code>b'"Hello"'.p.encodeuri()</code> would return <code>'%22Hello%22'</code>.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|str:string|</code>, where <code>str</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#each@char</strong></div>
+<div style="margin-bottom:1em"><code>pointer#each@char():[be] {block?}</code></div>
+Creates an iterator that extracts numbers in size of char from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#each@uchar</strong></div>
+<div style="margin-bottom:1em"><code>pointer#each@uchar():[be] {block?}</code></div>
+Creates an iterator that extracts numbers in size of uchar from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#each@short</strong></div>
+<div style="margin-bottom:1em"><code>pointer#each@short():[be] {block?}</code></div>
+Creates an iterator that extracts numbers in size of short from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#each@ushort</strong></div>
+<div style="margin-bottom:1em"><code>pointer#each@ushort():[be] {block?}</code></div>
+Creates an iterator that extracts numbers in size of ushort from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#each@int32</strong></div>
+<div style="margin-bottom:1em"><code>pointer#each@int32():[be] {block?}</code></div>
+Creates an iterator that extracts numbers in size of int32 from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#each@uint32</strong></div>
+<div style="margin-bottom:1em"><code>pointer#each@uint32():[be] {block?}</code></div>
+Creates an iterator that extracts numbers in size of uint32 from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#each@int64</strong></div>
+<div style="margin-bottom:1em"><code>pointer#each@int64():[be] {block?}</code></div>
+Creates an iterator that extracts numbers in size of int64 from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#each@uint64</strong></div>
+<div style="margin-bottom:1em"><code>pointer#each@uint64():[be] {block?}</code></div>
+Creates an iterator that extracts numbers in size of uint64 from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#each@float</strong></div>
+<div style="margin-bottom:1em"><code>pointer#each@float():[be] {block?}</code></div>
+Creates an iterator that extracts numbers in size of float from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#each@double</strong></div>
+<div style="margin-bottom:1em"><code>pointer#each@double():[be] {block?}</code></div>
+Creates an iterator that extracts numbers in size of double from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
 <p>
 <div><strong style="text-decoration:underline">pointer#forward</strong></div>
 <div style="margin-bottom:1em"><code>pointer#forward(distance:number):reduce</code></div>
 Put the pointer offset forward by <code>distance</code>. If a negative number is specified for the argument, the offset would be put backward.
+</p>
+<p>
+An error would occur when the pointer's offset becomes a negative value while it would be no error when the offset exceeds the target maximum range.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#get@char</strong></div>
+<div style="margin-bottom:1em"><code>pointer#get@char():[be,nil,stay] {block?}</code></div>
+Returns an extracted number in size of char from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:number|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#get@uchar</strong></div>
+<div style="margin-bottom:1em"><code>pointer#get@uchar():[be,nil,stay] {block?}</code></div>
+Returns an extracted number in size of uchar from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:number|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#get@short</strong></div>
+<div style="margin-bottom:1em"><code>pointer#get@short():[be,nil,stay] {block?}</code></div>
+Returns an extracted number in size of short from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:number|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#get@ushort</strong></div>
+<div style="margin-bottom:1em"><code>pointer#get@ushort():[be,nil,stay] {block?}</code></div>
+Returns an extracted number in size of ushort from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:number|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#get@int32</strong></div>
+<div style="margin-bottom:1em"><code>pointer#get@int32():[be,nil,stay] {block?}</code></div>
+Returns an extracted number in size of int32 from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:number|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#get@uint32</strong></div>
+<div style="margin-bottom:1em"><code>pointer#get@uint32():[be,nil,stay] {block?}</code></div>
+Returns an extracted number in size of uint32 from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:number|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#get@int64</strong></div>
+<div style="margin-bottom:1em"><code>pointer#get@int64():[be,nil,stay] {block?}</code></div>
+Returns an extracted number in size of int64 from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:number|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#get@uint64</strong></div>
+<div style="margin-bottom:1em"><code>pointer#get@uint64():[be,nil,stay] {block?}</code></div>
+Returns an extracted number in size of uint64 from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:number|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#get@float</strong></div>
+<div style="margin-bottom:1em"><code>pointer#get@float():[be,nil,stay] {block?}</code></div>
+Returns an extracted number in size of float from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:number|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#get@double</strong></div>
+<div style="margin-bottom:1em"><code>pointer#get@double():[be,nil,stay] {block?}</code></div>
+Returns an extracted number in size of double from the current pointer position.
+</p>
+<p>
+In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:number|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#head</strong></div>
+<div style="margin-bottom:1em"><code>pointer#head():reduce</code></div>
+Moves the pointer position to the beginning.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#hex</strong></div>
+<div style="margin-bottom:1em"><code>pointer#hex(bytes?:number):[carray,cstr,upper] {block?}</code></div>
+Converts the binary data into a hexadecimal string.
+</p>
+<p>
+In default, the result string is a sequence of joined hexadecimal values without any space. You can specify the following attribute to change the format:
+</p>
+<ul>
+<li><code>:cstr</code> .. Format of C string.</li>
+<li><code>:carray</code> .. Format of C array.</li>
+</ul>
+<p>
+Alphabet characters are described in lower characters unless the attribute <code>:upper</code> is specified.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|str:string|</code>, where <code>str</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Example:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Code</th>
+<th>
+Result</th>
+</tr>
+
+<tr>
+<td>
+<code>b'\x01\x23\xab\xcd'.p.hex()</code></td>
+<td>
+<code>'0123abcd'</code></td>
+</tr>
+
+<tr>
+<td>
+<code>b'\x01\x23\xab\xcd'.p.hex():upper</code></td>
+<td>
+<code>'0123ABCD'</code></td>
+</tr>
+
+<tr>
+<td>
+<code>b'\x01\x23\xab\xcd'.p.hex():cstr</code></td>
+<td>
+<code>'\\x01\\x23\\xab\\xcd'</code></td>
+</tr>
+
+<tr>
+<td>
+<code>b'\x01\x23\xab\xcd'.p.hex():carray</code></td>
+<td>
+<code>'0x01, 0x23, 0xab, 0xcd'</code></td>
+</tr>
+
+</table>
+
 </p>
 <p>
 <div><strong style="text-decoration:underline">pointer#pack</strong></div>
@@ -5467,27 +5891,282 @@ Put the pointer offset forward by <code>distance</code>. If a negative number is
 Packs <code>values</code> in the argument list according to specifiers in the <code>format</code> into a binary and adds it to where the pointer points. The pointer offset is automatically incremented by the added length unless <code>:stay</code> attribute is specified.
 </p>
 <p>
-This method returns a reference to the pointer instance itself.
+This method returns a reference to the target instance itself.
 </p>
 <p>
-For detail information about packing specifiers, see the help of <code>binary#pack()</code>.
+A specifier has a format of "<code>nX</code>" where <code>X</code> is a format character that represents a packing format and <code>n</code> is a number of packing size. The number can be omitted, and it would be treated as <code>1</code> in that case.
 </p>
 <p>
-<div><strong style="text-decoration:underline">pointer#reset</strong></div>
-<div style="margin-bottom:1em"><code>pointer#reset()</code></div>
-
+Following format characters would take a <code>number</code> value from the argument list and pack them into a binary sequence.
+</p>
+<ul>
+<li><code>b</code> .. One-byte signed number.</li>
+<li><code>B</code> .. One-byte unsigned number.</li>
+<li><code>h</code> .. Two-byte signed number.</li>
+<li><code>H</code> .. Two-byte unsigned number.</li>
+<li><code>i</code> .. Four-byte signed number.</li>
+<li><code>I</code> .. Four-byte unsigned number.</li>
+<li><code>l</code> .. Four-byte signed number.</li>
+<li><code>L</code> .. Four-byte unsigned number.</li>
+<li><code>q</code> .. Eight-byte signed number.</li>
+<li><code>Q</code> .. Eight-byte unsigned number.</li>
+<li><code>f</code> .. Float-typed number occupying four bytes.</li>
+<li><code>d</code> .. Double-typed number occupying eight bytes.</li>
+</ul>
+<p>
+As for them, the packing size <code>n</code> means the number of values to be packed.
+</p>
+<p>
+Following format characters would take a <code>string</code> value from the argument list and pack them into a binary sequence.
+</p>
+<ul>
+<li><code>s</code> .. Packs a sequence of UTF-8 codes in the string. The packing size <code>n</code> means the size of the room in bytes where the character codes are to be packed. Only the sequence within the allocated room would be packed. If the string length is smaller than the room, the lacking part would be filled with zero.</li>
+<li><code>c</code> .. Picks the first byte of the string and packs it as a one-byte unsigned number. The packing size <code>n</code> means the number of values to be packed.</li>
+</ul>
+<p>
+Following format character would take no value from the argument list.
+</p>
+<ul>
+<li><code>x</code> .. Fills the binary with zero. The packing size <code>n</code> means the size of the room in bytes to be filled with zero.</li>
+</ul>
+<p>
+The default byte-order for numbers of two-byte, four-byte and eight-byte depends on the system the interpreter is currently running. You can change it by the following specifiers:
+</p>
+<ul>
+<li><code>@</code> .. System-dependent order.</li>
+<li><code>=</code> .. System-dependent order.</li>
+<li><code>&lt;</code> .. Little endian</li>
+<li><code>&gt;</code> .. Big endian</li>
+<li><code>!</code> .. Big endian</li>
+</ul>
+<p>
+You can specify an asterisk character "<code>*</code>" for the number of packing size that picks that number from the argument list.
+</p>
+<p>
+You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>" in the format to change coding character set from UTF-8 while packing a string with format character "<code>s</code>".
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#put@char</strong></div>
+<div style="margin-bottom:1em"><code>pointer#put@char(n:number):map:reduce:[be,stay]</code></div>
+Stores the specified number to the current pointer position in size of char.
+</p>
+<p>
+In default, it stores the byte sequences in the order of little-endian. You can specify <code>:be</code> sttribute to store them in big-endian order.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#put@uchar</strong></div>
+<div style="margin-bottom:1em"><code>pointer#put@uchar(n:number):map:reduce:[be,stay]</code></div>
+Stores the specified number to the current pointer position in size of uchar.
+</p>
+<p>
+In default, it stores the byte sequences in the order of little-endian. You can specify <code>:be</code> sttribute to store them in big-endian order.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#put@short</strong></div>
+<div style="margin-bottom:1em"><code>pointer#put@short(n:number):map:reduce:[be,stay]</code></div>
+Stores the specified number to the current pointer position in size of short.
+</p>
+<p>
+In default, it stores the byte sequences in the order of little-endian. You can specify <code>:be</code> sttribute to store them in big-endian order.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#put@ushort</strong></div>
+<div style="margin-bottom:1em"><code>pointer#put@ushort(n:number):map:reduce:[be,stay]</code></div>
+Stores the specified number to the current pointer position in size of ushort.
+</p>
+<p>
+In default, it stores the byte sequences in the order of little-endian. You can specify <code>:be</code> sttribute to store them in big-endian order.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#put@int32</strong></div>
+<div style="margin-bottom:1em"><code>pointer#put@int32(n:number):map:reduce:[be,stay]</code></div>
+Stores the specified number to the current pointer position in size of int32.
+</p>
+<p>
+In default, it stores the byte sequences in the order of little-endian. You can specify <code>:be</code> sttribute to store them in big-endian order.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#put@uint32</strong></div>
+<div style="margin-bottom:1em"><code>pointer#put@uint32(n:number):map:reduce:[be,stay]</code></div>
+Stores the specified number to the current pointer position in size of uint32.
+</p>
+<p>
+In default, it stores the byte sequences in the order of little-endian. You can specify <code>:be</code> sttribute to store them in big-endian order.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#put@int64</strong></div>
+<div style="margin-bottom:1em"><code>pointer#put@int64(n:number):map:reduce:[be,stay]</code></div>
+Stores the specified number to the current pointer position in size of int64.
+</p>
+<p>
+In default, it stores the byte sequences in the order of little-endian. You can specify <code>:be</code> sttribute to store them in big-endian order.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#put@uint64</strong></div>
+<div style="margin-bottom:1em"><code>pointer#put@uint64(n:number):map:reduce:[be,stay]</code></div>
+Stores the specified number to the current pointer position in size of uint64.
+</p>
+<p>
+In default, it stores the byte sequences in the order of little-endian. You can specify <code>:be</code> sttribute to store them in big-endian order.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#put@float</strong></div>
+<div style="margin-bottom:1em"><code>pointer#put@float(n:number):map:reduce:[be,stay]</code></div>
+Stores the specified number to the current pointer position in size of float.
+</p>
+<p>
+In default, it stores the byte sequences in the order of little-endian. You can specify <code>:be</code> sttribute to store them in big-endian order.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#put@double</strong></div>
+<div style="margin-bottom:1em"><code>pointer#put@double(n:number):map:reduce:[be,stay]</code></div>
+Stores the specified number to the current pointer position in size of double.
+</p>
+<p>
+In default, it stores the byte sequences in the order of little-endian. You can specify <code>:be</code> sttribute to store them in big-endian order.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#reader</strong></div>
+<div style="margin-bottom:1em"><code>pointer#reader() {block?}</code></div>
+Creates a <code>stream</code> instance with which you can read data from the memory pointerd by the pointer. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#seek</strong></div>
+<div style="margin-bottom:1em"><code>pointer#seek(offset:number):reduce</code></div>
+Moves the pointer position to the specified <code>offset</code>.
+</p>
+<p>
+This method returns a reference to the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#tail</strong></div>
+<div style="margin-bottom:1em"><code>pointer#tail():reduce</code></div>
+Moves the pointer position to the end.
+</p>
+<p>
+This method returns a reference to the target instance itself.
 </p>
 <p>
 <div><strong style="text-decoration:underline">pointer#unpack</strong></div>
-<div style="margin-bottom:1em"><code>pointer#unpack(format:string, values*:number):[nil,stay]</code></div>
-
+<div style="margin-bottom:1em"><code>pointer#unpack(format:string, values*:number):[nil,stay] {block?}</code></div>
+Extracts values from data sequence pointed by the <code>pointer</code> instance according to specifiers in the <code>format</code> and returns a list containing the values.
+</p>
+<p>
+A specifier has a format of "<code>nX</code>" where <code>X</code> is a format character that represents a packing format and <code>n</code> is a number of packing size. The number can be omitted, and it would be treated as <code>1</code> in that case.
+</p>
+<p>
+Following format characters would extract an integer or float value of specified size from the binary and returns a <code>number</code> value.
+</p>
+<ul>
+<li><code>b</code> .. One-byte signed number.</li>
+<li><code>B</code> .. One-byte unsigned number.</li>
+<li><code>h</code> .. Two-byte signed number.</li>
+<li><code>H</code> .. Two-byte unsigned number.</li>
+<li><code>i</code> .. Four-byte signed number.</li>
+<li><code>I</code> .. Four-byte unsigned number.</li>
+<li><code>l</code> .. Four-byte signed number.</li>
+<li><code>L</code> .. Four-byte unsigned number.</li>
+<li><code>q</code> .. Eight-byte signed number.</li>
+<li><code>Q</code> .. Eight-byte unsigned number.</li>
+<li><code>f</code> .. Float-typed number occupying four bytes.</li>
+<li><code>d</code> .. Double-typed number occupying eight bytes.</li>
+</ul>
+<p>
+As for them, the packing size <code>n</code> means the number of values to be extracted.
+</p>
+<p>
+Following format characters would extract a string sequence from the binary and returns a <code>string</code> value.
+</p>
+<ul>
+<li><code>s</code> .. Extracts a sequence of UTF-8 codes and returns <code>string</code> instance containing it. The unpacking size <code>n</code> means the size of the room in bytes where the character codes are to be unpacked.</li>
+<li><code>c</code> .. Extracts a one-byte unsigned number and returns a <code>string</code> instance containing it. The unpacking size <code>n</code> means the number of values to be extracted.</li>
+</ul>
+<p>
+Following format character would not return any value.
+</p>
+<ul>
+<li><code>x</code> .. Advances the address by one byte. If the unpacking size <code>n</code> is specifies, it would advance the address by <code>n</code> bytes.</li>
+</ul>
+<p>
+The default byte-order for numbers of two-byte, four-byte and eight-byte depends on the system the interpreter is currently running. You can change it by the following specifiers:
+</p>
+<ul>
+<li><code>@</code> .. System-dependent order.</li>
+<li><code>=</code> .. System-dependent order.</li>
+<li><code>&lt;</code> .. Little endian</li>
+<li><code>&gt;</code> .. Big endian</li>
+<li><code>!</code> .. Big endian</li>
+</ul>
+<p>
+You can specify an asterisk character "<code>*</code>" for the number of unpacking size that picks that number from the argument list.
+</p>
+<p>
+You can specify encoding name embraced with "<code>{</code>" and "<code>}</code>" in the format to change coding character set from UTF-8 while extracting a string with format character "<code>s</code>".
+</p>
+<p>
+An error occurs if the binary size is smaller than the format reqeusts. If the attribute <code>:nil</code> is specified, <code>nil</code> value would be returned for such a case.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|list:list|</code>, where <code>list</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">pointer#unpacks</strong></div>
-<div style="margin-bottom:1em"><code>pointer#unpacks(format:string, values*:number)</code></div>
-
+<div style="margin-bottom:1em"><code>pointer#unpacks(format:string, values*:number):map {block?}</code></div>
+Returns an iterator that extracts values from data pointed by the <code>pointer</code> instance according to specifiers in <code>format</code>.
 </p>
-<h2><span class="caption-index-2">6.27</span><a name="anchor-6-27"></a>rational Class</h2>
+<p>
+For detailed information about specifiers, see the help of <code>pointer#unpack()</code>.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|iter:iterator|</code>, where <code>iter</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">pointer#writer</strong></div>
+<div style="margin-bottom:1em"><code>pointer#writer() {block?}</code></div>
+Creates a <code>stream</code> instance with which you can append data to the memory pointed by the pointer. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<h3><span class="caption-index-3">6.27.4</span><a name="anchor-6-27-4"></a>Cast Operation</h3>
+<p>
+A function that expects a <code>pointer</code> instance in its argument can also take a value of <code>binary</code> and <code>memory</code>.
+</p>
+<p>
+With the above casting feature, you can call a function <code>f(p:pointer)</code> that takes a <code>pointer</code> instance in its argument as below:
+</p>
+<ul>
+<li><code>b = b'\x01\x23\x45\x67\x89\xab', f(b)</code></li>
+<li><code>m = memory(32), f(m)</code></li>
+</ul>
+<h2><span class="caption-index-2">6.28</span><a name="anchor-6-28"></a>rational Class</h2>
 <p>
 The <code>rational</code> class provides measures to handle rational numbers.
 </p>
@@ -5505,7 +6184,7 @@ Below are examples to realize a common fraction two-thirds:
 2r / 3
 2 / 3r
 </code></pre>
-<h3><span class="caption-index-3">6.27.1</span><a name="anchor-6-27-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.28.1</span><a name="anchor-6-28-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">rational</strong></div>
 <div style="margin-bottom:1em"><code>rational(numer:number, denom?:number):map {block?}</code></div>
@@ -5517,20 +6196,20 @@ If the argument <code>denom</code> is omitted, one is set as its denominator.
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|r:rational|</code>, where <code>r</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">6.27.2</span><a name="anchor-6-27-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.28.2</span><a name="anchor-6-28-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">rational.reduce</strong></div>
 <div style="margin-bottom:1em"><code>rational.reduce()</code></div>
 Reduces the rational number by dividing its numerator and denominator by their GCD.
 </p>
-<h2><span class="caption-index-2">6.28</span><a name="anchor-6-28"></a>semaphore Class</h2>
-<h3><span class="caption-index-3">6.28.1</span><a name="anchor-6-28-1"></a>Constructor</h3>
+<h2><span class="caption-index-2">6.29</span><a name="anchor-6-29"></a>semaphore Class</h2>
+<h3><span class="caption-index-3">6.29.1</span><a name="anchor-6-29-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">semaphore</strong></div>
 <div style="margin-bottom:1em"><code>semaphore()</code></div>
 
 </p>
-<h3><span class="caption-index-3">6.28.2</span><a name="anchor-6-28-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.29.2</span><a name="anchor-6-29-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">semaphore#release</strong></div>
 <div style="margin-bottom:1em"><code>semaphore#release()</code></div>
@@ -5546,7 +6225,7 @@ Forms a critical session by grabbing the semaphore's ownership, executing the bl
 <div style="margin-bottom:1em"><code>semaphore#wait()</code></div>
 Watis for the semaphore being released by other threads, and ghen grabs that ownership.
 </p>
-<h2><span class="caption-index-2">6.29</span><a name="anchor-6-29"></a>stream Class</h2>
+<h2><span class="caption-index-2">6.30</span><a name="anchor-6-30"></a>stream Class</h2>
 <p>
 The <code>stream</code> class provides methods to read and write data through a stream, an abstract structure to handle a byte sequence. It also provides information of the stream such as the pathname and the creation date and time.
 </p>
@@ -5570,7 +6249,7 @@ You can specify a proper <code>codec</code> when creating the <code>stream</code
 </ul>
 </li>
 </ul>
-<h3><span class="caption-index-3">6.29.1</span><a name="anchor-6-29-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.30.1</span><a name="anchor-6-30-1"></a>Property</h3>
 <p>
 A <code>stream</code> instance has the following properties:
 </p>
@@ -5669,7 +6348,7 @@ R</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.29.2</span><a name="anchor-6-29-2"></a>Operator</h3>
+<h3><span class="caption-index-3">6.30.2</span><a name="anchor-6-30-2"></a>Operator</h3>
 <p>
 You can use the operator "<code>&lt;&lt;</code>" to output a content of a value to a <code>stream</code>. It comes like "<code>stream &lt;&lt; obj</code>" where <code>obj</code> is converted to a string before output to the stream.
 </p>
@@ -5680,7 +6359,7 @@ Since the operator returns the <code>stream</code> instance specified on the lef
 </p>
 <pre><code>sys.stdout &lt;&lt; 'First' &lt;&lt; 'Second'
 </code></pre>
-<h3><span class="caption-index-3">6.29.3</span><a name="anchor-6-29-3"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">6.30.3</span><a name="anchor-6-30-3"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>stream</code> instance in its argument can also take a value of <code>string</code> and <code>binary</code> as below:
 </p>
@@ -5696,7 +6375,7 @@ Using the above casting feature, you can call a function <code>f(stream:stream)<
 <li><code>f('foo.txt')</code> .. Implicit casting from <code>string</code> to <code>stream</code>.</li>
 <li><code>f(b'\x00\x12\x34\x56')</code> .. Implicit casting from <code>binary</code> to <code>stream</code> that reads the content.</li>
 </ul>
-<h3><span class="caption-index-3">6.29.4</span><a name="anchor-6-29-4"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.30.4</span><a name="anchor-6-30-4"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">stream</strong></div>
 <div style="margin-bottom:1em"><code>stream(pathname:string, mode?:string, codec?:codec):map {block?}</code></div>
@@ -5719,7 +6398,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <p>
 You can also call <code>open()</code> function that is just an alias of <code>stream()</code> to create a <code>stream</code> instance.
 </p>
-<h3><span class="caption-index-3">6.29.5</span><a name="anchor-6-29-5"></a>Utility Function</h3>
+<h3><span class="caption-index-3">6.30.5</span><a name="anchor-6-30-5"></a>Utility Function</h3>
 <p>
 <div><strong style="text-decoration:underline">readlines</strong></div>
 <div style="margin-bottom:1em"><code>readlines(stream?:stream:r):[chop] {block?}</code></div>
@@ -5745,7 +6424,7 @@ In default, this returns an iterator as its result value. Specifying the followi
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h3><span class="caption-index-3">6.29.6</span><a name="anchor-6-29-6"></a>Method</h3>
+<h3><span class="caption-index-3">6.30.6</span><a name="anchor-6-30-6"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">stream#addcr</strong></div>
 <div style="margin-bottom:1em"><code>stream#addcr(flag?:boolean):reduce</code></div>
@@ -5807,7 +6486,7 @@ This has the same feature as <code>stream.copy()</code> and <code>stream#copyto(
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#copyto</strong></div>
-<div style="margin-bottom:1em"><code>stream#copyto(stream:stream:w, bytesunit:number =&gt; 65536):map:reduce:[finalize] {block?}</code></div>
+<div style="margin-bottom:1em"><code>stream#copyto(dst:stream:w, bytesunit:number =&gt; 65536):map:reduce:[finalize] {block?}</code></div>
 Copies the content in the target stream instance to stream <code>dst</code>.
 </p>
 <p>
@@ -5846,7 +6525,7 @@ Flushes cached data to the stream.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#peek</strong></div>
-<div style="margin-bottom:1em"><code>stream#peek(len?:number)</code></div>
+<div style="margin-bottom:1em"><code>stream#peek(bytes?:number)</code></div>
 Reads specified length of data from the stream and returns a <code>binary</code> instance that contains it. This doesn't move the stream's current file position.
 </p>
 <p>
@@ -5878,8 +6557,8 @@ This function encodes character codes in the string using <code>codec</code> ins
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#read</strong></div>
-<div style="margin-bottom:1em"><code>stream#read(len?:number) {block?}</code></div>
-Reads specified length of data from the stream and returns a <code>binary</code> instance that contains it. If the argument <code>len</code> is omitted, all the data available from the stream would be read.
+<div style="margin-bottom:1em"><code>stream#read(bytes?:number) {block?}</code></div>
+Reads specified length of data from the stream and returns a <code>binary</code> instance that contains it. If the argument <code>bytes</code> is omitted, all the data available from the stream would be read.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|buff:binary|</code>, where <code>buff</code> is the created instance. In this case, the block's result would become the function's returned value.
@@ -5977,10 +6656,10 @@ Returns the current file position at which read/write operation works.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#write</strong></div>
-<div style="margin-bottom:1em"><code>stream#write(buff:binary, len?:number):reduce</code></div>
-Writes binary data contained in <code>buff</code> to the stream. The argument <code>len</code> limits the number of data that is to be written to the stream.
+<div style="margin-bottom:1em"><code>stream#write(ptr:pointer, bytes?:number):reduce</code></div>
+Writes binary data pointer by <code>ptr</code> to the stream. The argument <code>bytes</code> limits the number of data that is to be written to the stream.
 </p>
-<h2><span class="caption-index-2">6.30</span><a name="anchor-6-30"></a>string Class</h2>
+<h2><span class="caption-index-2">6.31</span><a name="anchor-6-31"></a>string Class</h2>
 <p>
 The <code>string</code> class provides measures to operate on strings.
 </p>
@@ -5999,14 +6678,14 @@ second line
 third line
 '''
 </code></pre>
-<h3><span class="caption-index-3">6.30.1</span><a name="anchor-6-30-1"></a>Suffix Management</h3>
+<h3><span class="caption-index-3">6.31.1</span><a name="anchor-6-31-1"></a>Suffix Management</h3>
 <p>
 When an string literal is suffixed by a character <code>$</code>, a handler registered by <code>string.translate()</code> function that is supposed to translate the string into other natural languages would be evaluated.
 </p>
-<h3><span class="caption-index-3">6.30.2</span><a name="anchor-6-30-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.31.2</span><a name="anchor-6-31-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">string#align</strong></div>
-<div style="margin-bottom:1em"><code>string#align(width:number, padding:string =&gt; ' '):map:[center,left,right]</code></div>
+<div style="margin-bottom:1em"><code>string#align(width:number, padding:string =&gt; ' '):map:[center,left,right] {block?}</code></div>
 Align the string to the left, right or center within the specified <code>width</code> and returns the result.
 </p>
 <p>
@@ -6028,17 +6707,17 @@ This method takes into account the character width based on the specification of
 </p>
 <p>
 <div><strong style="text-decoration:underline">string.binary</strong></div>
-<div style="margin-bottom:1em"><code>string.binary()</code></div>
+<div style="margin-bottom:1em"><code>string.binary() {block?}</code></div>
 Converts the string into <code>binary</code> instance.
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#capitalize</strong></div>
-<div style="margin-bottom:1em"><code>string#capitalize()</code></div>
+<div style="margin-bottom:1em"><code>string#capitalize() {block?}</code></div>
 Returns a string that capitalizes the first character.
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#chop</strong></div>
-<div style="margin-bottom:1em"><code>string#chop(suffix*:string):[eol,icase]</code></div>
+<div style="margin-bottom:1em"><code>string#chop(suffix*:string):[eol,icase] {block?}</code></div>
 Returns a string that removes a last character.
 </p>
 <p>
@@ -6046,7 +6725,7 @@ If an attribute <code>:eol</code> is specified, only the end-of-line character s
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#decodeuri</strong></div>
-<div style="margin-bottom:1em"><code>string#decodeuri()</code></div>
+<div style="margin-bottom:1em"><code>string#decodeuri() {block?}</code></div>
 Returns a string in which percent-encoded characters are decoded.
 </p>
 <p>
@@ -6103,12 +6782,12 @@ Calling this method is equivalent to calling a method <code>string#template()</c
 </p>
 <p>
 <div><strong style="text-decoration:underline">string.encode</strong></div>
-<div style="margin-bottom:1em"><code>string.encode(codec:codec)</code></div>
+<div style="margin-bottom:1em"><code>string.encode(codec:codec) {block?}</code></div>
 Encodes the string with the given <code>codec</code> and return the result as a <code>binary</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#encodeuri</strong></div>
-<div style="margin-bottom:1em"><code>string#encodeuri()</code></div>
+<div style="margin-bottom:1em"><code>string#encodeuri() {block?}</code></div>
 Returns a string in which non-URIC characters are percent-encoded.
 </p>
 <p>
@@ -6124,7 +6803,7 @@ With an attribute <code>:icase</code>, character cases are ignored while matchin
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#escapehtml</strong></div>
-<div style="margin-bottom:1em"><code>string#escapehtml():[quote]</code></div>
+<div style="margin-bottom:1em"><code>string#escapehtml():[quote] {block?}</code></div>
 Returns a string that converts characters into escape sequences.
 </p>
 <p>
@@ -6215,7 +6894,7 @@ Converts upper-case to lower-case characters.
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#mid</strong></div>
-<div style="margin-bottom:1em"><code>string#mid(pos:number =&gt; 0, len?:number):map</code></div>
+<div style="margin-bottom:1em"><code>string#mid(pos:number =&gt; 0, len?:number):map {block?}</code></div>
 Extracts the specified length of string from the position <code>pos</code> and returns the result.
 </p>
 <p>
@@ -6284,7 +6963,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#right</strong></div>
-<div style="margin-bottom:1em"><code>string#right(len?:number):map</code></div>
+<div style="margin-bottom:1em"><code>string#right(len?:number):map {block?}</code></div>
 Extracts the specified length of string from right of the source string.
 </p>
 <p>
@@ -6322,7 +7001,7 @@ With an attribute <code>:icase</code>, character cases are ignored while matchin
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#strip</strong></div>
-<div style="margin-bottom:1em"><code>string#strip():[both,left,right]</code></div>
+<div style="margin-bottom:1em"><code>string#strip():[both,left,right] {block?}</code></div>
 Returns a string that removes space characters on the left, the right or the both sides of the original string.
 </p>
 <p>
@@ -6340,7 +7019,7 @@ Parses the content of the string as a text containing embedded scripts and retur
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#tosymbol</strong></div>
-<div style="margin-bottom:1em"><code>string#tosymbol()</code></div>
+<div style="margin-bottom:1em"><code>string#tosymbol() {block?}</code></div>
 Convers the string into a symbol.
 </p>
 <p>
@@ -6353,12 +7032,12 @@ The procedure is described in <code>block</code> takes a block parameter <code>|
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#unescapehtml</strong></div>
-<div style="margin-bottom:1em"><code>string#unescapehtml()</code></div>
+<div style="margin-bottom:1em"><code>string#unescapehtml() {block?}</code></div>
 Converts escape sequences into readable characters.
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#upper</strong></div>
-<div style="margin-bottom:1em"><code>string#upper()</code></div>
+<div style="margin-bottom:1em"><code>string#upper() {block?}</code></div>
 Converts lower-case to upper-case characters.
 </p>
 <p>
@@ -6371,10 +7050,10 @@ This method takes into account the character width based on the specification of
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#zentohan</strong></div>
-<div style="margin-bottom:1em"><code>string#zentohan()</code></div>
+<div style="margin-bottom:1em"><code>string#zentohan() {block?}</code></div>
 Converts zenkaku to hankaku characters.
 </p>
-<h2><span class="caption-index-2">6.31</span><a name="anchor-6-31"></a>suffixmgr Class</h2>
+<h2><span class="caption-index-2">6.32</span><a name="anchor-6-32"></a>suffixmgr Class</h2>
 <p>
 The <code>suffixmgr</code> class provides measures to access suffix managers that are responsible to handle suffix symbols appended to number or string literals.
 </p>
@@ -6388,7 +7067,7 @@ You can use that suffix like below:
 </p>
 <pre><code>'hello world'X
 </code></pre>
-<h3><span class="caption-index-3">6.31.1</span><a name="anchor-6-31-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.32.1</span><a name="anchor-6-32-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">suffixmgr</strong></div>
 <div style="margin-bottom:1em"><code>suffixmgr(type:symbol) {block?}</code></div>
@@ -6401,7 +7080,7 @@ Creates a reference to one of two suffix managers, number and string.
 <p>
 Specify the argument <code>type</code> with a symbol <code>`number</code> for a number suffix manager and <code>`string</code> for a string suffix manager.
 </p>
-<h3><span class="caption-index-3">6.31.2</span><a name="anchor-6-31-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.32.2</span><a name="anchor-6-32-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">suffixmgr#assign</strong></div>
 <div style="margin-bottom:1em"><code>suffixmgr#assign(suffix:symbol):void:[overwrite] {block}</code></div>
@@ -6410,15 +7089,15 @@ Assigns a procedure to a specified symbol in the suffix manager. The procedure i
 <p>
 An error occurs if the same suffix symbol has already been assigned. Specifying <code>:overwrite</code> attribute will forcibly overwrite an existing assignment.
 </p>
-<h2><span class="caption-index-2">6.32</span><a name="anchor-6-32"></a>symbol Class</h2>
-<h3><span class="caption-index-3">6.32.1</span><a name="anchor-6-32-1"></a>Method</h3>
+<h2><span class="caption-index-2">6.33</span><a name="anchor-6-33"></a>symbol Class</h2>
+<h3><span class="caption-index-3">6.33.1</span><a name="anchor-6-33-1"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">symbol#eval</strong></div>
 <div style="margin-bottom:1em"><code>symbol#eval(env?:environment)</code></div>
 Evaluate a symbol object.
 </p>
-<h2><span class="caption-index-2">6.33</span><a name="anchor-6-33"></a>template Class</h2>
-<h3><span class="caption-index-3">6.33.1</span><a name="anchor-6-33-1"></a>Cast Operation</h3>
+<h2><span class="caption-index-2">6.34</span><a name="anchor-6-34"></a>template Class</h2>
+<h3><span class="caption-index-3">6.34.1</span><a name="anchor-6-34-1"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>template</code> instance in its argument can also take a value of <code>stream</code> as below:
 </p>
@@ -6437,7 +7116,7 @@ Using the above casting feature, you can call a function <code>f(tmpl:template)<
 <li><code>f(template('foo.txt'))</code> .. Implicit casting: from <code>string</code> to <code>stream</code>.</li>
 <li><code>f('foo.txt')</code> .. Implicit casting: from <code>string</code> to <code>stream</code>, then from <code>stream</code> to <code>template</code>.</li>
 </ul>
-<h3><span class="caption-index-3">6.33.2</span><a name="anchor-6-33-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.34.2</span><a name="anchor-6-34-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">template</strong></div>
 <div style="margin-bottom:1em"><code>template(src?:stream:r):map:[lasteol,noindent] {block?}</code></div>
@@ -6453,7 +7132,7 @@ Following attributes would customize the parser's behavior:
 <li><code>:lasteol</code></li>
 <li><code>:noindent</code></li>
 </ul>
-<h3><span class="caption-index-3">6.33.3</span><a name="anchor-6-33-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.34.3</span><a name="anchor-6-34-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">template#parse</strong></div>
 <div style="margin-bottom:1em"><code>template#parse(str:string):void:[lasteol,noindent]</code></div>
@@ -6486,7 +7165,7 @@ Renders stored content to the specified stream.
 <p>
 If the stream is omitted, the function returns the rendered result as a string.
 </p>
-<h3><span class="caption-index-3">6.33.4</span><a name="anchor-6-33-4"></a>Method Called by Template Directive</h3>
+<h3><span class="caption-index-3">6.34.4</span><a name="anchor-6-34-4"></a>Method Called by Template Directive</h3>
 <p>
 <div><strong style="text-decoration:underline">template#block</strong></div>
 <div style="margin-bottom:1em"><code>template#block(symbol:symbol):void</code></div>
@@ -6651,11 +7330,11 @@ Content of base.
 Content of derived.
 Block ends here.
 </code></pre>
-<h2><span class="caption-index-2">6.34</span><a name="anchor-6-34"></a>timedelta Class</h2>
+<h2><span class="caption-index-2">6.35</span><a name="anchor-6-35"></a>timedelta Class</h2>
 <p>
 The <code>timedelta</code> instance provides a time delta information that works with <code>datetime</code> instance. You can shift time information of <code>datetime</code> by applying addition or subtraction of <code>timedelta</code> to it.
 </p>
-<h3><span class="caption-index-3">6.34.1</span><a name="anchor-6-34-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.35.1</span><a name="anchor-6-35-1"></a>Property</h3>
 <p>
 A <code>timedelta</code> instance has the following properties:
 </p>
@@ -6715,19 +7394,19 @@ Offset of micro seconds.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.34.2</span><a name="anchor-6-34-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.35.2</span><a name="anchor-6-35-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">timedelta</strong></div>
 <div style="margin-bottom:1em"><code>timedelta(days:number =&gt; 0, secs:number =&gt; 0, usecs:number =&gt; 0):map {block?}</code></div>
 Returns a timedelta instance with specified values. The instance actually holds properties of days, secs and usecs.
 </p>
-<h2><span class="caption-index-2">6.35</span><a name="anchor-6-35"></a>uri Class</h2>
+<h2><span class="caption-index-2">6.36</span><a name="anchor-6-36"></a>uri Class</h2>
 <p>
 The <code>uri</code> instance analyzes a URI string and returns each part in it such as the scheme and path. A generic URI has the following format:
 </p>
 <pre><code>scheme:[//[user:password@]host:port]][/]path[?query][#fragment]
 </code></pre>
-<h3><span class="caption-index-3">6.35.1</span><a name="anchor-6-35-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.36.1</span><a name="anchor-6-36-1"></a>Property</h3>
 <p>
 A <code>uri</code> instance has the following properties:
 </p>
@@ -6839,7 +7518,7 @@ Misc part in the URI.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.35.2</span><a name="anchor-6-35-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.36.2</span><a name="anchor-6-36-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">uri</strong></div>
 <div style="margin-bottom:1em"><code>uri(str?:string):map {block?}</code></div>
@@ -6851,7 +7530,7 @@ If the argument <code>str</code> is specified, it would be parsed as a URI which
 <p>
 If omitted, the instance would be initialized as an empty one.
 </p>
-<h3><span class="caption-index-3">6.35.3</span><a name="anchor-6-35-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.36.3</span><a name="anchor-6-36-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">uri#getfragment</strong></div>
 <div style="margin-bottom:1em"><code>uri#getfragment()</code></div>
@@ -6872,7 +7551,7 @@ Returns a <code>dict</code> instance that is made from the query part in the URI
 <div style="margin-bottom:1em"><code>uri.parsequery(query:string):static:map</code></div>
 This is a utility function to parse a query string and return a <code>dict</code> instance that contains key-value pairs for the query.
 </p>
-<h3><span class="caption-index-3">6.35.4</span><a name="anchor-6-35-4"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">6.36.4</span><a name="anchor-6-36-4"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>uri</code> instance in its argument can also take a value of <code>string</code> that is recognized as a URI string.
 </p>
@@ -6883,11 +7562,11 @@ With the above casting feature, you can call a function <code>f(uri:uri)</code> 
 <li><code>f(uri('http://example.com'))</code> .. The most explicit way.</li>
 <li><code>f('http://example.com')</code> .. Implicit casting: from <code>string</code> to <code>uri</code>.</li>
 </ul>
-<h2><span class="caption-index-2">6.36</span><a name="anchor-6-36"></a>vertex Class</h2>
+<h2><span class="caption-index-2">6.37</span><a name="anchor-6-37"></a>vertex Class</h2>
 <p>
 The <code>vertex</code> class provides vertex information that consists of x, y, z and w values.
 </p>
-<h3><span class="caption-index-3">6.36.1</span><a name="anchor-6-36-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.37.1</span><a name="anchor-6-37-1"></a>Property</h3>
 <p>
 An <code>vertex</code> instance has the following properties:
 </p>
@@ -6964,13 +7643,13 @@ R/W</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.36.2</span><a name="anchor-6-36-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.37.2</span><a name="anchor-6-37-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">vertex</strong></div>
 <div style="margin-bottom:1em"><code>vertex(x:number, y:number, z?:number):map {block?}</code></div>
 
 </p>
-<h3><span class="caption-index-3">6.36.3</span><a name="anchor-6-36-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.37.3</span><a name="anchor-6-37-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">vertex#rotate@x</strong></div>
 <div style="margin-bottom:1em"><code>vertex#rotate@x(angle:number):[deg] {block?}</code></div>

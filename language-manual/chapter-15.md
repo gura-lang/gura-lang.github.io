@@ -139,7 +139,7 @@ Another way to create and utilize a <code>stream</code> instance is to call <cod
 <p>
 Using this description, you can access the created instance only within the block, which will be automatically destroyed at the end of the procedure.
 </p>
-<h3><span class="caption-index-3">15.3.2</span><a name="anchor-15-3-2"></a>Cast to Stream Instance</h3>
+<h3><span class="caption-index-3">15.3.2</span><a name="anchor-15-3-2"></a>Cast from String to Stream Instance</h3>
 <p>
 If a certain function has an argument that expects a <code>stream</code> instance, you can pass it a string of a pathname, which will automatically be converted to a <code>stream</code> instance by a casting mechanism. The <code>stream</code> instance would be created as one for reading.
 </p>
@@ -161,7 +161,20 @@ f('foo.txt')   // same as f(open('foo.txt', 'w'))
 <p>
 Attribute <code>:r</code> is also prepared to explicitly declara that the stream is to be opened for reading.
 </p>
-<h3><span class="caption-index-3">15.3.3</span><a name="anchor-15-3-3"></a>Stream Instance for Standard Input/Output</h3>
+<h3><span class="caption-index-3">15.3.3</span><a name="anchor-15-3-3"></a>Stream Instance to Access Memory</h3>
+<p>
+Beside <code>string</code>, an instance of class that accesses data stored in memory can also be casted to <code>stream</code>. These classes are <code>binary</code>, <code>memory</code> and <code>pointer</code>. Using this mechanism, you can read/write memory content through <code>stream</code> methods.
+</p>
+<p>
+Below is an example to cast <code>binary</code> to <code>stream</code>.
+</p>
+<pre><code>f(fd:stream) = {
+    // read/write access to content of buff through fd
+}
+buff = binary()
+f(buff)
+</code></pre>
+<h3><span class="caption-index-3">15.3.4</span><a name="anchor-15-3-4"></a>Stream Instance for Standard Input/Output</h3>
 <p>
 There are three <code>stream</code> instances for the access to standard input and output, which are assigned to variables in <code>sys</code> module.
 </p>
@@ -182,7 +195,7 @@ You can also assign a <code>stream</code> instance you create to these variables
 <pre><code>sys.stdout = open('foo.txt', 'w')
 println('Hello world')   // result will be written into 'foo.txt'.
 </code></pre>
-<h3><span class="caption-index-3">15.3.4</span><a name="anchor-15-3-4"></a>Stream with Text Data</h3>
+<h3><span class="caption-index-3">15.3.5</span><a name="anchor-15-3-5"></a>Stream with Text Data</h3>
 <p>
 There are fundamental functions that print texts out to standard output stream.
 </p>
@@ -273,7 +286,7 @@ If you want to append CR code at each end of line in a file to write, call <code
 </p>
 <pre><code>fd.addcr(true)
 </code></pre>
-<h3><span class="caption-index-3">15.3.5</span><a name="anchor-15-3-5"></a>Character Codecs</h3>
+<h3><span class="caption-index-3">15.3.6</span><a name="anchor-15-3-6"></a>Character Codecs</h3>
 <p>
 While a <code>string</code> instance holds string data in UTF-8 format, there are various character code sets to describe texts in files. To be capable of handling them, a <code>stream</code> instance may contain an instance of <code>codec</code> class that is responsible of converting characters between UTF-8 and those codes. You can specify a <code>codec</code> instance to a <code>stream</code> by passing it as a third argument of <code>open()</code> function.
 </p>
@@ -345,7 +358,7 @@ The standard output/input streams, <code>sys.stdin</code>, <code>sys.stdout</cod
 </p>
 <pre><code>sys.stdout.setcodec('utf-8')
 </code></pre>
-<h3><span class="caption-index-3">15.3.6</span><a name="anchor-15-3-6"></a>Stream with Binary Data</h3>
+<h3><span class="caption-index-3">15.3.7</span><a name="anchor-15-3-7"></a>Stream with Binary Data</h3>
 <p>
 In addition to methods to handle text data, class <code>stream</code> is equipped with methods to read/write binary data as well.
 </p>
@@ -391,7 +404,7 @@ You can use the block procedure with the copying method to realize a indicator t
 <p>
 Method <code>stream#compare()</code> compares contents between two streams and returns <code>true</code> if there's no difference and <code>false</code> otherwise.
 </p>
-<h3><span class="caption-index-3">15.3.7</span><a name="anchor-15-3-7"></a>Filter Stream</h3>
+<h3><span class="caption-index-3">15.3.8</span><a name="anchor-15-3-8"></a>Filter Stream</h3>
 <p>
 A Filter Stream is what is attached to other <code>stream</code> instance and applies data modification while reading or writing operation.
 </p>
@@ -509,7 +522,7 @@ Below shows a diagram of the process:
 |        |    | (base64 writer) |    | (gzip writer) |
 +--------+    +-----------------+    +---------------+
 </code></pre>
-<h3><span class="caption-index-3">15.3.8</span><a name="anchor-15-3-8"></a>Stream with Archive File and Network</h3>
+<h3><span class="caption-index-3">15.3.9</span><a name="anchor-15-3-9"></a>Stream with Archive File and Network</h3>
 <p>
 After importing <code>tar</code> module, you can create a stream that reads an item stored in a TAR archive file. When a pathname contains a filename suffixed with <code>.tar</code>, <code>.tgz</code>, <code>.tar.gz</code> or <code>tar.bz2</code>, it would decompress the content in accordance with TAR format. The example below opens an item named <code>src/main.cpp</code> in a TAR file <code>foo/example.tar.gz</code>.
 </p>
