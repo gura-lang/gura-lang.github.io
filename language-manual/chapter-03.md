@@ -307,6 +307,9 @@ Assuming that there are four spaces before the expression <code>print(R'''</code
 A string literal prefixed by <code>b</code> would be treated as a sequence of binary data instead of character code.
 </p>
 <p>
+A string literal prefixed by <code>e</code> would be treated as a string that may contain embedded scripts written in a manner for the template engine.
+</p>
+<p>
 A string literal can also be appended by a suffix symbol that has been registered in Suffix Manager. There's no built-in suffix for string literals.
 </p>
 <h3><span class="caption-index-3">3.2.4</span><a name="anchor-3-2-4"></a>Operator</h3>
@@ -885,6 +888,16 @@ It contains three Identifier expressions <code>x</code>, <code>y</code> and <cod
 </p>
 </li>
 </ul>
+<p>
+If a opening curly bracket appears at the top of a line, the preceding line break would be omitted. This means that the following two examples are identical:
+</p>
+<pre><code>foo {
+}
+
+foo
+{
+}
+</code></pre>
 <h3><span class="caption-index-3">3.3.13</span><a name="anchor-3-3-13"></a>Root</h3>
 <p>
 A <code>Root</code> expression represents a series of element expressions that appear in the top sequence.
@@ -996,7 +1009,7 @@ It owns an Identifier expression <code>a</code> as its car element and three Ide
 </li>
 </ul>
 <p>
-If two or more callers are described in the same line, they have a leader-trailer relationship each other, in which the preceding caller is dubbed a leader and following one a trailer. A caller that acts as a leader is the owner of its trailing caller.
+If two or more <code>Caller</code>s are described in the same line, they have a leader-trailer relationship each other, in which the preceding <code>Caller</code> is dubbed a leader and following one a trailer. A <code>Caller</code> that acts as a leader is the owner of its trailing <code>Caller</code>.
 </p>
 <p>
 Consider the following expressions:
@@ -1006,19 +1019,22 @@ Consider the following expressions:
 <code>a() b()</code>
 </p>
 <p>
-The Caller expression <code>a()</code> owns a Caller expression of <code>b()</code> as its trailer.
+The <code>Caller</code> expression <code>a()</code> owns a <code>Caller</code> expression of <code>b()</code> as its trailer.
 </p>
 </li>
 <li><p>
 <code>a() b() c()</code>
 </p>
 <p>
-The Caller expression <code>a()</code> owns a Caller expression of <code>b()</code> as its trailer, and the Caller expression <code>b()</code> owns the Caller expression <code>c()</code> as well.
+The <code>Caller</code> expression <code>a()</code> owns a Caller expression of <code>b()</code> as its trailer, and the Caller expression <code>b()</code> owns the Caller expression <code>c()</code> as well.
 </p>
 </li>
 </ul>
 <p>
-The parser determines whether a following Caller is a trailer by checking if top of the following Caller is described in the same line as a closing parenthesis of the preceding one. It means that the example below is a valid leader-trailer form.
+The parser uses two rules to determine whether a following Caller is a trailer.
+</p>
+<p>
+The first is, as you've already read above, to check if the top of the following Caller is described in the same line of a closing parenthesis of the preceding one. It means that the example below is a valid leader-trailer form.
 </p>
 <pre><code>a(
 ) b(
@@ -1030,6 +1046,54 @@ If the preceding Caller has a block, the closing curly bracket must be in the sa
 <pre><code>a() {
 } b(
 )
+</code></pre>
+<p>
+Another rule is to determine if the caller is associated with a function that has a trailer attribute such as <code>elsif</code>, <code>else</code>, <code>catch</code> and <code>finally</code>. Those callers don't need to be at the same line of a closing parenthesis or curly bracket that precedes to act as a trailer. This feature enables you to write <code>if-elsif-else</code> sequence in the following style:
+</p>
+<pre><code>if (cond)
+{
+    // ...
+}
+elsif (cond)
+{
+    // ...
+}
+elsif (cond)
+{
+    // ...
+}
+else
+{
+    // ...
+}
+</code></pre>
+<p>
+Also, you can write <code>try-catch-else-finally</code> sequence like followed:
+</p>
+<pre><code>try
+{
+    // ...
+}
+catch (error1)
+{
+    // ...
+}
+catch (error2)
+{
+    // ...
+}
+catch
+{
+    // ...
+}
+else
+{
+    // ...
+}
+finally
+{
+    // ...
+}
 </code></pre>
 <p />
 

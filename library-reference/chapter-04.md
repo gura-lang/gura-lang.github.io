@@ -83,7 +83,7 @@ Prints out <code>values</code> and an end-of-line character to the standard outp
 <p>
 <div><strong style="text-decoration:underline">cross</strong></div>
 <div style="margin-bottom:1em"><code>cross (`expr+) {block}</code></div>
-Executes the block until it evaluates all the combinations of results from exprs "<code>var in iteratable</code>." You can specify one or more such exprs as arguments and they are counted up from the one on the right side. Iterators and lists are the most popular iteratables, but even any objects that are cable of generating iterators can be specified as such.
+Executes the <code>block</code> while evaluating all the combinations of results from <code>expr</code> that has format "<code>var in iteratable</code>". You can specify one or more such <code>expr</code>s as arguments and they are counted up from the one on the right side. Iterators and lists are the most popular iteratables, but even any objects that are cable of generating iterators can be specified as such.
 </p>
 <p>
 It returns the last evaluated value in the block as its own result, but, if one of <code>:list</code>, <code>:xlist</code>, <code>:set</code>, <code>:xset</code> or <code>:iter</code> is specified, it returns a list or evaluated value or an iterator. The rule is as follows:
@@ -100,9 +100,20 @@ It returns the last evaluated value in the block as its own result, but, if one 
 Block parameter format is <code>|idx:number, i0:number, i1:number, ..|</code> where <code>idx</code> indicates an index of the whole loop and each of <code>i0</code>, <code>i1</code> .. indicates an index of each corresponding iterable.
 </p>
 <p>
+Example:
+</p>
+<pre><code>cross (ch in ['A', 'B', 'C'], i in 1..4) {
+    printf('%s-%d ', ch, i)
+}
+// prints "A-1 A-2 A-3 A-4 B-1 B-2 B-3 B-4 C-1 C-2 C-3 C-4 "
+</code></pre>
+<p>
 <div><strong style="text-decoration:underline">for</strong></div>
 <div style="margin-bottom:1em"><code>for (`expr+) {block}</code></div>
-Executes the block until any of the exprs of "<code>var in iteratable</code>" reach at their ends. You can specify one or more such exprs as arguments. Iterators and lists are the most popular iteratables, but even any objects that are cable of generating iterators can be specified as such.
+Executes the <code>block</code> while evaulating iteration command <code>expr</code> that has a format "<code>var in iteratable</code>". For <code>var</code>, an identifier or a list of identifiers is specified. For <code>iterable</code>, you can spedify iterators and lists as well as any objects that are cable of generating iterators.
+</p>
+<p>
+You can specify one or more <code>expr</code> in the argument list. In such a case, it continues to repeat until the shortest iterable among them reaches at its end.
 </p>
 <p>
 It returns the last evaluated value in the block as its own result, but, if one of <code>:list</code>, <code>:xlist</code>, <code>:set</code>, <code>:xset</code> or <code>:iter</code> is specified, it returns a list or evaluated value or an iterator. The rule is as follows:
@@ -118,6 +129,17 @@ It returns the last evaluated value in the block as its own result, but, if one 
 <p>
 Block parameter format is <code>|idx:number|</code> where <code>idx</code> indicates an index of the loop.
 </p>
+<p>
+Example:
+</p>
+<p>
+Example:
+</p>
+<pre><code>for (ch in ['A', 'B', 'C'], i in 1..4) {
+    printf('%s-%d ', ch, i)
+}
+// prints "A-1 B-2 C-3"
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">repeat</strong></div>
 <div style="margin-bottom:1em"><code>repeat (n?:number) {block}</code></div>
@@ -188,7 +210,7 @@ Creates an iterator that generates the same value specified by the argument <cod
 The argument <code>num</code> specifies the number of elements to be generated. If omitted, it would generate the value infinitely.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -198,6 +220,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -266,7 +291,7 @@ This function can be called in three formats that generate following numbers:
 <li><code>range(num, num_end, step)</code> .. Numbers between <code>num</code> and <code>(num_end - 1)</code> incremented by <code>step</code>.</li>
 </ul>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -276,6 +301,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -784,7 +812,7 @@ If argument <code>range</code> is not specified, it generates random numbers in 
 In default, the created iterator infinitely generates random numbers. The argument <code>num</code> specifies how many elements should be generated.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -794,6 +822,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>

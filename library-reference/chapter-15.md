@@ -26,7 +26,7 @@ printf('name:%s, age:%d, email:%s¥n',
 Creates an iterator that parses a text in CSV format that is contained in the specified string and returns a list of fields as its each element.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -36,6 +36,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -45,7 +48,7 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 Creates an iterator that parses a text in CSV format from the specified stream and returns a list of fields as its each element.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -55,6 +58,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -87,7 +93,7 @@ This module extends the <code>stream</code> class with methods described here.
 Creates an iterator that parses a text in CSV format from the specified stream and returns a list of fields as its each element.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -97,6 +103,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>

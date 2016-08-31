@@ -5,63 +5,165 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">36</span><a name="anchor-36"></a>os Module</h1>
+<h1><span class="caption-index-1">36</span><a name="anchor-36"></a>model.stl Module</h1>
 <p>
-The <code>os</code> module provides functions that are specific to each OS environment. This is a built-in module, so you can use it without being imported.
-</p>
-<h2><span class="caption-index-2">36.1</span><a name="anchor-36-1"></a>Module Function</h2>
-<p>
-<div><strong style="text-decoration:underline">os.clock</strong></div>
-<div style="margin-bottom:1em"><code>os.clock() {block?}</code></div>
-Returns the time duration in second since the system has started.
+The <code>model.stl</code> module provides measures to read/write files in STL format for 3D models.
 </p>
 <p>
-If <code>block</code> is specified, it would calculate how much time has been spent during evaluating the block.
+Below is an example to read a STL file and to print information of faces it contains.
+</p>
+<pre><code>solid = model.stl.solid('example.stl')
+println(solid.name || solid.header)
+solid.faces.each {|face|
+    printf('normal:  %g, %g, %g\n', face.normal.x, face.normal.y, face.normal.z)
+    printf('vertex1: %g, %g, %g\n', face.vertex1.x, face.vertex1.y, face.vertex1.z)
+    printf('vertex2: %g, %g, %g\n', face.vertex2.x, face.vertex2.y, face.vertex2.z)
+    printf('vertex3: %g, %g, %g\n', face.vertex3.x, face.vertex3.y, face.vertex3.z)
+}
+</code></pre>
+<h2><span class="caption-index-2">36.1</span><a name="anchor-36-1"></a>model.stl.face Class</h2>
+<p>
+An instance of <code>model.stl.face</code> class provides properties of face that consists of one normal vector and three vertices.
+</p>
+<h3><span class="caption-index-3">36.1.1</span><a name="anchor-36-1-1"></a>Property</h3>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>normal</code></td>
+<td>
+<code>vertex</code></td>
+<td>
+R</td>
+
+<td>
+Normal vector.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>vertex1</code></td>
+<td>
+<code>vertex</code></td>
+<td>
+R</td>
+
+<td>
+1st vertex.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>vertex2</code></td>
+<td>
+<code>vertex</code></td>
+<td>
+R</td>
+
+<td>
+2nd vertex.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>vertex3</code></td>
+<td>
+<code>vertex</code></td>
+<td>
+R</td>
+
+<td>
+3rd vertex.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">36.2</span><a name="anchor-36-2"></a>model.stl.solid Class</h2>
+<p>
+An instance of <code>model.stl.solid</code> class represents a top-level data in STL format.
+</p>
+<h3><span class="caption-index-3">36.2.1</span><a name="anchor-36-2-1"></a>Property</h3>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>header</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+This is only valid for binary format and is set to `nil` for ASCII.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>name</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+This is only valid for ASCII format and is set to `nil` for binary.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>faces</code></td>
+<td>
+<code>iterator</code></td>
+<td>
+R</td>
+
+<td>
+An iterator that returns instances of <code>model.stl.face</code>.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h3><span class="caption-index-3">36.2.2</span><a name="anchor-36-2-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">stl.solid</strong></div>
+<div style="margin-bottom:1em"><code>stl.solid(stream:stream) {block?}</code></div>
+Parses a file in STL format from <code>stream</code> and creates an instance of <code>model.stl.solid</code> that contains an iterator of <code>model.stl.face</code> representing faces in the STL. It can read both binary and ASCII format of STL.
 </p>
 <p>
-<div><strong style="text-decoration:underline">os.exec</strong></div>
-<div style="margin-bottom:1em"><code>os.exec(pathname:string, args*:string):map:[fork]</code></div>
-Executes the specified executable file.
-</p>
-<p>
-<div><strong style="text-decoration:underline">os.fromnative</strong></div>
-<div style="margin-bottom:1em"><code>os.fromnative(buff:binary):map</code></div>
-Converts binary data that includes OS's native string into Gura's regulated string.
-</p>
-<p>
-<div><strong style="text-decoration:underline">os.getenv</strong></div>
-<div style="margin-bottom:1em"><code>os.getenv(name:string, default?:string):map</code></div>
-Returns the value of an environment variable.
-</p>
-<p>
-<div><strong style="text-decoration:underline">os.putenv</strong></div>
-<div style="margin-bottom:1em"><code>os.putenv(name:string, value:string):void</code></div>
-Set the value of an environment variable.
-</p>
-<p>
-<div><strong style="text-decoration:underline">os.redirect</strong></div>
-<div style="margin-bottom:1em"><code>os.redirect(stdin:stream:nil:r, stdout:stream:nil:w, stderr?:stream:w) {block?}</code></div>
-Modifies variables <code>os.stdin</code>, <code>os.stdout</code> and <code>os.stderr</code> with values of arguments. When <code>block</code> is specified, the modification only has effect within the block.
-</p>
-<p>
-<div><strong style="text-decoration:underline">os.sleep</strong></div>
-<div style="margin-bottom:1em"><code>os.sleep(secs:number)</code></div>
-Sleeps for a time specified in seconds.
-</p>
-<p>
-<div><strong style="text-decoration:underline">os.symlink</strong></div>
-<div style="margin-bottom:1em"><code>os.symlink(src:string, tgt:string):map:void</code></div>
-Creates a symbol link.
-</p>
-<p>
-<div><strong style="text-decoration:underline">os.tonative</strong></div>
-<div style="margin-bottom:1em"><code>os.tonative(str:string):map</code></div>
-Converts Gura's regulated string into binary data that includes OS's native string.
-</p>
-<p>
-<div><strong style="text-decoration:underline">os.unsetenv</strong></div>
-<div style="margin-bottom:1em"><code>os.unsetenv(name:string):void</code></div>
-Unset an environment variable.
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|solid:model.stl.solid|</code>, where <code>solid</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p />
 

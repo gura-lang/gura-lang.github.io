@@ -240,7 +240,7 @@ Prints out a binary dump of the array's content.
 Creates an iterator that iterates each element in the array.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -250,6 +250,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -952,8 +955,8 @@ This is computed by a formula: <code>gray = 0.299 * red + 0.587 * blue + 0.114 *
 Returns a color string in a format of <code>'#rrggbb'</code> that is used in HTML documents.
 </p>
 <p>
-<div><strong style="text-decoration:underline">color#tolist</strong></div>
-<div style="margin-bottom:1em"><code>color#tolist():[alpha]</code></div>
+<div><strong style="text-decoration:underline">color#list</strong></div>
+<div style="margin-bottom:1em"><code>color#list():[alpha]</code></div>
 Returns a list of RGB elements in a form <code>[r, g, b]</code>.
 </p>
 <p>
@@ -967,9 +970,9 @@ The <code>complex</code> class provides measures to calculate complex numbers.
 You can create a <code>complex</code> instance by following ways:
 </p>
 <ul>
-<li>Use <code>complex()</code> function. eg) <code>complex(2, 3)</code></li>
-<li>Use <code>complex.polar()</code> function. eg) <code>complex.polar(5, math.pi / 6)</code></li>
-<li>Append <code>j</code> suffix after a number literal. eg) <code>2 + 3j</code></li>
+<li>Calls <code>complex()</code> function with a real and imaginary part of numbers. e.g., <code>complex(2, 3)</code></li>
+<li>Calls <code>complex.polar()</code> function with an absolute value and an argument in radius. e.g., <code>complex.polar(5, math.pi / 6)</code></li>
+<li>Appending <code>j</code> suffix after a number literal would create an imaginal part of a complex numbrer. e.g., <code>2 + 3j</code></li>
 </ul>
 <h3><span class="caption-index-3">6.8.1</span><a name="anchor-6-8-1"></a>Constructor</h3>
 <p>
@@ -1659,7 +1662,7 @@ Returns <code>true</code> if the specified <code>key</code> exists in the dictio
 Returns an iterator of key-value pairs in the dictionary.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -1669,6 +1672,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -1678,7 +1684,7 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 Returns an iterator of keys in the dictionary.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -1688,6 +1694,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -1722,7 +1731,7 @@ Another measure to add a key-value pair is to use an index operator. The followi
 Returns an iterator of values in the dictionary.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -1732,6 +1741,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -3044,7 +3056,7 @@ You can check the result of derivation by seeing property <code>function#expr</c
 The <code>help</code> class provides measures to access help information associated with a <code>function</code> instance.
 </p>
 <p>
-You can get a <code>help</code> instance by calling the class method <code>function.gethelp()</code>.
+You can get a <code>help</code> instance by calling the <code>function</code> class's method <code>function.gethelp()</code>.
 </p>
 <h3><span class="caption-index-3">6.18.1</span><a name="anchor-6-18-1"></a>Property</h3>
 <p>
@@ -3061,6 +3073,19 @@ Type</th>
 R/W</th>
 <th>
 Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>title</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+The title of the help.</td>
 </tr>
 
 
@@ -3106,6 +3131,40 @@ The help text.</td>
 
 </table>
 
+</p>
+<h3><span class="caption-index-3">6.18.2</span><a name="anchor-6-18-2"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">help.text@iterator</strong></div>
+<div style="margin-bottom:1em"><code>help.text@iterator(lang:symbol):static {block?}</code></div>
+Returns a help text for functions that return an iterator.
+</p>
+<p>
+The argument <code>lang</code> is a symbol that specifies the language in which the text is written, e.g. <code>`en</code> for English and <code>`ja</code> for Japanese.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|str:string|</code>, where <code>str</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">help.text@block</strong></div>
+<div style="margin-bottom:1em"><code>help.text@block(lang:symbol, varname:string, typename:string):static {block?}</code></div>
+Returns a help text that for functions that take a block .
+</p>
+<p>
+The argument <code>lang</code> is a symbol that specifies the language in which the text is written, e.g. <code>`en</code> for English and <code>`ja</code> for Japanese.
+</p>
+<p>
+In the text, variable names would be replaced by <code>varname</code> and type names by <code>typename</code>.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|str:string|</code>, where <code>str</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">help.presenter</strong></div>
+<div style="margin-bottom:1em"><code>help.presenter(format:string):static:void {block}</code></div>
+Registers a presentation procedure with a name specified by the argument <code>format</code>.
+</p>
+<p>
+The procedure is written in the block that takes block parameters: <code>|help:help|</code>.
 </p>
 <h2><span class="caption-index-2">6.19</span><a name="anchor-6-19"></a>image Class</h2>
 <p>
@@ -3643,7 +3702,7 @@ vertical</td>
 
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -3653,6 +3712,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -3717,12 +3779,12 @@ x[4] = `e     // replaces `E with `e
 <p>
 <div><strong style="text-decoration:underline">list</strong></div>
 <div style="margin-bottom:1em"><code>list(value+)</code></div>
-Creates a new list from given values in its argument list. If the value is a list or an iteartor, its elements are added to the created list.
+Creates a new list from given values in its argument list. If a given value is a list or an iteartor, elements it contains are added to the created list.
 </p>
 <p>
 <div><strong style="text-decoration:underline">xlist</strong></div>
 <div style="margin-bottom:1em"><code>xlist(value+)</code></div>
-Creates a new list from given values except for <code>nil</code> in its argument list. If the value is a list or an iteartor, its elements are added to the created list.
+Creates a new list from given values except for <code>nil</code> in its argument list. If a given value is a list or an iteartor, elements it contains are added to the created list.
 </p>
 <p>
 <div><strong style="text-decoration:underline">set</strong></div>
@@ -3772,7 +3834,7 @@ Clear the content of the list.
 Creates an iterator that generates lists that contain elements picked up from the original list in a combination manner.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -3782,6 +3844,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -3811,7 +3876,7 @@ Specifying an attribute could customize searching order as below:
 Unlike <code>iterator#walk()</code>, <code>iterator#flat()</code> creates an iterator without an infinite flag. This means that the created iterator can be converted to a list. You have to confirm that the source iterable doesn't contain any infinite iterators.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -3821,6 +3886,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -3861,7 +3929,7 @@ Returns a last value in the list. An error occurs when the list is empty.
 Creates an iterator that generates lists that contain elements picked up from the original list in a permutation manner.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -3871,6 +3939,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -3895,7 +3966,7 @@ Shuffle the order of the list content based on random numbers.
 Creates an iterator generating lists that bind given argument values. When the value is a list or an iterator, each item in it would be zipped.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -3905,6 +3976,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -3919,7 +3993,7 @@ Creates an iterator that combines iterators given in the argument.
 If an argument is not an iterator, that would be added as an element.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -3929,6 +4003,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -3999,7 +4076,7 @@ Creates an iterator that picks up elements that appear at positions after the cr
 You can specify a function, a list or an iterator as the criteria.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4009,6 +4086,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4057,7 +4137,7 @@ It can work on an iterable with elements of type that supports addition and divi
 Creates an iterator that extracts elements in the iterable before criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4067,6 +4147,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4103,7 +4186,7 @@ Below is an example:
 Creates an iterator that iterates each element in the list.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4113,6 +4196,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4164,7 +4250,7 @@ Specifying an attribute could customize searching order as below:
 Unlike <code>iterator#walk()</code>, <code>iterator#flat()</code> creates an iterator without an infinite flag. This means that the created iterator can be converted to a list. You have to confirm that the source iterable doesn't contain any infinite iterators.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4174,6 +4260,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4220,7 +4309,7 @@ Following is an example to fold elements by 3 with a step of 2:
 Creates an iterator that converts element values in the source iterable into strings depending on formatter specifier in <code>format</code>.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4230,6 +4319,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4239,7 +4331,7 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 Creates an iterator that takes the first <code>n</code> elements from the source iterable.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4249,6 +4341,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4276,7 +4371,7 @@ Returns the length of the iterable.
 Creates an iterator that generates element values after applying the specfied function on them. The function must take one argument.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4286,6 +4381,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4326,7 +4424,7 @@ Creates an iterator that converts <code>nil</code> in the source iterable to the
 Creates an iterator that returns skips the first <code>n</code> elements in the source iterable.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4336,6 +4434,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4497,7 +4598,7 @@ n = x.reduce(0) {|value, accum| value + accum}
 Creates an iterator that replaces the <code>value</code> in the original iterablewith the value of <code>replace</code>.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4507,6 +4608,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4516,7 +4620,7 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 Creates an iterator that iterates elements in the source iterable from tail to top.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4526,6 +4630,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4535,7 +4642,7 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 Creates an iterator that replaces a number with zero if it is less than the specified <code>threshold</code>.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4545,6 +4652,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4554,7 +4664,7 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 Creates an iterator that counts the number of consecutive same value and generates elements in a form of <code>[cnt, value]</code> where <code>cnt</code> indicates how many <code>value</code> appears in a row.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4564,6 +4674,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4579,7 +4692,7 @@ Below is an example:
 Creates an iterator that picks up each element in the iterable since criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4589,6 +4702,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4598,7 +4714,7 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 Creates an iterator that skips <code>n</code> elements before picking up next element.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4608,6 +4724,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4623,7 +4742,7 @@ Below is an example:
 Creates an iterator that skips <code>nil</code> in the source iterable.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4633,6 +4752,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4695,7 +4817,7 @@ It can work on an iterable with elements of a value type that supports addition 
 Creates an iterator that takes the last <code>n</code> elements from the source iterable.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4705,6 +4827,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4714,7 +4839,7 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 Creates an iterator that picks up each element in the list until criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4724,6 +4849,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4748,7 +4876,7 @@ Specifying an attribute could customize searching order as below:
 Unlike <code>iterator#flat()</code>, <code>iterator#walk()</code> creates an iterator with an infinite flag. This means that the created iterator is intended only for iteration and can not be converted to a list.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4758,6 +4886,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4778,7 +4909,7 @@ y = x.walk():bfs
 Creates an iterator that picks up each element in the list while criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -4788,6 +4919,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -4854,6 +4988,29 @@ Returns an inverted matrix.
 <div style="margin-bottom:1em"><code>matrix#issquare()</code></div>
 Returns true if the matrix is a square one.
 </p>
+<p>
+<div><strong style="text-decoration:underline">matrix#list</strong></div>
+<div style="margin-bottom:1em"><code>matrix#list():[transpose]</code></div>
+Converts the matrix into a list containing sub-lists that represents its rows.
+</p>
+<p>
+If <code>:transpose</code> attribute is specified, each sub-list contains values of corresponding column.
+</p>
+<p>
+If <code>:flat</code> attribute is specified, it generates one-dimentional list.
+</p>
+<p>
+Below is an example:
+</p>
+<pre><code>@@{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}.list()
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+</code></pre>
+<p>
+Below is an example with <code>:transpose</code> attribute:
+</p>
+<pre><code>@@{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}.list():transpose
+[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">matrix.rotation</strong></div>
 <div style="margin-bottom:1em"><code>matrix.rotation(angle:number, tx?:number, ty?:number):static:map:[deg] {block?}</code></div>
@@ -4971,29 +5128,6 @@ Sets cells in a selected row of the matrix with a specified value.
 <div style="margin-bottom:1em"><code>matrix#submat(row:number, col:number, nrows:number, ncols:number):map</code></div>
 Returns a sub matrix that refers to cells in a specified area of the matrix. Modification on the returned sub matrix will affect on the original one.
 </p>
-<p>
-<div><strong style="text-decoration:underline">matrix#tolist</strong></div>
-<div style="margin-bottom:1em"><code>matrix#tolist():[transpose]</code></div>
-Converts the matrix into a list containing sub-lists that represents its rows.
-</p>
-<p>
-If <code>:transpose</code> attribute is specified, each sub-list contains values of corresponding column.
-</p>
-<p>
-If <code>:flat</code> attribute is specified, it generates one-dimentional list.
-</p>
-<p>
-Below is an example:
-</p>
-<pre><code>@@{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}.tolist()
-[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-</code></pre>
-<p>
-Below is an example with <code>:transpose</code> attribute:
-</p>
-<pre><code>@@{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}.tolist():transpose
-[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-</code></pre>
 <p>
 <div><strong style="text-decoration:underline">matrix#transpose</strong></div>
 <div style="margin-bottom:1em"><code>matrix#transpose()</code></div>
@@ -5289,7 +5423,7 @@ In the second form, it can take one of the following symbols:
 Creates an iterator that iterates each element in the palette.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -5299,6 +5433,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -5484,7 +5621,7 @@ Creates an iterator that extracts numbers in size of char from the current point
 In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -5494,6 +5631,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -5506,7 +5646,7 @@ Creates an iterator that extracts numbers in size of uchar from the current poin
 In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -5516,6 +5656,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -5528,7 +5671,7 @@ Creates an iterator that extracts numbers in size of short from the current poin
 In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -5538,6 +5681,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -5550,7 +5696,7 @@ Creates an iterator that extracts numbers in size of ushort from the current poi
 In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -5560,6 +5706,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -5572,7 +5721,7 @@ Creates an iterator that extracts numbers in size of int32 from the current poin
 In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -5582,6 +5731,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -5594,7 +5746,7 @@ Creates an iterator that extracts numbers in size of uint32 from the current poi
 In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -5604,6 +5756,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -5616,7 +5771,7 @@ Creates an iterator that extracts numbers in size of int64 from the current poin
 In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -5626,6 +5781,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -5638,7 +5796,7 @@ Creates an iterator that extracts numbers in size of uint64 from the current poi
 In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -5648,6 +5806,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -5660,7 +5821,7 @@ Creates an iterator that extracts numbers in size of float from the current poin
 In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -5670,6 +5831,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -5682,7 +5846,7 @@ Creates an iterator that extracts numbers in size of double from the current poi
 In default, it assumes the byte seqeuces are ordered in little-endian. You can specify <code>:be</code> attribute to extract them in big-endian order.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -5692,6 +5856,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -6411,7 +6578,7 @@ If attribute <code>:chop</code> is specified, it eliminates an end-of-line chara
 This function decodes character codes in the stream using <code>codec</code> instance that is specified when the <code>stream</code> instance is created.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -6421,6 +6588,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -6600,7 +6770,7 @@ If attribute <code>:chop</code> is specified, it eliminates an end-of-line chara
 This method decodes character codes in the stream using <code>codec</code> instance that is specified when the <code>stream</code> instance is created.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -6610,6 +6780,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -6734,7 +6907,7 @@ Returns a string in which percent-encoded characters are decoded.
 Creates an iterator generating strings of each character in the original one.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -6744,6 +6917,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -6756,7 +6932,7 @@ Creates an iterator generating strings of each line in the original one.
 In default, end-of-line characters are involved in the result. You can eliminates them by specifying <code>:chop</code> attribute.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -6766,6 +6942,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -6804,7 +6983,7 @@ With an attribute <code>:icase</code>, character cases are ignored while matchin
 <p>
 <div><strong style="text-decoration:underline">string#escapehtml</strong></div>
 <div style="margin-bottom:1em"><code>string#escapehtml():[quote] {block?}</code></div>
-Returns a string that converts characters into escape sequences.
+Converts some characters into HTML entity symbols. If attribute <code>:quote</code> is specified, a double-quotation character would be converted to an entity symbol "&quot;".
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#find</strong></div>
@@ -6829,7 +7008,7 @@ Creates an iterator that folds the source string by the specified length.
 The argument <code>step</code> specifies the length of advancement for the next folding point. If omitted, it would be the same amount as <code>len</code>.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -6839,6 +7018,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -6851,7 +7033,7 @@ Creates an iterator that folds the source string by the specified width.
 This method takes into account the character width based on the specification of East Asian Width.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -6861,6 +7043,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -6975,7 +7160,7 @@ If the argument is omitted, it would return whole the source string.
 Creates an iterator generating sub strings extracted from the original one separated by a specified string <code>sep</code>. With an attribute <code>:icase</code>, character cases are ignored while finding the separator.
 </p>
 <p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
 <li><code>:iter</code> .. An iterator. This is the default behavior.</li>
@@ -6985,6 +7170,9 @@ In default, this returns an iterator as its result value. Specifying the followi
 <li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
 <li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
@@ -7647,9 +7835,41 @@ R/W</td>
 <p>
 <div><strong style="text-decoration:underline">vertex</strong></div>
 <div style="margin-bottom:1em"><code>vertex(x:number, y:number, z?:number):map {block?}</code></div>
-
+Creates a <code>vertex</code> instance that has the given coordinates <code>x</code>, <code>y</code> and <code>z</code>. The argument <code>z</code> is optional and set to zero if omitted.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|v:vertex|</code>, where <code>v</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">6.37.3</span><a name="anchor-6-37-3"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">vertex.cross</strong></div>
+<div style="margin-bottom:1em"><code>vertex.cross (v1:vertex, v2:vertex):static:map {block?}</code></div>
+Calculates cross product between <code>v1</code> and <code>v2</code> and returns the result as a <code>vertex</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">vertex.inner</strong></div>
+<div style="margin-bottom:1em"><code>vertex.inner(v1:vertex, v2:vertex):static:map {block?}</code></div>
+Calculates inner product between <code>v1</code> and <code>v2</code> and returns the result as a <code>number</code> instance.
+</p>
+<p>
+<div><strong style="text-decoration:underline">vertex#list</strong></div>
+<div style="margin-bottom:1em"><code>vertex#list() {block?}</code></div>
+Creates a <code>list</code> that contains coordinate values <code>[x, y, z]</code> of the target <code>vertex</code>.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|list:list|</code>, where <code>list</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">vertex.normal</strong></div>
+<div style="margin-bottom:1em"><code>vertex.normal(v1:vertex, v2:vertex, v3:vertex):static:map:[unit] {block?}</code></div>
+Calculates a normal vector for a face that consists of three vertices given and returns it as a <code>vertex</code> instance.
+</p>
+<p>
+In default, it returns a vector before being regulated to have a length of one. Specifying the attribute <code>:unit</code> would apply the calculation.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|v:vertex|</code>, where <code>v</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
 <p>
 <div><strong style="text-decoration:underline">vertex#rotate@x</strong></div>
 <div style="margin-bottom:1em"><code>vertex#rotate@x(angle:number):[deg] {block?}</code></div>
@@ -7682,14 +7902,6 @@ If the attribute <code>:deg</code> is specified, you can specify the <code>angle
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|v:vertex|</code>, where <code>v</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">vertex#tolist</strong></div>
-<div style="margin-bottom:1em"><code>vertex#tolist() {block?}</code></div>
-Creates a <code>list</code> that contains coordinate values <code>[x, y, z]</code> of the target <code>vertex</code>.
-</p>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|list:list|</code>, where <code>list</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">vertex#translate</strong></div>

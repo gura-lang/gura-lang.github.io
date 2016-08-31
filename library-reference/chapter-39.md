@@ -5,46 +5,63 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">39</span><a name="anchor-39"></a>ppm Module</h1>
+<h1><span class="caption-index-1">39</span><a name="anchor-39"></a>os Module</h1>
 <p>
-The <code>ppm</code> module provides measures to read/write image data in PPM format. To utilize it, import the <code>ppm</code> module using <code>import</code> function.
+The <code>os</code> module provides functions that are specific to each OS environment. This is a built-in module, so you can use it without being imported.
+</p>
+<h2><span class="caption-index-2">39.1</span><a name="anchor-39-1"></a>Module Function</h2>
+<p>
+<div><strong style="text-decoration:underline">os.clock</strong></div>
+<div style="margin-bottom:1em"><code>os.clock() {block?}</code></div>
+Returns the time duration in second since the system has started.
 </p>
 <p>
-Below is an example to read a PPM file:
-</p>
-<pre><code>import(ppm)
-img = image('foo.ppm')
-</code></pre>
-<h2><span class="caption-index-2">39.1</span><a name="anchor-39-1"></a>Exntension to Function's Capability</h2>
-<p>
-This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write PPM files.
+If <code>block</code> is specified, it would calculate how much time has been spent during evaluating the block.
 </p>
 <p>
-When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a PPM file.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.ppm</code>" or "<code>.pbm</code>".</li>
-<li>The stream data begins with a byte sequence "<code>P2</code>", "<code>P3</code>" or "<code>P6</code>".</li>
-</ul>
-<p>
-When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in PPM format.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.ppm</code>" or "<code>.pbm</code>".</li>
-</ul>
-<h2><span class="caption-index-2">39.2</span><a name="anchor-39-2"></a>Extension to image Class</h2>
-<p>
-This module extends the <code>image</code> class with methods described here.
+<div><strong style="text-decoration:underline">os.exec</strong></div>
+<div style="margin-bottom:1em"><code>os.exec(pathname:string, args*:string):map:[fork]</code></div>
+Executes the specified executable file.
 </p>
 <p>
-<div><strong style="text-decoration:underline">image#read@ppm</strong></div>
-<div style="margin-bottom:1em"><code>image#read@ppm(stream:stream:r):reduce</code></div>
-Reads a PPM/PGM image from a stream.
+<div><strong style="text-decoration:underline">os.fromnative</strong></div>
+<div style="margin-bottom:1em"><code>os.fromnative(buff:binary):map</code></div>
+Converts binary data that includes OS's native string into Gura's regulated string.
 </p>
 <p>
-<div><strong style="text-decoration:underline">image#write@ppm</strong></div>
-<div style="margin-bottom:1em"><code>image#write@ppm(stream:stream:w):reduce:[gray]</code></div>
-Writes a PPM/PGM image to a stream.
+<div><strong style="text-decoration:underline">os.getenv</strong></div>
+<div style="margin-bottom:1em"><code>os.getenv(name:string, default?:string):map</code></div>
+Returns the value of an environment variable.
+</p>
+<p>
+<div><strong style="text-decoration:underline">os.putenv</strong></div>
+<div style="margin-bottom:1em"><code>os.putenv(name:string, value:string):void</code></div>
+Set the value of an environment variable.
+</p>
+<p>
+<div><strong style="text-decoration:underline">os.redirect</strong></div>
+<div style="margin-bottom:1em"><code>os.redirect(stdin:stream:nil:r, stdout:stream:nil:w, stderr?:stream:w) {block?}</code></div>
+Modifies variables <code>os.stdin</code>, <code>os.stdout</code> and <code>os.stderr</code> with values of arguments. When <code>block</code> is specified, the modification only has effect within the block.
+</p>
+<p>
+<div><strong style="text-decoration:underline">os.sleep</strong></div>
+<div style="margin-bottom:1em"><code>os.sleep(secs:number)</code></div>
+Sleeps for a time specified in seconds.
+</p>
+<p>
+<div><strong style="text-decoration:underline">os.symlink</strong></div>
+<div style="margin-bottom:1em"><code>os.symlink(src:string, tgt:string):map:void</code></div>
+Creates a symbol link.
+</p>
+<p>
+<div><strong style="text-decoration:underline">os.tonative</strong></div>
+<div style="margin-bottom:1em"><code>os.tonative(str:string):map</code></div>
+Converts Gura's regulated string into binary data that includes OS's native string.
+</p>
+<p>
+<div><strong style="text-decoration:underline">os.unsetenv</strong></div>
+<div style="margin-bottom:1em"><code>os.unsetenv(name:string):void</code></div>
+Unset an environment variable.
 </p>
 <p />
 

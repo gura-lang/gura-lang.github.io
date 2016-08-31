@@ -5,123 +5,34 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">55</span><a name="anchor-55"></a>zip Module</h1>
+<h1><span class="caption-index-1">55</span><a name="anchor-55"></a>xml Module</h1>
 <p>
-The <code>zip</code> module provides measures to read/write ZIP files.
-</p>
-<h2><span class="caption-index-2">55.1</span><a name="anchor-55-1"></a>zip.reader Class</h2>
-<p>
-The <code>zip.reader</code> class provides methods to read contents and to get information in a ZIP file through <code>stream</code> instance. An instance of <code>stream</code> class created by the methods includes a property named <code>stat</code>, a <code>zip.stat</code> instance, which provides information such as filename and created time stamp that are contained in the ZIP file.
+The <code>xml</code> module provides measures to parse or compose XML documents.
 </p>
 <p>
-Below is an example to list filenames in a ZIP file:
+There are two ways to parse an XML document as follows.
 </p>
-<pre><code>import(zip)
-zip.reader('foo.zip') {|r|
-    println(r.entries():*stat:*filename)
+<p>
+One is to create an <code>xml.document</code> instance from a stream that contains all the XML elements with a tree structure. This is an easy way to parse an XML document but consumes much memory. Below is an example to read an XML file <code>test.xml</code>:
+</p>
+<pre><code>doc = xml.document('test.xml')
+// doc contains all the information of XML document
+</code></pre>
+<p>
+Another one is to create a class inherited <code>xml.parser</code> and implements event handlers that respond to tags, comments and texts, and then executes <code>xml.parser#parse()</code> method with it. Below is an example to create a class that implements a handler for StartElement event:
+</p>
+<pre><code>Parser = class(xml.parser) {
+    StartElement(elem) = {
+        printf('&lt;%s&gt;\n', elem.tagname)
+    }
 }
+Parser().parse('test.xml')
 </code></pre>
+<h2><span class="caption-index-2">55.1</span><a name="anchor-55-1"></a>xml.attribute Class</h2>
 <p>
-Below is an example to print a content of a text file that is stored in a ZIP file:
+The <code>xml.attribute</code> instance represents a name-value pair of XML's attribute that can be retrieved from <code>attrs</code> property in the <code>xml.element</code> instance.
 </p>
-<pre><code>import(zip)
-zip.reader('foo.zip') {|r|
-    print(r.entry('README.txt').readlines())
-}
-</code></pre>
-<h3><span class="caption-index-3">55.1.1</span><a name="anchor-55-1-1"></a>Constructor</h3>
-<p>
-<div><strong style="text-decoration:underline">zip.reader</strong></div>
-<div style="margin-bottom:1em"><code>zip.reader(stream:stream:r) {block?}</code></div>
-Creates <code>zip.reader</code> instance from the specified stream.
-</p>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|reader:zip.reader|</code>, where <code>reader</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<h3><span class="caption-index-3">55.1.2</span><a name="anchor-55-1-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">zip.reader#entry</strong></div>
-<div style="margin-bottom:1em"><code>zip.reader#entry(name:string) {block?}</code></div>
-Seeks entry in the zip file that matches the specified name and returns a <code>stream</code> instance associated with the entry.
-</p>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">zip.reader#entries</strong></div>
-<div style="margin-bottom:1em"><code>zip.reader#entries() {block?}</code></div>
-Creates an <code>iterator</code> instance that returns <code>stream</code> instances associated with each entry in the ZIP file.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would convert it into other formats:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<h2><span class="caption-index-2">55.2</span><a name="anchor-55-2"></a>zip.writer Class</h2>
-<p>
-The <code>zip.writer</code> class provides methods to add entries to a ZIP file. When an instance of <code>zip.writer</code> is created, a new ZIP file would be created.
-</p>
-<p>
-Below is an exapmple to create a ZIP archive file that contains three entries:
-</p>
-<pre><code>import(zip)
-zip.writer('foo.zip') {|w|
-    w.add('file1.txt')
-    w.add('file2.txt')
-    w.add('file3.txt')
-    w.close()
-}		
-</code></pre>
-<h3><span class="caption-index-3">55.2.1</span><a name="anchor-55-2-1"></a>Constructor</h3>
-<p>
-<div><strong style="text-decoration:underline">zip.writer</strong></div>
-<div style="margin-bottom:1em"><code>zip.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
-Creates <code>zip.writer</code> instance from the stream.
-</p>
-<p>
-Argument <code>compression</code> specifies the compression method and takes one of the following symbol.
-</p>
-<ul>
-<li><code>`store</code></li>
-<li><code>`deflate</code></li>
-<li><code>`bzip2</code></li>
-</ul>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|writer:zip.writer|</code>, where <code>writer</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<h3><span class="caption-index-3">55.2.2</span><a name="anchor-55-2-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">zip.writer#add</strong></div>
-<div style="margin-bottom:1em"><code>zip.writer#add(stream:stream:r, filename?:string, compression?:symbol):map:reduce</code></div>
-Reads data from <code>stream</code> and adds it to the zip file. Entry name is decided by the file name associated with the stream unless it's specified by argument <code>filename</code>.
-</p>
-<p>
-Argument <code>compression</code> specifies the compression method and takes one of the following symbol.
-</p>
-<ul>
-<li><code>`store</code></li>
-<li><code>`deflate</code></li>
-<li><code>`bzip2</code></li>
-</ul>
-<p>
-<div><strong style="text-decoration:underline">zip.writer#close</strong></div>
-<div style="margin-bottom:1em"><code>zip.writer#close():void</code></div>
-Closes the zip file after flushing cached data.
-</p>
-<h2><span class="caption-index-2">55.3</span><a name="anchor-55-3"></a>zip.stat Class</h2>
-<p>
-The <code>zip.stat</code> class provides information of entries in a ZIP file.
-</p>
-<h3><span class="caption-index-3">55.3.1</span><a name="anchor-55-3-1"></a>Property</h3>
+<h3><span class="caption-index-3">55.1.1</span><a name="anchor-55-1-1"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -138,7 +49,7 @@ Explanation</th>
 
 <tr>
 <td>
-<code>filename</code></td>
+<code>name</code></td>
 <td>
 <code>string</code></td>
 <td>
@@ -146,6 +57,161 @@ R</td>
 
 <td>
 </td>
+</tr>
+
+
+<tr>
+<td>
+<code>value</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">55.2</span><a name="anchor-55-2"></a>xml.document Class</h2>
+<h3><span class="caption-index-3">55.2.1</span><a name="anchor-55-2-1"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">xml.document</strong></div>
+<div style="margin-bottom:1em"><code>xml.document(stream?:stream:r) {block?}</code></div>
+
+</p>
+<h3><span class="caption-index-3">55.2.2</span><a name="anchor-55-2-2"></a>Property</h3>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>version</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>encoding</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>root</code></td>
+<td>
+<code>xml.element</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+</table>
+
+</p>
+<h3><span class="caption-index-3">55.2.3</span><a name="anchor-55-2-3"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">xml.document#parse</strong></div>
+<div style="margin-bottom:1em"><code>xml.document#parse(str:string):void</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">xml.document#read</strong></div>
+<div style="margin-bottom:1em"><code>xml.document#read(stream:stream:r):void</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">xml.document#textize</strong></div>
+<div style="margin-bottom:1em"><code>xml.document#textize(fancy?:boolean, tabs?:number)</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">xml.document#write</strong></div>
+<div style="margin-bottom:1em"><code>xml.document#write(stream:stream:w, fancy?:boolean, tabs?:number):void</code></div>
+
+</p>
+<h2><span class="caption-index-2">55.3</span><a name="anchor-55-3"></a>xml.element Class</h2>
+<h3><span class="caption-index-3">55.3.1</span><a name="anchor-55-3-1"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">xml.element</strong></div>
+<div style="margin-bottom:1em"><code>xml.element(_tagname_:string, attrs%):map {block?}</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">xml.comment</strong></div>
+<div style="margin-bottom:1em"><code>xml.comment(comment:string)</code></div>
+
+</p>
+<h3><span class="caption-index-3">55.3.2</span><a name="anchor-55-3-2"></a>Property</h3>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>tagname</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+A tag name of this element.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>text</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+The text string if the element is TEXT.
+Otherwise, this value would be <code>nil</code>.</td>
 </tr>
 
 
@@ -158,99 +224,109 @@ R</td>
 R</td>
 
 <td>
-</td>
+The comment string if the element is COMMENT.
+Otherwise, this value would be <code>nil</code>.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>mtime</code></td>
+<code>children</code></td>
 <td>
-<code>datetime</code></td>
+<code>iterator</code></td>
 <td>
 R</td>
 
 <td>
-</td>
+An iterator to return <code>xml.element</code> instances that represent children
+contained in this element. This value would be <code>nil</code> if the element has no children.</td>
 </tr>
 
 
 <tr>
 <td>
-<code>crc32</code></td>
+<code>attrs</code></td>
 <td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>compression_method</code></td>
-<td>
-<code>number</code></td>
+<code>iterator</code></td>
 <td>
 R</td>
 
 <td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>size</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>compressed_size</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>attributes</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
+An iterator to return <code>xml.attribute</code> instances that represent attributes
+contained in this element. This value would be <code>nil</code> if the element has no attributes.</td>
 </tr>
 
 
 </table>
 
 </p>
-<h2><span class="caption-index-2">55.4</span><a name="anchor-55-4"></a>Thanks</h2>
+<h3><span class="caption-index-3">55.3.3</span><a name="anchor-55-3-3"></a>Method</h3>
 <p>
-This module uses zlib and bzip2 library which are distributed in the following sites:
+<div><strong style="text-decoration:underline">xml.element#addchild</strong></div>
+<div style="margin-bottom:1em"><code>xml.element#addchild(value):map:void</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">xml.element#gettext</strong></div>
+<div style="margin-bottom:1em"><code>xml.element#gettext()</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">xml.element#textize</strong></div>
+<div style="margin-bottom:1em"><code>xml.element#textize(fancy?:boolean, indentLevel?:number, tabs?:number)</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">xml.element#write</strong></div>
+<div style="margin-bottom:1em"><code>xml.element#write(stream:stream:w, fancy?:boolean, indentLevel?:number, tabs?:number):void</code></div>
+
+</p>
+<h2><span class="caption-index-2">55.4</span><a name="anchor-55-4"></a>xml.parser Class</h2>
+<p>
+The <code>xml.parser</code> class is a base class from which you can implement a inheritance class that has methods corresponding to events associated with XML elements. Below are methods that you can implement in the class for event handling:
 </p>
 <ul>
-<li><a href="http://zlib.net/">http://zlib.net/</a></li>
-<li><a href="http://www.bzip.org/">http://www.bzip.org/</a></li>
+<li><code>StartElement(elem:xml.element)</code></li>
+<li><code>EndElement(name:string)</code></li>
+<li><code>CharacterData(text:string)</code></li>
+<li><code>ProcessingInstruction(target:string, data:string)</code></li>
+<li><code>Comment(data:string)</code></li>
+<li><code>StartCdataSection()</code></li>
+<li><code>EndCdataSection()</code></li>
+<li><code>Default(text:string)</code></li>
+<li><code>DefaultExpand(text:string)</code></li>
+<li><code>ExternalEntityRef()</code></li>
+<li><code>SkippedEntity(entityName:string, isParameterEntity:boolean)</code></li>
+<li><code>StartNamespaceDecl(prefix:string, uri:string)</code></li>
+<li><code>EndNamespaceDecl(prefix:string)</code></li>
+<li><code>XmlDecl(version:string, encoding:string, standalone:boolean)</code></li>
+<li><code>StartDoctypeDecl(doctypeName:strng, systemId:string, publicId:string, hasInternalSubset:boolean)</code></li>
+<li><code>EndDoctypeDecl()</code></li>
+<li><code>ElementDecl()</code></li>
+<li><code>AttlistDecl(elemName:string, attName:string, attType:string, defaultValue:string, isRequired:boolean)</code></li>
+<li><code>EntityDecl(entityName:string, isParameterEntity:boolean, value:string, base:string, systemId:string, publicId:string, notationName:string)</code></li>
+<li><code>NotationDecl(notationName:string, base:string, systemId:string, publicId:string)</code></li>
+<li><code>NotStandalone()</code></li>
 </ul>
+<h3><span class="caption-index-3">55.4.1</span><a name="anchor-55-4-1"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">xml.parser</strong></div>
+<div style="margin-bottom:1em"><code>xml.parser() {block?}</code></div>
+
+</p>
+<h3><span class="caption-index-3">55.4.2</span><a name="anchor-55-4-2"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">xml.parser#parse</strong></div>
+<div style="margin-bottom:1em"><code>xml.parser#parse(stream:stream:r):void</code></div>
+
+</p>
+<h2><span class="caption-index-2">55.5</span><a name="anchor-55-5"></a>Thanks</h2>
+<p>
+This module uses expat library which is distributed in the following site:
+</p>
+<p>
+<a href="http://expat.sourceforge.net/">http://expat.sourceforge.net/</a>
+</p>
 <p />
 
 {% endraw %}

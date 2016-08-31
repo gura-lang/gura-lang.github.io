@@ -5,31 +5,68 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">48</span><a name="anchor-48"></a>units Module</h1>
+<h1><span class="caption-index-1">48</span><a name="anchor-48"></a>tar Module</h1>
 <p>
-The <code>units</code> module provides functions to convert physical units into another.
+The <code>tar</code> module provides measures to read/write TAR files. To utilize it, import the <code>tar</code> module using <code>import</code> function.
 </p>
-<h2><span class="caption-index-2">48.1</span><a name="anchor-48-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">48.1</span><a name="anchor-48-1"></a>tar.reader Class</h2>
+<h3><span class="caption-index-3">48.1.1</span><a name="anchor-48-1-1"></a>Function To Create Instance</h3>
 <p>
-<div><strong style="text-decoration:underline">units.inch$mm</strong></div>
-<div style="margin-bottom:1em"><code>units.inch$mm(inch:number):map</code></div>
-Converts <strong>inch</strong> to <strong>mm</strong>.
-</p>
-<p>
-<div><strong style="text-decoration:underline">units.mm$inch</strong></div>
-<div style="margin-bottom:1em"><code>units.mm$inch(mm:number):map</code></div>
-Converts <strong>mm</strong> to <strong>inch</strong>.
+<div><strong style="text-decoration:underline">tar.reader</strong></div>
+<div style="margin-bottom:1em"><code>tar.reader(stream:stream:r, compression?:symbol) {block?}</code></div>
+Reads a tar file from <code>stream</code> and returns a <code>tar.reader</code> instance that is to be used to read contents from the archive.
 </p>
 <p>
-<div><strong style="text-decoration:underline">units.mm$pt</strong></div>
-<div style="margin-bottom:1em"><code>units.mm$pt(mm:number):map</code></div>
-Converts <strong>mm</strong> to <strong>pt</strong>.
+The argument <code>compression</code> specifies the compression format of the tar file and takes one of the following symbols:
+</p>
+<ul>
+<li><code>`auto</code> .. determins the format from a suffix name of the stream.</li>
+<li><code>`gzip</code> .. gzip format</li>
+<li><code>`bzip2</code> .. bzip2 format</li>
+</ul>
+<h3><span class="caption-index-3">48.1.2</span><a name="anchor-48-1-2"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">tar.reader#entries</strong></div>
+<div style="margin-bottom:1em"><code>tar.reader#entries() {block?}</code></div>
+Creates an iterator that returns stream instances for each entry in the tar file.
+</p>
+<h2><span class="caption-index-2">48.2</span><a name="anchor-48-2"></a>tar.writer Class</h2>
+<h3><span class="caption-index-3">48.2.1</span><a name="anchor-48-2-1"></a>Function To Create Instance</h3>
+<p>
+<div><strong style="text-decoration:underline">tar.writer</strong></div>
+<div style="margin-bottom:1em"><code>tar.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
+Creates a tar file on <code>stream</code> and returns a <code>tar.writer</code> instance that is to be used to write contents to the archive.
 </p>
 <p>
-<div><strong style="text-decoration:underline">units.pt$mm</strong></div>
-<div style="margin-bottom:1em"><code>units.pt$mm(pt:number):map</code></div>
-Converts <strong>pt</strong> to <strong>mm</strong>.
+The argument <code>compression</code> specifies the compression format of the tar file and takes one of the following symbols:
 </p>
+<ul>
+<li><code>`auto</code> .. determins the format from a suffix name of the stream.</li>
+<li><code>`gzip</code> .. gzip format</li>
+<li><code>`bzip2</code> .. bzip2 format</li>
+</ul>
+<h3><span class="caption-index-3">48.2.2</span><a name="anchor-48-2-2"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">tar.writer#add</strong></div>
+<div style="margin-bottom:1em"><code>tar.writer#add(stream:stream:r, filename?:string):map:reduce</code></div>
+Adds an entry to the tar archive with a content from <code>stream</code> and a name of <code>filename</code>.
+</p>
+<p>
+If the argument <code>filename</code> is omitted, an identifier associated with the <code>stream</code> would be used as the entry name.
+</p>
+<p>
+<div><strong style="text-decoration:underline">tar.writer#close</strong></div>
+<div style="margin-bottom:1em"><code>tar.writer#close():reduce</code></div>
+Flushes all the unfinished writing processes and invalidates the <code>tar.writer</code> instance.
+</p>
+<h2><span class="caption-index-2">48.3</span><a name="anchor-48-3"></a>Thanks</h2>
+<p>
+This module uses zlib and bzip2 library which are distributed in the following sites:
+</p>
+<ul>
+<li><a href="http://zlib.net/">http://zlib.net/</a></li>
+<li><a href="http://www.bzip.org/">http://www.bzip.org/</a></li>
+</ul>
 <p />
 
 {% endraw %}

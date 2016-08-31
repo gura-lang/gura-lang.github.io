@@ -31,22 +31,33 @@ Importing <code>gmp</code> module would add following suffixes:
 <li>Suffix <code>L</code> creates a <code>gmp.mpz</code> or <code>gmp.mpf</code> instances that can calculate numbers with variable-length digits.</li>
 <li>Suffix <code>Lr</code> creates a <code>gmp.mpq</code> instance that can calculate rational value with variable-length digits.</li>
 </ul>
-<h2><span class="caption-index-2">19.4</span><a name="anchor-19-4"></a>Differential</h2>
+<h2><span class="caption-index-2">19.4</span><a name="anchor-19-4"></a>Differentiation Formula</h2>
 <p>
-You can get a differential formula from a <code>function</code> that contains a mathematical calculation using <code>function#mathdiff()</code> method.
+When a function is declared with a body that contains math calculation, you can get a differentiation formula from it using <code>function#mathdiff()</code> method. Assumes that you have the following function:
 </p>
 <pre><code>&gt;&gt;&gt; f(x) = math.sin(x ** 2)
-&gt;&gt;&gt; g = f.mathdiff()
-&gt;&gt;&gt; g.expr
+</code></pre>
+<p>
+Then, you can call <code>function#mathdiff()</code> method for it like following:
+</p>
+<pre><code>&gt;&gt;&gt; g = f.mathdiff()
+</code></pre>
+<p>
+The newly created function <code>g(x)</code> is one that does differential calculation of <code>f(x)</code>. You can examine what body it has by seeing <code>function#expr</code> property.
+</p>
+<pre><code>&gt;&gt;&gt; g.expr
 `(math.cos(x ** 2) * (2 * x))
 </code></pre>
+<p>
+The table below shows what differentiation formulas are obtained from original math functions:
+</p>
 <p>
 <table>
 <tr>
 <th>
-Function</th>
+Original</th>
 <th>
-Derivative</th>
+Differentiation Forumula</th>
 </tr>
 
 <tr>

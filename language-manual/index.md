@@ -111,7 +111,7 @@ title: Gura Language Manual
 <div><span class="toc-index-2">19.1</span><a href="chapter-19.html#anchor-19-1">Complex Number</a></div>
 <div><span class="toc-index-2">19.2</span><a href="chapter-19.html#anchor-19-2">Rational Number</a></div>
 <div><span class="toc-index-2">19.3</span><a href="chapter-19.html#anchor-19-3">Big Number</a></div>
-<div><span class="toc-index-2">19.4</span><a href="chapter-19.html#anchor-19-4">Differential</a></div>
+<div><span class="toc-index-2">19.4</span><a href="chapter-19.html#anchor-19-4">Differentiation Formula</a></div>
 <div><span class="toc-index-1">20</span><a href="chapter-20.html#anchor-20">Template Engine</a></div>
 <div><span class="toc-index-2">20.1</span><a href="chapter-20.html#anchor-20-1">Overview</a></div>
 <div><span class="toc-index-2">20.2</span><a href="chapter-20.html#anchor-20-2">How to Invoke Template Engine</a></div>

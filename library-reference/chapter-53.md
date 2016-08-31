@@ -5,47 +5,21 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">53</span><a name="anchor-53"></a>xpm Module</h1>
+<h1><span class="caption-index-1">53</span><a name="anchor-53"></a>wav Module</h1>
+<h2><span class="caption-index-2">53.1</span><a name="anchor-53-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">53.2</span><a name="anchor-53-2"></a>Extension to audio Class</h2>
 <p>
-The <code>xpm</code> module provides measures to write image data in XPM format and to parse a list of strings that is described in the format. To utilize it, import the <code>xpm</code> module using <code>import</code> function.
+This module extends the <code>audio</code> class with methods described here.
 </p>
 <p>
-Below is an example to parse a list of strings described in XPM format.
-</p>
-<pre><code>import(xpm)
-foo_xpm = @{
-"13 13 2 2 0 0",
-"   c #000000",
-"#  c #ffffff",
-"          #               ",
-"          #               ",
-"  # # # # # # # # # #     ",
-"          #               ",
-"          #     #         ",
-"        # # # # # #       ",
-"      #   #     #   #     ",
-"    #     #   #       #   ",
-"  #       #   #       #   ",
-"  #       #   #       #   ",
-"  #       # #         #   ",
-"    # # #           #     ",
-"                # #       ",
-}
-img = image(`rgba).xpmdata(foo_xpm)
-</code></pre>
-<h2><span class="caption-index-2">53.1</span><a name="anchor-53-1"></a>Extension to image Class</h2>
-<p>
-This module extends the <code>image</code> class with methods described here.
+<div><strong style="text-decoration:underline">audio#read@wav</strong></div>
+<div style="margin-bottom:1em"><code>audio#read@wav(stream:stream:r):reduce</code></div>
+Reads WAV audio from a stream.
 </p>
 <p>
-<div><strong style="text-decoration:underline">image#write@xpm</strong></div>
-<div style="margin-bottom:1em"><code>image#write@xpm(stream:stream:w):reduce</code></div>
-Writes a xpm image to a stream.
-</p>
-<p>
-<div><strong style="text-decoration:underline">image#xpmdata</strong></div>
-<div style="margin-bottom:1em"><code>image#xpmdata(xpm[]:string):reduce</code></div>
-Read xpm data from a string list.
+<div><strong style="text-decoration:underline">audio#write@wav</strong></div>
+<div style="margin-bottom:1em"><code>audio#write@wav(stream:stream:w):reduce</code></div>
+Writes WAV audio to a stream.
 </p>
 <p />
 

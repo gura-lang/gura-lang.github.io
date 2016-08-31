@@ -5,257 +5,211 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">32</span><a name="anchor-32"></a>midi Module</h1>
+<h1><span class="caption-index-1">32</span><a name="anchor-32"></a>math Module</h1>
 <p>
-The <code>midi</code> module provides measures to read/write MIDI files. To utilize it, import the <code>midi</code> module using <code>import</code> function.
+The <code>math</code> module provices functions for mathematical calculation. This is a built-in module, so you can use it without being imported.
 </p>
 <h2><span class="caption-index-2">32.1</span><a name="anchor-32-1"></a>Module Function</h2>
-<h2><span class="caption-index-2">32.2</span><a name="anchor-32-2"></a>midi.event Class</h2>
-<h2><span class="caption-index-2">32.3</span><a name="anchor-32-3"></a>midi.track Class</h2>
 <p>
-<div><strong style="text-decoration:underline">midi.track#seek</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#seek(offset:number, origin?:symbol):reduce</code></div>
-Moves the insertion point in the track at which the next event is inserted. If <code>origin</code> is omitted or set to <code>`set</code>, the insertion point will be set to absolute offset from the beginning. If <code>origin</code> is set to <code>`cur</code>, the insertion point will be moved by offset from the current position.
+<div><strong style="text-decoration:underline">math.real</strong></div>
+<div style="margin-bottom:1em"><code>math.real(num):map</code></div>
+Returns a real part of a complex number. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
 </p>
 <p>
-<div><strong style="text-decoration:underline">midi.track#tell</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#tell()</code></div>
-Returns the current insertion point in the track.
+<div><strong style="text-decoration:underline">math.imag</strong></div>
+<div style="margin-bottom:1em"><code>math.imag(num):map</code></div>
+Returns an imaginary part of a complex number.The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
 </p>
 <p>
-<div><strong style="text-decoration:underline">midi.track#erase</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#erase(n?:number):reduce</code></div>
-Deletes an event at the current insertion point in the track. The argument <code>n</code> specifies the number of events to be deleted. If <code>n</code> is omitted, one event will be deleted.
+<div><strong style="text-decoration:underline">math.arg</strong></div>
+<div style="margin-bottom:1em"><code>math.arg(num):map:[deg]</code></div>
+Returns an argument, an angle from the real-axis in the complex plane, of a complex number. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
 </p>
 <p>
-<div><strong style="text-decoration:underline">midi.track#mml</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#mml(str:string, max_velocity?:number):map:reduce</code></div>
-Parses MML in the string <code>str</code> and inserts resulted MIDI events at the current insertion point in the track.
+In default, the angle value is returned in radian. Specifying an attribute <code>:deg</code> would return that in degree.
 </p>
 <p>
-The argument <code>max_velocity</code> specifies the maximum number of velocity in the MML. If omitted, it will be set to 127.
+<div><strong style="text-decoration:underline">math.norm</strong></div>
+<div style="margin-bottom:1em"><code>math.norm(num):map</code></div>
+Returns a norm value of a complex number. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
 </p>
 <p>
-<div><strong style="text-decoration:underline">midi.track#note_off</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#note_off(channel:number, note:number, velocity:number, deltaTime?:number):map:reduce</code></div>
+<div><strong style="text-decoration:underline">math.conj</strong></div>
+<div style="margin-bottom:1em"><code>math.conj(num):map</code></div>
+Returns a conjugate of a complex number.The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.acos</strong></div>
+<div style="margin-bottom:1em"><code>math.acos(num):map:[deg]</code></div>
+Returns an inverse cosine value. The argument <code>num</code> takes a value of <code>number</code>.
+</p>
+<p>
+In default, the result is returned in radian. Specifying an attribute <code>:deg</code> would return that in degree.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.asin</strong></div>
+<div style="margin-bottom:1em"><code>math.asin(num):map:[deg]</code></div>
+Returns an inverse sine value. The argument <code>num</code> takes a value of <code>number</code>.
+</p>
+<p>
+In default, the result is returned in radian. Specifying an attribute <code>:deg</code> would return that in degree.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.atan</strong></div>
+<div style="margin-bottom:1em"><code>math.atan(num):map:[deg]</code></div>
+Returns an inverse tangent value. The argument <code>num</code> takes a value of <code>number</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.atan2</strong></div>
+<div style="margin-bottom:1em"><code>math.atan2(num1, num2):map:[deg]</code></div>
+Returns an inverse tangent value of a fraction of num1 and num2. The argument <code>num1</code> and <code>num2</code> take values of <code>number</code>.
+</p>
+<p>
+In default, the result is returned in radian. Specifying an attribute <code>:deg</code> would return that in degree.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.ceil</strong></div>
+<div style="margin-bottom:1em"><code>math.ceil(num):map</code></div>
+Returns a nearest integer number above or equal to the specified value. The argument <code>num</code> takes a value of <code>number</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.cos</strong></div>
+<div style="margin-bottom:1em"><code>math.cos(num):map:[deg]</code></div>
+Returns a cosine value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+</p>
+<p>
+In default, the given argument is treated as a radian number. Specifying an attribute <code>:deg</code> would treat that as a degree number.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.cosh</strong></div>
+<div style="margin-bottom:1em"><code>math.cosh(num):map</code></div>
+Returns a hyperbolic cosine value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.exp</strong></div>
+<div style="margin-bottom:1em"><code>math.exp(num):map</code></div>
+Returns an exponential value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.abs</strong></div>
+<div style="margin-bottom:1em"><code>math.abs(num):map</code></div>
+Returns an absolute value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.floor</strong></div>
+<div style="margin-bottom:1em"><code>math.floor(num):map</code></div>
+Returns a nearest integer number below or equal to the specified value. The argument <code>num</code> takes a value of <code>number</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.log</strong></div>
+<div style="margin-bottom:1em"><code>math.log(num):map</code></div>
+Returns a natural logarithm value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.log10</strong></div>
+<div style="margin-bottom:1em"><code>math.log10(num):map</code></div>
+Returns a decadic logarithm value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.sin</strong></div>
+<div style="margin-bottom:1em"><code>math.sin(num):map:[deg]</code></div>
+Returns a sine value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+</p>
+<p>
+In default, the given argument is treated as a radian number. Specifying an attribute <code>:deg</code> would treat that as a degree number.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.sinh</strong></div>
+<div style="margin-bottom:1em"><code>math.sinh(num):map</code></div>
+Returns a hyperbolic sine value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.sqrt</strong></div>
+<div style="margin-bottom:1em"><code>math.sqrt(num):map</code></div>
+Returns a square root value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.tan</strong></div>
+<div style="margin-bottom:1em"><code>math.tan(num):map:[deg]</code></div>
+Returns a tangent value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+</p>
+<p>
+In default, the given argument is treated as a radian number. Specifying an attribute <code>:deg</code> would treat that as a degree number.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.tanh</strong></div>
+<div style="margin-bottom:1em"><code>math.tanh(num):map</code></div>
+Returns a hyperbolic tangent value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.hypot</strong></div>
+<div style="margin-bottom:1em"><code>math.hypot(x, y):map</code></div>
+Returns a hyperbolic tangent value. The argument <code>x</code> and <code>y</code> take values of <code>number</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.least_square</strong></div>
+<div style="margin-bottom:1em"><code>math.least_square(x:iterator, y:iterator, dim:number =&gt; 1, var:symbol =&gt; `x)</code></div>
+Calculates a least square method using a sequence of pairs of <code>x</code> and <code>y</code>, and returns an expression of the fitted curve. You can specify the dimension by an argument <code>dim</code>. In default, a symbol of the expression's variable is <code>x</code>and it can be changed by specifying an argument <code>var</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.bezier</strong></div>
+<div style="margin-bottom:1em"><code>math.bezier(nums[]+:number)</code></div>
+Returns a list that consists of functions that generate coordinates of bezier curves with specified control points. One or more lists of control points can be specified. This means that if you give it two lists of numbers as arguments, it returns two functions of bezier curve.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.diff</strong></div>
+<div style="margin-bottom:1em"><code>math.diff(expr:expr, var:symbol):map {block?}</code></div>
+Calculates a mathematical differential expression of the given <code>expr</code> by a variable <code>var</code>.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|rtn:expr|</code>, where <code>rtn</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Example: <code>math.diff(</code>(math.sin(x 2)), <code>x)</code>**
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.optimize</strong></div>
+<div style="margin-bottom:1em"><code>math.optimize(expr:expr):map {block?}</code></div>
+Returns an optimized expression of the given argument <code>expr</code>, which needs to be made up of mathematical elements.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|rtn:expr|</code>, where <code>rtn</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.fft</strong></div>
+<div style="margin-bottom:1em"><code>math.fft(seq[])</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">midi.track#note_on</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#note_on(channel:number, note:number, velocity:number, deltaTime?:number):map:reduce</code></div>
+<div><strong style="text-decoration:underline">math.inner</strong></div>
+<div style="margin-bottom:1em"><code>math.inner(a[], b[])</code></div>
+Calculates an inner product between lists <code>a</code> and <code>b</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.cross</strong></div>
+<div style="margin-bottom:1em"><code>math.cross (a[], b[])</code></div>
+Calculates a cross product between lists <code>a</code> and <code>b</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.covariance</strong></div>
+<div style="margin-bottom:1em"><code>math.covariance(a:iterator, b:iterator)</code></div>
+Returns a covariance between the sequences of values.
+</p>
+<p>
+<div><strong style="text-decoration:underline">math.integral</strong></div>
+<div style="margin-bottom:1em"><code>math.integral()</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">midi.track#poly_pressure</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#poly_pressure(channel:number, note:number, value:number, deltaTime?:number):map:reduce</code></div>
-
+<div><strong style="text-decoration:underline">math.gcd</strong></div>
+<div style="margin-bottom:1em"><code>math.gcd(a:number, b+:number):map</code></div>
+Returns a greatest common divisor among two or more numbers.
 </p>
 <p>
-<div><strong style="text-decoration:underline">midi.track#control_change</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#control_change(channel:number, controller, value:number, deltaTime?:number):map:reduce</code></div>
-
+<div><strong style="text-decoration:underline">math.lcm</strong></div>
+<div style="margin-bottom:1em"><code>math.lcm(a:number, b+:number):map</code></div>
+Returns a least common multiple among two or more numbers.
 </p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#program_change</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#program_change(channel:number, program, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#channel_pressure</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#channel_pressure(channel:number, pressure:number, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#pitch_bend</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#pitch_bend(channel:number, value:number, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#sequence_number</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#sequence_number(number:number, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#text_event</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#text_event(text:string, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#copyright_notice</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#copyright_notice(text:string, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#sequence_or_track_name</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#sequence_or_track_name(text:string, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#instrument_name</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#instrument_name(text:string, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#lyric_text</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#lyric_text(text:string, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#marker_text</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#marker_text(text:string, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#cue_point</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#cue_point(text:string, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#midi_channel_prefix_assignment</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#midi_channel_prefix_assignment(channel:number, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#end_of_track</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#end_of_track(deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#tempo_setting</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#tempo_setting(mpqn:number, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#smpte_offset</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#smpte_offset(hour:number, minute:number, second:number, frame:number, subFrame:number, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#time_signature</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#time_signature(numerator:number, denominator:number, metronome:number, cnt32nd:number, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#key_signature</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#key_signature(key:number, scale:number, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.track#sequencer_specific_event</strong></div>
-<div style="margin-bottom:1em"><code>midi.track#sequencer_specific_event(binary:binary, deltaTime?:number):map:reduce</code></div>
-
-</p>
-<h2><span class="caption-index-2">32.4</span><a name="anchor-32-4"></a>midi.sequence Class</h2>
-<p>
-<div><strong style="text-decoration:underline">midi.sequence</strong></div>
-<div style="margin-bottom:1em"><code>midi.sequence(stream?:stream) {block?}</code></div>
-It creates an instance that contains SMF information.
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.sequence#read</strong></div>
-<div style="margin-bottom:1em"><code>midi.sequence#read(stream:stream:r):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.sequence#write</strong></div>
-<div style="margin-bottom:1em"><code>midi.sequence#write(stream:stream:w):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.sequence#play</strong></div>
-<div style="margin-bottom:1em"><code>midi.sequence#play(port:midi.port, speed?:number, repeat:number:nil =&gt; 1):[background,player]</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.sequence#track</strong></div>
-<div style="margin-bottom:1em"><code>midi.sequence#track(index:number):map {block?}</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.sequence#mml</strong></div>
-<div style="margin-bottom:1em"><code>midi.sequence#mml(str:string, max_velocity?:number):reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.sequence#readmml</strong></div>
-<div style="margin-bottom:1em"><code>midi.sequence#readmml(stream:stream, max_velocity?:number):reduce</code></div>
-
-</p>
-<h2><span class="caption-index-2">32.5</span><a name="anchor-32-5"></a>midi.port Class</h2>
-<p>
-<div><strong style="text-decoration:underline">midi.port#send</strong></div>
-<div style="margin-bottom:1em"><code>midi.port#send(msg+:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.port#play</strong></div>
-<div style="margin-bottom:1em"><code>midi.port#play(sequence:midi.sequence, speed?:number, repeat:number:nil =&gt; 1):map:[background,player]</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.port#mml</strong></div>
-<div style="margin-bottom:1em"><code>midi.port#mml(str:string, max_velocity?:number):[background,player]</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.port#readmml</strong></div>
-<div style="margin-bottom:1em"><code>midi.port#readmml(stream:stream, max_velocity?:number):[background,player]</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.port#note_off</strong></div>
-<div style="margin-bottom:1em"><code>midi.port#note_off(channel:number, note:number, velocity:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.port#note_on</strong></div>
-<div style="margin-bottom:1em"><code>midi.port#note_on(channel:number, note:number, velocity:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.port#poly_pressure</strong></div>
-<div style="margin-bottom:1em"><code>midi.port#poly_pressure(channel:number, note:number, value:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.port#control_change</strong></div>
-<div style="margin-bottom:1em"><code>midi.port#control_change(channel:number, controller:number, value:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.port#program_change</strong></div>
-<div style="margin-bottom:1em"><code>midi.port#program_change(channel:number, program:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.port#channel_pressure</strong></div>
-<div style="margin-bottom:1em"><code>midi.port#channel_pressure(channel:number, pressure:number):map:reduce</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.port#pitch_bend</strong></div>
-<div style="margin-bottom:1em"><code>midi.port#pitch_bend(channel:number, value:number):map:reduce</code></div>
-
-</p>
-<h2><span class="caption-index-2">32.6</span><a name="anchor-32-6"></a>midi.controller Class</h2>
-<h2><span class="caption-index-2">32.7</span><a name="anchor-32-7"></a>midi.program Class</h2>
-<h2><span class="caption-index-2">32.8</span><a name="anchor-32-8"></a>midi.soundfont Class</h2>
-<p>
-<div><strong style="text-decoration:underline">midi.soundfont</strong></div>
-<div style="margin-bottom:1em"><code>midi.soundfont(stream:stream) {block?}</code></div>
-It creates an instance to access data in SoundFont file.
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.soundfont#synthesizer</strong></div>
-<div style="margin-bottom:1em"><code>midi.soundfont#synthesizer(preset:number, bank:number, key:number, velocity:number):map {block?}</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">midi.soundfont#print</strong></div>
-<div style="margin-bottom:1em"><code>midi.soundfont#print():void</code></div>
-
-</p>
-<h2><span class="caption-index-2">32.9</span><a name="anchor-32-9"></a>midi.synthesizer Class</h2>
 <p />
 
 {% endraw %}
