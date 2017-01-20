@@ -8,7 +8,6 @@ title: Download
 
 # {{ page.title }}
 
-
 Release notes are available [here](https://github.com/gura-lang/gura/releases).
 
 ## Latest Version
@@ -83,13 +82,43 @@ It has been confirmed that Gura runs on the following versions of Windows:
 
 Launch the installer
 <a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}-win32.msi"
-  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-win32.msi');">gura-{{ gura_version }}-win32.msi</a>,
-which will install necessary files and register file extensions `.gura`, `.guraw`, `.gurc` and `.gurcw` as executable ones.
+  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-win32.msi');">gura-{{ gura_version }}-win32.msi</a> and follow the steps below:
 
-If you don't want to modify registry, you can just expand ZIP file
+<table>
+
+<tr>
+<td><img src="images/install-win32-step1.png" /></td>
+<td>Click <code>[Next]</code> to go to the next page.</td>
+</tr>
+
+<tr>
+<td><img src="images/install-win32-step2.png" /></td>
+<td>Click <code>[Next]</code> to go to the next page. You can also modify the destinaton folder
+where Gura's executable and other necessary files are to be installed by clicking <code>[Change...]</code>.</td>
+</tr>
+
+<tr>
+<td><img src="images/install-win32-step3.png" /></td>
+<td>Click <code>[Install]</code> to do the installation.
+When you see a confirmation dialog that asks if you're sure to modify the system,
+click <code>[Yes]</code> in it.</td>
+</tr>
+
+<tr>
+<td><img src="images/install-win32-step4.png" /></td>
+<td>Click <code>[Finish]</code> to finish the process.</td>
+</tr>
+
+</table>
+
+The installer will set up all the necessary files as well as edit the registry
+to assign file extensions `.gura`, `.guraw`, `.gurc` and `.gurcw` as executable ones.
+
+If you don't want to modify registries, you can just expand ZIP file
 <a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}-win32.zip"
   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-win32.zip');">gura-{{ gura_version }}-win32.zip</a>
   in some directory and edit PATH environment so that it includes `gura\bin-x86` directory in the expanded content.
+
 
 ## Mac OS X
 
