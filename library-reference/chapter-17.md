@@ -193,7 +193,7 @@ The argument <code>format</code> takes one of the symbols that specifies the ren
 <li><code>`unified</code> .. Unified format. This is the default.</li>
 </ul>
 <p>
-The argument <code>lines</code> specifies a number of common lines appended before and after different lines
+The argument <code>lines</code> specifies a number of common lines appended before and after different lines.
 </p>
 <h2><span class="caption-index-2">17.3</span><a name="anchor-17-3"></a>diff.hunk@line Class</h2>
 <p>

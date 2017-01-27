@@ -32,7 +32,7 @@ The <code>glu</code> module provides functions of GLU library.
 </p>
 <p>
 <div><strong style="text-decoration:underline">glu.gluBuild1DMipmaps</strong></div>
-<div style="margin-bottom:1em"><code>glu.gluBuild1DMipmaps(target:number, internalFormat:number, width:number, format:number, type:number, data)</code></div>
+<div style="margin-bottom:1em"><code>glu.gluBuild1DMipmaps(target:number, internalFormat:number, width:number, format:number, type:number, data:array:nomap)</code></div>
 
 </p>
 <p>
@@ -42,7 +42,7 @@ The <code>glu</code> module provides functions of GLU library.
 </p>
 <p>
 <div><strong style="text-decoration:underline">glu.gluBuild2DMipmaps</strong></div>
-<div style="margin-bottom:1em"><code>glu.gluBuild2DMipmaps(target:number, internalFormat:number, width:number, height:number, format:number, type:number, data)</code></div>
+<div style="margin-bottom:1em"><code>glu.gluBuild2DMipmaps(target:number, internalFormat:number, width:number, height:number, format:number, type:number, data:array:nomap)</code></div>
 
 </p>
 <p>
@@ -117,7 +117,7 @@ The <code>glu</code> module provides functions of GLU library.
 </p>
 <p>
 <div><strong style="text-decoration:underline">glu.gluLoadSamplingMatrices</strong></div>
-<div style="margin-bottom:1em"><code>glu.gluLoadSamplingMatrices(nurb:glu.Nurbs, model:array@float:nomap, perspective:array@float:nomap, view:array@int:nomap):void</code></div>
+<div style="margin-bottom:1em"><code>glu.gluLoadSamplingMatrices(nurb:glu.Nurbs, model:array@float:nomap, perspective:array@float:nomap, view:array@int32:nomap):void</code></div>
 
 </p>
 <p>
@@ -192,12 +192,12 @@ The <code>glu</code> module provides functions of GLU library.
 </p>
 <p>
 <div><strong style="text-decoration:underline">glu.gluPickMatrix</strong></div>
-<div style="margin-bottom:1em"><code>glu.gluPickMatrix(x:number, y:number, delX:number, delY:number, viewport:array@int:nomap):void</code></div>
+<div style="margin-bottom:1em"><code>glu.gluPickMatrix(x:number, y:number, delX:number, delY:number, viewport:array@int32:nomap):void</code></div>
 
 </p>
 <p>
 <div><strong style="text-decoration:underline">glu.gluProject</strong></div>
-<div style="margin-bottom:1em"><code>glu.gluProject(objX:number, objY:number, objZ:number, model:array@double:nomap, proj:array@double:nomap, view:array@int:nomap, winX:array@double:nomap, winY:array@double:nomap, winZ:array@double:nomap)</code></div>
+<div style="margin-bottom:1em"><code>glu.gluProject(objX:number, objY:number, objZ:number, model:array@double:nomap, proj:array@double:nomap, view:array@int32:nomap, winX:array@double:nomap, winY:array@double:nomap, winZ:array@double:nomap)</code></div>
 
 </p>
 <p>
@@ -282,7 +282,7 @@ The <code>glu</code> module provides functions of GLU library.
 </p>
 <p>
 <div><strong style="text-decoration:underline">glu.gluUnProject</strong></div>
-<div style="margin-bottom:1em"><code>glu.gluUnProject(winX:number, winY:number, winZ:number, model:array@double:nomap, proj:array@double:nomap, view:array@int:nomap, objX:array@double:nomap, objY:array@double:nomap, objZ:array@double:nomap)</code></div>
+<div style="margin-bottom:1em"><code>glu.gluUnProject(winX:number, winY:number, winZ:number, model:array@double:nomap, proj:array@double:nomap, view:array@int32:nomap, objX:array@double:nomap, objY:array@double:nomap, objZ:array@double:nomap)</code></div>
 
 </p>
 <p />

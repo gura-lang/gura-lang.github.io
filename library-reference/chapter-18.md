@@ -116,50 +116,6 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<div><strong style="text-decoration:underline">doxygen.structure#elems@command</strong></div>
-<div style="margin-bottom:1em"><code>doxygen.structure#elems@command(name?:string):map {block?}</code></div>
-Creates an iterator that returns <code>doxygen.elem</code> instances of command elements contained in the structure.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-See the chapter of Mapping Process in Gura Language Manual for the detail.
-</p>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<div><strong style="text-decoration:underline">doxygen.structure#elems@text</strong></div>
-<div style="margin-bottom:1em"><code>doxygen.structure#elems@text():map {block?}</code></div>
-Creates an iterator that returns <code>doxygen.elem</code> instances of text elements contained in the structure.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-See the chapter of Mapping Process in Gura Language Manual for the detail.
-</p>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
 <div><strong style="text-decoration:underline">doxygen.structure#substructures</strong></div>
 <div style="margin-bottom:1em"><code>doxygen.structure#substructures() {block?}</code></div>
 Creates an iterator that returns <code>doxygen.structure</code> instances of sub structures contained in the structure.
@@ -190,8 +146,8 @@ Prints out the content of the element to <code>out</code> with an indentation le
 </p>
 <p>
 <div><strong style="text-decoration:underline">doxygen.elem#render</strong></div>
-<div style="margin-bottom:1em"><code>doxygen.elem#render(renderer:doxygen.renderer, cfg?:doxygen.configuration, out?:stream:w)</code></div>
-Renders the element content using <code>doxygen.renderer</code> with configuration information from <code>doxygen.configuration</code> instance. The result would be put out to the stream specified by the argument <code>out</code> or standard output when omitted.
+<div style="margin-bottom:1em"><code>doxygen.elem#render(renderer:doxygen.renderer):void</code></div>
+Renders the element content using <code>doxygen.renderer</code>.
 </p>
 <h2><span class="caption-index-2">18.4</span><a name="anchor-18-4"></a>doxygen.configuration Class</h2>
 <h3><span class="caption-index-3">18.4.1</span><a name="anchor-18-4-1"></a>Property</h3>
@@ -259,7 +215,7 @@ Prints out definitions of aliases to the stream <code>out</code>. If the argumen
 <h3><span class="caption-index-3">18.6.1</span><a name="anchor-18-6-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">doxygen.renderer</strong></div>
-<div style="margin-bottom:1em"><code>doxygen.renderer() {block?}</code></div>
+<div style="margin-bottom:1em"><code>doxygen.renderer(out:stream, cfg:doxygen.configuration) {block?}</code></div>
 Creates a <code>doxygen.renderer</code> instance.
 </p>
 <p>

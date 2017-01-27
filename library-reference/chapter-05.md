@@ -52,42 +52,28 @@ Explanation</th>
 
 <tr>
 <td>
-<code>+array@char</code></td>
+<code>+array@int8</code></td>
 <td>
 </td>
 </tr>
 
 <tr>
 <td>
-<code>+array@uchar</code></td>
+<code>+array@uint8</code></td>
 <td>
 </td>
 </tr>
 
 <tr>
 <td>
-<code>+array@short</code></td>
+<code>+array@int16</code></td>
 <td>
 </td>
 </tr>
 
 <tr>
 <td>
-<code>+array@ushort</code></td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td>
-<code>+array@int</code></td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td>
-<code>+array@uint</code></td>
+<code>+array@uint16</code></td>
 <td>
 </td>
 </tr>
@@ -171,42 +157,28 @@ Explanation</th>
 
 <tr>
 <td>
-<code>-array@char</code></td>
+<code>-array@int8</code></td>
 <td>
 </td>
 </tr>
 
 <tr>
 <td>
-<code>-array@uchar</code></td>
+<code>-array@uint8</code></td>
 <td>
 </td>
 </tr>
 
 <tr>
 <td>
-<code>-array@short</code></td>
+<code>-array@int16</code></td>
 <td>
 </td>
 </tr>
 
 <tr>
 <td>
-<code>-array@ushort</code></td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td>
-<code>-array@int</code></td>
-<td>
-</td>
-</tr>
-
-<tr>
-<td>
-<code>-array@uint</code></td>
+<code>-array@uint16</code></td>
 <td>
 </td>
 </tr>

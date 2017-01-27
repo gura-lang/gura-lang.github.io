@@ -72,7 +72,7 @@ For specifiers <code>e</code>, <code>f</code> and <code>g</code>, it specifies a
 printf('%.5f', 1 / 3) .. prints "0.33333"
 </code></pre>
 <p>
-For other specifiers, it has no effect.
+It has no effect with other specifiers.
 </p>
 <p>
 <div><strong style="text-decoration:underline">println</strong></div>
@@ -801,6 +801,11 @@ Random numbers are generated using <a href="http://www.math.sci.hiroshima-u.ac.j
 Returns a random number between <code>0</code> and <code>(range - 1)</code>. If argument <code>range</code> is not specified, it generates random numbers in a range of [0, 1).
 </p>
 <p>
+<div><strong style="text-decoration:underline">rand@normal</strong></div>
+<div style="margin-bottom:1em"><code>rand@normal(mu?:number, sigma?:number) {block?}</code></div>
+Returns a normal distribution random number with a mean value of <code>mu</code> and a standard deviation of <code>sigma</code>. The default values for <code>mu</code> and <code>sigma</code> are <code>0</code> and <code>1</code> respectively.
+</p>
+<p>
 <div><strong style="text-decoration:underline">rands</strong></div>
 <div style="margin-bottom:1em"><code>rands(range?:number, num?:number) {block?}</code></div>
 Creates an iterator that returns random numbers between <code>0</code> and <code>(range - 1)</code>.
@@ -832,6 +837,40 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 Below is an example to create a create that generates random numbers:
 </p>
 <pre><code>x = rands(100)
+// x is an infinite iterator to generates random numbers between 0 and 99
+</code></pre>
+<p>
+<div><strong style="text-decoration:underline">rands@normal</strong></div>
+<div style="margin-bottom:1em"><code>rands@normal(mu?:number, sigma?:number, num?:number) {block?}</code></div>
+Creates an iterator that returns normal distribution random numbers with a mean value of <code>mu</code> and a standard deviation of <code>sigma</code>. The default values for <code>mu</code> and <code>sigma</code> are <code>0</code> and <code>1</code> respectively.
+</p>
+<p>
+If argument <code>range</code> is not specified, it generates random numbers in a range of [0, 1).
+</p>
+<p>
+In default, the created iterator infinitely generates random numbers. The argument <code>num</code> specifies how many elements should be generated.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+Below is an example to create a create that generates random numbers:
+</p>
+<pre><code>x = randns(100)
 // x is an infinite iterator to generates random numbers between 0 and 99
 </code></pre>
 <p>
