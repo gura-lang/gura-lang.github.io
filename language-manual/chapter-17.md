@@ -19,7 +19,7 @@ import(png)
 image('foo.jpg').write('foo.png')
 </code></pre>
 <p>
-Importing a module that can handle a specific image type would expand the feature of `image` function and add some methods to `image` class that read/write the image file.
+Importing a module that can handle a specific image type would expand the feature of <code>image</code> function and add some methods to <code>image</code> class that read/write the image file.
 The following table shows image types and their associated module names.
 </p>
 <p>
