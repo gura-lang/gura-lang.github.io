@@ -758,11 +758,11 @@ Note</th>
 </p>
 <h2><span class="caption-index-2">8.6</span><a name="anchor-8-6"></a>Help Block</h2>
 <p>
-You can add a help block to a function by appending <code>%</code> and a block containing help information to a function declaration.
+You can add a help block to a function by appending <code>%%</code> and a block containing help information to a function declaration.
 </p>
 <pre><code>add(x, y) = {
     x + y
-} % {
+} %% {
     `en, 'markdown', 'Takes two numbers and returns an added result.'
 }
 </code></pre>
@@ -786,17 +786,17 @@ A function may have multiple help blocks that contain explanatory texts written 
 </p>
 <pre><code>add(x, y) = {
     x + y
-} % {`en, 'markdown', R'''
+} %% {`en, 'markdown', R'''
 
 (.. help document in English ..)
 
 '''
-} % {`ja, 'markdown', R'''
+} %% {`ja, 'markdown', R'''
 
 (.. help document in Japanese ..)
 
 '''
-} % {`de, 'markdown', R'''
+} %% {`de, 'markdown', R'''
 
 (.. help document in German ..)
 

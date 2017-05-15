@@ -81,7 +81,7 @@ The argument <code>format</code> specifies a printf-style format string that is 
 Writes values in CSV format.
 </p>
 <p>
-The argument <code>fields</code> take <code>string</code>, <code>number</code> or <code>complex</code> values that are output in a row.
+The argument <code>fields</code> takes <code>string</code>, <code>number</code> or <code>complex</code> values that are to be put out in a row.
 </p>
 <h2><span class="caption-index-2">15.3</span><a name="anchor-15-3"></a>Extension of stream Class</h2>
 <p>

@@ -40,8 +40,18 @@ println(values*):map:void
 Prints out values and a line-break to the standard output.
 </code></pre>
 <p>
-<em>(this feature will be provided in v0.6.2 or later)</em>
+When an expression has some valid value as its result after being evaluated, you will see the value before the next prompt line.
 </p>
+<pre><code>&gt;&gt;&gt; a = 3
+3
+&gt;&gt;&gt;
+</code></pre>
+<p>
+To suppress this, you can append a semicolon character at the end of line like below:
+</p>
+<pre><code>&gt;&gt;&gt; a = 3;
+&gt;&gt;&gt;
+</code></pre>
 <h2><span class="caption-index-2">2.3</span><a name="anchor-2-3"></a>Run Script File</h2>
 <p>
 You can run a script file by specifying it as an argument for Gura interpreter program.

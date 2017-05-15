@@ -19,8 +19,7 @@ import(png)
 image('foo.jpg').write('foo.png')
 </code></pre>
 <p>
-Importing a module that can handle a specific image type would expand the feature of <code>image</code> function and add some methods to <code>image</code> class that read/write the image file.
-The following table shows image types and their associated module names.
+Before <code>image</code> function, you have to import a module that can handle an image type. The following table shows image types and associated module names.
 </p>
 <p>
 <table>
@@ -39,7 +38,7 @@ BMP</td>
 <td>
 <code>bmp</code></td>
 <td>
-<code>read@bmp</code>, <code>write@bmp</code></td>
+<code>bmpread</code>, <code>bmpwrite</code></td>
 </tr>
 
 <tr>
@@ -48,7 +47,7 @@ JPEG</td>
 <td>
 <code>jpeg</code></td>
 <td>
-<code>read@jpeg</code>, <code>write@jpeg</code></td>
+<code>jpegread</code>, <code>jpegwrite</code></td>
 </tr>
 
 <tr>
@@ -57,7 +56,7 @@ GIF</td>
 <td>
 <code>gif</code></td>
 <td>
-<code>read@gif</code>, <code>write@gif</code></td>
+<code>gifread</code>, <code>gifwrite</code></td>
 </tr>
 
 <tr>
@@ -66,7 +65,7 @@ PNG</td>
 <td>
 <code>png</code></td>
 <td>
-<code>read@png</code>, <code>write@png</code></td>
+<code>pngread</code>, <code>pngwrite</code></td>
 </tr>
 
 <tr>
@@ -75,7 +74,7 @@ Microsoft Icon</td>
 <td>
 <code>msico</code></td>
 <td>
-<code>read@msico</code></td>
+<code>msicoread</code>, <code>msicowrite</code></td>
 </tr>
 
 <tr>
@@ -84,7 +83,7 @@ PPM</td>
 <td>
 <code>ppm</code></td>
 <td>
-<code>read@ppm</code>, <code>write@ppm</code></td>
+<code>ppmread</code>, <code>ppmwrite</code></td>
 </tr>
 
 <tr>
@@ -93,7 +92,7 @@ XPM</td>
 <td>
 <code>xpm</code></td>
 <td>
-<code>xpmdata</code>, <code>write@xpm</code></td>
+<code>xpmdata</code>, <code>xpmwrite</code></td>
 </tr>
 
 <tr>
@@ -102,13 +101,15 @@ TIFF</td>
 <td>
 <code>tiff</code></td>
 <td>
-<code>read@tiff</code></td>
+<code>tiffread</code></td>
 </tr>
 
 </table>
 
 </p>
-
+<p>
+Importing those modules also add methods to <code>image</code> class like <code>jpeg</code> module adding <code>image#jpegread</code> and <code>image#jpegwrite</code>.
+</p>
 <h2><span class="caption-index-2">17.3</span><a name="anchor-17-3"></a>Format-specific Operations</h2>
 <h2><span class="caption-index-2">17.4</span><a name="anchor-17-4"></a>JPEG</h2>
 <p>

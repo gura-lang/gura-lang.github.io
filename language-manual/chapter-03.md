@@ -467,13 +467,14 @@ block comment
 The following figure shows a hierarchy of expressions.
 </p>
 <pre><code>Expr &lt;-+- Value
+       +- EmbedString
        +- Identifier
        +- Suffixed
+       +- Member
        +- Unary &lt;-----+- UnaryOp
        |              `- Quote
        +- Binary &lt;----+- BinaryOp
-       |              +- Assign
-       |              `- Member
+       |              `- Assign
        +- Collector &lt;-+- Lister
        |              +- Iterer
        |              +- Block
@@ -492,7 +493,7 @@ Other abstract expressions, Unary, Binary, Collector and Compound, don't appear 
 A <code>Value</code> expression holds a value of <code>number</code>, <code>string</code>, <code>binary</code> type.
 </p>
 <p>
-Class diagram is:
+The class diagram is:
 </p>
 <pre><code>+----------------------------------+
 |              Value               |
@@ -529,7 +530,24 @@ It has a value of <code>binary</code> type.
 </p>
 </li>
 </ul>
-<h3><span class="caption-index-3">3.3.3</span><a name="anchor-3-3-3"></a>Identifier</h3>
+<h3><span class="caption-index-3">3.3.3</span><a name="anchor-3-3-3"></a>EmbedString</h3>
+<p>
+A <code>EmbedString</code> expression is created when a string literal is prefixed by a character <code>e</code> and contains a <code>template</code> instance as a result of parsing the string.
+</p>
+<p>
+The class diagram is:
+</p>
+<pre><code>+---------------------+
+|    EmbedString      |
+|---------------------|
+|- template: template |
+|- str: string        |
++---------------------+
+</code></pre>
+<p>
+When this expression is evaluated, the template is invoked with the current environment to comes up with a string result.
+</p>
+<h3><span class="caption-index-3">3.3.4</span><a name="anchor-3-3-4"></a>Identifier</h3>
 <p>
 An <code>Identifier</code> expression consists of a symbol and zero or more attributes trailing after it.
 </p>
@@ -537,7 +555,7 @@ An <code>Identifier</code> expression consists of a symbol and zero or more attr
 An <code>Identifer</code> expression can also contain attributes, where an attribute is a symbol preceded by a colon character. One or more attributes can be described after a symbol of the <code>Identifier</code>.
 </p>
 <p>
-Class diagram is:
+The class diagram is:
 </p>
 <pre><code>+----------------------------+
 |          Identifier        |
@@ -567,12 +585,12 @@ It has a symbol <code>foo</code> and has symbols <code>attr1</code> and <code>at
 </p>
 </li>
 </ul>
-<h3><span class="caption-index-3">3.3.4</span><a name="anchor-3-3-4"></a>Suffixed</h3>
+<h3><span class="caption-index-3">3.3.5</span><a name="anchor-3-3-5"></a>Suffixed</h3>
 <p>
 A <code>Suffixed</code> expression has a suffix symbol and a preceding literal of string or number.
 </p>
 <p>
-Class diagram is:
+The class diagram is:
 </p>
 <pre><code>+---------------------+
 |      Suffixed       |
@@ -603,134 +621,12 @@ It has a string <code>'hello world'</code> as its body and a symbol <code>bar</c
 </p>
 </li>
 </ul>
-<h3><span class="caption-index-3">3.3.5</span><a name="anchor-3-3-5"></a>UnaryOp</h3>
-<p>
-A <code>UnaryOp</code> expression consists of a unary operator and a child expression on which the operator is applied.
-</p>
-<p>
-Class diagram is:
-</p>
-<pre><code>+---------------------+         +----------------+
-|       UnaryOp       |   child |      Expr      |
-|---------------------*---------+----------------|
-|- operator: operator |         |                |
-+---------------------+         +----------------+
-</code></pre>
-<p>
-Consider the following expression:
-</p>
-<ul>
-<li><p>
-<code>-foo</code>
-</p>
-<p>
-It has an operator "<code>-</code>" and owns an Identifer expression as its child.
-</p>
-</li>
-</ul>
-<h3><span class="caption-index-3">3.3.6</span><a name="anchor-3-3-6"></a>Quote</h3>
-<p>
-A <code>Quote</code> expression consists of a back quotation and a child expression that is to be quoted by it.
-</p>
-<p>
-Class diagram is:
-</p>
-<pre><code>+---------------------+         +----------------+
-|        Quote        |   child |      Expr      |
-|---------------------*---------+----------------|
-|                     |         |                |
-+---------------------+         +----------------+
-</code></pre>
-<p>
-Consider the following expression:
-</p>
-<ul>
-<li><p>
-<code>`12345</code>
-</p>
-<p>
-It owns an Value expression with a number value as its child.
-</p>
-</li>
-</ul>
-<h3><span class="caption-index-3">3.3.7</span><a name="anchor-3-3-7"></a>BinaryOp</h3>
-<p>
-A <code>BinaryOp</code> expression consists of a binary operator and two child expressions on which the operator is applied.
-</p>
-<p>
-Class diagram is:
-</p>
-<pre><code>                                    +----------------+
-                              left  |      Expr      |
-                           +--------+----------------|
-+---------------------+    |        |                |
-|       BinaryOp      *----+        +----------------+
-|---------------------|
-|- operator: operator *----+        +----------------+
-+---------------------+    |  right |      Expr      |
-                           +--------+----------------|
-                                    |                |
-                                    +----------------+
-</code></pre>
-<p>
-Consider the following expression:
-</p>
-<ul>
-<li><p>
-<code>x + y</code>
-</p>
-<p>
-It has an operator "<code>+</code>" and owns an Identifer expression <code>x</code> as its left and also an Identifier expression <code>y</code> as its right.
-</p>
-</li>
-</ul>
-<h3><span class="caption-index-3">3.3.8</span><a name="anchor-3-3-8"></a>Assign</h3>
-<p>
-An <code>Assign</code> expression consists of an equal symbol, an expression on the left side that is a target of the assignment and an expression on the right side that is an assignment source. An expresion that can be specified on the left is one of <code>Identifer</code>, <code>Lister</code>, <code>Indexer</code>, <code>Caller</code> and <code>Member</code>.
-</p>
-<p>
-Class diagram is:
-</p>
-<pre><code>                                    +----------------+
-                              left  |      Expr      |
-                           +--------+----------------|
-+---------------------+    |        |                |
-|       Assign        *----+        +----------------+
-|---------------------|
-|- operator: operator *----+        +----------------+
-+---------------------+    |  right |      Expr      |
-                           +--------+----------------|
-                                    |                |
-                                    +----------------+
-</code></pre>
-<p>
-The <code>Assign</code> expression also has an operator that is to be applied before assignment. For a normal assignment, that is set to invalid operator.
-</p>
-<p>
-Consider the following expressions:
-</p>
-<ul>
-<li><p>
-<code>x = y</code>
-</p>
-<p>
-It owns an Identifer expression <code>x</code> as its left and also an Identifier expression <code>y</code> as its right. The operator is set to invalid.
-</p>
-</li>
-<li><p>
-<code>x += y</code>
-</p>
-<p>
-It owns an Identifer expression <code>x</code> as its left and also an Identifier expression <code>y</code> as its right. It also has an operator "<code>+</code>".
-</p>
-</li>
-</ul>
-<h3><span class="caption-index-3">3.3.9</span><a name="anchor-3-3-9"></a>Member</h3>
+<h3><span class="caption-index-3">3.3.6</span><a name="anchor-3-3-6"></a>Member</h3>
 <p>
 A <code>Member</code> expression is responsible for accessing variables in a property owner like instance, class and module. Below are available Member accessors.
 </p>
 <p>
-Class diagram is:
+The class diagram is:
 </p>
 <pre><code>                                    +----------------+
                               left  |      Expr      |
@@ -797,12 +693,134 @@ Mode <code>normal</code> takes a reference to a property owner as its left's res
 <p>
 Others are for what is called Member Mapping and take a list or an iterator as its left's result value, each of which expressions is a reference to a property owner.
 </p>
-<h3><span class="caption-index-3">3.3.10</span><a name="anchor-3-3-10"></a>Lister</h3>
+<h3><span class="caption-index-3">3.3.7</span><a name="anchor-3-3-7"></a>UnaryOp</h3>
+<p>
+A <code>UnaryOp</code> expression consists of a unary operator and a child expression on which the operator is applied.
+</p>
+<p>
+The class diagram is:
+</p>
+<pre><code>+---------------------+         +----------------+
+|       UnaryOp       |   child |      Expr      |
+|---------------------*---------+----------------|
+|- operator: operator |         |                |
++---------------------+         +----------------+
+</code></pre>
+<p>
+Consider the following expression:
+</p>
+<ul>
+<li><p>
+<code>-foo</code>
+</p>
+<p>
+It has an operator "<code>-</code>" and owns an Identifer expression as its child.
+</p>
+</li>
+</ul>
+<h3><span class="caption-index-3">3.3.8</span><a name="anchor-3-3-8"></a>Quote</h3>
+<p>
+A <code>Quote</code> expression consists of a back quotation and a child expression that is to be quoted by it.
+</p>
+<p>
+The class diagram is:
+</p>
+<pre><code>+---------------------+         +----------------+
+|        Quote        |   child |      Expr      |
+|---------------------*---------+----------------|
+|                     |         |                |
++---------------------+         +----------------+
+</code></pre>
+<p>
+Consider the following expression:
+</p>
+<ul>
+<li><p>
+<code>`12345</code>
+</p>
+<p>
+It owns an Value expression with a number value as its child.
+</p>
+</li>
+</ul>
+<h3><span class="caption-index-3">3.3.9</span><a name="anchor-3-3-9"></a>BinaryOp</h3>
+<p>
+A <code>BinaryOp</code> expression consists of a binary operator and two child expressions on which the operator is applied.
+</p>
+<p>
+The class diagram is:
+</p>
+<pre><code>                                    +----------------+
+                              left  |      Expr      |
+                           +--------+----------------|
++---------------------+    |        |                |
+|       BinaryOp      *----+        +----------------+
+|---------------------|
+|- operator: operator *----+        +----------------+
++---------------------+    |  right |      Expr      |
+                           +--------+----------------|
+                                    |                |
+                                    +----------------+
+</code></pre>
+<p>
+Consider the following expression:
+</p>
+<ul>
+<li><p>
+<code>x + y</code>
+</p>
+<p>
+It has an operator "<code>+</code>" and owns an Identifer expression <code>x</code> as its left and also an Identifier expression <code>y</code> as its right.
+</p>
+</li>
+</ul>
+<h3><span class="caption-index-3">3.3.10</span><a name="anchor-3-3-10"></a>Assign</h3>
+<p>
+An <code>Assign</code> expression consists of an equal symbol, an expression on the left side that is a target of the assignment and an expression on the right side that is an assignment source. An expresion that can be specified on the left is one of <code>Identifer</code>, <code>Lister</code>, <code>Indexer</code>, <code>Caller</code> and <code>Member</code>.
+</p>
+<p>
+The class diagram is:
+</p>
+<pre><code>                                    +----------------+
+                              left  |      Expr      |
+                           +--------+----------------|
++---------------------+    |        |                |
+|       Assign        *----+        +----------------+
+|---------------------|
+|- operator: operator *----+        +----------------+
++---------------------+    |  right |      Expr      |
+                           +--------+----------------|
+                                    |                |
+                                    +----------------+
+</code></pre>
+<p>
+The <code>Assign</code> expression also has an operator that is to be applied before assignment. For a normal assignment, that is set to invalid operator.
+</p>
+<p>
+Consider the following expressions:
+</p>
+<ul>
+<li><p>
+<code>x = y</code>
+</p>
+<p>
+It owns an Identifer expression <code>x</code> as its left and also an Identifier expression <code>y</code> as its right. The operator is set to invalid.
+</p>
+</li>
+<li><p>
+<code>x += y</code>
+</p>
+<p>
+It owns an Identifer expression <code>x</code> as its left and also an Identifier expression <code>y</code> as its right. It also has an operator "<code>+</code>".
+</p>
+</li>
+</ul>
+<h3><span class="caption-index-3">3.3.11</span><a name="anchor-3-3-11"></a>Lister</h3>
 <p>
 A <code>Lister</code> expression is a series of element expressions embraced by a pair of square brackets.
 </p>
 <p>
-Class diagram is:
+The class diagram is:
 </p>
 <pre><code>+---------------------+           +----------------+
 |        Lister       |  elements |      Expr      |
@@ -822,12 +840,12 @@ It contains three Identifier expressions <code>x</code>, <code>y</code> and <cod
 </p>
 </li>
 </ul>
-<h3><span class="caption-index-3">3.3.11</span><a name="anchor-3-3-11"></a>Iterer</h3>
+<h3><span class="caption-index-3">3.3.12</span><a name="anchor-3-3-12"></a>Iterer</h3>
 <p>
 An <code>Iterer</code> expression is a series of element expressions embraced by a pair of parentheses.
 </p>
 <p>
-Class diagram is:
+The class diagram is:
 </p>
 <pre><code>+---------------------+           +----------------+
 |        Iterer       |  elements |      Expr      |
@@ -847,12 +865,12 @@ It contains three Identifier expressions <code>x</code>, <code>y</code> and <cod
 </p>
 </li>
 </ul>
-<h3><span class="caption-index-3">3.3.12</span><a name="anchor-3-3-12"></a>Block</h3>
+<h3><span class="caption-index-3">3.3.13</span><a name="anchor-3-3-13"></a>Block</h3>
 <p>
 A <code>Block</code> expression is a series of element expressions embraced by a pair of curly brackets.
 </p>
 <p>
-Class diagram is:
+The class diagram is:
 </p>
 <pre><code>+---------------------+            +----------------+
 |        Block        |   elements |      Expr      |
@@ -898,12 +916,12 @@ foo
 {
 }
 </code></pre>
-<h3><span class="caption-index-3">3.3.13</span><a name="anchor-3-3-13"></a>Root</h3>
+<h3><span class="caption-index-3">3.3.14</span><a name="anchor-3-3-14"></a>Root</h3>
 <p>
 A <code>Root</code> expression represents a series of element expressions that appear in the top sequence.
 </p>
 <p>
-Class diagram is:
+The class diagram is:
 </p>
 <pre><code>+---------------------+           +----------------+
 |        Root         |  elements |      Expr      |
@@ -923,12 +941,12 @@ It contains three Identifier expressions <code>x</code>, <code>y</code> and <cod
 </p>
 </li>
 </ul>
-<h3><span class="caption-index-3">3.3.14</span><a name="anchor-3-3-14"></a>Indexer</h3>
+<h3><span class="caption-index-3">3.3.15</span><a name="anchor-3-3-15"></a>Indexer</h3>
 <p>
 An <code>Indexer</code> expression consists of a car element and a series of expressions that represent indices.
 </p>
 <p>
-Class diagram is:
+The class diagram is:
 </p>
 <pre><code>                                       +----------------+
                                    car |      Expr      |
@@ -954,7 +972,7 @@ It owns an Identifier expression <code>a</code> as its car element and three Ide
 </p>
 </li>
 </ul>
-<h3><span class="caption-index-3">3.3.15</span><a name="anchor-3-3-15"></a>Caller</h3>
+<h3><span class="caption-index-3">3.3.16</span><a name="anchor-3-3-16"></a>Caller</h3>
 <p>
 A <code>Caller</code> expression consists of a car element and a series of expressions that represent arguments. It may optionally own a Block expression if a block is specified and may own a Caller expression as its trailer if that is described in a leader-trailer syntax.
 </p>
@@ -962,7 +980,7 @@ A <code>Caller</code> expression consists of a car element and a series of expre
 As with an <code>Identifier</code> expression, a <code>Caller</code> expression can also have attributes. They can be described just after a closing parenthesis of an argument list.
 </p>
 <p>
-Class diagram is:
+The class diagram is:
 </p>
 <pre><code>                                              +----------------+
 +----------------------------+            car |      Expr      |
@@ -1009,21 +1027,21 @@ It owns an Identifier expression <code>a</code> as its car element and three Ide
 </li>
 </ul>
 <p>
-If two or more <code>Caller</code>s are described in the same line, they have a leader-trailer relationship each other, in which the preceding <code>Caller</code> is dubbed a leader and following one a trailer. A <code>Caller</code> that acts as a leader is the owner of its trailing <code>Caller</code>.
+If two or more <code>Caller</code>s are described in the same line and the preceding one has a block, they have a leader-trailer relationship each other, in which the preceding <code>Caller</code> is dubbed a leader and following one a trailer. A <code>Caller</code> that acts as a leader is the owner of its trailing <code>Caller</code>.
 </p>
 <p>
 Consider the following expressions:
 </p>
 <ul>
 <li><p>
-<code>a() b()</code>
+<code>a() {} b()</code>
 </p>
 <p>
 The <code>Caller</code> expression <code>a()</code> owns a <code>Caller</code> expression of <code>b()</code> as its trailer.
 </p>
 </li>
 <li><p>
-<code>a() b() c()</code>
+<code>a() {} b() {} c()</code>
 </p>
 <p>
 The <code>Caller</code> expression <code>a()</code> owns a Caller expression of <code>b()</code> as its trailer, and the Caller expression <code>b()</code> owns the Caller expression <code>c()</code> as well.
@@ -1031,24 +1049,13 @@ The <code>Caller</code> expression <code>a()</code> owns a Caller expression of 
 </li>
 </ul>
 <p>
-The parser uses two rules to determine whether a following Caller is a trailer.
-</p>
-<p>
-The first is, as you've already read above, to check if the top of the following Caller is described in the same line of a closing parenthesis of the preceding one. It means that the example below is a valid leader-trailer form.
-</p>
-<pre><code>a(
-) b(
-)
-</code></pre>
-<p>
-If the preceding Caller has a block, the closing curly bracket must be in the same line as top of the following one like below.
+You only have to put the closing curly bracket at the same line of the trailer, which means that the example below is a valid leader-trailer form.
 </p>
 <pre><code>a() {
-} b(
-)
+} b()
 </code></pre>
 <p>
-Another rule is to determine if the caller is associated with a function that has a trailer attribute such as <code>elsif</code>, <code>else</code>, <code>catch</code> and <code>finally</code>. Those callers don't need to be at the same line of a closing parenthesis or curly bracket that precedes to act as a trailer. This feature enables you to write <code>if-elsif-else</code> sequence in the following style:
+If a trailing caller is associated with a trailer function such as <code>elsif</code>, <code>else</code>, <code>catch</code> and <code>finally</code>, it doesn't need to be at the same line of a closing curly bracket to be treated as a trailer. This feature enables you to write <code>if-elsif-else</code> sequence in the following style:
 </p>
 <pre><code>if (cond)
 {

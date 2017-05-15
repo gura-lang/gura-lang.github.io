@@ -44,6 +44,11 @@ Enables or disables echo-back functionality according to flag.
 Terminates the program with a specified status number.
 </p>
 <p>
+<div><strong style="text-decoration:underline">sys.interactive</strong></div>
+<div style="margin-bottom:1em"><code>sys.interactive()</code></div>
+Enters to interactive mode.
+</p>
+<p>
 <div><strong style="text-decoration:underline">sys.required_version</strong></div>
 <div style="margin-bottom:1em"><code>sys.required_version(major:number, minor:number, patch:number)</code></div>
 Raises an error if the running interpreter doesn't satisfy the required version.

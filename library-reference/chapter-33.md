@@ -13,12 +13,12 @@ The <code>math</code> module provices functions for mathematical calculation. Th
 <p>
 <div><strong style="text-decoration:underline">math.abs</strong></div>
 <div style="margin-bottom:1em"><code>math.abs(num):map</code></div>
-Returns an absolute value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns an absolute value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.acos</strong></div>
 <div style="margin-bottom:1em"><code>math.acos(num):map:[deg]</code></div>
-Returns an inverse cosine value. The argument <code>num</code> takes a value of <code>number</code>.
+Returns an inverse cosine value.
 </p>
 <p>
 In default, the result is returned in radian. Specifying an attribute <code>:deg</code> would return that in degree.
@@ -26,7 +26,7 @@ In default, the result is returned in radian. Specifying an attribute <code>:deg
 <p>
 <div><strong style="text-decoration:underline">math.arg</strong></div>
 <div style="margin-bottom:1em"><code>math.arg(num):map:[deg]</code></div>
-Returns an argument, an angle from the real-axis in the complex plane, of a complex number. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns an argument, an angle from the real-axis in the complex plane, of a complex number.
 </p>
 <p>
 In default, the angle value is returned in radian. Specifying an attribute <code>:deg</code> would return that in degree.
@@ -34,7 +34,7 @@ In default, the angle value is returned in radian. Specifying an attribute <code
 <p>
 <div><strong style="text-decoration:underline">math.asin</strong></div>
 <div style="margin-bottom:1em"><code>math.asin(num):map:[deg]</code></div>
-Returns an inverse sine value. The argument <code>num</code> takes a value of <code>number</code>.
+Returns an inverse sine value.
 </p>
 <p>
 In default, the result is returned in radian. Specifying an attribute <code>:deg</code> would return that in degree.
@@ -42,12 +42,12 @@ In default, the result is returned in radian. Specifying an attribute <code>:deg
 <p>
 <div><strong style="text-decoration:underline">math.atan</strong></div>
 <div style="margin-bottom:1em"><code>math.atan(num):map:[deg]</code></div>
-Returns an inverse tangent value. The argument <code>num</code> takes a value of <code>number</code>.
+Returns an inverse tangent value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.atan2</strong></div>
 <div style="margin-bottom:1em"><code>math.atan2(num1, num2):map:[deg]</code></div>
-Returns an inverse tangent value of a fraction of num1 and num2. The argument <code>num1</code> and <code>num2</code> take values of <code>number</code>.
+Returns an inverse tangent value of a fraction of num1 and num2.
 </p>
 <p>
 In default, the result is returned in radian. Specifying an attribute <code>:deg</code> would return that in degree.
@@ -60,17 +60,17 @@ Returns a list that consists of functions that generate coordinates of bezier cu
 <p>
 <div><strong style="text-decoration:underline">math.ceil</strong></div>
 <div style="margin-bottom:1em"><code>math.ceil(num):map</code></div>
-Returns a nearest integer number above or equal to the specified value. The argument <code>num</code> takes a value of <code>number</code>.
+Returns a nearest integer number above or equal to the specified value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.conj</strong></div>
 <div style="margin-bottom:1em"><code>math.conj(num):map</code></div>
-Returns a conjugate of a complex number.The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns a conjugate of a complex number.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.cos</strong></div>
 <div style="margin-bottom:1em"><code>math.cos(num):map:[deg]</code></div>
-Returns a cosine value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns a cosine value.
 </p>
 <p>
 In default, the given argument is treated as a radian number. Specifying an attribute <code>:deg</code> would treat that as a degree number.
@@ -78,21 +78,21 @@ In default, the given argument is treated as a radian number. Specifying an attr
 <p>
 <div><strong style="text-decoration:underline">math.cosh</strong></div>
 <div style="margin-bottom:1em"><code>math.cosh(num):map</code></div>
-Returns a hyperbolic cosine value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns a hyperbolic cosine value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.covariance</strong></div>
-<div style="margin-bottom:1em"><code>math.covariance(a:iterator, b:iterator)</code></div>
-Returns a covariance between the sequences of values.
+<div style="margin-bottom:1em"><code>math.covariance(a, b)</code></div>
+Returns a covariance between the <code>a</code> and <code>b</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.cross</strong></div>
-<div style="margin-bottom:1em"><code>math.cross (a[], b[])</code></div>
-Calculates a cross product between lists <code>a</code> and <code>b</code>.
+<div style="margin-bottom:1em"><code>math.cross (a, b)</code></div>
+Calculates a cross product between <code>a</code> and <code>b</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.delta</strong></div>
-<div style="margin-bottom:1em"><code>math.delta(num:number):map</code></div>
+<div style="margin-bottom:1em"><code>math.delta(num):map</code></div>
 Evaluates a delta function with a given argument <code>num</code> that returns <code>1</code> when <code>num == 0</code> and <code>0</code> otherwise.
 </p>
 <p>
@@ -107,9 +107,14 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 Example: <code>math.diff(</code>(math.sin(x 2)), <code>x)</code>**
 </p>
 <p>
+<div><strong style="text-decoration:underline">math.dot</strong></div>
+<div style="margin-bottom:1em"><code>math.dot(a, b)</code></div>
+Calculates a dot product between <code>a</code> and <code>b</code>.
+</p>
+<p>
 <div><strong style="text-decoration:underline">math.exp</strong></div>
 <div style="margin-bottom:1em"><code>math.exp(num):map</code></div>
-Returns an exponential value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns an exponential value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.fft</strong></div>
@@ -119,7 +124,7 @@ Returns an exponential value. The argument <code>num</code> takes a value of <co
 <p>
 <div><strong style="text-decoration:underline">math.floor</strong></div>
 <div style="margin-bottom:1em"><code>math.floor(num):map</code></div>
-Returns a nearest integer number below or equal to the specified value. The argument <code>num</code> takes a value of <code>number</code>.
+Returns a nearest integer number below or equal to the specified value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.gcd</strong></div>
@@ -129,17 +134,12 @@ Returns a greatest common divisor among two or more numbers.
 <p>
 <div><strong style="text-decoration:underline">math.hypot</strong></div>
 <div style="margin-bottom:1em"><code>math.hypot(x, y):map</code></div>
-Returns a hyperbolic tangent value. The argument <code>x</code> and <code>y</code> take values of <code>number</code>.
+Returns a hyperbolic tangent value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.imag</strong></div>
 <div style="margin-bottom:1em"><code>math.imag(num):map</code></div>
-Returns an imaginary part of a complex number.The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.inner</strong></div>
-<div style="margin-bottom:1em"><code>math.inner(a[], b[])</code></div>
-Calculates an inner product between lists <code>a</code> and <code>b</code>.
+Returns an imaginary part of a complex number.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.integral</strong></div>
@@ -159,17 +159,17 @@ Calculates a least square method using a sequence of pairs of <code>x</code> and
 <p>
 <div><strong style="text-decoration:underline">math.log</strong></div>
 <div style="margin-bottom:1em"><code>math.log(num):map</code></div>
-Returns a natural logarithm value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns a natural logarithm value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.log10</strong></div>
 <div style="margin-bottom:1em"><code>math.log10(num):map</code></div>
-Returns a decadic logarithm value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns a decadic logarithm value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.norm</strong></div>
 <div style="margin-bottom:1em"><code>math.norm(num):map</code></div>
-Returns a norm value of a complex number. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns a norm value of a complex number.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.optimize</strong></div>
@@ -181,18 +181,18 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.ramp</strong></div>
-<div style="margin-bottom:1em"><code>math.ramp(num:number):map</code></div>
+<div style="margin-bottom:1em"><code>math.ramp(num):map</code></div>
 Evaluates a ramp function with a given argument <code>num</code> that returns <code>num</code> when <code>num &gt;= 0</code> and <code>0</code> otherwise.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.real</strong></div>
 <div style="margin-bottom:1em"><code>math.real(num):map</code></div>
-Returns a real part of a complex number. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns a real part of a complex number.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.sin</strong></div>
 <div style="margin-bottom:1em"><code>math.sin(num):map:[deg]</code></div>
-Returns a sine value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns a sine value.
 </p>
 <p>
 In default, the given argument is treated as a radian number. Specifying an attribute <code>:deg</code> would treat that as a degree number.
@@ -200,17 +200,17 @@ In default, the given argument is treated as a radian number. Specifying an attr
 <p>
 <div><strong style="text-decoration:underline">math.sinh</strong></div>
 <div style="margin-bottom:1em"><code>math.sinh(num):map</code></div>
-Returns a hyperbolic sine value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns a hyperbolic sine value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.sqrt</strong></div>
 <div style="margin-bottom:1em"><code>math.sqrt(num):map</code></div>
-Returns a square root value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns a square root value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.tan</strong></div>
 <div style="margin-bottom:1em"><code>math.tan(num):map:[deg]</code></div>
-Returns a tangent value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns a tangent value.
 </p>
 <p>
 In default, the given argument is treated as a radian number. Specifying an attribute <code>:deg</code> would treat that as a degree number.
@@ -218,11 +218,11 @@ In default, the given argument is treated as a radian number. Specifying an attr
 <p>
 <div><strong style="text-decoration:underline">math.tanh</strong></div>
 <div style="margin-bottom:1em"><code>math.tanh(num):map</code></div>
-Returns a hyperbolic tangent value. The argument <code>num</code> takes a value of <code>number</code> or <code>complex</code>.
+Returns a hyperbolic tangent value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">math.unitstep</strong></div>
-<div style="margin-bottom:1em"><code>math.unitstep(num:number):map</code></div>
+<div style="margin-bottom:1em"><code>math.unitstep(num):map</code></div>
 Evaluates a unit step function with a given argument <code>num</code> that returns <code>1</code> when <code>num &gt;= 0</code> and <code>0</code> otherwise.
 </p>
 <p />
