@@ -655,11 +655,6 @@ Returns <code>true</code> if the <code>value</code> is an instance of <code>iter
 Returns <code>true</code> if the <code>value</code> is an instance of <code>list</code>, and <code>false</code> otherwise.
 </p>
 <p>
-<div><strong style="text-decoration:underline">ismatrix</strong></div>
-<div style="margin-bottom:1em"><code>ismatrix(value)</code></div>
-Returns <code>true</code> if the <code>value</code> is an instance of <code>matrix</code>, and <code>false</code> otherwise.
-</p>
-<p>
 <div><strong style="text-decoration:underline">ismodule</strong></div>
 <div style="margin-bottom:1em"><code>ismodule(value)</code></div>
 Returns <code>true</code> if the <code>value</code> is an instance of <code>module</code>, and <code>false</code> otherwise.

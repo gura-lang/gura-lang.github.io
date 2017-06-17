@@ -163,9 +163,9 @@ Result Data Type</th>
 
 <tr>
 <td>
-<code>+matrix</code></td>
+<code>+array</code></td>
 <td>
-<code>matrix</code></td>
+<code>array</code></td>
 </tr>
 
 <tr>
@@ -213,9 +213,9 @@ Result Data Type</th>
 
 <tr>
 <td>
-<code>-matrix</code></td>
+<code>-array</code></td>
 <td>
-<code>matrix</code></td>
+<code>array</code></td>
 </tr>
 
 <tr>
@@ -395,9 +395,9 @@ Result Data Type</th>
 
 <tr>
 <td>
-<code>matrix + matrix</code></td>
+<code>array + array</code></td>
 <td>
-<code>matrix</code></td>
+<code>array</code></td>
 </tr>
 
 <tr>
@@ -558,9 +558,9 @@ Result Data Type</th>
 
 <tr>
 <td>
-<code>matrix - matrix</code></td>
+<code>array - array</code></td>
 <td>
-<code>matrix</code></td>
+<code>array</code></td>
 </tr>
 
 <tr>
@@ -664,23 +664,9 @@ Result Data Type</th>
 
 <tr>
 <td>
-<code>matrix * matrix</code></td>
+<code>array * array</code></td>
 <td>
-<code>matrix</code></td>
-</tr>
-
-<tr>
-<td>
-<code>matrix * list</code></td>
-<td>
-<code>list</code></td>
-</tr>
-
-<tr>
-<td>
-<code>list * matrix</code></td>
-<td>
-<code>list</code></td>
+<code>array</code></td>
 </tr>
 
 <tr>
@@ -820,9 +806,9 @@ Result Data Type</th>
 
 <tr>
 <td>
-<code>matrix / matrix</code></td>
+<code>array / array</code></td>
 <td>
-<code>matrix</code></td>
+<code>array</code></td>
 </tr>
 
 </table>

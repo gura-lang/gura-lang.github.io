@@ -763,42 +763,41 @@ You can add a help block to a function by appending <code>%%</code> and a block 
 <pre><code>add(x, y) = {
     x + y
 } %% {
-    `en, 'markdown', 'Takes two numbers and returns an added result.'
+    `en, 'Takes two numbers and returns an added result.'
 }
 </code></pre>
 <p>
-The content in the block has a format of <code>{lang:symbol, format:string, help:string}</code> which takes following values.
+The content in the block has a format of <code>{lang:symbol, help:string}</code> which contains following elements:
 </p>
 <ul>
 <li><code>lang</code> .. Specifies a symbol of language that describes the help document: <code>en</code> for English and <code>ja</code> for Japanese, etc.</li>
-<li><code>format</code> .. Specifies a syntax format. Only <code>'markdown'</code> is available so far.</li>
-<li><code>help</code> .. Help string formatted in a syntax specified by <code>format</code>.</li>
+<li><code>help</code> .. Help string written in Markdown format.</li>
 </ul>
 <p>
 You can access the help information by following ways:
 </p>
 <ul>
 <li>In the interactive mode, evaluating the operator <code>~</code> with a function instance would print its help information on the console.</li>
-<li>Calling function <code>function.gethelp()</code> would return a <code>help</code> instance that provides information about the used language, syntax format and help string.</li>
+<li>Calling function <code>help@function()</code> would return a <code>help</code> instance that provides information about the used language, syntax format and help string.</li>
 </ul>
 <p>
 A function may have multiple help blocks that contain explanatory texts written in different languages. Below is a function example that has helps written in English and Japanese:
 </p>
 <pre><code>add(x, y) = {
     x + y
-} %% {`en, 'markdown', R'''
+} %% {`en, R'''
 
-(.. help document in English ..)
-
-'''
-} %% {`ja, 'markdown', R'''
-
-(.. help document in Japanese ..)
+    ---- help document in English ----
 
 '''
-} %% {`de, 'markdown', R'''
+} %% {`ja, R'''
 
-(.. help document in German ..)
+    ---- help document in Japanese ----
+
+'''
+} %% {`de, R'''
+
+    ---- help document in German ----
 
 '''
 }
@@ -807,11 +806,11 @@ A function may have multiple help blocks that contain explanatory texts written 
 A predefined variable <code>sys.langcode</code> determines which help should be printed by default. If a function doesn't have a help in the specified language, what appears at first in the declaration will be used.
 </p>
 <p>
-You can also pass a language symbol to <code>function.gethelp</code> function as below.
+You can also pass a language symbol to <code>help@function</code> function as below.
 </p>
-<pre><code>function.gethelp(add, `en)
-function.gethelp(add, `ja)
-function.gethelp(add, `de)
+<pre><code>help@function(add, `en)
+help@function(add, `ja)
+help@function(add, `de)
 </code></pre>
 <h2><span class="caption-index-2">8.7</span><a name="anchor-8-7"></a>Anonymous Function</h2>
 <p>
@@ -831,23 +830,35 @@ If you create a function that doesn't have arguments, you can call <code>functio
 <pre><code>function { /* body */ }
 </code></pre>
 <p>
-Since a special symbol <code>&amp;</code> is also bound to the <code>function()</code> function, you can create a function instance as below.
-</p>
-<pre><code>&amp;{ /* body */ }
-</code></pre>
-<p>
 When <code>function()</code> creates a function instance, it seeks variable symbols in the function body that start with <code>$</code> character, which are used as argument variables. For instance, see the following code:
 </p>
 <pre><code>function { printf('x = %s, y = %s, z = %s\n', $x, $y, $z) }
 </code></pre>
 <p>
-This is equivalent with the function creation shown below:
+In this case, the order of arguments is the same with the order in which the variables appear in the body. So, the example above is equivalent with the function that is created like below:
 </p>
 <pre><code>function($x, $y, $z) { printf('x = %s, y = %s, z = %s\n', $x, $y, $z) }
 </code></pre>
 <p>
-The order of arguments is the same with the order in which the variables appear in the body.
+Since a special symbol <code>&amp;</code> is also bound to the <code>function()</code> function, you can create a function instance as below:
 </p>
+<pre><code>&amp;{ /* body */ }
+</code></pre>
+<p>
+The example above can be written like this:
+</p>
+<pre><code>&amp;{ printf('x = %s, y = %s, z = %s\n', $x, $y, $z) }
+</code></pre>
+<p>
+Exlicit arguments may be specified as block parameters. The following example creates a function that takes arguments named <code>x</code>, <code>y</code> and <code>z</code>.
+</p>
+<pre><code>&amp;{|x, y, z| /* body */ }
+</code></pre>
+<p>
+Of course, like an argument list in an ordinary function declartion, you can declare them with value types.
+</p>
+<pre><code>&amp;{|x:number, y:string, z:string| /* body */ }
+</code></pre>
 <h2><span class="caption-index-2">8.8</span><a name="anchor-8-8"></a>Closure</h2>
 <p>
 You can define a function inside another function body. In that case, the inner function can access variables in the outer function.

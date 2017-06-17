@@ -909,7 +909,7 @@ Gets the current filter for a pattern. See cairo_filter_t for details on each fi
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.pattern#set_matrix</strong></div>
-<div style="margin-bottom:1em"><code>cairo.pattern#set_matrix(matrix:matrix):reduce</code></div>
+<div style="margin-bottom:1em"><code>cairo.pattern#set_matrix(array:array@double):reduce</code></div>
 Sets the pattern's transformation matrix to matrix. This matrix is a transformation from user space to pattern space.
 </p>
 <p>
@@ -1044,12 +1044,12 @@ Modifies the current transformation matrix (CTM) by rotating the user-space axes
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#transform</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#transform(matrix:matrix):reduce</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#transform(array:array@double):reduce</code></div>
 Modifies the current transformation matrix (CTM) by applying matrix as an additional transformation. The new transformation of user space takes place after any existing transformation.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#set_matrix</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#set_matrix(matrix:matrix):reduce</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#set_matrix(array:array@double):reduce</code></div>
 Modifies the current transformation matrix (CTM) by setting it equal to matrix.
 </p>
 <p>
@@ -1120,7 +1120,7 @@ If text is drawn without a call to cairo.context#set_font_size(), (nor cairo.con
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#set_font_matrix</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#set_font_matrix(matrix:matrix):reduce</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#set_font_matrix(array:array@double):reduce</code></div>
 Sets the current font matrix to matrix. The font matrix gives a transformation from the design space of the font (in this space, the em-square is 1 unit by 1 unit) to user space. Normally, a simple scale is used (see cairo_set_font_size()), but a more complex font matrix can be used to shear the font or stretch it unequally along the two axes.
 </p>
 <p>
@@ -1234,7 +1234,7 @@ Gets the weight a toy font.
 <h4><span class="caption-index-4">11.2.2.1</span><a name="anchor-11-2-2-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.scaled_font.create</strong></div>
-<div style="margin-bottom:1em"><code>cairo.scaled_font.create(font_face:cairo.font_face, font_matrix:matrix, ctm:matrix, options):static {block?}</code></div>
+<div style="margin-bottom:1em"><code>cairo.scaled_font.create(font_face:cairo.font_face, font_matrix:array@double, ctm:array@double, options):static {block?}</code></div>
 
 </p>
 <h3><span class="caption-index-3">11.2.3</span><a name="anchor-11-2-3"></a>cairo_font_options_t - How a font should be rendered</h3>

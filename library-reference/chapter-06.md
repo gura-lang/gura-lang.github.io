@@ -99,7 +99,7 @@ f(false) println('not printed')
 An instance of the <code>array</code> class stores multiple numeric values in a seamless binary sequence, which can be passed without any conversion to functions in C libraries that expect arrays of <code>char</code>, <code>short</code>, <code>int</code> and so on.
 </p>
 <p>
-There are several <code>array</code> classes for each element type as shown below:
+There are several <code>array</code> classes that deal with different element types as shown below:
 </p>
 <p>
 <table>
@@ -114,70 +114,84 @@ Element Type</th>
 <td>
 <code>array@int8</code></td>
 <td>
-<code>char</code></td>
+<code>Int8</code></td>
 </tr>
 
 <tr>
 <td>
 <code>array@uint8</code></td>
 <td>
-<code>unsigned char</code></td>
+<code>Uint8</code></td>
 </tr>
 
 <tr>
 <td>
 <code>array@int16</code></td>
 <td>
-<code>short</code></td>
+<code>Int16</code></td>
 </tr>
 
 <tr>
 <td>
 <code>array@uint16</code></td>
 <td>
-<code>unsigned short</code></td>
+<code>Uint16</code></td>
 </tr>
 
 <tr>
 <td>
 <code>array@int32</code></td>
 <td>
-<code>int32_t</code></td>
+<code>Int32</code></td>
 </tr>
 
 <tr>
 <td>
 <code>array@uint32</code></td>
 <td>
-<code>uint32_t</code></td>
+<code>Uint32</code></td>
 </tr>
 
 <tr>
 <td>
 <code>array@int64</code></td>
 <td>
-<code>int64_t</code></td>
+<code>Int64</code></td>
 </tr>
 
 <tr>
 <td>
 <code>array@uint64</code></td>
 <td>
-<code>uint64_t</code></td>
+<code>Uint64</code></td>
+</tr>
+
+<tr>
+<td>
+<code>array@half</code></td>
+<td>
+<code>Half</code></td>
 </tr>
 
 <tr>
 <td>
 <code>array@float</code></td>
 <td>
-<code>float</code></td>
+<code>Float</code></td>
 </tr>
 
 <tr>
 <td>
 <code>array@double</code></td>
 <td>
-<code>double</code></td>
+<code>Double</code></td>
+</tr>
+
+<tr>
+<td>
+<code>array@complex</code></td>
+<td>
+<code>Complex</code></td>
 </tr>
 
 </table>
@@ -186,11 +200,146 @@ Element Type</th>
 <p>
 In the specification described here, the class name is is represented as <code>array@T</code> where <code>T</code> means its element type.
 </p>
-<h3><span class="caption-index-3">6.2.1</span><a name="anchor-6-2-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.2.1</span><a name="anchor-6-2-1"></a>Property</h3>
+<p>
+A <code>array</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>T</code></td>
+<td>
+<code>array</code></td>
+<td>
+R</td>
+
+<td>
+Return an array with its row and column being tranposed.</td>
+</tr>
+
+<tr>
+<td>
+<code>elembytes</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Returns the size of each element in bytes.</td>
+</tr>
+
+<tr>
+<td>
+<code>elemtype</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+Returns the typename of the elements as a `symbol` such as
+`` `boolean``,
+`` `int8``,
+`` `uint8``,
+`` `int16``,
+`` `uint16``,
+`` `int32``,
+`` `uint32``,
+`` `int64``,
+`` `uint64``,
+`` `half``,
+`` `float``,
+`` `double`` and
+`` `complex``.</td>
+</tr>
+
+<tr>
+<td>
+<code>memoryid</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+Returns the id of memory.</td>
+</tr>
+
+<tr>
+<td>
+<code>ndim</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Returns the number of dimensions.</td>
+</tr>
+
+<tr>
+<td>
+<code>p</code></td>
+<td>
+<code>pointer</code></td>
+<td>
+R</td>
+
+<td>
+Returns the pointer through which you can inspect and modify the content of the array
+as a binary data.</td>
+</tr>
+
+<tr>
+<td>
+<code>shape</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Returns a list of sizes of each dimension.</td>
+</tr>
+
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Returns the total number of elements.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h3><span class="caption-index-3">6.2.2</span><a name="anchor-6-2-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">array@T</strong></div>
 <div style="margin-bottom:1em"><code>array@T(src?) {block?}</code></div>
-Creates an <code>array@T</code> instance from a <code>list</code> or an <code>iterator</code> specified in the argument <code>src</code>, or elements described in a block. Below are examples:
+Creates an <code>array@T</code> instance from a <code>list</code> or an <code>iterator</code> specified in the argument <code>src</code>, or elements described in a block.
+</p>
+<p>
+Example:
 </p>
 <pre><code>array@int32 ([[0, 1, 2], [3, 4, 5]])
 array@int32 {{0, 1, 2}, {3, 4, 5}}
@@ -198,12 +347,18 @@ array@int32 {{0, 1, 2}, {3, 4, 5}}
 <p>
 <div><strong style="text-decoration:underline">array@T.identity</strong></div>
 <div style="margin-bottom:1em"><code>array@T.identity(n:number):static:map {block?}</code></div>
-Creates an array that represents a identity matrix with specified size.
+Creates an array that represents a identity matrix with specified size <code>n</code>.
 </p>
+<p>
+Example:
+</p>
+<pre><code>x = array@double.identity(3)
+    // array@double {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}}
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">array@T.interval</strong></div>
 <div style="margin-bottom:1em"><code>array@T.interval(begin:number, end:number, samples:number):static:map:[open,open_l,open_r] {block?}</code></div>
-Creates an array that contains a sequence of numbers by specifying the beginning and ending numbers, and the number of samples between them.
+Creates a one-dimentional array that contains a sequence of numbers by specifying the beginning and ending numbers, and the number of samples between them.
 </p>
 <p>
 In default, it creates a sequence that contains the beginning and ending numbers. Following attributes would generate the following numbers:
@@ -214,10 +369,22 @@ In default, it creates a sequence that contains the beginning and ending numbers
 <li><code>:open_r</code> .. Numbers in range of <code>[begin, end)</code> that doesn't contain <code>end</code>.</li>
 </ul>
 <p>
+Example:
+</p>
+<pre><code>x = array@double.interval(0, 3, 7)
+    // array@double {0, 0.5, 1, 1.5, 2, 2.5, 3}
+</code></pre>
+<p>
 <div><strong style="text-decoration:underline">array@T.ones</strong></div>
 <div style="margin-bottom:1em"><code>array@T.ones(dims[]:number):static:map {block?}</code></div>
 Creates an array with the specified dimensions, which elements are initialized by one.
 </p>
+<p>
+Example:
+</p>
+<pre><code>x = array@double.ones([3, 4])
+    // array@double {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}}
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">array@T.rands</strong></div>
 <div style="margin-bottom:1em"><code>array@T.rands(dims[]:number, range?:number):static:map {block?}</code></div>
@@ -229,20 +396,98 @@ Creates an array with the specified dimensions, which contains random numbers.
 Creates an array with the specified dimensions, which contains normal distribution random numbers.
 </p>
 <p>
+<div><strong style="text-decoration:underline">array@T.range</strong></div>
+<div style="margin-bottom:1em"><code>array@T.range(num:number, num_end?:number, step?:number):static:map {block?}</code></div>
+Creates an array that contains a sequence of integer numbers.
+</p>
+<p>
+This function can be called in three formats that generate following numbers:
+</p>
+<ul>
+<li><code>array@T.range(num)</code> .. Numbers between <code>0</code> and <code>(num - 1)</code>.</li>
+<li><code>array@T.range(num, num_end)</code> .. Numbers between <code>num</code> and <code>(num_end - 1)</code>.</li>
+<li><code>array@T.range(num, num_end, step)</code> .. Numbers between <code>num</code> and <code>(num_end - 1)</code> incremented by <code>step</code>.</li>
+</ul>
+<p>
+Example:
+</p>
+<pre><code>x = array@double.range(5)
+    // array@double {0, 1, 2, 3, 4}
+x = array@double.range(2, 5)
+    // array@double {2, 3, 4}
+x = array@double.range(2, 10, 2)
+    // array@double {2, 4, 6, 8}
+</code></pre>
+<p>
+<div><strong style="text-decoration:underline">array@T.rotation@x</strong></div>
+<div style="margin-bottom:1em"><code>array@T.rotation@x(angle:number, xtrans?:number, ytrans?:number, ztrans?:number):static:map:[deg] {block?}</code></div>
+Creates an array that rotates 3-D coords around x-axis by the specified <code>angle</code>.
+</p>
+<p>
+The <code>angle</code> is specified in radian value. If the attribute <code>:deg</code> is specified, the <code>angle</code> is specified in degree value.
+</p>
+<p>
+If one or more of <code>xtrans</code>, <code>ytrans</code> or <code>ztrans</code> is specified, it would create an array that works as translation as well as rotation.
+</p>
+<p>
+<div><strong style="text-decoration:underline">array@T.rotation@y</strong></div>
+<div style="margin-bottom:1em"><code>array@T.rotation@y(angle:number, xtrans?:number, ytrans?:number, ztrans?:number):static:map:[deg] {block?}</code></div>
+Creates an array that rotates 3-D coords around y-axis by the specified <code>angle</code>.
+</p>
+<p>
+The <code>angle</code> is specified in radian value. If the attribute <code>:deg</code> is specified, the <code>angle</code> is specified in degree value.
+</p>
+<p>
+If one or more of <code>xtrans</code>, <code>ytrans</code> or <code>ztrans</code> is specified, it would create an array that works as translation as well as rotation.
+</p>
+<p>
+<div><strong style="text-decoration:underline">array@T.rotation@z</strong></div>
+<div style="margin-bottom:1em"><code>array@T.rotation@z(angle:number, xtrans?:number, ytrans?:number, ztrans?:number):static:map:[deg] {block?}</code></div>
+Creates an array that rotates 3-D coords around z-axis by the specified <code>angle</code>.
+</p>
+<p>
+The <code>angle</code> is specified in radian value. If the attribute <code>:deg</code> is specified, the <code>angle</code> is specified in degree value.
+</p>
+<p>
+If one or more of <code>xtrans</code>, <code>ytrans</code> or <code>ztrans</code> is specified, it would create an array that works as translation as well as rotation.
+</p>
+<p>
+<div><strong style="text-decoration:underline">array@T.scaling</strong></div>
+<div style="margin-bottom:1em"><code>array@T.scaling(xscale:number, yscale:number, zscale?:number):static:map {block?}</code></div>
+Creates an array that scales coords. If the argument <code>zscale</code> is specified, it would create an array that works with 3-D coords. Otherwise, it would create what works with 2-D coord.n
+</p>
+<p>
+<div><strong style="text-decoration:underline">array@T.translation</strong></div>
+<div style="margin-bottom:1em"><code>array@T.translation(xtrans:number, ytrans:number, ztrans?:number):static:map {block?}</code></div>
+Creates an array that translates coords. If the argument <code>ztrans</code> is specified, it would create an array that works with 3-D coords. Otherwise, it would create what works with 2-D coords.n
+</p>
+<p>
 <div><strong style="text-decoration:underline">array@T.zeros</strong></div>
 <div style="margin-bottom:1em"><code>array@T.zeros(dims[]:number):static:map {block?}</code></div>
 Creates an array with the specified dimensions, which elements are initialized by zero.
 </p>
-<h3><span class="caption-index-3">6.2.2</span><a name="anchor-6-2-2"></a>Method</h3>
+<p>
+Example:
+</p>
+<pre><code>x = array@double.zeros([3, 4])
+    // array@double {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}
+</code></pre>
+<h3><span class="caption-index-3">6.2.3</span><a name="anchor-6-2-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">array#average</strong></div>
 <div style="margin-bottom:1em"><code>array#average(axis?:number):map {block?}</code></div>
 Calculates an average value of elements in the array.
 </p>
 <p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
 <div><strong style="text-decoration:underline">array.dot</strong></div>
 <div style="margin-bottom:1em"><code>array.dot(a:array, b:array):static:map {block?}</code></div>
 Calculates a dot product between two arrays that have one or two dimensions.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">array#dump</strong></div>
@@ -275,6 +520,32 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 The block parameter is <code>|elem:number, idx:number|</code> where <code>elem</code> is the element value.
 </p>
 <p>
+<div><strong style="text-decoration:underline">array#elemcast</strong></div>
+<div style="margin-bottom:1em"><code>array#elemcast(elemtype:symbol) {block?}</code></div>
+Cast value type of contained elements.
+</p>
+<p>
+Available symbols for <code>elemtype</code> are as follows:
+</p>
+<ul>
+<li><code>`boolean</code></li>
+<li><code>`int8</code></li>
+<li><code>`uint8</code></li>
+<li><code>`int16</code></li>
+<li><code>`uint16</code></li>
+<li><code>`int32</code></li>
+<li><code>`uint32</code></li>
+<li><code>`int64</code></li>
+<li><code>`uint64</code></li>
+<li><code>`half</code></li>
+<li><code>`float</code></li>
+<li><code>`double</code></li>
+<li><code>`complex</code></li>
+</ul>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
 <div><strong style="text-decoration:underline">array#fill</strong></div>
 <div style="margin-bottom:1em"><code>array#fill(value:number):map:void</code></div>
 Fills array with a specified value.
@@ -282,28 +553,36 @@ Fills array with a specified value.
 <p>
 <div><strong style="text-decoration:underline">array#flatten</strong></div>
 <div style="margin-bottom:1em"><code>array#flatten() {block?}</code></div>
-Flatten elements in the array.
+Returns an <code>array</code> instance as a result that has flattened elements in the target <code>array</code>.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">array#head</strong></div>
 <div style="margin-bottom:1em"><code>array#head(n:number):map {block?}</code></div>
-Creates an array that has extracted specified number of elements from the beginning of the source.
+Returns an <code>array</code> instance as a result that has extracted <code>n</code> elements from the beginning of the target <code>array</code>.
 </p>
 <p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array@T|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">array#invert</strong></div>
-<div style="margin-bottom:1em"><code>array#invert():map {block?}</code></div>
-
+<div style="margin-bottom:1em"><code>array#invert(eps?:number):map {block?}</code></div>
+Returns an <code>array</code> instance as a result that has elements of inverted matrix of the target <code>array</code>. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">array#issquare</strong></div>
+<div style="margin-bottom:1em"><code>array#issquare()</code></div>
+Returns <code>true</code> if the target <code>array</code> consists square matrices.
 </p>
 <p>
 <div><strong style="text-decoration:underline">array#offset</strong></div>
 <div style="margin-bottom:1em"><code>array#offset(n:number):map {block?}</code></div>
-Creates an array that has extracted elements of the source after skipping the first <code>n</code> elements.
+Returns an <code>array</code> instance as a result that has extracted elements of the target <code>array</code> after skipping its first <code>n</code> elements.
 </p>
 <p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array@T|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">array#paste</strong></div>
@@ -316,30 +595,55 @@ The argument <code>offset</code> specifies the posision where elements are paste
 <p>
 <div><strong style="text-decoration:underline">array#reshape</strong></div>
 <div style="margin-bottom:1em"><code>array#reshape(dims[]:number:nil) {block?}</code></div>
-Modifies the shape of the array.
+Returns an <code>array</code> instance as a result that has reshaped the target <code>array</code> according to a list of dimension size specified by <code>dims</code>.
+</p>
+<p>
+Below are examples:
+</p>
+<pre><code>x = array(1..24)
+a = x.reshape([6, 4])    // a is an array of 6x4.
+b = x.reshape([2, 3, 4]) // b is an array of 2x3x4.
+</code></pre>
+<p>
+A value of <code>nil</code> in the list of dimension means it would be calculated from the whole size and other dimension sizes. Only one <code>nil</code> is allowed to exist.
+</p>
+<pre><code>x = array(1..24)
+b = x.reshape([2, nil, 4]) // b is an array of 2x3x4.
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">array#roundoff</strong></div>
 <div style="margin-bottom:1em"><code>array#roundoff(threshold?:number) {block?}</code></div>
-Returns a matrix with element values being rounded off.
+Returns an <code>array</code> instance as a result that has rounded off elements less than <code>threshold</code> to zero in the target <code>array</code>. The default value for <code>threshold</code> is <code>1.0e-6</code> when omitted.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">array#sum</strong></div>
 <div style="margin-bottom:1em"><code>array#sum(axis?:number):map {block?}</code></div>
-Calculates a summation value of elements in the array.
+Calculates a summation value of elements in the target <code>array</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">array#tail</strong></div>
 <div style="margin-bottom:1em"><code>array#tail(n:number):map {block?}</code></div>
-Creates an array that has extracted specified number of elements from the bottom of the source.
+Returns an <code>array</code> instance as a result that has extracted <code>n</code> elements from the bottom of the target <code>array</code>.
 </p>
 <p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array@T|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
 <div><strong style="text-decoration:underline">array#transpose</strong></div>
 <div style="margin-bottom:1em"><code>array#transpose(axes[]?:number) {block?}</code></div>
-Transpose elements in the array.
+Creates an array instance that transposes axes of the original array according to the specified argument <code>axes</code>.
+</p>
+<p>
+If the argument is not specified, two axes at the lowest rank, which correspond to row and column for a matrix, would be transposed.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h2><span class="caption-index-2">6.3</span><a name="anchor-6-3"></a>audio Class</h2>
 <p>
@@ -3429,7 +3733,7 @@ This method returns the reference to the target instance itself.
 <p>
 <div><strong style="text-decoration:underline">image#extract</strong></div>
 <div style="margin-bottom:1em"><code>image#extract(x:number, y:number, width:number, height:number, element:symbol, dst):reduce</code></div>
-Extracts the element values within the specified area of the image, and store them into a list or matrix. The argument <code>x</code> and <code>y</code> specifies the left-top position, and <code>width</code>, and <code>height</code> does the size of the area.
+Extracts the element values within the specified area of the image, and store them into a list. The argument <code>x</code> and <code>y</code> specifies the left-top position, and <code>width</code>, and <code>height</code> does the size of the area.
 </p>
 <p>
 The argument <code>element</code> takes the following symbol that specifies which element should be extracted:
@@ -3441,7 +3745,7 @@ The argument <code>element</code> takes the following symbol that specifies whic
 <li><code>`a</code> .. alpha</li>
 </ul>
 <p>
-The argument <code>dst</code> specifies the variable into which the extracted data is stored, which must be a list or matrix that has enough space to store the data.
+The argument <code>dst</code> specifies the variable into which the extracted data is stored, which must be a list that has enough space to store the data.
 </p>
 <p>
 This method returns the reference to the target instance itself.
@@ -4082,11 +4386,7 @@ It can work on an iterable with elements of type that supports addition and divi
 <ul>
 <li><code>number</code></li>
 <li><code>complex</code></li>
-<li><code>matrix</code></li>
 <li><code>rational</code></li>
-<li><code>gmp.mpz</code></li>
-<li><code>gmp.mpq</code></li>
-<li><code>gmp.mpf</code></li>
 </ul>
 <p>
 <div><strong style="text-decoration:underline">iterable#before</strong></div>
@@ -4758,12 +5058,8 @@ It can work on an iterable with elements of a value type that supports addition 
 <li><code>number</code></li>
 <li><code>complex</code></li>
 <li><code>string</code></li>
-<li><code>matrix</code></li>
 <li><code>rational</code></li>
 <li><code>timedelta</code></li>
-<li><code>gmp.mpz</code></li>
-<li><code>gmp.mpq</code></li>
-<li><code>gmp.mpf</code></li>
 </ul>
 <p>
 <div><strong style="text-decoration:underline">iterable#tail</strong></div>
@@ -4836,219 +5132,11 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h2><span class="caption-index-2">6.21</span><a name="anchor-6-21"></a>matrix Class</h2>
-<p>
-The <code>matrix</code> class provides measures to calculate matrices.
-</p>
-<h4><span class="caption-index-4">6.21.0.1</span><a name="anchor-6-21-0-1"></a>Creating Matrix</h4>
-<p>
-Below shows a way to create a matrix instance:
-</p>
-<pre><code>@@{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
-</code></pre>
-<h3><span class="caption-index-3">6.21.1</span><a name="anchor-6-21-1"></a>Constructor</h3>
-<p>
-<div><strong style="text-decoration:underline">matrix</strong></div>
-<div style="margin-bottom:1em"><code>matrix(nrows:number, ncols:number, value?) {block?}</code></div>
-Creates a <code>matrix</code> instance that has specified rows and columns.
-</p>
-<p>
-The content of the content will be initialized with <code>value</code>. If omitted, it will be initialized with zero value.
-</p>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|mat:matrix|</code>, where <code>mat</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<h3><span class="caption-index-3">6.21.2</span><a name="anchor-6-21-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">matrix#col</strong></div>
-<div style="margin-bottom:1em"><code>matrix#col(col:number):map</code></div>
-Returns a list of values copied from a specified column of the matrix. Modification on the returned sub matrix will affect on the original one.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#colsize</strong></div>
-<div style="margin-bottom:1em"><code>matrix#colsize()</code></div>
-Returns the matrix column size.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#each</strong></div>
-<div style="margin-bottom:1em"><code>matrix#each():[transpose]</code></div>
-Returns an iterator that picks up each cell by scanning the matrix. In default, that scan is done in a horizontal direction. When an attribute :transpose is specified, it's done in a vertical direction.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#eachcol</strong></div>
-<div style="margin-bottom:1em"><code>matrix#eachcol()</code></div>
-Returns an iterator that generates lists of values copied from each column of the matrix.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#eachrow</strong></div>
-<div style="margin-bottom:1em"><code>matrix#eachrow()</code></div>
-Returns an iterator that generates lists of values copied from each row of the matrix.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix.identity</strong></div>
-<div style="margin-bottom:1em"><code>matrix.identity(n:number):static:map {block?}</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#invert</strong></div>
-<div style="margin-bottom:1em"><code>matrix#invert()</code></div>
-Returns an inverted matrix.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#issquare</strong></div>
-<div style="margin-bottom:1em"><code>matrix#issquare()</code></div>
-Returns true if the matrix is a square one.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#list</strong></div>
-<div style="margin-bottom:1em"><code>matrix#list():[transpose]</code></div>
-Converts the matrix into a list containing sub-lists that represents its rows.
-</p>
-<p>
-If <code>:transpose</code> attribute is specified, each sub-list contains values of corresponding column.
-</p>
-<p>
-If <code>:flat</code> attribute is specified, it generates one-dimentional list.
-</p>
-<p>
-Below is an example:
-</p>
-<pre><code>@@{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}.list()
-[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-</code></pre>
-<p>
-Below is an example with <code>:transpose</code> attribute:
-</p>
-<pre><code>@@{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}.list():transpose
-[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-</code></pre>
-<p>
-<div><strong style="text-decoration:underline">matrix.rotation</strong></div>
-<div style="margin-bottom:1em"><code>matrix.rotation(angle:number, tx?:number, ty?:number):static:map:[deg] {block?}</code></div>
-Creates a matrix that rotates a two-dimensional coordinate by the specified angle in radian unit.
-</p>
-<p>
-In addition to rotation, you can add translation factors by the arguments <code>tx</code> and <code>ty</code> that specify translation amount of x and y respectively.
-</p>
-<p>
-You can specify the angle in degree unit by appending <code>:deg</code> attribute.
-</p>
-<p>
-Below is an example to create a matrix that rotates 30 degrees.
-</p>
-<pre><code>mat = matrix.rotation(30):deg
-</code></pre>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|mat:matrix|</code>, where <code>mat</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix.rotation@x</strong></div>
-<div style="margin-bottom:1em"><code>matrix.rotation@x(angle:number, tx?:number, ty?:number, tz?:number):static:map:[deg] {block?}</code></div>
-Creates a matrix that rotates a three-dimensional coordinate around x-axis by the specified angle in radian unit.
-</p>
-<p>
-In addition to rotation, you can add translation factors by the arguments <code>tx</code>, <code>ty</code> and <code>tz</code> that specify translation amount of x, y and z respectively.
-</p>
-<p>
-You can specify the angle in degree unit by appending <code>:deg</code> attribute.
-</p>
-<p>
-Below is an example to create a matrix that rotates 30 degrees around x-axis.
-</p>
-<pre><code>mat = matrix.rotation@x(30):deg
-</code></pre>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|mat:matrix|</code>, where <code>mat</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix.rotation@y</strong></div>
-<div style="margin-bottom:1em"><code>matrix.rotation@y(angle:number, tx?:number, ty?:number, tz?:number):static:map:[deg] {block?}</code></div>
-Creates a matrix that rotates a three-dimensional coordinate around y-axis by the specified angle in radian unit.
-</p>
-<p>
-In addition to rotation, you can add translation factors by the arguments <code>tx</code>, <code>ty</code> and <code>tz</code> that specify translation amount of x, y and z respectively.
-</p>
-<p>
-You can specify the angle in degree unit by appending <code>:deg</code> attribute.
-</p>
-<p>
-Below is an example to create a matrix that rotates 30 degrees around y-axis.
-</p>
-<pre><code>mat = matrix.rotation@y(30):deg
-</code></pre>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|mat:matrix|</code>, where <code>mat</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix.rotation@z</strong></div>
-<div style="margin-bottom:1em"><code>matrix.rotation@z(angle:number, tx?:number, ty?:number, tz?:number):static:map:[deg] {block?}</code></div>
-Creates a matrix that rotates a three-dimensional coordinate around z-axis by the specified angle in radian unit.
-</p>
-<p>
-In addition to rotation, you can add translation factors by the arguments <code>tx</code>, <code>ty</code> and <code>tz</code> that specify translation amount of x, y and z respectively.
-</p>
-<p>
-You can specify the angle in degree unit by appending <code>:deg</code> attribute.
-</p>
-<p>
-Below is an example to create a matrix that rotates 30 degrees around z-axis.
-</p>
-<pre><code>mat = matrix.rotation@z(30):deg
-</code></pre>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|mat:matrix|</code>, where <code>mat</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#roundoff</strong></div>
-<div style="margin-bottom:1em"><code>matrix#roundoff(threshold:number =&gt; 1e-10) {block?}</code></div>
-Returns a matrix with element values being rounded off.
-</p>
-<p>
-The argument <code>threshold</code> specifies the threshold value for the round-off.
-</p>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|mat:matrix|</code>, where <code>mat</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#row</strong></div>
-<div style="margin-bottom:1em"><code>matrix#row(row:number):map</code></div>
-Returns a list of values copied from a specified row of the matrix. Modification on the returned sub matrix will affect on the original one.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#rowsize</strong></div>
-<div style="margin-bottom:1em"><code>matrix#rowsize()</code></div>
-Returns the matrix row size.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#set</strong></div>
-<div style="margin-bottom:1em"><code>matrix#set(value)</code></div>
-Sets all the cells of the matrix with a specified value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#setcol</strong></div>
-<div style="margin-bottom:1em"><code>matrix#setcol(col:number, value)</code></div>
-Sets cells in a selected column of the matrix with a specified value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#setrow</strong></div>
-<div style="margin-bottom:1em"><code>matrix#setrow(row:number, value)</code></div>
-Sets cells in a selected row of the matrix with a specified value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#submat</strong></div>
-<div style="margin-bottom:1em"><code>matrix#submat(row:number, col:number, nrows:number, ncols:number):map</code></div>
-Returns a sub matrix that refers to cells in a specified area of the matrix. Modification on the returned sub matrix will affect on the original one.
-</p>
-<p>
-<div><strong style="text-decoration:underline">matrix#transpose</strong></div>
-<div style="margin-bottom:1em"><code>matrix#transpose()</code></div>
-Returns a transposed matrix.
-</p>
-<h2><span class="caption-index-2">6.22</span><a name="anchor-6-22"></a>memory Class</h2>
+<h2><span class="caption-index-2">6.21</span><a name="anchor-6-21"></a>memory Class</h2>
 <p>
 An instance of the <code>memory</code> class represents a memory that is stored in <code>array</code> instances.
 </p>
-<h3><span class="caption-index-3">6.22.1</span><a name="anchor-6-22-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.21.1</span><a name="anchor-6-21-1"></a>Property</h3>
 <p>
 A <code>memory</code> instance has the following properties:
 </p>
@@ -5096,13 +5184,13 @@ Returns the memory size in bytes.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.22.2</span><a name="anchor-6-22-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.21.2</span><a name="anchor-6-21-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">memory</strong></div>
 <div style="margin-bottom:1em"><code>memory(bytes:number):map {block?}</code></div>
 
 </p>
-<h3><span class="caption-index-3">6.22.3</span><a name="anchor-6-22-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.21.3</span><a name="anchor-6-21-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">memory#array@int8</strong></div>
 <div style="margin-bottom:1em"><code>memory#array@int8():map {block?}</code></div>
@@ -5177,25 +5265,25 @@ Returns a <code>pointer</code> instance that has an initial offset specified by 
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|p:pointer|</code>, where <code>p</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h2><span class="caption-index-2">6.23</span><a name="anchor-6-23"></a>nil Class</h2>
+<h2><span class="caption-index-2">6.22</span><a name="anchor-6-22"></a>nil Class</h2>
 <p>
 The <code>nil</code> class is the class of <code>nil</code> value that is usually used as an invalid value. In a logical operation, the <code>nil</code> value is recognized as <code>false</code>.
 </p>
-<h2><span class="caption-index-2">6.24</span><a name="anchor-6-24"></a>number Class</h2>
+<h2><span class="caption-index-2">6.23</span><a name="anchor-6-23"></a>number Class</h2>
 <p>
 The <code>number</code> class is a type of number values. A number literal would create a <code>number</code> instance.
 </p>
-<h3><span class="caption-index-3">6.24.1</span><a name="anchor-6-24-1"></a>Method</h3>
+<h3><span class="caption-index-3">6.23.1</span><a name="anchor-6-23-1"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">number.roundoff</strong></div>
 <div style="margin-bottom:1em"><code>number.roundoff(threshold:number =&gt; 1e-10)</code></div>
 
 </p>
-<h2><span class="caption-index-2">6.25</span><a name="anchor-6-25"></a>operator Class</h2>
+<h2><span class="caption-index-2">6.24</span><a name="anchor-6-24"></a>operator Class</h2>
 <p>
 The <code>operator</code> class provides measures to assign operators with a user-defined procedure.
 </p>
-<h3><span class="caption-index-3">6.25.1</span><a name="anchor-6-25-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.24.1</span><a name="anchor-6-24-1"></a>Property</h3>
 <p>
 An <code>operator</code> instance has the following properties:
 </p>
@@ -5229,7 +5317,7 @@ Operator symbol.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.25.2</span><a name="anchor-6-25-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.24.2</span><a name="anchor-6-24-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">operator</strong></div>
 <div style="margin-bottom:1em"><code>operator(symbol:symbol):map {block?}</code></div>
@@ -5243,7 +5331,7 @@ Below is an example to create an <code>operator</code> instance that is associat
 </p>
 <pre><code>op = operator(`+)
 </code></pre>
-<h3><span class="caption-index-3">6.25.3</span><a name="anchor-6-25-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.24.3</span><a name="anchor-6-24-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">operator#assign</strong></div>
 <div style="margin-bottom:1em"><code>operator#assign(type_l:expr, type_r?:expr):map:void {block}</code></div>
@@ -5289,11 +5377,11 @@ The argument <code>type</code> takes a symbol <code>`binary</code> or <code>`una
 <li>If it's omitted or specified with <code>`binary</code>, the method would return a list of pairs of type expressions for its left element and right one.</li>
 <li>If it's specified with <code>`unary</code>, the method would return a list of type expressions for its single element.</li>
 </ul>
-<h2><span class="caption-index-2">6.26</span><a name="anchor-6-26"></a>palette Class</h2>
+<h2><span class="caption-index-2">6.25</span><a name="anchor-6-25"></a>palette Class</h2>
 <p>
 The <code>palette</code> instance has a set of <code>color</code> instance.
 </p>
-<h3><span class="caption-index-3">6.26.1</span><a name="anchor-6-26-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.25.1</span><a name="anchor-6-25-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">palette</strong></div>
 <div style="margin-bottom:1em"><code>palette(type) {block?}</code></div>
@@ -5317,7 +5405,7 @@ In the second form, it can take one of the following symbols:
 <li><code>`win256</code> .. A palette with 256 colors defined by Windows.</li>
 <li><code>`websafe</code> .. A palette with 216 colors that assure to be displayed correctly in any Web environments. It actually has 256 entries though the last 40 entries are initialized with black.</li>
 </ul>
-<h3><span class="caption-index-3">6.26.2</span><a name="anchor-6-26-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.25.2</span><a name="anchor-6-25-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">palette#each</strong></div>
 <div style="margin-bottom:1em"><code>palette#each() {block?}</code></div>
@@ -5361,11 +5449,11 @@ Updates palette entries according to color data in an image or a palette.
 <p>
 The order of existing entries will be kept intact. If attribute shrink is specified, the whole size will be shrinked to a number powered by two that is enough to contain unique entries.
 </p>
-<h2><span class="caption-index-2">6.27</span><a name="anchor-6-27"></a>pointer Class</h2>
+<h2><span class="caption-index-2">6.26</span><a name="anchor-6-26"></a>pointer Class</h2>
 <p>
 The <code>pointer</code> class provides measures to read and write content in a <code>binary</code> and <code>memory</code> instance.
 </p>
-<h3><span class="caption-index-3">6.27.1</span><a name="anchor-6-27-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.26.1</span><a name="anchor-6-26-1"></a>Property</h3>
 <p>
 A <code>pointer</code> instance has the following properties:
 </p>
@@ -5440,7 +5528,7 @@ Currently, this can be an instance of `binary` or `memory`.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.27.2</span><a name="anchor-6-27-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.26.2</span><a name="anchor-6-26-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">pointer</strong></div>
 <div style="margin-bottom:1em"><code>pointer(org:pointer):map {block?}</code></div>
@@ -5449,7 +5537,7 @@ Creates a <code>pointer</code> instance that is cloned from the given instance <
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|ptr:pointer|</code>, where <code>ptr</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">6.27.3</span><a name="anchor-6-27-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.26.3</span><a name="anchor-6-26-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">pointer#copyfrom</strong></div>
 <div style="margin-bottom:1em"><code>pointer#copyfrom(src:pointer, bytes?:number):map:reduce</code></div>
@@ -6223,7 +6311,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <div style="margin-bottom:1em"><code>pointer#writer() {block?}</code></div>
 Creates a <code>stream</code> instance with which you can append data to the memory pointed by the pointer. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">6.27.4</span><a name="anchor-6-27-4"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">6.26.4</span><a name="anchor-6-26-4"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>pointer</code> instance in its argument can also take a value of <code>binary</code> and <code>memory</code>.
 </p>
@@ -6234,7 +6322,7 @@ With the above casting feature, you can call a function <code>f(p:pointer)</code
 <li><code>b = b'\x01\x23\x45\x67\x89\xab', f(b)</code></li>
 <li><code>m = memory(32), f(m)</code></li>
 </ul>
-<h2><span class="caption-index-2">6.28</span><a name="anchor-6-28"></a>rational Class</h2>
+<h2><span class="caption-index-2">6.27</span><a name="anchor-6-27"></a>rational Class</h2>
 <p>
 The <code>rational</code> class provides measures to handle rational numbers.
 </p>
@@ -6252,7 +6340,7 @@ Below are examples to realize a common fraction two-thirds:
 2r / 3
 2 / 3r
 </code></pre>
-<h3><span class="caption-index-3">6.28.1</span><a name="anchor-6-28-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.27.1</span><a name="anchor-6-27-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">rational</strong></div>
 <div style="margin-bottom:1em"><code>rational(numer:number, denom?:number):map {block?}</code></div>
@@ -6264,20 +6352,20 @@ If the argument <code>denom</code> is omitted, one is set as its denominator.
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|r:rational|</code>, where <code>r</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">6.28.2</span><a name="anchor-6-28-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.27.2</span><a name="anchor-6-27-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">rational.reduce</strong></div>
 <div style="margin-bottom:1em"><code>rational.reduce()</code></div>
 Reduces the rational number by dividing its numerator and denominator by their GCD.
 </p>
-<h2><span class="caption-index-2">6.29</span><a name="anchor-6-29"></a>semaphore Class</h2>
-<h3><span class="caption-index-3">6.29.1</span><a name="anchor-6-29-1"></a>Constructor</h3>
+<h2><span class="caption-index-2">6.28</span><a name="anchor-6-28"></a>semaphore Class</h2>
+<h3><span class="caption-index-3">6.28.1</span><a name="anchor-6-28-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">semaphore</strong></div>
 <div style="margin-bottom:1em"><code>semaphore()</code></div>
 
 </p>
-<h3><span class="caption-index-3">6.29.2</span><a name="anchor-6-29-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.28.2</span><a name="anchor-6-28-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">semaphore#release</strong></div>
 <div style="margin-bottom:1em"><code>semaphore#release()</code></div>
@@ -6293,7 +6381,7 @@ Forms a critical session by grabbing the semaphore's ownership, executing the bl
 <div style="margin-bottom:1em"><code>semaphore#wait()</code></div>
 Watis for the semaphore being released by other threads, and ghen grabs that ownership.
 </p>
-<h2><span class="caption-index-2">6.30</span><a name="anchor-6-30"></a>stream Class</h2>
+<h2><span class="caption-index-2">6.29</span><a name="anchor-6-29"></a>stream Class</h2>
 <p>
 The <code>stream</code> class provides methods to read and write data through a stream, an abstract structure to handle a byte sequence. It also provides information of the stream such as the pathname and the creation date and time.
 </p>
@@ -6317,7 +6405,7 @@ You can specify a proper <code>codec</code> when creating the <code>stream</code
 </ul>
 </li>
 </ul>
-<h3><span class="caption-index-3">6.30.1</span><a name="anchor-6-30-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.29.1</span><a name="anchor-6-29-1"></a>Property</h3>
 <p>
 A <code>stream</code> instance has the following properties:
 </p>
@@ -6416,7 +6504,7 @@ R</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.30.2</span><a name="anchor-6-30-2"></a>Operator</h3>
+<h3><span class="caption-index-3">6.29.2</span><a name="anchor-6-29-2"></a>Operator</h3>
 <p>
 You can use the operator "<code>&lt;&lt;</code>" to output a content of a value to a <code>stream</code>. It comes like "<code>stream &lt;&lt; obj</code>" where <code>obj</code> is converted to a string before output to the stream.
 </p>
@@ -6427,7 +6515,7 @@ Since the operator returns the <code>stream</code> instance specified on the lef
 </p>
 <pre><code>sys.stdout &lt;&lt; 'First' &lt;&lt; 'Second'
 </code></pre>
-<h3><span class="caption-index-3">6.30.3</span><a name="anchor-6-30-3"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">6.29.3</span><a name="anchor-6-29-3"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>stream</code> instance in its argument can also take a value of <code>string</code> and <code>binary</code> as below:
 </p>
@@ -6443,7 +6531,7 @@ Using the above casting feature, you can call a function <code>f(stream:stream)<
 <li><code>f('foo.txt')</code> .. Implicit casting from <code>string</code> to <code>stream</code>.</li>
 <li><code>f(b'\x00\x12\x34\x56')</code> .. Implicit casting from <code>binary</code> to <code>stream</code> that reads the content.</li>
 </ul>
-<h3><span class="caption-index-3">6.30.4</span><a name="anchor-6-30-4"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.29.4</span><a name="anchor-6-29-4"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">stream</strong></div>
 <div style="margin-bottom:1em"><code>stream(pathname:string, mode?:string, codec?:codec):map {block?}</code></div>
@@ -6466,7 +6554,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <p>
 You can also call <code>open()</code> function that is just an alias of <code>stream()</code> to create a <code>stream</code> instance.
 </p>
-<h3><span class="caption-index-3">6.30.5</span><a name="anchor-6-30-5"></a>Utility Function</h3>
+<h3><span class="caption-index-3">6.29.5</span><a name="anchor-6-29-5"></a>Utility Function</h3>
 <p>
 <div><strong style="text-decoration:underline">readlines</strong></div>
 <div style="margin-bottom:1em"><code>readlines(stream?:stream:r):[chop] {block?}</code></div>
@@ -6495,7 +6583,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h3><span class="caption-index-3">6.30.6</span><a name="anchor-6-30-6"></a>Method</h3>
+<h3><span class="caption-index-3">6.29.6</span><a name="anchor-6-29-6"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">stream#addcr</strong></div>
 <div style="margin-bottom:1em"><code>stream#addcr(flag?:boolean):reduce</code></div>
@@ -6733,7 +6821,7 @@ Returns the current file position at which read/write operation works.
 <div style="margin-bottom:1em"><code>stream#write(ptr:pointer, bytes?:number):reduce</code></div>
 Writes binary data pointer by <code>ptr</code> to the stream. The argument <code>bytes</code> limits the number of data that is to be written to the stream.
 </p>
-<h2><span class="caption-index-2">6.31</span><a name="anchor-6-31"></a>string Class</h2>
+<h2><span class="caption-index-2">6.30</span><a name="anchor-6-30"></a>string Class</h2>
 <p>
 The <code>string</code> class provides measures to operate on strings.
 </p>
@@ -6752,11 +6840,11 @@ second line
 third line
 '''
 </code></pre>
-<h3><span class="caption-index-3">6.31.1</span><a name="anchor-6-31-1"></a>Suffix Management</h3>
+<h3><span class="caption-index-3">6.30.1</span><a name="anchor-6-30-1"></a>Suffix Management</h3>
 <p>
 When an string literal is suffixed by a character <code>$</code>, a handler registered by <code>string.translate()</code> function that is supposed to translate the string into other natural languages would be evaluated.
 </p>
-<h3><span class="caption-index-3">6.31.2</span><a name="anchor-6-31-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.30.2</span><a name="anchor-6-30-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">string#align</strong></div>
 <div style="margin-bottom:1em"><code>string#align(width:number, padding:string =&gt; ' '):map:[center,left,right] {block?}</code></div>
@@ -7142,7 +7230,7 @@ This method takes into account the character width based on the specification of
 <div style="margin-bottom:1em"><code>string#zentohan() {block?}</code></div>
 Converts zenkaku to hankaku characters.
 </p>
-<h2><span class="caption-index-2">6.32</span><a name="anchor-6-32"></a>suffixmgr Class</h2>
+<h2><span class="caption-index-2">6.31</span><a name="anchor-6-31"></a>suffixmgr Class</h2>
 <p>
 The <code>suffixmgr</code> class provides measures to access suffix managers that are responsible to handle suffix symbols appended to number or string literals.
 </p>
@@ -7156,7 +7244,7 @@ You can use that suffix like below:
 </p>
 <pre><code>'hello world'X
 </code></pre>
-<h3><span class="caption-index-3">6.32.1</span><a name="anchor-6-32-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.31.1</span><a name="anchor-6-31-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">suffixmgr</strong></div>
 <div style="margin-bottom:1em"><code>suffixmgr(type:symbol) {block?}</code></div>
@@ -7169,7 +7257,7 @@ Creates a reference to one of two suffix managers, number and string.
 <p>
 Specify the argument <code>type</code> with a symbol <code>`number</code> for a number suffix manager and <code>`string</code> for a string suffix manager.
 </p>
-<h3><span class="caption-index-3">6.32.2</span><a name="anchor-6-32-2"></a>Method</h3>
+<h3><span class="caption-index-3">6.31.2</span><a name="anchor-6-31-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">suffixmgr#assign</strong></div>
 <div style="margin-bottom:1em"><code>suffixmgr#assign(suffix:symbol):void:[overwrite] {block}</code></div>
@@ -7178,15 +7266,15 @@ Assigns a procedure to a specified symbol in the suffix manager. The procedure i
 <p>
 An error occurs if the same suffix symbol has already been assigned. Specifying <code>:overwrite</code> attribute will forcibly overwrite an existing assignment.
 </p>
-<h2><span class="caption-index-2">6.33</span><a name="anchor-6-33"></a>symbol Class</h2>
-<h3><span class="caption-index-3">6.33.1</span><a name="anchor-6-33-1"></a>Method</h3>
+<h2><span class="caption-index-2">6.32</span><a name="anchor-6-32"></a>symbol Class</h2>
+<h3><span class="caption-index-3">6.32.1</span><a name="anchor-6-32-1"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">symbol#eval</strong></div>
 <div style="margin-bottom:1em"><code>symbol#eval(env?:environment)</code></div>
 Evaluate a symbol object.
 </p>
-<h2><span class="caption-index-2">6.34</span><a name="anchor-6-34"></a>template Class</h2>
-<h3><span class="caption-index-3">6.34.1</span><a name="anchor-6-34-1"></a>Cast Operation</h3>
+<h2><span class="caption-index-2">6.33</span><a name="anchor-6-33"></a>template Class</h2>
+<h3><span class="caption-index-3">6.33.1</span><a name="anchor-6-33-1"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>template</code> instance in its argument can also take a value of <code>stream</code> as below:
 </p>
@@ -7205,7 +7293,7 @@ Using the above casting feature, you can call a function <code>f(tmpl:template)<
 <li><code>f(template('foo.txt'))</code> .. Implicit casting: from <code>string</code> to <code>stream</code>.</li>
 <li><code>f('foo.txt')</code> .. Implicit casting: from <code>string</code> to <code>stream</code>, then from <code>stream</code> to <code>template</code>.</li>
 </ul>
-<h3><span class="caption-index-3">6.34.2</span><a name="anchor-6-34-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.33.2</span><a name="anchor-6-33-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">template</strong></div>
 <div style="margin-bottom:1em"><code>template(src?:stream:r):map:[lasteol,noindent] {block?}</code></div>
@@ -7221,7 +7309,7 @@ Following attributes would customize the parser's behavior:
 <li><code>:lasteol</code></li>
 <li><code>:noindent</code></li>
 </ul>
-<h3><span class="caption-index-3">6.34.3</span><a name="anchor-6-34-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.33.3</span><a name="anchor-6-33-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">template#parse</strong></div>
 <div style="margin-bottom:1em"><code>template#parse(str:string):void:[lasteol,noindent]</code></div>
@@ -7254,7 +7342,7 @@ Renders stored content to the specified stream.
 <p>
 If the stream is omitted, the function returns the rendered result as a string.
 </p>
-<h3><span class="caption-index-3">6.34.4</span><a name="anchor-6-34-4"></a>Method Called by Template Directive</h3>
+<h3><span class="caption-index-3">6.33.4</span><a name="anchor-6-33-4"></a>Method Called by Template Directive</h3>
 <p>
 <div><strong style="text-decoration:underline">template#block</strong></div>
 <div style="margin-bottom:1em"><code>template#block(symbol:symbol):void</code></div>
@@ -7419,11 +7507,11 @@ Content of base.
 Content of derived.
 Block ends here.
 </code></pre>
-<h2><span class="caption-index-2">6.35</span><a name="anchor-6-35"></a>timedelta Class</h2>
+<h2><span class="caption-index-2">6.34</span><a name="anchor-6-34"></a>timedelta Class</h2>
 <p>
 The <code>timedelta</code> instance provides a time delta information that works with <code>datetime</code> instance. You can shift time information of <code>datetime</code> by applying addition or subtraction of <code>timedelta</code> to it.
 </p>
-<h3><span class="caption-index-3">6.35.1</span><a name="anchor-6-35-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.34.1</span><a name="anchor-6-34-1"></a>Property</h3>
 <p>
 A <code>timedelta</code> instance has the following properties:
 </p>
@@ -7483,19 +7571,19 @@ Offset of micro seconds.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.35.2</span><a name="anchor-6-35-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.34.2</span><a name="anchor-6-34-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">timedelta</strong></div>
 <div style="margin-bottom:1em"><code>timedelta(days:number =&gt; 0, secs:number =&gt; 0, usecs:number =&gt; 0):map {block?}</code></div>
 Returns a timedelta instance with specified values. The instance actually holds properties of days, secs and usecs.
 </p>
-<h2><span class="caption-index-2">6.36</span><a name="anchor-6-36"></a>uri Class</h2>
+<h2><span class="caption-index-2">6.35</span><a name="anchor-6-35"></a>uri Class</h2>
 <p>
 The <code>uri</code> instance analyzes a URI string and returns each part in it such as the scheme and path. A generic URI has the following format:
 </p>
 <pre><code>scheme:[//[user:password@]host:port]][/]path[?query][#fragment]
 </code></pre>
-<h3><span class="caption-index-3">6.36.1</span><a name="anchor-6-36-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.35.1</span><a name="anchor-6-35-1"></a>Property</h3>
 <p>
 A <code>uri</code> instance has the following properties:
 </p>
@@ -7607,7 +7695,7 @@ Misc part in the URI.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.36.2</span><a name="anchor-6-36-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.35.2</span><a name="anchor-6-35-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">uri</strong></div>
 <div style="margin-bottom:1em"><code>uri(str?:string):map {block?}</code></div>
@@ -7619,7 +7707,7 @@ If the argument <code>str</code> is specified, it would be parsed as a URI which
 <p>
 If omitted, the instance would be initialized as an empty one.
 </p>
-<h3><span class="caption-index-3">6.36.3</span><a name="anchor-6-36-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.35.3</span><a name="anchor-6-35-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">uri#getfragment</strong></div>
 <div style="margin-bottom:1em"><code>uri#getfragment()</code></div>
@@ -7640,7 +7728,7 @@ Returns a <code>dict</code> instance that is made from the query part in the URI
 <div style="margin-bottom:1em"><code>uri.parsequery(query:string):static:map</code></div>
 This is a utility function to parse a query string and return a <code>dict</code> instance that contains key-value pairs for the query.
 </p>
-<h3><span class="caption-index-3">6.36.4</span><a name="anchor-6-36-4"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">6.35.4</span><a name="anchor-6-35-4"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>uri</code> instance in its argument can also take a value of <code>string</code> that is recognized as a URI string.
 </p>
@@ -7651,11 +7739,11 @@ With the above casting feature, you can call a function <code>f(uri:uri)</code> 
 <li><code>f(uri('http://example.com'))</code> .. The most explicit way.</li>
 <li><code>f('http://example.com')</code> .. Implicit casting: from <code>string</code> to <code>uri</code>.</li>
 </ul>
-<h2><span class="caption-index-2">6.37</span><a name="anchor-6-37"></a>vertex Class</h2>
+<h2><span class="caption-index-2">6.36</span><a name="anchor-6-36"></a>vertex Class</h2>
 <p>
 The <code>vertex</code> class provides vertex information that consists of x, y, z and w values.
 </p>
-<h3><span class="caption-index-3">6.37.1</span><a name="anchor-6-37-1"></a>Property</h3>
+<h3><span class="caption-index-3">6.36.1</span><a name="anchor-6-36-1"></a>Property</h3>
 <p>
 An <code>vertex</code> instance has the following properties:
 </p>
@@ -7732,7 +7820,7 @@ R/W</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">6.37.2</span><a name="anchor-6-37-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">6.36.2</span><a name="anchor-6-36-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">vertex</strong></div>
 <div style="margin-bottom:1em"><code>vertex(x:number, y:number, z?:number):map {block?}</code></div>
@@ -7741,7 +7829,7 @@ Creates a <code>vertex</code> instance that has the given coordinates <code>x</c
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|v:vertex|</code>, where <code>v</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">6.37.3</span><a name="anchor-6-37-3"></a>Method</h3>
+<h3><span class="caption-index-3">6.36.3</span><a name="anchor-6-36-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">vertex.cross</strong></div>
 <div style="margin-bottom:1em"><code>vertex.cross (v1:vertex, v2:vertex):static:map {block?}</code></div>

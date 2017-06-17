@@ -94,7 +94,7 @@ The <code>freetype</code> module provices measures to access vectorized font dat
 <h3><span class="caption-index-3">20.17.1</span><a name="anchor-20-17-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">freetype.Matrix</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Matrix(matrix:matrix):map {block?}</code></div>
+<div style="margin-bottom:1em"><code>freetype.Matrix(array:array@double):map {block?}</code></div>
 
 </p>
 <h3><span class="caption-index-3">20.17.2</span><a name="anchor-20-17-2"></a>Method</h3>
