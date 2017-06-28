@@ -5,30 +5,15 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">52</span><a name="anchor-52"></a>units Module</h1>
+<h1><span class="caption-index-1">52</span><a name="anchor-52"></a>uuid Module</h1>
 <p>
-The <code>units</code> module provides functions to convert physical units into another.
+The <code>uuid</code> module provides functions to generate UUIDs. To utilize it, import the <code>uuid</code> module using <code>import</code> function.
 </p>
 <h2><span class="caption-index-2">52.1</span><a name="anchor-52-1"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">units.inch$mm</strong></div>
-<div style="margin-bottom:1em"><code>units.inch$mm(inch:number):map</code></div>
-Converts <strong>inch</strong> to <strong>mm</strong>.
-</p>
-<p>
-<div><strong style="text-decoration:underline">units.mm$inch</strong></div>
-<div style="margin-bottom:1em"><code>units.mm$inch(mm:number):map</code></div>
-Converts <strong>mm</strong> to <strong>inch</strong>.
-</p>
-<p>
-<div><strong style="text-decoration:underline">units.mm$pt</strong></div>
-<div style="margin-bottom:1em"><code>units.mm$pt(mm:number):map</code></div>
-Converts <strong>mm</strong> to <strong>pt</strong>.
-</p>
-<p>
-<div><strong style="text-decoration:underline">units.pt$mm</strong></div>
-<div style="margin-bottom:1em"><code>units.pt$mm(pt:number):map</code></div>
-Converts <strong>pt</strong> to <strong>mm</strong>.
+<div><strong style="text-decoration:underline">uuid.generate</strong></div>
+<div style="margin-bottom:1em"><code>uuid.generate():[upper]</code></div>
+Generates a Universal Unique Identifier (UUID). In default, results are output in lower-case characters. Specifying :upper would generates it in upper-case characters.
 </p>
 <p />
 

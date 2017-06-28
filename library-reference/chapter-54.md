@@ -5,21 +5,17 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">54</span><a name="anchor-54"></a>wav Module</h1>
+<h1><span class="caption-index-1">54</span><a name="anchor-54"></a>wx Module</h1>
+<p>
+The <code>wx</code> module provides functions and methods of wxWidgets library.
+</p>
 <h2><span class="caption-index-2">54.1</span><a name="anchor-54-1"></a>Module Function</h2>
-<h2><span class="caption-index-2">54.2</span><a name="anchor-54-2"></a>Extension to audio Class</h2>
+<h2><span class="caption-index-2">54.2</span><a name="anchor-54-2"></a>Thanks</h2>
 <p>
-This module extends the <code>audio</code> class with methods described here.
+This module uses wxWidgets library which is distributed in the following site:
 </p>
 <p>
-<div><strong style="text-decoration:underline">audio#read@wav</strong></div>
-<div style="margin-bottom:1em"><code>audio#read@wav(stream:stream:r):reduce</code></div>
-Reads WAV audio from a stream.
-</p>
-<p>
-<div><strong style="text-decoration:underline">audio#write@wav</strong></div>
-<div style="margin-bottom:1em"><code>audio#write@wav(stream:stream:w):reduce</code></div>
-Writes WAV audio to a stream.
+<a href="http://www.wxwidgets.org/">http://www.wxwidgets.org/</a>
 </p>
 <p />
 

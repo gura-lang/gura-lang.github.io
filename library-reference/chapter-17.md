@@ -5,73 +5,62 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">17</span><a name="anchor-17"></a>diff Module</h1>
+<h1><span class="caption-index-1">17</span><a name="anchor-17"></a>doxygen Module</h1>
 <p>
-The <code>diff</code> module provices measures to detect differences between texts. To utilize it, import the <code>diff</code> module using <code>import</code> function.
+The <code>doxygen</code> module provides measures to parse a document written in Doxygen syntax. To utilize it, import the <code>doxygen</code> module using <code>import</code> function.
 </p>
-<p>
-Below is an example to show differences between files <code>file1.txt</code> and <code>file2.txt</code>:
-</p>
-<pre><code>diff.compose(stream('file1.txt'), stream('file2.txt')).render(sys.stdout)
+<pre><code>+----------+  1.. +-----------+  1.. +------+
+| document *------| structure *------| elem |
++----------+      +-----------+      +------+
+
++---------------+  1 +---------+
+| configuration *----| aliases |
++---------------+    +---------+
+
++----------+     +-------------------+
+| renderer |&lt;----| specific_renderer |
++----------+     +-------------------+
 </code></pre>
-<h2><span class="caption-index-2">17.1</span><a name="anchor-17-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">17.1</span><a name="anchor-17-1"></a>doxygen.document Class</h2>
+<h3><span class="caption-index-3">17.1.1</span><a name="anchor-17-1-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">diff.compose</strong></div>
-<div style="margin-bottom:1em"><code>diff.compose(src1, src2):[icase,sync] {block?}</code></div>
-Extracts differences between two sets of line sequence and returns <code>diff.diff@line</code> instance that contains the difference information.
+<div><strong style="text-decoration:underline">doxygen.document</strong></div>
+<div style="margin-bottom:1em"><code>doxygen.document(stream?:stream, aliases?:doxygen.aliases, extracted?:boolean) {block?}</code></div>
+Reads a Doxygen document from <code>stream</code> and creates an instance of <code>doxygen.document</code> class.
 </p>
 <p>
-You can specify a value of <code>string</code>, <code>stream</code>, <code>iterator</code> or <code>list</code> for the argument <code>src1</code> and <code>src2</code>. In the result, the content of <code>src1</code> is referred to as an "original" one and that of <code>src2</code> as a "new" one.
+The argument <code>aliases</code> is an instance that is available as a member of <code>doxygen.configuration</code> instance and contains information about command aliases, or custom commands in the other word.
 </p>
 <p>
-Below is an example to compare between two strings:
-</p>
-<pre><code>str1 = '...'
-str2 = '...'
-result = diff.compose(str1, str2)
-</code></pre>
-<p>
-Below is an example to compare between two files:
-</p>
-<pre><code>file1 = stream('file1.txt')
-file2 = stream('file2.txt')
-result = diff.compose(file1, file2)
-</code></pre>
-<p>
-Below is an example to compare between two iterators:
-</p>
-<pre><code>chars1 = '...'.each()
-chars2 = '...'.each()
-result = diff.compose(chars1, chars2)
-</code></pre>
-<p>
-Below is an example to compare between a file and a string:
-</p>
-<pre><code>file = stream('file.txt')
-str = '...'
-result = diff.compose(file, str)
-</code></pre>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|d:diff.diff@line|</code>, where <code>d</code> is the created instance. In this case, the block's result would become the function's returned value.
+In default, the parser expects the Doxygen document is written within C-style comments and extracts the document body from them before parsing. If the argument <code>extracted</code> is set to <code>true</code>, it exepcts the document already have been extracted from the comments.
 </p>
 <p>
-If attribute <code>:icase</code> is specified, it wouldn't distinguish upper and lower case of characters.
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|doc:doxygen.document|</code>, where <code>doc</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<h3><span class="caption-index-3">17.1.2</span><a name="anchor-17-1-2"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">doxygen.document#structures</strong></div>
+<div style="margin-bottom:1em"><code>doxygen.document#structures() {block?}</code></div>
+Creates an iterator that returns instances of <code>doxygen.structure</code> contained in the <code>doxygen.document</code>.
 </p>
 <p>
-<div><strong style="text-decoration:underline">diff.compose@char</strong></div>
-<div style="margin-bottom:1em"><code>diff.compose@char(src1:string, src2:string):[icase] {block?}</code></div>
-Extracts differences between two strings and returns <code>diff.diff@line</code> instance that contains the difference information.
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
 </p>
 <p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|d:diff.diff@char|</code>, where <code>d</code> is the created instance. In this case, the block's result would become the function's returned value.
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
-If attribute <code>:icase</code> is specified, it wouldn't distinguish upper and lower case of characters.
-</p>
-<h2><span class="caption-index-2">17.2</span><a name="anchor-17-2"></a>diff.diff@line Class</h2>
-<p>
-The <code>diff.diff@line</code> instance is created by function <code>diff.compose()</code> and provides information about differences between two texts by lines.
-</p>
+<h2><span class="caption-index-2">17.2</span><a name="anchor-17-2"></a>doxygen.structure Class</h2>
 <h3><span class="caption-index-3">17.2.1</span><a name="anchor-17-2-1"></a>Property</h3>
 <p>
 <table>
@@ -89,53 +78,14 @@ Explanation</th>
 
 <tr>
 <td>
-<code>distance</code></td>
+<code>aftermember</code></td>
 <td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-The distance between the texts. Zero means that they are identical each other.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>edits</code></td>
-<td>
-<code>iterator</code></td>
+<code>boolean</code></td>
 <td>
 R</td>
 
 <td>
-An iterator that returns <code>diff.edit@line</code> instances stored in the result.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>nlines@org</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Number of lines in the "original" text.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>nlines@new</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Number of lines in the "new" text.</td>
+</td>
 </tr>
 
 
@@ -144,20 +94,9 @@ Number of lines in the "new" text.</td>
 </p>
 <h3><span class="caption-index-3">17.2.2</span><a name="anchor-17-2-2"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">diff.diff@line#eachhunk</strong></div>
-<div style="margin-bottom:1em"><code>diff.diff@line#eachhunk(format?:symbol, lines?:number) {block?}</code></div>
-Creates an iterator that returns <code>diff.hunk@line</code> instance stored in the result.
-</p>
-<p>
-The argument <code>format</code> takes one of the symbols that specifies the hunk format:
-</p>
-<ul>
-<li><code>`normal</code> .. Normal format (not supported yet).</li>
-<li><code>`context</code> .. Context format (not supported yet).</li>
-<li><code>`unified</code> .. Unified format. This is the default.</li>
-</ul>
-<p>
-The argument <code>lines</code> specifies a number of common lines appended before and after different lines
+<div><strong style="text-decoration:underline">doxygen.structure#elems</strong></div>
+<div style="margin-bottom:1em"><code>doxygen.structure#elems():map {block?}</code></div>
+Creates an iterator that returns <code>doxygen.elem</code> instances of all the elements contained in the structure.
 </p>
 <p>
 In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
@@ -177,121 +116,40 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<div><strong style="text-decoration:underline">diff.diff@line#render</strong></div>
-<div style="margin-bottom:1em"><code>diff.diff@line#render(out?:stream:w, format?:symbol, lines?:number) {block?}</code></div>
-Renders diff result to the specified stream.
+<div><strong style="text-decoration:underline">doxygen.structure#substructures</strong></div>
+<div style="margin-bottom:1em"><code>doxygen.structure#substructures() {block?}</code></div>
+Creates an iterator that returns <code>doxygen.structure</code> instances of sub structures contained in the structure.
 </p>
 <p>
-If the argument <code>out</code> is omitted, this method returns a string of the rendered text. Otherwise, it returns <code>nil</code>.
-</p>
-<p>
-The argument <code>format</code> takes one of the symbols that specifies the rendering format:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
-<li><code>`normal</code> .. Normal format (not supported yet).</li>
-<li><code>`context</code> .. Context format (not supported yet).</li>
-<li><code>`unified</code> .. Unified format. This is the default.</li>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
 <p>
-The argument <code>lines</code> specifies a number of common lines appended before and after different lines.
+See the chapter of Mapping Process in Gura Language Manual for the detail.
 </p>
-<h2><span class="caption-index-2">17.3</span><a name="anchor-17-3"></a>diff.hunk@line Class</h2>
 <p>
-The <code>diff.hunk@line</code> instance provides information about a hunk.
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h3><span class="caption-index-3">17.3.1</span><a name="anchor-17-3-1"></a>Property</h3>
+<h2><span class="caption-index-2">17.3</span><a name="anchor-17-3"></a>doxygen.elem Class</h2>
+<h3><span class="caption-index-3">17.3.1</span><a name="anchor-17-3-1"></a>Method</h3>
 <p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>edits</code></td>
-<td>
-<code>iterator</code></td>
-<td>
-R</td>
-
-<td>
-An iterator that returns <code>diff.edit@line</code> instances stored in the hunk.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>lineno@org</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Top line number of the "original" text covered by the hunk.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>lineno@new</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Top line number of the "new" text covered by the hunk.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>nlines@org</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Number of lines in the "original" text covered by the hunk.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>nlines@new</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Number of lines in the "new" text covered by the hunk.</td>
-</tr>
-
-
-</table>
-
+<div><strong style="text-decoration:underline">doxygen.elem#print</strong></div>
+<div style="margin-bottom:1em"><code>doxygen.elem#print(indent?:number, out?:stream):map:void</code></div>
+Prints out the content of the element to <code>out</code> with an indentation level specified by <code>indent</code> that starts from zero. If <code>out</code> is omitted, the result would be put out to standard output.
 </p>
-<h3><span class="caption-index-3">17.3.2</span><a name="anchor-17-3-2"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">diff.hunk@line#print</strong></div>
-<div style="margin-bottom:1em"><code>diff.hunk@line#print(out?:stream):void {block?}</code></div>
-Prints the content of the <code>diff.hunk</code> instance to the specified stream.
+<div><strong style="text-decoration:underline">doxygen.elem#render</strong></div>
+<div style="margin-bottom:1em"><code>doxygen.elem#render(renderer:doxygen.renderer):void</code></div>
+Renders the element content using <code>doxygen.renderer</code>.
 </p>
-<h2><span class="caption-index-2">17.4</span><a name="anchor-17-4"></a>diff.edit@line Class</h2>
-<p>
-The <code>diff.edit@line</code> provides information about an edit operation.
-</p>
+<h2><span class="caption-index-2">17.4</span><a name="anchor-17-4"></a>doxygen.configuration Class</h2>
 <h3><span class="caption-index-3">17.4.1</span><a name="anchor-17-4-1"></a>Property</h3>
 <p>
 <table>
@@ -309,260 +167,59 @@ Explanation</th>
 
 <tr>
 <td>
-<code>diff.edit@line#type</code></td>
+<code>aliases</code></td>
 <td>
-<code>symbol</code></td>
+<code>doxygen.aliases</code></td>
 <td>
 R</td>
 
 <td>
-Edit operation:
-<ul>
-<li>
-<code>`copy</code> .. Copy the line.</li>
-
-<li>
-<code>`add</code> .. Add the line.</li>
-
-<li>
-<code>`delete</code> .. Delete the line.</li>
-
-</ul>
-
 </td>
 </tr>
 
 
-<tr>
-<td>
-<code>mark</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-
-<td>
-A mark string that appears on the top of each line in Unified format.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>lineno@org</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Line number of the "original" text correspond to the edit.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>lineno@new</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Lop line number of the "new" text correspond to the edit.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>source</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-
-<td>
-A source text.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>unified</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-
-<td>
-A composed string in Unified format.</td>
-</tr>
-
-
 </table>
 
 </p>
-<h3><span class="caption-index-3">17.4.2</span><a name="anchor-17-4-2"></a>Method</h3>
+<h3><span class="caption-index-3">17.4.2</span><a name="anchor-17-4-2"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">diff.edit@line#print</strong></div>
-<div style="margin-bottom:1em"><code>diff.edit@line#print(out?:stream):void {block?}</code></div>
-Prints the content of the <code>diff.edit</code> instance to the specified stream.
-</p>
-<h2><span class="caption-index-2">17.5</span><a name="anchor-17-5"></a>diff.diff@char Class</h2>
-<p>
-The <code>diff.diff@char</code> instance is created by function <code>diff.compose@char()</code> and provides information about differences between two texts by characters.
-</p>
-<h3><span class="caption-index-3">17.5.1</span><a name="anchor-17-5-1"></a>Property</h3>
-<p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>distance</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-The distance between the texts. Zero means that they are identical each other.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>edits</code></td>
-<td>
-<code>iterator</code></td>
-<td>
-R</td>
-
-<td>
-An iterator that returns <code>diff.edit@char</code> instances stored in the result.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>edits@org</code></td>
-<td>
-<code>iterator</code></td>
-<td>
-R</td>
-
-<td>
-An iterator that returns <code>diff.edit@char</code> instances
-that are applied to the "original" string.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>edits@new</code></td>
-<td>
-<code>iterator</code></td>
-<td>
-R</td>
-
-<td>
-An iterator that returns <code>diff.edit@char</code> instances
-that are applied to the "new" string.</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">17.6</span><a name="anchor-17-6"></a>diff.edit@char Class</h2>
-<p>
-The <code>diff.edit@char</code> provides information about an edit operation.
-</p>
-<h3><span class="caption-index-3">17.6.1</span><a name="anchor-17-6-1"></a>Property</h3>
-<p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>diff.edit@char#type</code></td>
-<td>
-<code>symbol</code></td>
-<td>
-R</td>
-
-<td>
-Edit operation:
-<ul>
-<li>
-<code>`copy</code> .. Copy the line.</li>
-
-<li>
-<code>`add</code> .. Add the line.</li>
-
-<li>
-<code>`delete</code> .. Delete the line.</li>
-
-</ul>
-
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>diff.edit@char#mark</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-
-<td>
-A mark string that appears on the top of each line in Unified format.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>diff.edit@char#source</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-
-<td>
-A source text.</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">17.7</span><a name="anchor-17-7"></a>Thanks</h2>
-<p>
-This module uses dtl (Diff Template Library) which is distributed in the following site:
+<div><strong style="text-decoration:underline">doxygen.configuration</strong></div>
+<div style="margin-bottom:1em"><code>doxygen.configuration(stream?:stream) {block?}</code></div>
+Reads a configuration file, which is usually dubbed "Doxyfile", from <code>stream</code> and creates a <code>doxygen.configuration</code> instance.
 </p>
 <p>
-<a href="https://code.google.com/p/dtl-cpp/">https://code.google.com/p/dtl-cpp/</a>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|cfg:doxygen.configuration|</code>, where <code>cfg</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<h3><span class="caption-index-3">17.4.3</span><a name="anchor-17-4-3"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">doxygen.configuration#get</strong></div>
+<div style="margin-bottom:1em"><code>doxygen.configuration#get(tagname:string):map:[raise]</code></div>
+Returns a value associated with the tag specified by the argument <code>tagname</code>.
+</p>
+<p>
+If the specified tag is not found, the method would return <code>nil</code> while it would cause an error in the case the attribute <code>:raise</code> is specified.
+</p>
+<p>
+<div><strong style="text-decoration:underline">doxygen.configuration#print</strong></div>
+<div style="margin-bottom:1em"><code>doxygen.configuration#print(out?:stream):map:void</code></div>
+Prints out the content of the configuration to <code>out</code>. If omitted, the result would be put out to standard output.
+</p>
+<h2><span class="caption-index-2">17.5</span><a name="anchor-17-5"></a>doxygen.aliases Class</h2>
+<h3><span class="caption-index-3">17.5.1</span><a name="anchor-17-5-1"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">doxygen.aliases#print</strong></div>
+<div style="margin-bottom:1em"><code>doxygen.aliases#print(out?:stream):map:void</code></div>
+Prints out definitions of aliases to the stream <code>out</code>. If the argument is omitted, the result would be put out to the standard output.
+</p>
+<h2><span class="caption-index-2">17.6</span><a name="anchor-17-6"></a>doxygen.renderer Class</h2>
+<h3><span class="caption-index-3">17.6.1</span><a name="anchor-17-6-1"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">doxygen.renderer</strong></div>
+<div style="margin-bottom:1em"><code>doxygen.renderer(out:stream, cfg:doxygen.configuration) {block?}</code></div>
+Creates a <code>doxygen.renderer</code> instance.
+</p>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|renderer:doxygen.renderer|</code>, where <code>renderer</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p />
 

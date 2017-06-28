@@ -5,186 +5,364 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">20</span><a name="anchor-20"></a>freetype Module</h1>
+<h1><span class="caption-index-1">20</span><a name="anchor-20"></a>fs Module</h1>
 <p>
-The <code>freetype</code> module provices measures to access vectorized font data using freetype library. To utilize it, import the <code>freetype</code> module using <code>import</code> function.
+The <code>fs</code> module provides measures to access and modify information in file systems. This is a built-in module, so you can use it without being imported.
 </p>
 <h2><span class="caption-index-2">20.1</span><a name="anchor-20-1"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">freetype.sysfontpath</strong></div>
-<div style="margin-bottom:1em"><code>freetype.sysfontpath(name:string):map</code></div>
+<div><strong style="text-decoration:underline">fs.chdir</strong></div>
+<div style="margin-bottom:1em"><code>fs.chdir(pathname:string) {block?}</code></div>
+Changes the current working directory to <code>pathname</code>.
+</p>
+<p>
+The block would be evaluated if specified, and the working directory would be changed only during that evaluation period.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.chmod</strong></div>
+<div style="margin-bottom:1em"><code>fs.chmod(mode, pathname:string):map:void:[follow_link]</code></div>
+Changes the access mode of a file specified by <code>pathname</code>.
+</p>
+<p>
+There are two formats to specify the mode: one is by a number, and another in a string.
+</p>
+<p>
+When specified in a number, following bits are associated with access permissions:
+</p>
+<ul>
+<li><code>b8 b7 b6</code> .. Read, write and executable permissions for owners</li>
+<li><code>b5 b4 b3</code> .. Read, write and executable permissions for groups</li>
+<li><code>b2 b1 b0</code> .. Read, write and executable permissions for others</li>
+</ul>
+<p>
+When set to one, each permission is validated.
+</p>
+<p>
+When specified in a string, it accepts a permission directive in a format of following regular expression
+</p>
+<pre><code>[ugoa]+([-+=][rwx]+)+
+</code></pre>
+<p>
+It starts with characters that represent target which permissions are modified as described below:
+</p>
+<ul>
+<li><code>u</code> .. owners</li>
+<li><code>g</code> .. groups</li>
+<li><code>o</code> .. others</li>
+<li><code>a</code> .. all users</li>
+</ul>
+<p>
+Then, follows an operation:
+</p>
+<ul>
+<li><code>-</code> .. remove</li>
+<li><code>+</code> .. append</li>
+<li><code>=</code> .. set</li>
+</ul>
+<p>
+At last, permission attributes are specified as below:
+</p>
+<ul>
+<li><code>r</code> .. read permission</li>
+<li><code>w</code> .. write permission</li>
+<li><code>x</code> .. executable permission</li>
+</ul>
+<p>
+If the modification target is a link file, each platform would have different result:
+</p>
+<ul>
+<li>Linux .. Modifies permissions of the link file itself. Specifying <code>:follow_link</code> attribute would modify permsisions of the target file instead.</li>
+<li>MacOS .. Modifies permissions of the target file. Attribute <code>:follow_link</code> has no effect.</li>
+<li>Windows .. Modifies permissions of the link file. Attribute <code>:follow_link</code> has no effect.</li>
+</ul>
+<p>
+<div><strong style="text-decoration:underline">fs.copy</strong></div>
+<div style="margin-bottom:1em"><code>fs.copy(src:string, dst:string):map:void:[overwrite]</code></div>
+Copies a file.
+</p>
+<p>
+An argument <code>src</code> needs to specify a path name of a file that is to be copied while <code>dst</code> can specify a path name of either a file or a directory. If <code>dst</code> is a directory, the file would be copied into that. Otherwise, it would create a copy of <code>src</code> that has a name specified by <code>dst</code>.
+</p>
+<p>
+If a destination file already exists, an error occurs. Specifying an attribute <code>:overwrite</code> would overwrite an existing one.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.cpdir</strong></div>
+<div style="margin-bottom:1em"><code>fs.cpdir(src:string, dst:string):map:void:[tree]</code></div>
+Copies a directory.
+</p>
+<p>
+Arguments <code>src</code> and <code>dst</code> specify source directory and destination directory respectively. In default, sub directories are not copied.Specifying <code>:tree</code> attribute would copy all the sub directories in the source.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.getcwd</strong></div>
+<div style="margin-bottom:1em"><code>fs.getcwd()</code></div>
+Returns the current working directory.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.mkdir</strong></div>
+<div style="margin-bottom:1em"><code>fs.mkdir(pathname:string):map:void:[tree]</code></div>
+Creates a directory.
+</p>
+<p>
+If <code>pathname</code> consists of multiple sub directories and some of them still doesn't exist, an error occurs. Specifying <code>:tree</code> attribute would create such directories.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.remove</strong></div>
+<div style="margin-bottom:1em"><code>fs.remove(pathname:string):map:void</code></div>
+Removes a file from the file system.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.rename</strong></div>
+<div style="margin-bottom:1em"><code>fs.rename(src:string, dst:string):map:void</code></div>
+Renames a file or directory.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.rmdir</strong></div>
+<div style="margin-bottom:1em"><code>fs.rmdir(pathname:string):map:void:[tree]</code></div>
+Removes a directory.
+</p>
+<p>
+If the directory contains sub directories, an error occurs. Specifying <code>:tree</code> attribute would delete such a directory.
+</p>
+<h2><span class="caption-index-2">20.2</span><a name="anchor-20-2"></a>fs.stat Class</h2>
+<p>
+An instance of <code>fs.stat</code> class contains information about a file or directory on the file system, which includes its full path name, size, creation time and file attributes. A <code>stream</code> instance has a property named <code>stat</code> that is a <code>fs.stat</code> instance when it comes from a file or directory in a file system. You can also get the instance using <code>fs.stat()</code> function.
+</p>
+<h3><span class="caption-index-3">20.2.1</span><a name="anchor-20-2-1"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">fs.stat</strong></div>
+<div style="margin-bottom:1em"><code>fs.stat(pathname:string) {block?}</code></div>
 
 </p>
-<h2><span class="caption-index-2">20.2</span><a name="anchor-20-2"></a>freetype.BBox Class</h2>
-<h2><span class="caption-index-2">20.3</span><a name="anchor-20-3"></a>freetype.BDF_Property Class</h2>
-<h2><span class="caption-index-2">20.4</span><a name="anchor-20-4"></a>freetype.Bitmap Class</h2>
-<h3><span class="caption-index-3">20.4.1</span><a name="anchor-20-4-1"></a>Method</h3>
+<h3><span class="caption-index-3">20.2.2</span><a name="anchor-20-2-2"></a>Property</h3>
 <p>
-<div><strong style="text-decoration:underline">freetype.Bitmap#Embolden</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Bitmap#Embolden(strength:number):reduce</code></div>
+A <code>fs.stat</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
 
-</p>
-<h2><span class="caption-index-2">20.5</span><a name="anchor-20-5"></a>freetype.CharMap Class</h2>
-<h3><span class="caption-index-3">20.5.1</span><a name="anchor-20-5-1"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.CharMap#Get_Index</strong></div>
-<div style="margin-bottom:1em"><code>freetype.CharMap#Get_Index()</code></div>
 
-</p>
-<h2><span class="caption-index-2">20.6</span><a name="anchor-20-6"></a>freetype.FTC_CMapCache Class</h2>
-<h2><span class="caption-index-2">20.7</span><a name="anchor-20-7"></a>freetype.FTC_ImageCache Class</h2>
-<h2><span class="caption-index-2">20.8</span><a name="anchor-20-8"></a>freetype.FTC_ImageType Class</h2>
-<h2><span class="caption-index-2">20.9</span><a name="anchor-20-9"></a>freetype.FTC_Manager Class</h2>
-<h2><span class="caption-index-2">20.10</span><a name="anchor-20-10"></a>freetype.FTC_Node Class</h2>
-<h2><span class="caption-index-2">20.11</span><a name="anchor-20-11"></a>freetype.FTC_SBit Class</h2>
-<h2><span class="caption-index-2">20.12</span><a name="anchor-20-12"></a>freetype.FTC_SBitCache Class</h2>
-<h2><span class="caption-index-2">20.13</span><a name="anchor-20-13"></a>freetype.FTC_Scaler Class</h2>
-<h2><span class="caption-index-2">20.14</span><a name="anchor-20-14"></a>freetype.Face Class</h2>
-<h3><span class="caption-index-3">20.14.1</span><a name="anchor-20-14-1"></a>Constructor</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.Face</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Face(stream:stream, face_index:number =&gt; 0):map {block?}</code></div>
+<tr>
+<td>
+<code>pathname</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
 
-</p>
-<h3><span class="caption-index-3">20.14.2</span><a name="anchor-20-14-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.Face#CheckTrueTypePatents</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Face#CheckTrueTypePatents()</code></div>
-<div><strong style="text-decoration:underline">freetype.Face#Get_Advance</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Face#Get_Advance(glyph_index:number, load_flags:number)</code></div>
-<div><strong style="text-decoration:underline">freetype.Face#Get_Advances</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Face#Get_Advances(glyph_index_start:number, count:number, load_flags:number)</code></div>
-<div><strong style="text-decoration:underline">freetype.Face#Get_Glyph_Name</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Face#Get_Glyph_Name(glyph_index:number)</code></div>
-<div><strong style="text-decoration:underline">freetype.Face#Get_Postscript_Name</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Face#Get_Postscript_Name()</code></div>
-<div><strong style="text-decoration:underline">freetype.Face#Get_Kerning</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Face#Get_Kerning(left_glyph:number, right_glyph:number, kern_mode:number)</code></div>
-<div><strong style="text-decoration:underline">freetype.Face#Load_Char</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Face#Load_Char(char_code:number, load_flags:number):reduce</code></div>
-<div><strong style="text-decoration:underline">freetype.Face#Load_Glyph</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Face#Load_Glyph(glyph_index:number, load_flags:number):reduce</code></div>
-<div><strong style="text-decoration:underline">freetype.Face#Set_Charmap</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Face#Set_Charmap(charmap:freetype.CharMap):reduce</code></div>
-<div><strong style="text-decoration:underline">freetype.Face#Set_Pixel_Sizes</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Face#Set_Pixel_Sizes(pixel_width:number, pixel_height:number):reduce</code></div>
+<td>
+</td>
+</tr>
 
-</p>
-<h2><span class="caption-index-2">20.15</span><a name="anchor-20-15"></a>freetype.Glyph Class</h2>
-<h3><span class="caption-index-3">20.15.1</span><a name="anchor-20-15-1"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.Glyph#Copy</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Glyph#Copy()</code></div>
-<div><strong style="text-decoration:underline">freetype.Glyph#Stroke</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Glyph#Stroke(stroker:freetype.Stroker):reduce</code></div>
-<div><strong style="text-decoration:underline">freetype.Glyph#StrokeBorder</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Glyph#StrokeBorder(stroker:freetype.Stroker, inside:boolean):reduce</code></div>
 
-</p>
-<h2><span class="caption-index-2">20.16</span><a name="anchor-20-16"></a>freetype.GlyphSlot Class</h2>
-<h3><span class="caption-index-3">20.16.1</span><a name="anchor-20-16-1"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.GlyphSlot#Get_Glyph</strong></div>
-<div style="margin-bottom:1em"><code>freetype.GlyphSlot#Get_Glyph()</code></div>
-<div><strong style="text-decoration:underline">freetype.GlyphSlot#Render</strong></div>
-<div style="margin-bottom:1em"><code>freetype.GlyphSlot#Render(render_mode:number):reduce</code></div>
+<tr>
+<td>
+<code>dirname</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
 
-</p>
-<h2><span class="caption-index-2">20.17</span><a name="anchor-20-17"></a>freetype.Matrix Class</h2>
-<h3><span class="caption-index-3">20.17.1</span><a name="anchor-20-17-1"></a>Constructor</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.Matrix</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Matrix(array:array@double):map {block?}</code></div>
+<td>
+</td>
+</tr>
 
-</p>
-<h3><span class="caption-index-3">20.17.2</span><a name="anchor-20-17-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.Matrix#Multiply</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Matrix#Multiply(matrix:freetype.Matrix):reduce</code></div>
-<div><strong style="text-decoration:underline">freetype.Matrix#Invert</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Matrix#Invert():reduce</code></div>
 
-</p>
-<h2><span class="caption-index-2">20.18</span><a name="anchor-20-18"></a>freetype.Outline Class</h2>
-<h3><span class="caption-index-3">20.18.1</span><a name="anchor-20-18-1"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.Outline#Translate</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Outline#Translate(xOffset:freetype.Matrix, yOffset:freetype.Matrix):reduce</code></div>
-<div><strong style="text-decoration:underline">freetype.Outline#Transform</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Outline#Transform(matrix:freetype.Matrix):reduce</code></div>
-<div><strong style="text-decoration:underline">freetype.Outline#Embolden</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Outline#Embolden(strength:number):reduce</code></div>
-<div><strong style="text-decoration:underline">freetype.Outline#Reverse</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Outline#Reverse():reduce</code></div>
+<tr>
+<td>
+<code>filename</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
 
-</p>
-<h2><span class="caption-index-2">20.19</span><a name="anchor-20-19"></a>freetype.Raster Class</h2>
-<h2><span class="caption-index-2">20.20</span><a name="anchor-20-20"></a>freetype.Span Class</h2>
-<h2><span class="caption-index-2">20.21</span><a name="anchor-20-21"></a>freetype.Stroker Class</h2>
-<h3><span class="caption-index-3">20.21.1</span><a name="anchor-20-21-1"></a>Constructor</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.Stroker</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Stroker():map {block?}</code></div>
+<td>
+</td>
+</tr>
 
-</p>
-<h3><span class="caption-index-3">20.21.2</span><a name="anchor-20-21-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.Stroker#BeginSubPath</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Stroker#BeginSubPath(to:freetype.Vector, open:boolean):reduce</code></div>
 
-</p>
-<h2><span class="caption-index-2">20.22</span><a name="anchor-20-22"></a>freetype.Vector Class</h2>
-<h3><span class="caption-index-3">20.22.1</span><a name="anchor-20-22-1"></a>Constructor</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.Vector</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Vector(x:number, y:number):map {block?}</code></div>
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
 
-</p>
-<h3><span class="caption-index-3">20.22.2</span><a name="anchor-20-22-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.Vector#Length</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Vector#Length()</code></div>
-<div><strong style="text-decoration:underline">freetype.Vector#Transform</strong></div>
-<div style="margin-bottom:1em"><code>freetype.Vector#Transform(matrix:freetype.Matrix):reduce</code></div>
+<td>
+</td>
+</tr>
 
-</p>
-<h2><span class="caption-index-2">20.23</span><a name="anchor-20-23"></a>freetype.font Class</h2>
-<h2><span class="caption-index-2">20.24</span><a name="anchor-20-24"></a>Constructor</h2>
-<p>
-<div><strong style="text-decoration:underline">freetype.font</strong></div>
-<div style="margin-bottom:1em"><code>freetype.font(face:freetype.Face):map {block?}</code></div>
 
-</p>
-<h3><span class="caption-index-3">20.24.1</span><a name="anchor-20-24-1"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">freetype.font#cleardeco</strong></div>
-<div style="margin-bottom:1em"><code>freetype.font#cleardeco():reduce</code></div>
-<div><strong style="text-decoration:underline">freetype.font#drawtext</strong></div>
-<div style="margin-bottom:1em"><code>freetype.font#drawtext(image:image, x:number, y:number, str:string):map:reduce {block?}</code></div>
-Draws a text on the image.
-</p>
-<p>
-<div><strong style="text-decoration:underline">freetype.font#calcsize</strong></div>
-<div style="margin-bottom:1em"><code>freetype.font#calcsize(str:string):map</code></div>
-<div><strong style="text-decoration:underline">freetype.font#calcbbox</strong></div>
-<div style="margin-bottom:1em"><code>freetype.font#calcbbox(x:number, y:number, str:string):map</code></div>
+<tr>
+<td>
+<code>uid</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
 
-</p>
-<h2><span class="caption-index-2">20.25</span><a name="anchor-20-25"></a>Extension to image Class</h2>
-<p>
-This module extends the <code>image</code> class with methods described here.
-</p>
-<p>
-<div><strong style="text-decoration:underline">image#drawtext</strong></div>
-<div style="margin-bottom:1em"><code>image#drawtext(font:freetype.font, x:number, y:number, str:string):map:reduce {block?}</code></div>
-Draws a text on the image.
-</p>
-<h2><span class="caption-index-2">20.26</span><a name="anchor-20-26"></a>Thanks</h2>
-<p>
-This module uses FreeType library which is distributed in the following site:
-</p>
-<p>
-<a href="http://www.freetype.org/">http://www.freetype.org/</a>
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>gid</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>atime</code></td>
+<td>
+<code>datetime</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>mtime</code></td>
+<td>
+<code>datetime</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>ctime</code></td>
+<td>
+<code>datetime</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>isdir</code></td>
+<td>
+<code>boolean</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>ischr</code></td>
+<td>
+<code>boolean</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>isblk</code></td>
+<td>
+<code>boolean</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>isreg</code></td>
+<td>
+<code>boolean</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>isfifo</code></td>
+<td>
+<code>boolean</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>islnk</code></td>
+<td>
+<code>boolean</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>issock</code></td>
+<td>
+<code>boolean</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+</table>
+
 </p>
 <p />
 

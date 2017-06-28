@@ -266,7 +266,7 @@ As the interpreter searches these files in directories that are relative to its 
 When the interpret is launched, it creates a working directory if it's not exist, which Gura applications can use to store working files.
 </p>
 <p>
-The directory name comes like below where GURA_VERSION is the Gura's version.
+The directory name comes like below where <code>GURA_VERSION</code> is the Gura's version.
 </p>
 <p>
 For Windows:

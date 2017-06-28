@@ -5,60 +5,53 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">47</span><a name="anchor-47"></a>sqlite3 Module</h1>
+<h1><span class="caption-index-1">47</span><a name="anchor-47"></a>sys Module</h1>
 <p>
-The <code>sqlite3</code> module provides measures to access SQLite3 database. To utilize it, import the <code>sqlite3</code> module using <code>import</code> function.
+The <code>sys</code> module provides system-related information. This is a built-in module, so you can use it without being imported.
 </p>
-<h2><span class="caption-index-2">47.1</span><a name="anchor-47-1"></a>sqlite3.db Class</h2>
-<h3><span class="caption-index-3">47.1.1</span><a name="anchor-47-1-1"></a>Constructor</h3>
+<h2><span class="caption-index-2">47.1</span><a name="anchor-47-1"></a>Module Variable</h2>
+<ul>
+<li><code>sys.argv</code></li>
+<li><code>sys.path</code></li>
+<li><code>sys.maindir</code></li>
+<li><code>sys.version</code></li>
+<li><code>sys.banner</code></li>
+<li><code>sys.timestamp</code></li>
+<li><code>sys.build</code></li>
+<li><code>sys.platform</code></li>
+<li><code>sys.ps1</code></li>
+<li><code>sys.ps2</code></li>
+<li><code>sys.langcode</code></li>
+<li><code>sys.executable</code></li>
+<li><code>sys.incdir</code></li>
+<li><code>sys.libdir</code></li>
+<li><code>sys.datadir</code></li>
+<li><code>sys.moddir</code></li>
+<li><code>sys.localdir</code></li>
+<li><code>sys.appdir</code></li>
+<li><code>sys.cfgdir</code></li>
+<li><code>sys.workdir</code></li>
+</ul>
+<h2><span class="caption-index-2">47.2</span><a name="anchor-47-2"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">sqlite3.db</strong></div>
-<div style="margin-bottom:1em"><code>sqlite3.db(filename:string) {block?}</code></div>
-Opens an sqlite3 database file and returns a connection handle with the database.
-</p>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|db:sqlite3|</code>, where <code>db</code> is the created instance. In this case, the block's result would become the function's returned value. The connection handle will be automatically closed when the block finishes.
-</p>
-<h3><span class="caption-index-3">47.1.2</span><a name="anchor-47-1-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">sqlite3.db#close</strong></div>
-<div style="margin-bottom:1em"><code>sqlite3.db#close()</code></div>
-Shuts down the connection with an sqlite3 server.
-</p>
-<p>
-<div><strong style="text-decoration:underline">sqlite3.db#exec</strong></div>
-<div style="margin-bottom:1em"><code>sqlite3.db#exec(sql:string):map</code></div>
-Executes an SQL statement and creates an <code>list</code> that has <code>list</code> instances containing queried result as its elements.
-</p>
-<p>
-<div><strong style="text-decoration:underline">sqlite3.db#getcolnames</strong></div>
-<div style="margin-bottom:1em"><code>sqlite3.db#getcolnames(sql:string):map {block?}</code></div>
-
-</p>
-<p>
-<div><strong style="text-decoration:underline">sqlite3.db#query</strong></div>
-<div style="margin-bottom:1em"><code>sqlite3.db#query(sql:string):map {block?}</code></div>
-Executes an SQL statement and creates an <code>iterator</code> that returns <code>list</code> instances containing queried result as its elements.
+<div><strong style="text-decoration:underline">sys.echo</strong></div>
+<div style="margin-bottom:1em"><code>sys.echo(flag:boolean)</code></div>
+Enables or disables echo-back functionality according to flag.
 </p>
 <p>
-You should use <code>sqlite3.db#query()</code> instead of <code>sqlite3.db#exec()</code> when it's likely that you get a large size of data as the result.
+<div><strong style="text-decoration:underline">sys.exit</strong></div>
+<div style="margin-bottom:1em"><code>sys.exit(status?:number)</code></div>
+Terminates the program with a specified status number.
 </p>
 <p>
-<div><strong style="text-decoration:underline">sqlite3.db#transaction</strong></div>
-<div style="margin-bottom:1em"><code>sqlite3.db#transaction() {block}</code></div>
-Executes the block within a transaction. The process is like following:
-</p>
-<ol>
-<li>Executes a sqlit3 command 'BEGIN TRANSACTION'.</li>
-<li>Executes code in the <code>block</code>.</li>
-<li>Executes a sqlite3 command 'END TRANSACTION'.</li>
-</ol>
-<h2><span class="caption-index-2">47.2</span><a name="anchor-47-2"></a>Thanks</h2>
-<p>
-This module uses SQlite3 library which is distributed in the following site:
+<div><strong style="text-decoration:underline">sys.interactive</strong></div>
+<div style="margin-bottom:1em"><code>sys.interactive()</code></div>
+Enters to interactive mode.
 </p>
 <p>
-<a href="http://www.sqlite.org/index.html">http://www.sqlite.org/index.html</a>
+<div><strong style="text-decoration:underline">sys.required_version</strong></div>
+<div style="margin-bottom:1em"><code>sys.required_version(major:number, minor:number, patch:number)</code></div>
+Raises an error if the running interpreter doesn't satisfy the required version.
 </p>
 <p />
 

@@ -5,127 +5,118 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">14</span><a name="anchor-14"></a>conio Module</h1>
+<h1><span class="caption-index-1">14</span><a name="anchor-14"></a>csv Module</h1>
 <p>
-The <code>conio</code> module provides following measures to work on a console screen:
-</p>
-<ul>
-<li>Moves the cursor where texts are printed.</li>
-<li>Changes text colors.</li>
-<li>Retrieves console size.</li>
-<li>Waits for keyboard input.</li>
-</ul>
-<p>
-To utilize it, import the <code>conio</code> module using <code>import</code> function.
+The <code>csv</code> module provices measures to read/write CSV files. To utilize it, import the <code>csv</code> module using <code>import()</code> function.
 </p>
 <p>
-Below is an example to print a frame around a console:
+Below is an example to read a CSV file that contains three fields per line:
 </p>
-<pre><code>import(conio)
+<pre><code>import(csv)
 
-conio.clear()
-[w, h] = conio.getwinsize()
-conio.moveto(0, 0) {
-    print('*' * w)
-}
-conio.moveto(0, 1 .. (h - 2)) {
-    print('*', ' ' * (w - 2), '*')
-}
-conio.moveto(0, h - 1) {
-    print('*' * w)
-}
-conio.waitkey():raise
+Record = struct(name:string, age:number, email:string)
+records = Record * csv.read('records.csv')
+printf('name:%s, age:%d, email:%s¥n',
+       records:*name, records:*age, records:*email)
 </code></pre>
 <h2><span class="caption-index-2">14.1</span><a name="anchor-14-1"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">conio.clear</strong></div>
-<div style="margin-bottom:1em"><code>conio.clear(region?:symbol):void</code></div>
-Clears the screen.
+<div><strong style="text-decoration:underline">csv.parse</strong></div>
+<div style="margin-bottom:1em"><code>csv.parse(str:string):map {block?}</code></div>
+Creates an iterator that parses a text in CSV format that is contained in the specified string and returns a list of fields as its each element.
 </p>
 <p>
-In default, it clears whole the screen. Argument <code>region</code> that takes one of the symbols below would specify the region to be cleared.
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
-<li><code>`line</code> .. clears characters in the line where the cursor exists.</li>
-<li><code>`left</code> .. clears characters on the left side of the cursor.</li>
-<li><code>`right</code> .. clears characters on the right side of the cursor.</li>
-<li><code>`top</code> .. clears characters on the above side of the cursor.</li>
-<li><code>`bottom</code> .. clears characters on the below side of the cursor.</li>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
 <p>
-<div><strong style="text-decoration:underline">conio.getwinsize</strong></div>
-<div style="margin-bottom:1em"><code>conio.getwinsize()</code></div>
-Returns the screen size as a list <code>[width, height]</code>.
+See the chapter of Mapping Process in Gura Language Manual for the detail.
 </p>
 <p>
-<div><strong style="text-decoration:underline">conio.setcolor</strong></div>
-<div style="margin-bottom:1em"><code>conio.setcolor(fg:symbol:nil, bg?:symbol):map:void {block?}</code></div>
-Sets foreground and background color of text by specifying a color symbol. Available color symbols are listed below:
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+<div><strong style="text-decoration:underline">csv.read</strong></div>
+<div style="margin-bottom:1em"><code>csv.read(stream:stream:r) {block?}</code></div>
+Creates an iterator that parses a text in CSV format from the specified stream and returns a list of fields as its each element.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
-<li><code>`black</code></li>
-<li><code>`blue</code></li>
-<li><code>`green</code></li>
-<li><code>`aqua</code></li>
-<li><code>`cyan</code></li>
-<li><code>`red</code></li>
-<li><code>`purple</code></li>
-<li><code>`magenta</code></li>
-<li><code>`yellow</code></li>
-<li><code>`white</code></li>
-<li><code>`gray</code></li>
-<li><code>`bright_blue</code></li>
-<li><code>`bright_green</code></li>
-<li><code>`bright_aqua</code></li>
-<li><code>`bright_cyan</code></li>
-<li><code>`bright_red</code></li>
-<li><code>`bright_purple</code></li>
-<li><code>`bright_magenta</code></li>
-<li><code>`bright_yellow</code></li>
-<li><code>`bright_white</code></li>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
 <p>
-If <code>fg</code> is set to nil, the foreground color remains unchanged. If <code>bg</code> is omitted or set to nil, the background color remains unchanged.
+See the chapter of Mapping Process in Gura Language Manual for the detail.
 </p>
 <p>
-If <code>block</code> is specified, the color is changed before evaluating the block, and then gets back to what has been set when done.
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<h2><span class="caption-index-2">14.2</span><a name="anchor-14-2"></a>csv.writer Class</h2>
+<h3><span class="caption-index-3">14.2.1</span><a name="anchor-14-2-1"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">csv.writer</strong></div>
+<div style="margin-bottom:1em"><code>csv.writer(stream:stream:w, format?:string) {block?}</code></div>
+Creates a <code>csv.writer</code> instance that provides methods to write CSV text to the specified stream.
 </p>
 <p>
-<div><strong style="text-decoration:underline">conio.moveto</strong></div>
-<div style="margin-bottom:1em"><code>conio.moveto(x:number, y:number):map:void {block?}</code></div>
-Moves cursor to the specified position. The most top-left position on the screen is represented as <code>0, 0</code>.
+The argument <code>format</code> specifies a printf-style format string that is used to convert a <code>number</code> and <code>complex</code> value to a string.
+</p>
+<h3><span class="caption-index-3">14.2.2</span><a name="anchor-14-2-2"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">csv.writer#write</strong></div>
+<div style="margin-bottom:1em"><code>csv.writer#write(fields+):map:reduce</code></div>
+Writes values in CSV format.
 </p>
 <p>
-If <code>block</code> is specified, the cursor is moved before evaluating the block, and then gets back to where it has been when done.
+The argument <code>fields</code> takes <code>string</code>, <code>number</code> or <code>complex</code> values that are to be put out in a row.
+</p>
+<h2><span class="caption-index-2">14.3</span><a name="anchor-14-3"></a>Extension of stream Class</h2>
+<p>
+This module extends the <code>stream</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">conio.waitkey</strong></div>
-<div style="margin-bottom:1em"><code>conio.waitkey():[raise]</code></div>
-Waits for a keyboard input and returns a character code number associated with the key.
+<div><strong style="text-decoration:underline">stream#read@csv</strong></div>
+<div style="margin-bottom:1em"><code>stream#read@csv() {block?}</code></div>
+Creates an iterator that parses a text in CSV format from the specified stream and returns a list of fields as its each element.
 </p>
 <p>
-If <code>:raise</code> attribute is specified, hitting <code>Ctrl-C</code> issues a terminating signal that causes the program done.
-</p>
-<p>
-Character code numbers of some of the special keys are defined as below:
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
 <ul>
-<li><code>conio.K_BACKSPACE</code></li>
-<li><code>conio.K_TAB</code></li>
-<li><code>conio.K_RETURN</code></li>
-<li><code>conio.K_ESCAPE</code></li>
-<li><code>conio.K_SPACE</code></li>
-<li><code>conio.K_UP</code></li>
-<li><code>conio.K_DOWN</code></li>
-<li><code>conio.K_RIGHT</code></li>
-<li><code>conio.K_LEFT</code></li>
-<li><code>conio.K_INSERT</code></li>
-<li><code>conio.K_HOME</code></li>
-<li><code>conio.K_END</code></li>
-<li><code>conio.K_PAGEUP</code></li>
-<li><code>conio.K_PAGEDOWN</code></li>
-<li><code>conio.K_DELETE</code></li>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
 </ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<p>
+<div><strong style="text-decoration:underline">stream#writer@csv</strong></div>
+<div style="margin-bottom:1em"><code>stream#writer@csv(format?:string) {block?}</code></div>
+Creates a <code>csv.writer</code> instance that provides methods to write CSV text to the target stream.
+</p>
+<p>
+The argument <code>format</code> specifies a printf-style format string that is used to convert a <code>number</code> and <code>complex</code> value to a string.
+</p>
 <p />
 
 {% endraw %}

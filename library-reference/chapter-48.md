@@ -5,54 +5,68 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">48</span><a name="anchor-48"></a>sys Module</h1>
+<h1><span class="caption-index-1">48</span><a name="anchor-48"></a>tar Module</h1>
 <p>
-The <code>sys</code> module provides system-related information. This is a built-in module, so you can use it without being imported.
+The <code>tar</code> module provides measures to read/write TAR files. To utilize it, import the <code>tar</code> module using <code>import</code> function.
 </p>
-<h2><span class="caption-index-2">48.1</span><a name="anchor-48-1"></a>Module Variable</h2>
+<h2><span class="caption-index-2">48.1</span><a name="anchor-48-1"></a>tar.reader Class</h2>
+<h3><span class="caption-index-3">48.1.1</span><a name="anchor-48-1-1"></a>Function To Create Instance</h3>
+<p>
+<div><strong style="text-decoration:underline">tar.reader</strong></div>
+<div style="margin-bottom:1em"><code>tar.reader(stream:stream:r, compression?:symbol) {block?}</code></div>
+Reads a tar file from <code>stream</code> and returns a <code>tar.reader</code> instance that is to be used to read contents from the archive.
+</p>
+<p>
+The argument <code>compression</code> specifies the compression format of the tar file and takes one of the following symbols:
+</p>
 <ul>
-<li><code>sys.argv</code></li>
-<li><code>sys.path</code></li>
-<li><code>sys.maindir</code></li>
-<li><code>sys.version</code></li>
-<li><code>sys.banner</code></li>
-<li><code>sys.timestamp</code></li>
-<li><code>sys.build</code></li>
-<li><code>sys.platform</code></li>
-<li><code>sys.ps1</code></li>
-<li><code>sys.ps2</code></li>
-<li><code>sys.langcode</code></li>
-<li><code>sys.executable</code></li>
-<li><code>sys.incdir</code></li>
-<li><code>sys.libdir</code></li>
-<li><code>sys.datadir</code></li>
-<li><code>sys.moddir</code></li>
-<li><code>sys.localdir</code></li>
-<li><code>sys.appdir</code></li>
-<li><code>sys.cfgdir</code></li>
-<li><code>sys.workdir</code></li>
+<li><code>`auto</code> .. determins the format from a suffix name of the stream.</li>
+<li><code>`gzip</code> .. gzip format</li>
+<li><code>`bzip2</code> .. bzip2 format</li>
 </ul>
-<h2><span class="caption-index-2">48.2</span><a name="anchor-48-2"></a>Module Function</h2>
+<h3><span class="caption-index-3">48.1.2</span><a name="anchor-48-1-2"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">sys.echo</strong></div>
-<div style="margin-bottom:1em"><code>sys.echo(flag:boolean)</code></div>
-Enables or disables echo-back functionality according to flag.
+<div><strong style="text-decoration:underline">tar.reader#entries</strong></div>
+<div style="margin-bottom:1em"><code>tar.reader#entries() {block?}</code></div>
+Creates an iterator that returns stream instances for each entry in the tar file.
+</p>
+<h2><span class="caption-index-2">48.2</span><a name="anchor-48-2"></a>tar.writer Class</h2>
+<h3><span class="caption-index-3">48.2.1</span><a name="anchor-48-2-1"></a>Function To Create Instance</h3>
+<p>
+<div><strong style="text-decoration:underline">tar.writer</strong></div>
+<div style="margin-bottom:1em"><code>tar.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
+Creates a tar file on <code>stream</code> and returns a <code>tar.writer</code> instance that is to be used to write contents to the archive.
 </p>
 <p>
-<div><strong style="text-decoration:underline">sys.exit</strong></div>
-<div style="margin-bottom:1em"><code>sys.exit(status?:number)</code></div>
-Terminates the program with a specified status number.
+The argument <code>compression</code> specifies the compression format of the tar file and takes one of the following symbols:
+</p>
+<ul>
+<li><code>`auto</code> .. determins the format from a suffix name of the stream.</li>
+<li><code>`gzip</code> .. gzip format</li>
+<li><code>`bzip2</code> .. bzip2 format</li>
+</ul>
+<h3><span class="caption-index-3">48.2.2</span><a name="anchor-48-2-2"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">tar.writer#add</strong></div>
+<div style="margin-bottom:1em"><code>tar.writer#add(stream:stream:r, filename?:string):map:reduce</code></div>
+Adds an entry to the tar archive with a content from <code>stream</code> and a name of <code>filename</code>.
 </p>
 <p>
-<div><strong style="text-decoration:underline">sys.interactive</strong></div>
-<div style="margin-bottom:1em"><code>sys.interactive()</code></div>
-Enters to interactive mode.
+If the argument <code>filename</code> is omitted, an identifier associated with the <code>stream</code> would be used as the entry name.
 </p>
 <p>
-<div><strong style="text-decoration:underline">sys.required_version</strong></div>
-<div style="margin-bottom:1em"><code>sys.required_version(major:number, minor:number, patch:number)</code></div>
-Raises an error if the running interpreter doesn't satisfy the required version.
+<div><strong style="text-decoration:underline">tar.writer#close</strong></div>
+<div style="margin-bottom:1em"><code>tar.writer#close():reduce</code></div>
+Flushes all the unfinished writing processes and invalidates the <code>tar.writer</code> instance.
 </p>
+<h2><span class="caption-index-2">48.3</span><a name="anchor-48-3"></a>Thanks</h2>
+<p>
+This module uses zlib and bzip2 library which are distributed in the following sites:
+</p>
+<ul>
+<li><a href="http://zlib.net/">http://zlib.net/</a></li>
+<li><a href="http://www.bzip.org/">http://www.bzip.org/</a></li>
+</ul>
 <p />
 
 {% endraw %}
