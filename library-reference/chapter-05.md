@@ -4416,19 +4416,6 @@ Below is an example to specify a number that exceeds the source length:
 Calculates a logical AND result of all the values in the iterable.
 </p>
 <p>
-<div><strong style="text-decoration:underline">iterable#average</strong></div>
-<div style="margin-bottom:1em"><code>iterable#average()</code></div>
-Calculates an average of elements in the iterable.
-</p>
-<p>
-It can work on an iterable with elements of type that supports addition and division operators. Below is a list of acceptable value types:
-</p>
-<ul>
-<li><code>number</code></li>
-<li><code>complex</code></li>
-<li><code>rational</code></li>
-</ul>
-<p>
 <div><strong style="text-decoration:underline">iterable#before</strong></div>
 <div style="margin-bottom:1em"><code>iterable#before(criteria) {block?}</code></div>
 Creates an iterator that extracts elements in the iterable before criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
@@ -4693,6 +4680,19 @@ It would return a position index where the maximum value is found when one of th
 <li><code>:index</code> .. an index of the maximum value.</li>
 <li><code>:indices</code> .. a list of indices where the maximum value is found.</li>
 <li><code>:last_index</code> .. the last index of the maximum value when the value exists at multiple positions.</li>
+</ul>
+<p>
+<div><strong style="text-decoration:underline">iterable#mean</strong></div>
+<div style="margin-bottom:1em"><code>iterable#mean()</code></div>
+Calculates an average of elements in the iterable.
+</p>
+<p>
+It can work on an iterable with elements of type that supports addition and division operators. Below is a list of acceptable value types:
+</p>
+<ul>
+<li><code>number</code></li>
+<li><code>complex</code></li>
+<li><code>rational</code></li>
 </ul>
 <p>
 <div><strong style="text-decoration:underline">iterable#min</strong></div>
