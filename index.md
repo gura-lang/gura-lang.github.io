@@ -88,14 +88,13 @@ after it's given with iterators, `1..` and `readlines('foo.txt')`, as its argume
 
 # Summary of Features
 
-* It provides a variety of iterator operations including [Mapping Process](features/Mapping-Process.html)
+* It provides a variety of iterator operations including mapping process
   such as **Implicit Mapping** and **Member Mapping**.
-* [Object Oriented Programming](features/Object-Oriented-Programming.html):
-  provides class and instance mechanism.
+* It supports object oriented programming with class and instance mechanism.
 * It's being shipped with various modules including powerful GUI toolkits
   that enable you to develop practical applications.
-  The site [http://app.gura-lang.org/](http://app.gura-lang.org/) provides
-  applications that utilizes Gura.
+  The site [http://app.gura-lang.org/](http://app.gura-lang.org/) introduces you
+  some applications that makes use of Gura.
 
 # Contacts
 
