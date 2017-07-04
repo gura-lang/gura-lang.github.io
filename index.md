@@ -88,9 +88,9 @@ after it's given with iterators, `1..` and `readlines('foo.txt')`, as its argume
 
 # Summary of Features
 
-* It provides a variety of iterator operations including [Mapping Process](documents/Mapping-Process.html)
+* It provides a variety of iterator operations including [Mapping Process](features/Mapping-Process.html)
   such as **Implicit Mapping** and **Member Mapping**.
-* [Object Oriented Programming](documents/Object-Oriented-Programming.html):
+* [Object Oriented Programming](features/Object-Oriented-Programming.html):
   provides class and instance mechanism.
 * It's being shipped with various modules including powerful GUI toolkits
   that enable you to develop practical applications.
