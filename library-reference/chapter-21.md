@@ -5,92 +5,139 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">21</span><a name="anchor-21"></a>gif Module</h1>
+<h1><span class="caption-index-1">21</span><a name="anchor-21"></a>fs Module</h1>
 <p>
-The <code>gif</code> module provides measures to read/write image data in GIF format. To utilize it, import the <code>gif</code> module using <code>import</code> function.
+The <code>fs</code> module provides measures to access and modify information in file systems. This is a built-in module, so you can use it without being imported.
+</p>
+<h2><span class="caption-index-2">21.1</span><a name="anchor-21-1"></a>Module Function</h2>
+<p>
+<div><strong style="text-decoration:underline">fs.chdir</strong></div>
+<div style="margin-bottom:1em"><code>fs.chdir(pathname:string) {block?}</code></div>
+Changes the current working directory to <code>pathname</code>.
 </p>
 <p>
-Below is an example to read a GIF file:
-</p>
-<pre><code>import(gif)
-img = image('foo.gif')
-</code></pre>
-<p>
-Below is an example to create a GIF file that contains multiple images:
-</p>
-<pre><code>import(gif)
-g = gif.content()
-g.addimage(['cell1.png', 'cell2.png', 'cell3.png'], 10) g.write('anim.gif')
-</code></pre>
-<h2><span class="caption-index-2">21.1</span><a name="anchor-21-1"></a>Exntension to Function's Capability</h2>
-<p>
-This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write GIF files.
+The block would be evaluated if specified, and the working directory would be changed only during that evaluation period.
 </p>
 <p>
-When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a GIF file.
+<div><strong style="text-decoration:underline">fs.chmod</strong></div>
+<div style="margin-bottom:1em"><code>fs.chmod(mode, pathname:string):map:void:[follow_link]</code></div>
+Changes the access mode of a file specified by <code>pathname</code>.
 </p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.gif</code>".</li>
-<li>The stream data begins with a byte sequence "<code>GIF87a</code>" or "<code>GIF89a</code>".</li>
-</ul>
 <p>
-When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in GIF format.
+There are two formats to specify the mode: one is by a number, and another in a string.
+</p>
+<p>
+When specified in a number, following bits are associated with access permissions:
 </p>
 <ul>
-<li>The identifier of the stream ends with a suffix "<code>.gif</code>".</li>
+<li><code>b8 b7 b6</code> .. Read, write and executable permissions for owners</li>
+<li><code>b5 b4 b3</code> .. Read, write and executable permissions for groups</li>
+<li><code>b2 b1 b0</code> .. Read, write and executable permissions for others</li>
 </ul>
-<h2><span class="caption-index-2">21.2</span><a name="anchor-21-2"></a>gif.content Class</h2>
 <p>
-The <code>gif.content</code> class provides properties to explain GIF information and methods to manipulate contents of GIF file. Below is a class diagram of <code>gif.content</code>:
+When set to one, each permission is validated.
 </p>
-<pre><code>+-------------+                         +-----------------------------+
-| gif.content |images                   |            image            |
-|-------------*-------------------------+-----------------------------|
-|             |                     1.. +-----------------------------+
-|             |
-|             |                         +-----------------------------+
-|             |Header                   |         gif.Header          |
-|             *-------------------------+-----------------------------|
-|             |                         +-----------------------------+
-|             |
-|             |                         +-----------------------------+
-|             |LogicalScreenDescriptor  | gif.LogicalScreenDescriptor |
-|             *-------------------------+-----------------------------|
-|             |                         +-----------------------------+
-|             |
-|             |                         +-----------------------------+
-|             |CommentExtension         |    gif.CommentExtension     |
-|             *-------------------------+-----------------------------|
-|             |                         +-----------------------------+
-|             |
-|             |                         +-----------------------------+
-|             |PlainTextExntension      |   gif.PlainTextExtension    |
-|             *-------------------------+-----------------------------|
-|             |                         +-----------------------------+
-|             |
-|             |                         +-----------------------------+
-|             |ApplicationExntension    | gif.ApplicationExtension    |
-|             *-------------------------+-----------------------------|
-|             |                         +-----------------------------+
-+-------------+
+<p>
+When specified in a string, it accepts a permission directive in a format of following regular expression
+</p>
+<pre><code>[ugoa]+([-+=][rwx]+)+
 </code></pre>
+<p>
+It starts with characters that represent target which permissions are modified as described below:
+</p>
 <ul>
-<li>A property of <code>gif.content</code> has one or more images. Multiple images are mainly used for animation.</li>
-<li>The property named <code>Header</code> is an instance of <code>gif.Header</code> class.</li>
-<li>The property named <code>LogicalScreenDescriptor</code> is an instance of <code>gif.LogicalScreenDescriptor</code> class.</li>
-<li>The property named <code>CommentExtension</code> is an instance of <code>gif.CommentExtension</code> class.</li>
-<li>The property named <code>PlainTextExtension</code> is an instance of <code>gif.PlainTextExtension</code> class.</li>
-<li>The property named <code>ApplicationExtension</code> is an instance of <code>gif.ApplicationExtension</code> class.</li>
+<li><code>u</code> .. owners</li>
+<li><code>g</code> .. groups</li>
+<li><code>o</code> .. others</li>
+<li><code>a</code> .. all users</li>
 </ul>
+<p>
+Then, follows an operation:
+</p>
+<ul>
+<li><code>-</code> .. remove</li>
+<li><code>+</code> .. append</li>
+<li><code>=</code> .. set</li>
+</ul>
+<p>
+At last, permission attributes are specified as below:
+</p>
+<ul>
+<li><code>r</code> .. read permission</li>
+<li><code>w</code> .. write permission</li>
+<li><code>x</code> .. executable permission</li>
+</ul>
+<p>
+If the modification target is a link file, each platform would have different result:
+</p>
+<ul>
+<li>Linux .. Modifies permissions of the link file itself. Specifying <code>:follow_link</code> attribute would modify permsisions of the target file instead.</li>
+<li>MacOS .. Modifies permissions of the target file. Attribute <code>:follow_link</code> has no effect.</li>
+<li>Windows .. Modifies permissions of the link file. Attribute <code>:follow_link</code> has no effect.</li>
+</ul>
+<p>
+<div><strong style="text-decoration:underline">fs.copy</strong></div>
+<div style="margin-bottom:1em"><code>fs.copy(src:string, dst:string):map:void:[overwrite]</code></div>
+Copies a file.
+</p>
+<p>
+An argument <code>src</code> needs to specify a path name of a file that is to be copied while <code>dst</code> can specify a path name of either a file or a directory. If <code>dst</code> is a directory, the file would be copied into that. Otherwise, it would create a copy of <code>src</code> that has a name specified by <code>dst</code>.
+</p>
+<p>
+If a destination file already exists, an error occurs. Specifying an attribute <code>:overwrite</code> would overwrite an existing one.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.cpdir</strong></div>
+<div style="margin-bottom:1em"><code>fs.cpdir(src:string, dst:string):map:void:[tree]</code></div>
+Copies a directory.
+</p>
+<p>
+Arguments <code>src</code> and <code>dst</code> specify source directory and destination directory respectively. In default, sub directories are not copied.Specifying <code>:tree</code> attribute would copy all the sub directories in the source.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.getcwd</strong></div>
+<div style="margin-bottom:1em"><code>fs.getcwd()</code></div>
+Returns the current working directory.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.mkdir</strong></div>
+<div style="margin-bottom:1em"><code>fs.mkdir(pathname:string):map:void:[tree]</code></div>
+Creates a directory.
+</p>
+<p>
+If <code>pathname</code> consists of multiple sub directories and some of them still doesn't exist, an error occurs. Specifying <code>:tree</code> attribute would create such directories.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.remove</strong></div>
+<div style="margin-bottom:1em"><code>fs.remove(pathname:string):map:void</code></div>
+Removes a file from the file system.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.rename</strong></div>
+<div style="margin-bottom:1em"><code>fs.rename(src:string, dst:string):map:void</code></div>
+Renames a file or directory.
+</p>
+<p>
+<div><strong style="text-decoration:underline">fs.rmdir</strong></div>
+<div style="margin-bottom:1em"><code>fs.rmdir(pathname:string):map:void:[tree]</code></div>
+Removes a directory.
+</p>
+<p>
+If the directory contains sub directories, an error occurs. Specifying <code>:tree</code> attribute would delete such a directory.
+</p>
+<h2><span class="caption-index-2">21.2</span><a name="anchor-21-2"></a>fs.stat Class</h2>
+<p>
+An instance of <code>fs.stat</code> class contains information about a file or directory on the file system, which includes its full path name, size, creation time and file attributes. A <code>stream</code> instance has a property named <code>stat</code> that is a <code>fs.stat</code> instance when it comes from a file or directory in a file system. You can also get the instance using <code>fs.stat()</code> function.
+</p>
 <h3><span class="caption-index-3">21.2.1</span><a name="anchor-21-2-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">gif.content</strong></div>
-<div style="margin-bottom:1em"><code>gif.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code></div>
-Reads a GIF data from a stream and returns an object that contains GIF related information and images of a specified format. format is is <code>rgb,</code>rgba or <code>noimage. If</code>noimage is specified, only the information data is read
+<div><strong style="text-decoration:underline">fs.stat</strong></div>
+<div style="margin-bottom:1em"><code>fs.stat(pathname:string) {block?}</code></div>
+
 </p>
 <h3><span class="caption-index-3">21.2.2</span><a name="anchor-21-2-2"></a>Property</h3>
 <p>
-A <code>gif.content</code> instance has the following properties:
+A <code>fs.stat</code> instance has the following properties:
 </p>
 <p>
 <table>
@@ -108,22 +155,9 @@ Explanation</th>
 
 <tr>
 <td>
-<code>images</code></td>
+<code>pathname</code></td>
 <td>
-<code>image[]</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>Header</code></td>
-<td>
-<code>gif.Header</code></td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -134,22 +168,9 @@ R</td>
 
 <tr>
 <td>
-<code>LogicalScreenDescriptor</code></td>
+<code>dirname</code></td>
 <td>
-<code>gif.LogicalScreenDescriptor</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>CommentExtension</code></td>
-<td>
-<code>gif.CommentExtension</code></td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -160,95 +181,9 @@ R</td>
 
 <tr>
 <td>
-<code>PlainTextExtension</code></td>
+<code>filename</code></td>
 <td>
-<code>gif.PlainTextExtension</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>ApplicationExtension</code></td>
-<td>
-<code>gif.ApplicationExtension</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-</table>
-
-</p>
-<h3><span class="caption-index-3">21.2.3</span><a name="anchor-21-2-3"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">gif.content#addimage</strong></div>
-<div style="margin-bottom:1em"><code>gif.content#addimage(image:image, delayTime:number =&gt; 10, leftPos:number =&gt; 0, topPos:number =&gt; 0, disposalMethod:symbol =&gt; `none):map:reduce</code></div>
-Adds an image to GIF information.
-</p>
-<p>
-You can add multiple images that can be played as a motion picture.
-</p>
-<p>
-The argument <code>delayTime</code> specifies the delay time in 10 milli seconds between images.
-</p>
-<p>
-The arguments <code>leftPost</code> and <code>topPos</code> specifies the rendered offset in the screen.
-</p>
-<p>
-The argument <code>disposalMethod</code> takes one of following symbols that specifies how the image will be treated after being rendered.
-</p>
-<ul>
-<li><code>`none</code> .. </li>
-<li><code>`keep</code> .. </li>
-<li><code>`background</code>.. </li>
-<li><code>`previous</code> .. </li>
-</ul>
-<p>
-This method returns the reference to the target instance itself.
-</p>
-<p>
-<div><strong style="text-decoration:underline">gif.content#write</strong></div>
-<div style="margin-bottom:1em"><code>gif.content#write(stream:stream:w):reduce</code></div>
-Writes a GIF image to a stream.
-</p>
-<p>
-This method returns the reference to the target instance itself.
-</p>
-<h2><span class="caption-index-2">21.3</span><a name="anchor-21-3"></a>gif.Header Class</h2>
-<p>
-A <code>gif.Header</code> instance provides information of Header structure in GIF format.
-</p>
-<h3><span class="caption-index-3">21.3.1</span><a name="anchor-21-3-1"></a>Property</h3>
-<p>
-A <code>gif.Header</code> instance has the following properties:
-</p>
-<p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>Signature</code></td>
-<td>
-<code>binary</code></td>
+<code>string</code></td>
 <td>
 R</td>
 
@@ -259,45 +194,7 @@ R</td>
 
 <tr>
 <td>
-<code>Version</code></td>
-<td>
-<code>binary</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">21.4</span><a name="anchor-21-4"></a>gif.LogicalScreenDescriptor Class</h2>
-<p>
-A <code>gif.LogicalScreenDescriptor</code> instance provides information of Logical Screen Descriptor structure in GIF format.
-</p>
-<h3><span class="caption-index-3">21.4.1</span><a name="anchor-21-4-1"></a>Property</h3>
-<p>
-A <code>gif.LogicalScreenDescriptor</code> instance has the following properties:
-</p>
-<p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>LogicalScreenWidth</code></td>
+<code>size</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -310,7 +207,7 @@ R</td>
 
 <tr>
 <td>
-<code>LogicalScreenHeight</code></td>
+<code>uid</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -323,7 +220,59 @@ R</td>
 
 <tr>
 <td>
-<code>GlobalColorTableFlag</code></td>
+<code>gid</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>atime</code></td>
+<td>
+<code>datetime</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>mtime</code></td>
+<td>
+<code>datetime</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>ctime</code></td>
+<td>
+<code>datetime</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>isdir</code></td>
 <td>
 <code>boolean</code></td>
 <td>
@@ -336,20 +285,7 @@ R</td>
 
 <tr>
 <td>
-<code>ColorResolution</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>SortFlag</code></td>
+<code>ischr</code></td>
 <td>
 <code>boolean</code></td>
 <td>
@@ -362,341 +298,7 @@ R</td>
 
 <tr>
 <td>
-<code>SizeOfGlobalColorTable</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>BackgroundColorIndex</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>BackgroundColor</code></td>
-<td>
-<code>color</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>PixelAspectRatio</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">21.5</span><a name="anchor-21-5"></a>gif.CommentExtension Class</h2>
-<p>
-A <code>gif.CommentExtnsion</code> instance provides information of Comment Extension structure in GIF format.
-</p>
-<h3><span class="caption-index-3">21.5.1</span><a name="anchor-21-5-1"></a>Property</h3>
-<p>
-A <code>gif.CommentExtension</code> instance has the following properties:
-</p>
-<p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>CommentData</code></td>
-<td>
-<code>binary</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">21.6</span><a name="anchor-21-6"></a>gif.PlainTextExtension Class</h2>
-<p>
-A <code>gif.PlainTextExtnsion</code> instance provides information of Plain Text Extension structure in GIF format.
-</p>
-<h3><span class="caption-index-3">21.6.1</span><a name="anchor-21-6-1"></a>Property</h3>
-<p>
-A <code>gif.PlainTextExtension</code> instance has the following properties:
-</p>
-<p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>TextGridLeftPosition</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>TextGridTopPosition</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>TextGridWidth</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>TextGridHeight</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>CharacterCellWidth</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>CharacterCellHeight</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>TextForegroundColorIndex</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>TextBackgroundColorIndex</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>PlainTextData</code></td>
-<td>
-<code>binary</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">21.7</span><a name="anchor-21-7"></a>gif.ApplicationExtension Class</h2>
-<p>
-A <code>gif.ApplicationExtnsion</code> instance provides information of Application Extension structure in GIF format.
-</p>
-<h3><span class="caption-index-3">21.7.1</span><a name="anchor-21-7-1"></a>Property</h3>
-<p>
-A <code>gif.ApplicationExtension</code> instance has the following properties:
-</p>
-<p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>ApplicationIdentifier</code></td>
-<td>
-<code>binary</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>AuthenticationCode</code></td>
-<td>
-<code>binary</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>ApplicationData</code></td>
-<td>
-<code>binary</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">21.8</span><a name="anchor-21-8"></a>gif.GraphicControl Class</h2>
-<p>
-A <code>gif.GraphicControl</code> instance provides information of Graphi Control Extension structure in GIF format.
-</p>
-<h3><span class="caption-index-3">21.8.1</span><a name="anchor-21-8-1"></a>Property</h3>
-<p>
-A <code>gif.GraphicControl</code> instance has the following properties:
-</p>
-<p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>DisposalMethod</code></td>
-<td>
-<code>symbol</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>UserInputFlag</code></td>
+<code>isblk</code></td>
 <td>
 <code>boolean</code></td>
 <td>
@@ -709,7 +311,7 @@ R</td>
 
 <tr>
 <td>
-<code>TransparentColorFlag</code></td>
+<code>isreg</code></td>
 <td>
 <code>boolean</code></td>
 <td>
@@ -722,110 +324,7 @@ R</td>
 
 <tr>
 <td>
-<code>DelayTime</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>TransparentColorIndex</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">21.9</span><a name="anchor-21-9"></a>gif.ImageDescriptor Class</h2>
-<p>
-A <code>gif.ImageDescriptor</code> instance provides information of Image Descriptor structure in GIF format.
-</p>
-<h3><span class="caption-index-3">21.9.1</span><a name="anchor-21-9-1"></a>Property</h3>
-<p>
-A <code>gif.ImageDescriptor</code> instance has the following properties:
-</p>
-<p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>ImageLeftPosition</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>ImageTopPosition</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>ImageWidth</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>ImageHeight</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>LocalColorTableFlag</code></td>
+<code>isfifo</code></td>
 <td>
 <code>boolean</code></td>
 <td>
@@ -838,7 +337,7 @@ R</td>
 
 <tr>
 <td>
-<code>InterlaceFlag</code></td>
+<code>islnk</code></td>
 <td>
 <code>boolean</code></td>
 <td>
@@ -851,139 +350,9 @@ R</td>
 
 <tr>
 <td>
-<code>SortFlag</code></td>
+<code>issock</code></td>
 <td>
 <code>boolean</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>SizeOfLocalColorTable</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">21.10</span><a name="anchor-21-10"></a>gif.imgprop Class</h2>
-<p>
-Below is a class diagram of <code>gif.imgprop</code>:
-</p>
-<pre><code>+-------------+        +-------------+                  +---------------------+
-|    image    |gif     | gif.imgprop |GraphicControl    | gif.GraphicControl  |
-|-------------*--------+-------------*------------------+---------------------|
-+-------------+        |             |                  +---------------------+
-                       |             |
-                       |             |                  +---------------------+
-                       |             |ImageDescriptor   | gif.ImageDescriptor |
-                       |             *------------------+---------------------|
-                       |             |                  +---------------------+
-                       +-------------+
-</code></pre>
-<ul>
-<li>An <code>image</code> instance that the gif module creates from GIF file holds a <code>gif.imgprop</code> instance as its property that is named <code>gif</code>.</li>
-<li>The property named <code>GraphicControl</code> is an instance of <code>gif.GraphiControl</code> class.</li>
-<li>The property named <code>ImageDescriptor</code> is an instance of <code>gif.ImageDescriptor</code> class.</li>
-</ul>
-<h3><span class="caption-index-3">21.10.1</span><a name="anchor-21-10-1"></a>Property</h3>
-<p>
-A <code>gif.imgprop</code> instance has the following properties:
-</p>
-<p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>GraphicControl</code></td>
-<td>
-<code>gif.GraphicControl</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>ImageDescriptor</code></td>
-<td>
-<code>gif.ImageDescriptor</code></td>
-<td>
-R</td>
-
-<td>
-</td>
-</tr>
-
-
-</table>
-
-</p>
-<h2><span class="caption-index-2">21.11</span><a name="anchor-21-11"></a>Extension to image Class</h2>
-<p>
-This module extends the <code>stream</code> class with methods described here.
-</p>
-<p>
-<div><strong style="text-decoration:underline">image#read@gif</strong></div>
-<div style="margin-bottom:1em"><code>image#read@gif(stream:stream:r):reduce</code></div>
-Reads a GIF image from a stream.
-</p>
-<p>
-This method returns the reference to the target instance itself.
-</p>
-<p>
-<div><strong style="text-decoration:underline">image#write@gif</strong></div>
-<div style="margin-bottom:1em"><code>image#write@gif(stream:stream:w):reduce</code></div>
-Writes a GIF image to a stream.
-</p>
-<p>
-This method returns the reference to the target instance itself.
-</p>
-<p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>gif</code></td>
-<td>
-<code>gif.imgprop</code></td>
 <td>
 R</td>
 

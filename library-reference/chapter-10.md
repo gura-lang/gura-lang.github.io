@@ -65,7 +65,7 @@ The group will have a content type of content. The ability to control this conte
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#pop_group</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#pop_group()</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#pop_group() {block?}</code></div>
 Terminates the redirection begun by a call to <code>cairo.context#push_group()</code> or <code>cairo.context#push_group_with_content()</code> and returns a new pattern containing the results of all drawing operations performed to the group.
 </p>
 <p>
@@ -81,7 +81,7 @@ The <code>cairo.context#pop_group()</code> function calls cairo_restore(), (bala
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#get_group_target</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#get_group_target()</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#get_group_target() {block?}</code></div>
 Gets the current destination surface for the context. This is either the original target surface as passed to <code>cairo.context</code> constructor or the target surface for the current group as started by the most recent call to <code>cairo.context#push_group()</code> or <code>cairo.context#push_group_with_content()</code>.
 </p>
 <p>
@@ -130,7 +130,7 @@ Other than the initial translation pattern matrix, as described above, all other
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#get_source</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#get_source()</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#get_source() {block?}</code></div>
 Gets the current source pattern for <code>cr</code>.
 </p>
 <p>
@@ -1135,7 +1135,7 @@ Sets a set of custom font rendering options for the cairo_t. Rendering options a
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#get_font_options</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#get_font_options()</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#get_font_options() {block?}</code></div>
 Retrieves font rendering options set via cairo.context#set_font_options. Note that the returned options do not include any options derived from the underlying surface; they are literally the options passed to cairo.context#set_font_options().
 </p>
 <p>
@@ -1145,7 +1145,7 @@ Replaces the current cairo_font_face_t object in the cairo_t with font_face. The
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#get_font_face</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#get_font_face()</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#get_font_face() {block?}</code></div>
 Gets the current font face for a cairo_t.
 </p>
 <p>
@@ -1155,12 +1155,12 @@ Replaces the current font face, font matrix, and font options in the cairo_t wit
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#get_scaled_font</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#get_scaled_font()</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#get_scaled_font() {block?}</code></div>
 Gets the current scaled font for a cairo_t.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#show_text</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#show_text(text:string):reduce</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#show_text(text:string):map:reduce</code></div>
 A drawing operator that generates the shape from a string of UTF-8 characters, rendered according to the current font_face, font_size (font_matrix), and font_options.
 </p>
 <p>
@@ -1179,12 +1179,12 @@ A drawing operator that generates the shape from an array of glyphs, rendered ac
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#font_extents</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#font_extents()</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#font_extents() {block?}</code></div>
 Gets the font extents for the currently selected font.
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#text_extents</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#text_extents(text:string)</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#text_extents(text:string):map {block?}</code></div>
 Gets the extents for a string of text. The extents describe a user-space rectangle that encloses the "inked" portion of the text, (as it would be drawn by cairo.context#show_text()). Additionally, the x_advance and y_advance values indicate the amount by which the current point would be advanced by cairo.context#show_text().
 </p>
 <p>
@@ -1192,7 +1192,7 @@ Note that whitespace characters do not directly contribute to the size of the re
 </p>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#glyph_extents</strong></div>
-<div style="margin-bottom:1em"><code>cairo.context#glyph_extents(glyphs:cairo.glyph)</code></div>
+<div style="margin-bottom:1em"><code>cairo.context#glyph_extents(glyphs:cairo.glyph) {block?}</code></div>
 Gets the extents for an array of glyphs. The extents describe a user-space rectangle that encloses the "inked" portion of the glyphs, (as they would be drawn by cairo.context#show_glyphs()). Additionally, the x_advance and y_advance values indicate the amount by which the current point would be advanced by cairo.context#show_glyphs().
 </p>
 <p>

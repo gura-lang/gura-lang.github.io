@@ -5,225 +5,427 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">32</span><a name="anchor-32"></a>math Module</h1>
+<h1><span class="caption-index-1">32</span><a name="anchor-32"></a>markdown Module</h1>
 <p>
-The <code>math</code> module provices functions for mathematical calculation. This is a built-in module, so you can use it without being imported.
-</p>
-<h2><span class="caption-index-2">32.1</span><a name="anchor-32-1"></a>Module Function</h2>
-<p>
-<div><strong style="text-decoration:underline">math.abs</strong></div>
-<div style="margin-bottom:1em"><code>math.abs(num):map</code></div>
-Returns an absolute value.
+The <code>markdown</code> module provides measures to parse a text formatted in markdown syntax. To utilize it, import the <code>markdown</code> module using <code>import</code> function.
 </p>
 <p>
-<div><strong style="text-decoration:underline">math.acos</strong></div>
-<div style="margin-bottom:1em"><code>math.acos(num):map:[deg]</code></div>
-Returns an inverse cosine value.
+Below is an example to read a document written in Markdown format and then render its HTML text into a file.
+</p>
+<pre><code>import(markdown)
+markdown.document('foo.md').render@html('foo.html')
+</code></pre>
+<p>
+<code>markdown</code> module consists of the following two module files:
+</p>
+<ul>
+<li><code>markdown.gurd</code> .. a binary module file that provides parser procedures.</li>
+<li><code>markdown.gura</code> .. a script module file that renders parsed result in desired formats.</li>
+</ul>
+<h2><span class="caption-index-2">32.1</span><a name="anchor-32-1"></a>Operator</h2>
+<p>
+<code>markdown.document &lt;&lt; function</code>
+</p>
+<h2><span class="caption-index-2">32.2</span><a name="anchor-32-2"></a>markdown.document Class</h2>
+<p>
+The <code>markdown.document</code> class provides measures to parse a document written in Markdown format.
 </p>
 <p>
-In default, the result is returned in radian. Specifying an attribute <code>:deg</code> would return that in degree.
+You can parse documents written in both string and stream using the following methods:
 </p>
+<ul>
+<li><code>markdown.document#parse()</code> .. Parses document written in a string.</li>
+<li><code>markdown.document#read()</code> .. Parses document from a stream.</li>
+</ul>
 <p>
-<div><strong style="text-decoration:underline">math.arg</strong></div>
-<div style="margin-bottom:1em"><code>math.arg(num):map:[deg]</code></div>
-Returns an argument, an angle from the real-axis in the complex plane, of a complex number.
+You can get the parsed result by inspecting a property <code>markdown.document#root</code> and its children that are <code>markdown.item</code> instances.
 </p>
+<h3><span class="caption-index-3">32.2.1</span><a name="anchor-32-2-1"></a>Property</h3>
 <p>
-In default, the angle value is returned in radian. Specifying an attribute <code>:deg</code> would return that in degree.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.asin</strong></div>
-<div style="margin-bottom:1em"><code>math.asin(num):map:[deg]</code></div>
-Returns an inverse sine value.
-</p>
-<p>
-In default, the result is returned in radian. Specifying an attribute <code>:deg</code> would return that in degree.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.atan</strong></div>
-<div style="margin-bottom:1em"><code>math.atan(num):map:[deg]</code></div>
-Returns an inverse tangent value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.atan2</strong></div>
-<div style="margin-bottom:1em"><code>math.atan2(num1, num2):map:[deg]</code></div>
-Returns an inverse tangent value of a fraction of num1 and num2.
-</p>
-<p>
-In default, the result is returned in radian. Specifying an attribute <code>:deg</code> would return that in degree.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.bezier</strong></div>
-<div style="margin-bottom:1em"><code>math.bezier(nums[]+:number)</code></div>
-Returns a list that consists of functions that generate coordinates of bezier curves with specified control points. One or more lists of control points can be specified. This means that if you give it two lists of numbers as arguments, it returns two functions of bezier curve.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.ceil</strong></div>
-<div style="margin-bottom:1em"><code>math.ceil(num):map</code></div>
-Returns a nearest integer number above or equal to the specified value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.conj</strong></div>
-<div style="margin-bottom:1em"><code>math.conj(num):map</code></div>
-Returns a conjugate of a complex number.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.cos</strong></div>
-<div style="margin-bottom:1em"><code>math.cos(num):map:[deg]</code></div>
-Returns a cosine value.
-</p>
-<p>
-In default, the given argument is treated as a radian number. Specifying an attribute <code>:deg</code> would treat that as a degree number.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.cosh</strong></div>
-<div style="margin-bottom:1em"><code>math.cosh(num):map</code></div>
-Returns a hyperbolic cosine value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.covariance</strong></div>
-<div style="margin-bottom:1em"><code>math.covariance(a, b)</code></div>
-Returns a covariance between the <code>a</code> and <code>b</code>.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.cross</strong></div>
-<div style="margin-bottom:1em"><code>math.cross (a, b)</code></div>
-Calculates a cross product between <code>a</code> and <code>b</code>.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.delta</strong></div>
-<div style="margin-bottom:1em"><code>math.delta(num):map</code></div>
-Evaluates a delta function with a given argument <code>num</code> that returns <code>1</code> when <code>num == 0</code> and <code>0</code> otherwise.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.diff</strong></div>
-<div style="margin-bottom:1em"><code>math.diff(expr:expr, var:symbol):map {block?}</code></div>
-Calculates a mathematical differential expression of the given <code>expr</code> by a variable <code>var</code>.
-</p>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|rtn:expr|</code>, where <code>rtn</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-Example: <code>math.diff(</code>(math.sin(x 2)), <code>x)</code>**
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.dot</strong></div>
-<div style="margin-bottom:1em"><code>math.dot(a, b)</code></div>
-Calculates a dot product between <code>a</code> and <code>b</code>.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.exp</strong></div>
-<div style="margin-bottom:1em"><code>math.exp(num):map</code></div>
-Returns an exponential value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.fft</strong></div>
-<div style="margin-bottom:1em"><code>math.fft(seq[])</code></div>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>refs</code></td>
+<td>
+<code>iterator</code></td>
+<td>
+R</td>
+
+<td>
+An iterator that returns referee items as <code>markdown.item</code>.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>root</code></td>
+<td>
+<code>markdown.item</code></td>
+<td>
+R</td>
+
+<td>
+The root item of the parsed Markdown document.</td>
+</tr>
+
+
+</table>
 
 </p>
+<h3><span class="caption-index-3">32.2.2</span><a name="anchor-32-2-2"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">math.floor</strong></div>
-<div style="margin-bottom:1em"><code>math.floor(num):map</code></div>
-Returns a nearest integer number below or equal to the specified value.
+<div><strong style="text-decoration:underline">markdown.document</strong></div>
+<div style="margin-bottom:1em"><code>markdown.document(stream?:stream:r) {block?}</code></div>
+Returns an instance of <code>markdown.document</code>. If <code>stream</code> is specified, the content of the instance shall be initialized with the result of parsing the stream.
+</p>
+<h3><span class="caption-index-3">32.2.3</span><a name="anchor-32-2-3"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">markdown.document#parse</strong></div>
+<div style="margin-bottom:1em"><code>markdown.document#parse(str:string):void</code></div>
+Parses a Markdown text in a string.
 </p>
 <p>
-<div><strong style="text-decoration:underline">math.gcd</strong></div>
-<div style="margin-bottom:1em"><code>math.gcd(a:number, b+:number):map</code></div>
-Returns a greatest common divisor among two or more numbers.
+<div><strong style="text-decoration:underline">markdown.document#read</strong></div>
+<div style="margin-bottom:1em"><code>markdown.document#read(stream:stream:r):void</code></div>
+Parses a Markdown text from a stream.
 </p>
 <p>
-<div><strong style="text-decoration:underline">math.hypot</strong></div>
-<div style="margin-bottom:1em"><code>math.hypot(x, y):map</code></div>
-Returns a hyperbolic tangent value.
+<div><strong style="text-decoration:underline">markdown.document#render@console</strong></div>
+<div style="margin-bottom:1em"><code>markdown.document#render@console(colorFlag:boolean =&gt; true)</code></div>
+Renders the content of markdown document to the console.
 </p>
 <p>
-<div><strong style="text-decoration:underline">math.imag</strong></div>
-<div style="margin-bottom:1em"><code>math.imag(num):map</code></div>
-Returns an imaginary part of a complex number.
+In default, it uses colors to highlight items. Specify the argument <code>colorFlag</code> with <code>false</code> to disable the coloring process.
 </p>
 <p>
-<div><strong style="text-decoration:underline">math.integral</strong></div>
-<div style="margin-bottom:1em"><code>math.integral()</code></div>
+<div><strong style="text-decoration:underline">markdown.document#render@html</strong></div>
+<div style="margin-bottom:1em"><code>markdown.document#render@html(out?:stream:w, easyFormatFlag:boolean =&gt; true, captionIndex:boolean =&gt; false)</code></div>
+<div><strong style="text-decoration:underline">markdown.document#render@toc</strong></div>
+<div style="margin-bottom:1em"><code>markdown.document#render@toc() {block}</code></div>
 
 </p>
+<h2><span class="caption-index-2">32.3</span><a name="anchor-32-3"></a>markdown.item Class</h2>
 <p>
-<div><strong style="text-decoration:underline">math.lcm</strong></div>
-<div style="margin-bottom:1em"><code>math.lcm(a:number, b+:number):map</code></div>
-Returns a least common multiple among two or more numbers.
+The <code>markdown.item</code> class provides information about items that composes a Markdown document.
 </p>
 <p>
-<div><strong style="text-decoration:underline">math.least_square</strong></div>
-<div style="margin-bottom:1em"><code>math.least_square(x:iterator, y:iterator, dim:number =&gt; 1, var:symbol =&gt; `x)</code></div>
-Takes two iterators <code>x</code> and <code>y</code> that return coordinate of points and returns a function that fits them using least square metho. You can specify the fitting curve's dimension by an argument <code>dim</code>, which default value is one. The variable symbol used in the function is <code>x</code>, which can be changed by specifying an argument <code>var</code>.
+Below is a table of item type:
 </p>
 <p>
-<div><strong style="text-decoration:underline">math.log</strong></div>
-<div style="margin-bottom:1em"><code>math.log(num):map</code></div>
-Returns a natural logarithm value.
+<table>
+<tr>
+<th>
+Item Type</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>root</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>h1</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>h2</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>h3</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>h4</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>h5</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>h6</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>p</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>blockquote</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>em</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>strong</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>codeblock</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>ol</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>ul</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>li</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>line</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>a</code></td>
+<td>
+container</td>
+</tr>
+
+<tr>
+<td>
+<code>img</code></td>
+<td>
+text</td>
+</tr>
+
+<tr>
+<td>
+<code>text</code></td>
+<td>
+text</td>
+</tr>
+
+<tr>
+<td>
+<code>code</code></td>
+<td>
+text</td>
+</tr>
+
+<tr>
+<td>
+<code>entity</code></td>
+<td>
+text</td>
+</tr>
+
+<tr>
+<td>
+<code>tag</code></td>
+<td>
+container/text</td>
+</tr>
+
+<tr>
+<td>
+<code>hr</code></td>
+<td>
+no-content</td>
+</tr>
+
+<tr>
+<td>
+<code>br</code></td>
+<td>
+no-content</td>
+</tr>
+
+<tr>
+<td>
+<code>referee</code></td>
+<td>
+no-content</td>
+</tr>
+
+
+</table>
+
 </p>
+<h3><span class="caption-index-3">32.3.1</span><a name="anchor-32-3-1"></a>Property</h3>
 <p>
-<div><strong style="text-decoration:underline">math.log10</strong></div>
-<div style="margin-bottom:1em"><code>math.log10(num):map</code></div>
-Returns a decadic logarithm value.
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>type</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>text</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>children</code></td>
+<td>
+<code>iterator</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>url</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>title</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>attrs</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<code>align</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+<code>none</code>, <code>left</code>, <code>center</code>, <code>right</code></td>
+</tr>
+
+
+</table>
+
 </p>
+<h3><span class="caption-index-3">32.3.2</span><a name="anchor-32-3-2"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">math.norm</strong></div>
-<div style="margin-bottom:1em"><code>math.norm(num):map</code></div>
-Returns a norm value of a complex number.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.optimize</strong></div>
-<div style="margin-bottom:1em"><code>math.optimize(expr:expr):map {block?}</code></div>
-Returns an optimized expression of the given argument <code>expr</code>, which needs to be made up of mathematical elements.
-</p>
-<p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|rtn:expr|</code>, where <code>rtn</code> is the created instance. In this case, the block's result would become the function's returned value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.ramp</strong></div>
-<div style="margin-bottom:1em"><code>math.ramp(num):map</code></div>
-Evaluates a ramp function with a given argument <code>num</code> that returns <code>num</code> when <code>num &gt;= 0</code> and <code>0</code> otherwise.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.real</strong></div>
-<div style="margin-bottom:1em"><code>math.real(num):map</code></div>
-Returns a real part of a complex number.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.sin</strong></div>
-<div style="margin-bottom:1em"><code>math.sin(num):map:[deg]</code></div>
-Returns a sine value.
-</p>
-<p>
-In default, the given argument is treated as a radian number. Specifying an attribute <code>:deg</code> would treat that as a degree number.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.sinh</strong></div>
-<div style="margin-bottom:1em"><code>math.sinh(num):map</code></div>
-Returns a hyperbolic sine value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.sqrt</strong></div>
-<div style="margin-bottom:1em"><code>math.sqrt(num):map</code></div>
-Returns a square root value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.tan</strong></div>
-<div style="margin-bottom:1em"><code>math.tan(num):map:[deg]</code></div>
-Returns a tangent value.
-</p>
-<p>
-In default, the given argument is treated as a radian number. Specifying an attribute <code>:deg</code> would treat that as a degree number.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.tanh</strong></div>
-<div style="margin-bottom:1em"><code>math.tanh(num):map</code></div>
-Returns a hyperbolic tangent value.
-</p>
-<p>
-<div><strong style="text-decoration:underline">math.unitstep</strong></div>
-<div style="margin-bottom:1em"><code>math.unitstep(num):map</code></div>
-Evaluates a unit step function with a given argument <code>num</code> that returns <code>1</code> when <code>num &gt;= 0</code> and <code>0</code> otherwise.
+<div><strong style="text-decoration:underline">markdown.item#print</strong></div>
+<div style="margin-bottom:1em"><code>markdown.item#print(indent?:number):void</code></div>
+Prints structured content of the item. Argument <code>indent</code> specifies an indentation level and is set to zero when omitted.
 </p>
 <p />
 

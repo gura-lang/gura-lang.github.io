@@ -5,53 +5,46 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">47</span><a name="anchor-47"></a>sys Module</h1>
+<h1><span class="caption-index-1">47</span><a name="anchor-47"></a>ppm Module</h1>
 <p>
-The <code>sys</code> module provides system-related information. This is a built-in module, so you can use it without being imported.
+The <code>ppm</code> module provides measures to read/write image data in PPM format. To utilize it, import the <code>ppm</code> module using <code>import</code> function.
 </p>
-<h2><span class="caption-index-2">47.1</span><a name="anchor-47-1"></a>Module Variable</h2>
+<p>
+Below is an example to read a PPM file:
+</p>
+<pre><code>import(ppm)
+img = image('foo.ppm')
+</code></pre>
+<h2><span class="caption-index-2">47.1</span><a name="anchor-47-1"></a>Exntension to Function's Capability</h2>
+<p>
+This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write PPM files.
+</p>
+<p>
+When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a PPM file.
+</p>
 <ul>
-<li><code>sys.argv</code></li>
-<li><code>sys.path</code></li>
-<li><code>sys.maindir</code></li>
-<li><code>sys.version</code></li>
-<li><code>sys.banner</code></li>
-<li><code>sys.timestamp</code></li>
-<li><code>sys.build</code></li>
-<li><code>sys.platform</code></li>
-<li><code>sys.ps1</code></li>
-<li><code>sys.ps2</code></li>
-<li><code>sys.langcode</code></li>
-<li><code>sys.executable</code></li>
-<li><code>sys.incdir</code></li>
-<li><code>sys.libdir</code></li>
-<li><code>sys.datadir</code></li>
-<li><code>sys.moddir</code></li>
-<li><code>sys.localdir</code></li>
-<li><code>sys.appdir</code></li>
-<li><code>sys.cfgdir</code></li>
-<li><code>sys.workdir</code></li>
+<li>The identifier of the stream ends with a suffix "<code>.ppm</code>" or "<code>.pbm</code>".</li>
+<li>The stream data begins with a byte sequence "<code>P2</code>", "<code>P3</code>" or "<code>P6</code>".</li>
 </ul>
-<h2><span class="caption-index-2">47.2</span><a name="anchor-47-2"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">sys.echo</strong></div>
-<div style="margin-bottom:1em"><code>sys.echo(flag:boolean)</code></div>
-Enables or disables echo-back functionality according to flag.
+When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in PPM format.
+</p>
+<ul>
+<li>The identifier of the stream ends with a suffix "<code>.ppm</code>" or "<code>.pbm</code>".</li>
+</ul>
+<h2><span class="caption-index-2">47.2</span><a name="anchor-47-2"></a>Extension to image Class</h2>
+<p>
+This module extends the <code>image</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">sys.exit</strong></div>
-<div style="margin-bottom:1em"><code>sys.exit(status?:number)</code></div>
-Terminates the program with a specified status number.
+<div><strong style="text-decoration:underline">image#read@ppm</strong></div>
+<div style="margin-bottom:1em"><code>image#read@ppm(stream:stream:r):reduce</code></div>
+Reads a PPM/PGM image from a stream.
 </p>
 <p>
-<div><strong style="text-decoration:underline">sys.interactive</strong></div>
-<div style="margin-bottom:1em"><code>sys.interactive()</code></div>
-Enters to interactive mode.
-</p>
-<p>
-<div><strong style="text-decoration:underline">sys.required_version</strong></div>
-<div style="margin-bottom:1em"><code>sys.required_version(major:number, minor:number, patch:number)</code></div>
-Raises an error if the running interpreter doesn't satisfy the required version.
+<div><strong style="text-decoration:underline">image#write@ppm</strong></div>
+<div style="margin-bottom:1em"><code>image#write@ppm(stream:stream:w):reduce:[gray]</code></div>
+Writes a PPM/PGM image to a stream.
 </p>
 <p />
 

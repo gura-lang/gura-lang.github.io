@@ -32,11 +32,6 @@ Initializes cURL and returns a easy_handle object.
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">curl.easy_handle#perform</strong></div>
-<div style="margin-bottom:1em"><code>curl.easy_handle#perform(stream?:stream:w):void</code></div>
-
-</p>
-<p>
 <div><strong style="text-decoration:underline">curl.easy_handle#recv</strong></div>
 <div style="margin-bottom:1em"><code>curl.easy_handle#recv(buflen:number)</code></div>
 

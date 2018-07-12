@@ -201,11 +201,11 @@ Element Type</th>
 In the specification described here, the class name is is represented as <code>array@T</code> where <code>T</code> means its element type.
 </p>
 <p>
-Most of methods in <code>array</code> class are implemented in <code>arrayutil</code> module while the class itself is provided by the intepreter. This is because array features cost much code size and it would be preferable to reduce the size of the intepreter body by separating the implementation of array methods. So, you have to import <code>arrayutil</code> module before using the <code>array</code> class in your program.
+Most of methods in <code>array</code> class are implemented in <code>arrayt</code> module while the class itself is provided by the intepreter. This is because array features cost much code size and it would be preferable to reduce the size of the intepreter body by separating the implementation of array methods. So, you have to import <code>arrayt</code> module before using the <code>array</code> class in your program.
 </p>
 <h3><span class="caption-index-3">5.2.1</span><a name="anchor-5-2-1"></a>Property</h3>
 <p>
-A <code>array</code> instance has the following properties:
+An <code>array</code> instance has the following properties:
 </p>
 <p>
 <table>
@@ -217,7 +217,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -254,7 +254,7 @@ Returns the size of each element in bytes.</td>
 R</td>
 
 <td>
-Returns the typename of the elements as a `symbol` such as
+Returns the type name of the elements as a `symbol` including:
 `` `boolean``,
 `` `int8``,
 `` `uint8``,
@@ -268,6 +268,18 @@ Returns the typename of the elements as a `symbol` such as
 `` `float``,
 `` `double`` and
 `` `complex``.</td>
+</tr>
+
+<tr>
+<td>
+<code>major</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+Returns the major-mode in symbols `` `row`` or `` `column``.</td>
 </tr>
 
 <tr>
@@ -339,53 +351,66 @@ Returns the total number of elements.</td>
 <p>
 <div><strong style="text-decoration:underline">array</strong></div>
 <div style="margin-bottom:1em"><code>array(src?, elemtype?:symbol) {block?}</code></div>
-Creates an <code>array</code> instance with elements of type <code>double</code> from a <code>list</code> or an <code>iterator</code> specified in the argument <code>src</code>, or elements described in a block. Below are examples:
+Creates an <code>array</code> instance that contains <code>double</code> type of elements from a <code>list</code> or an <code>iterator</code> specified as an argument <code>src</code> or from elements described in the block. The followings are examples to create an <code>array</code> instance:
 </p>
 <pre><code>array([[0, 1, 2], [3, 4, 5]])
 array {{0, 1, 2}, {3, 4, 5}}
 </code></pre>
 <p>
-Specifying the argument <code>elemtype</code> would create an array of other type than <code>double</code>.
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The following examples create an <code>array</code> instance of <code>int32</code> elements:
 </p>
+<pre><code>array([[0, 1, 2], [3, 4, 5]], elemtype =&gt; `int32)
+array(elemtype =&gt; `int32) {{0, 1, 2}, {3, 4, 5}}
+</code></pre>
 <p>
-Available symbols for <code>elemtype</code> are as follows:
+Available element types are:
 </p>
-<ul>
-<li><code>`boolean</code></li>
-<li><code>`int8</code></li>
-<li><code>`uint8</code></li>
-<li><code>`int16</code></li>
-<li><code>`uint16</code></li>
-<li><code>`int32</code></li>
-<li><code>`uint32</code></li>
-<li><code>`int64</code></li>
-<li><code>`uint64</code></li>
-<li><code>`half</code></li>
-<li><code>`float</code></li>
-<li><code>`double</code></li>
-<li><code>`complex</code></li>
-</ul>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
 <p>
-If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+Functions named <code>array@T</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
 </p>
+<pre><code>array@int32 ([[0, 1, 2], [3, 4, 5]])
+array@int32 {{0, 1, 2}, {3, 4, 5}}
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.identity</strong></div>
 <div style="margin-bottom:1em"><code>array.identity(n:number, elemtype?:symbol):static:map {block?}</code></div>
-Creates an array that represents a identity matrix with specified size <code>n</code>.
+Creates an array of <code>double</code> type of elements that represents an identity matrix with specified size <code>n</code>.
 </p>
 <p>
 Example:
 </p>
 <pre><code>x = array.identity(3)
-    // array@double {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}}
+// x is array@double {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}}
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>int32</code> elements:
+</p>
+<pre><code>array.identity(3, elemtype =&gt; `int32)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.identity</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@int32.identity(3)
 </code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.interval</strong></div>
 <div style="margin-bottom:1em"><code>array.interval(begin:number, end:number, samples:number, elemtype?:symbol):static:map:[open,open_l,open_r] {block?}</code></div>
-Creates a one-dimentional array that contains a sequence of numbers by specifying the beginning and ending numbers, and the number of samples between them.
+Creates a one-dimentional array with <code>double</code> type of element that contains a sequence of numbers according to the beginning, ending numbers and the number of samples between them.
 </p>
 <p>
-In default, it creates a sequence that contains the beginning and ending numbers. Following attributes would generate the following numbers:
+In default, it creates a sequence with a range of <code>[begin, end]</code> meaning that the sequence contains the beginning and ending numbers. Following attributes would control the range:
 </p>
 <ul>
 <li><code>:open</code> .. Numbers in range of <code>(begin, end)</code> that doesn't contain either <code>begin</code> or <code>end</code>.</li>
@@ -396,118 +421,429 @@ In default, it creates a sequence that contains the beginning and ending numbers
 Example:
 </p>
 <pre><code>x = array.interval(0, 3, 7)
-    // array@double {0, 0.5, 1, 1.5, 2, 2.5, 3}
+// x is array@double {0, 0.5, 1, 1.5, 2, 2.5, 3}
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>float</code> elements:
+</p>
+<pre><code>array.interval(0, 3, 7, elemtype =&gt; `float)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.interval</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@float.interval(0, 3, 7)
 </code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.ones</strong></div>
 <div style="margin-bottom:1em"><code>array.ones(dims[]:number, elemtype?:symbol):static:map {block?}</code></div>
-Creates an array with the specified dimensions, which elements are initialized by one.
+Creates an array of <code>double</code> type of elements, which are initialized with one. The argument <code>dims</code> specifies the dimension of the created array.
 </p>
 <p>
 Example:
 </p>
 <pre><code>x = array.ones([3, 4])
-    // array@double {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}}
+// x is array@double {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}}
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>int32</code> elements:
+</p>
+<pre><code>array.ones([3, 4], elemtype =&gt; `int32)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.ones</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@int32.ones([3, 4])
 </code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.rands</strong></div>
 <div style="margin-bottom:1em"><code>array.rands(dims[]:number, range?:number, elemtype?:symbol):static:map {block?}</code></div>
-Creates an array with the specified dimensions, which contains random numbers.
+Creates an array of <code>double</code> type of elements which are initialized with random numbers. The argument <code>dims</code> specifies the dimension of the created array. When the argument <code>range</code> is specified, the generated elements are all integer numbers that are ranged within <code>[0, range)</code>. Otherwise, the generated elements are real numbers ranged within <code>[0, 1)</code>.
 </p>
+<p>
+Example:
+</p>
+<pre><code>x = array.rands([3, 4], 10)
+// x is like array@double {{6, 7, 6, 9}, {3, 3, 6, 0}, {7, 9, 5, 5}}
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>int32</code> elements:
+</p>
+<pre><code>array.rands([3, 4], 10, elemtype =&gt; `int32)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.rands</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@int32.rands([3, 4], 10)
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.rands@normal</strong></div>
 <div style="margin-bottom:1em"><code>array.rands@normal(dims[]:number, mu?:number, sigma?:number, elemtype?:symbol):static:map {block?}</code></div>
-Creates an array with the specified dimensions, which contains normal distribution random numbers.
+Creates an array of <code>double</code> type of elements which are initialized with normal distribution random numbers. The argument <code>dims</code> specifies the dimension of the created array. The arguments <code>mu</code> and <code>sigma</code> supply parameters for normal distribution where <code>mu</code> specifies the mean value and <code>sigma</code> the standard deviation. In default, the <code>mu</code> is zero and <code>sigma</code> one.
 </p>
+<p>
+Example:
+</p>
+<pre><code>x = array.rands@normal([3, 4], 1, 3)
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>float</code> elements:
+</p>
+<pre><code>array.rands@normal([3, 4], 1, 3, elemtype =&gt; `float)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.rands@normal</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@int32.rands@normal([3, 4], 1, 3)
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.range</strong></div>
 <div style="margin-bottom:1em"><code>array.range(num:number, num_end?:number, step?:number, elemtype?:symbol):static:map {block?}</code></div>
-Creates an array that contains a sequence of integer numbers.
+Creates an array of <code>double</code> type of elements that are initialized with a sequence of integer numbers.
 </p>
 <p>
-This function can be called in three formats that generate following numbers:
+This function can generate three types of sequence like below:
 </p>
 <ul>
-<li><code>array.range(num)</code> .. Numbers between <code>0</code> and <code>(num - 1)</code>.</li>
-<li><code>array.range(num, num_end)</code> .. Numbers between <code>num</code> and <code>(num_end - 1)</code>.</li>
-<li><code>array.range(num, num_end, step)</code> .. Numbers between <code>num</code> and <code>(num_end - 1)</code> incremented by <code>step</code>.</li>
+<li><code>array.range(num)</code> .. between <code>0</code> and <code>(num - 1)</code>.</li>
+<li><code>array.range(num, num_end)</code> .. between <code>num</code> and <code>(num_end - 1)</code>.</li>
+<li><code>array.range(num, num_end, step)</code> .. between <code>num</code> and <code>(num_end - 1)</code> incremented by <code>step</code>.</li>
 </ul>
 <p>
 Example:
 </p>
 <pre><code>x = array.range(5)
-    // array@double {0, 1, 2, 3, 4}
+// x is array@double {0, 1, 2, 3, 4}
 x = array.range(2, 5)
-    // array@double {2, 3, 4}
+// x is array@double {2, 3, 4}
 x = array.range(2, 10, 2)
-    // array@double {2, 4, 6, 8}
+// x is array@double {2, 4, 6, 8}
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>int32</code> elements:
+</p>
+<pre><code>array.range(5, elemtype =&gt; `int32)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.range</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@int32.range(5)
 </code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.rotation</strong></div>
 <div style="margin-bottom:1em"><code>array.rotation(angle:number, xtrans?:number, ytrans?:number, elemtype?:symbol):static:map:[deg] {block?}</code></div>
-Creates an array that rotates 2-D coords by the specified <code>angle</code>.
+Creates an <code>array</code> of <code>double</code> type of elements representing a matrix to rotate a 2-D coord.
 </p>
 <p>
-The <code>angle</code> is specified in radian value. If the attribute <code>:deg</code> is specified, the <code>angle</code> is specified in degree value.
+The rotation <code>angle</code> is specified in radian value. If the attribute <code>:deg</code> is specified, the <code>angle</code> is specified in degree value.
 </p>
 <p>
-If one or more of <code>xtrans</code> or <code>ytrans</code> is specified, it would create an array that works as translation as well as rotation.
+If one or both of <code>xtrans</code> and <code>ytrans</code> are specified, it would create an array that works as translation as well as rotation.
 </p>
+<p>
+Example:
+</p>
+<pre><code>x = array.rotation(math.pi / 6)
+// x is a matrix to rotate by pi/6.
+x = array.rotation(30):deg
+// x is a matrix to rotate by 30 degree, which is pi/6 in radian.
+x = array.rotation(math.pi / 6, 3, 5)
+// x is a matrix to rotate by pi/6 and translate by [3, 5].
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>float</code> elements:
+</p>
+<pre><code>array.rotation(math.pi / 6, elemtype =&gt; `float)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.rotation</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@float.rotation(math.pi / 6)
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.rotation@x</strong></div>
 <div style="margin-bottom:1em"><code>array.rotation@x(angle:number, xtrans?:number, ytrans?:number, ztrans?:number, elemtype?:symbol):static:map:[deg] {block?}</code></div>
-Creates an array that rotates 3-D coords around x-axis by the specified <code>angle</code>.
+Creates an <code>array</code> of <code>double</code> type of elements representing a matrix to rotate a 3-D coord around x-axis.
 </p>
 <p>
-The <code>angle</code> is specified in radian value. If the attribute <code>:deg</code> is specified, the <code>angle</code> is specified in degree value.
+The rotation <code>angle</code> is specified in radian value. If the attribute <code>:deg</code> is specified, the <code>angle</code> is specified in degree value.
 </p>
 <p>
-If one or more of <code>xtrans</code>, <code>ytrans</code> or <code>ztrans</code> is specified, it would create an array that works as translation as well as rotation.
+If one or more of <code>xtrans</code>, <code>ytrans</code> and <code>ztrans</code> are specified, it would create an array that works as translation as well as rotation.
 </p>
+<p>
+Example:
+</p>
+<pre><code>x = array.rotation@x(math.pi / 6)
+// x is a matrix to rotate by pi/6.
+x = array.rotation@x(30):deg
+// x is a matrix to rotate by 30 degree, which is pi/6 in radian.
+x = array.rotation@x(math.pi / 6, 3, -2, 5)
+// x is a matrix to rotate by pi/6 and translate by [3, -2, 5].
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>float</code> elements:
+</p>
+<pre><code>array.rotation@x(math.pi / 6, elemtype =&gt; `float)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.rotation@x</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@float.rotation@x(math.pi / 6)
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.rotation@y</strong></div>
 <div style="margin-bottom:1em"><code>array.rotation@y(angle:number, xtrans?:number, ytrans?:number, ztrans?:number, elemtype?:symbol):static:map:[deg] {block?}</code></div>
-Creates an array that rotates 3-D coords around y-axis by the specified <code>angle</code>.
+Creates an <code>array</code> of <code>double</code> type of elements representing a matrix to rotate a 3-D coord around y-axis.
 </p>
 <p>
-The <code>angle</code> is specified in radian value. If the attribute <code>:deg</code> is specified, the <code>angle</code> is specified in degree value.
+The rotation <code>angle</code> is specified in radian value. If the attribute <code>:deg</code> is specified, the <code>angle</code> is specified in degree value.
 </p>
 <p>
-If one or more of <code>xtrans</code>, <code>ytrans</code> or <code>ztrans</code> is specified, it would create an array that works as translation as well as rotation.
+If one or more of <code>xtrans</code>, <code>ytrans</code> and <code>ztrans</code> are specified, it would create an array that works as translation as well as rotation.
 </p>
+<p>
+Example:
+</p>
+<pre><code>x = array.rotation@y(math.pi / 6)
+// x is a matrix to rotate by pi/6.
+x = array.rotation@y(30):deg
+// x is a matrix to rotate by 30 degree, which is pi/6 in radian.
+x = array.rotation@y(math.pi / 6, 3, -2, 5)
+// x is a matrix to rotate by pi/6 and translate by [3, -2, 5].
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>float</code> elements:
+</p>
+<pre><code>array.rotation@y(math.pi / 6, elemtype =&gt; `float)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.rotation@y</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@float.rotation@y(math.pi / 6)
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.rotation@z</strong></div>
 <div style="margin-bottom:1em"><code>array.rotation@z(angle:number, xtrans?:number, ytrans?:number, ztrans?:number, elemtype?:symbol):static:map:[deg] {block?}</code></div>
-Creates an array that rotates 3-D coords around z-axis by the specified <code>angle</code>.
+Creates an <code>array</code> of <code>double</code> type of elements representing a matrix to rotate a 3-D coord around z-axis.
 </p>
 <p>
-The <code>angle</code> is specified in radian value. If the attribute <code>:deg</code> is specified, the <code>angle</code> is specified in degree value.
+The rotation <code>angle</code> is specified in radian value. If the attribute <code>:deg</code> is specified, the <code>angle</code> is specified in degree value.
 </p>
 <p>
-If one or more of <code>xtrans</code>, <code>ytrans</code> or <code>ztrans</code> is specified, it would create an array that works as translation as well as rotation.
+If one or more of <code>xtrans</code>, <code>ytrans</code> and <code>ztrans</code> are specified, it would create an array that works as translation as well as rotation.
 </p>
+<p>
+Example:
+</p>
+<pre><code>x = array.rotation@z(math.pi / 6)
+// x is a matrix to rotate by pi/6.
+x = array.rotation@z(30):deg
+// x is a matrix to rotate by 30 degree, which is pi/6 in radian.
+x = array.rotation@z(math.pi / 6, 3, -2, 5)
+// x is a matrix to rotate by pi/6 and translate by [3, -2, 5].
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>float</code> elements:
+</p>
+<pre><code>array.rotation@z(math.pi / 6, elemtype =&gt; `float)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.rotation@z</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@float.rotation@z(math.pi / 6)
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.scaling</strong></div>
 <div style="margin-bottom:1em"><code>array.scaling(xscale:number, yscale:number, zscale?:number, elemtype?:symbol):static:map {block?}</code></div>
-Creates an array that scales coords. If the argument <code>zscale</code> is specified, it would create an array that works with 3-D coords. Otherwise, it would create what works with 2-D coord.n
+Creates an <code>array</code> of <code>double</code> type of elements representing a matrix to scale a coord.
 </p>
+<p>
+It creates a matrix that works on a 2-D coord if <code>xscale</code> and <code>yscale</code> are specified while it creates a matrix on a 3-D coord if <code>xscale</code>, <code>yscale</code> and <code>zscale</code> are specified.
+</p>
+<p>
+Example:
+</p>
+<pre><code>x = array.scaling(3, 4)
+// x is a matrix to scale a 2-D coord by [3, 4].
+x = array.scaling(3, 4, -2)
+// x is a matrix to scale a 3-D coord by [3, 4, -2].
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>float</code> elements:
+</p>
+<pre><code>array.scaling(3, 4, elemtype =&gt; `float)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.scaling</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@float.scaling(3, 4
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.translation</strong></div>
 <div style="margin-bottom:1em"><code>array.translation(xtrans:number, ytrans:number, ztrans?:number, elemtype?:symbol):static:map {block?}</code></div>
-Creates an array that translates coords. If the argument <code>ztrans</code> is specified, it would create an array that works with 3-D coords. Otherwise, it would create what works with 2-D coords.n
+Creates an <code>array</code> of <code>double</code> type of elements representing a matrix to translate a coord.
 </p>
+<p>
+It creates a matrix that works on a 2-D coord if <code>xtrans</code> and <code>ytrans</code> are specified while it creates a matrix on a 3-D coord if <code>xtrans</code>, <code>ytrans</code> and <code>ztrans</code> are specified.
+</p>
+<p>
+Example:
+</p>
+<pre><code>x = array.translation(3, 4)
+// x is a matrix to translate a 2-D coord by [3, 4].
+x = array.translation(3, 4, -2)
+// x is a matrix to translate a 3-D coord by [3, 4, -2].
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>float</code> elements:
+</p>
+<pre><code>array.translation(3, 4, elemtype =&gt; `float)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.translation</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@float.translation(3, 4
+</code></pre>
 <p>
 <div><strong style="text-decoration:underline">array.zeros</strong></div>
 <div style="margin-bottom:1em"><code>array.zeros(dims[]:number, elemtype?:symbol):static:map {block?}</code></div>
-Creates an array with the specified dimensions, which elements are initialized by zero.
+Creates an array of <code>double</code> type of elements, which are initialized with zero. The argument <code>dims</code> specifies the dimension of the created array.
 </p>
 <p>
 Example:
 </p>
 <pre><code>x = array.zeros([3, 4])
-    // array@double {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}
+// x is array@double {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}
+</code></pre>
+<p>
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+Specifying the argument <code>elemtype</code> would create an array of element type other than <code>double</code>. The followings examples create an <code>array</code> instance of <code>int32</code> elements:
+</p>
+<pre><code>array.zeros([3, 4], elemtype =&gt; `int32)
+</code></pre>
+<p>
+Available element types are:
+</p>
+<pre><code>`int8, `uint8, `int16, `uint16, `int32, `uint32, `int64, `uint64
+`half, `float, `double, `complex
+</code></pre>
+<p>
+Methods named <code>array@T.zeros</code> where <code>T</code> gets an element type name are also provided to create an <code>array</code> instance of a specific type more easily. Using these functions could simplify the code above like this:
+</p>
+<pre><code>array@int32.zeros([3, 4])
 </code></pre>
 <h3><span class="caption-index-3">5.2.3</span><a name="anchor-5-2-3"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">array#argmax</strong></div>
+<div style="margin-bottom:1em"><code>array#argmax(axis?:number):map:[last_index] {block?}</code></div>
+Returns index of a maximum number of elements in the target <code>array</code>.
+</p>
+<p>
+<div><strong style="text-decoration:underline">array#argmin</strong></div>
+<div style="margin-bottom:1em"><code>array#argmin(axis?:number):map:[last_index] {block?}</code></div>
+Returns index of a minimum number of elements in the target <code>array</code>.
+</p>
 <p>
 <div><strong style="text-decoration:underline">array.dot</strong></div>
 <div style="margin-bottom:1em"><code>array.dot(a:array, b:array):static:map {block?}</code></div>
@@ -574,7 +910,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <p>
 <div><strong style="text-decoration:underline">array#fill</strong></div>
-<div style="margin-bottom:1em"><code>array#fill(value:number):map:void</code></div>
+<div style="margin-bottom:1em"><code>array#fill(value:number):void</code></div>
 Fills array with a specified value.
 </p>
 <p>
@@ -595,7 +931,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 </p>
 <p>
 <div><strong style="text-decoration:underline">array#invert</strong></div>
-<div style="margin-bottom:1em"><code>array#invert(eps?:number):map {block?}</code></div>
+<div style="margin-bottom:1em"><code>array#invert(eps?:number) {block?}</code></div>
 Returns an <code>array</code> instance as a result that has elements of inverted matrix of the target <code>array</code>. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
@@ -609,12 +945,22 @@ Returns <code>true</code> if the target <code>array</code> instance has the same
 Returns <code>true</code> if the target <code>array</code> consists square matrices.
 </p>
 <p>
+<div><strong style="text-decoration:underline">array#max</strong></div>
+<div style="margin-bottom:1em"><code>array#max(axis?:number):map:[index,last_index] {block?}</code></div>
+Finds a maximum number of elements in the target <code>array</code>.
+</p>
+<p>
 <div><strong style="text-decoration:underline">array#mean</strong></div>
 <div style="margin-bottom:1em"><code>array#mean(axis?:number):map {block?}</code></div>
 Calculates an mean value of elements in the array.
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">array#min</strong></div>
+<div style="margin-bottom:1em"><code>array#min(axis?:number):map:[index,last_index] {block?}</code></div>
+Finds a minimum number of elements in the target <code>array</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">array#offset</strong></div>
@@ -662,6 +1008,14 @@ Returns an <code>array</code> instance as a result that has rounded off elements
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
+<div><strong style="text-decoration:underline">array#std</strong></div>
+<div style="margin-bottom:1em"><code>array#std(axis?:number):map:[p] {block?}</code></div>
+Calculates a standard deviation value of elements in the target <code>array</code>.
+</p>
+<p>
+In default, it calculates an unbiased estimation of standard deviation in which the summation of squared deviations is divided by <code>(n - 1)</code>. Specifying <code>:p</code> attributes will calculate a population variance that divides that summation by <code>n</code>.
+</p>
+<p>
 <div><strong style="text-decoration:underline">array#sum</strong></div>
 <div style="margin-bottom:1em"><code>array#sum(axis?:number):map {block?}</code></div>
 Calculates a summation value of elements in the target <code>array</code>.
@@ -684,6 +1038,14 @@ If the argument is not specified, two axes at the lowest rank, which correspond 
 </p>
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|array:array|</code>, where <code>array</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
+<p>
+<div><strong style="text-decoration:underline">array#var</strong></div>
+<div style="margin-bottom:1em"><code>array#var(axis?:number):map:[p] {block?}</code></div>
+Calculates a variation value of elements in the target <code>array</code>.
+</p>
+<p>
+In default, it calculates an unbiased estimation of standard deviation in which the summation of squared deviations is divided by <code>(n - 1)</code>. Specifying <code>:p</code> attributes will calculate a population variance that divides that summation by <code>n</code>.
 </p>
 <h2><span class="caption-index-2">5.3</span><a name="anchor-5-3"></a>audio Class</h2>
 <p>
@@ -1236,7 +1598,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -2848,7 +3210,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <h3><span class="caption-index-3">5.15.3</span><a name="anchor-5-15-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">expr#eval</strong></div>
-<div style="margin-bottom:1em"><code>expr#eval(env?:environment)</code></div>
+<div style="margin-bottom:1em"><code>expr#eval(env?:environment) {block?}</code></div>
 Evaluates the <code>expr</code> instance.
 </p>
 <p>
@@ -4416,6 +4778,46 @@ Below is an example to specify a number that exceeds the source length:
 Calculates a logical AND result of all the values in the iterable.
 </p>
 <p>
+<div><strong style="text-decoration:underline">iterable#argmax</strong></div>
+<div style="margin-bottom:1em"><code>iterable#argmax():[indices,last_index]</code></div>
+Returns a position index where the maximum value is found at first.
+</p>
+<p>
+The following attributes modify the behavior:
+</p>
+<ul>
+<li><code>:last_index</code> .. returns an index where the maximum value is found at last.</li>
+<li><code>:indices</code> .. returns a list of all indices where the maximum value is found.</li>
+</ul>
+<p>
+Calling of methods <code>iterable#argmas()</code> and <code>iteraboe#max()</code> have the same effect when attributes are specified as follows:
+</p>
+<ul>
+<li><code>iterable.argmax()</code> and <code>iterable.max():index</code></li>
+<li><code>iterable.argmax():last_index</code> and <code>iterable.max():last_index</code></li>
+<li><code>iterable.argmax():indices</code> and <code>iterable.max():indices</code></li>
+</ul>
+<p>
+<div><strong style="text-decoration:underline">iterable#argmin</strong></div>
+<div style="margin-bottom:1em"><code>iterable#argmin():[indices,last_index]</code></div>
+Returns a position index where the minimum value is found at first.
+</p>
+<p>
+The following attributes modify the behavior:
+</p>
+<ul>
+<li><code>:last_index</code> .. returns an index where the minimum value is found at last.</li>
+<li><code>:indices</code> .. returns a list of all indices where the minimum value is found.</li>
+</ul>
+<p>
+Calling of methods <code>iterable#argmas()</code> and <code>iteraboe#max()</code> have the same effect when attributes are specified as follows:
+</p>
+<ul>
+<li><code>iterable.argmax()</code> and <code>iterable.max():index</code></li>
+<li><code>iterable.argmax():last_index</code> and <code>iterable.max():last_index</code></li>
+<li><code>iterable.argmax():indices</code> and <code>iterable.max():indices</code></li>
+</ul>
+<p>
 <div><strong style="text-decoration:underline">iterable#before</strong></div>
 <div style="margin-bottom:1em"><code>iterable#before(criteria) {block?}</code></div>
 Creates an iterator that extracts elements in the iterable before criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
@@ -4674,12 +5076,12 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 Returns the maximum value in the iterable.
 </p>
 <p>
-It would return a position index where the maximum value is found when one of the following attribute is specified:
+It would return a position index where the maximum value is found when one of the following attributes is specified:
 </p>
 <ul>
 <li><code>:index</code> .. an index of the maximum value.</li>
-<li><code>:indices</code> .. a list of indices where the maximum value is found.</li>
-<li><code>:last_index</code> .. the last index of the maximum value when the value exists at multiple positions.</li>
+<li><code>:last_index</code> .. an index where the maximum value is found at last.</li>
+<li><code>:indices</code> .. a list of all indices where the maximum value is found.</li>
 </ul>
 <p>
 <div><strong style="text-decoration:underline">iterable#mean</strong></div>
@@ -4700,12 +5102,12 @@ It can work on an iterable with elements of type that supports addition and divi
 Returns the minimum value in the iterable.
 </p>
 <p>
-It would return a position index where the minimum value is found when one of the following attribute is specified:
+It would return a position index where the minimum value is found when one of the following attributes is specified:
 </p>
 <ul>
 <li><code>:index</code> .. an index of the minimum value.</li>
-<li><code>:indices</code> .. a list of indices where the minimum value is found.</li>
-<li><code>:last_index</code> .. the last index of the minimum value when the value exists at multiple positions.</li>
+<li><code>:last_index</code> .. an index where the minimum value is found at last.</li>
+<li><code>:indices</code> .. a list of all indices where the minimum value is found.</li>
 </ul>
 <p>
 <div><strong style="text-decoration:underline">iterable#nilto</strong></div>
@@ -5082,8 +5484,8 @@ You can also put a function to the argument <code>directive</code> that takes tw
 When an attribute :stable is specified, the original order shall be kept for elements that are determined as the same. If the argument <code>keys</code> is specified, it would be used as a key instead of element values.
 </p>
 <p>
-<div><strong style="text-decoration:underline">iterable#stddev</strong></div>
-<div style="margin-bottom:1em"><code>iterable#stddev()</code></div>
+<div><strong style="text-decoration:underline">iterable#std</strong></div>
+<div style="margin-bottom:1em"><code>iterable#std():[p]</code></div>
 Calculates a standard deviation of elements in the iterable.
 </p>
 <p>
@@ -5146,8 +5548,8 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<div><strong style="text-decoration:underline">iterable#variance</strong></div>
-<div style="margin-bottom:1em"><code>iterable#variance()</code></div>
+<div><strong style="text-decoration:underline">iterable#var</strong></div>
+<div style="margin-bottom:1em"><code>iterable#var():[p]</code></div>
 Calculates a variance of elements in the iterable.
 </p>
 <p>
@@ -6649,59 +7051,56 @@ Returns <code>true</code> if there's no difference between the binary sequences 
 Copies the content in <code>src</code> to the stream <code>dst</code>.
 </p>
 <p>
-The copying is done by the following process:
+The copy process is done by the following steps:
 </p>
 <ol>
 <li>Reads data from stream <code>src</code> into a buffer with the size specified by <code>bytesunit</code>.</li>
-<li>If <code>block</code> is specified, it would be evaluated with a block parameter <code>|buff:binary|</code> where <code>buff</code> contains the read data. When the block's result is a <code>binary</code> instance, the content would be written to the stream <code>dst</code>. Otherwise, the read data would be written to stream <code>dst</code>.</li>
-<li>If <code>block</code> is not specified,　the read data would be written to stream <code>dst</code>.</li>
-<li>Continues from step 1 to 3 until data from <code>src</code> runs out.</li>
+<li>(1) If <code>block</code> is specified, it would be evaluated with a block parameter <code>|buff:binary|</code> where <code>buff</code> contains the read data. When the block's result is a <code>binary</code> instance, the content would be written to the stream <code>dst</code>. Otherwise, the read data would be written to stream <code>dst</code>. (2) If <code>block</code> is not specified, the read data would be written to stream <code>dst</code>.</li>
+<li>Continues from step 1 to 2 until data from <code>src</code> runs out.</li>
 </ol>
 <p>
-If the attribute <code>:finalize</code> is specified, some finalizing process will be applied at the end such as copying time stamp and attributes.
+If the attribute <code>:finalize</code> is specified, some finalizing process such as copying the time stamp and attributes will be applied at the end.
 </p>
 <p>
-This has the same feature as <code>stream#copyfrom()</code> and <code>stream#copyto()</code>.
+This works the same way as <code>stream#copyfrom()</code> and <code>stream#copyto()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#copyfrom</strong></div>
 <div style="margin-bottom:1em"><code>stream#copyfrom(src:stream:r, bytesunit:number =&gt; 65536):map:reduce:[finalize] {block?}</code></div>
-Copies the content in <code>src</code> to the target stream instance.
+Copies the content in <code>src</code> to target stream instance.
 </p>
 <p>
-The copying is done by the following process:
+The copy process is done by the following steps:
 </p>
 <ol>
 <li>Reads data from stream <code>src</code> into a buffer with the size specified by <code>bytesunit</code>.</li>
-<li>If <code>block</code> is specified, it would be evaluated with a block parameter <code>|buff:binary|</code> where <code>buff</code> contains the read data. When the block's result is a <code>binary</code> instance, the content would be written to the stream <code>dst</code>. Otherwise, the read data would be written to stream <code>dst</code>.</li>
-<li>If <code>block</code> is not specified,　the read data would be written to stream <code>dst</code>.</li>
-<li>Continues from step 1 to 3 until data from <code>src</code> runs out.</li>
+<li>(1) If <code>block</code> is specified, it would be evaluated with a block parameter <code>|buff:binary|</code> where <code>buff</code> contains the read data. When the block's result is a <code>binary</code> instance, the content would be written to the target stream. Otherwise, the read data would be written to the target stream. (2) If <code>block</code> is not specified, the read data would be written to the target stream.</li>
+<li>Continues from step 1 to 2 until data from <code>src</code> runs out.</li>
 </ol>
 <p>
-If the attribute <code>:finalize</code> is specified, some finalizing process will be applied at the end such as copying time stamp and attributes.
+If the attribute <code>:finalize</code> is specified, some finalizing process such as copying the time stamp and attributes will be applied at the end.
 </p>
 <p>
-This has the same feature as <code>stream.copy()</code> and <code>stream#copyto()</code>.
+This works the same way as <code>stream.copy()</code> and <code>stream#copyto()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#copyto</strong></div>
 <div style="margin-bottom:1em"><code>stream#copyto(dst:stream:w, bytesunit:number =&gt; 65536):map:reduce:[finalize] {block?}</code></div>
-Copies the content in the target stream instance to stream <code>dst</code>.
+Copies the content in the target stream to the stream <code>dst</code>.
 </p>
 <p>
-The copying is done by the following process:
+The copy process is done by the following steps:
 </p>
 <ol>
-<li>Reads data from stream <code>src</code> into a buffer with the size specified by <code>bytesunit</code>.</li>
-<li>If <code>block</code> is specified, it would be evaluated with a block parameter <code>|buff:binary|</code> where <code>buff</code> contains the read data. When the block's result is a <code>binary</code> instance, the content would be written to the stream <code>dst</code>. Otherwise, the read data would be written to stream <code>dst</code>.</li>
-<li>If <code>block</code> is not specified,　the read data would be written to stream <code>dst</code>.</li>
-<li>Continues from step 1 to 3 until data from <code>src</code> runs out.</li>
+<li>Reads data from the target stream into a buffer with the size specified by <code>bytesunit</code>.</li>
+<li>(1) If <code>block</code> is specified, it would be evaluated with a block parameter <code>|buff:binary|</code> where <code>buff</code> contains the read data. When the block's result is a <code>binary</code> instance, the content would be written to the stream <code>dst</code>. Otherwise, the read data would be written to stream <code>dst</code>. (2) If <code>block</code> is not specified, the read data would be written to stream <code>dst</code>.</li>
+<li>Continues from step 1 to 2 until data from the target stream runs out.</li>
 </ol>
 <p>
-If the attribute <code>:finalize</code> is specified, some finalizing process will be applied at the end such as copying time stamp and attributes.
+If the attribute <code>:finalize</code> is specified, some finalizing process such as copying the time stamp and attributes will be applied at the end.
 </p>
 <p>
-This has the same feature as <code>stream.copy()</code> and <code>stream#copyfrom()</code>.
+This works the same way as <code>stream.copy()</code> and <code>stream#copyfrom()</code>.
 </p>
 <p>
 <div><strong style="text-decoration:underline">stream#delcr</strong></div>
@@ -7108,11 +7507,11 @@ Converts upper-case to lower-case characters.
 </p>
 <p>
 <div><strong style="text-decoration:underline">string#mid</strong></div>
-<div style="margin-bottom:1em"><code>string#mid(pos:number =&gt; 0, len?:number):map {block?}</code></div>
+<div style="margin-bottom:1em"><code>string#mid(pos:number, len?:number):map {block?}</code></div>
 Extracts the specified length of string from the position <code>pos</code> and returns the result.
 </p>
 <p>
-If an argument <code>len</code> is omitted, it returns a string from <code>pos</code> to the end. The number of an argument <code>pos</code> starts from zero.
+If the argument <code>len</code> is omitted, it returns a string from <code>pos</code> to the end. The number of an argument <code>pos</code> starts from zero.
 </p>
 <p>
 Below are examples:

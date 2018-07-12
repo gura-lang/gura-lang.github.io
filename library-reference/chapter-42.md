@@ -5,47 +5,319 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">42</span><a name="anchor-42"></a>ppm Module</h1>
+<h1><span class="caption-index-1">42</span><a name="anchor-42"></a>mtp Module</h1>
 <p>
-The <code>ppm</code> module provides measures to read/write image data in PPM format. To utilize it, import the <code>ppm</code> module using <code>import</code> function.
+The <code>mtp</code> module provides measures to read/write data on a mobile platform like an Android device.
+</p>
+<h2><span class="caption-index-2">42.1</span><a name="anchor-42-1"></a>Module Function</h2>
+<p>
+<div><strong style="text-decoration:underline">mtp.detect_devices</strong></div>
+<div style="margin-bottom:1em"><code>mtp.detect_devices() {block?}</code></div>
+Detects MTP devices and returns a list of <code>mtp.device</code> instances.
+</p>
+<h2><span class="caption-index-2">42.2</span><a name="anchor-42-2"></a>mtp.device Class</h2>
+<h3><span class="caption-index-3">42.2.1</span><a name="anchor-42-2-1"></a>Property</h3>
+<p>
+A <code>mtp.device</code> instance has the following properties:
 </p>
 <p>
-Below is an example to read a PPM file:
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Note</th>
+</tr>
+
+
+<tr>
+<td>
+<code>friendlyname</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+Friendly name.</td>
+</tr>
+
+<tr>
+<td>
+<code>manufacturer</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+Manufacturer name.</td>
+</tr>
+
+<tr>
+<td>
+<code>storages</code></td>
+<td>
+<code>list</code></td>
+<td>
+R</td>
+
+<td>
+Returns a list of `mtp.storage` instances.</td>
+</tr>
+
+
+</table>
+
 </p>
-<pre><code>import(ppm)
-img = image('foo.ppm')
-</code></pre>
-<h2><span class="caption-index-2">42.1</span><a name="anchor-42-1"></a>Exntension to Function's Capability</h2>
+<h2><span class="caption-index-2">42.3</span><a name="anchor-42-3"></a>mtp.storage Class</h2>
+<h3><span class="caption-index-3">42.3.1</span><a name="anchor-42-3-1"></a>Property</h3>
 <p>
-This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write PPM files.
+A <code>mtp.storage</code> instance has the following properties:
 </p>
 <p>
-When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a PPM file.
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Note</th>
+</tr>
+
+
+<tr>
+<td>
+<code>access_capability</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+Returns one of the symbols: `` `ReadWrite``, `` `ReadOnly``, `` `ReadOnlyWithObjectDeletion``</td>
+</tr>
+
+<tr>
+<td>
+<code>filesystem_type</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+Returns one of the syhmbols: `` `Undefined``, `` `GenericFlat``, `` `GenericHierarchical``, `` `DCF``</td>
+</tr>
+
+<tr>
+<td>
+<code>free_space_in_bytes</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Free space in the storage in bytes.</td>
+</tr>
+
+<tr>
+<td>
+<code>free_space_in_objects</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Free space in the storage in number of objects.</td>
+</tr>
+
+<tr>
+<td>
+<code>max_capacity</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Maximum capacity of the storage in bytes.</td>
+</tr>
+
+<tr>
+<td>
+<code>storage_description</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+Storage description.</td>
+</tr>
+
+<tr>
+<td>
+<code>storage_type</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+Returns one of the symbols: `` `Undefined``, `` `FixedROM``, `` `RemovableROM``, `` `FixedRAM``, `` `RemovableRAM``</td>
+</tr>
+
+<tr>
+<td>
+<code>volume_identifier</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+Volume identifier.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h3><span class="caption-index-3">42.3.2</span><a name="anchor-42-3-2"></a>Method</h3>
+<p>
+<div><strong style="text-decoration:underline">mtp.storage#opendir</strong></div>
+<div style="margin-bottom:1em"><code>mtp.storage#opendir(pathname:string) {block?}</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">mtp.storage#recvfile</strong></div>
+<div style="margin-bottom:1em"><code>mtp.storage#recvfile(pathname:string, stream:stream:w):reduce {block?}</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">mtp.storage#remove</strong></div>
+<div style="margin-bottom:1em"><code>mtp.storage#remove(pathname:string):reduce</code></div>
+
+</p>
+<p>
+<div><strong style="text-decoration:underline">mtp.storage#sendfile</strong></div>
+<div style="margin-bottom:1em"><code>mtp.storage#sendfile(pathname:string, stream:stream:r):reduce {block?}</code></div>
+
+</p>
+<h2><span class="caption-index-2">42.4</span><a name="anchor-42-4"></a>mtp.stat Class</h2>
+<h3><span class="caption-index-3">42.4.1</span><a name="anchor-42-4-1"></a>Property</h3>
+<p>
+A <code>mtp.stat</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Note</th>
+</tr>
+
+
+<tr>
+<td>
+<code>dirname</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+Directory name.</td>
+</tr>
+
+<tr>
+<td>
+<code>filename</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+Filename.</td>
+</tr>
+
+<tr>
+<td>
+<code>isdir</code></td>
+<td>
+<code>boolean</code></td>
+<td>
+R</td>
+
+<td>
+Returns `true` for a directory and `false` for a file.</td>
+</tr>
+
+<tr>
+<td>
+<code>mtime</code></td>
+<td>
+<code>datetime</code></td>
+<td>
+R</td>
+
+<td>
+Returns a `datetime` instance indicating the modification time stamp.</td>
+</tr>
+
+<tr>
+<td>
+<code>pathname</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+Path name.</td>
+</tr>
+
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+File size in bytes.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h3><span class="caption-index-3">42.4.2</span><a name="anchor-42-4-2"></a>Method</h3>
+<h2><span class="caption-index-2">42.5</span><a name="anchor-42-5"></a>Thanks</h2>
+<p>
+This module uses libusb and libmtp library which is distributed in the following site:
 </p>
 <ul>
-<li>The identifier of the stream ends with a suffix "<code>.ppm</code>" or "<code>.pbm</code>".</li>
-<li>The stream data begins with a byte sequence "<code>P2</code>", "<code>P3</code>" or "<code>P6</code>".</li>
+<li><a href="https://libusb.info/">https://libusb.info/</a></li>
+<li><a href="http://libmtp.sourceforge.net/">http://libmtp.sourceforge.net/</a></li>
 </ul>
-<p>
-When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in PPM format.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.ppm</code>" or "<code>.pbm</code>".</li>
-</ul>
-<h2><span class="caption-index-2">42.2</span><a name="anchor-42-2"></a>Extension to image Class</h2>
-<p>
-This module extends the <code>image</code> class with methods described here.
-</p>
-<p>
-<div><strong style="text-decoration:underline">image#read@ppm</strong></div>
-<div style="margin-bottom:1em"><code>image#read@ppm(stream:stream:r):reduce</code></div>
-Reads a PPM/PGM image from a stream.
-</p>
-<p>
-<div><strong style="text-decoration:underline">image#write@ppm</strong></div>
-<div style="margin-bottom:1em"><code>image#write@ppm(stream:stream:w):reduce:[gray]</code></div>
-Writes a PPM/PGM image to a stream.
-</p>
 <p />
 
 {% endraw %}

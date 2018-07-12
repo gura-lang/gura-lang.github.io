@@ -25,6 +25,8 @@ argopt.Parser {|p|
         sys.exit(1)
     }
 }
+// The value of cfg['text'] is 'foo' when '--text=foo' is specified.
+// The value of cfg['test'] is true when '--test' is specified.
 </code></pre>
 <h2><span class="caption-index-2">6.1</span><a name="anchor-6-1"></a>argopt.Parser Class</h2>
 <h3><span class="caption-index-3">6.1.1</span><a name="anchor-6-1-1"></a>Constructor</h3>

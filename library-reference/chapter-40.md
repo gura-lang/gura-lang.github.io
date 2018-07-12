@@ -5,152 +5,165 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">40</span><a name="anchor-40"></a>path Module</h1>
+<h1><span class="caption-index-1">40</span><a name="anchor-40"></a>model.stl Module</h1>
 <p>
-The <code>path</code> module provides functions related to path operations. This is a built-in module, so you can use it without being imported.
+The <code>model.stl</code> module provides measures to read/write files in STL format for 3D models.
 </p>
 <p>
-Below is an example to list path names that exist in the current directory.
+Below is an example to read a STL file and to print information of faces it contains.
 </p>
-<pre><code>println(path.dir('.'))
+<pre><code>solid = model.stl.solid('example.stl')
+println(solid.name || solid.header)
+solid.faces.each {|face|
+    printf('normal:  %g, %g, %g\n', face.normal.x, face.normal.y, face.normal.z)
+    printf('vertex1: %g, %g, %g\n', face.vertex1.x, face.vertex1.y, face.vertex1.z)
+    printf('vertex2: %g, %g, %g\n', face.vertex2.x, face.vertex2.y, face.vertex2.z)
+    printf('vertex3: %g, %g, %g\n', face.vertex3.x, face.vertex3.y, face.vertex3.z)
+}
 </code></pre>
+<h2><span class="caption-index-2">40.1</span><a name="anchor-40-1"></a>model.stl.face Class</h2>
 <p>
-Below is an example to list path names that exist in the current directory and its child directories.
+An instance of <code>model.stl.face</code> class provides properties of face that consists of one normal vector and three vertices.
 </p>
-<pre><code>println(path.walk('.'))
-</code></pre>
+<h3><span class="caption-index-3">40.1.1</span><a name="anchor-40-1-1"></a>Property</h3>
 <p>
-Below is an example to list path names that matches a wild card pattern "<code>*.txt</code>".
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>normal</code></td>
+<td>
+<code>vertex</code></td>
+<td>
+R</td>
+
+<td>
+Normal vector.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>vertex1</code></td>
+<td>
+<code>vertex</code></td>
+<td>
+R</td>
+
+<td>
+1st vertex.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>vertex2</code></td>
+<td>
+<code>vertex</code></td>
+<td>
+R</td>
+
+<td>
+2nd vertex.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>vertex3</code></td>
+<td>
+<code>vertex</code></td>
+<td>
+R</td>
+
+<td>
+3rd vertex.</td>
+</tr>
+
+
+</table>
+
 </p>
-<pre><code>println(path.glob('*.txt'))
-</code></pre>
-<h2><span class="caption-index-2">40.1</span><a name="anchor-40-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">40.2</span><a name="anchor-40-2"></a>model.stl.solid Class</h2>
 <p>
-<div><strong style="text-decoration:underline">path.absname</strong></div>
-<div style="margin-bottom:1em"><code>path.absname(name:string):map:[uri]</code></div>
-Returns an absolute path name of the given name.
+An instance of <code>model.stl.solid</code> class represents a top-level data in STL format.
+</p>
+<h3><span class="caption-index-3">40.2.1</span><a name="anchor-40-2-1"></a>Property</h3>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Explanation</th>
+</tr>
+
+
+<tr>
+<td>
+<code>header</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+This is only valid for binary format and is set to `nil` for ASCII.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>name</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+This is only valid for ASCII format and is set to `nil` for binary.</td>
+</tr>
+
+
+<tr>
+<td>
+<code>faces</code></td>
+<td>
+<code>iterator</code></td>
+<td>
+R</td>
+
+<td>
+An iterator that returns instances of <code>model.stl.face</code>.</td>
+</tr>
+
+
+</table>
+
+</p>
+<h3><span class="caption-index-3">40.2.2</span><a name="anchor-40-2-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">stl.solid</strong></div>
+<div style="margin-bottom:1em"><code>stl.solid(stream:stream) {block?}</code></div>
+Parses a file in STL format from <code>stream</code> and creates an instance of <code>model.stl.solid</code> that contains an iterator of <code>model.stl.face</code> representing faces in the STL. It can read both binary and ASCII format of STL.
 </p>
 <p>
-<div><strong style="text-decoration:underline">path.basename</strong></div>
-<div style="margin-bottom:1em"><code>path.basename(pathname:string):map</code></div>
-Removes a suffix part of a path name.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.bottom</strong></div>
-<div style="margin-bottom:1em"><code>path.bottom(pathname:string):map</code></div>
-Returns the last part of a path name.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.cutbottom</strong></div>
-<div style="margin-bottom:1em"><code>path.cutbottom(pathname:string):map</code></div>
-Returns a path name after eliminating its bottom part.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.dir</strong></div>
-<div style="margin-bottom:1em"><code>path.dir(directory?:directory, pattern*:string):flat:map:[dir,file,stat] {block?}</code></div>
-Creates an iterator that lists item names in the specified directory. If pathname is omitted, the current directory shall be listed. In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-See the chapter of Mapping Process in Gura Language Manual for the detail.
-</p>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.dirname</strong></div>
-<div style="margin-bottom:1em"><code>path.dirname(pathname:string):map</code></div>
-Splits a pathname by a directory separator and returns a directory name part.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.exists</strong></div>
-<div style="margin-bottom:1em"><code>path.exists(pathname:string):map</code></div>
-Returns true if the specified file exists in a file system.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.extname</strong></div>
-<div style="margin-bottom:1em"><code>path.extname(pathname:string):map</code></div>
-Extracts a suffix part of a path name.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.filename</strong></div>
-<div style="margin-bottom:1em"><code>path.filename(pathname:string):map</code></div>
-Splits a pathname by a directory separator and returns a file name part.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.glob</strong></div>
-<div style="margin-bottom:1em"><code>path.glob(pattern:string):flat:map:[dir,file,stat] {block?}</code></div>
-Creates an iterator for item names that match with a pattern supporting UNIX shell-style wild cards. In default, case of characters is distinguished. In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-See the chapter of Mapping Process in Gura Language Manual for the detail.
-</p>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.join</strong></div>
-<div style="margin-bottom:1em"><code>path.join(paths+:string):map:[uri]</code></div>
-Returns a path name that joins given strings with directory separators.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.match</strong></div>
-<div style="margin-bottom:1em"><code>path.match(pattern:string, name:string):map</code></div>
-Returns true if a name matches with a pattern that supports UNIX shell-style wild cards. In default, case of characters is distinguished.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.regulate</strong></div>
-<div style="margin-bottom:1em"><code>path.regulate(name:string):map:[uri]</code></div>
-Returns a regulated path name of the given name.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.split</strong></div>
-<div style="margin-bottom:1em"><code>path.split(pathname:string):map:[bottom]</code></div>
-Splits a pathname by a directory separator and returns a list containing a directory name as the first element and a base name as the second one. This has the same result as calling path.dirname() and path.filename().
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.splitext</strong></div>
-<div style="margin-bottom:1em"><code>path.splitext(pathname:string):map</code></div>
-Splits a pathname by a dot character indicating a beginning of an extension and returns a list containing a path name without an extention and an extention part.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.stat</strong></div>
-<div style="margin-bottom:1em"><code>path.stat(directory:directory):map</code></div>
-Returns a stat object associated with the specified item.
-</p>
-<p>
-<div><strong style="text-decoration:underline">path.walk</strong></div>
-<div style="margin-bottom:1em"><code>path.walk(directory?:directory, maxdepth?:number, pattern*:string):flat:map:[dir,file,stat] {block?}</code></div>
-Creates an iterator that recursively lists item names under the specified directory. If pathname is omitted, search starts at the current directory In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-See the chapter of Mapping Process in Gura Language Manual for the detail.
-</p>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+If <code>block</code> is specified, it would be evaluated with a block parameter <code>|solid:model.stl.solid|</code>, where <code>solid</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p />
 

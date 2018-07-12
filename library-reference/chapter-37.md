@@ -5,62 +5,7 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">37</span><a name="anchor-37"></a>msico Module</h1>
-<p>
-The <code>msico</code> module provides measures to read/write image data in Microsoft Icon file format. To utilize it, import the <code>msico</code> module using <code>import</code> function.
-</p>
-<p>
-Below is an example to read an ICO file:
-</p>
-<pre><code>import(msico)
-img = image('foo.ico')
-</code></pre>
-<p>
-This module has been implemented referring to the specification: <a href="http://msdn.microsoft.com/en-us/library/ms997538.aspx">http://msdn.microsoft.com/en-us/library/ms997538.aspx</a>.
-</p>
-<h2><span class="caption-index-2">37.1</span><a name="anchor-37-1"></a>Exntension to Function's Capability</h2>
-<p>
-This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write ICO files.
-</p>
-<p>
-When function <code>image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a ICO file.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.ico</code>".</li>
-</ul>
-<p>
-When instance method <code>image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in ICO format.
-</p>
-<ul>
-<li>The identifier of the stream ends with a suffix "<code>.ico</code>".</li>
-</ul>
-<h2><span class="caption-index-2">37.2</span><a name="anchor-37-2"></a>msico.content Class</h2>
-<h3><span class="caption-index-3">37.2.1</span><a name="anchor-37-2-1"></a>Constructor</h3>
-<p>
-<div><strong style="text-decoration:underline">msico.content</strong></div>
-<div style="margin-bottom:1em"><code>msico.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code></div>
-
-</p>
-<h3><span class="caption-index-3">37.2.2</span><a name="anchor-37-2-2"></a>Method</h3>
-<p>
-<div><strong style="text-decoration:underline">msico.content#write</strong></div>
-<div style="margin-bottom:1em"><code>msico.content#write(stream:stream:w):reduce</code></div>
-Writes an ICO image to a stream.
-</p>
-<p>
-<div><strong style="text-decoration:underline">msico.content#addimage</strong></div>
-<div style="margin-bottom:1em"><code>msico.content#addimage(image:image):map:reduce</code></div>
-
-</p>
-<h2><span class="caption-index-2">37.3</span><a name="anchor-37-3"></a>Extension to image Class</h2>
-<p>
-This module extends the <code>image</code> class with methods described here.
-</p>
-<p>
-<div><strong style="text-decoration:underline">image#read@msico</strong></div>
-<div style="margin-bottom:1em"><code>image#read@msico(stream:stream:r, idx:number =&gt; 0):reduce</code></div>
-Reads an ICO image from a stream.
-</p>
+<h1><span class="caption-index-1">37</span><a name="anchor-37"></a>ml.svm Module</h1>
 <p />
 
 {% endraw %}

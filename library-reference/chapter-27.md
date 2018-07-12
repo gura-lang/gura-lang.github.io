@@ -5,111 +5,53 @@ title: Gura Library Reference
 ---
 
 {% raw %}
-<h1><span class="caption-index-1">27</span><a name="anchor-27"></a>hash Module</h1>
+<h1><span class="caption-index-1">27</span><a name="anchor-27"></a>gzip Module</h1>
 <p>
-The <code>hash</code> module provides measures to calculate hash values of a data sequence in a stream. To utilize it, import the <code>hash</code> module using <code>import</code> function.
+The <code>gzip</code> module provides measures to read/write GZIP files. To utilize it, import the <code>gzip</code> module using <code>import</code> function.
 </p>
 <p>
-Below is an example to calculate MD5, SHA-1 and CRC32 hash values of a file named <code>foo.txt</code>.
+Below is an example to read data from a GZIP file and write its uncompressed data to another file.
 </p>
-<pre><code>import(hash)
-
-fileName = 'foo.txt'
-println('MD5: ', hash.md5(fileName).hexdigest)
-println('SHA-1: ', hash.sha1(fileName).hexdigest)
-println('CRC32: ', hash.crc32(fileName).hexdigest)
+<pre><code>import(gzip)
+gzip.reader('foo.dat.gz').copyto('foo.dat')
 </code></pre>
-<h2><span class="caption-index-2">27.1</span><a name="anchor-27-1"></a>hash.accumulator Class</h2>
 <p>
-The <code>hash.accumulator</code> class provides measures to calculate hashed numbers including MD5, SHA-1 and CRC32.
+Below is an example to read data from a file and write its compressed data to a GZIP file.
+</p>
+<pre><code>import(gzip)
+gzip.writer('foo.dat.gz').copyfrom('foo.dat')
+</code></pre>
+<h2><span class="caption-index-2">27.1</span><a name="anchor-27-1"></a>Module Function</h2>
+<p>
+<div><strong style="text-decoration:underline">gzip.reader</strong></div>
+<div style="margin-bottom:1em"><code>gzip.reader(stream:stream:r) {block?}</code></div>
+
 </p>
 <p>
-As the class inhefits from <code>stream</code>, you can call methods of <code>stream</code> class with <code>hash.accumulator</code> instances.
-</p>
-<h3><span class="caption-index-3">27.1.1</span><a name="anchor-27-1-1"></a>Property</h3>
-<p>
-<table>
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>digest</code></td>
-<td>
-<code>binary</code></td>
-<td>
-R</td>
-
-<td>
-Returns the hashed result as <code>binary</code>.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>hexdigest</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-
-<td>
-Returns the hashed result as <code>string</code> in hexadecimal format.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>number</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Returns the hashed result as <code>number</code>.
-This field is valid only for CRC32 and returns `nil` for other hashes.</td>
-</tr>
-
-
-</table>
+<div><strong style="text-decoration:underline">gzip.writer</strong></div>
+<div style="margin-bottom:1em"><code>gzip.writer(stream:stream:w, level?:number) {block?}</code></div>
 
 </p>
-<h3><span class="caption-index-3">27.1.2</span><a name="anchor-27-1-2"></a>Constructor</h3>
+<h2><span class="caption-index-2">27.2</span><a name="anchor-27-2"></a>Extension to stream Class</h2>
 <p>
-<div><strong style="text-decoration:underline">hash.md5</strong></div>
-<div style="margin-bottom:1em"><code>hash.md5(stream?:stream:r) {block?}</code></div>
-Creates an <code>hash.accumulator</code> instance that calculates MD5 hashed value from the content of <code>stream</code>.
+This module extends the <code>stream</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">hash.sha1</strong></div>
-<div style="margin-bottom:1em"><code>hash.sha1(stream?:stream:r) {block?}</code></div>
-Creates an <code>hash.accumulator</code> instance that calculates SHA1 hashed value from the content of <code>stream</code>.
+<div><strong style="text-decoration:underline">stream#reader@gzip</strong></div>
+<div style="margin-bottom:1em"><code>stream#reader@gzip() {block?}</code></div>
+
 </p>
 <p>
-<div><strong style="text-decoration:underline">hash.crc32</strong></div>
-<div style="margin-bottom:1em"><code>hash.crc32(stream?:stream:r) {block?}</code></div>
-Creates an <code>hash.accumulator</code> instance that calculates CRC32 hashed value from the content of <code>stream</code>.
+<div><strong style="text-decoration:underline">stream#writer@gzip</strong></div>
+<div style="margin-bottom:1em"><code>stream#writer@gzip(level?:number) {block?}</code></div>
+
 </p>
-<h3><span class="caption-index-3">27.1.3</span><a name="anchor-27-1-3"></a>Method</h3>
+<h2><span class="caption-index-2">27.3</span><a name="anchor-27-3"></a>Thanks</h2>
 <p>
-<div><strong style="text-decoration:underline">hash.accumulator#init</strong></div>
-<div style="margin-bottom:1em"><code>hash.accumulator#init():reduce</code></div>
-Initializes the state of the accumulator.
+This module uses zlib which official site is:
 </p>
 <p>
-<div><strong style="text-decoration:underline">hash.accumulator#update</strong></div>
-<div style="margin-bottom:1em"><code>hash.accumulator#update(stream:stream:r):reduce</code></div>
-Updates the accumulator with the content of <code>stream</code>.
+<a href="http://zlib.net/">http://zlib.net/</a>
 </p>
 <p />
 
