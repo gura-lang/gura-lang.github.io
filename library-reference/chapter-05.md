@@ -205,7 +205,7 @@ Most of methods in <code>array</code> class are implemented in <code>arrayt</cod
 </p>
 <h3><span class="caption-index-3">5.2.1</span><a name="anchor-5-2-1"></a>Property</h3>
 <p>
-An <code>array</code> instance has the following properties:
+A <code>array</code> instance has the following properties:
 </p>
 <p>
 <table>
