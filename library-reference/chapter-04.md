@@ -863,12 +863,6 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-Below is an example to create a create that generates random numbers:
-</p>
-<pre><code>x = randns(100)
-// x is an infinite iterator to generates random numbers between 0 and 99
-</code></pre>
-<p>
 <div><strong style="text-decoration:underline">randseed</strong></div>
 <div style="margin-bottom:1em"><code>randseed(seed:number):void</code></div>
 Initializes random seed with a specified number.

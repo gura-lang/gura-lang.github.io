@@ -67,7 +67,7 @@ Manufacturer name.</td>
 R</td>
 
 <td>
-Returns a list of `mtp.storage` instances.</td>
+Returns a list of <code>mtp.storage</code> instances.</td>
 </tr>
 
 
@@ -102,7 +102,7 @@ Note</th>
 R</td>
 
 <td>
-Returns one of the symbols: `` `ReadWrite``, `` `ReadOnly``, `` `ReadOnlyWithObjectDeletion``</td>
+Returns one of the symbols: <code>`ReadWrite</code>, <code>`ReadOnly</code>, <code>`ReadOnlyWithObjectDeletion</code></td>
 </tr>
 
 <tr>
@@ -114,7 +114,7 @@ Returns one of the symbols: `` `ReadWrite``, `` `ReadOnly``, `` `ReadOnlyWithObj
 R</td>
 
 <td>
-Returns one of the syhmbols: `` `Undefined``, `` `GenericFlat``, `` `GenericHierarchical``, `` `DCF``</td>
+Returns one of the syhmbols: <code>`Undefined</code>, <code>`GenericFlat</code>, <code>`GenericHierarchical</code>, <code>`DCF</code></td>
 </tr>
 
 <tr>
@@ -174,7 +174,7 @@ Storage description.</td>
 R</td>
 
 <td>
-Returns one of the symbols: `` `Undefined``, `` `FixedROM``, `` `RemovableROM``, `` `FixedRAM``, `` `RemovableRAM``</td>
+Returns one of the symbols: <code>`Undefined</code>, <code>`FixedROM</code>, <code>`RemovableROM</code>, <code>`FixedRAM</code>, <code>`RemovableRAM</code></td>
 </tr>
 
 <tr>
@@ -266,7 +266,7 @@ Filename.</td>
 R</td>
 
 <td>
-Returns `true` for a directory and `false` for a file.</td>
+Returns <code>true</code> for a directory and <code>false</code> for a file.</td>
 </tr>
 
 <tr>
@@ -278,7 +278,7 @@ Returns `true` for a directory and `false` for a file.</td>
 R</td>
 
 <td>
-Returns a `datetime` instance indicating the modification time stamp.</td>
+Returns a <code>datetime</code> instance indicating the modification time stamp.</td>
 </tr>
 
 <tr>

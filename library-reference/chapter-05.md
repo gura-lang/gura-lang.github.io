@@ -35,7 +35,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -51,12 +51,11 @@ R</td>
 The <code>function</code> instance that has created the argument.</td>
 </tr>
 
-
 <tr>
 <td>
 <code>values</code></td>
 <td>
-<code>list</code></td>
+<code>function</code></td>
 <td>
 R</td>
 
@@ -205,7 +204,7 @@ Most of methods in <code>array</code> class are implemented in <code>arrayt</cod
 </p>
 <h3><span class="caption-index-3">5.2.1</span><a name="anchor-5-2-1"></a>Property</h3>
 <p>
-A <code>array</code> instance has the following properties:
+An <code>array</code> instance has the following properties:
 </p>
 <p>
 <table>
@@ -254,20 +253,7 @@ Returns the size of each element in bytes.</td>
 R</td>
 
 <td>
-Returns the type name of the elements as a `symbol` including:
-`` `boolean``,
-`` `int8``,
-`` `uint8``,
-`` `int16``,
-`` `uint16``,
-`` `int32``,
-`` `uint32``,
-`` `int64``,
-`` `uint64``,
-`` `half``,
-`` `float``,
-`` `double`` and
-`` `complex``.</td>
+Returns the type name of the elements as a <code>symbol</code> including: <code>`boolean</code>, <code>`int8</code>, <code>`uint8</code>, <code>`int16</code>, <code>`uint16</code>, <code>`int32</code>, <code>`uint32</code>, <code>`int64</code>, <code>`uint64</code>, <code>`half</code>, <code>`float</code>, <code>`double</code> and <code>`complex</code>.</td>
 </tr>
 
 <tr>
@@ -279,7 +265,7 @@ Returns the type name of the elements as a `symbol` including:
 R</td>
 
 <td>
-Returns the major-mode in symbols `` `row`` or `` `column``.</td>
+Returns the major-mode in symbols <code>`row</code> or <code>`column</code>.</td>
 </tr>
 
 <tr>
@@ -315,8 +301,7 @@ Returns the number of dimensions.</td>
 R</td>
 
 <td>
-Returns the pointer through which you can inspect and modify the content of the array
-as a binary data.</td>
+Returns the pointer through which you can inspect and modify the content of the array as a binary data.</td>
 </tr>
 
 <tr>
@@ -1103,7 +1088,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -1116,10 +1101,8 @@ Explanation</th>
 R</td>
 
 <td>
-Returns a <code>pointer</code> instance that accesses the binary.
-This result is equivalent to that of calling the method <code>binary#pointer()</code></td>
-.</tr>
-
+Returns a <code>pointer</code> instance that accesses the binary. This result is equivalent to that of calling the method <code>binary#pointer()</code></td>
+</tr>
 
 <tr>
 <td>
@@ -1132,7 +1115,6 @@ R</td>
 <td>
 Returns the binary size in bytes.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -1879,33 +1861,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>year</code></td>
-<td>
-<code>number</code></td>
-<td>
-R/W</td>
-
-<td>
-Chritian year.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>month</code></td>
-<td>
-<code>number</code></td>
-<td>
-R/W</td>
-
-<td>
-Month starting from 1. Numbers from 1 to 12 correspond to January to December.</td>
+Note</th>
 </tr>
 
 
@@ -1918,9 +1874,8 @@ Month starting from 1. Numbers from 1 to 12 correspond to January to December.</
 R/W</td>
 
 <td>
-Day in a month starting from 1. </td>
+Day value betwen 1 and 31.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -1931,9 +1886,8 @@ Day in a month starting from 1. </td>
 R/W</td>
 
 <td>
-Hour in a day between 0 and 23.</td>
+Hour value between 0 and 23.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -1944,9 +1898,20 @@ Hour in a day between 0 and 23.</td>
 R/W</td>
 
 <td>
-Minute in an hour between 0 and 59.</td>
+Minute value between 0 and 59.</td>
 </tr>
 
+<tr>
+<td>
+<code>month</code></td>
+<td>
+<code>number</code></td>
+<td>
+R/W</td>
+
+<td>
+Month value between 1 and 12.</td>
+</tr>
 
 <tr>
 <td>
@@ -1957,64 +1922,8 @@ Minute in an hour between 0 and 59.</td>
 R/W</td>
 
 <td>
-Second in a minute between 0 and 59.</td>
+Second value between 0 and 59.</td>
 </tr>
-
-
-<tr>
-<td>
-<code>usec</code></td>
-<td>
-<code>number</code></td>
-<td>
-R/W</td>
-
-<td>
-Millisecond in a second between 0 and 999.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>wday</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Week number starting from 0. Number from 0 to 6 corresponds to Sunday to Saturday.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>week</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Week symbol that takes one of the followings:
-<code>`sunday</code>, <code>`monday</code>, <code>`tuesday</code>, <code>`wednesday</code>,
-<code>`thursday</code>, <code>`friday</code>, <code>`saturday</code>
-</td>
-</tr>
-
-
-<tr>
-<td>
-<code>yday</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Day in a year starting from 1.</td>
-</tr>
-
 
 <tr>
 <td>
@@ -2025,7 +1934,67 @@ Day in a year starting from 1.</td>
 R</td>
 
 <td>
-Seconds passed from 00:00:00 on January 1st in 1970 in UTC.</td>
+Unixtime, a time in second since January 1st of 1970.</td>
+</tr>
+
+<tr>
+<td>
+<code>usec</code></td>
+<td>
+<code>number</code></td>
+<td>
+R/W</td>
+
+<td>
+Milli second value between 0 and 999999.</td>
+</tr>
+
+<tr>
+<td>
+<code>wday</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Week day value between 0 and 6.</td>
+</tr>
+
+<tr>
+<td>
+<code>week</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>yday</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+Day in a year between 1 and 366.</td>
+</tr>
+
+<tr>
+<td>
+<code>year</code></td>
+<td>
+<code>number</code></td>
+<td>
+R/W</td>
+
+<td>
+Year value between 1 and 9999.</td>
 </tr>
 
 
@@ -2193,33 +2162,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>symbol</code></td>
-<td>
-<code>symbol</code></td>
-<td>
-R</td>
-
-<td>
-The name of the declaration in symbol.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>name</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-
-<td>
-The name of the declaration in string.</td>
+Note</th>
 </tr>
 
 
@@ -2227,12 +2170,36 @@ The name of the declaration in string.</td>
 <td>
 <code>default</code></td>
 <td>
-<code>expr</code></td>
+<code>number</code></td>
 <td>
 R</td>
 
 <td>
-The expression that provides a default value.</td>
+An <code>expr</code> instance that represents a default value in the declaration if exists. This is <code>nil</code> when no default value is specified.</td>
+</tr>
+
+<tr>
+<td>
+<code>name</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+A <code>string</code> instance that represents the declaration's name.</td>
+</tr>
+
+<tr>
+<td>
+<code>symbol</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+A <code>symbol</code> instance that represents the declaration's name.</td>
 </tr>
 
 

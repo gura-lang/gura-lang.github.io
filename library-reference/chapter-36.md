@@ -163,7 +163,7 @@ Note</th>
 R</td>
 
 <td>
-</td>
+Column size of each image.</td>
 </tr>
 
 <tr>
@@ -175,7 +175,7 @@ R</td>
 R</td>
 
 <td>
-</td>
+Number of labels in the database.</td>
 </tr>
 
 <tr>
@@ -187,7 +187,7 @@ R</td>
 R</td>
 
 <td>
-</td>
+Row size of each image.</td>
 </tr>
 
 
@@ -248,7 +248,7 @@ Note</th>
 R</td>
 
 <td>
-</td>
+Number of labels in the database.</td>
 </tr>
 
 
