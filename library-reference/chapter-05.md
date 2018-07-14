@@ -7,6 +7,7 @@ title: Gura Library Reference
 {% raw %}
 <h1><span class="caption-index-1">5</span><a name="anchor-5"></a>Built-in Class</h1>
 <h2><span class="caption-index-2">5.1</span><a name="anchor-5-1"></a>argument Class</h2>
+<h3><span class="caption-index-3">5.1.1</span><a name="anchor-5-1-1"></a>Overview</h3>
 <p>
 The <code>argument</code> class provides measures to access argument information that is passed to a function. One of its purposes is to check if an attribute is specified in the function call. It also provides a method to control a leader-trailer sequence, a mechanism that flow controls such as <code>if-elsif-else</code> and <code>try-catch</code> utilize.
 </p>
@@ -21,7 +22,7 @@ Below is an example to use <code>argument</code> class:
     printf('attr1:%s attr2:%s\n', __arg__.isset(`attr1), __arg__.isset(`attr2))
 }
 </code></pre>
-<h3><span class="caption-index-3">5.1.1</span><a name="anchor-5-1-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.1.2</span><a name="anchor-5-1-2"></a>Property</h3>
 <p>
 An <code>argument</code> instance has the following properties:
 </p>
@@ -67,7 +68,7 @@ A list of argument values.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.1.2</span><a name="anchor-5-1-2"></a>Method</h3>
+<h3><span class="caption-index-3">5.1.3</span><a name="anchor-5-1-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">argument#finalize_trailer</strong></div>
 <div style="margin-bottom:1em"><code>argument#finalize_trailer():void</code></div>
@@ -2755,20 +2756,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>source</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-
-<td>
-The name of the file that causes this error.</td>
+Note</th>
 </tr>
 
 
@@ -2784,7 +2772,6 @@ R</td>
 The number of line where the expression that causes this error starts.</td>
 </tr>
 
-
 <tr>
 <td>
 <code>linenobtm</code></td>
@@ -2796,7 +2783,6 @@ R</td>
 <td>
 The number of line where the expression that causes this error ends.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -2810,6 +2796,17 @@ R</td>
 A text that consists of a source name and a line number.</td>
 </tr>
 
+<tr>
+<td>
+<code>source</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+The name of the file that causes this error.</td>
+</tr>
 
 <tr>
 <td>
@@ -2820,21 +2817,19 @@ A text that consists of a source name and a line number.</td>
 R</td>
 
 <td>
-An error message.
-If an attribute `:lineno` is specified, it would contain a line number.</td>
+An error message. If an attribute <code>:lineno</code> is specified, it would contain a line number.</td>
 </tr>
-
 
 <tr>
 <td>
 <code>trace</code></td>
 <td>
-<code>expr[]</code></td>
+<code>iterator</code></td>
 <td>
 R</td>
 
 <td>
-Stack trace.</td>
+An iterator that generates <code>expr</code> instances that indicate stack trace.</td>
 </tr>
 
 
@@ -2859,7 +2854,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -2867,40 +2862,37 @@ Explanation</th>
 <td>
 <code>attrfront</code></td>
 <td>
-<code>symbol[]</code></td>
+<code>list</code></td>
 <td>
 R</td>
 
 <td>
 Exists in "identifier" and "caller".</td>
 </tr>
-
 
 <tr>
 <td>
 <code>attrs</code></td>
 <td>
-<code>symbol[]</code></td>
+<code>list</code></td>
 <td>
 R</td>
 
 <td>
 Exists in "identifier" and "caller".</td>
 </tr>
-
 
 <tr>
 <td>
 <code>attrsopt</code></td>
 <td>
-<code>symbol[]</code></td>
+<code>list</code></td>
 <td>
 R</td>
 
 <td>
 Exists in "identifier" and "caller".</td>
 </tr>
-
 
 <tr>
 <td>
@@ -2914,7 +2906,6 @@ R</td>
 Exists in "caller".</td>
 </tr>
 
-
 <tr>
 <td>
 <code>blockparam</code></td>
@@ -2926,7 +2917,6 @@ R</td>
 <td>
 Exists in "block".</td>
 </tr>
-
 
 <tr>
 <td>
@@ -2940,7 +2930,6 @@ R</td>
 Exists in "suffixed".</td>
 </tr>
 
-
 <tr>
 <td>
 <code>car</code></td>
@@ -2953,19 +2942,17 @@ R</td>
 Exists in "compound".</td>
 </tr>
 
-
 <tr>
 <td>
 <code>cdr</code></td>
 <td>
-<code>iterator</code></td>
+<code>expr</code></td>
 <td>
 R</td>
 
 <td>
 Exists in "compound".</td>
 </tr>
-
 
 <tr>
 <td>
@@ -2979,7 +2966,6 @@ R</td>
 Exists in "unary".</td>
 </tr>
 
-
 <tr>
 <td>
 <code>children</code></td>
@@ -2991,7 +2977,6 @@ R</td>
 <td>
 Exists in "collector".</td>
 </tr>
-
 
 <tr>
 <td>
@@ -3005,7 +2990,6 @@ R</td>
 Exists in "binary".</td>
 </tr>
 
-
 <tr>
 <td>
 <code>lineno</code></td>
@@ -3017,7 +3001,6 @@ R</td>
 <td>
 </td>
 </tr>
-
 
 <tr>
 <td>
@@ -3031,7 +3014,6 @@ R</td>
 </td>
 </tr>
 
-
 <tr>
 <td>
 <code>operator</code></td>
@@ -3043,7 +3025,6 @@ R</td>
 <td>
 Exists in "unaryop", "binaryop" and "assign".</td>
 </tr>
-
 
 <tr>
 <td>
@@ -3057,7 +3038,6 @@ R</td>
 </td>
 </tr>
 
-
 <tr>
 <td>
 <code>right</code></td>
@@ -3069,7 +3049,6 @@ R</td>
 <td>
 Exists in "binary".</td>
 </tr>
-
 
 <tr>
 <td>
@@ -3083,7 +3062,6 @@ R</td>
 </td>
 </tr>
 
-
 <tr>
 <td>
 <code>suffix</code></td>
@@ -3095,7 +3073,6 @@ R</td>
 <td>
 Exists in "suffixed".</td>
 </tr>
-
 
 <tr>
 <td>
@@ -3109,7 +3086,6 @@ R</td>
 Exists in "identifier".</td>
 </tr>
 
-
 <tr>
 <td>
 <code>trailer</code></td>
@@ -3121,7 +3097,6 @@ R</td>
 <td>
 Exists in "caller".</td>
 </tr>
-
 
 <tr>
 <td>
@@ -3135,7 +3110,6 @@ R</td>
 </td>
 </tr>
 
-
 <tr>
 <td>
 <code>typesym</code></td>
@@ -3147,7 +3121,6 @@ R</td>
 <td>
 </td>
 </tr>
-
 
 <tr>
 <td>
@@ -3548,7 +3521,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -3561,9 +3534,8 @@ Explanation</th>
 R</td>
 
 <td>
-iterator of <code>declaration</code> instances that provide information about argument declaration the function defines.</td>
+An iterator of <code>declaration</code> instances that provide information about argument declaration the function defines.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -3574,9 +3546,8 @@ iterator of <code>declaration</code> instances that provide information about ar
 R/W</td>
 
 <td>
-an expression of the function.</td>
+An expression of the function.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -3587,9 +3558,8 @@ an expression of the function.</td>
 R</td>
 
 <td>
-a string showing a declared format of the function.</td>
+A string showing a declared format of the function.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -3600,9 +3570,8 @@ a string showing a declared format of the function.</td>
 R</td>
 
 <td>
-a full name of the function that is prefixed by a name of the module or the class it belongs to. </td>
+A full name of the function that is prefixed by a name of the module or the class it belongs to.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -3610,12 +3579,11 @@ a full name of the function that is prefixed by a name of the module or the clas
 <td>
 <code>string</code></td>
 <td>
-R</td>
+R/W</td>
 
 <td>
-a name of the function in <code>string</code>.</td>
+A <code>string</code> instance that represents the function's name.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -3626,7 +3594,7 @@ a name of the function in <code>string</code>.</td>
 R/W</td>
 
 <td>
-a name of the function in <code>symbol</code>. </td>
+A <code>symbol</code> instance that represents the function's name.</td>
 </tr>
 
 
@@ -3745,22 +3713,21 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
 <tr>
 <td>
-<code>title</code></td>
+<code>doc</code></td>
 <td>
 <code>string</code></td>
 <td>
 R</td>
 
 <td>
-The title of the help.</td>
+The help text.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -3774,7 +3741,6 @@ R</td>
 A name of the syntax format in which the help text is described such as <code>'markdown'</code>.</td>
 </tr>
 
-
 <tr>
 <td>
 <code>lang</code></td>
@@ -3784,21 +3750,19 @@ A name of the syntax format in which the help text is described such as <code>'m
 R</td>
 
 <td>
-A symbol of the natural language in which the help text is written.
-For example, <code>`en</code> for English and <code>`ja</code> for Japanese.</td>
+A symbol of the natural language in which the help text is written. For example, <code>`en</code> for English and <code>`ja</code> for Japanese.</td>
 </tr>
-
 
 <tr>
 <td>
-<code>text</code></td>
+<code>title</code></td>
 <td>
 <code>string</code></td>
 <td>
 R</td>
 
 <td>
-The help text.</td>
+The title of the help.</td>
 </tr>
 
 
@@ -3933,8 +3897,11 @@ TIFF</td>
 An <code>image</code> instance has the following properties:
 </p>
 <p>
-<table>
-<tr>
+Takes one of the following symbols indicating what elements are stored in the memory:
+</p>
+<ul>
+<li><code>`rgb</code> .. red, green and blue</li>
+<li><tr>
 <th>
 Property</th>
 <th>
@@ -3942,7 +3909,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -3955,63 +3922,95 @@ Explanation</th>
 R</td>
 
 <td>
-<p>
-Takes one of the following symbols indicating what elements are stored in the memory:</p>
-
-<ul>
-<li>
-<code>`rgb</code> .. red, green and blue</li>
-
-<li>
-<code>`rgba</code> .. red, green, blue and alpha</li>
-
-</ul>
-
-</td>
-
+Takes one of the following symbols indicating what elements are stored in the memory:</td>
 </tr>
-
-
-<tr>
-<td>
-<code>width</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-
-<td>
-Image width.</td>
-</tr>
-
-
-<tr>
+ <tr>
 <td>
 <code>height</code></td>
 <td>
 <code>number</code></td>
 <td>
 R</td>
-
-<td>
+ <td>
 Image height.</td>
 </tr>
-
-
-<tr>
+ <tr>
 <td>
 <code>palette</code></td>
 <td>
 <code>palette</code></td>
 <td>
 R/W</td>
-
+ <td>
+A <code>palette</code> instance associated with this image. If there's no palette associated, this property returns <code>nil</code>.</td>
+</tr>
+ <tr>
 <td>
-A <code>palette</code> instance associated with this image.
-If there is no palette associated, this property returns <code>nil</code>.</td>
+<code>width</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+ <td>
+Image width.</td>
+</tr>
+</li>
+</ul>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Note</th>
 </tr>
 
 
+<tr>
+<td>
+<code>format</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+Takes one of the following symbols indicating what elements are stored in the memory:</td>
+</tr>
+ <tr>
+<td>
+<code>height</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+ <td>
+Image height.</td>
+</tr>
+ <tr>
+<td>
+<code>palette</code></td>
+<td>
+<code>palette</code></td>
+<td>
+R/W</td>
+ <td>
+A <code>palette</code> instance associated with this image. If there's no palette associated, this property returns <code>nil</code>.</td>
+</tr>
+ <tr>
+<td>
+<code>width</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+ <td>
+Image width.</td>
+</tr>
 </table>
 
 </p>
@@ -5559,7 +5558,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -5572,10 +5571,8 @@ Explanation</th>
 R</td>
 
 <td>
-Returns a <code>pointer</code> instance that accesses the memory.
-This result is equivalent to that of calling the method <code>memory#pointer()</code></td>
-.</tr>
-
+Returns a <code>pointer</code> instance that accesses the memory. This result is equivalent to that of calling the method <code>memory#pointer()</code>.</td>
+</tr>
 
 <tr>
 <td>
@@ -5706,7 +5703,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -5719,7 +5716,7 @@ Explanation</th>
 R</td>
 
 <td>
-Operator symbol.</td>
+A <code>symbol</code> instance that represents the operator's type.</td>
 </tr>
 
 
@@ -5876,7 +5873,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -5892,7 +5889,6 @@ R/W</td>
 The current offset.</td>
 </tr>
 
-
 <tr>
 <td>
 <code>size</code></td>
@@ -5905,7 +5901,6 @@ R</td>
 Returns the size of data accessible from the current offset.</td>
 </tr>
 
-
 <tr>
 <td>
 <code>size@all</code></td>
@@ -5915,10 +5910,8 @@ Returns the size of data accessible from the current offset.</td>
 R</td>
 
 <td>
-Returns the entire size of the target binary or memory.
-This equals to <code>p.offset + p.size</code> where `p` is a `pointer` instance.</td>
+Returns the entire size of the target binary or memory. This equals to <code>p.offset + p.size</code> where <code>p</code> is a <code>pointer</code> instance.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -5929,8 +5922,7 @@ This equals to <code>p.offset + p.size</code> where `p` is a `pointer` instance.
 R</td>
 
 <td>
-An instance that is associated with the pointer.
-Currently, this can be an instance of `binary` or `memory`.</td>
+An instance that is associated with the pointer. Currently, this can be an instance of <code>binary</code> or <code>memory</code>.</td>
 </tr>
 
 
@@ -6828,35 +6820,21 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
 <tr>
 <td>
-<code>stat</code></td>
+<code>codec</code></td>
 <td>
-<code>object</code></td>
-<td>
-R</td>
-
-<td>
-Status of the stream.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>name</code></td>
-<td>
-<code>string</code></td>
+<code>codec</code></td>
 <td>
 R</td>
 
 <td>
-Name of the stream.</td>
+A <code>codec</code> instance associated with the stream.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -6870,6 +6848,17 @@ R</td>
 Identifier of the stream.</td>
 </tr>
 
+<tr>
+<td>
+<code>name</code></td>
+<td>
+<code>string</code></td>
+<td>
+R</td>
+
+<td>
+Name of the stream.</td>
+</tr>
 
 <tr>
 <td>
@@ -6883,6 +6872,17 @@ R</td>
 Indicates whether the stream is readable.</td>
 </tr>
 
+<tr>
+<td>
+<code>stat</code></td>
+<td>
+<code>any</code></td>
+<td>
+R</td>
+
+<td>
+Status of the stream.</td>
+</tr>
 
 <tr>
 <td>
@@ -6894,19 +6894,6 @@ R</td>
 
 <td>
 Indicates whether the stream is writable.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>codec</code></td>
-<td>
-<code>codec</code></td>
-<td>
-R</td>
-
-<td>
-`codec` instance associated with the stream.</td>
 </tr>
 
 
@@ -7931,7 +7918,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -7947,7 +7934,6 @@ R/W</td>
 Offset of days.</td>
 </tr>
 
-
 <tr>
 <td>
 <code>secs</code></td>
@@ -7960,10 +7946,9 @@ R/W</td>
 Offset of seconds.</td>
 </tr>
 
-
 <tr>
 <td>
-<code>usec</code></td>
+<code>usecs</code></td>
 <td>
 <code>number</code></td>
 <td>
@@ -8003,46 +7988,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
-</tr>
-
-
-<tr>
-<td>
-<code>scheme</code></td>
-<td>
-<code>string</code></td>
-<td>
-R/W</td>
-
-<td>
-Scheme part in the URI.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>user</code></td>
-<td>
-<code>string</code></td>
-<td>
-R/W</td>
-
-<td>
-User part in the URI.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>password</code></td>
-<td>
-<code>string</code></td>
-<td>
-R/W</td>
-
-<td>
-Password part in the URI.</td>
+Note</th>
 </tr>
 
 
@@ -8058,6 +8004,29 @@ R/W</td>
 Host part in the URI.</td>
 </tr>
 
+<tr>
+<td>
+<code>misc</code></td>
+<td>
+<code>string</code></td>
+<td>
+R/W</td>
+
+<td>
+Misc part in the URI.</td>
+</tr>
+
+<tr>
+<td>
+<code>password</code></td>
+<td>
+<code>string</code></td>
+<td>
+R/W</td>
+
+<td>
+Password part in the URI.</td>
+</tr>
 
 <tr>
 <td>
@@ -8071,6 +8040,17 @@ R/W</td>
 Port part in the URI.</td>
 </tr>
 
+<tr>
+<td>
+<code>scheme</code></td>
+<td>
+<code>string</code></td>
+<td>
+R/W</td>
+
+<td>
+Scheme part in the URI.</td>
+</tr>
 
 <tr>
 <td>
@@ -8084,17 +8064,16 @@ R/W</td>
 URL path part in the URI, which contains the path, query and fragment part.</td>
 </tr>
 
-
 <tr>
 <td>
-<code>misc</code></td>
+<code>user</code></td>
 <td>
 <code>string</code></td>
 <td>
 R/W</td>
 
 <td>
-Misc part in the URI.</td>
+User part in the URI.</td>
 </tr>
 
 
@@ -8163,7 +8142,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -8176,10 +8155,8 @@ Explanation</th>
 R/W</td>
 
 <td>
-</td>
-
+A value of X.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -8190,10 +8167,8 @@ R/W</td>
 R/W</td>
 
 <td>
-</td>
-
+A value of Y.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -8204,22 +8179,7 @@ R/W</td>
 R/W</td>
 
 <td>
-</td>
-
-</tr>
-
-
-<tr>
-<td>
-<code>w</code></td>
-<td>
-<code>number</code></td>
-<td>
-R/W</td>
-
-<td>
-</td>
-
+A value of Z.</td>
 </tr>
 
 
