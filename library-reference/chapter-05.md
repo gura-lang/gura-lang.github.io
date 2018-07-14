@@ -1700,6 +1700,7 @@ Returns a list of RGB elements in a form <code>[r, g, b]</code>.
 Specifying <code>:alpha</code> attribute would add the alpha element to the list.
 </p>
 <h2><span class="caption-index-2">5.8</span><a name="anchor-5-8"></a>complex Class</h2>
+<h3><span class="caption-index-3">5.8.1</span><a name="anchor-5-8-1"></a>Overview</h3>
 <p>
 The <code>complex</code> class provides measures to calculate complex numbers.
 </p>
@@ -1711,7 +1712,7 @@ You can create a <code>complex</code> instance by following ways:
 <li>Calls <code>complex.polar()</code> function with an absolute value and an argument in radius. e.g., <code>complex.polar(5, math.pi / 6)</code></li>
 <li>Appending <code>j</code> suffix after a number literal would create an imaginal part of a complex numbrer. e.g., <code>2 + 3j</code></li>
 </ul>
-<h3><span class="caption-index-3">5.8.1</span><a name="anchor-5-8-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.8.2</span><a name="anchor-5-8-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">complex</strong></div>
 <div style="margin-bottom:1em"><code>complex(real:number, imag?:number):map {block?}</code></div>
@@ -1723,7 +1724,7 @@ If the argument <code>imag</code> is omitted, the imaginary part would be set to
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:complex|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.8.2</span><a name="anchor-5-8-2"></a>Method</h3>
+<h3><span class="caption-index-3">5.8.3</span><a name="anchor-5-8-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">complex.polar</strong></div>
 <div style="margin-bottom:1em"><code>complex.polar(abs:number, arg:number):static:map:[deg] {block?}</code></div>
@@ -1747,6 +1748,7 @@ The argument <code>threshold</code> specifies the threshold value for the round-
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|n:complex|</code>, where <code>n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h2><span class="caption-index-2">5.9</span><a name="anchor-5-9"></a>datetime Class</h2>
+<h3><span class="caption-index-3">5.9.1</span><a name="anchor-5-9-1"></a>Overview</h3>
 <p>
 The <code>datetime</code> class provides measures to handle date and time information.
 </p>
@@ -1761,7 +1763,7 @@ You can create a <code>datetime</code> instance by calling following functions:
 <p>
 You can calculate a <code>datetime</code> with a <code>timedelta</code> to put its date and time values forward and backward.
 </p>
-<h3><span class="caption-index-3">5.9.1</span><a name="anchor-5-9-1"></a>Predefined Variable</h3>
+<h3><span class="caption-index-3">5.9.2</span><a name="anchor-5-9-2"></a>Predefined Variable</h3>
 <p>
 <table>
 <tr>
@@ -1854,7 +1856,7 @@ Assigned with number 6 that represents Saturday.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.9.2</span><a name="anchor-5-9-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.9.3</span><a name="anchor-5-9-3"></a>Property</h3>
 <p>
 A <code>datetime</code> instance has the following properties:
 </p>
@@ -2008,7 +2010,7 @@ Year value between 1 and 9999.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.9.3</span><a name="anchor-5-9-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.9.4</span><a name="anchor-5-9-4"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">datetime</strong></div>
 <div style="margin-bottom:1em"><code>datetime(year:number, month:number, day:number, hour:number =&gt; 0, min:number =&gt; 0, sec:number =&gt; 0, usec:number =&gt; 0, minsoff?:number):map {block?}</code></div>
@@ -2033,7 +2035,7 @@ In default, the instance has a timezone offset based on the current system setti
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|dt:datetime|</code>, where <code>dt</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.9.4</span><a name="anchor-5-9-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.9.5</span><a name="anchor-5-9-5"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">datetime#clrtzoff</strong></div>
 <div style="margin-bottom:1em"><code>datetime#clrtzoff():reduce</code></div>
@@ -2142,6 +2144,7 @@ Calculates UTC time of the target <code>datetime</code> instance. An error occur
 Returns a week number for the specified date, which starts from 0 for Sunday.
 </p>
 <h2><span class="caption-index-2">5.10</span><a name="anchor-5-10"></a>declaration Class</h2>
+<h3><span class="caption-index-3">5.10.1</span><a name="anchor-5-10-1"></a>Overview</h3>
 <p>
 The <code>declaration</code> class provides information about argument's declaration defined in a function. You can get an iterator of <code>declaration</code> instances with the following measures that the <code>function</code> class provides:
 </p>
@@ -2155,7 +2158,7 @@ Below is an example to print argument names declared in a function.
 <pre><code>f(a, b, c, d) = {}
 println(f.decls:*name)
 </code></pre>
-<h3><span class="caption-index-3">5.10.1</span><a name="anchor-5-10-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.10.2</span><a name="anchor-5-10-2"></a>Property</h3>
 <p>
 A <code>declaration</code> instance has the following properties:
 </p>
@@ -2213,7 +2216,7 @@ A <code>symbol</code> instance that represents the declaration's name.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.10.2</span><a name="anchor-5-10-2"></a>Method</h3>
+<h3><span class="caption-index-3">5.10.3</span><a name="anchor-5-10-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">declaration#istype</strong></div>
 <div style="margin-bottom:1em"><code>declaration#istype(type+:expr):map</code></div>
@@ -2245,6 +2248,7 @@ You can also specify a type by describing factors in separate arguments like bel
 <pre><code>decl.istype(`re, `match)
 </code></pre>
 <h2><span class="caption-index-2">5.11</span><a name="anchor-5-11"></a>dict Class</h2>
+<h3><span class="caption-index-3">5.11.1</span><a name="anchor-5-11-1"></a>Overview</h3>
 <p>
 The <code>dict</code> class provides measures to handle dictionary data that can seek values by indexing with their associated keys. You can specify values of <code>string</code>, <code>number</code> and <code>symbol</code> as a dictionary key.
 </p>
@@ -2273,7 +2277,7 @@ dict(['first', 1, 'second', 2, 'third', 3])
 <p>
 You can specify different type of values for keys in the same dictionary. In this case, values of different types are just recognized as different values.
 </p>
-<h4><span class="caption-index-4">5.11.0.1</span><a name="anchor-5-11-0-1"></a>Index Access</h4>
+<h3><span class="caption-index-3">5.11.2</span><a name="anchor-5-11-2"></a>Index Access</h3>
 <p>
 You can read and write element values in a <code>dict</code> with an indexer by giving it a key value which type is <code>string</code>, <code>number</code> or <code>symbol</code>. Below is an example:
 </p>
@@ -2282,7 +2286,7 @@ You can read and write element values in a <code>dict</code> with an indexer by 
 println(x['second']) // prints `2`
 x['third'] = 33      // replaces `3` with `33`
 </code></pre>
-<h3><span class="caption-index-3">5.11.1</span><a name="anchor-5-11-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.11.3</span><a name="anchor-5-11-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">dict</strong></div>
 <div style="margin-bottom:1em"><code>dict(elems?):[icase] {block?}</code></div>
@@ -2325,7 +2329,7 @@ The symbol <code>%</code> is an alias of the function <code>dict()</code>.
 <p>
 In default, if keys contain alphabet characters, different cases are distinguished. Appending the attribute <code>:icase</code> would ignore cases in them.
 </p>
-<h3><span class="caption-index-3">5.11.2</span><a name="anchor-5-11-2"></a>Method</h3>
+<h3><span class="caption-index-3">5.11.4</span><a name="anchor-5-11-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">dict#append</strong></div>
 <div style="margin-bottom:1em"><code>dict#append(elems?):reduce:[overwrite,strict,timid] {block?}</code></div>
@@ -2470,23 +2474,25 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <h2><span class="caption-index-2">5.12</span><a name="anchor-5-12"></a>directory Class</h2>
+<h3><span class="caption-index-3">5.12.1</span><a name="anchor-5-12-1"></a>Overview</h3>
 <p>
 The <code>directory</code> class handles information necessary to seek directory structure in a path. Its instance usually works with functions in <code>path</code> module: <code>path.dir()</code> and <code>path.walk()</code>.
 </p>
 <p>
 Though the instance can be created by <code>directory()</code> function, you don't have to use it in many cases because a casting from <code>string</code> to <code>directory</code> instance works implicitly in a function call.
 </p>
-<h3><span class="caption-index-3">5.12.1</span><a name="anchor-5-12-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.12.2</span><a name="anchor-5-12-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">directory</strong></div>
 <div style="margin-bottom:1em"><code>directory(pathname:string):map {block?}</code></div>
 Creates a <code>directory</code> instance from the specified path name.
 </p>
 <h2><span class="caption-index-2">5.13</span><a name="anchor-5-13"></a>environment Class</h2>
+<h3><span class="caption-index-3">5.13.1</span><a name="anchor-5-13-1"></a>Overview</h3>
 <p>
 The <code>environment</code> class provides measures to operate variables in an environment, which is a fundamental mechanism to store variables.
 </p>
-<h3><span class="caption-index-3">5.13.1</span><a name="anchor-5-13-1"></a>Method</h3>
+<h3><span class="caption-index-3">5.13.2</span><a name="anchor-5-13-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">environment#getprop!</strong></div>
 <div style="margin-bottom:1em"><code>environment#getprop!(symbol:symbol):map</code></div>
@@ -2503,6 +2509,7 @@ Looks up a specified symbol in the environment and returns the associated value.
 
 </p>
 <h2><span class="caption-index-2">5.14</span><a name="anchor-5-14"></a>error Class</h2>
+<h3><span class="caption-index-3">5.14.1</span><a name="anchor-5-14-1"></a>Overview</h3>
 <p>
 The <code>error</code> class provides measures to access error information.
 </p>
@@ -2518,7 +2525,7 @@ In the following code, <code>e</code> is an instance that contains information a
     // ...
 }
 </code></pre>
-<h3><span class="caption-index-3">5.14.1</span><a name="anchor-5-14-1"></a>Predefined Variable</h3>
+<h3><span class="caption-index-3">5.14.2</span><a name="anchor-5-14-2"></a>Predefined Variable</h3>
 <p>
 <table>
 <tr>
@@ -2748,7 +2755,7 @@ Zero-division occured in division or modulo operations.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.14.2</span><a name="anchor-5-14-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.14.3</span><a name="anchor-5-14-3"></a>Property</h3>
 <p>
 An <code>error</code> instance has the following properties:
 </p>
@@ -2843,10 +2850,11 @@ An iterator that generates <code>expr</code> instances that indicate stack trace
 
 </p>
 <h2><span class="caption-index-2">5.15</span><a name="anchor-5-15"></a>expr Class</h2>
+<h3><span class="caption-index-3">5.15.1</span><a name="anchor-5-15-1"></a>Overview</h3>
 <p>
 The <code>expr</code> class provides inromation about the language's syntax expression.
 </p>
-<h3><span class="caption-index-3">5.15.1</span><a name="anchor-5-15-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.15.2</span><a name="anchor-5-15-2"></a>Property</h3>
 <p>
 An <code>expr</code> instance has the following properties:
 </p>
@@ -3144,7 +3152,7 @@ Exists in "value".</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.15.2</span><a name="anchor-5-15-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.15.3</span><a name="anchor-5-15-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">expr</strong></div>
 <div style="margin-bottom:1em"><code>expr(src:stream:r):map {block?}</code></div>
@@ -3153,7 +3161,7 @@ Parses a Gura script from the stream <code>src</code> and creates an <code>expr<
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|expr:expr|</code>, where <code>expr</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.15.3</span><a name="anchor-5-15-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.15.4</span><a name="anchor-5-15-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">expr#eval</strong></div>
 <div style="margin-bottom:1em"><code>expr#eval(env?:environment) {block?}</code></div>
@@ -3311,6 +3319,7 @@ Returns <code>true</code> if expr is an expression of identifier.
 Returns <code>true</code> if expr is an expression of suffixed.
 </p>
 <h2><span class="caption-index-2">5.16</span><a name="anchor-5-16"></a>formatter Class</h2>
+<h3><span class="caption-index-3">5.16.1</span><a name="anchor-5-16-1"></a>Overview</h3>
 <p>
 The <code>formatter</code> class provides information about a format specifier.
 </p>
@@ -3422,7 +3431,7 @@ This feature is supposed to be used when you want your original class's instance
 a = A()
 printf('%d', a) // a.__format_d__() is called
 </code></pre>
-<h3><span class="caption-index-3">5.16.1</span><a name="anchor-5-16-1"></a>Method</h3>
+<h3><span class="caption-index-3">5.16.2</span><a name="anchor-5-16-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">formatter#getminwidth</strong></div>
 <div style="margin-bottom:1em"><code>formatter#getminwidth()</code></div>
@@ -3485,6 +3494,7 @@ Returns <code>true</code> if alphabet characters are expected to be shown in upp
 Upper case characters are requested when a specifier such as <code>'%X'</code>, <code>'%E'</code> and <code>'%G'</code> is specified.
 </p>
 <h2><span class="caption-index-2">5.17</span><a name="anchor-5-17"></a>function Class</h2>
+<h3><span class="caption-index-3">5.17.1</span><a name="anchor-5-17-1"></a>Overview</h3>
 <p>
 The <code>function</code> class provides measure to inspect information about the instance.
 </p>
@@ -3513,7 +3523,7 @@ You can use <code>&amp;</code> as an alias of <code>function()</code> as shown b
     ($a + $b + $c) / 3
 }
 </code></pre>
-<h3><span class="caption-index-3">5.17.1</span><a name="anchor-5-17-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.17.2</span><a name="anchor-5-17-2"></a>Property</h3>
 <p>
 A <code>function</code> instance has the following properties:
 </p>
@@ -3607,13 +3617,13 @@ A <code>symbol</code> instance that represents the function's name.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.17.2</span><a name="anchor-5-17-2"></a>Operator</h3>
+<h3><span class="caption-index-3">5.17.3</span><a name="anchor-5-17-3"></a>Operator</h3>
 <p>
 You can print a function's help from the interactive prompt using the unary operator "<code>~</code>". Below is an example to print the help of <code>printf()</code> function:
 </p>
 <pre><code>&gt;&gt;&gt; ~printf
 </code></pre>
-<h3><span class="caption-index-3">5.17.3</span><a name="anchor-5-17-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.17.4</span><a name="anchor-5-17-4"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">function</strong></div>
 <div style="margin-bottom:1em"><code>function(`args*) {block}</code></div>
@@ -3626,7 +3636,7 @@ Following two codes have the same effect with each other.
 <li><code>f = function(a, b, c) { /* any job */ }</code></li>
 <li><code>f(a, b, c) = { /* any job */ }</code></li>
 </ul>
-<h3><span class="caption-index-3">5.17.4</span><a name="anchor-5-17-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.17.5</span><a name="anchor-5-17-5"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">function.getdecls</strong></div>
 <div style="margin-bottom:1em"><code>function.getdecls(func:function):static:map</code></div>
@@ -3699,13 +3709,14 @@ You can check the result of derivation by seeing property <code>function#expr</c
 `math.cos(x)
 </code></pre>
 <h2><span class="caption-index-2">5.18</span><a name="anchor-5-18"></a>help Class</h2>
+<h3><span class="caption-index-3">5.18.1</span><a name="anchor-5-18-1"></a>Overview</h3>
 <p>
 The <code>help</code> class provides measures to access help information associated with a <code>function</code> instance.
 </p>
 <p>
 You can get a <code>help</code> instance from a <code>function</code> instance or a <code>class</code> by calling <code>help@function()</code> or <code>help@class()</code> respectively.
 </p>
-<h3><span class="caption-index-3">5.18.1</span><a name="anchor-5-18-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.18.2</span><a name="anchor-5-18-2"></a>Property</h3>
 <p>
 A <code>help</code> instance has the following properties:
 </p>
@@ -3775,7 +3786,7 @@ The title of the help.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.18.2</span><a name="anchor-5-18-2"></a>Method</h3>
+<h3><span class="caption-index-3">5.18.3</span><a name="anchor-5-18-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">help.text@iterator</strong></div>
 <div style="margin-bottom:1em"><code>help.text@iterator(lang:symbol):static {block?}</code></div>
@@ -3810,6 +3821,7 @@ Registers a presentation procedure with a name specified by the argument <code>f
 The procedure is written in the block that takes block parameters: <code>|help:help|</code>.
 </p>
 <h2><span class="caption-index-2">5.19</span><a name="anchor-5-19"></a>image Class</h2>
+<h3><span class="caption-index-3">5.19.1</span><a name="anchor-5-19-1"></a>Overview</h3>
 <p>
 The <code>image</code> class provides following measures to handle graphic image data:
 </p>
@@ -3898,7 +3910,7 @@ TIFF</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.19.1</span><a name="anchor-5-19-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.19.2</span><a name="anchor-5-19-2"></a>Property</h3>
 <p>
 An <code>image</code> instance has the following properties:
 </p>
@@ -4020,7 +4032,7 @@ Image width.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.19.2</span><a name="anchor-5-19-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.19.3</span><a name="anchor-5-19-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">image</strong></div>
 <div style="margin-bottom:1em"><code>image(args+):map {block?}</code></div>
@@ -4044,7 +4056,7 @@ In the third form, the format of the image data is determined by the byte sequen
 <p>
 You can also explicitly specify the image data format by the argument <code>imagetype</code>.
 </p>
-<h3><span class="caption-index-3">5.19.3</span><a name="anchor-5-19-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.19.4</span><a name="anchor-5-19-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">image#allocbuff</strong></div>
 <div style="margin-bottom:1em"><code>image#allocbuff(width:number, height:number, color?:color):reduce</code></div>
