@@ -95,6 +95,7 @@ f(true) println('printed')
 f(false) println('not printed')
 </code></pre>
 <h2><span class="caption-index-2">5.2</span><a name="anchor-5-2"></a>array Class</h2>
+<h3><span class="caption-index-3">5.2.1</span><a name="anchor-5-2-1"></a>Overview</h3>
 <p>
 An instance of the <code>array</code> class stores multiple numeric values in a seamless binary sequence. It can directly be passed to functions in C libraries without any modification that expect arrays of <code>char</code>, <code>short</code>, <code>int</code>, <code>float</code>, <code>double</code> and so on.
 </p>
@@ -203,7 +204,7 @@ In the specification described here, the class name is is represented as <code>a
 <p>
 Most of methods in <code>array</code> class are implemented in <code>arrayt</code> module while the class itself is provided by the intepreter. This is because array features cost much code size and it would be preferable to reduce the size of the intepreter body by separating the implementation of array methods. So, you have to import <code>arrayt</code> module before using the <code>array</code> class in your program.
 </p>
-<h3><span class="caption-index-3">5.2.1</span><a name="anchor-5-2-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.2.2</span><a name="anchor-5-2-2"></a>Property</h3>
 <p>
 An <code>array</code> instance has the following properties:
 </p>
@@ -333,7 +334,7 @@ Returns the total number of elements.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.2.2</span><a name="anchor-5-2-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.2.3</span><a name="anchor-5-2-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">array</strong></div>
 <div style="margin-bottom:1em"><code>array(src?, elemtype?:symbol) {block?}</code></div>
@@ -819,7 +820,7 @@ Methods named <code>array@T.zeros</code> where <code>T</code> gets an element ty
 </p>
 <pre><code>array@int32.zeros([3, 4])
 </code></pre>
-<h3><span class="caption-index-3">5.2.3</span><a name="anchor-5-2-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.2.4</span><a name="anchor-5-2-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">array#argmax</strong></div>
 <div style="margin-bottom:1em"><code>array#argmax(axis?:number):map:[last_index] {block?}</code></div>
@@ -1034,10 +1035,11 @@ Calculates a variation value of elements in the target <code>array</code>.
 In default, it calculates an unbiased estimation of standard deviation in which the summation of squared deviations is divided by <code>(n - 1)</code>. Specifying <code>:p</code> attributes will calculate a population variance that divides that summation by <code>n</code>.
 </p>
 <h2><span class="caption-index-2">5.3</span><a name="anchor-5-3"></a>audio Class</h2>
+<h3><span class="caption-index-3">5.3.1</span><a name="anchor-5-3-1"></a>Overview</h3>
 <p>
 The <code>audio</code> class provides measures to work on audio data.
 </p>
-<h3><span class="caption-index-3">5.3.1</span><a name="anchor-5-3-1"></a>Method</h3>
+<h3><span class="caption-index-3">5.3.2</span><a name="anchor-5-3-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">audio#each</strong></div>
 <div style="margin-bottom:1em"><code>audio#each(channel:number, offset?:number):map {block?}</code></div>
@@ -1064,6 +1066,7 @@ The <code>audio</code> class provides measures to work on audio data.
 
 </p>
 <h2><span class="caption-index-2">5.4</span><a name="anchor-5-4"></a>binary Class</h2>
+<h3><span class="caption-index-3">5.4.1</span><a name="anchor-5-4-1"></a>Overview</h3>
 <p>
 The <code>binary</code> class provides measures to work on binary data that is a byte sequence without any format.
 </p>
@@ -1075,7 +1078,7 @@ You can also create the instance by specifying <code>b</code> prefix before a st
 </p>
 <pre><code>b'AB\xfe\x03CD'
 </code></pre>
-<h3><span class="caption-index-3">5.4.1</span><a name="anchor-5-4-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.4.2</span><a name="anchor-5-4-2"></a>Property</h3>
 <p>
 A <code>binary</code> instance has the following properties:
 </p>
@@ -1133,7 +1136,7 @@ Indicates if the content of the binary object is writable.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.4.2</span><a name="anchor-5-4-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.4.3</span><a name="anchor-5-4-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">binary</strong></div>
 <div style="margin-bottom:1em"><code>binary(buff*) {block?}</code></div>
@@ -1142,7 +1145,7 @@ Creates a <code>binary</code> instance after combining <code>string</code> or <c
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|bin:binary|</code>, where <code>bin</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.4.3</span><a name="anchor-5-4-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.4.4</span><a name="anchor-5-4-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">binary.alloc</strong></div>
 <div style="margin-bottom:1em"><code>binary.alloc(bytes:number, data?:number):static:map {block?}</code></div>
@@ -1186,6 +1189,7 @@ Creates a <code>stream</code> instance with which you can read data from the bin
 Creates a <code>stream</code> instance with which you can append data to the binary by <code>stream#write()</code> method. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h2><span class="caption-index-2">5.5</span><a name="anchor-5-5"></a>boolean Class</h2>
+<h3><span class="caption-index-3">5.5.1</span><a name="anchor-5-5-1"></a>Overview</h3>
 <p>
 The <code>boolean</code> class represents a boolean data type that is used in logical operations including NOT, AND, OR and XOR.
 </p>
@@ -1197,9 +1201,10 @@ The <code>boolean</code> type provides two values: <code>true</code> and <code>f
 <li>Other values are evaluated as <code>true</code>.</li>
 </ul>
 <p>
-Note that the number <code>0</code> is treated as <code>true</code> in logical operations.
+Note that the number <code>0</code> is treated as <code>true</code> in logical operations. 
 </p>
 <h2><span class="caption-index-2">5.6</span><a name="anchor-5-6"></a>codec Class</h2>
+<h3><span class="caption-index-3">5.6.1</span><a name="anchor-5-6-1"></a>Overview</h3>
 <p>
 The <code>codec</code> class has features to decoding/encoding character codes stored in <code>string</code> and <code>binary</code>. Following measures are provided:
 </p>
@@ -1223,7 +1228,7 @@ The actual functions for encoding and decoding are provided by sub modules under
 <p>
 Importing other codec modules would expand available codecs. You can call <code>codecs.dir()</code> to get a list of codec names currently available.
 </p>
-<h3><span class="caption-index-3">5.6.1</span><a name="anchor-5-6-1"></a>Predefined Variable</h3>
+<h3><span class="caption-index-3">5.6.2</span><a name="anchor-5-6-2"></a>Predefined Variable</h3>
 <p>
 <table>
 <tr>
@@ -1294,7 +1299,7 @@ BOM for UTF-32 big endian: <code>b'\x00\x00\xfe\xff'</code></td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.6.2</span><a name="anchor-5-6-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.6.3</span><a name="anchor-5-6-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">codec</strong></div>
 <div style="margin-bottom:1em"><code>codec(encoding:string) {block?}</code></div>
@@ -1303,7 +1308,7 @@ Creates a <code>codec</code> instance of the specified encoding name. You can ca
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|codec:codec|</code>, where <code>codec</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.6.3</span><a name="anchor-5-6-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.6.4</span><a name="anchor-5-6-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">codec#addcr</strong></div>
 <div style="margin-bottom:1em"><code>codec#addcr(flag?:boolean):reduce</code></div>
@@ -1332,7 +1337,7 @@ The codec's decoder has a feature to delete a CR code (<code>0x0d</code>) before
 <div style="margin-bottom:1em"><code>codec#encode(str:string):map</code></div>
 Encodes a string <code>str</code> and returns the encoded result as <code>binary</code>.
 </p>
-<h3><span class="caption-index-3">5.6.4</span><a name="anchor-5-6-4"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">5.6.5</span><a name="anchor-5-6-5"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>codec</code> instance in its argument can also take a value of <code>string</code> that is recognized as a codec name.
 </p>
@@ -1341,9 +1346,10 @@ With the above casting feature, you can call a function <code>f(codec:codec)</co
 </p>
 <ul>
 <li><code>f(codec('utf-16'))</code> .. The most explicit way.</li>
-<li><code>f('utf-16')</code> .. Implicit casting: from <code>string</code> to <code>codec</code>.</li>
+<li><code>f('utf-16')</code> .. Implicit casting: from <code>string</code> to <code>codec</code>. </li>
 </ul>
 <h2><span class="caption-index-2">5.7</span><a name="anchor-5-7"></a>color Class</h2>
+<h3><span class="caption-index-3">5.7.1</span><a name="anchor-5-7-1"></a>Overview</h3>
 <p>
 An instance of the <code>color</code> class represents a color data that consists of red, green, blue and alpha elements.
 </p>
@@ -1353,7 +1359,7 @@ You can create a <code>color</code> instance by calling <code>color()</code> fun
 <p>
 There are class variables as shown below:
 </p>
-<h3><span class="caption-index-3">5.7.1</span><a name="anchor-5-7-1"></a>Predefined Variable</h3>
+<h3><span class="caption-index-3">5.7.2</span><a name="anchor-5-7-2"></a>Predefined Variable</h3>
 <p>
 <table>
 <tr>
@@ -1567,7 +1573,7 @@ Color instance equivalent with <code>color(255, 255, 255, 255)</code></td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.7.2</span><a name="anchor-5-7-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.7.3</span><a name="anchor-5-7-3"></a>Property</h3>
 <p>
 A <code>color</code> instance has the following properties:
 </p>
@@ -1637,7 +1643,7 @@ Value of the red element.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.7.3</span><a name="anchor-5-7-3"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">5.7.4</span><a name="anchor-5-7-4"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>color</code> instance in its argument can also take a value of <code>symbol</code>, <code>string</code> and <code>list</code> as below:
 </p>
@@ -1655,7 +1661,7 @@ With the above casting feature, you can call a function <code>f(c:color)</code> 
 <li><code>f('purple')</code> .. Implicit casting: from <code>string</code> to <code>color</code>.</li>
 <li><code>f([128, 0, 128])</code> .. Implicit casting: from <code>list</code> to <code>color</code>.</li>
 </ul>
-<h3><span class="caption-index-3">5.7.4</span><a name="anchor-5-7-4"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.7.5</span><a name="anchor-5-7-5"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">color</strong></div>
 <div style="margin-bottom:1em"><code>color(args+):map {block?}</code></div>
@@ -1671,7 +1677,7 @@ There are two forms to call this function as below:
 <li><code>color(name:string, a?:number)</code> .. Creates an instance from color name and an optional alpha element. Predefined variable <code>color.names</code> is a list that contains available color names. A string in a format of <code>'#rrggbb'</code> that is used in HTML documents is also acceptable as a color name.</li>
 <li><code>color(r:number, g?:number, b?:number, a?:number)</code> .. Creates an instance from RGB elements and an optional alpha element.</li>
 </ul>
-<h3><span class="caption-index-3">5.7.5</span><a name="anchor-5-7-5"></a>Method</h3>
+<h3><span class="caption-index-3">5.7.6</span><a name="anchor-5-7-6"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">color#getgray</strong></div>
 <div style="margin-bottom:1em"><code>color#getgray()</code></div>
