@@ -4441,22 +4441,107 @@ You can also explicitly specify the image data format by the argument <code>imag
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<h2><span class="caption-index-2">5.20</span><a name="anchor-5-20"></a>list/iterator Class</h2>
-<p>
-The <code>list</code> class provides measures to handle a list structure, which stores values on memory that can be accessed by indexer.
-</p>
+<h2><span class="caption-index-2">5.20</span><a name="anchor-5-20"></a>iteraot/list Class</h2>
+<h3><span class="caption-index-3">5.20.1</span><a name="anchor-5-20-1"></a>Overview</h3>
 <p>
 The <code>iterator</code> class provides measures to operate an iterator, which iterates values that come from containers and streams.
 </p>
-<h3><span class="caption-index-3">5.20.1</span><a name="anchor-5-20-1"></a>List-specific Features</h3>
-<h4><span class="caption-index-4">5.20.1.1</span><a name="anchor-5-20-1-1"></a>Creating List</h4>
+<p>
+The <code>list</code> class provides measures to handle a list structure, which stores values on memory that can be accessed by indexer.
+</p>
+<h3><span class="caption-index-3">5.20.2</span><a name="anchor-5-20-2"></a>Iterator-specific Features</h3>
+<h4><span class="caption-index-4">5.20.2.1</span><a name="anchor-5-20-2-1"></a>Function to Create iterator Instance</h4>
+<p>
+<div><strong style="text-decoration:underline">iterator</strong></div>
+<div style="margin-bottom:1em"><code>iterator(value+) {block?}</code></div>
+Creates an iterator that combines iterators given in the argument.
+</p>
+<p>
+If an argument is not an iterator, that would be added as an element.
+</p>
+<p>
+In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
+</p>
+<ul>
+<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
+<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
+<li><code>:list</code> .. A list.</li>
+<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
+<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
+<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
+</ul>
+<p>
+See the chapter of Mapping Process in Gura Language Manual for the detail.
+</p>
+<p>
+If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
+</p>
+<h4><span class="caption-index-4">5.20.2.2</span><a name="anchor-5-20-2-2"></a>Method Specific to iterator Class</h4>
+<p>
+<div><strong style="text-decoration:underline">iterator#delay</strong></div>
+<div style="margin-bottom:1em"><code>iterator#delay(delay:number) {block?}</code></div>
+Creates an iterator that returns each element with an interval time specified by the argument <code>delay</code> in seconds.
+</p>
+<p>
+<div><strong style="text-decoration:underline">iterator#finite</strong></div>
+<div style="margin-bottom:1em"><code>iterator#finite():reduce</code></div>
+Marks the iterator as a finite one by clearing its infinite flag.
+</p>
+<p>
+This method returns the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">iterator#infinite</strong></div>
+<div style="margin-bottom:1em"><code>iterator#infinite():reduce</code></div>
+Marks the iterator as an infinite one by setting its infinite flag.
+</p>
+<p>
+This method returns the target instance itself.
+</p>
+<p>
+<div><strong style="text-decoration:underline">iterator#isinfinite</strong></div>
+<div style="margin-bottom:1em"><code>iterator#isinfinite()</code></div>
+Returns <code>true</code> if the iterator is infinite one.
+</p>
+<p>
+The trait of iterator's infinity is used to avoid an endless process by evaluating an infinite iterator. An attempt to evaluate an infinite iterator such as creation of a list from it would occur an error.
+</p>
+<p>
+<div><strong style="text-decoration:underline">iterator#next</strong></div>
+<div style="margin-bottom:1em"><code>iterator#next()</code></div>
+Returns a next element of the iterator. This operation updates the iterator's internal status.
+</p>
+<p>
+<div><strong style="text-decoration:underline">iterator#repeater</strong></div>
+<div style="margin-bottom:1em"><code>iterator#repeater()</code></div>
+Makes the iterator behave as a "repeater". This would allow the iterator be evaulated when it appears as an element of another "repeater" iterator.
+</p>
+<p>
+Below is an example:
+</p>
+<pre><code>x = repeat(3):iter {
+    ['apple', 'orange', 'grape'].each()
+}
+println(x)
+// Just prints iterator instance three times
+// since x can't evaluate the internal iterator.
+
+x = repeat(3):iter {
+    ['apple', 'orange', 'grape'].each().repeater()
+}
+println(x)
+// Prints 'apple', 'orange' and  'grape' three times
+// after evaluating the internal iterator.
+</code></pre>
+<h3><span class="caption-index-3">5.20.3</span><a name="anchor-5-20-3"></a>List-specific Features</h3>
+<h4><span class="caption-index-4">5.20.3.1</span><a name="anchor-5-20-3-1"></a>Creating List</h4>
 <p>
 There are several ways to create a list.
 </p>
 <pre><code>[3, 1, 4, 1, 5, 9]
 @{3, 1, 4, 1, 5, 9}
 </code></pre>
-<h4><span class="caption-index-4">5.20.1.2</span><a name="anchor-5-20-1-2"></a>Index Access</h4>
+<h4><span class="caption-index-4">5.20.3.2</span><a name="anchor-5-20-3-2"></a>Index Access</h4>
 <p>
 You can read and write element values in a list with an indexer by giving it an index number starting from zero. Below is an example:
 </p>
@@ -4465,7 +4550,7 @@ You can read and write element values in a list with an indexer by giving it an 
 println(x[2]) // prints `C
 x[4] = `e     // replaces `E with `e
 </code></pre>
-<h4><span class="caption-index-4">5.20.1.3</span><a name="anchor-5-20-1-3"></a>Function to Create list Instance</h4>
+<h4><span class="caption-index-4">5.20.3.3</span><a name="anchor-5-20-3-3"></a>Function to Create list Instance</h4>
 <p>
 <div><strong style="text-decoration:underline">list</strong></div>
 <div style="margin-bottom:1em"><code>list(value+)</code></div>
@@ -4502,7 +4587,7 @@ In default, all the elements in each iterators are added to the created list. Sp
 <li><code>:or</code> .. All the elements are added. This is the default behavior.</li>
 <li><code>:xor</code> .. Elements that exist in only one iterator are added.</li>
 </ul>
-<h4><span class="caption-index-4">5.20.1.4</span><a name="anchor-5-20-1-4"></a>Method Specific to list Class</h4>
+<h4><span class="caption-index-4">5.20.3.4</span><a name="anchor-5-20-3-4"></a>Method Specific to list Class</h4>
 <p>
 <div><strong style="text-decoration:underline">list#add</strong></div>
 <div style="margin-bottom:1em"><code>list#add(elem+):reduce</code></div>
@@ -4629,91 +4714,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h3><span class="caption-index-3">5.20.2</span><a name="anchor-5-20-2"></a>Iterator-specific Features</h3>
-<h4><span class="caption-index-4">5.20.2.1</span><a name="anchor-5-20-2-1"></a>Function to Create iterator Instance</h4>
-<p>
-<div><strong style="text-decoration:underline">iterator</strong></div>
-<div style="margin-bottom:1em"><code>iterator(value+) {block?}</code></div>
-Creates an iterator that combines iterators given in the argument.
-</p>
-<p>
-If an argument is not an iterator, that would be added as an element.
-</p>
-<p>
-In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
-</p>
-<ul>
-<li><code>:iter</code> .. An iterator. This is the default behavior.</li>
-<li><code>:xiter</code> .. An iterator that eliminates <code>nil</code> from its elements.</li>
-<li><code>:list</code> .. A list.</li>
-<li><code>:xlist</code> .. A list that eliminates <code>nil</code> from its elements.</li>
-<li><code>:set</code> ..  A list that eliminates duplicated values from its elements.</li>
-<li><code>:xset</code> .. A list that eliminates duplicated values and <code>nil</code> from its elements.</li>
-</ul>
-<p>
-See the chapter of Mapping Process in Gura Language Manual for the detail.
-</p>
-<p>
-If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
-</p>
-<h4><span class="caption-index-4">5.20.2.2</span><a name="anchor-5-20-2-2"></a>Method Specific to iterator Class</h4>
-<p>
-<div><strong style="text-decoration:underline">iterator#delay</strong></div>
-<div style="margin-bottom:1em"><code>iterator#delay(delay:number) {block?}</code></div>
-Creates an iterator that returns each element with an interval time specified by the argument <code>delay</code> in seconds.
-</p>
-<p>
-<div><strong style="text-decoration:underline">iterator#finite</strong></div>
-<div style="margin-bottom:1em"><code>iterator#finite():reduce</code></div>
-Marks the iterator as a finite one by clearing its infinite flag.
-</p>
-<p>
-This method returns the target instance itself.
-</p>
-<p>
-<div><strong style="text-decoration:underline">iterator#infinite</strong></div>
-<div style="margin-bottom:1em"><code>iterator#infinite():reduce</code></div>
-Marks the iterator as an infinite one by setting its infinite flag.
-</p>
-<p>
-This method returns the target instance itself.
-</p>
-<p>
-<div><strong style="text-decoration:underline">iterator#isinfinite</strong></div>
-<div style="margin-bottom:1em"><code>iterator#isinfinite()</code></div>
-Returns <code>true</code> if the iterator is infinite one.
-</p>
-<p>
-The trait of iterator's infinity is used to avoid an endless process by evaluating an infinite iterator. An attempt to evaluate an infinite iterator such as creation of a list from it would occur an error.
-</p>
-<p>
-<div><strong style="text-decoration:underline">iterator#next</strong></div>
-<div style="margin-bottom:1em"><code>iterator#next()</code></div>
-Returns a next element of the iterator. This operation updates the iterator's internal status.
-</p>
-<p>
-<div><strong style="text-decoration:underline">iterator#repeater</strong></div>
-<div style="margin-bottom:1em"><code>iterator#repeater()</code></div>
-Makes the iterator behave as a "repeater". This would allow the iterator be evaulated when it appears as an element of another "repeater" iterator.
-</p>
-<p>
-Below is an example:
-</p>
-<pre><code>x = repeat(3):iter {
-    ['apple', 'orange', 'grape'].each()
-}
-println(x)
-// Just prints iterator instance three times
-// since x can't evaluate the internal iterator.
-
-x = repeat(3):iter {
-    ['apple', 'orange', 'grape'].each().repeater()
-}
-println(x)
-// Prints 'apple', 'orange' and  'grape' three times
-// after evaluating the internal iterator.
-</code></pre>
-<h3><span class="caption-index-3">5.20.3</span><a name="anchor-5-20-3"></a>Method Common to Both list and iterator Classes</h3>
+<h3><span class="caption-index-3">5.20.4</span><a name="anchor-5-20-4"></a>Method Common to Both list and iterator Classes</h3>
 <p>
 <div><strong style="text-decoration:underline">iterable#after</strong></div>
 <div style="margin-bottom:1em"><code>iterable#after(criteria) {block?}</code></div>
@@ -5559,10 +5560,11 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <h2><span class="caption-index-2">5.21</span><a name="anchor-5-21"></a>memory Class</h2>
+<h3><span class="caption-index-3">5.21.1</span><a name="anchor-5-21-1"></a>Overview</h3>
 <p>
 An instance of the <code>memory</code> class represents a memory that is stored in <code>array</code> instances.
 </p>
-<h3><span class="caption-index-3">5.21.1</span><a name="anchor-5-21-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.21.2</span><a name="anchor-5-21-2"></a>Property</h3>
 <p>
 A <code>memory</code> instance has the following properties:
 </p>
@@ -5608,13 +5610,13 @@ Returns the memory size in bytes.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.21.2</span><a name="anchor-5-21-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.21.3</span><a name="anchor-5-21-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">memory</strong></div>
 <div style="margin-bottom:1em"><code>memory(bytes:number):map {block?}</code></div>
 
 </p>
-<h3><span class="caption-index-3">5.21.3</span><a name="anchor-5-21-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.21.4</span><a name="anchor-5-21-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">memory#array@int8</strong></div>
 <div style="margin-bottom:1em"><code>memory#array@int8():map {block?}</code></div>
@@ -5690,24 +5692,27 @@ Returns a <code>pointer</code> instance that has an initial offset specified by 
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|p:pointer|</code>, where <code>p</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h2><span class="caption-index-2">5.22</span><a name="anchor-5-22"></a>nil Class</h2>
+<h3><span class="caption-index-3">5.22.1</span><a name="anchor-5-22-1"></a>Overview</h3>
 <p>
-The <code>nil</code> class is the class of <code>nil</code> value that is usually used as an invalid value. In a logical operation, the <code>nil</code> value is recognized as <code>false</code>.
+The <code>nil</code> class is the class of <code>nil</code> value that is usually used as an invalid value. In a logical operation, the <code>nil</code> value is recognized as <code>false</code>. 
 </p>
 <h2><span class="caption-index-2">5.23</span><a name="anchor-5-23"></a>number Class</h2>
+<h3><span class="caption-index-3">5.23.1</span><a name="anchor-5-23-1"></a>Overview</h3>
 <p>
 The <code>number</code> class is a type of number values. A number literal would create a <code>number</code> instance.
 </p>
-<h3><span class="caption-index-3">5.23.1</span><a name="anchor-5-23-1"></a>Method</h3>
+<h3><span class="caption-index-3">5.23.2</span><a name="anchor-5-23-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">number.roundoff</strong></div>
 <div style="margin-bottom:1em"><code>number.roundoff(threshold:number =&gt; 1e-10)</code></div>
 
 </p>
 <h2><span class="caption-index-2">5.24</span><a name="anchor-5-24"></a>operator Class</h2>
+<h3><span class="caption-index-3">5.24.1</span><a name="anchor-5-24-1"></a>Overview</h3>
 <p>
 The <code>operator</code> class provides measures to assign operators with a user-defined procedure.
 </p>
-<h3><span class="caption-index-3">5.24.1</span><a name="anchor-5-24-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.24.2</span><a name="anchor-5-24-2"></a>Property</h3>
 <p>
 An <code>operator</code> instance has the following properties:
 </p>
@@ -5741,7 +5746,7 @@ A <code>symbol</code> instance that represents the operator's type.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.24.2</span><a name="anchor-5-24-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.24.3</span><a name="anchor-5-24-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">operator</strong></div>
 <div style="margin-bottom:1em"><code>operator(symbol:symbol):map {block?}</code></div>
@@ -5755,7 +5760,7 @@ Below is an example to create an <code>operator</code> instance that is associat
 </p>
 <pre><code>op = operator(`+)
 </code></pre>
-<h3><span class="caption-index-3">5.24.3</span><a name="anchor-5-24-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.24.4</span><a name="anchor-5-24-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">operator#assign</strong></div>
 <div style="margin-bottom:1em"><code>operator#assign(type_l:expr, type_r?:expr):map:void {block}</code></div>
@@ -5802,10 +5807,11 @@ The argument <code>type</code> takes a symbol <code>`binary</code> or <code>`una
 <li>If it's specified with <code>`unary</code>, the method would return a list of type expressions for its single element.</li>
 </ul>
 <h2><span class="caption-index-2">5.25</span><a name="anchor-5-25"></a>palette Class</h2>
+<h3><span class="caption-index-3">5.25.1</span><a name="anchor-5-25-1"></a>Overview</h3>
 <p>
 The <code>palette</code> instance has a set of <code>color</code> instance.
 </p>
-<h3><span class="caption-index-3">5.25.1</span><a name="anchor-5-25-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.25.2</span><a name="anchor-5-25-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">palette</strong></div>
 <div style="margin-bottom:1em"><code>palette(type) {block?}</code></div>
@@ -5829,7 +5835,7 @@ In the second form, it can take one of the following symbols:
 <li><code>`win256</code> .. A palette with 256 colors defined by Windows.</li>
 <li><code>`websafe</code> .. A palette with 216 colors that assure to be displayed correctly in any Web environments. It actually has 256 entries though the last 40 entries are initialized with black.</li>
 </ul>
-<h3><span class="caption-index-3">5.25.2</span><a name="anchor-5-25-2"></a>Method</h3>
+<h3><span class="caption-index-3">5.25.3</span><a name="anchor-5-25-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">palette#each</strong></div>
 <div style="margin-bottom:1em"><code>palette#each() {block?}</code></div>
@@ -5874,10 +5880,11 @@ Updates palette entries according to color data in an image or a palette.
 The order of existing entries will be kept intact. If attribute shrink is specified, the whole size will be shrinked to a number powered by two that is enough to contain unique entries.
 </p>
 <h2><span class="caption-index-2">5.26</span><a name="anchor-5-26"></a>pointer Class</h2>
+<h3><span class="caption-index-3">5.26.1</span><a name="anchor-5-26-1"></a>Overview</h3>
 <p>
 The <code>pointer</code> class provides measures to read and write content in a <code>binary</code> and <code>memory</code> instance.
 </p>
-<h3><span class="caption-index-3">5.26.1</span><a name="anchor-5-26-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.26.2</span><a name="anchor-5-26-2"></a>Property</h3>
 <p>
 A <code>pointer</code> instance has the following properties:
 </p>
@@ -5947,7 +5954,7 @@ An instance that is associated with the pointer. Currently, this can be an insta
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.26.2</span><a name="anchor-5-26-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.26.3</span><a name="anchor-5-26-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">pointer</strong></div>
 <div style="margin-bottom:1em"><code>pointer(org:pointer):map {block?}</code></div>
@@ -5956,7 +5963,7 @@ Creates a <code>pointer</code> instance that is cloned from the given instance <
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|ptr:pointer|</code>, where <code>ptr</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.26.3</span><a name="anchor-5-26-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.26.4</span><a name="anchor-5-26-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">pointer#copyfrom</strong></div>
 <div style="margin-bottom:1em"><code>pointer#copyfrom(src:pointer, bytes?:number):map:reduce</code></div>
@@ -6730,7 +6737,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <div style="margin-bottom:1em"><code>pointer#writer() {block?}</code></div>
 Creates a <code>stream</code> instance with which you can append data to the memory pointed by the pointer. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.26.4</span><a name="anchor-5-26-4"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">5.26.5</span><a name="anchor-5-26-5"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>pointer</code> instance in its argument can also take a value of <code>binary</code> and <code>memory</code>.
 </p>
@@ -6739,9 +6746,10 @@ With the above casting feature, you can call a function <code>f(p:pointer)</code
 </p>
 <ul>
 <li><code>b = b'\x01\x23\x45\x67\x89\xab', f(b)</code></li>
-<li><code>m = memory(32), f(m)</code></li>
+<li><code>m = memory(32), f(m)</code> </li>
 </ul>
 <h2><span class="caption-index-2">5.27</span><a name="anchor-5-27"></a>rational Class</h2>
+<h3><span class="caption-index-3">5.27.1</span><a name="anchor-5-27-1"></a>Overview</h3>
 <p>
 The <code>rational</code> class provides measures to handle rational numbers.
 </p>
@@ -6759,7 +6767,7 @@ Below are examples to realize a common fraction two-thirds:
 2r / 3
 2 / 3r
 </code></pre>
-<h3><span class="caption-index-3">5.27.1</span><a name="anchor-5-27-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.27.2</span><a name="anchor-5-27-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">rational</strong></div>
 <div style="margin-bottom:1em"><code>rational(numer:number, denom?:number):map {block?}</code></div>
@@ -6771,20 +6779,21 @@ If the argument <code>denom</code> is omitted, one is set as its denominator.
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|r:rational|</code>, where <code>r</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.27.2</span><a name="anchor-5-27-2"></a>Method</h3>
+<h3><span class="caption-index-3">5.27.3</span><a name="anchor-5-27-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">rational.reduce</strong></div>
 <div style="margin-bottom:1em"><code>rational.reduce()</code></div>
 Reduces the rational number by dividing its numerator and denominator by their GCD.
 </p>
 <h2><span class="caption-index-2">5.28</span><a name="anchor-5-28"></a>semaphore Class</h2>
-<h3><span class="caption-index-3">5.28.1</span><a name="anchor-5-28-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.28.1</span><a name="anchor-5-28-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.28.2</span><a name="anchor-5-28-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">semaphore</strong></div>
 <div style="margin-bottom:1em"><code>semaphore()</code></div>
 
 </p>
-<h3><span class="caption-index-3">5.28.2</span><a name="anchor-5-28-2"></a>Method</h3>
+<h3><span class="caption-index-3">5.28.3</span><a name="anchor-5-28-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">semaphore#release</strong></div>
 <div style="margin-bottom:1em"><code>semaphore#release()</code></div>
@@ -6801,6 +6810,7 @@ Forms a critical session by grabbing the semaphore's ownership, executing the bl
 Watis for the semaphore being released by other threads, and ghen grabs that ownership.
 </p>
 <h2><span class="caption-index-2">5.29</span><a name="anchor-5-29"></a>stream Class</h2>
+<h3><span class="caption-index-3">5.29.1</span><a name="anchor-5-29-1"></a>Overview</h3>
 <p>
 The <code>stream</code> class provides methods to read and write data through a stream, an abstract structure to handle a byte sequence. It also provides information of the stream such as the pathname and the creation date and time.
 </p>
@@ -6824,7 +6834,7 @@ You can specify a proper <code>codec</code> when creating the <code>stream</code
 </ul>
 </li>
 </ul>
-<h3><span class="caption-index-3">5.29.1</span><a name="anchor-5-29-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.29.2</span><a name="anchor-5-29-2"></a>Property</h3>
 <p>
 A <code>stream</code> instance has the following properties:
 </p>
@@ -6918,7 +6928,7 @@ Indicates whether the stream is writable.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.29.2</span><a name="anchor-5-29-2"></a>Operator</h3>
+<h3><span class="caption-index-3">5.29.3</span><a name="anchor-5-29-3"></a>Operator</h3>
 <p>
 You can use the operator "<code>&lt;&lt;</code>" to output a content of a value to a <code>stream</code>. It comes like "<code>stream &lt;&lt; obj</code>" where <code>obj</code> is converted to a string before output to the stream.
 </p>
@@ -6929,7 +6939,7 @@ Since the operator returns the <code>stream</code> instance specified on the lef
 </p>
 <pre><code>sys.stdout &lt;&lt; 'First' &lt;&lt; 'Second'
 </code></pre>
-<h3><span class="caption-index-3">5.29.3</span><a name="anchor-5-29-3"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">5.29.4</span><a name="anchor-5-29-4"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>stream</code> instance in its argument can also take a value of <code>string</code> and <code>binary</code> as below:
 </p>
@@ -6945,7 +6955,7 @@ Using the above casting feature, you can call a function <code>f(stream:stream)<
 <li><code>f('foo.txt')</code> .. Implicit casting from <code>string</code> to <code>stream</code>.</li>
 <li><code>f(b'\x00\x12\x34\x56')</code> .. Implicit casting from <code>binary</code> to <code>stream</code> that reads the content.</li>
 </ul>
-<h3><span class="caption-index-3">5.29.4</span><a name="anchor-5-29-4"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.29.5</span><a name="anchor-5-29-5"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">stream</strong></div>
 <div style="margin-bottom:1em"><code>stream(pathname:string, mode?:string, codec?:codec):map {block?}</code></div>
@@ -6968,7 +6978,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <p>
 You can also call <code>open()</code> function that is just an alias of <code>stream()</code> to create a <code>stream</code> instance.
 </p>
-<h3><span class="caption-index-3">5.29.5</span><a name="anchor-5-29-5"></a>Utility Function</h3>
+<h3><span class="caption-index-3">5.29.6</span><a name="anchor-5-29-6"></a>Utility Function</h3>
 <p>
 <div><strong style="text-decoration:underline">readlines</strong></div>
 <div style="margin-bottom:1em"><code>readlines(stream?:stream:r):[chop] {block?}</code></div>
@@ -6997,7 +7007,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h3><span class="caption-index-3">5.29.6</span><a name="anchor-5-29-6"></a>Method</h3>
+<h3><span class="caption-index-3">5.29.7</span><a name="anchor-5-29-7"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">stream#addcr</strong></div>
 <div style="margin-bottom:1em"><code>stream#addcr(flag?:boolean):reduce</code></div>
@@ -7233,6 +7243,7 @@ Returns the current file position at which read/write operation works.
 Writes binary data pointer by <code>ptr</code> to the stream. The argument <code>bytes</code> limits the number of data that is to be written to the stream.
 </p>
 <h2><span class="caption-index-2">5.30</span><a name="anchor-5-30"></a>string Class</h2>
+<h3><span class="caption-index-3">5.30.1</span><a name="anchor-5-30-1"></a>Overview</h3>
 <p>
 The <code>string</code> class provides measures to operate on strings.
 </p>
@@ -7246,16 +7257,17 @@ You can create a <code>string</code> instance by embracing a sequence of charact
 <p>
 If you need to declare a string that contains multiple lines, embrace it with a pair of sequences of three single- or double-quotes.
 </p>
-<pre><code>'''first line
+<pre><code>R"""
+first line
 second line
 third line
-'''
+"""
 </code></pre>
-<h3><span class="caption-index-3">5.30.1</span><a name="anchor-5-30-1"></a>Suffix Management</h3>
+<h3><span class="caption-index-3">5.30.2</span><a name="anchor-5-30-2"></a>Suffix Management</h3>
 <p>
 When an string literal is suffixed by a character <code>$</code>, a handler registered by <code>string.translate()</code> function that is supposed to translate the string into other natural languages would be evaluated.
 </p>
-<h3><span class="caption-index-3">5.30.2</span><a name="anchor-5-30-2"></a>Method</h3>
+<h3><span class="caption-index-3">5.30.3</span><a name="anchor-5-30-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">string#align</strong></div>
 <div style="margin-bottom:1em"><code>string#align(width:number, padding:string =&gt; ' '):map:[center,left,right] {block?}</code></div>
@@ -7642,6 +7654,7 @@ This method takes into account the character width based on the specification of
 Converts zenkaku to hankaku characters.
 </p>
 <h2><span class="caption-index-2">5.31</span><a name="anchor-5-31"></a>suffixmgr Class</h2>
+<h3><span class="caption-index-3">5.31.1</span><a name="anchor-5-31-1"></a>Overview</h3>
 <p>
 The <code>suffixmgr</code> class provides measures to access suffix managers that are responsible to handle suffix symbols appended to number or string literals.
 </p>
@@ -7655,7 +7668,7 @@ You can use that suffix like below:
 </p>
 <pre><code>'hello world'X
 </code></pre>
-<h3><span class="caption-index-3">5.31.1</span><a name="anchor-5-31-1"></a>Constructor</h3>
+<h5><span class="caption-index-5">5.31.1.0.1</span><a name="anchor-5-31-1-0-1"></a>Constructor</h5>
 <p>
 <div><strong style="text-decoration:underline">suffixmgr</strong></div>
 <div style="margin-bottom:1em"><code>suffixmgr(type:symbol) {block?}</code></div>
@@ -7668,7 +7681,7 @@ Creates a reference to one of two suffix managers, number and string.
 <p>
 Specify the argument <code>type</code> with a symbol <code>`number</code> for a number suffix manager and <code>`string</code> for a string suffix manager.
 </p>
-<h3><span class="caption-index-3">5.31.2</span><a name="anchor-5-31-2"></a>Method</h3>
+<h5><span class="caption-index-5">5.31.1.0.2</span><a name="anchor-5-31-1-0-2"></a>Method</h5>
 <p>
 <div><strong style="text-decoration:underline">suffixmgr#assign</strong></div>
 <div style="margin-bottom:1em"><code>suffixmgr#assign(suffix:symbol):void:[overwrite] {block}</code></div>
@@ -7678,14 +7691,16 @@ Assigns a procedure to a specified symbol in the suffix manager. The procedure i
 An error occurs if the same suffix symbol has already been assigned. Specifying <code>:overwrite</code> attribute will forcibly overwrite an existing assignment.
 </p>
 <h2><span class="caption-index-2">5.32</span><a name="anchor-5-32"></a>symbol Class</h2>
-<h3><span class="caption-index-3">5.32.1</span><a name="anchor-5-32-1"></a>Method</h3>
+<h3><span class="caption-index-3">5.32.1</span><a name="anchor-5-32-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.32.2</span><a name="anchor-5-32-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">symbol#eval</strong></div>
 <div style="margin-bottom:1em"><code>symbol#eval(env?:environment)</code></div>
 Evaluate a symbol object.
 </p>
 <h2><span class="caption-index-2">5.33</span><a name="anchor-5-33"></a>template Class</h2>
-<h3><span class="caption-index-3">5.33.1</span><a name="anchor-5-33-1"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">5.33.1</span><a name="anchor-5-33-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.33.2</span><a name="anchor-5-33-2"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>template</code> instance in its argument can also take a value of <code>stream</code> as below:
 </p>
@@ -7704,7 +7719,7 @@ Using the above casting feature, you can call a function <code>f(tmpl:template)<
 <li><code>f(template('foo.txt'))</code> .. Implicit casting: from <code>string</code> to <code>stream</code>.</li>
 <li><code>f('foo.txt')</code> .. Implicit casting: from <code>string</code> to <code>stream</code>, then from <code>stream</code> to <code>template</code>.</li>
 </ul>
-<h3><span class="caption-index-3">5.33.2</span><a name="anchor-5-33-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.33.3</span><a name="anchor-5-33-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">template</strong></div>
 <div style="margin-bottom:1em"><code>template(src?:stream:r):map:[lasteol,noindent] {block?}</code></div>
@@ -7720,7 +7735,7 @@ Following attributes would customize the parser's behavior:
 <li><code>:lasteol</code></li>
 <li><code>:noindent</code></li>
 </ul>
-<h3><span class="caption-index-3">5.33.3</span><a name="anchor-5-33-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.33.4</span><a name="anchor-5-33-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">template#parse</strong></div>
 <div style="margin-bottom:1em"><code>template#parse(str:string):void:[lasteol,noindent]</code></div>
@@ -7753,7 +7768,7 @@ Renders stored content to the specified stream.
 <p>
 If the stream is omitted, the function returns the rendered result as a string.
 </p>
-<h3><span class="caption-index-3">5.33.4</span><a name="anchor-5-33-4"></a>Method Called by Template Directive</h3>
+<h3><span class="caption-index-3">5.33.5</span><a name="anchor-5-33-5"></a>Method Called by Template Directive</h3>
 <p>
 <div><strong style="text-decoration:underline">template#block</strong></div>
 <div style="margin-bottom:1em"><code>template#block(symbol:symbol):void</code></div>
@@ -7919,10 +7934,11 @@ Content of derived.
 Block ends here.
 </code></pre>
 <h2><span class="caption-index-2">5.34</span><a name="anchor-5-34"></a>timedelta Class</h2>
+<h3><span class="caption-index-3">5.34.1</span><a name="anchor-5-34-1"></a>Overview</h3>
 <p>
 The <code>timedelta</code> instance provides a time delta information that works with <code>datetime</code> instance. You can shift time information of <code>datetime</code> by applying addition or subtraction of <code>timedelta</code> to it.
 </p>
-<h3><span class="caption-index-3">5.34.1</span><a name="anchor-5-34-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.34.2</span><a name="anchor-5-34-2"></a>Property</h3>
 <p>
 A <code>timedelta</code> instance has the following properties:
 </p>
@@ -7980,19 +7996,20 @@ Offset of micro seconds.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.34.2</span><a name="anchor-5-34-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.34.3</span><a name="anchor-5-34-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">timedelta</strong></div>
 <div style="margin-bottom:1em"><code>timedelta(days:number =&gt; 0, secs:number =&gt; 0, usecs:number =&gt; 0):map {block?}</code></div>
 Returns a timedelta instance with specified values. The instance actually holds properties of days, secs and usecs.
 </p>
 <h2><span class="caption-index-2">5.35</span><a name="anchor-5-35"></a>uri Class</h2>
+<h3><span class="caption-index-3">5.35.1</span><a name="anchor-5-35-1"></a>Overview</h3>
 <p>
 The <code>uri</code> instance analyzes a URI string and returns each part in it such as the scheme and path. A generic URI has the following format:
 </p>
 <pre><code>scheme:[//[user:password@]host:port]][/]path[?query][#fragment]
 </code></pre>
-<h3><span class="caption-index-3">5.35.1</span><a name="anchor-5-35-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.35.2</span><a name="anchor-5-35-2"></a>Property</h3>
 <p>
 A <code>uri</code> instance has the following properties:
 </p>
@@ -8098,7 +8115,7 @@ User part in the URI.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.35.2</span><a name="anchor-5-35-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.35.3</span><a name="anchor-5-35-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">uri</strong></div>
 <div style="margin-bottom:1em"><code>uri(str?:string):map {block?}</code></div>
@@ -8110,7 +8127,7 @@ If the argument <code>str</code> is specified, it would be parsed as a URI which
 <p>
 If omitted, the instance would be initialized as an empty one.
 </p>
-<h3><span class="caption-index-3">5.35.3</span><a name="anchor-5-35-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.35.4</span><a name="anchor-5-35-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">uri#getfragment</strong></div>
 <div style="margin-bottom:1em"><code>uri#getfragment()</code></div>
@@ -8131,7 +8148,7 @@ Returns a <code>dict</code> instance that is made from the query part in the URI
 <div style="margin-bottom:1em"><code>uri.parsequery(query:string):static:map</code></div>
 This is a utility function to parse a query string and return a <code>dict</code> instance that contains key-value pairs for the query.
 </p>
-<h3><span class="caption-index-3">5.35.4</span><a name="anchor-5-35-4"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">5.35.5</span><a name="anchor-5-35-5"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>uri</code> instance in its argument can also take a value of <code>string</code> that is recognized as a URI string.
 </p>
@@ -8140,13 +8157,14 @@ With the above casting feature, you can call a function <code>f(uri:uri)</code> 
 </p>
 <ul>
 <li><code>f(uri('http://example.com'))</code> .. The most explicit way.</li>
-<li><code>f('http://example.com')</code> .. Implicit casting: from <code>string</code> to <code>uri</code>.</li>
+<li><code>f('http://example.com')</code> .. Implicit casting: from <code>string</code> to <code>uri</code>. </li>
 </ul>
 <h2><span class="caption-index-2">5.36</span><a name="anchor-5-36"></a>vertex Class</h2>
+<h3><span class="caption-index-3">5.36.1</span><a name="anchor-5-36-1"></a>Overview</h3>
 <p>
 The <code>vertex</code> class provides vertex information that consists of x, y, z and w values.
 </p>
-<h3><span class="caption-index-3">5.36.1</span><a name="anchor-5-36-1"></a>Property</h3>
+<h3><span class="caption-index-3">5.36.2</span><a name="anchor-5-36-2"></a>Property</h3>
 <p>
 An <code>vertex</code> instance has the following properties:
 </p>
@@ -8204,7 +8222,7 @@ A value of Z.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.36.2</span><a name="anchor-5-36-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.36.3</span><a name="anchor-5-36-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">vertex</strong></div>
 <div style="margin-bottom:1em"><code>vertex(x:number, y:number, z?:number):map {block?}</code></div>
@@ -8213,7 +8231,7 @@ Creates a <code>vertex</code> instance that has the given coordinates <code>x</c
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|v:vertex|</code>, where <code>v</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.36.3</span><a name="anchor-5-36-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.36.4</span><a name="anchor-5-36-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">vertex.cross</strong></div>
 <div style="margin-bottom:1em"><code>vertex.cross (v1:vertex, v2:vertex):static:map {block?}</code></div>
