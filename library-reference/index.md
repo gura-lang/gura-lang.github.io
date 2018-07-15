@@ -43,7 +43,7 @@ title: Gura Library Reference
 <div><span class="toc-index-2">5.17</span><a href="chapter-05.html#anchor-5-17">function Class</a></div>
 <div><span class="toc-index-2">5.18</span><a href="chapter-05.html#anchor-5-18">help Class</a></div>
 <div><span class="toc-index-2">5.19</span><a href="chapter-05.html#anchor-5-19">image Class</a></div>
-<div><span class="toc-index-2">5.20</span><a href="chapter-05.html#anchor-5-20">iteraot/list Class</a></div>
+<div><span class="toc-index-2">5.20</span><a href="chapter-05.html#anchor-5-20">iterator/list Class</a></div>
 <div><span class="toc-index-2">5.21</span><a href="chapter-05.html#anchor-5-21">memory Class</a></div>
 <div><span class="toc-index-2">5.22</span><a href="chapter-05.html#anchor-5-22">nil Class</a></div>
 <div><span class="toc-index-2">5.23</span><a href="chapter-05.html#anchor-5-23">number Class</a></div>

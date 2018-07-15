@@ -4441,7 +4441,7 @@ You can also explicitly specify the image data format by the argument <code>imag
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<h2><span class="caption-index-2">5.20</span><a name="anchor-5-20"></a>iteraot/list Class</h2>
+<h2><span class="caption-index-2">5.20</span><a name="anchor-5-20"></a>iterator/list Class</h2>
 <h3><span class="caption-index-3">5.20.1</span><a name="anchor-5-20-1"></a>Overview</h3>
 <p>
 The <code>iterator</code> class provides measures to operate an iterator, which iterates values that come from containers and streams.
