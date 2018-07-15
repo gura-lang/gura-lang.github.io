@@ -3708,15 +3708,852 @@ You can check the result of derivation by seeing property <code>function#expr</c
 <pre><code>&gt;&gt;&gt; g.expr
 `math.cos(x)
 </code></pre>
-<h2><span class="caption-index-2">5.18</span><a name="anchor-5-18"></a>help Class</h2>
+<h2><span class="caption-index-2">5.18</span><a name="anchor-5-18"></a>gear@averagepool1d Class</h2>
 <h3><span class="caption-index-3">5.18.1</span><a name="anchor-5-18-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.18.2</span><a name="anchor-5-18-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@averagepool1d</strong></div>
+<div style="margin-bottom:1em"><code>gear@averagepool1d(size:number, strides?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+Creates a <code>gear@averagepool1d</code> instance.
+</p>
+<p>
+The <code>size</code> is a gear size.
+</p>
+<p>
+The <code>strides</code> is a strides of sliding window. Default is one.
+</p>
+<p>
+The <code>padding</code> is a padding style <code>`valid</code> or <code>`same</code>. Default is <code>`same</code>.
+</p>
+<p>
+The <code>channel_pos</code> specifies where channel dimension is positioned and takes <code>`first</code> or <code>`last</code>. Default is <code>`last</code>. 
+</p>
+<h3><span class="caption-index-3">5.18.3</span><a name="anchor-5-18-3"></a>Property</h3>
+<p>
+A <code>gear@averagepool1d</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Note</th>
+</tr>
+
+
+<tr>
+<td>
+<code>channel_pos</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>padding</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>strides</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">5.19</span><a name="anchor-5-19"></a>gear@averagepool2d Class</h2>
+<h3><span class="caption-index-3">5.19.1</span><a name="anchor-5-19-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.19.2</span><a name="anchor-5-19-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@averagepool2d</strong></div>
+<div style="margin-bottom:1em"><code>gear@averagepool2d(size[]:number, strides[]?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+Creates a <code>gear@averagepool2d</code> instance.
+</p>
+<h3><span class="caption-index-3">5.19.3</span><a name="anchor-5-19-3"></a>Property</h3>
+<p>
+A <code>gear@averagepool2d</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Note</th>
+</tr>
+
+
+<tr>
+<td>
+<code>channel_pos</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>padding</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>strides</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">5.20</span><a name="anchor-5-20"></a>gear@averagepool3d Class</h2>
+<h3><span class="caption-index-3">5.20.1</span><a name="anchor-5-20-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.20.2</span><a name="anchor-5-20-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@averagepool3d</strong></div>
+<div style="margin-bottom:1em"><code>gear@averagepool3d(size[]:number, strides[]?:number, padding?:symbol, format?:symbol):map {block?}</code></div>
+Creates a <code>gear@averagepool3d</code> instance.
+</p>
+<h3><span class="caption-index-3">5.20.3</span><a name="anchor-5-20-3"></a>Property</h3>
+<p>
+A <code>gear@averagepool3d</code> instance has the following properties:
+</p>
+<h2><span class="caption-index-2">5.21</span><a name="anchor-5-21"></a>gear@conv1d Class</h2>
+<h3><span class="caption-index-3">5.21.1</span><a name="anchor-5-21-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.21.2</span><a name="anchor-5-21-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@conv1d</strong></div>
+<div style="margin-bottom:1em"><code>gear@conv1d(array:array, strides?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+Creates a <code>gear@conv1d</code> instance.
+</p>
+<p>
+The <code>array</code> is an <code>array</code> instance that has one of the following shapes:
+</p>
+<ul>
+<li><code>[size]</code> .. 1-dimension</li>
+<li><code>[size, channel_num]</code> .. 2-dimensions and <code>channel_pos</code> is <code>`last</code></li>
+<li><code>[channel_num, size]</code> .. 2-dimensions and <code>channel_pos</code> is <code>`first</code></li>
+<li><code>[filter_num, size]</code> .. 2-dimensions and <code>channel_pos</code> is <code>`none</code></li>
+<li><code>[filter_num, size, channel_num]</code> .. 3-dimensions and <code>channel_pos</code> is <code>`last</code></li>
+<li><code>[filter_num, channel_num, size]</code> .. 3-dimensions and <code>channel_pos</code> is <code>`first</code></li>
+</ul>
+<p>
+where <code>size</code> is the size of the filter's kernel, <code>channel_num</code> is the number of channels and <code>filter_num</code> is the number of filters.
+</p>
+<p>
+The <code>strides</code> is a strides for a sliding window. Default is one.
+</p>
+<p>
+The <code>padding</code> is a padding style and takes <code>`valid</code> or <code>`same</code>. Default is <code>`same</code>. When <code>valid</code> is specified, there is no padding. When <code>same</code> is specified, zero values are padded so that the result array has the size of the division of the original size by <code>strides</code>.
+</p>
+<p>
+The <code>channel_pos</code> is a channel position and takes <code>`none</code>, <code>`first</code> or <code>`last</code>. If not specified, <code>`none` for an array without channel dimension</code>and <code>`last</code> for others are to be set.
+</p>
+<h3><span class="caption-index-3">5.21.3</span><a name="anchor-5-21-3"></a>Property</h3>
+<p>
+A <code>gear@conv1d</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Note</th>
+</tr>
+
+
+<tr>
+<td>
+<code>array</code></td>
+<td>
+<code>array</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>channel_num</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>channel_pos</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>filter_num</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>padding</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>strides</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">5.22</span><a name="anchor-5-22"></a>gear@conv2d Class</h2>
+<h3><span class="caption-index-3">5.22.1</span><a name="anchor-5-22-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.22.2</span><a name="anchor-5-22-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@conv2d</strong></div>
+<div style="margin-bottom:1em"><code>gear@conv2d(array:array, strides[]?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+Creates a <code>gear@conv2d</code> instance.
+</p>
+<p>
+The given <code>array</code> instance shoud have one of the following shapes:
+</p>
+<ul>
+<li><code>[row_size, col_size]</code> .. 2-dimensions</li>
+<li><code>[row_size, col_size, channel_num]</code> .. 3-dimensions and <code>channel_pos</code> is <code>`last</code></li>
+<li><code>[channel_num, row_size, col_size]</code> .. 3-dimensions and <code>channel_pos</code> is <code>`first</code></li>
+<li><code>[filter_num, row_size, col_size]</code> .. 3-dimensions and <code>channel_pos</code> is <code>`none</code></li>
+<li><code>[filter_num, row_size, col_size, channel_num]</code> .. 4-dimensions and <code>channel_pos</code> is <code>`last</code></li>
+<li><code>[filter_num, channel_num, row_size, col_size]</code> .. 4-dimensions and <code>channel_pos</code> is <code>`first</code></li>
+</ul>
+<p>
+where <code>row_size</code> and <code>col_size</code> are the size of the filter's kernel, <code>channel_num</code> is the number of channels and <code>filter_num</code> is the number of filters.
+</p>
+<p>
+The <code>strides</code> is a list of strides for a sliding window in row and column. Default is <code>[1, 1]</code>.
+</p>
+<p>
+The <code>padding</code> is a padding style and takes <code>`valid</code> or <code>`same</code>. Default is <code>`same</code>. When <code>valid</code> is specified, there is no padding. When <code>same</code> is specified, zero values are padded so that the result array has the size of the division of the original size by <code>strides</code>.
+</p>
+<p>
+The <code>channel_pos</code> is a channel position and takes <code>`none</code>, <code>`first</code> or <code>`last</code>. If not specified, <code>`none` for an array without channel dimension</code>and <code>`last</code> for others are to be set.
+</p>
+<h3><span class="caption-index-3">5.22.3</span><a name="anchor-5-22-3"></a>Property</h3>
+<p>
+A <code>gear@conv2d</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Note</th>
+</tr>
+
+
+<tr>
+<td>
+<code>array</code></td>
+<td>
+<code>array</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>channel_num</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>channel_pos</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>filter_num</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>padding</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>strides</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">5.23</span><a name="anchor-5-23"></a>gear@conv3d Class</h2>
+<h3><span class="caption-index-3">5.23.1</span><a name="anchor-5-23-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.23.2</span><a name="anchor-5-23-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@conv3d</strong></div>
+<div style="margin-bottom:1em"><code>gear@conv3d(array:array, strides[]?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+Creates a <code>gear@conv3d</code> instance.
+</p>
+<p>
+The given <code>array</code> instance shoud have one of the following shapes:
+</p>
+<ul>
+<li><code>[plane_size, row_size, col_size]</code> .. 3-dimensions</li>
+<li><code>[plane_size, row_size, col_size, channel_num]</code> .. 4-dimensions and <code>channel_pos</code> is <code>`last</code></li>
+<li><code>[channel_num, plane_size, row_size, col_size]</code> .. 4-dimensions and <code>channel_pos</code> is <code>`first</code></li>
+<li><code>[filter_num, plane_size, row_size, col_size]</code> .. 4-dimensions and <code>channel_pos</code> is <code>`none</code></li>
+<li><code>[filter_num, plane_size, row_size, col_size, channel_num]</code> .. 5-dimensions and <code>channel_pos</code> is <code>`last</code></li>
+<li><code>[filter_num, channel_num, plane_size, row_size, col_size]</code> .. 5-dimensions and <code>channel_pos</code> is <code>`first</code></li>
+</ul>
+<p>
+where <code>plane_size</code>, <code>row_size</code> and <code>col_size</code> are the size of the filter's kernel, <code>channel_num</code> is the number of channels and <code>filter_num</code> is the number of filters.
+</p>
+<p>
+The <code>strides</code> is a list of strides for a sliding window in plane, row and column. Default is <code>[1, 1, 1]</code>.
+</p>
+<p>
+The <code>padding</code> is a padding style and takes <code>`valid</code> or <code>`same</code>. Default is <code>`same</code>. When <code>valid</code> is specified, there is no padding. When <code>same</code> is specified, zero values are padded so that the result array has the size of the division of the original size by <code>strides</code>.
+</p>
+<p>
+The <code>channel_pos</code> is a channel position and takes <code>`none</code>, <code>`first</code> or <code>`last</code>. If not specified, <code>`none` for an array without channel dimension</code>and <code>`last</code> for others are to be set.
+</p>
+<h3><span class="caption-index-3">5.23.3</span><a name="anchor-5-23-3"></a>Property</h3>
+<p>
+A <code>gear@conv3d</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Note</th>
+</tr>
+
+
+<tr>
+<td>
+<code>array</code></td>
+<td>
+<code>array</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>channel_num</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>channel_pos</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>filter_num</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>padding</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>strides</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">5.24</span><a name="anchor-5-24"></a>gear@maxpool1d Class</h2>
+<h3><span class="caption-index-3">5.24.1</span><a name="anchor-5-24-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.24.2</span><a name="anchor-5-24-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@maxpool1d</strong></div>
+<div style="margin-bottom:1em"><code>gear@maxpool1d(size:number, strides?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+Creates a <code>gear@maxpool1d</code> instance.
+</p>
+<p>
+The <code>size</code> is a gear size.
+</p>
+<p>
+The <code>strides</code> is a strides of sliding window. Default is one.
+</p>
+<p>
+The <code>padding</code> is a padding style <code>`valid</code> or <code>`same</code>. Default is <code>`same</code>.
+</p>
+<p>
+The <code>channel_pos</code> specifies where channel dimension is positioned and takes <code>`first</code> or <code>`last</code>. Default is <code>`last</code>. 
+</p>
+<h3><span class="caption-index-3">5.24.3</span><a name="anchor-5-24-3"></a>Property</h3>
+<p>
+A <code>gear@maxpool1d</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Note</th>
+</tr>
+
+
+<tr>
+<td>
+<code>channel_pos</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>padding</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>strides</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">5.25</span><a name="anchor-5-25"></a>gear@maxpool2d Class</h2>
+<h3><span class="caption-index-3">5.25.1</span><a name="anchor-5-25-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.25.2</span><a name="anchor-5-25-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@maxpool2d</strong></div>
+<div style="margin-bottom:1em"><code>gear@maxpool2d(size[]:number, strides[]?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+Creates a <code>gear@maxpool2d</code> instance.
+</p>
+<h3><span class="caption-index-3">5.25.3</span><a name="anchor-5-25-3"></a>Property</h3>
+<p>
+A <code>gear@maxpool2d</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Note</th>
+</tr>
+
+
+<tr>
+<td>
+<code>channel_pos</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>padding</code></td>
+<td>
+<code>symbol</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>size</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+<code>strides</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">5.26</span><a name="anchor-5-26"></a>gear@maxpool3d Class</h2>
+<h3><span class="caption-index-3">5.26.1</span><a name="anchor-5-26-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.26.2</span><a name="anchor-5-26-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@maxpool3d</strong></div>
+<div style="margin-bottom:1em"><code>gear@maxpool3d(size[]:number, strides[]?:number, padding?:symbol, format?:symbol):map {block?}</code></div>
+Creates a <code>gear@maxpool3d</code> instance.
+</p>
+<h3><span class="caption-index-3">5.26.3</span><a name="anchor-5-26-3"></a>Property</h3>
+<p>
+A <code>gear@maxpool3d</code> instance has the following properties:
+</p>
+<h2><span class="caption-index-2">5.27</span><a name="anchor-5-27"></a>gear@relu Class</h2>
+<h3><span class="caption-index-3">5.27.1</span><a name="anchor-5-27-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.27.2</span><a name="anchor-5-27-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@relu</strong></div>
+<div style="margin-bottom:1em"><code>gear@relu() {block?}</code></div>
+Creates a <code>gear@relu</code> instance.
+</p>
+<h2><span class="caption-index-2">5.28</span><a name="anchor-5-28"></a>gear@sigmoid Class</h2>
+<h3><span class="caption-index-3">5.28.1</span><a name="anchor-5-28-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.28.2</span><a name="anchor-5-28-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@sigmoid</strong></div>
+<div style="margin-bottom:1em"><code>gear@sigmoid() {block?}</code></div>
+Creates a <code>gear@sigmoid</code> instance.
+</p>
+<h2><span class="caption-index-2">5.29</span><a name="anchor-5-29"></a>gear@softmax Class</h2>
+<h3><span class="caption-index-3">5.29.1</span><a name="anchor-5-29-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.29.2</span><a name="anchor-5-29-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@softmax</strong></div>
+<div style="margin-bottom:1em"><code>gear@softmax(axis?:number):map {block?}</code></div>
+Creates a <code>gear@softmax</code> instance.
+</p>
+<h3><span class="caption-index-3">5.29.3</span><a name="anchor-5-29-3"></a>Property</h3>
+<p>
+A <code>gear@softmax</code> instance has the following properties:
+</p>
+<p>
+<table>
+<tr>
+<th>
+Property</th>
+<th>
+Type</th>
+<th>
+R/W</th>
+<th>
+Note</th>
+</tr>
+
+
+<tr>
+<td>
+<code>axis</code></td>
+<td>
+<code>number</code></td>
+<td>
+R</td>
+
+<td>
+</td>
+</tr>
+
+
+</table>
+
+</p>
+<h2><span class="caption-index-2">5.30</span><a name="anchor-5-30"></a>gear@tanh Class</h2>
+<h3><span class="caption-index-3">5.30.1</span><a name="anchor-5-30-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.30.2</span><a name="anchor-5-30-2"></a>Constructor</h3>
+<p>
+<div><strong style="text-decoration:underline">gear@tanh</strong></div>
+<div style="margin-bottom:1em"><code>gear@tanh() {block?}</code></div>
+Creates a <code>gear@tanh</code> instance.
+</p>
+<h2><span class="caption-index-2">5.31</span><a name="anchor-5-31"></a>help Class</h2>
+<h3><span class="caption-index-3">5.31.1</span><a name="anchor-5-31-1"></a>Overview</h3>
 <p>
 The <code>help</code> class provides measures to access help information associated with a <code>function</code> instance.
 </p>
 <p>
 You can get a <code>help</code> instance from a <code>function</code> instance or a <code>class</code> by calling <code>help@function()</code> or <code>help@class()</code> respectively.
 </p>
-<h3><span class="caption-index-3">5.18.2</span><a name="anchor-5-18-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.31.2</span><a name="anchor-5-31-2"></a>Property</h3>
 <p>
 A <code>help</code> instance has the following properties:
 </p>
@@ -3786,7 +4623,7 @@ The title of the help.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.18.3</span><a name="anchor-5-18-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.31.3</span><a name="anchor-5-31-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">help.text@iterator</strong></div>
 <div style="margin-bottom:1em"><code>help.text@iterator(lang:symbol):static {block?}</code></div>
@@ -3820,8 +4657,8 @@ Registers a presentation procedure with a name specified by the argument <code>f
 <p>
 The procedure is written in the block that takes block parameters: <code>|help:help|</code>.
 </p>
-<h2><span class="caption-index-2">5.19</span><a name="anchor-5-19"></a>image Class</h2>
-<h3><span class="caption-index-3">5.19.1</span><a name="anchor-5-19-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.32</span><a name="anchor-5-32"></a>image Class</h2>
+<h3><span class="caption-index-3">5.32.1</span><a name="anchor-5-32-1"></a>Overview</h3>
 <p>
 The <code>image</code> class provides following measures to handle graphic image data:
 </p>
@@ -3910,7 +4747,7 @@ TIFF</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.19.2</span><a name="anchor-5-19-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.32.2</span><a name="anchor-5-32-2"></a>Property</h3>
 <p>
 An <code>image</code> instance has the following properties:
 </p>
@@ -4032,7 +4869,7 @@ Image width.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.19.3</span><a name="anchor-5-19-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.32.3</span><a name="anchor-5-32-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">image</strong></div>
 <div style="margin-bottom:1em"><code>image(args+):map {block?}</code></div>
@@ -4056,7 +4893,7 @@ In the third form, the format of the image data is determined by the byte sequen
 <p>
 You can also explicitly specify the image data format by the argument <code>imagetype</code>.
 </p>
-<h3><span class="caption-index-3">5.19.4</span><a name="anchor-5-19-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.32.4</span><a name="anchor-5-32-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">image#allocbuff</strong></div>
 <div style="margin-bottom:1em"><code>image#allocbuff(width:number, height:number, color?:color):reduce</code></div>
@@ -4441,16 +5278,16 @@ You can also explicitly specify the image data format by the argument <code>imag
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<h2><span class="caption-index-2">5.20</span><a name="anchor-5-20"></a>iterator/list Class</h2>
-<h3><span class="caption-index-3">5.20.1</span><a name="anchor-5-20-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.33</span><a name="anchor-5-33"></a>iterator/list Class</h2>
+<h3><span class="caption-index-3">5.33.1</span><a name="anchor-5-33-1"></a>Overview</h3>
 <p>
 The <code>iterator</code> class provides measures to operate an iterator, which iterates values that come from containers and streams.
 </p>
 <p>
 The <code>list</code> class provides measures to handle a list structure, which stores values on memory that can be accessed by indexer.
 </p>
-<h3><span class="caption-index-3">5.20.2</span><a name="anchor-5-20-2"></a>Iterator-specific Features</h3>
-<h4><span class="caption-index-4">5.20.2.1</span><a name="anchor-5-20-2-1"></a>Function to Create iterator Instance</h4>
+<h3><span class="caption-index-3">5.33.2</span><a name="anchor-5-33-2"></a>Iterator-specific Features</h3>
+<h4><span class="caption-index-4">5.33.2.1</span><a name="anchor-5-33-2-1"></a>Function to Create iterator Instance</h4>
 <p>
 <div><strong style="text-decoration:underline">iterator</strong></div>
 <div style="margin-bottom:1em"><code>iterator(value+) {block?}</code></div>
@@ -4476,7 +5313,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h4><span class="caption-index-4">5.20.2.2</span><a name="anchor-5-20-2-2"></a>Method Specific to iterator Class</h4>
+<h4><span class="caption-index-4">5.33.2.2</span><a name="anchor-5-33-2-2"></a>Method Specific to iterator Class</h4>
 <p>
 <div><strong style="text-decoration:underline">iterator#delay</strong></div>
 <div style="margin-bottom:1em"><code>iterator#delay(delay:number) {block?}</code></div>
@@ -4533,15 +5370,15 @@ println(x)
 // Prints 'apple', 'orange' and  'grape' three times
 // after evaluating the internal iterator.
 </code></pre>
-<h3><span class="caption-index-3">5.20.3</span><a name="anchor-5-20-3"></a>List-specific Features</h3>
-<h4><span class="caption-index-4">5.20.3.1</span><a name="anchor-5-20-3-1"></a>Creating List</h4>
+<h3><span class="caption-index-3">5.33.3</span><a name="anchor-5-33-3"></a>List-specific Features</h3>
+<h4><span class="caption-index-4">5.33.3.1</span><a name="anchor-5-33-3-1"></a>Creating List</h4>
 <p>
 There are several ways to create a list.
 </p>
 <pre><code>[3, 1, 4, 1, 5, 9]
 @{3, 1, 4, 1, 5, 9}
 </code></pre>
-<h4><span class="caption-index-4">5.20.3.2</span><a name="anchor-5-20-3-2"></a>Index Access</h4>
+<h4><span class="caption-index-4">5.33.3.2</span><a name="anchor-5-33-3-2"></a>Index Access</h4>
 <p>
 You can read and write element values in a list with an indexer by giving it an index number starting from zero. Below is an example:
 </p>
@@ -4550,7 +5387,7 @@ You can read and write element values in a list with an indexer by giving it an 
 println(x[2]) // prints `C
 x[4] = `e     // replaces `E with `e
 </code></pre>
-<h4><span class="caption-index-4">5.20.3.3</span><a name="anchor-5-20-3-3"></a>Function to Create list Instance</h4>
+<h4><span class="caption-index-4">5.33.3.3</span><a name="anchor-5-33-3-3"></a>Function to Create list Instance</h4>
 <p>
 <div><strong style="text-decoration:underline">list</strong></div>
 <div style="margin-bottom:1em"><code>list(value+)</code></div>
@@ -4587,7 +5424,7 @@ In default, all the elements in each iterators are added to the created list. Sp
 <li><code>:or</code> .. All the elements are added. This is the default behavior.</li>
 <li><code>:xor</code> .. Elements that exist in only one iterator are added.</li>
 </ul>
-<h4><span class="caption-index-4">5.20.3.4</span><a name="anchor-5-20-3-4"></a>Method Specific to list Class</h4>
+<h4><span class="caption-index-4">5.33.3.4</span><a name="anchor-5-33-3-4"></a>Method Specific to list Class</h4>
 <p>
 <div><strong style="text-decoration:underline">list#add</strong></div>
 <div style="margin-bottom:1em"><code>list#add(elem+):reduce</code></div>
@@ -4714,7 +5551,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h3><span class="caption-index-3">5.20.4</span><a name="anchor-5-20-4"></a>Method Common to Both list and iterator Classes</h3>
+<h3><span class="caption-index-3">5.33.4</span><a name="anchor-5-33-4"></a>Method Common to Both list and iterator Classes</h3>
 <p>
 <div><strong style="text-decoration:underline">iterable#after</strong></div>
 <div style="margin-bottom:1em"><code>iterable#after(criteria) {block?}</code></div>
@@ -5559,12 +6396,12 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h2><span class="caption-index-2">5.21</span><a name="anchor-5-21"></a>memory Class</h2>
-<h3><span class="caption-index-3">5.21.1</span><a name="anchor-5-21-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.34</span><a name="anchor-5-34"></a>memory Class</h2>
+<h3><span class="caption-index-3">5.34.1</span><a name="anchor-5-34-1"></a>Overview</h3>
 <p>
 An instance of the <code>memory</code> class represents a memory that is stored in <code>array</code> instances.
 </p>
-<h3><span class="caption-index-3">5.21.2</span><a name="anchor-5-21-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.34.2</span><a name="anchor-5-34-2"></a>Property</h3>
 <p>
 A <code>memory</code> instance has the following properties:
 </p>
@@ -5610,13 +6447,13 @@ Returns the memory size in bytes.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.21.3</span><a name="anchor-5-21-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.34.3</span><a name="anchor-5-34-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">memory</strong></div>
 <div style="margin-bottom:1em"><code>memory(bytes:number):map {block?}</code></div>
 
 </p>
-<h3><span class="caption-index-3">5.21.4</span><a name="anchor-5-21-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.34.4</span><a name="anchor-5-34-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">memory#array@int8</strong></div>
 <div style="margin-bottom:1em"><code>memory#array@int8():map {block?}</code></div>
@@ -5691,28 +6528,28 @@ Returns a <code>pointer</code> instance that has an initial offset specified by 
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|p:pointer|</code>, where <code>p</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h2><span class="caption-index-2">5.22</span><a name="anchor-5-22"></a>nil Class</h2>
-<h3><span class="caption-index-3">5.22.1</span><a name="anchor-5-22-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.35</span><a name="anchor-5-35"></a>nil Class</h2>
+<h3><span class="caption-index-3">5.35.1</span><a name="anchor-5-35-1"></a>Overview</h3>
 <p>
 The <code>nil</code> class is the class of <code>nil</code> value that is usually used as an invalid value. In a logical operation, the <code>nil</code> value is recognized as <code>false</code>. 
 </p>
-<h2><span class="caption-index-2">5.23</span><a name="anchor-5-23"></a>number Class</h2>
-<h3><span class="caption-index-3">5.23.1</span><a name="anchor-5-23-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.36</span><a name="anchor-5-36"></a>number Class</h2>
+<h3><span class="caption-index-3">5.36.1</span><a name="anchor-5-36-1"></a>Overview</h3>
 <p>
 The <code>number</code> class is a type of number values. A number literal would create a <code>number</code> instance.
 </p>
-<h3><span class="caption-index-3">5.23.2</span><a name="anchor-5-23-2"></a>Method</h3>
+<h3><span class="caption-index-3">5.36.2</span><a name="anchor-5-36-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">number.roundoff</strong></div>
 <div style="margin-bottom:1em"><code>number.roundoff(threshold:number =&gt; 1e-10)</code></div>
 
 </p>
-<h2><span class="caption-index-2">5.24</span><a name="anchor-5-24"></a>operator Class</h2>
-<h3><span class="caption-index-3">5.24.1</span><a name="anchor-5-24-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.37</span><a name="anchor-5-37"></a>operator Class</h2>
+<h3><span class="caption-index-3">5.37.1</span><a name="anchor-5-37-1"></a>Overview</h3>
 <p>
 The <code>operator</code> class provides measures to assign operators with a user-defined procedure.
 </p>
-<h3><span class="caption-index-3">5.24.2</span><a name="anchor-5-24-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.37.2</span><a name="anchor-5-37-2"></a>Property</h3>
 <p>
 An <code>operator</code> instance has the following properties:
 </p>
@@ -5746,7 +6583,7 @@ A <code>symbol</code> instance that represents the operator's type.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.24.3</span><a name="anchor-5-24-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.37.3</span><a name="anchor-5-37-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">operator</strong></div>
 <div style="margin-bottom:1em"><code>operator(symbol:symbol):map {block?}</code></div>
@@ -5760,7 +6597,7 @@ Below is an example to create an <code>operator</code> instance that is associat
 </p>
 <pre><code>op = operator(`+)
 </code></pre>
-<h3><span class="caption-index-3">5.24.4</span><a name="anchor-5-24-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.37.4</span><a name="anchor-5-37-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">operator#assign</strong></div>
 <div style="margin-bottom:1em"><code>operator#assign(type_l:expr, type_r?:expr):map:void {block}</code></div>
@@ -5806,12 +6643,12 @@ The argument <code>type</code> takes a symbol <code>`binary</code> or <code>`una
 <li>If it's omitted or specified with <code>`binary</code>, the method would return a list of pairs of type expressions for its left element and right one.</li>
 <li>If it's specified with <code>`unary</code>, the method would return a list of type expressions for its single element.</li>
 </ul>
-<h2><span class="caption-index-2">5.25</span><a name="anchor-5-25"></a>palette Class</h2>
-<h3><span class="caption-index-3">5.25.1</span><a name="anchor-5-25-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.38</span><a name="anchor-5-38"></a>palette Class</h2>
+<h3><span class="caption-index-3">5.38.1</span><a name="anchor-5-38-1"></a>Overview</h3>
 <p>
 The <code>palette</code> instance has a set of <code>color</code> instance.
 </p>
-<h3><span class="caption-index-3">5.25.2</span><a name="anchor-5-25-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.38.2</span><a name="anchor-5-38-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">palette</strong></div>
 <div style="margin-bottom:1em"><code>palette(type) {block?}</code></div>
@@ -5835,7 +6672,7 @@ In the second form, it can take one of the following symbols:
 <li><code>`win256</code> .. A palette with 256 colors defined by Windows.</li>
 <li><code>`websafe</code> .. A palette with 216 colors that assure to be displayed correctly in any Web environments. It actually has 256 entries though the last 40 entries are initialized with black.</li>
 </ul>
-<h3><span class="caption-index-3">5.25.3</span><a name="anchor-5-25-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.38.3</span><a name="anchor-5-38-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">palette#each</strong></div>
 <div style="margin-bottom:1em"><code>palette#each() {block?}</code></div>
@@ -5879,12 +6716,12 @@ Updates palette entries according to color data in an image or a palette.
 <p>
 The order of existing entries will be kept intact. If attribute shrink is specified, the whole size will be shrinked to a number powered by two that is enough to contain unique entries.
 </p>
-<h2><span class="caption-index-2">5.26</span><a name="anchor-5-26"></a>pointer Class</h2>
-<h3><span class="caption-index-3">5.26.1</span><a name="anchor-5-26-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.39</span><a name="anchor-5-39"></a>pointer Class</h2>
+<h3><span class="caption-index-3">5.39.1</span><a name="anchor-5-39-1"></a>Overview</h3>
 <p>
 The <code>pointer</code> class provides measures to read and write content in a <code>binary</code> and <code>memory</code> instance.
 </p>
-<h3><span class="caption-index-3">5.26.2</span><a name="anchor-5-26-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.39.2</span><a name="anchor-5-39-2"></a>Property</h3>
 <p>
 A <code>pointer</code> instance has the following properties:
 </p>
@@ -5954,7 +6791,7 @@ An instance that is associated with the pointer. Currently, this can be an insta
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.26.3</span><a name="anchor-5-26-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.39.3</span><a name="anchor-5-39-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">pointer</strong></div>
 <div style="margin-bottom:1em"><code>pointer(org:pointer):map {block?}</code></div>
@@ -5963,7 +6800,7 @@ Creates a <code>pointer</code> instance that is cloned from the given instance <
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|ptr:pointer|</code>, where <code>ptr</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.26.4</span><a name="anchor-5-26-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.39.4</span><a name="anchor-5-39-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">pointer#copyfrom</strong></div>
 <div style="margin-bottom:1em"><code>pointer#copyfrom(src:pointer, bytes?:number):map:reduce</code></div>
@@ -6737,7 +7574,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <div style="margin-bottom:1em"><code>pointer#writer() {block?}</code></div>
 Creates a <code>stream</code> instance with which you can append data to the memory pointed by the pointer. If <code>block</code> is specified, it would be evaluated with a block parameter <code>|s:stream|</code>, where <code>s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.26.5</span><a name="anchor-5-26-5"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">5.39.5</span><a name="anchor-5-39-5"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>pointer</code> instance in its argument can also take a value of <code>binary</code> and <code>memory</code>.
 </p>
@@ -6748,8 +7585,8 @@ With the above casting feature, you can call a function <code>f(p:pointer)</code
 <li><code>b = b'\x01\x23\x45\x67\x89\xab', f(b)</code></li>
 <li><code>m = memory(32), f(m)</code> </li>
 </ul>
-<h2><span class="caption-index-2">5.27</span><a name="anchor-5-27"></a>rational Class</h2>
-<h3><span class="caption-index-3">5.27.1</span><a name="anchor-5-27-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.40</span><a name="anchor-5-40"></a>rational Class</h2>
+<h3><span class="caption-index-3">5.40.1</span><a name="anchor-5-40-1"></a>Overview</h3>
 <p>
 The <code>rational</code> class provides measures to handle rational numbers.
 </p>
@@ -6767,7 +7604,7 @@ Below are examples to realize a common fraction two-thirds:
 2r / 3
 2 / 3r
 </code></pre>
-<h3><span class="caption-index-3">5.27.2</span><a name="anchor-5-27-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.40.2</span><a name="anchor-5-40-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">rational</strong></div>
 <div style="margin-bottom:1em"><code>rational(numer:number, denom?:number):map {block?}</code></div>
@@ -6779,21 +7616,21 @@ If the argument <code>denom</code> is omitted, one is set as its denominator.
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|r:rational|</code>, where <code>r</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.27.3</span><a name="anchor-5-27-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.40.3</span><a name="anchor-5-40-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">rational.reduce</strong></div>
 <div style="margin-bottom:1em"><code>rational.reduce()</code></div>
 Reduces the rational number by dividing its numerator and denominator by their GCD.
 </p>
-<h2><span class="caption-index-2">5.28</span><a name="anchor-5-28"></a>semaphore Class</h2>
-<h3><span class="caption-index-3">5.28.1</span><a name="anchor-5-28-1"></a>Overview</h3>
-<h3><span class="caption-index-3">5.28.2</span><a name="anchor-5-28-2"></a>Constructor</h3>
+<h2><span class="caption-index-2">5.41</span><a name="anchor-5-41"></a>semaphore Class</h2>
+<h3><span class="caption-index-3">5.41.1</span><a name="anchor-5-41-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.41.2</span><a name="anchor-5-41-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">semaphore</strong></div>
 <div style="margin-bottom:1em"><code>semaphore()</code></div>
 
 </p>
-<h3><span class="caption-index-3">5.28.3</span><a name="anchor-5-28-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.41.3</span><a name="anchor-5-41-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">semaphore#release</strong></div>
 <div style="margin-bottom:1em"><code>semaphore#release()</code></div>
@@ -6809,8 +7646,8 @@ Forms a critical session by grabbing the semaphore's ownership, executing the bl
 <div style="margin-bottom:1em"><code>semaphore#wait()</code></div>
 Watis for the semaphore being released by other threads, and ghen grabs that ownership.
 </p>
-<h2><span class="caption-index-2">5.29</span><a name="anchor-5-29"></a>stream Class</h2>
-<h3><span class="caption-index-3">5.29.1</span><a name="anchor-5-29-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.42</span><a name="anchor-5-42"></a>stream Class</h2>
+<h3><span class="caption-index-3">5.42.1</span><a name="anchor-5-42-1"></a>Overview</h3>
 <p>
 The <code>stream</code> class provides methods to read and write data through a stream, an abstract structure to handle a byte sequence. It also provides information of the stream such as the pathname and the creation date and time.
 </p>
@@ -6834,7 +7671,7 @@ You can specify a proper <code>codec</code> when creating the <code>stream</code
 </ul>
 </li>
 </ul>
-<h3><span class="caption-index-3">5.29.2</span><a name="anchor-5-29-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.42.2</span><a name="anchor-5-42-2"></a>Property</h3>
 <p>
 A <code>stream</code> instance has the following properties:
 </p>
@@ -6928,7 +7765,7 @@ Indicates whether the stream is writable.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.29.3</span><a name="anchor-5-29-3"></a>Operator</h3>
+<h3><span class="caption-index-3">5.42.3</span><a name="anchor-5-42-3"></a>Operator</h3>
 <p>
 You can use the operator "<code>&lt;&lt;</code>" to output a content of a value to a <code>stream</code>. It comes like "<code>stream &lt;&lt; obj</code>" where <code>obj</code> is converted to a string before output to the stream.
 </p>
@@ -6939,7 +7776,7 @@ Since the operator returns the <code>stream</code> instance specified on the lef
 </p>
 <pre><code>sys.stdout &lt;&lt; 'First' &lt;&lt; 'Second'
 </code></pre>
-<h3><span class="caption-index-3">5.29.4</span><a name="anchor-5-29-4"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">5.42.4</span><a name="anchor-5-42-4"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>stream</code> instance in its argument can also take a value of <code>string</code> and <code>binary</code> as below:
 </p>
@@ -6955,7 +7792,7 @@ Using the above casting feature, you can call a function <code>f(stream:stream)<
 <li><code>f('foo.txt')</code> .. Implicit casting from <code>string</code> to <code>stream</code>.</li>
 <li><code>f(b'\x00\x12\x34\x56')</code> .. Implicit casting from <code>binary</code> to <code>stream</code> that reads the content.</li>
 </ul>
-<h3><span class="caption-index-3">5.29.5</span><a name="anchor-5-29-5"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.42.5</span><a name="anchor-5-42-5"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">stream</strong></div>
 <div style="margin-bottom:1em"><code>stream(pathname:string, mode?:string, codec?:codec):map {block?}</code></div>
@@ -6978,7 +7815,7 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <p>
 You can also call <code>open()</code> function that is just an alias of <code>stream()</code> to create a <code>stream</code> instance.
 </p>
-<h3><span class="caption-index-3">5.29.6</span><a name="anchor-5-29-6"></a>Utility Function</h3>
+<h3><span class="caption-index-3">5.42.6</span><a name="anchor-5-42-6"></a>Utility Function</h3>
 <p>
 <div><strong style="text-decoration:underline">readlines</strong></div>
 <div style="margin-bottom:1em"><code>readlines(stream?:stream:r):[chop] {block?}</code></div>
@@ -7007,7 +7844,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h3><span class="caption-index-3">5.29.7</span><a name="anchor-5-29-7"></a>Method</h3>
+<h3><span class="caption-index-3">5.42.7</span><a name="anchor-5-42-7"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">stream#addcr</strong></div>
 <div style="margin-bottom:1em"><code>stream#addcr(flag?:boolean):reduce</code></div>
@@ -7242,8 +8079,8 @@ Returns the current file position at which read/write operation works.
 <div style="margin-bottom:1em"><code>stream#write(ptr:pointer, bytes?:number):reduce</code></div>
 Writes binary data pointer by <code>ptr</code> to the stream. The argument <code>bytes</code> limits the number of data that is to be written to the stream.
 </p>
-<h2><span class="caption-index-2">5.30</span><a name="anchor-5-30"></a>string Class</h2>
-<h3><span class="caption-index-3">5.30.1</span><a name="anchor-5-30-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.43</span><a name="anchor-5-43"></a>string Class</h2>
+<h3><span class="caption-index-3">5.43.1</span><a name="anchor-5-43-1"></a>Overview</h3>
 <p>
 The <code>string</code> class provides measures to operate on strings.
 </p>
@@ -7263,11 +8100,11 @@ second line
 third line
 """
 </code></pre>
-<h3><span class="caption-index-3">5.30.2</span><a name="anchor-5-30-2"></a>Suffix Management</h3>
+<h3><span class="caption-index-3">5.43.2</span><a name="anchor-5-43-2"></a>Suffix Management</h3>
 <p>
 When an string literal is suffixed by a character <code>$</code>, a handler registered by <code>string.translate()</code> function that is supposed to translate the string into other natural languages would be evaluated.
 </p>
-<h3><span class="caption-index-3">5.30.3</span><a name="anchor-5-30-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.43.3</span><a name="anchor-5-43-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">string#align</strong></div>
 <div style="margin-bottom:1em"><code>string#align(width:number, padding:string =&gt; ' '):map:[center,left,right] {block?}</code></div>
@@ -7653,8 +8490,8 @@ This method takes into account the character width based on the specification of
 <div style="margin-bottom:1em"><code>string#zentohan() {block?}</code></div>
 Converts zenkaku to hankaku characters.
 </p>
-<h2><span class="caption-index-2">5.31</span><a name="anchor-5-31"></a>suffixmgr Class</h2>
-<h3><span class="caption-index-3">5.31.1</span><a name="anchor-5-31-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.44</span><a name="anchor-5-44"></a>suffixmgr Class</h2>
+<h3><span class="caption-index-3">5.44.1</span><a name="anchor-5-44-1"></a>Overview</h3>
 <p>
 The <code>suffixmgr</code> class provides measures to access suffix managers that are responsible to handle suffix symbols appended to number or string literals.
 </p>
@@ -7668,7 +8505,7 @@ You can use that suffix like below:
 </p>
 <pre><code>'hello world'X
 </code></pre>
-<h5><span class="caption-index-5">5.31.1.0.1</span><a name="anchor-5-31-1-0-1"></a>Constructor</h5>
+<h5><span class="caption-index-5">5.44.1.0.1</span><a name="anchor-5-44-1-0-1"></a>Constructor</h5>
 <p>
 <div><strong style="text-decoration:underline">suffixmgr</strong></div>
 <div style="margin-bottom:1em"><code>suffixmgr(type:symbol) {block?}</code></div>
@@ -7681,7 +8518,7 @@ Creates a reference to one of two suffix managers, number and string.
 <p>
 Specify the argument <code>type</code> with a symbol <code>`number</code> for a number suffix manager and <code>`string</code> for a string suffix manager.
 </p>
-<h5><span class="caption-index-5">5.31.1.0.2</span><a name="anchor-5-31-1-0-2"></a>Method</h5>
+<h5><span class="caption-index-5">5.44.1.0.2</span><a name="anchor-5-44-1-0-2"></a>Method</h5>
 <p>
 <div><strong style="text-decoration:underline">suffixmgr#assign</strong></div>
 <div style="margin-bottom:1em"><code>suffixmgr#assign(suffix:symbol):void:[overwrite] {block}</code></div>
@@ -7690,17 +8527,17 @@ Assigns a procedure to a specified symbol in the suffix manager. The procedure i
 <p>
 An error occurs if the same suffix symbol has already been assigned. Specifying <code>:overwrite</code> attribute will forcibly overwrite an existing assignment.
 </p>
-<h2><span class="caption-index-2">5.32</span><a name="anchor-5-32"></a>symbol Class</h2>
-<h3><span class="caption-index-3">5.32.1</span><a name="anchor-5-32-1"></a>Overview</h3>
-<h3><span class="caption-index-3">5.32.2</span><a name="anchor-5-32-2"></a>Method</h3>
+<h2><span class="caption-index-2">5.45</span><a name="anchor-5-45"></a>symbol Class</h2>
+<h3><span class="caption-index-3">5.45.1</span><a name="anchor-5-45-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.45.2</span><a name="anchor-5-45-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">symbol#eval</strong></div>
 <div style="margin-bottom:1em"><code>symbol#eval(env?:environment)</code></div>
 Evaluate a symbol object.
 </p>
-<h2><span class="caption-index-2">5.33</span><a name="anchor-5-33"></a>template Class</h2>
-<h3><span class="caption-index-3">5.33.1</span><a name="anchor-5-33-1"></a>Overview</h3>
-<h3><span class="caption-index-3">5.33.2</span><a name="anchor-5-33-2"></a>Cast Operation</h3>
+<h2><span class="caption-index-2">5.46</span><a name="anchor-5-46"></a>template Class</h2>
+<h3><span class="caption-index-3">5.46.1</span><a name="anchor-5-46-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.46.2</span><a name="anchor-5-46-2"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>template</code> instance in its argument can also take a value of <code>stream</code> as below:
 </p>
@@ -7719,7 +8556,7 @@ Using the above casting feature, you can call a function <code>f(tmpl:template)<
 <li><code>f(template('foo.txt'))</code> .. Implicit casting: from <code>string</code> to <code>stream</code>.</li>
 <li><code>f('foo.txt')</code> .. Implicit casting: from <code>string</code> to <code>stream</code>, then from <code>stream</code> to <code>template</code>.</li>
 </ul>
-<h3><span class="caption-index-3">5.33.3</span><a name="anchor-5-33-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.46.3</span><a name="anchor-5-46-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">template</strong></div>
 <div style="margin-bottom:1em"><code>template(src?:stream:r):map:[lasteol,noindent] {block?}</code></div>
@@ -7735,7 +8572,7 @@ Following attributes would customize the parser's behavior:
 <li><code>:lasteol</code></li>
 <li><code>:noindent</code></li>
 </ul>
-<h3><span class="caption-index-3">5.33.4</span><a name="anchor-5-33-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.46.4</span><a name="anchor-5-46-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">template#parse</strong></div>
 <div style="margin-bottom:1em"><code>template#parse(str:string):void:[lasteol,noindent]</code></div>
@@ -7768,7 +8605,7 @@ Renders stored content to the specified stream.
 <p>
 If the stream is omitted, the function returns the rendered result as a string.
 </p>
-<h3><span class="caption-index-3">5.33.5</span><a name="anchor-5-33-5"></a>Method Called by Template Directive</h3>
+<h3><span class="caption-index-3">5.46.5</span><a name="anchor-5-46-5"></a>Method Called by Template Directive</h3>
 <p>
 <div><strong style="text-decoration:underline">template#block</strong></div>
 <div style="margin-bottom:1em"><code>template#block(symbol:symbol):void</code></div>
@@ -7933,12 +8770,12 @@ Content of base.
 Content of derived.
 Block ends here.
 </code></pre>
-<h2><span class="caption-index-2">5.34</span><a name="anchor-5-34"></a>timedelta Class</h2>
-<h3><span class="caption-index-3">5.34.1</span><a name="anchor-5-34-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.47</span><a name="anchor-5-47"></a>timedelta Class</h2>
+<h3><span class="caption-index-3">5.47.1</span><a name="anchor-5-47-1"></a>Overview</h3>
 <p>
 The <code>timedelta</code> instance provides a time delta information that works with <code>datetime</code> instance. You can shift time information of <code>datetime</code> by applying addition or subtraction of <code>timedelta</code> to it.
 </p>
-<h3><span class="caption-index-3">5.34.2</span><a name="anchor-5-34-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.47.2</span><a name="anchor-5-47-2"></a>Property</h3>
 <p>
 A <code>timedelta</code> instance has the following properties:
 </p>
@@ -7996,20 +8833,20 @@ Offset of micro seconds.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.34.3</span><a name="anchor-5-34-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.47.3</span><a name="anchor-5-47-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">timedelta</strong></div>
 <div style="margin-bottom:1em"><code>timedelta(days:number =&gt; 0, secs:number =&gt; 0, usecs:number =&gt; 0):map {block?}</code></div>
 Returns a timedelta instance with specified values. The instance actually holds properties of days, secs and usecs.
 </p>
-<h2><span class="caption-index-2">5.35</span><a name="anchor-5-35"></a>uri Class</h2>
-<h3><span class="caption-index-3">5.35.1</span><a name="anchor-5-35-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.48</span><a name="anchor-5-48"></a>uri Class</h2>
+<h3><span class="caption-index-3">5.48.1</span><a name="anchor-5-48-1"></a>Overview</h3>
 <p>
 The <code>uri</code> instance analyzes a URI string and returns each part in it such as the scheme and path. A generic URI has the following format:
 </p>
 <pre><code>scheme:[//[user:password@]host:port]][/]path[?query][#fragment]
 </code></pre>
-<h3><span class="caption-index-3">5.35.2</span><a name="anchor-5-35-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.48.2</span><a name="anchor-5-48-2"></a>Property</h3>
 <p>
 A <code>uri</code> instance has the following properties:
 </p>
@@ -8115,7 +8952,7 @@ User part in the URI.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.35.3</span><a name="anchor-5-35-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.48.3</span><a name="anchor-5-48-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">uri</strong></div>
 <div style="margin-bottom:1em"><code>uri(str?:string):map {block?}</code></div>
@@ -8127,7 +8964,7 @@ If the argument <code>str</code> is specified, it would be parsed as a URI which
 <p>
 If omitted, the instance would be initialized as an empty one.
 </p>
-<h3><span class="caption-index-3">5.35.4</span><a name="anchor-5-35-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.48.4</span><a name="anchor-5-48-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">uri#getfragment</strong></div>
 <div style="margin-bottom:1em"><code>uri#getfragment()</code></div>
@@ -8148,7 +8985,7 @@ Returns a <code>dict</code> instance that is made from the query part in the URI
 <div style="margin-bottom:1em"><code>uri.parsequery(query:string):static:map</code></div>
 This is a utility function to parse a query string and return a <code>dict</code> instance that contains key-value pairs for the query.
 </p>
-<h3><span class="caption-index-3">5.35.5</span><a name="anchor-5-35-5"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">5.48.5</span><a name="anchor-5-48-5"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>uri</code> instance in its argument can also take a value of <code>string</code> that is recognized as a URI string.
 </p>
@@ -8159,12 +8996,12 @@ With the above casting feature, you can call a function <code>f(uri:uri)</code> 
 <li><code>f(uri('http://example.com'))</code> .. The most explicit way.</li>
 <li><code>f('http://example.com')</code> .. Implicit casting: from <code>string</code> to <code>uri</code>. </li>
 </ul>
-<h2><span class="caption-index-2">5.36</span><a name="anchor-5-36"></a>vertex Class</h2>
-<h3><span class="caption-index-3">5.36.1</span><a name="anchor-5-36-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.49</span><a name="anchor-5-49"></a>vertex Class</h2>
+<h3><span class="caption-index-3">5.49.1</span><a name="anchor-5-49-1"></a>Overview</h3>
 <p>
 The <code>vertex</code> class provides vertex information that consists of x, y, z and w values.
 </p>
-<h3><span class="caption-index-3">5.36.2</span><a name="anchor-5-36-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.49.2</span><a name="anchor-5-49-2"></a>Property</h3>
 <p>
 An <code>vertex</code> instance has the following properties:
 </p>
@@ -8222,7 +9059,7 @@ A value of Z.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">5.36.3</span><a name="anchor-5-36-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.49.3</span><a name="anchor-5-49-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">vertex</strong></div>
 <div style="margin-bottom:1em"><code>vertex(x:number, y:number, z?:number):map {block?}</code></div>
@@ -8231,7 +9068,7 @@ Creates a <code>vertex</code> instance that has the given coordinates <code>x</c
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|v:vertex|</code>, where <code>v</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">5.36.4</span><a name="anchor-5-36-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.49.4</span><a name="anchor-5-49-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">vertex.cross</strong></div>
 <div style="margin-bottom:1em"><code>vertex.cross (v1:vertex, v2:vertex):static:map {block?}</code></div>
