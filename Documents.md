@@ -8,7 +8,7 @@ title: Documents
 <h1 name="documents">Documents</h1>
 
 <table>
-<tr><th>Title</th><th>Language</th><th>Download</th></tr>
+<tr><th>Title</th><th>Language</th><th>Format</th></tr>
 
 <tr>
 <td>Gura Language Manual</td><td>English</td>
@@ -26,27 +26,6 @@ title: Documents
 </td>
 </tr>
 
-<tr>
-<td>Gura 言語マニュアル</td><td>Japanese</td>
-<td>
-<a href="https://github.com/gura-lang/gura-doc/blob/master/gura-lang-j.pdf?raw=true">PDF</a>
-</td>
-</tr>
-
-<tr>
-<td>Gura ライブラリリファレンス</td><td>Japanese</td>
-<td>
-<a href="https://github.com/gura-lang/gura-doc/blob/master/gura-lib-j.pdf?raw=true">PDF</a>
-</td>
-</tr>
-
-<tr>
-<td>Gura 開発者向けマニュアル</td><td>Japanese</td>
-<td>
-<a href="https://github.com/gura-lang/gura-doc/blob/master/gura-dev-j.pdf?raw=true">PDF</a>
-</td>
-</tr>
-
 </table>
 
 
@@ -54,7 +33,7 @@ title: Documents
 <h1>Articles</h1>
 
 <table>
-<tr><th>Title</th><th>Language</th><th>Download</th></tr>
+<tr><th>Title</th><th>Language</th><th>Format</th></tr>
 
 <tr>
 <td>Comparison between Java 8 and Gura</td>

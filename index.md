@@ -100,5 +100,5 @@ after it's given with iterators, `1..` and `readlines('foo.txt')`, as its argume
 
 Any opinions and suggestions are welcome via
 [@ypsitau](https://twitter.com/ypsitau) or
-[ypsitau@nifty.com](mailto:ypsitau@nifty.com).
+[ypsitau@gmail.com](mailto:ypsitau@gmail.com).
 Japanese and English are avaiable.
