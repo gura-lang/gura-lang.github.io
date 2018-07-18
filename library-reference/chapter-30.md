@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">30</span><a name="anchor-30"></a>jpeg Module</h1>
+<h2><span class="caption-index-2">30.1</span><a name="anchor-30-1"></a>Overview</h2>
 <p>
 The <code>jpeg</code> module provides measures to read/write image data in JPEG format. To utilize it, import the <code>jpeg</code> module using <code>import</code> function.
 </p>
@@ -15,7 +16,7 @@ Below is an example to read a JPEG file:
 <pre><code>import(jpeg)
 img = image('foo.jpeg')
 </code></pre>
-<h2><span class="caption-index-2">30.1</span><a name="anchor-30-1"></a>Exntension to Function's Capability</h2>
+<h2><span class="caption-index-2">30.2</span><a name="anchor-30-2"></a>Exntension to Function's Capability</h2>
 <p>
 This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write JPEG files.
 </p>
@@ -32,7 +33,8 @@ When instance method <code>image#write()</code> is provided with a stream that s
 <ul>
 <li>The identifier of the stream ends with a suffix "<code>.jpeg</code>", "<code>.jpg</code>" or "<code>.jpe</code>".</li>
 </ul>
-<h2><span class="caption-index-2">30.2</span><a name="anchor-30-2"></a>jpeg.exif Class</h2>
+<h2><span class="caption-index-2">30.3</span><a name="anchor-30-3"></a>jpeg.exif Class</h2>
+<h3><span class="caption-index-3">30.3.1</span><a name="anchor-30-3-1"></a>Overview</h3>
 <p>
 The <code>jpeg.exif</code> class provides EXIF information in a JPEG stream.
 </p>
@@ -45,7 +47,7 @@ A <code>jpeg.exif</code> instance contains <code>jpeg.ifd</code> instances as pr
 |           |             |          |        |          |
 +-----------+             +----------+        +----------+
 </code></pre>
-<h3><span class="caption-index-3">30.2.1</span><a name="anchor-30-2-1"></a>Property</h3>
+<h3><span class="caption-index-3">30.3.2</span><a name="anchor-30-3-2"></a>Property</h3>
 <p>
 A <code>jpeg.exif</code> instance has the following properties:
 </p>
@@ -59,7 +61,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -67,15 +69,13 @@ Explanation</th>
 <td>
 <code>endian</code></td>
 <td>
-<code>symbol</code></td>
+<code>boolean</code></td>
 <td>
 R</td>
 
 <td>
-The endian type: <code>`big</code> for big-endian and
-<code>`little</code> for little-endian.</td>
+The endian type: <code>`big</code> for big-endian and <code>`little</code> for little-endian.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -89,7 +89,6 @@ R</td>
 IFD0 instance.</td>
 </tr>
 
-
 <tr>
 <td>
 <code>ifd1</code></td>
@@ -102,7 +101,6 @@ R</td>
 IFD1 instance.</td>
 </tr>
 
-
 <tr>
 <td>
 <code>thumbnail</code></td>
@@ -114,7 +112,6 @@ R</td>
 <td>
 Thumbnail image as <code>image</code> value.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -132,7 +129,7 @@ Thumbnail image as JPEG binary data.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">30.2.2</span><a name="anchor-30-2-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">30.3.3</span><a name="anchor-30-3-3"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">jpeg.exif</strong></div>
 <div style="margin-bottom:1em"><code>jpeg.exif(stream?:stream:r):map:[raise] {block?}</code></div>
@@ -144,7 +141,7 @@ If no EXIF information exists in the stream, this function returns <code>nil</co
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|exif:jpeg.exif|</code>, where <code>exif</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">30.2.3</span><a name="anchor-30-2-3"></a>Method</h3>
+<h3><span class="caption-index-3">30.3.4</span><a name="anchor-30-3-4"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">jpeg.exif#each</strong></div>
 <div style="margin-bottom:1em"><code>jpeg.exif#each() {block?}</code></div>
@@ -167,8 +164,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h2><span class="caption-index-2">30.3</span><a name="anchor-30-3"></a>jpeg.ifd Class</h2>
-<h3><span class="caption-index-3">30.3.1</span><a name="anchor-30-3-1"></a>Property</h3>
+<h2><span class="caption-index-2">30.4</span><a name="anchor-30-4"></a>jpeg.ifd Class</h2>
+<h3><span class="caption-index-3">30.4.1</span><a name="anchor-30-4-1"></a>Overview</h3>
+<h3><span class="caption-index-3">30.4.2</span><a name="anchor-30-4-2"></a>Property</h3>
 <p>
 A <code>jpeg.ifd</code> instance has the following properties:
 </p>
@@ -182,7 +180,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -197,7 +195,6 @@ R</td>
 <td>
 </td>
 </tr>
-
 
 <tr>
 <td>
@@ -215,7 +212,7 @@ R</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">30.3.2</span><a name="anchor-30-3-2"></a>Method</h3>
+<h3><span class="caption-index-3">30.4.3</span><a name="anchor-30-4-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">jpeg.ifd#each</strong></div>
 <div style="margin-bottom:1em"><code>jpeg.ifd#each() {block?}</code></div>
@@ -238,8 +235,8 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h2><span class="caption-index-2">30.4</span><a name="anchor-30-4"></a>jpeg.tag Class</h2>
-<h3><span class="caption-index-3">30.4.1</span><a name="anchor-30-4-1"></a>Property</h3>
+<h2><span class="caption-index-2">30.5</span><a name="anchor-30-5"></a>jpeg.tag Class</h2>
+<h5><span class="caption-index-5">30.5.0.0.1</span><a name="anchor-30-5-0-0-1"></a>Property</h5>
 <p>
 A <code>jpeg.tag</code> instance has the following properties:
 </p>
@@ -253,7 +250,7 @@ Type</th>
 <th>
 R/W</th>
 <th>
-Explanation</th>
+Note</th>
 </tr>
 
 
@@ -269,6 +266,17 @@ R</td>
 Tag ID.</td>
 </tr>
 
+<tr>
+<td>
+<code>ifd</code></td>
+<td>
+<code>undefined</code></td>
+<td>
+R</td>
+
+<td>
+IFD instance. Valid only for tags <code>Exif</code>, <code>GPSInfo</code> and <code>Interoperability</code>.</td>
+</tr>
 
 <tr>
 <td>
@@ -282,7 +290,6 @@ R</td>
 Tag name.</td>
 </tr>
 
-
 <tr>
 <td>
 <code>symbol</code></td>
@@ -294,7 +301,6 @@ R</td>
 <td>
 Tag name as <code>symbol</code>.</td>
 </tr>
-
 
 <tr>
 <td>
@@ -308,7 +314,6 @@ R</td>
 Tag type.</td>
 </tr>
 
-
 <tr>
 <td>
 <code>typename</code></td>
@@ -321,7 +326,6 @@ R</td>
 Tag type name.</td>
 </tr>
 
-
 <tr>
 <td>
 <code>value</code></td>
@@ -331,29 +335,14 @@ Tag type name.</td>
 R</td>
 
 <td>
-Tag value. When the attribute <code>:cooked</code> is specified,
-numbers in some tags are translated to human-readable symbols.</td>
-</tr>
-
-
-<tr>
-<td>
-<code>ifd</code></td>
-<td>
-<code>jpeg.ifd</code></td>
-<td>
-R</td>
-
-<td>
-IFD instance. Valid only for tags <code>Exif</code>, <code>GPSInfo</code> and
-<code>Interoperability</code>.</td>
+Tag value. When the attribute <code>:cooked</code> is specified, numbers in some tags are translated to human-readable symbols.</td>
 </tr>
 
 
 </table>
 
 </p>
-<h2><span class="caption-index-2">30.5</span><a name="anchor-30-5"></a>Extension to image Class</h2>
+<h2><span class="caption-index-2">30.6</span><a name="anchor-30-6"></a>Extension to image Class</h2>
 <p>
 This module extends the <code>image</code> class with methods described here.
 </p>
@@ -379,7 +368,7 @@ Writes a JPEG image data to the specified <code>stream</code>.
 <p>
 The argument <code>quality</code> takes a number between 0 and 100 with which a a higher number results in a higher quality of result but a less compression performance. The default value for it is 75.
 </p>
-<h2><span class="caption-index-2">30.6</span><a name="anchor-30-6"></a>Thanks</h2>
+<h2><span class="caption-index-2">30.7</span><a name="anchor-30-7"></a>Thanks</h2>
 <p>
 This module uses JPEG library which is distributed in the following site:
 </p>
