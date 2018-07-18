@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">16</span><a name="anchor-16"></a>diff Module</h1>
+<h2><span class="caption-index-2">16.1</span><a name="anchor-16-1"></a>Overview</h2>
 <p>
 The <code>diff</code> module provices measures to detect differences between texts. To utilize it, import the <code>diff</code> module using <code>import</code> function.
 </p>
@@ -14,7 +15,7 @@ Below is an example to show differences between files <code>file1.txt</code> and
 </p>
 <pre><code>diff.compose(stream('file1.txt'), stream('file2.txt')).render(sys.stdout)
 </code></pre>
-<h2><span class="caption-index-2">16.1</span><a name="anchor-16-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">16.2</span><a name="anchor-16-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">diff.compose</strong></div>
 <div style="margin-bottom:1em"><code>diff.compose(src1, src2):[icase,sync] {block?}</code></div>
@@ -68,11 +69,12 @@ If <code>block</code> is specified, it would be evaluated with a block parameter
 <p>
 If attribute <code>:icase</code> is specified, it wouldn't distinguish upper and lower case of characters.
 </p>
-<h2><span class="caption-index-2">16.2</span><a name="anchor-16-2"></a>diff.diff@line Class</h2>
+<h2><span class="caption-index-2">16.3</span><a name="anchor-16-3"></a>diff.diff@line Class</h2>
+<h3><span class="caption-index-3">16.3.1</span><a name="anchor-16-3-1"></a>Overview</h3>
 <p>
 The <code>diff.diff@line</code> instance is created by function <code>diff.compose()</code> and provides information about differences between two texts by lines.
 </p>
-<h3><span class="caption-index-3">16.2.1</span><a name="anchor-16-2-1"></a>Property</h3>
+<h3><span class="caption-index-3">16.3.2</span><a name="anchor-16-3-2"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -142,7 +144,7 @@ Number of lines in the "new" text.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">16.2.2</span><a name="anchor-16-2-2"></a>Method</h3>
+<h3><span class="caption-index-3">16.3.3</span><a name="anchor-16-3-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">diff.diff@line#eachhunk</strong></div>
 <div style="margin-bottom:1em"><code>diff.diff@line#eachhunk(format?:symbol, lines?:number) {block?}</code></div>
@@ -195,11 +197,12 @@ The argument <code>format</code> takes one of the symbols that specifies the ren
 <p>
 The argument <code>lines</code> specifies a number of common lines appended before and after different lines.
 </p>
-<h2><span class="caption-index-2">16.3</span><a name="anchor-16-3"></a>diff.hunk@line Class</h2>
+<h2><span class="caption-index-2">16.4</span><a name="anchor-16-4"></a>diff.hunk@line Class</h2>
+<h3><span class="caption-index-3">16.4.1</span><a name="anchor-16-4-1"></a>Overview</h3>
 <p>
 The <code>diff.hunk@line</code> instance provides information about a hunk.
 </p>
-<h3><span class="caption-index-3">16.3.1</span><a name="anchor-16-3-1"></a>Property</h3>
+<h3><span class="caption-index-3">16.4.2</span><a name="anchor-16-4-2"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -282,17 +285,18 @@ Number of lines in the "new" text covered by the hunk.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">16.3.2</span><a name="anchor-16-3-2"></a>Method</h3>
+<h3><span class="caption-index-3">16.4.3</span><a name="anchor-16-4-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">diff.hunk@line#print</strong></div>
 <div style="margin-bottom:1em"><code>diff.hunk@line#print(out?:stream):void {block?}</code></div>
 Prints the content of the <code>diff.hunk</code> instance to the specified stream.
 </p>
-<h2><span class="caption-index-2">16.4</span><a name="anchor-16-4"></a>diff.edit@line Class</h2>
+<h2><span class="caption-index-2">16.5</span><a name="anchor-16-5"></a>diff.edit@line Class</h2>
+<h3><span class="caption-index-3">16.5.1</span><a name="anchor-16-5-1"></a>Overview</h3>
 <p>
 The <code>diff.edit@line</code> provides information about an edit operation.
 </p>
-<h3><span class="caption-index-3">16.4.1</span><a name="anchor-16-4-1"></a>Property</h3>
+<h3><span class="caption-index-3">16.5.2</span><a name="anchor-16-5-2"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -401,17 +405,18 @@ A composed string in Unified format.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">16.4.2</span><a name="anchor-16-4-2"></a>Method</h3>
+<h3><span class="caption-index-3">16.5.3</span><a name="anchor-16-5-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">diff.edit@line#print</strong></div>
 <div style="margin-bottom:1em"><code>diff.edit@line#print(out?:stream):void {block?}</code></div>
 Prints the content of the <code>diff.edit</code> instance to the specified stream.
 </p>
-<h2><span class="caption-index-2">16.5</span><a name="anchor-16-5"></a>diff.diff@char Class</h2>
+<h2><span class="caption-index-2">16.6</span><a name="anchor-16-6"></a>diff.diff@char Class</h2>
+<h3><span class="caption-index-3">16.6.1</span><a name="anchor-16-6-1"></a>Overview</h3>
 <p>
 The <code>diff.diff@char</code> instance is created by function <code>diff.compose@char()</code> and provides information about differences between two texts by characters.
 </p>
-<h3><span class="caption-index-3">16.5.1</span><a name="anchor-16-5-1"></a>Property</h3>
+<h3><span class="caption-index-3">16.6.2</span><a name="anchor-16-6-2"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -483,11 +488,12 @@ that are applied to the "new" string.</td>
 </table>
 
 </p>
-<h2><span class="caption-index-2">16.6</span><a name="anchor-16-6"></a>diff.edit@char Class</h2>
+<h2><span class="caption-index-2">16.7</span><a name="anchor-16-7"></a>diff.edit@char Class</h2>
+<h3><span class="caption-index-3">16.7.1</span><a name="anchor-16-7-1"></a>Overview</h3>
 <p>
 The <code>diff.edit@char</code> provides information about an edit operation.
 </p>
-<h3><span class="caption-index-3">16.6.1</span><a name="anchor-16-6-1"></a>Property</h3>
+<h3><span class="caption-index-3">16.7.2</span><a name="anchor-16-7-2"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -557,7 +563,7 @@ A source text.</td>
 </table>
 
 </p>
-<h2><span class="caption-index-2">16.7</span><a name="anchor-16-7"></a>Thanks</h2>
+<h2><span class="caption-index-2">16.8</span><a name="anchor-16-8"></a>Thanks</h2>
 <p>
 This module uses dtl (Diff Template Library) which is distributed in the following site:
 </p>

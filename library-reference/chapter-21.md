@@ -6,10 +6,11 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">21</span><a name="anchor-21"></a>fs Module</h1>
+<h2><span class="caption-index-2">21.1</span><a name="anchor-21-1"></a>Overview</h2>
 <p>
 The <code>fs</code> module provides measures to access and modify information in file systems. This is a built-in module, so you can use it without being imported.
 </p>
-<h2><span class="caption-index-2">21.1</span><a name="anchor-21-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">21.2</span><a name="anchor-21-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">fs.chdir</strong></div>
 <div style="margin-bottom:1em"><code>fs.chdir(pathname:string) {block?}</code></div>
@@ -125,17 +126,17 @@ Removes a directory.
 <p>
 If the directory contains sub directories, an error occurs. Specifying <code>:tree</code> attribute would delete such a directory.
 </p>
-<h2><span class="caption-index-2">21.2</span><a name="anchor-21-2"></a>fs.stat Class</h2>
+<h2><span class="caption-index-2">21.3</span><a name="anchor-21-3"></a>fs.stat Class</h2>
 <p>
 An instance of <code>fs.stat</code> class contains information about a file or directory on the file system, which includes its full path name, size, creation time and file attributes. A <code>stream</code> instance has a property named <code>stat</code> that is a <code>fs.stat</code> instance when it comes from a file or directory in a file system. You can also get the instance using <code>fs.stat()</code> function.
 </p>
-<h3><span class="caption-index-3">21.2.1</span><a name="anchor-21-2-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">21.3.1</span><a name="anchor-21-3-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">fs.stat</strong></div>
 <div style="margin-bottom:1em"><code>fs.stat(pathname:string) {block?}</code></div>
 
 </p>
-<h3><span class="caption-index-3">21.2.2</span><a name="anchor-21-2-2"></a>Property</h3>
+<h3><span class="caption-index-3">21.3.2</span><a name="anchor-21-3-2"></a>Property</h3>
 <p>
 A <code>fs.stat</code> instance has the following properties:
 </p>

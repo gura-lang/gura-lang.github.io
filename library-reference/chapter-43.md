@@ -6,10 +6,11 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">43</span><a name="anchor-43"></a>opengl Module</h1>
+<h2><span class="caption-index-2">43.1</span><a name="anchor-43-1"></a>Overview</h2>
 <p>
 The <code>opengl</code> module provides functions of OpenGL library.
 </p>
-<h2><span class="caption-index-2">43.1</span><a name="anchor-43-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">43.2</span><a name="anchor-43-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">opengl.glAccum</strong></div>
 <div style="margin-bottom:1em"><code>opengl.glAccum(op:number, value:number):map:void</code></div>

@@ -6,10 +6,11 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">44</span><a name="anchor-44"></a>os Module</h1>
+<h2><span class="caption-index-2">44.1</span><a name="anchor-44-1"></a>Overview</h2>
 <p>
 The <code>os</code> module provides functions that are specific to each OS environment. This is a built-in module, so you can use it without being imported.
 </p>
-<h2><span class="caption-index-2">44.1</span><a name="anchor-44-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">44.2</span><a name="anchor-44-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">os.clock</strong></div>
 <div style="margin-bottom:1em"><code>os.clock() {block?}</code></div>

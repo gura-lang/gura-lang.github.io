@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">48</span><a name="anchor-48"></a>re Module</h1>
+<h2><span class="caption-index-2">48.1</span><a name="anchor-48-1"></a>Overview</h2>
 <p>
 The <code>re</code> module provides measures to operate strings with a regular expression. To utilize it, import the <code>re</code> module using <code>import</code> function.
 </p>
@@ -114,7 +115,7 @@ Scan</td>
 </table>
 
 </p>
-<h2><span class="caption-index-2">48.1</span><a name="anchor-48-1"></a>Regular Expression</h2>
+<h2><span class="caption-index-2">48.2</span><a name="anchor-48-2"></a>Regular Expression</h2>
 <p>
 You can describe a matching pattern using a syntax based on POSIX Extended Regular Expression.
 </p>
@@ -128,11 +129,11 @@ Using a raw string appended with a prefix "<code>r</code>", in which a back slas
 </p>
 <pre><code>m = str.match(r'sin\(x\)')
 </code></pre>
-<h2><span class="caption-index-2">48.2</span><a name="anchor-48-2"></a>re.match Class</h2>
+<h2><span class="caption-index-2">48.3</span><a name="anchor-48-3"></a>re.match Class</h2>
 <p>
 An instance of <code>re.match</code> class is used as a result value of <code>re.match()</code>, <code>re.pattern#match()</code> and <code>string#match()</code> to provide matching information.
 </p>
-<h3><span class="caption-index-3">48.2.1</span><a name="anchor-48-2-1"></a>Property</h3>
+<h3><span class="caption-index-3">48.3.1</span><a name="anchor-48-3-1"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -202,7 +203,7 @@ Ending position of the matched part.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">48.2.2</span><a name="anchor-48-2-2"></a>Index Access</h3>
+<h3><span class="caption-index-3">48.3.2</span><a name="anchor-48-3-2"></a>Index Access</h3>
 <p>
 A <code>re.match</code> instance can be indexed with a <code>number</code> or <code>string</code> value.
 </p>
@@ -231,7 +232,7 @@ m['hour']  // returns the group named 'hour': 12\n"
 m['min']   // returns the group named 'min': 34\n"
 m['sec']   // returns the group named 'sec': 56\n");
 </code></pre>
-<h3><span class="caption-index-3">48.2.3</span><a name="anchor-48-2-3"></a>Method</h3>
+<h3><span class="caption-index-3">48.3.3</span><a name="anchor-48-3-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">re.match#group</strong></div>
 <div style="margin-bottom:1em"><code>re.match#group(index):map</code></div>
@@ -284,11 +285,11 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h2><span class="caption-index-2">48.3</span><a name="anchor-48-3"></a>re.group Class</h2>
+<h2><span class="caption-index-2">48.4</span><a name="anchor-48-4"></a>re.group Class</h2>
 <p>
 The <code>re.group</code> instance provides information of capturing groups that are stored in <code>re.match</code> instance.
 </p>
-<h3><span class="caption-index-3">48.3.1</span><a name="anchor-48-3-1"></a>Property</h3>
+<h3><span class="caption-index-3">48.4.1</span><a name="anchor-48-4-1"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -345,11 +346,11 @@ Ending position of the group.</td>
 </table>
 
 </p>
-<h2><span class="caption-index-2">48.4</span><a name="anchor-48-4"></a>re.pattern Class</h2>
+<h2><span class="caption-index-2">48.5</span><a name="anchor-48-5"></a>re.pattern Class</h2>
 <p>
 The <code>re.pattern</code> class is used to describe a pattern of regular expression.
 </p>
-<h3><span class="caption-index-3">48.4.1</span><a name="anchor-48-4-1"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">48.5.1</span><a name="anchor-48-5-1"></a>Cast Operation</h3>
 <p>
 A function that expects a <code>re.pattern</code> instance in its argument can also take a value of <code>string</code> below:
 </p>
@@ -363,7 +364,7 @@ Using the above casting feature, you can call a function <code>f(pattern:re.patt
 <li><code>f(re.pattern('gur[ai]'))</code> .. The most explicit way.</li>
 <li><code>f('gur[ai]')</code> .. Implicit casting: from <code>string</code> to <code>re.pattern</code>.</li>
 </ul>
-<h3><span class="caption-index-3">48.4.2</span><a name="anchor-48-4-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">48.5.2</span><a name="anchor-48-5-2"></a>Constructor</h3>
 <p>
 In many cases, <code>re.pattern</code> instance may be implicitly created by cast operation when a <code>string</code> is passed to a function's argument that expects <code>re.pattern</code> type. If you want to customize the pattern's behaviour, such as indicating it to ignore alphabet cases, you can explicitly create the instance with the constructor described below.
 </p>
@@ -382,7 +383,7 @@ Following attributes would customize some traits of the pattern:
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|pat:re.pattern|</code>, where <code>pat</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">48.4.3</span><a name="anchor-48-4-3"></a>Method</h3>
+<h3><span class="caption-index-3">48.5.3</span><a name="anchor-48-5-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">re.pattern#match</strong></div>
 <div style="margin-bottom:1em"><code>re.pattern#match(str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
@@ -470,7 +471,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h2><span class="caption-index-2">48.5</span><a name="anchor-48-5"></a>Extension to string Class</h2>
+<h2><span class="caption-index-2">48.6</span><a name="anchor-48-6"></a>Extension to string Class</h2>
 <p>
 This module extends the <code>string</code> class with methods described here.
 </p>
@@ -561,7 +562,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h2><span class="caption-index-2">48.6</span><a name="anchor-48-6"></a>Extension to iterable Classes</h2>
+<h2><span class="caption-index-2">48.7</span><a name="anchor-48-7"></a>Extension to iterable Classes</h2>
 <p>
 This module extends the iterable classes, <code>list</code> and <code>iterator</code>, with methods described here.
 </p>
@@ -570,7 +571,7 @@ This module extends the iterable classes, <code>list</code> and <code>iterator</
 <div style="margin-bottom:1em"><code>iterable#grep(pattern:re.pattern):map {block?}</code></div>
 
 </p>
-<h2><span class="caption-index-2">48.7</span><a name="anchor-48-7"></a>Module Function</h2>
+<h2><span class="caption-index-2">48.8</span><a name="anchor-48-8"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">re.match</strong></div>
 <div style="margin-bottom:1em"><code>re.match(pattern:re.pattern, str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
@@ -658,7 +659,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h2><span class="caption-index-2">48.8</span><a name="anchor-48-8"></a>Thanks</h2>
+<h2><span class="caption-index-2">48.9</span><a name="anchor-48-9"></a>Thanks</h2>
 <p>
 This module uses Oniguruma library which is distributed in the following site:
 </p>

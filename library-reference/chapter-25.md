@@ -6,13 +6,14 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">25</span><a name="anchor-25"></a>gmp Module</h1>
+<h2><span class="caption-index-2">25.1</span><a name="anchor-25-1"></a>Overview</h2>
 <p>
 The <code>gmp</code> module provides measures to calculate numbers with multiple precision using GMP library. To utilize it, import the <code>gmp</code> module using <code>import</code> function.
 </p>
 <p>
 It expands features of operators like addition and multiplier so that they can calculate such numbers.
 </p>
-<h2><span class="caption-index-2">25.1</span><a name="anchor-25-1"></a>Operator</h2>
+<h2><span class="caption-index-2">25.2</span><a name="anchor-25-2"></a>Operator</h2>
 <p>
 Following tables show values types of operands and returned value for each operator:
 </p>
@@ -1496,7 +1497,7 @@ Following tables show values types of operands and returned value for each opera
 <p>
 <code>x..; x .. y</code>
 </p>
-<h2><span class="caption-index-2">25.2</span><a name="anchor-25-2"></a>Module Function</h2>
+<h2><span class="caption-index-2">25.3</span><a name="anchor-25-3"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">gmp.gcd</strong></div>
 <div style="margin-bottom:1em"><code>gmp.gcd(num1:gmp.mpz, num2:gmp.mpz):map</code></div>
@@ -1515,8 +1516,8 @@ Calculates the square root of <code>num</code>.
 <p>
 The type of the argument <code>num</code> must be <code>gmp.mpz</code>, <code>gmp.mpq</code>, <code>gmp.mpf</code> or <code>number</code>.
 </p>
-<h2><span class="caption-index-2">25.3</span><a name="anchor-25-3"></a>gmp.mpf Class</h2>
-<h3><span class="caption-index-3">25.3.1</span><a name="anchor-25-3-1"></a>Constructor</h3>
+<h2><span class="caption-index-2">25.4</span><a name="anchor-25-4"></a>gmp.mpf Class</h2>
+<h3><span class="caption-index-3">25.4.1</span><a name="anchor-25-4-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">gmp.mpf</strong></div>
 <div style="margin-bottom:1em"><code>gmp.mpf(value?, prec?:number):map {block?}</code></div>
@@ -1528,7 +1529,7 @@ If the argument <code>value</code> is specified, it would be casted to <code>gmp
 <p>
 You can specify the precision of the number by the argument <code>prec</code>. If it's omitted, a default precision would be applied.
 </p>
-<h3><span class="caption-index-3">25.3.2</span><a name="anchor-25-3-2"></a>Method</h3>
+<h3><span class="caption-index-3">25.4.2</span><a name="anchor-25-4-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">gmp.mpf.get_default_prec</strong></div>
 <div style="margin-bottom:1em"><code>gmp.mpf.get_default_prec():static</code></div>
@@ -1539,8 +1540,8 @@ Gets the default precision for <code>gmp.mpf</code>.
 <div style="margin-bottom:1em"><code>gmp.mpf.set_default_prec(prec:number):static:void</code></div>
 Sets the default precision for <code>gmp.mpf</code>.
 </p>
-<h2><span class="caption-index-2">25.4</span><a name="anchor-25-4"></a>gmp.mpq Class</h2>
-<h3><span class="caption-index-3">25.4.1</span><a name="anchor-25-4-1"></a>Constructor</h3>
+<h2><span class="caption-index-2">25.5</span><a name="anchor-25-5"></a>gmp.mpq Class</h2>
+<h3><span class="caption-index-3">25.5.1</span><a name="anchor-25-5-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">gmp.mpq</strong></div>
 <div style="margin-bottom:1em"><code>gmp.mpq(numer?, denom?:number):map {block?}</code></div>
@@ -1555,7 +1556,7 @@ You can call this function with one of the following form.
 <li><code>gmp.mpq(str:string)</code></li>
 <li><code>gmp.mpq(num:gmp.mpq)</code></li>
 </ul>
-<h3><span class="caption-index-3">25.4.2</span><a name="anchor-25-4-2"></a>Method</h3>
+<h3><span class="caption-index-3">25.5.2</span><a name="anchor-25-5-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">gmp.mpq#cast@mpf</strong></div>
 <div style="margin-bottom:1em"><code>gmp.mpq#cast@mpf() {block?}</code></div>
@@ -1564,8 +1565,8 @@ Casts the value to <code>gmp.mpf</code>.
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|num:gmp.mpf|</code>, where <code>num</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h2><span class="caption-index-2">25.5</span><a name="anchor-25-5"></a>gmp.mpz Class</h2>
-<h3><span class="caption-index-3">25.5.1</span><a name="anchor-25-5-1"></a>Constructor</h3>
+<h2><span class="caption-index-2">25.6</span><a name="anchor-25-6"></a>gmp.mpz Class</h2>
+<h3><span class="caption-index-3">25.6.1</span><a name="anchor-25-6-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">gmp.mpz</strong></div>
 <div style="margin-bottom:1em"><code>gmp.mpz(value?):map {block?}</code></div>
@@ -1574,7 +1575,7 @@ Creates a <code>gmp.mpz</code> instance.
 <p>
 If the argument <code>value</code> is specified, it would be casted to <code>gmp.mpz</code>. Acceptable types for <code>value</code> are: <code>number</code>, <code>string</code>, <code>gmp.mpf</code> and <code>gmp.mpz</code>.
 </p>
-<h2><span class="caption-index-2">25.6</span><a name="anchor-25-6"></a>Extention to string Class</h2>
+<h2><span class="caption-index-2">25.7</span><a name="anchor-25-7"></a>Extention to string Class</h2>
 <p>
 This module extends the <code>string</code> class with methods described here.
 </p>
@@ -1608,7 +1609,7 @@ You can specify the basement of the number format by the argument <code>base</co
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|num:gmp.mpz|</code>, where <code>num</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h2><span class="caption-index-2">25.7</span><a name="anchor-25-7"></a>Thanks</h2>
+<h2><span class="caption-index-2">25.8</span><a name="anchor-25-8"></a>Thanks</h2>
 <p>
 This module uses GMP and its forked project MPIR which are distributed in the following sites:
 </p>

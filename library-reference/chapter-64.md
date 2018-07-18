@@ -6,10 +6,11 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">64</span><a name="anchor-64"></a>zip Module</h1>
+<h2><span class="caption-index-2">64.1</span><a name="anchor-64-1"></a>Overview</h2>
 <p>
 The <code>zip</code> module provides measures to read/write ZIP files.
 </p>
-<h2><span class="caption-index-2">64.1</span><a name="anchor-64-1"></a>zip.reader Class</h2>
+<h2><span class="caption-index-2">64.2</span><a name="anchor-64-2"></a>zip.reader Class</h2>
 <p>
 The <code>zip.reader</code> class provides methods to read contents and to get information in a ZIP file through <code>stream</code> instance. An instance of <code>stream</code> class created by the methods includes a property named <code>stat</code>, a <code>zip.stat</code> instance, which provides information such as filename and created time stamp that are contained in the ZIP file.
 </p>
@@ -29,7 +30,7 @@ zip.reader('foo.zip') {|r|
     print(r.entry('README.txt').readlines())
 }
 </code></pre>
-<h3><span class="caption-index-3">64.1.1</span><a name="anchor-64-1-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">64.2.1</span><a name="anchor-64-2-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">zip.reader</strong></div>
 <div style="margin-bottom:1em"><code>zip.reader(stream:stream:r) {block?}</code></div>
@@ -38,7 +39,7 @@ Creates <code>zip.reader</code> instance from the specified stream.
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|reader:zip.reader|</code>, where <code>reader</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">64.1.2</span><a name="anchor-64-1-2"></a>Method</h3>
+<h3><span class="caption-index-3">64.2.2</span><a name="anchor-64-2-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">zip.reader#entry</strong></div>
 <div style="margin-bottom:1em"><code>zip.reader#entry(name:string) {block?}</code></div>
@@ -69,7 +70,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h2><span class="caption-index-2">64.2</span><a name="anchor-64-2"></a>zip.writer Class</h2>
+<h2><span class="caption-index-2">64.3</span><a name="anchor-64-3"></a>zip.writer Class</h2>
 <p>
 The <code>zip.writer</code> class provides methods to add entries to a ZIP file. When an instance of <code>zip.writer</code> is created, a new ZIP file would be created.
 </p>
@@ -84,7 +85,7 @@ zip.writer('foo.zip') {|w|
     w.close()
 }		
 </code></pre>
-<h3><span class="caption-index-3">64.2.1</span><a name="anchor-64-2-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">64.3.1</span><a name="anchor-64-3-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">zip.writer</strong></div>
 <div style="margin-bottom:1em"><code>zip.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
@@ -101,7 +102,7 @@ Argument <code>compression</code> specifies the compression method and takes one
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|writer:zip.writer|</code>, where <code>writer</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">64.2.2</span><a name="anchor-64-2-2"></a>Method</h3>
+<h3><span class="caption-index-3">64.3.2</span><a name="anchor-64-3-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">zip.writer#add</strong></div>
 <div style="margin-bottom:1em"><code>zip.writer#add(stream:stream:r, filename?:string, compression?:symbol):map:reduce</code></div>
@@ -120,11 +121,11 @@ Argument <code>compression</code> specifies the compression method and takes one
 <div style="margin-bottom:1em"><code>zip.writer#close():void</code></div>
 Closes the zip file after flushing cached data.
 </p>
-<h2><span class="caption-index-2">64.3</span><a name="anchor-64-3"></a>zip.stat Class</h2>
+<h2><span class="caption-index-2">64.4</span><a name="anchor-64-4"></a>zip.stat Class</h2>
 <p>
 The <code>zip.stat</code> class provides information of entries in a ZIP file.
 </p>
-<h3><span class="caption-index-3">64.3.1</span><a name="anchor-64-3-1"></a>Property</h3>
+<h3><span class="caption-index-3">64.4.1</span><a name="anchor-64-4-1"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -246,7 +247,7 @@ R</td>
 </table>
 
 </p>
-<h2><span class="caption-index-2">64.4</span><a name="anchor-64-4"></a>Thanks</h2>
+<h2><span class="caption-index-2">64.5</span><a name="anchor-64-5"></a>Thanks</h2>
 <p>
 This module uses zlib and bzip2 library which are distributed in the following sites:
 </p>

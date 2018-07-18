@@ -6,11 +6,12 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">54</span><a name="anchor-54"></a>tar Module</h1>
+<h2><span class="caption-index-2">54.1</span><a name="anchor-54-1"></a>Overview</h2>
 <p>
 The <code>tar</code> module provides measures to read/write TAR files. To utilize it, import the <code>tar</code> module using <code>import</code> function.
 </p>
-<h2><span class="caption-index-2">54.1</span><a name="anchor-54-1"></a>tar.reader Class</h2>
-<h3><span class="caption-index-3">54.1.1</span><a name="anchor-54-1-1"></a>Function To Create Instance</h3>
+<h2><span class="caption-index-2">54.2</span><a name="anchor-54-2"></a>tar.reader Class</h2>
+<h3><span class="caption-index-3">54.2.1</span><a name="anchor-54-2-1"></a>Function To Create Instance</h3>
 <p>
 <div><strong style="text-decoration:underline">tar.reader</strong></div>
 <div style="margin-bottom:1em"><code>tar.reader(stream:stream:r, compression?:symbol) {block?}</code></div>
@@ -24,14 +25,14 @@ The argument <code>compression</code> specifies the compression format of the ta
 <li><code>`gzip</code> .. gzip format</li>
 <li><code>`bzip2</code> .. bzip2 format</li>
 </ul>
-<h3><span class="caption-index-3">54.1.2</span><a name="anchor-54-1-2"></a>Method</h3>
+<h3><span class="caption-index-3">54.2.2</span><a name="anchor-54-2-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">tar.reader#entries</strong></div>
 <div style="margin-bottom:1em"><code>tar.reader#entries() {block?}</code></div>
 Creates an iterator that returns stream instances for each entry in the tar file.
 </p>
-<h2><span class="caption-index-2">54.2</span><a name="anchor-54-2"></a>tar.writer Class</h2>
-<h3><span class="caption-index-3">54.2.1</span><a name="anchor-54-2-1"></a>Function To Create Instance</h3>
+<h2><span class="caption-index-2">54.3</span><a name="anchor-54-3"></a>tar.writer Class</h2>
+<h3><span class="caption-index-3">54.3.1</span><a name="anchor-54-3-1"></a>Function To Create Instance</h3>
 <p>
 <div><strong style="text-decoration:underline">tar.writer</strong></div>
 <div style="margin-bottom:1em"><code>tar.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
@@ -45,7 +46,7 @@ The argument <code>compression</code> specifies the compression format of the ta
 <li><code>`gzip</code> .. gzip format</li>
 <li><code>`bzip2</code> .. bzip2 format</li>
 </ul>
-<h3><span class="caption-index-3">54.2.2</span><a name="anchor-54-2-2"></a>Method</h3>
+<h3><span class="caption-index-3">54.3.2</span><a name="anchor-54-3-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">tar.writer#add</strong></div>
 <div style="margin-bottom:1em"><code>tar.writer#add(stream:stream:r, filename?:string):map:reduce</code></div>
@@ -59,7 +60,7 @@ If the argument <code>filename</code> is omitted, an identifier associated with 
 <div style="margin-bottom:1em"><code>tar.writer#close():reduce</code></div>
 Flushes all the unfinished writing processes and invalidates the <code>tar.writer</code> instance.
 </p>
-<h2><span class="caption-index-2">54.3</span><a name="anchor-54-3"></a>Thanks</h2>
+<h2><span class="caption-index-2">54.4</span><a name="anchor-54-4"></a>Thanks</h2>
 <p>
 This module uses zlib and bzip2 library which are distributed in the following sites:
 </p>

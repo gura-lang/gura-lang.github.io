@@ -6,10 +6,11 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">24</span><a name="anchor-24"></a>glut Module</h1>
+<h2><span class="caption-index-2">24.1</span><a name="anchor-24-1"></a>Overview</h2>
 <p>
 The <code>glut</code> module provides functions of GLUT library.
 </p>
-<h2><span class="caption-index-2">24.1</span><a name="anchor-24-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">24.2</span><a name="anchor-24-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">glut.glutInit</strong></div>
 <div style="margin-bottom:1em"><code>glut.glutInit(argv[]:string) {block?}</code></div>
@@ -585,7 +586,7 @@ The <code>glut</code> module provides functions of GLUT library.
 <div style="margin-bottom:1em"><code>glut.glutGameModeGet(mode:number):map {block?}</code></div>
 
 </p>
-<h2><span class="caption-index-2">24.2</span><a name="anchor-24-2"></a>Thanks</h2>
+<h2><span class="caption-index-2">24.3</span><a name="anchor-24-3"></a>Thanks</h2>
 <p>
 This module uses freeglut which official site is:
 </p>

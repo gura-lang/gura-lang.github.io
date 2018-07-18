@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">45</span><a name="anchor-45"></a>path Module</h1>
+<h2><span class="caption-index-2">45.1</span><a name="anchor-45-1"></a>Overview</h2>
 <p>
 The <code>path</code> module provides functions related to path operations. This is a built-in module, so you can use it without being imported.
 </p>
@@ -24,7 +25,7 @@ Below is an example to list path names that matches a wild card pattern "<code>*
 </p>
 <pre><code>println(path.glob('*.txt'))
 </code></pre>
-<h2><span class="caption-index-2">45.1</span><a name="anchor-45-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">45.2</span><a name="anchor-45-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">path.absname</strong></div>
 <div style="margin-bottom:1em"><code>path.absname(name:string):map:[uri]</code></div>

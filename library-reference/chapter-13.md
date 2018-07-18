@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">13</span><a name="anchor-13"></a>conio Module</h1>
+<h2><span class="caption-index-2">13.1</span><a name="anchor-13-1"></a>Overview</h2>
 <p>
 The <code>conio</code> module provides following measures to work on a console screen:
 </p>
@@ -36,7 +37,7 @@ conio.moveto(0, h - 1) {
 }
 conio.waitkey():raise
 </code></pre>
-<h2><span class="caption-index-2">13.1</span><a name="anchor-13-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">13.2</span><a name="anchor-13-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">conio.clear</strong></div>
 <div style="margin-bottom:1em"><code>conio.clear(region?:symbol):void</code></div>

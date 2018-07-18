@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">32</span><a name="anchor-32"></a>markdown Module</h1>
+<h2><span class="caption-index-2">32.1</span><a name="anchor-32-1"></a>Overview</h2>
 <p>
 The <code>markdown</code> module provides measures to parse a text formatted in markdown syntax. To utilize it, import the <code>markdown</code> module using <code>import</code> function.
 </p>
@@ -22,15 +23,15 @@ markdown.document('foo.md').render@html('foo.html')
 <li><code>markdown.gurd</code> .. a binary module file that provides parser procedures.</li>
 <li><code>markdown.gura</code> .. a script module file that renders parsed result in desired formats.</li>
 </ul>
-<h2><span class="caption-index-2">32.1</span><a name="anchor-32-1"></a>Notes</h2>
+<h2><span class="caption-index-2">32.2</span><a name="anchor-32-2"></a>Notes</h2>
 <ul>
 <li>While Markdown format is disabled within tags, a text embraced by tags with a name begining with '@' can accept Markdown in it.</li>
 </ul>
-<h2><span class="caption-index-2">32.2</span><a name="anchor-32-2"></a>Operator</h2>
+<h2><span class="caption-index-2">32.3</span><a name="anchor-32-3"></a>Operator</h2>
 <p>
 <code>markdown.document &lt;&lt; function</code>
 </p>
-<h2><span class="caption-index-2">32.3</span><a name="anchor-32-3"></a>markdown.document Class</h2>
+<h2><span class="caption-index-2">32.4</span><a name="anchor-32-4"></a>markdown.document Class</h2>
 <p>
 The <code>markdown.document</code> class provides measures to parse a document written in Markdown format.
 </p>
@@ -44,7 +45,7 @@ You can parse documents written in both string and stream using the following me
 <p>
 You can get the parsed result by inspecting a property <code>markdown.document#root</code> and its children that are <code>markdown.item</code> instances.
 </p>
-<h3><span class="caption-index-3">32.3.1</span><a name="anchor-32-3-1"></a>Property</h3>
+<h3><span class="caption-index-3">32.4.1</span><a name="anchor-32-4-1"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -88,13 +89,13 @@ The root item of the parsed Markdown document.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">32.3.2</span><a name="anchor-32-3-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">32.4.2</span><a name="anchor-32-4-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">markdown.document</strong></div>
 <div style="margin-bottom:1em"><code>markdown.document(stream?:stream:r) {block?}</code></div>
 Returns an instance of <code>markdown.document</code>. If <code>stream</code> is specified, the content of the instance shall be initialized with the result of parsing the stream.
 </p>
-<h3><span class="caption-index-3">32.3.3</span><a name="anchor-32-3-3"></a>Method</h3>
+<h3><span class="caption-index-3">32.4.3</span><a name="anchor-32-4-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">markdown.document#parse</strong></div>
 <div style="margin-bottom:1em"><code>markdown.document#parse(str:string):void</code></div>
@@ -120,7 +121,7 @@ In default, it uses colors to highlight items. Specify the argument <code>colorF
 <div style="margin-bottom:1em"><code>markdown.document#render@toc() {block}</code></div>
 
 </p>
-<h2><span class="caption-index-2">32.4</span><a name="anchor-32-4"></a>markdown.item Class</h2>
+<h2><span class="caption-index-2">32.5</span><a name="anchor-32-5"></a>markdown.item Class</h2>
 <p>
 The <code>markdown.item</code> class provides information about items that composes a Markdown document.
 </p>
@@ -316,7 +317,7 @@ no-content</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">32.4.1</span><a name="anchor-32-4-1"></a>Property</h3>
+<h3><span class="caption-index-3">32.5.1</span><a name="anchor-32-5-1"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -425,7 +426,7 @@ R</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">32.4.2</span><a name="anchor-32-4-2"></a>Method</h3>
+<h3><span class="caption-index-3">32.5.2</span><a name="anchor-32-5-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">markdown.item#print</strong></div>
 <div style="margin-bottom:1em"><code>markdown.item#print(indent?:number):void</code></div>

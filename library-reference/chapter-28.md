@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">28</span><a name="anchor-28"></a>hash Module</h1>
+<h2><span class="caption-index-2">28.1</span><a name="anchor-28-1"></a>Overview</h2>
 <p>
 The <code>hash</code> module provides measures to calculate hash values of a data sequence in a stream. To utilize it, import the <code>hash</code> module using <code>import</code> function.
 </p>
@@ -19,14 +20,14 @@ println('MD5: ', hash.md5(fileName).hexdigest)
 println('SHA-1: ', hash.sha1(fileName).hexdigest)
 println('CRC32: ', hash.crc32(fileName).hexdigest)
 </code></pre>
-<h2><span class="caption-index-2">28.1</span><a name="anchor-28-1"></a>hash.accumulator Class</h2>
+<h2><span class="caption-index-2">28.2</span><a name="anchor-28-2"></a>hash.accumulator Class</h2>
 <p>
 The <code>hash.accumulator</code> class provides measures to calculate hashed numbers including MD5, SHA-1 and CRC32.
 </p>
 <p>
 As the class inhefits from <code>stream</code>, you can call methods of <code>stream</code> class with <code>hash.accumulator</code> instances.
 </p>
-<h3><span class="caption-index-3">28.1.1</span><a name="anchor-28-1-1"></a>Property</h3>
+<h3><span class="caption-index-3">28.2.1</span><a name="anchor-28-2-1"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -84,7 +85,7 @@ This field is valid only for CRC32 and returns `nil` for other hashes.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">28.1.2</span><a name="anchor-28-1-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">28.2.2</span><a name="anchor-28-2-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">hash.md5</strong></div>
 <div style="margin-bottom:1em"><code>hash.md5(stream?:stream:r) {block?}</code></div>
@@ -100,7 +101,7 @@ Creates an <code>hash.accumulator</code> instance that calculates SHA1 hashed va
 <div style="margin-bottom:1em"><code>hash.crc32(stream?:stream:r) {block?}</code></div>
 Creates an <code>hash.accumulator</code> instance that calculates CRC32 hashed value from the content of <code>stream</code>.
 </p>
-<h3><span class="caption-index-3">28.1.3</span><a name="anchor-28-1-3"></a>Method</h3>
+<h3><span class="caption-index-3">28.2.3</span><a name="anchor-28-2-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">hash.accumulator#init</strong></div>
 <div style="margin-bottom:1em"><code>hash.accumulator#init():reduce</code></div>

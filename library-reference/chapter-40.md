@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">40</span><a name="anchor-40"></a>model.stl Module</h1>
+<h2><span class="caption-index-2">40.1</span><a name="anchor-40-1"></a>Overview</h2>
 <p>
 The <code>model.stl</code> module provides measures to read/write files in STL format for 3D models.
 </p>
@@ -21,11 +22,11 @@ solid.faces.each {|face|
     printf('vertex3: %g, %g, %g\n', face.vertex3.x, face.vertex3.y, face.vertex3.z)
 }
 </code></pre>
-<h2><span class="caption-index-2">40.1</span><a name="anchor-40-1"></a>model.stl.face Class</h2>
+<h2><span class="caption-index-2">40.2</span><a name="anchor-40-2"></a>model.stl.face Class</h2>
 <p>
 An instance of <code>model.stl.face</code> class provides properties of face that consists of one normal vector and three vertices.
 </p>
-<h3><span class="caption-index-3">40.1.1</span><a name="anchor-40-1-1"></a>Property</h3>
+<h3><span class="caption-index-3">40.2.1</span><a name="anchor-40-2-1"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -95,11 +96,11 @@ R</td>
 </table>
 
 </p>
-<h2><span class="caption-index-2">40.2</span><a name="anchor-40-2"></a>model.stl.solid Class</h2>
+<h2><span class="caption-index-2">40.3</span><a name="anchor-40-3"></a>model.stl.solid Class</h2>
 <p>
 An instance of <code>model.stl.solid</code> class represents a top-level data in STL format.
 </p>
-<h3><span class="caption-index-3">40.2.1</span><a name="anchor-40-2-1"></a>Property</h3>
+<h3><span class="caption-index-3">40.3.1</span><a name="anchor-40-3-1"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -156,7 +157,7 @@ An iterator that returns instances of <code>model.stl.face</code>.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">40.2.2</span><a name="anchor-40-2-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">40.3.2</span><a name="anchor-40-3-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">stl.solid</strong></div>
 <div style="margin-bottom:1em"><code>stl.solid(stream:stream) {block?}</code></div>

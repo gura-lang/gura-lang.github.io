@@ -6,12 +6,13 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">34</span><a name="anchor-34"></a>midi Module</h1>
+<h2><span class="caption-index-2">34.1</span><a name="anchor-34-1"></a>Overview</h2>
 <p>
 The <code>midi</code> module provides measures to read/write MIDI files. To utilize it, import the <code>midi</code> module using <code>import</code> function.
 </p>
-<h2><span class="caption-index-2">34.1</span><a name="anchor-34-1"></a>Module Function</h2>
-<h2><span class="caption-index-2">34.2</span><a name="anchor-34-2"></a>midi.event Class</h2>
-<h2><span class="caption-index-2">34.3</span><a name="anchor-34-3"></a>midi.track Class</h2>
+<h2><span class="caption-index-2">34.2</span><a name="anchor-34-2"></a>Module Function</h2>
+<h2><span class="caption-index-2">34.3</span><a name="anchor-34-3"></a>midi.event Class</h2>
+<h2><span class="caption-index-2">34.4</span><a name="anchor-34-4"></a>midi.track Class</h2>
 <p>
 <div><strong style="text-decoration:underline">midi.track#seek</strong></div>
 <div style="margin-bottom:1em"><code>midi.track#seek(offset:number, origin?:symbol):reduce</code></div>
@@ -145,7 +146,7 @@ The argument <code>max_velocity</code> specifies the maximum number of velocity 
 <div style="margin-bottom:1em"><code>midi.track#sequencer_specific_event(binary:binary, deltaTime?:number):map:reduce</code></div>
 
 </p>
-<h2><span class="caption-index-2">34.4</span><a name="anchor-34-4"></a>midi.sequence Class</h2>
+<h2><span class="caption-index-2">34.5</span><a name="anchor-34-5"></a>midi.sequence Class</h2>
 <p>
 <div><strong style="text-decoration:underline">midi.sequence</strong></div>
 <div style="margin-bottom:1em"><code>midi.sequence(stream?:stream) {block?}</code></div>
@@ -181,7 +182,7 @@ It creates an instance that contains SMF information.
 <div style="margin-bottom:1em"><code>midi.sequence#readmml(stream:stream, max_velocity?:number):reduce</code></div>
 
 </p>
-<h2><span class="caption-index-2">34.5</span><a name="anchor-34-5"></a>midi.port Class</h2>
+<h2><span class="caption-index-2">34.6</span><a name="anchor-34-6"></a>midi.port Class</h2>
 <p>
 <div><strong style="text-decoration:underline">midi.port#send</strong></div>
 <div style="margin-bottom:1em"><code>midi.port#send(msg+:number):map:reduce</code></div>
@@ -237,9 +238,9 @@ It creates an instance that contains SMF information.
 <div style="margin-bottom:1em"><code>midi.port#pitch_bend(channel:number, value:number):map:reduce</code></div>
 
 </p>
-<h2><span class="caption-index-2">34.6</span><a name="anchor-34-6"></a>midi.controller Class</h2>
-<h2><span class="caption-index-2">34.7</span><a name="anchor-34-7"></a>midi.program Class</h2>
-<h2><span class="caption-index-2">34.8</span><a name="anchor-34-8"></a>midi.soundfont Class</h2>
+<h2><span class="caption-index-2">34.7</span><a name="anchor-34-7"></a>midi.controller Class</h2>
+<h2><span class="caption-index-2">34.8</span><a name="anchor-34-8"></a>midi.program Class</h2>
+<h2><span class="caption-index-2">34.9</span><a name="anchor-34-9"></a>midi.soundfont Class</h2>
 <p>
 <div><strong style="text-decoration:underline">midi.soundfont</strong></div>
 <div style="margin-bottom:1em"><code>midi.soundfont(stream:stream) {block?}</code></div>
@@ -255,7 +256,7 @@ It creates an instance to access data in SoundFont file.
 <div style="margin-bottom:1em"><code>midi.soundfont#print():void</code></div>
 
 </p>
-<h2><span class="caption-index-2">34.9</span><a name="anchor-34-9"></a>midi.synthesizer Class</h2>
+<h2><span class="caption-index-2">34.10</span><a name="anchor-34-10"></a>midi.synthesizer Class</h2>
 <p />
 
 {% endraw %}

@@ -6,10 +6,11 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">50</span><a name="anchor-50"></a>sdl2 Module</h1>
+<h2><span class="caption-index-2">50.1</span><a name="anchor-50-1"></a>Overview</h2>
 <p>
 The <code>sdl2</code> module provices functions of SDL2 library.
 </p>
-<h2><span class="caption-index-2">50.1</span><a name="anchor-50-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">50.2</span><a name="anchor-50-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">sdl2.Init</strong></div>
 <div style="margin-bottom:1em"><code>sdl2.Init(flags:number):void</code></div>
@@ -2655,31 +2656,31 @@ It is possible for multiple errors to occur before calling <code>SDL_GetError()<
 <div style="margin-bottom:1em"><code>sdl2.acos(x:number) {block?}</code></div>
 
 </p>
-<h2><span class="caption-index-2">50.2</span><a name="anchor-50-2"></a>sdl2.Window Class</h2>
-<h2><span class="caption-index-2">50.3</span><a name="anchor-50-3"></a>sdl2.Renderer Class</h2>
-<h2><span class="caption-index-2">50.4</span><a name="anchor-50-4"></a>sdl2.Texture Class</h2>
-<h2><span class="caption-index-2">50.5</span><a name="anchor-50-5"></a>sdl2.Event Class</h2>
-<h2><span class="caption-index-2">50.6</span><a name="anchor-50-6"></a>sdl2.Point Class</h2>
-<h2><span class="caption-index-2">50.7</span><a name="anchor-50-7"></a>sdl2.Rect Class</h2>
-<h2><span class="caption-index-2">50.8</span><a name="anchor-50-8"></a>sdl2.Color Class</h2>
-<h2><span class="caption-index-2">50.9</span><a name="anchor-50-9"></a>sdl2.Palette Class</h2>
-<h2><span class="caption-index-2">50.10</span><a name="anchor-50-10"></a>sdl2.PixelFormat Class</h2>
-<h2><span class="caption-index-2">50.11</span><a name="anchor-50-11"></a>sdl2.Keysym Class</h2>
-<h2><span class="caption-index-2">50.12</span><a name="anchor-50-12"></a>sdl2.Cursor Class</h2>
-<h2><span class="caption-index-2">50.13</span><a name="anchor-50-13"></a>sdl2.Joystick Class</h2>
-<h2><span class="caption-index-2">50.14</span><a name="anchor-50-14"></a>sdl2.JoystickGUID Class</h2>
-<h2><span class="caption-index-2">50.15</span><a name="anchor-50-15"></a>sdl2.GameController Class</h2>
-<h2><span class="caption-index-2">50.16</span><a name="anchor-50-16"></a>sdl2.GameControllerButtonBind Class</h2>
-<h2><span class="caption-index-2">50.17</span><a name="anchor-50-17"></a>sdl2.AudioCVT Class</h2>
-<h2><span class="caption-index-2">50.18</span><a name="anchor-50-18"></a>sdl2.AudioSpec Class</h2>
-<h2><span class="caption-index-2">50.19</span><a name="anchor-50-19"></a>sdl2.Wav Class</h2>
-<h2><span class="caption-index-2">50.20</span><a name="anchor-50-20"></a>sdl2.RendererInfo Class</h2>
-<h2><span class="caption-index-2">50.21</span><a name="anchor-50-21"></a>sdl2.DisplayMode Class</h2>
-<h2><span class="caption-index-2">50.22</span><a name="anchor-50-22"></a>sdl2.GLContext Class</h2>
-<h2><span class="caption-index-2">50.23</span><a name="anchor-50-23"></a>sdl2.HapticEffect Class</h2>
-<h2><span class="caption-index-2">50.24</span><a name="anchor-50-24"></a>sdl2.Surface Class</h2>
-<h2><span class="caption-index-2">50.25</span><a name="anchor-50-25"></a>sdl2.Finger Class</h2>
-<h2><span class="caption-index-2">50.26</span><a name="anchor-50-26"></a>Thanks</h2>
+<h2><span class="caption-index-2">50.3</span><a name="anchor-50-3"></a>sdl2.Window Class</h2>
+<h2><span class="caption-index-2">50.4</span><a name="anchor-50-4"></a>sdl2.Renderer Class</h2>
+<h2><span class="caption-index-2">50.5</span><a name="anchor-50-5"></a>sdl2.Texture Class</h2>
+<h2><span class="caption-index-2">50.6</span><a name="anchor-50-6"></a>sdl2.Event Class</h2>
+<h2><span class="caption-index-2">50.7</span><a name="anchor-50-7"></a>sdl2.Point Class</h2>
+<h2><span class="caption-index-2">50.8</span><a name="anchor-50-8"></a>sdl2.Rect Class</h2>
+<h2><span class="caption-index-2">50.9</span><a name="anchor-50-9"></a>sdl2.Color Class</h2>
+<h2><span class="caption-index-2">50.10</span><a name="anchor-50-10"></a>sdl2.Palette Class</h2>
+<h2><span class="caption-index-2">50.11</span><a name="anchor-50-11"></a>sdl2.PixelFormat Class</h2>
+<h2><span class="caption-index-2">50.12</span><a name="anchor-50-12"></a>sdl2.Keysym Class</h2>
+<h2><span class="caption-index-2">50.13</span><a name="anchor-50-13"></a>sdl2.Cursor Class</h2>
+<h2><span class="caption-index-2">50.14</span><a name="anchor-50-14"></a>sdl2.Joystick Class</h2>
+<h2><span class="caption-index-2">50.15</span><a name="anchor-50-15"></a>sdl2.JoystickGUID Class</h2>
+<h2><span class="caption-index-2">50.16</span><a name="anchor-50-16"></a>sdl2.GameController Class</h2>
+<h2><span class="caption-index-2">50.17</span><a name="anchor-50-17"></a>sdl2.GameControllerButtonBind Class</h2>
+<h2><span class="caption-index-2">50.18</span><a name="anchor-50-18"></a>sdl2.AudioCVT Class</h2>
+<h2><span class="caption-index-2">50.19</span><a name="anchor-50-19"></a>sdl2.AudioSpec Class</h2>
+<h2><span class="caption-index-2">50.20</span><a name="anchor-50-20"></a>sdl2.Wav Class</h2>
+<h2><span class="caption-index-2">50.21</span><a name="anchor-50-21"></a>sdl2.RendererInfo Class</h2>
+<h2><span class="caption-index-2">50.22</span><a name="anchor-50-22"></a>sdl2.DisplayMode Class</h2>
+<h2><span class="caption-index-2">50.23</span><a name="anchor-50-23"></a>sdl2.GLContext Class</h2>
+<h2><span class="caption-index-2">50.24</span><a name="anchor-50-24"></a>sdl2.HapticEffect Class</h2>
+<h2><span class="caption-index-2">50.25</span><a name="anchor-50-25"></a>sdl2.Surface Class</h2>
+<h2><span class="caption-index-2">50.26</span><a name="anchor-50-26"></a>sdl2.Finger Class</h2>
+<h2><span class="caption-index-2">50.27</span><a name="anchor-50-27"></a>Thanks</h2>
 <p>
 This module uses SDL2 library which is distributed in the following site:
 </p>

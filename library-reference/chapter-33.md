@@ -6,10 +6,11 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">33</span><a name="anchor-33"></a>math Module</h1>
+<h2><span class="caption-index-2">33.1</span><a name="anchor-33-1"></a>Overview</h2>
 <p>
 The <code>math</code> module provices functions for mathematical calculation. This is a built-in module, so you can use it without being imported.
 </p>
-<h2><span class="caption-index-2">33.1</span><a name="anchor-33-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">33.2</span><a name="anchor-33-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">math.abs</strong></div>
 <div style="margin-bottom:1em"><code>math.abs(num):map</code></div>

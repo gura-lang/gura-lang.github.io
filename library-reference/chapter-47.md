@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">47</span><a name="anchor-47"></a>ppm Module</h1>
+<h2><span class="caption-index-2">47.1</span><a name="anchor-47-1"></a>Overview</h2>
 <p>
 The <code>ppm</code> module provides measures to read/write image data in PPM format. To utilize it, import the <code>ppm</code> module using <code>import</code> function.
 </p>
@@ -15,7 +16,7 @@ Below is an example to read a PPM file:
 <pre><code>import(ppm)
 img = image('foo.ppm')
 </code></pre>
-<h2><span class="caption-index-2">47.1</span><a name="anchor-47-1"></a>Exntension to Function's Capability</h2>
+<h2><span class="caption-index-2">47.2</span><a name="anchor-47-2"></a>Exntension to Function's Capability</h2>
 <p>
 This module extends the capability of function <code>image()</code> and instance method <code>image#write()</code> so that they can read/write PPM files.
 </p>
@@ -32,7 +33,7 @@ When instance method <code>image#write()</code> is provided with a stream that s
 <ul>
 <li>The identifier of the stream ends with a suffix "<code>.ppm</code>" or "<code>.pbm</code>".</li>
 </ul>
-<h2><span class="caption-index-2">47.2</span><a name="anchor-47-2"></a>Extension to image Class</h2>
+<h2><span class="caption-index-2">47.3</span><a name="anchor-47-3"></a>Extension to image Class</h2>
 <p>
 This module extends the <code>image</code> class with methods described here.
 </p>

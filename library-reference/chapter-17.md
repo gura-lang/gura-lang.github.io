@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">17</span><a name="anchor-17"></a>doxygen Module</h1>
+<h2><span class="caption-index-2">17.1</span><a name="anchor-17-1"></a>Overview</h2>
 <p>
 The <code>doxygen</code> module provides measures to parse a document written in Doxygen syntax. To utilize it, import the <code>doxygen</code> module using <code>import</code> function.
 </p>
@@ -21,8 +22,8 @@ The <code>doxygen</code> module provides measures to parse a document written in
 | renderer |&lt;----| specific_renderer |
 +----------+     +-------------------+
 </code></pre>
-<h2><span class="caption-index-2">17.1</span><a name="anchor-17-1"></a>doxygen.document Class</h2>
-<h3><span class="caption-index-3">17.1.1</span><a name="anchor-17-1-1"></a>Constructor</h3>
+<h2><span class="caption-index-2">17.2</span><a name="anchor-17-2"></a>doxygen.document Class</h2>
+<h3><span class="caption-index-3">17.2.1</span><a name="anchor-17-2-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">doxygen.document</strong></div>
 <div style="margin-bottom:1em"><code>doxygen.document(stream?:stream, aliases?:doxygen.aliases, extracted?:boolean) {block?}</code></div>
@@ -37,7 +38,7 @@ In default, the parser expects the Doxygen document is written within C-style co
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|doc:doxygen.document|</code>, where <code>doc</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">17.1.2</span><a name="anchor-17-1-2"></a>Method</h3>
+<h3><span class="caption-index-3">17.2.2</span><a name="anchor-17-2-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">doxygen.document#structures</strong></div>
 <div style="margin-bottom:1em"><code>doxygen.document#structures() {block?}</code></div>
@@ -60,8 +61,8 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h2><span class="caption-index-2">17.2</span><a name="anchor-17-2"></a>doxygen.structure Class</h2>
-<h3><span class="caption-index-3">17.2.1</span><a name="anchor-17-2-1"></a>Property</h3>
+<h2><span class="caption-index-2">17.3</span><a name="anchor-17-3"></a>doxygen.structure Class</h2>
+<h3><span class="caption-index-3">17.3.1</span><a name="anchor-17-3-1"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -92,7 +93,7 @@ R</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">17.2.2</span><a name="anchor-17-2-2"></a>Method</h3>
+<h3><span class="caption-index-3">17.3.2</span><a name="anchor-17-3-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">doxygen.structure#elems</strong></div>
 <div style="margin-bottom:1em"><code>doxygen.structure#elems():map {block?}</code></div>
@@ -137,8 +138,8 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code>|value, idx:number|</code> where <code>value</code> is the iterated value and <code>idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<h2><span class="caption-index-2">17.3</span><a name="anchor-17-3"></a>doxygen.elem Class</h2>
-<h3><span class="caption-index-3">17.3.1</span><a name="anchor-17-3-1"></a>Method</h3>
+<h2><span class="caption-index-2">17.4</span><a name="anchor-17-4"></a>doxygen.elem Class</h2>
+<h3><span class="caption-index-3">17.4.1</span><a name="anchor-17-4-1"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">doxygen.elem#print</strong></div>
 <div style="margin-bottom:1em"><code>doxygen.elem#print(indent?:number, out?:stream):map:void</code></div>
@@ -149,8 +150,8 @@ Prints out the content of the element to <code>out</code> with an indentation le
 <div style="margin-bottom:1em"><code>doxygen.elem#render(renderer:doxygen.renderer):void</code></div>
 Renders the element content using <code>doxygen.renderer</code>.
 </p>
-<h2><span class="caption-index-2">17.4</span><a name="anchor-17-4"></a>doxygen.configuration Class</h2>
-<h3><span class="caption-index-3">17.4.1</span><a name="anchor-17-4-1"></a>Property</h3>
+<h2><span class="caption-index-2">17.5</span><a name="anchor-17-5"></a>doxygen.configuration Class</h2>
+<h3><span class="caption-index-3">17.5.1</span><a name="anchor-17-5-1"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -181,7 +182,7 @@ R</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">17.4.2</span><a name="anchor-17-4-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">17.5.2</span><a name="anchor-17-5-2"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">doxygen.configuration</strong></div>
 <div style="margin-bottom:1em"><code>doxygen.configuration(stream?:stream) {block?}</code></div>
@@ -190,7 +191,7 @@ Reads a configuration file, which is usually dubbed "Doxyfile", from <code>strea
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|cfg:doxygen.configuration|</code>, where <code>cfg</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h3><span class="caption-index-3">17.4.3</span><a name="anchor-17-4-3"></a>Method</h3>
+<h3><span class="caption-index-3">17.5.3</span><a name="anchor-17-5-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">doxygen.configuration#get</strong></div>
 <div style="margin-bottom:1em"><code>doxygen.configuration#get(tagname:string):map:[raise]</code></div>
@@ -204,15 +205,15 @@ If the specified tag is not found, the method would return <code>nil</code> whil
 <div style="margin-bottom:1em"><code>doxygen.configuration#print(out?:stream):map:void</code></div>
 Prints out the content of the configuration to <code>out</code>. If omitted, the result would be put out to standard output.
 </p>
-<h2><span class="caption-index-2">17.5</span><a name="anchor-17-5"></a>doxygen.aliases Class</h2>
-<h3><span class="caption-index-3">17.5.1</span><a name="anchor-17-5-1"></a>Method</h3>
+<h2><span class="caption-index-2">17.6</span><a name="anchor-17-6"></a>doxygen.aliases Class</h2>
+<h3><span class="caption-index-3">17.6.1</span><a name="anchor-17-6-1"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">doxygen.aliases#print</strong></div>
 <div style="margin-bottom:1em"><code>doxygen.aliases#print(out?:stream):map:void</code></div>
 Prints out definitions of aliases to the stream <code>out</code>. If the argument is omitted, the result would be put out to the standard output.
 </p>
-<h2><span class="caption-index-2">17.6</span><a name="anchor-17-6"></a>doxygen.renderer Class</h2>
-<h3><span class="caption-index-3">17.6.1</span><a name="anchor-17-6-1"></a>Constructor</h3>
+<h2><span class="caption-index-2">17.7</span><a name="anchor-17-7"></a>doxygen.renderer Class</h2>
+<h3><span class="caption-index-3">17.7.1</span><a name="anchor-17-7-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">doxygen.renderer</strong></div>
 <div style="margin-bottom:1em"><code>doxygen.renderer(out:stream, cfg:doxygen.configuration) {block?}</code></div>

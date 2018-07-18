@@ -6,17 +6,18 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">42</span><a name="anchor-42"></a>mtp Module</h1>
+<h2><span class="caption-index-2">42.1</span><a name="anchor-42-1"></a>Overview</h2>
 <p>
 The <code>mtp</code> module provides measures to read/write data on a mobile platform like an Android device.
 </p>
-<h2><span class="caption-index-2">42.1</span><a name="anchor-42-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">42.2</span><a name="anchor-42-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">mtp.detect_devices</strong></div>
 <div style="margin-bottom:1em"><code>mtp.detect_devices() {block?}</code></div>
 Detects MTP devices and returns a list of <code>mtp.device</code> instances.
 </p>
-<h2><span class="caption-index-2">42.2</span><a name="anchor-42-2"></a>mtp.device Class</h2>
-<h3><span class="caption-index-3">42.2.1</span><a name="anchor-42-2-1"></a>Property</h3>
+<h2><span class="caption-index-2">42.3</span><a name="anchor-42-3"></a>mtp.device Class</h2>
+<h3><span class="caption-index-3">42.3.1</span><a name="anchor-42-3-1"></a>Property</h3>
 <p>
 A <code>mtp.device</code> instance has the following properties:
 </p>
@@ -74,8 +75,8 @@ Returns a list of <code>mtp.storage</code> instances.</td>
 </table>
 
 </p>
-<h2><span class="caption-index-2">42.3</span><a name="anchor-42-3"></a>mtp.storage Class</h2>
-<h3><span class="caption-index-3">42.3.1</span><a name="anchor-42-3-1"></a>Property</h3>
+<h2><span class="caption-index-2">42.4</span><a name="anchor-42-4"></a>mtp.storage Class</h2>
+<h3><span class="caption-index-3">42.4.1</span><a name="anchor-42-4-1"></a>Property</h3>
 <p>
 A <code>mtp.storage</code> instance has the following properties:
 </p>
@@ -193,7 +194,7 @@ Volume identifier.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">42.3.2</span><a name="anchor-42-3-2"></a>Method</h3>
+<h3><span class="caption-index-3">42.4.2</span><a name="anchor-42-4-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">mtp.storage#opendir</strong></div>
 <div style="margin-bottom:1em"><code>mtp.storage#opendir(pathname:string) {block?}</code></div>
@@ -214,8 +215,8 @@ Volume identifier.</td>
 <div style="margin-bottom:1em"><code>mtp.storage#sendfile(pathname:string, stream:stream:r):reduce {block?}</code></div>
 
 </p>
-<h2><span class="caption-index-2">42.4</span><a name="anchor-42-4"></a>mtp.stat Class</h2>
-<h3><span class="caption-index-3">42.4.1</span><a name="anchor-42-4-1"></a>Property</h3>
+<h2><span class="caption-index-2">42.5</span><a name="anchor-42-5"></a>mtp.stat Class</h2>
+<h3><span class="caption-index-3">42.5.1</span><a name="anchor-42-5-1"></a>Property</h3>
 <p>
 A <code>mtp.stat</code> instance has the following properties:
 </p>
@@ -309,8 +310,8 @@ File size in bytes.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">42.4.2</span><a name="anchor-42-4-2"></a>Method</h3>
-<h2><span class="caption-index-2">42.5</span><a name="anchor-42-5"></a>Thanks</h2>
+<h3><span class="caption-index-3">42.5.2</span><a name="anchor-42-5-2"></a>Method</h3>
+<h2><span class="caption-index-2">42.6</span><a name="anchor-42-6"></a>Thanks</h2>
 <p>
 This module uses libusb and libmtp library which is distributed in the following site:
 </p>

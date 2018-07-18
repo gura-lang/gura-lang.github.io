@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">61</span><a name="anchor-61"></a>xml Module</h1>
+<h2><span class="caption-index-2">61.1</span><a name="anchor-61-1"></a>Overview</h2>
 <p>
 The <code>xml</code> module provides measures to parse or compose XML documents.
 </p>
@@ -28,11 +29,11 @@ Another one is to create a class inherited <code>xml.parser</code> and implement
 }
 Parser().parse('test.xml')
 </code></pre>
-<h2><span class="caption-index-2">61.1</span><a name="anchor-61-1"></a>xml.attribute Class</h2>
+<h2><span class="caption-index-2">61.2</span><a name="anchor-61-2"></a>xml.attribute Class</h2>
 <p>
 The <code>xml.attribute</code> instance represents a name-value pair of XML's attribute that can be retrieved from <code>attrs</code> property in the <code>xml.element</code> instance.
 </p>
-<h3><span class="caption-index-3">61.1.1</span><a name="anchor-61-1-1"></a>Property</h3>
+<h3><span class="caption-index-3">61.2.1</span><a name="anchor-61-2-1"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -76,14 +77,14 @@ R</td>
 </table>
 
 </p>
-<h2><span class="caption-index-2">61.2</span><a name="anchor-61-2"></a>xml.document Class</h2>
-<h3><span class="caption-index-3">61.2.1</span><a name="anchor-61-2-1"></a>Constructor</h3>
+<h2><span class="caption-index-2">61.3</span><a name="anchor-61-3"></a>xml.document Class</h2>
+<h3><span class="caption-index-3">61.3.1</span><a name="anchor-61-3-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">xml.document</strong></div>
 <div style="margin-bottom:1em"><code>xml.document(stream?:stream:r) {block?}</code></div>
 
 </p>
-<h3><span class="caption-index-3">61.2.2</span><a name="anchor-61-2-2"></a>Property</h3>
+<h3><span class="caption-index-3">61.3.2</span><a name="anchor-61-3-2"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -140,7 +141,7 @@ R</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">61.2.3</span><a name="anchor-61-2-3"></a>Method</h3>
+<h3><span class="caption-index-3">61.3.3</span><a name="anchor-61-3-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">xml.document#parse</strong></div>
 <div style="margin-bottom:1em"><code>xml.document#parse(str:string):void</code></div>
@@ -161,8 +162,8 @@ R</td>
 <div style="margin-bottom:1em"><code>xml.document#write(stream:stream:w, fancy?:boolean, tabs?:number):void</code></div>
 
 </p>
-<h2><span class="caption-index-2">61.3</span><a name="anchor-61-3"></a>xml.element Class</h2>
-<h3><span class="caption-index-3">61.3.1</span><a name="anchor-61-3-1"></a>Constructor</h3>
+<h2><span class="caption-index-2">61.4</span><a name="anchor-61-4"></a>xml.element Class</h2>
+<h3><span class="caption-index-3">61.4.1</span><a name="anchor-61-4-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">xml.element</strong></div>
 <div style="margin-bottom:1em"><code>xml.element(_tagname_:string, attrs%):map {block?}</code></div>
@@ -173,7 +174,7 @@ R</td>
 <div style="margin-bottom:1em"><code>xml.comment(comment:string)</code></div>
 
 </p>
-<h3><span class="caption-index-3">61.3.2</span><a name="anchor-61-3-2"></a>Property</h3>
+<h3><span class="caption-index-3">61.4.2</span><a name="anchor-61-4-2"></a>Property</h3>
 <p>
 <table>
 <tr>
@@ -260,7 +261,7 @@ contained in this element. This value would be <code>nil</code> if the element h
 </table>
 
 </p>
-<h3><span class="caption-index-3">61.3.3</span><a name="anchor-61-3-3"></a>Method</h3>
+<h3><span class="caption-index-3">61.4.3</span><a name="anchor-61-4-3"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">xml.element#addchild</strong></div>
 <div style="margin-bottom:1em"><code>xml.element#addchild(value):map:void</code></div>
@@ -281,7 +282,7 @@ contained in this element. This value would be <code>nil</code> if the element h
 <div style="margin-bottom:1em"><code>xml.element#write(stream:stream:w, fancy?:boolean, indentLevel?:number, tabs?:number):void</code></div>
 
 </p>
-<h2><span class="caption-index-2">61.4</span><a name="anchor-61-4"></a>xml.parser Class</h2>
+<h2><span class="caption-index-2">61.5</span><a name="anchor-61-5"></a>xml.parser Class</h2>
 <p>
 The <code>xml.parser</code> class is a base class from which you can implement a inheritance class that has methods corresponding to events associated with XML elements. Below are methods that you can implement in the class for event handling:
 </p>
@@ -308,19 +309,19 @@ The <code>xml.parser</code> class is a base class from which you can implement a
 <li><code>NotationDecl(notationName:string, base:string, systemId:string, publicId:string)</code></li>
 <li><code>NotStandalone()</code></li>
 </ul>
-<h3><span class="caption-index-3">61.4.1</span><a name="anchor-61-4-1"></a>Constructor</h3>
+<h3><span class="caption-index-3">61.5.1</span><a name="anchor-61-5-1"></a>Constructor</h3>
 <p>
 <div><strong style="text-decoration:underline">xml.parser</strong></div>
 <div style="margin-bottom:1em"><code>xml.parser() {block?}</code></div>
 
 </p>
-<h3><span class="caption-index-3">61.4.2</span><a name="anchor-61-4-2"></a>Method</h3>
+<h3><span class="caption-index-3">61.5.2</span><a name="anchor-61-5-2"></a>Method</h3>
 <p>
 <div><strong style="text-decoration:underline">xml.parser#parse</strong></div>
 <div style="margin-bottom:1em"><code>xml.parser#parse(stream:stream:r):void</code></div>
 
 </p>
-<h2><span class="caption-index-2">61.5</span><a name="anchor-61-5"></a>Thanks</h2>
+<h2><span class="caption-index-2">61.6</span><a name="anchor-61-6"></a>Thanks</h2>
 <p>
 This module uses expat library which is distributed in the following site:
 </p>

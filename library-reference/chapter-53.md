@@ -6,10 +6,11 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">53</span><a name="anchor-53"></a>sys Module</h1>
+<h2><span class="caption-index-2">53.1</span><a name="anchor-53-1"></a>Overview</h2>
 <p>
 The <code>sys</code> module provides system-related information. This is a built-in module, so you can use it without being imported.
 </p>
-<h2><span class="caption-index-2">53.1</span><a name="anchor-53-1"></a>Module Variable</h2>
+<h2><span class="caption-index-2">53.2</span><a name="anchor-53-2"></a>Module Variable</h2>
 <ul>
 <li><code>sys.argv</code></li>
 <li><code>sys.path</code></li>
@@ -32,7 +33,7 @@ The <code>sys</code> module provides system-related information. This is a built
 <li><code>sys.cfgdir</code></li>
 <li><code>sys.workdir</code></li>
 </ul>
-<h2><span class="caption-index-2">53.2</span><a name="anchor-53-2"></a>Module Function</h2>
+<h2><span class="caption-index-2">53.3</span><a name="anchor-53-3"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">sys.echo</strong></div>
 <div style="margin-bottom:1em"><code>sys.echo(flag:boolean)</code></div>

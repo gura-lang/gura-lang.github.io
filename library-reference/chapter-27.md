@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">27</span><a name="anchor-27"></a>gzip Module</h1>
+<h2><span class="caption-index-2">27.1</span><a name="anchor-27-1"></a>Overview</h2>
 <p>
 The <code>gzip</code> module provides measures to read/write GZIP files. To utilize it, import the <code>gzip</code> module using <code>import</code> function.
 </p>
@@ -21,7 +22,7 @@ Below is an example to read data from a file and write its compressed data to a 
 <pre><code>import(gzip)
 gzip.writer('foo.dat.gz').copyfrom('foo.dat')
 </code></pre>
-<h2><span class="caption-index-2">27.1</span><a name="anchor-27-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">27.2</span><a name="anchor-27-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">gzip.reader</strong></div>
 <div style="margin-bottom:1em"><code>gzip.reader(stream:stream:r) {block?}</code></div>
@@ -32,7 +33,7 @@ gzip.writer('foo.dat.gz').copyfrom('foo.dat')
 <div style="margin-bottom:1em"><code>gzip.writer(stream:stream:w, level?:number) {block?}</code></div>
 
 </p>
-<h2><span class="caption-index-2">27.2</span><a name="anchor-27-2"></a>Extension to stream Class</h2>
+<h2><span class="caption-index-2">27.3</span><a name="anchor-27-3"></a>Extension to stream Class</h2>
 <p>
 This module extends the <code>stream</code> class with methods described here.
 </p>
@@ -46,7 +47,7 @@ This module extends the <code>stream</code> class with methods described here.
 <div style="margin-bottom:1em"><code>stream#writer@gzip(level?:number) {block?}</code></div>
 
 </p>
-<h2><span class="caption-index-2">27.3</span><a name="anchor-27-3"></a>Thanks</h2>
+<h2><span class="caption-index-2">27.4</span><a name="anchor-27-4"></a>Thanks</h2>
 <p>
 This module uses zlib which official site is:
 </p>

@@ -6,10 +6,11 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">23</span><a name="anchor-23"></a>glu Module</h1>
+<h2><span class="caption-index-2">23.1</span><a name="anchor-23-1"></a>Overview</h2>
 <p>
 The <code>glu</code> module provides functions of GLU library.
 </p>
-<h2><span class="caption-index-2">23.1</span><a name="anchor-23-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">23.2</span><a name="anchor-23-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">glu.gluBeginCurve</strong></div>
 <div style="margin-bottom:1em"><code>glu.gluBeginCurve(nurb:glu.Nurbs):void {block?}</code></div>

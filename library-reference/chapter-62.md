@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">62</span><a name="anchor-62"></a>xpm Module</h1>
+<h2><span class="caption-index-2">62.1</span><a name="anchor-62-1"></a>Overview</h2>
 <p>
 The <code>xpm</code> module provides measures to write image data in XPM format and to parse a list of strings that is described in the format. To utilize it, import the <code>xpm</code> module using <code>import</code> function.
 </p>
@@ -33,7 +34,7 @@ foo_xpm = @{
 }
 img = image(`rgba).xpmdata(foo_xpm)
 </code></pre>
-<h2><span class="caption-index-2">62.1</span><a name="anchor-62-1"></a>Extension to image Class</h2>
+<h2><span class="caption-index-2">62.2</span><a name="anchor-62-2"></a>Extension to image Class</h2>
 <p>
 This module extends the <code>image</code> class with methods described here.
 </p>

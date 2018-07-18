@@ -6,12 +6,13 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">10</span><a name="anchor-10"></a>cairo Module</h1>
+<h2><span class="caption-index-2">10.1</span><a name="anchor-10-1"></a>Overview</h2>
 <p>
 The <code>cairo</code> module provides methods to draw 2-D graphics using Cairo library. Official site of Cairo is <a href="http://cairographics.org/">http://cairographics.org/</a>.
 </p>
-<h2><span class="caption-index-2">10.1</span><a name="anchor-10-1"></a>Drawing</h2>
-<h3><span class="caption-index-3">10.1.1</span><a name="anchor-10-1-1"></a>cairo.context - The cairo drawing context</h3>
-<h4><span class="caption-index-4">10.1.1.1</span><a name="anchor-10-1-1-1"></a>Functions</h4>
+<h2><span class="caption-index-2">10.2</span><a name="anchor-10-2"></a>Drawing</h2>
+<h3><span class="caption-index-3">10.2.1</span><a name="anchor-10-2-1"></a>cairo.context - The cairo drawing context</h3>
+<h4><span class="caption-index-4">10.2.1.1</span><a name="anchor-10-2-1-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#status</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#status()</code></div>
@@ -447,7 +448,7 @@ Emits and clears the current page for backends that support multiple pages. Use 
 <p>
 This is a convenience function that simply calls <code>cairo.context#surface_show_page()</code> on cr's target.
 </p>
-<h4><span class="caption-index-4">10.1.1.2</span><a name="anchor-10-1-1-2"></a>Types and Values</h4>
+<h4><span class="caption-index-4">10.2.1.2</span><a name="anchor-10-2-1-2"></a>Types and Values</h4>
 <p>
 <code>cairo.antialias</code>
 </p>
@@ -517,8 +518,8 @@ This is a convenience function that simply calls <code>cairo.context#surface_sho
 <li><code>cairo.OPERATOR_HSL_COLOR</code></li>
 <li><code>cairo.OPERATOR_HSL_LUMINOSITY</code></li>
 </ul>
-<h3><span class="caption-index-3">10.1.2</span><a name="anchor-10-1-2"></a>Paths - Creating paths and manipulating path data</h3>
-<h4><span class="caption-index-4">10.1.2.1</span><a name="anchor-10-1-2-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.2.2</span><a name="anchor-10-2-2"></a>Paths - Creating paths and manipulating path data</h3>
+<h4><span class="caption-index-4">10.2.2.1</span><a name="anchor-10-2-2-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#copy_path</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#copy_path()</code></div>
@@ -733,9 +734,9 @@ The result of cairo.context#path_extents() is defined as equivalent to the limit
 <p>
 Specifically, this means that zero-area sub-paths such as cairo.context#move_to();cairo.context#line_to() segments, (even degenerate cases where the coordinates to both calls are identical), will be considered as contributing to the extents. However, a lone cairo.context#move_to() will not contribute to the results of cairo.context#path_extents().
 </p>
-<h4><span class="caption-index-4">10.1.2.2</span><a name="anchor-10-1-2-2"></a>Types and Values</h4>
-<h3><span class="caption-index-3">10.1.3</span><a name="anchor-10-1-3"></a>cairo.pattern - Sources for drawing</h3>
-<h4><span class="caption-index-4">10.1.3.1</span><a name="anchor-10-1-3-1"></a>Functions</h4>
+<h4><span class="caption-index-4">10.2.2.2</span><a name="anchor-10-2-2-2"></a>Types and Values</h4>
+<h3><span class="caption-index-3">10.2.3</span><a name="anchor-10-2-3"></a>cairo.pattern - Sources for drawing</h3>
+<h4><span class="caption-index-4">10.2.3.1</span><a name="anchor-10-2-3-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.pattern#add_color_stop_rgb</strong></div>
 <div style="margin-bottom:1em"><code>cairo.pattern#add_color_stop_rgb(offset:number, red:number, green:number, blue:number):reduce</code></div>
@@ -940,7 +941,7 @@ Stores the pattern's transformation matrix into matrix.
 <div style="margin-bottom:1em"><code>cairo.pattern#get_type()</code></div>
 This function returns the type a pattern. See cairo_pattern_type_t for available types.
 </p>
-<h4><span class="caption-index-4">10.1.3.2</span><a name="anchor-10-1-3-2"></a>Types and Values</h4>
+<h4><span class="caption-index-4">10.2.3.2</span><a name="anchor-10-2-3-2"></a>Types and Values</h4>
 <p>
 <code>cairo.extend</code>
 </p>
@@ -972,7 +973,7 @@ This function returns the type a pattern. See cairo_pattern_type_t for available
 <li><code>cairo.PATTERN_TYPE_MESH</code></li>
 <li><code>cairo.PATTERN_TYPE_RASTER_SOURCE</code></li>
 </ul>
-<h3><span class="caption-index-3">10.1.4</span><a name="anchor-10-1-4"></a>Regions - Representing a pixel-aligned area</h3>
+<h3><span class="caption-index-3">10.2.4</span><a name="anchor-10-2-4"></a>Regions - Representing a pixel-aligned area</h3>
 <p>
 <code>cairo.region_overlap</code>
 </p>
@@ -981,7 +982,7 @@ This function returns the type a pattern. See cairo_pattern_type_t for available
 <li><code>cairo.REGION_OVERLAP_OUT</code></li>
 <li><code>cairo.REGION_OVERLAP_PART</code></li>
 </ul>
-<h4><span class="caption-index-4">10.1.4.1</span><a name="anchor-10-1-4-1"></a>Functions</h4>
+<h4><span class="caption-index-4">10.2.4.1</span><a name="anchor-10-2-4-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.region.create</strong></div>
 <div style="margin-bottom:1em"><code>cairo.region.create():static {block?}</code></div>
@@ -1021,9 +1022,9 @@ This function returns the type a pattern. See cairo_pattern_type_t for available
 <div style="margin-bottom:1em"><code>cairo.region#xor_rectangle(rectangle:cairo.rectangle_int)</code></div>
 
 </p>
-<h4><span class="caption-index-4">10.1.4.2</span><a name="anchor-10-1-4-2"></a>Types and Values</h4>
-<h3><span class="caption-index-3">10.1.5</span><a name="anchor-10-1-5"></a>Transformations - Manipulating the current transformation matrix</h3>
-<h4><span class="caption-index-4">10.1.5.1</span><a name="anchor-10-1-5-1"></a>Functions</h4>
+<h4><span class="caption-index-4">10.2.4.2</span><a name="anchor-10-2-4-2"></a>Types and Values</h4>
+<h3><span class="caption-index-3">10.2.5</span><a name="anchor-10-2-5"></a>Transformations - Manipulating the current transformation matrix</h3>
+<h4><span class="caption-index-4">10.2.5.1</span><a name="anchor-10-2-5-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#translate</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#translate(tx:number, ty:number):reduce</code></div>
@@ -1082,8 +1083,8 @@ Transform a coordinate from device space to user space by multiplying the given 
 <div style="margin-bottom:1em"><code>cairo.context#device_to_user_distance(dx:number, dy:number)</code></div>
 Transform a distance vector from device space to user space. This function is similar to cairo.context#device_to_user() except that the translation components of the inverse CTM will be ignored when transforming (dx,dy).
 </p>
-<h3><span class="caption-index-3">10.1.6</span><a name="anchor-10-1-6"></a>text - Rendering text and glyphs</h3>
-<h4><span class="caption-index-4">10.1.6.1</span><a name="anchor-10-1-6-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.2.6</span><a name="anchor-10-2-6"></a>text - Rendering text and glyphs</h3>
+<h4><span class="caption-index-4">10.2.6.1</span><a name="anchor-10-2-6-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.context#select_font_face</strong></div>
 <div style="margin-bottom:1em"><code>cairo.context#select_font_face(family:string, slant:number, weight:number):reduce</code></div>
@@ -1224,21 +1225,21 @@ Gets the slant a toy font.
 <div style="margin-bottom:1em"><code>cairo.toy_font_face#get_weight()</code></div>
 Gets the weight a toy font.
 </p>
-<h4><span class="caption-index-4">10.1.6.2</span><a name="anchor-10-1-6-2"></a>Types and Values</h4>
-<h3><span class="caption-index-3">10.1.7</span><a name="anchor-10-1-7"></a>Raster Sources - Supplying arbitary image data</h3>
-<h4><span class="caption-index-4">10.1.7.1</span><a name="anchor-10-1-7-1"></a>Functions</h4>
-<h2><span class="caption-index-2">10.2</span><a name="anchor-10-2"></a>Fonts</h2>
-<h3><span class="caption-index-3">10.2.1</span><a name="anchor-10-2-1"></a>cairo.font_face - Base class for font faces</h3>
-<h4><span class="caption-index-4">10.2.1.1</span><a name="anchor-10-2-1-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.2.2</span><a name="anchor-10-2-2"></a>cairo.scaled_font - Font face at particular size and options</h3>
-<h4><span class="caption-index-4">10.2.2.1</span><a name="anchor-10-2-2-1"></a>Functions</h4>
+<h4><span class="caption-index-4">10.2.6.2</span><a name="anchor-10-2-6-2"></a>Types and Values</h4>
+<h3><span class="caption-index-3">10.2.7</span><a name="anchor-10-2-7"></a>Raster Sources - Supplying arbitary image data</h3>
+<h4><span class="caption-index-4">10.2.7.1</span><a name="anchor-10-2-7-1"></a>Functions</h4>
+<h2><span class="caption-index-2">10.3</span><a name="anchor-10-3"></a>Fonts</h2>
+<h3><span class="caption-index-3">10.3.1</span><a name="anchor-10-3-1"></a>cairo.font_face - Base class for font faces</h3>
+<h4><span class="caption-index-4">10.3.1.1</span><a name="anchor-10-3-1-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.3.2</span><a name="anchor-10-3-2"></a>cairo.scaled_font - Font face at particular size and options</h3>
+<h4><span class="caption-index-4">10.3.2.1</span><a name="anchor-10-3-2-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.scaled_font.create</strong></div>
 <div style="margin-bottom:1em"><code>cairo.scaled_font.create(font_face:cairo.font_face, font_matrix:array@double, ctm:array@double, options):static {block?}</code></div>
 
 </p>
-<h3><span class="caption-index-3">10.2.3</span><a name="anchor-10-2-3"></a>cairo_font_options_t - How a font should be rendered</h3>
-<h4><span class="caption-index-4">10.2.3.1</span><a name="anchor-10-2-3-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.3.3</span><a name="anchor-10-3-3"></a>cairo_font_options_t - How a font should be rendered</h3>
+<h4><span class="caption-index-4">10.3.3.1</span><a name="anchor-10-3-3-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.font_options.create</strong></div>
 <div style="margin-bottom:1em"><code>cairo.font_options.create():static {block?}</code></div>
@@ -1268,17 +1269,17 @@ Gets the weight a toy font.
 <div style="margin-bottom:1em"><code>cairo.font_options#get_hint_metrics()</code></div>
 
 </p>
-<h3><span class="caption-index-3">10.2.4</span><a name="anchor-10-2-4"></a>FreeType Fonts - Font support for FreeType</h3>
-<h4><span class="caption-index-4">10.2.4.1</span><a name="anchor-10-2-4-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.2.5</span><a name="anchor-10-2-5"></a>Win32 Fonts - Font support for Microsoft Windows</h3>
-<h4><span class="caption-index-4">10.2.5.1</span><a name="anchor-10-2-5-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.2.6</span><a name="anchor-10-2-6"></a>Quartz (CGFont) Fonts - Font support via CGFont on OS X</h3>
-<h4><span class="caption-index-4">10.2.6.1</span><a name="anchor-10-2-6-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.2.7</span><a name="anchor-10-2-7"></a>User Fonts - Font support with font data provided by the user</h3>
-<h4><span class="caption-index-4">10.2.7.1</span><a name="anchor-10-2-7-1"></a>Functions</h4>
-<h2><span class="caption-index-2">10.3</span><a name="anchor-10-3"></a>Surfaces</h2>
-<h3><span class="caption-index-3">10.3.1</span><a name="anchor-10-3-1"></a>cairo.device - interface to underlying rendering system</h3>
-<h4><span class="caption-index-4">10.3.1.1</span><a name="anchor-10-3-1-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.3.4</span><a name="anchor-10-3-4"></a>FreeType Fonts - Font support for FreeType</h3>
+<h4><span class="caption-index-4">10.3.4.1</span><a name="anchor-10-3-4-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.3.5</span><a name="anchor-10-3-5"></a>Win32 Fonts - Font support for Microsoft Windows</h3>
+<h4><span class="caption-index-4">10.3.5.1</span><a name="anchor-10-3-5-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.3.6</span><a name="anchor-10-3-6"></a>Quartz (CGFont) Fonts - Font support via CGFont on OS X</h3>
+<h4><span class="caption-index-4">10.3.6.1</span><a name="anchor-10-3-6-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.3.7</span><a name="anchor-10-3-7"></a>User Fonts - Font support with font data provided by the user</h3>
+<h4><span class="caption-index-4">10.3.7.1</span><a name="anchor-10-3-7-1"></a>Functions</h4>
+<h2><span class="caption-index-2">10.4</span><a name="anchor-10-4"></a>Surfaces</h2>
+<h3><span class="caption-index-3">10.4.1</span><a name="anchor-10-4-1"></a>cairo.device - interface to underlying rendering system</h3>
+<h4><span class="caption-index-4">10.4.1.1</span><a name="anchor-10-4-1-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.device#status</strong></div>
 <div style="margin-bottom:1em"><code>cairo.device#status()</code></div>
@@ -1294,8 +1295,8 @@ Gets the weight a toy font.
 <div style="margin-bottom:1em"><code>cairo.device#release():void</code></div>
 
 </p>
-<h3><span class="caption-index-3">10.3.2</span><a name="anchor-10-3-2"></a>cairo.surface - Base class for surfaces</h3>
-<h4><span class="caption-index-4">10.3.2.1</span><a name="anchor-10-3-2-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.4.2</span><a name="anchor-10-4-2"></a>cairo.surface - Base class for surfaces</h3>
+<h4><span class="caption-index-4">10.4.2.1</span><a name="anchor-10-4-2-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.surface.create_similar</strong></div>
 <div style="margin-bottom:1em"><code>cairo.surface.create_similar(other:cairo.surface, content:number, width:number, height:number):static {block?}</code></div>
@@ -1469,8 +1470,8 @@ Note: Even if this function returns false, a cairo.context#show_text_glyphs() op
 <div style="margin-bottom:1em"><code>cairo.surface#write_to_png(stream:stream:w):reduce</code></div>
 
 </p>
-<h3><span class="caption-index-3">10.3.3</span><a name="anchor-10-3-3"></a>Image Surfaces - Rendering to memory buffers</h3>
-<h4><span class="caption-index-4">10.3.3.1</span><a name="anchor-10-3-3-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.4.3</span><a name="anchor-10-4-3"></a>Image Surfaces - Rendering to memory buffers</h3>
+<h4><span class="caption-index-4">10.4.3.1</span><a name="anchor-10-4-3-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.image_surface.create</strong></div>
 <div style="margin-bottom:1em"><code>cairo.image_surface.create(image:image):static {block?}</code></div>
@@ -1486,8 +1487,8 @@ Note: Even if this function returns false, a cairo.context#show_text_glyphs() op
 <div style="margin-bottom:1em"><code>cairo.image_surface#get_stride()</code></div>
 
 </p>
-<h3><span class="caption-index-3">10.3.4</span><a name="anchor-10-3-4"></a>PDF Surfaces - Rendering PDF documents</h3>
-<h4><span class="caption-index-4">10.3.4.1</span><a name="anchor-10-3-4-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.4.4</span><a name="anchor-10-4-4"></a>PDF Surfaces - Rendering PDF documents</h3>
+<h4><span class="caption-index-4">10.4.4.1</span><a name="anchor-10-4-4-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.pdf_surface.create</strong></div>
 <div style="margin-bottom:1em"><code>cairo.pdf_surface.create(stream:stream:w, width_in_points:number, height_in_points:number):static {block?}</code></div>
@@ -1497,16 +1498,16 @@ Note: Even if this function returns false, a cairo.context#show_text_glyphs() op
 <div style="margin-bottom:1em"><code>cairo.pdf_surface#set_size(width_in_points:number, height_in_points:number):reduce</code></div>
 
 </p>
-<h3><span class="caption-index-3">10.3.5</span><a name="anchor-10-3-5"></a>PNG Support - Reading and writing PNG images</h3>
-<h4><span class="caption-index-4">10.3.5.1</span><a name="anchor-10-3-5-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.3.6</span><a name="anchor-10-3-6"></a>PostScript Surfaces - Rendering PostScript documents</h3>
-<h4><span class="caption-index-4">10.3.6.1</span><a name="anchor-10-3-6-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.3.7</span><a name="anchor-10-3-7"></a>Recording Surfaces - Records all drawing operations</h3>
-<h4><span class="caption-index-4">10.3.7.1</span><a name="anchor-10-3-7-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.3.8</span><a name="anchor-10-3-8"></a>Win32 Surfaces - Microsoft Windows surface support</h3>
-<h4><span class="caption-index-4">10.3.8.1</span><a name="anchor-10-3-8-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.3.9</span><a name="anchor-10-3-9"></a>SVG Surfaces - Rendering SVG documents</h3>
-<h4><span class="caption-index-4">10.3.9.1</span><a name="anchor-10-3-9-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.4.5</span><a name="anchor-10-4-5"></a>PNG Support - Reading and writing PNG images</h3>
+<h4><span class="caption-index-4">10.4.5.1</span><a name="anchor-10-4-5-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.4.6</span><a name="anchor-10-4-6"></a>PostScript Surfaces - Rendering PostScript documents</h3>
+<h4><span class="caption-index-4">10.4.6.1</span><a name="anchor-10-4-6-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.4.7</span><a name="anchor-10-4-7"></a>Recording Surfaces - Records all drawing operations</h3>
+<h4><span class="caption-index-4">10.4.7.1</span><a name="anchor-10-4-7-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.4.8</span><a name="anchor-10-4-8"></a>Win32 Surfaces - Microsoft Windows surface support</h3>
+<h4><span class="caption-index-4">10.4.8.1</span><a name="anchor-10-4-8-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.4.9</span><a name="anchor-10-4-9"></a>SVG Surfaces - Rendering SVG documents</h3>
+<h4><span class="caption-index-4">10.4.9.1</span><a name="anchor-10-4-9-1"></a>Functions</h4>
 <p>
 <div><strong style="text-decoration:underline">cairo.svg_surface.create</strong></div>
 <div style="margin-bottom:1em"><code>cairo.svg_surface.create(stream:stream:w, width_in_points:number, height_in_points:number):static {block?}</code></div>
@@ -1514,21 +1515,21 @@ Note: Even if this function returns false, a cairo.context#show_text_glyphs() op
 <div style="margin-bottom:1em"><code>cairo.svg_surface#restrict_to_version(version:number):reduce</code></div>
 
 </p>
-<h3><span class="caption-index-3">10.3.10</span><a name="anchor-10-3-10"></a>Quartz Surfaces - Rendering to Quartz surfaces</h3>
-<h4><span class="caption-index-4">10.3.10.1</span><a name="anchor-10-3-10-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.3.11</span><a name="anchor-10-3-11"></a>XCB Surfaces - X Window System rendering using the XCB library</h3>
-<h4><span class="caption-index-4">10.3.11.1</span><a name="anchor-10-3-11-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.3.12</span><a name="anchor-10-3-12"></a>XLib Surfaces - X Window System rendering using XLib</h3>
-<h4><span class="caption-index-4">10.3.12.1</span><a name="anchor-10-3-12-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.3.13</span><a name="anchor-10-3-13"></a>XLib-XRender Backend - X Window System rendering using XLib and the X Render extension</h3>
-<h4><span class="caption-index-4">10.3.13.1</span><a name="anchor-10-3-13-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.3.14</span><a name="anchor-10-3-14"></a>Script Surfaces - Rendering to replayable scripts</h3>
-<h4><span class="caption-index-4">10.3.14.1</span><a name="anchor-10-3-14-1"></a>Functions</h4>
-<h2><span class="caption-index-2">10.4</span><a name="anchor-10-4"></a>Utilities</h2>
-<h4><span class="caption-index-4">10.4.0.1</span><a name="anchor-10-4-0-1"></a>Functions</h4>
-<h3><span class="caption-index-3">10.4.1</span><a name="anchor-10-4-1"></a>cairo.matrix - Generic matrix operations</h3>
-<h4><span class="caption-index-4">10.4.1.1</span><a name="anchor-10-4-1-1"></a>Functions</h4>
-<h2><span class="caption-index-2">10.5</span><a name="anchor-10-5"></a>Thanks</h2>
+<h3><span class="caption-index-3">10.4.10</span><a name="anchor-10-4-10"></a>Quartz Surfaces - Rendering to Quartz surfaces</h3>
+<h4><span class="caption-index-4">10.4.10.1</span><a name="anchor-10-4-10-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.4.11</span><a name="anchor-10-4-11"></a>XCB Surfaces - X Window System rendering using the XCB library</h3>
+<h4><span class="caption-index-4">10.4.11.1</span><a name="anchor-10-4-11-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.4.12</span><a name="anchor-10-4-12"></a>XLib Surfaces - X Window System rendering using XLib</h3>
+<h4><span class="caption-index-4">10.4.12.1</span><a name="anchor-10-4-12-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.4.13</span><a name="anchor-10-4-13"></a>XLib-XRender Backend - X Window System rendering using XLib and the X Render extension</h3>
+<h4><span class="caption-index-4">10.4.13.1</span><a name="anchor-10-4-13-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.4.14</span><a name="anchor-10-4-14"></a>Script Surfaces - Rendering to replayable scripts</h3>
+<h4><span class="caption-index-4">10.4.14.1</span><a name="anchor-10-4-14-1"></a>Functions</h4>
+<h2><span class="caption-index-2">10.5</span><a name="anchor-10-5"></a>Utilities</h2>
+<h4><span class="caption-index-4">10.5.0.1</span><a name="anchor-10-5-0-1"></a>Functions</h4>
+<h3><span class="caption-index-3">10.5.1</span><a name="anchor-10-5-1"></a>cairo.matrix - Generic matrix operations</h3>
+<h4><span class="caption-index-4">10.5.1.1</span><a name="anchor-10-5-1-1"></a>Functions</h4>
+<h2><span class="caption-index-2">10.6</span><a name="anchor-10-6"></a>Thanks</h2>
 <p>
 This module uses Cairo library which is distributed in the following site:
 </p>

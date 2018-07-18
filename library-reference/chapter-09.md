@@ -6,6 +6,7 @@ title: Gura Library Reference
 
 {% raw %}
 <h1><span class="caption-index-1">9</span><a name="anchor-9"></a>bzip2 Module</h1>
+<h2><span class="caption-index-2">9.1</span><a name="anchor-9-1"></a>Overview</h2>
 <p>
 The <code>bzip2</code> module provices measures to read/write BZIP2 files. To utilize it, import the <code>bzip2</code> module using <code>import</code> function.
 </p>
@@ -21,7 +22,7 @@ Below is an example to read data from a file and write its compressed data to a 
 <pre><code>import(bzip2)
 bzip2.writer('foo.dat.bz2').copyfrom('foo.dat')
 </code></pre>
-<h2><span class="caption-index-2">9.1</span><a name="anchor-9-1"></a>Module Function</h2>
+<h2><span class="caption-index-2">9.2</span><a name="anchor-9-2"></a>Module Function</h2>
 <p>
 <div><strong style="text-decoration:underline">bzip2.reader</strong></div>
 <div style="margin-bottom:1em"><code>bzip2.reader(stream:stream:r) {block?}</code></div>
@@ -41,7 +42,7 @@ The argument <code>blockSize100k</code> takes a number between 1 and 9 that spec
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|st:stream|</code>, where <code>st</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h2><span class="caption-index-2">9.2</span><a name="anchor-9-2"></a>Extension to stream Class</h2>
+<h2><span class="caption-index-2">9.3</span><a name="anchor-9-3"></a>Extension to stream Class</h2>
 <p>
 This module extends the <code>stream</code> class with methods described here.
 </p>
@@ -64,7 +65,7 @@ The argument <code>blockSize100k</code> takes a number between 1 and 9 that spec
 <p>
 If <code>block</code> is specified, it would be evaluated with a block parameter <code>|st:stream|</code>, where <code>st</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<h2><span class="caption-index-2">9.3</span><a name="anchor-9-3"></a>Thanks</h2>
+<h2><span class="caption-index-2">9.4</span><a name="anchor-9-4"></a>Thanks</h2>
 <p>
 This module uses libbzip2 which is distributed in the following site:
 </p>
