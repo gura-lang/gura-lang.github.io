@@ -13,7 +13,7 @@ title: Documents
 <tr>
 <td>Gura Language Manual</td><td>English</td>
 <td>
-<a href="https://github.com/gura-lang/gura/raw/master/doc/language-manual/gura-lang-en.pdf">PDF</a> /
+<a href="https://github.com/gura-lang/gura/raw/master/reference/language-manual/gura-lang-en.pdf">PDF</a> /
 <a href="language-manual/index.html">HTML</a>
 </td>
 </tr>
@@ -21,7 +21,7 @@ title: Documents
 <tr>
 <td>Gura Library Reference</td><td>English</td>
 <td>
-<a href="https://github.com/gura-lang/gura/raw/master/doc/library-reference/gura-lib-en.pdf">PDF</a> /
+<a href="https://github.com/gura-lang/gura/raw/master/reference/library-reference/gura-lib-en.pdf">PDF</a> /
 <a href="library-reference/index.html">HTML</a>
 </td>
 </tr>
