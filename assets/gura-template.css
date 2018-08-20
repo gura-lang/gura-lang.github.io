@@ -95,10 +95,6 @@ pre, pre.highlight {
 	font-weight: bold;
 }
 
-.funcentry-format {
-	margin: 0 1em 0 0;
-}
-
 /* settings for syntax highlighting */
 .highlight  { background: #f8f8ff; }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
