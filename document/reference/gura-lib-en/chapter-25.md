@@ -1500,18 +1500,18 @@ Following tables show values types of operands and returned value for each opera
 </p>
 <h2><span class="caption-index-2">25.3</span><a name="anchor-25-3"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">gmp.gcd</strong></div>
-<div style="margin-bottom:1em"><code>gmp.gcd(num1:gmp.mpz, num2:gmp.mpz):map</code></div>
+<div class="h5">gmp.gcd</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gmp.gcd(num1:gmp.mpz, num2:gmp.mpz):map</code></div>
 Calculates the greatest common divisor, GCD, between <code class="highlighter-rouge">num1</code> and <code class="highlighter-rouge">num2</code> and returns the result as <code class="highlighter-rouge">gmp.mpz</code>.
 </p>
 <p>
-<div><strong style="text-decoration:underline">gmp.lcm</strong></div>
-<div style="margin-bottom:1em"><code>gmp.lcm(num1:gmp.mpz, num2:gmp.mpz):map</code></div>
+<div class="h5">gmp.lcm</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gmp.lcm(num1:gmp.mpz, num2:gmp.mpz):map</code></div>
 Calculates the least common multiple, LCM, between <code class="highlighter-rouge">num1</code> and <code class="highlighter-rouge">num2</code> and returns the result as <code class="highlighter-rouge">gmp.mpz</code>.
 </p>
 <p>
-<div><strong style="text-decoration:underline">gmp.sqrt</strong></div>
-<div style="margin-bottom:1em"><code>gmp.sqrt(num):map</code></div>
+<div class="h5">gmp.sqrt</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gmp.sqrt(num):map</code></div>
 Calculates the square root of <code class="highlighter-rouge">num</code>.
 </p>
 <p>
@@ -1520,8 +1520,8 @@ The type of the argument <code class="highlighter-rouge">num</code> must be <cod
 <h2><span class="caption-index-2">25.4</span><a name="anchor-25-4"></a>gmp.mpf Class</h2>
 <h3><span class="caption-index-3">25.4.1</span><a name="anchor-25-4-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">gmp.mpf</strong></div>
-<div style="margin-bottom:1em"><code>gmp.mpf(value?, prec?:number):map {block?}</code></div>
+<div class="h5">gmp.mpf</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gmp.mpf(value?, prec?:number):map {block?}</code></div>
 Creates a <code class="highlighter-rouge">gmp.mpf</code> instance.
 </p>
 <p>
@@ -1532,20 +1532,20 @@ You can specify the precision of the number by the argument <code class="highlig
 </p>
 <h3><span class="caption-index-3">25.4.2</span><a name="anchor-25-4-2"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">gmp.mpf.get_default_prec</strong></div>
-<div style="margin-bottom:1em"><code>gmp.mpf.get_default_prec():static</code></div>
+<div class="h5">gmp.mpf.get_default_prec</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gmp.mpf.get_default_prec():static</code></div>
 Gets the default precision for <code class="highlighter-rouge">gmp.mpf</code>.
 </p>
 <p>
-<div><strong style="text-decoration:underline">gmp.mpf.set_default_prec</strong></div>
-<div style="margin-bottom:1em"><code>gmp.mpf.set_default_prec(prec:number):static:void</code></div>
+<div class="h5">gmp.mpf.set_default_prec</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gmp.mpf.set_default_prec(prec:number):static:void</code></div>
 Sets the default precision for <code class="highlighter-rouge">gmp.mpf</code>.
 </p>
 <h2><span class="caption-index-2">25.5</span><a name="anchor-25-5"></a>gmp.mpq Class</h2>
 <h3><span class="caption-index-3">25.5.1</span><a name="anchor-25-5-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">gmp.mpq</strong></div>
-<div style="margin-bottom:1em"><code>gmp.mpq(numer?, denom?:number):map {block?}</code></div>
+<div class="h5">gmp.mpq</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gmp.mpq(numer?, denom?:number):map {block?}</code></div>
 Creates a <code class="highlighter-rouge">gmp.mpq</code> instance.
 </p>
 <p>
@@ -1559,8 +1559,8 @@ You can call this function with one of the following form.
 </ul>
 <h3><span class="caption-index-3">25.5.2</span><a name="anchor-25-5-2"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">gmp.mpq#cast@mpf</strong></div>
-<div style="margin-bottom:1em"><code>gmp.mpq#cast@mpf() {block?}</code></div>
+<div class="h5">gmp.mpq#cast@mpf</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gmp.mpq#cast@mpf() {block?}</code></div>
 Casts the value to <code class="highlighter-rouge">gmp.mpf</code>.
 </p>
 <p>
@@ -1569,8 +1569,8 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 <h2><span class="caption-index-2">25.6</span><a name="anchor-25-6"></a>gmp.mpz Class</h2>
 <h3><span class="caption-index-3">25.6.1</span><a name="anchor-25-6-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">gmp.mpz</strong></div>
-<div style="margin-bottom:1em"><code>gmp.mpz(value?):map {block?}</code></div>
+<div class="h5">gmp.mpz</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gmp.mpz(value?):map {block?}</code></div>
 Creates a <code class="highlighter-rouge">gmp.mpz</code> instance.
 </p>
 <p>
@@ -1581,8 +1581,8 @@ If the argument <code class="highlighter-rouge">value</code> is specified, it wo
 This module extends the <code class="highlighter-rouge">string</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">string#cast@mpf</strong></div>
-<div style="margin-bottom:1em"><code>string#cast@mpf(prec?:number):map</code></div>
+<div class="h5">string#cast@mpf</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#cast@mpf(prec?:number):map</code></div>
 Casts the string to <code class="highlighter-rouge">gmp.mpf</code>.
 </p>
 <p>
@@ -1592,16 +1592,16 @@ You can specify the precision of the number by the argument <code class="highlig
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|num:gmp.mpf|</code>, where <code class="highlighter-rouge">num</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<div><strong style="text-decoration:underline">string#cast@mpq</strong></div>
-<div style="margin-bottom:1em"><code>string#cast@mpq():map {block?}</code></div>
+<div class="h5">string#cast@mpq</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#cast@mpq():map {block?}</code></div>
 Casts the string to <code class="highlighter-rouge">gmp.mpq</code>.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|num:gmp.mpq|</code>, where <code class="highlighter-rouge">num</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<div><strong style="text-decoration:underline">string#cast@mpz</strong></div>
-<div style="margin-bottom:1em"><code>string#cast@mpz(base?:number):map</code></div>
+<div class="h5">string#cast@mpz</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#cast@mpz(base?:number):map</code></div>
 Casts the string to <code class="highlighter-rouge">gmp.mpz</code>.
 </p>
 <p>

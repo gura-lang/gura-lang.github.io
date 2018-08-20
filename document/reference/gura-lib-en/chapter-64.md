@@ -33,8 +33,8 @@ zip.reader('foo.zip') {|r|
 </code></pre>
 <h3><span class="caption-index-3">64.2.1</span><a name="anchor-64-2-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">zip.reader</strong></div>
-<div style="margin-bottom:1em"><code>zip.reader(stream:stream:r) {block?}</code></div>
+<div class="h5">zip.reader</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>zip.reader(stream:stream:r) {block?}</code></div>
 Creates <code class="highlighter-rouge">zip.reader</code> instance from the specified stream.
 </p>
 <p>
@@ -42,16 +42,16 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 </p>
 <h3><span class="caption-index-3">64.2.2</span><a name="anchor-64-2-2"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">zip.reader#entry</strong></div>
-<div style="margin-bottom:1em"><code>zip.reader#entry(name:string) {block?}</code></div>
+<div class="h5">zip.reader#entry</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>zip.reader#entry(name:string) {block?}</code></div>
 Seeks entry in the zip file that matches the specified name and returns a <code class="highlighter-rouge">stream</code> instance associated with the entry.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<div><strong style="text-decoration:underline">zip.reader#entries</strong></div>
-<div style="margin-bottom:1em"><code>zip.reader#entries() {block?}</code></div>
+<div class="h5">zip.reader#entries</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>zip.reader#entries() {block?}</code></div>
 Creates an <code class="highlighter-rouge">iterator</code> instance that returns <code class="highlighter-rouge">stream</code> instances associated with each entry in the ZIP file.
 </p>
 <p>
@@ -88,8 +88,8 @@ zip.writer('foo.zip') {|w|
 </code></pre>
 <h3><span class="caption-index-3">64.3.1</span><a name="anchor-64-3-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">zip.writer</strong></div>
-<div style="margin-bottom:1em"><code>zip.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
+<div class="h5">zip.writer</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>zip.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
 Creates <code class="highlighter-rouge">zip.writer</code> instance from the stream.
 </p>
 <p>
@@ -105,8 +105,8 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 </p>
 <h3><span class="caption-index-3">64.3.2</span><a name="anchor-64-3-2"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">zip.writer#add</strong></div>
-<div style="margin-bottom:1em"><code>zip.writer#add(stream:stream:r, filename?:string, compression?:symbol):map:reduce</code></div>
+<div class="h5">zip.writer#add</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>zip.writer#add(stream:stream:r, filename?:string, compression?:symbol):map:reduce</code></div>
 Reads data from <code class="highlighter-rouge">stream</code> and adds it to the zip file. Entry name is decided by the file name associated with the stream unless it's specified by argument <code class="highlighter-rouge">filename</code>.
 </p>
 <p>
@@ -118,8 +118,8 @@ Argument <code class="highlighter-rouge">compression</code> specifies the compre
 <li><code class="highlighter-rouge">`bzip2</code></li>
 </ul>
 <p>
-<div><strong style="text-decoration:underline">zip.writer#close</strong></div>
-<div style="margin-bottom:1em"><code>zip.writer#close():void</code></div>
+<div class="h5">zip.writer#close</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>zip.writer#close():void</code></div>
 Closes the zip file after flushing cached data.
 </p>
 <h2><span class="caption-index-2">64.4</span><a name="anchor-64-4"></a>zip.stat Class</h2>

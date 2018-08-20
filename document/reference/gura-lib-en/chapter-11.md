@@ -18,8 +18,8 @@ Below is an example to print a calendar for the year 2015.
 </code></pre>
 <h2><span class="caption-index-2">11.2</span><a name="anchor-11-2"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">calendar.calendar</strong></div>
-<div style="margin-bottom:1em"><code>calendar.calendar(year:number, weekoffset:number =&gt; 0, ncols:number =&gt; 3)</code></div>
+<div class="h5">calendar.calendar</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>calendar.calendar(year:number, weekoffset:number =&gt; 0, ncols:number =&gt; 3)</code></div>
 Prints calendars of a specified year. The argument <code class="highlighter-rouge">weekoffset</code> specifies from which week the calendar starts, <code class="highlighter-rouge">0</code> from Sunday, <code class="highlighter-rouge">1</code> from Monday, and so on. The argument <code class="highlighter-rouge">ncols</code> specifies how many months are printed in one row.
 </p>
 {% endraw %}

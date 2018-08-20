@@ -81,8 +81,8 @@ R</td>
 <h2><span class="caption-index-2">61.3</span><a name="anchor-61-3"></a>xml.document Class</h2>
 <h3><span class="caption-index-3">61.3.1</span><a name="anchor-61-3-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">xml.document</strong></div>
-<div style="margin-bottom:1em"><code>xml.document(stream?:stream:r) {block?}</code></div>
+<div class="h5">xml.document</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.document(stream?:stream:r) {block?}</code></div>
 
 </p>
 <h3><span class="caption-index-3">61.3.2</span><a name="anchor-61-3-2"></a>Property</h3>
@@ -144,35 +144,35 @@ R</td>
 </p>
 <h3><span class="caption-index-3">61.3.3</span><a name="anchor-61-3-3"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">xml.document#parse</strong></div>
-<div style="margin-bottom:1em"><code>xml.document#parse(str:string):void</code></div>
+<div class="h5">xml.document#parse</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.document#parse(str:string):void</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">xml.document#read</strong></div>
-<div style="margin-bottom:1em"><code>xml.document#read(stream:stream:r):void</code></div>
+<div class="h5">xml.document#read</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.document#read(stream:stream:r):void</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">xml.document#textize</strong></div>
-<div style="margin-bottom:1em"><code>xml.document#textize(fancy?:boolean, tabs?:number)</code></div>
+<div class="h5">xml.document#textize</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.document#textize(fancy?:boolean, tabs?:number)</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">xml.document#write</strong></div>
-<div style="margin-bottom:1em"><code>xml.document#write(stream:stream:w, fancy?:boolean, tabs?:number):void</code></div>
+<div class="h5">xml.document#write</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.document#write(stream:stream:w, fancy?:boolean, tabs?:number):void</code></div>
 
 </p>
 <h2><span class="caption-index-2">61.4</span><a name="anchor-61-4"></a>xml.element Class</h2>
 <h3><span class="caption-index-3">61.4.1</span><a name="anchor-61-4-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">xml.element</strong></div>
-<div style="margin-bottom:1em"><code>xml.element(_tagname_:string, attrs%):map {block?}</code></div>
+<div class="h5">xml.element</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.element(_tagname_:string, attrs%):map {block?}</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">xml.comment</strong></div>
-<div style="margin-bottom:1em"><code>xml.comment(comment:string)</code></div>
+<div class="h5">xml.comment</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.comment(comment:string)</code></div>
 
 </p>
 <h3><span class="caption-index-3">61.4.2</span><a name="anchor-61-4-2"></a>Property</h3>
@@ -264,23 +264,23 @@ contained in this element. This value would be <code>nil</code> if the element h
 </p>
 <h3><span class="caption-index-3">61.4.3</span><a name="anchor-61-4-3"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">xml.element#addchild</strong></div>
-<div style="margin-bottom:1em"><code>xml.element#addchild(value):map:void</code></div>
+<div class="h5">xml.element#addchild</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.element#addchild(value):map:void</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">xml.element#gettext</strong></div>
-<div style="margin-bottom:1em"><code>xml.element#gettext()</code></div>
+<div class="h5">xml.element#gettext</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.element#gettext()</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">xml.element#textize</strong></div>
-<div style="margin-bottom:1em"><code>xml.element#textize(fancy?:boolean, indentLevel?:number, tabs?:number)</code></div>
+<div class="h5">xml.element#textize</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.element#textize(fancy?:boolean, indentLevel?:number, tabs?:number)</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">xml.element#write</strong></div>
-<div style="margin-bottom:1em"><code>xml.element#write(stream:stream:w, fancy?:boolean, indentLevel?:number, tabs?:number):void</code></div>
+<div class="h5">xml.element#write</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.element#write(stream:stream:w, fancy?:boolean, indentLevel?:number, tabs?:number):void</code></div>
 
 </p>
 <h2><span class="caption-index-2">61.5</span><a name="anchor-61-5"></a>xml.parser Class</h2>
@@ -312,14 +312,14 @@ The <code class="highlighter-rouge">xml.parser</code> class is a base class from
 </ul>
 <h3><span class="caption-index-3">61.5.1</span><a name="anchor-61-5-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">xml.parser</strong></div>
-<div style="margin-bottom:1em"><code>xml.parser() {block?}</code></div>
+<div class="h5">xml.parser</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.parser() {block?}</code></div>
 
 </p>
 <h3><span class="caption-index-3">61.5.2</span><a name="anchor-61-5-2"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">xml.parser#parse</strong></div>
-<div style="margin-bottom:1em"><code>xml.parser#parse(stream:stream:r):void</code></div>
+<div class="h5">xml.parser#parse</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xml.parser#parse(stream:stream:r):void</code></div>
 
 </p>
 <h2><span class="caption-index-2">61.6</span><a name="anchor-61-6"></a>Thanks</h2>

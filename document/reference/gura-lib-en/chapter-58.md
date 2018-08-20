@@ -13,8 +13,8 @@ The <code class="highlighter-rouge">uuid</code> module provides functions to gen
 </p>
 <h2><span class="caption-index-2">58.2</span><a name="anchor-58-2"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">uuid.generate</strong></div>
-<div style="margin-bottom:1em"><code>uuid.generate():[upper]</code></div>
+<div class="h5">uuid.generate</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>uuid.generate():[upper]</code></div>
 Generates a Universal Unique Identifier (UUID). In default, results are output in lower-case characters. Specifying :upper would generates it in upper-case characters.
 </p>
 {% endraw %}

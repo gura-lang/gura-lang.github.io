@@ -132,8 +132,8 @@ Thumbnail image as JPEG binary data.</td>
 </p>
 <h3><span class="caption-index-3">30.3.3</span><a name="anchor-30-3-3"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">jpeg.exif</strong></div>
-<div style="margin-bottom:1em"><code>jpeg.exif(stream?:stream:r):map:[raise] {block?}</code></div>
+<div class="h5">jpeg.exif</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>jpeg.exif(stream?:stream:r):map:[raise] {block?}</code></div>
 Reads EXIF data from <code class="highlighter-rouge">stream</code> and creates a <code class="highlighter-rouge">jpeg.exif</code> instance.
 </p>
 <p>
@@ -144,8 +144,8 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 </p>
 <h3><span class="caption-index-3">30.3.4</span><a name="anchor-30-3-4"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">jpeg.exif#each</strong></div>
-<div style="margin-bottom:1em"><code>jpeg.exif#each() {block?}</code></div>
+<div class="h5">jpeg.exif#each</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>jpeg.exif#each() {block?}</code></div>
 Creates an iterator that returns <code class="highlighter-rouge">jpeg.tag</code> values as elements that are stored in the property <code class="highlighter-rouge">jpeg.exif#ifd0</code>.
 </p>
 <p>
@@ -215,8 +215,8 @@ R</td>
 </p>
 <h3><span class="caption-index-3">30.4.3</span><a name="anchor-30-4-3"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">jpeg.ifd#each</strong></div>
-<div style="margin-bottom:1em"><code>jpeg.ifd#each() {block?}</code></div>
+<div class="h5">jpeg.ifd#each</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>jpeg.ifd#each() {block?}</code></div>
 Creates an iterator that returns <code class="highlighter-rouge">jpeg.tag</code> values as elements that are stored in the target <code class="highlighter-rouge">jpeg.ifd</code> instance.
 </p>
 <p>
@@ -348,8 +348,8 @@ Tag value. When the attribute <code class="highlighter-rouge">:cooked</code> is 
 This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">image#read@jpeg</strong></div>
-<div style="margin-bottom:1em"><code>image#read@jpeg(stream:stream:r, size?:number):reduce:[fast,rough]</code></div>
+<div class="h5">image#read@jpeg</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read@jpeg(stream:stream:r, size?:number):reduce:[fast,rough]</code></div>
 Reads a JPEG image data from the specified <code class="highlighter-rouge">stream</code>.
 </p>
 <p>
@@ -362,8 +362,8 @@ The attribute <code class="highlighter-rouge">:fast</code> indicates a fast but 
 The attriubte <code class="highlighter-rouge">:rough</code> is only valid when <code class="highlighter-rouge">size</code> is specified and makes the shrinked image with nearest neighbor method. Othereise, shrinking shall be done with bilinear method.
 </p>
 <p>
-<div><strong style="text-decoration:underline">image#write@jpeg</strong></div>
-<div style="margin-bottom:1em"><code>image#write@jpeg(stream:stream:w, quality:number =&gt; 75):reduce</code></div>
+<div class="h5">image#write@jpeg</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#write@jpeg(stream:stream:w, quality:number =&gt; 75):reduce</code></div>
 Writes a JPEG image data to the specified <code class="highlighter-rouge">stream</code>.
 </p>
 <p>

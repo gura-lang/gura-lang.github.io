@@ -13,16 +13,16 @@ The <code class="highlighter-rouge">fs</code> module provides measures to access
 </p>
 <h2><span class="caption-index-2">21.2</span><a name="anchor-21-2"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">fs.chdir</strong></div>
-<div style="margin-bottom:1em"><code>fs.chdir(pathname:string) {block?}</code></div>
+<div class="h5">fs.chdir</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.chdir(pathname:string) {block?}</code></div>
 Changes the current working directory to <code class="highlighter-rouge">pathname</code>.
 </p>
 <p>
 The block would be evaluated if specified, and the working directory would be changed only during that evaluation period.
 </p>
 <p>
-<div><strong style="text-decoration:underline">fs.chmod</strong></div>
-<div style="margin-bottom:1em"><code>fs.chmod(mode, pathname:string):map:void:[follow_link]</code></div>
+<div class="h5">fs.chmod</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.chmod(mode, pathname:string):map:void:[follow_link]</code></div>
 Changes the access mode of a file specified by <code class="highlighter-rouge">pathname</code>.
 </p>
 <p>
@@ -78,8 +78,8 @@ If the modification target is a link file, each platform would have different re
 <li>Windows .. Modifies permissions of the link file. Attribute <code class="highlighter-rouge">:follow_link</code> has no effect.</li>
 </ul>
 <p>
-<div><strong style="text-decoration:underline">fs.copy</strong></div>
-<div style="margin-bottom:1em"><code>fs.copy(src:string, dst:string):map:void:[overwrite]</code></div>
+<div class="h5">fs.copy</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.copy(src:string, dst:string):map:void:[overwrite]</code></div>
 Copies a file.
 </p>
 <p>
@@ -89,39 +89,39 @@ An argument <code class="highlighter-rouge">src</code> needs to specify a path n
 If a destination file already exists, an error occurs. Specifying an attribute <code class="highlighter-rouge">:overwrite</code> would overwrite an existing one.
 </p>
 <p>
-<div><strong style="text-decoration:underline">fs.cpdir</strong></div>
-<div style="margin-bottom:1em"><code>fs.cpdir(src:string, dst:string):map:void:[tree]</code></div>
+<div class="h5">fs.cpdir</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.cpdir(src:string, dst:string):map:void:[tree]</code></div>
 Copies a directory.
 </p>
 <p>
 Arguments <code class="highlighter-rouge">src</code> and <code class="highlighter-rouge">dst</code> specify source directory and destination directory respectively. In default, sub directories are not copied.Specifying <code class="highlighter-rouge">:tree</code> attribute would copy all the sub directories in the source.
 </p>
 <p>
-<div><strong style="text-decoration:underline">fs.getcwd</strong></div>
-<div style="margin-bottom:1em"><code>fs.getcwd()</code></div>
+<div class="h5">fs.getcwd</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.getcwd()</code></div>
 Returns the current working directory.
 </p>
 <p>
-<div><strong style="text-decoration:underline">fs.mkdir</strong></div>
-<div style="margin-bottom:1em"><code>fs.mkdir(pathname:string):map:void:[tree]</code></div>
+<div class="h5">fs.mkdir</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.mkdir(pathname:string):map:void:[tree]</code></div>
 Creates a directory.
 </p>
 <p>
 If <code class="highlighter-rouge">pathname</code> consists of multiple sub directories and some of them still doesn't exist, an error occurs. Specifying <code class="highlighter-rouge">:tree</code> attribute would create such directories.
 </p>
 <p>
-<div><strong style="text-decoration:underline">fs.remove</strong></div>
-<div style="margin-bottom:1em"><code>fs.remove(pathname:string):map:void</code></div>
+<div class="h5">fs.remove</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.remove(pathname:string):map:void</code></div>
 Removes a file from the file system.
 </p>
 <p>
-<div><strong style="text-decoration:underline">fs.rename</strong></div>
-<div style="margin-bottom:1em"><code>fs.rename(src:string, dst:string):map:void</code></div>
+<div class="h5">fs.rename</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.rename(src:string, dst:string):map:void</code></div>
 Renames a file or directory.
 </p>
 <p>
-<div><strong style="text-decoration:underline">fs.rmdir</strong></div>
-<div style="margin-bottom:1em"><code>fs.rmdir(pathname:string):map:void:[tree]</code></div>
+<div class="h5">fs.rmdir</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.rmdir(pathname:string):map:void:[tree]</code></div>
 Removes a directory.
 </p>
 <p>
@@ -133,8 +133,8 @@ An instance of <code class="highlighter-rouge">fs.stat</code> class contains inf
 </p>
 <h3><span class="caption-index-3">21.3.1</span><a name="anchor-21-3-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">fs.stat</strong></div>
-<div style="margin-bottom:1em"><code>fs.stat(pathname:string) {block?}</code></div>
+<div class="h5">fs.stat</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.stat(pathname:string) {block?}</code></div>
 
 </p>
 <h3><span class="caption-index-3">21.3.2</span><a name="anchor-21-3-2"></a>Property</h3>

@@ -39,13 +39,13 @@ When instance method <code class="highlighter-rouge">image#write()</code> is pro
 This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">image#read@ppm</strong></div>
-<div style="margin-bottom:1em"><code>image#read@ppm(stream:stream:r):reduce</code></div>
+<div class="h5">image#read@ppm</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read@ppm(stream:stream:r):reduce</code></div>
 Reads a PPM/PGM image from a stream.
 </p>
 <p>
-<div><strong style="text-decoration:underline">image#write@ppm</strong></div>
-<div style="margin-bottom:1em"><code>image#write@ppm(stream:stream:w):reduce:[gray]</code></div>
+<div class="h5">image#write@ppm</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#write@ppm(stream:stream:w):reduce:[gray]</code></div>
 Writes a PPM/PGM image to a stream.
 </p>
 {% endraw %}

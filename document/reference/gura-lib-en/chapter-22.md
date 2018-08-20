@@ -86,8 +86,8 @@ The <code class="highlighter-rouge">gif.content</code> class provides properties
 </ul>
 <h3><span class="caption-index-3">22.3.1</span><a name="anchor-22-3-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">gif.content</strong></div>
-<div style="margin-bottom:1em"><code>gif.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code></div>
+<div class="h5">gif.content</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gif.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code></div>
 Reads a GIF data from a stream and returns an object that contains GIF related information and images of a specified format. format is is <code class="highlighter-rouge">rgb,</code>rgba or <code class="highlighter-rouge">noimage. If</code>noimage is specified, only the information data is read
 </p>
 <h3><span class="caption-index-3">22.3.2</span><a name="anchor-22-3-2"></a>Property</h3>
@@ -191,8 +191,8 @@ R</td>
 </p>
 <h3><span class="caption-index-3">22.3.3</span><a name="anchor-22-3-3"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">gif.content#addimage</strong></div>
-<div style="margin-bottom:1em"><code>gif.content#addimage(image:image, delayTime:number =&gt; 10, leftPos:number =&gt; 0, topPos:number =&gt; 0, disposalMethod:symbol =&gt; `none):map:reduce</code></div>
+<div class="h5">gif.content#addimage</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gif.content#addimage(image:image, delayTime:number =&gt; 10, leftPos:number =&gt; 0, topPos:number =&gt; 0, disposalMethod:symbol =&gt; `none):map:reduce</code></div>
 Adds an image to GIF information.
 </p>
 <p>
@@ -217,8 +217,8 @@ The argument <code class="highlighter-rouge">disposalMethod</code> takes one of 
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<div><strong style="text-decoration:underline">gif.content#write</strong></div>
-<div style="margin-bottom:1em"><code>gif.content#write(stream:stream:w):reduce</code></div>
+<div class="h5">gif.content#write</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gif.content#write(stream:stream:w):reduce</code></div>
 Writes a GIF image to a stream.
 </p>
 <p>
@@ -952,16 +952,16 @@ R</td>
 This module extends the <code class="highlighter-rouge">stream</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">image#read@gif</strong></div>
-<div style="margin-bottom:1em"><code>image#read@gif(stream:stream:r):reduce</code></div>
+<div class="h5">image#read@gif</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read@gif(stream:stream:r):reduce</code></div>
 Reads a GIF image from a stream.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
 <p>
-<div><strong style="text-decoration:underline">image#write@gif</strong></div>
-<div style="margin-bottom:1em"><code>image#write@gif(stream:stream:w):reduce</code></div>
+<div class="h5">image#write@gif</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#write@gif(stream:stream:w):reduce</code></div>
 Writes a GIF image to a stream.
 </p>
 <p>

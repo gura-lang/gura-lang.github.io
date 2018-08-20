@@ -13,49 +13,49 @@ The <code class="highlighter-rouge">curl</code> module provices measures to acce
 </p>
 <h2><span class="caption-index-2">15.2</span><a name="anchor-15-2"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">curl.version</strong></div>
-<div style="margin-bottom:1em"><code>curl.version() {block?}</code></div>
+<div class="h5">curl.version</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>curl.version() {block?}</code></div>
 Returns a string of the libcurl version.
 </p>
 <p>
-<div><strong style="text-decoration:underline">curl.easy_init</strong></div>
-<div style="margin-bottom:1em"><code>curl.easy_init() {block?}</code></div>
+<div class="h5">curl.easy_init</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>curl.easy_init() {block?}</code></div>
 Initializes cURL and returns a easy_handle object.
 </p>
 <h2><span class="caption-index-2">15.3</span><a name="anchor-15-3"></a>curl.easy_handle Class</h2>
 <p>
-<div><strong style="text-decoration:underline">curl.easy_handle#escape</strong></div>
-<div style="margin-bottom:1em"><code>curl.easy_handle#escape(string:string):void</code></div>
+<div class="h5">curl.easy_handle#escape</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>curl.easy_handle#escape(string:string):void</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">curl.easy_handle#getinfo</strong></div>
-<div style="margin-bottom:1em"><code>curl.easy_handle#getinfo(info:number)</code></div>
+<div class="h5">curl.easy_handle#getinfo</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>curl.easy_handle#getinfo(info:number)</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">curl.easy_handle#recv</strong></div>
-<div style="margin-bottom:1em"><code>curl.easy_handle#recv(buflen:number)</code></div>
+<div class="h5">curl.easy_handle#recv</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>curl.easy_handle#recv(buflen:number)</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">curl.easy_handle#reset</strong></div>
-<div style="margin-bottom:1em"><code>curl.easy_handle#reset():void</code></div>
+<div class="h5">curl.easy_handle#reset</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>curl.easy_handle#reset():void</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">curl.easy_handle#send</strong></div>
-<div style="margin-bottom:1em"><code>curl.easy_handle#send(buffer:binary)</code></div>
+<div class="h5">curl.easy_handle#send</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>curl.easy_handle#send(buffer:binary)</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">curl.easy_handle#setopt</strong></div>
-<div style="margin-bottom:1em"><code>curl.easy_handle#setopt(option:number, arg):void</code></div>
+<div class="h5">curl.easy_handle#setopt</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>curl.easy_handle#setopt(option:number, arg):void</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">curl.easy_handle#unescape</strong></div>
-<div style="margin-bottom:1em"><code>curl.easy_handle#unescape(string:string):void</code></div>
+<div class="h5">curl.easy_handle#unescape</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>curl.easy_handle#unescape(string:string):void</code></div>
 
 </p>
 <h2><span class="caption-index-2">15.4</span><a name="anchor-15-4"></a>Thanks</h2>

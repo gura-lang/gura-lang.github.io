@@ -14,13 +14,13 @@ nextpage: chapter-60.html#naviitem-selected
 This module extends the <code class="highlighter-rouge">audio</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">audio#read@wav</strong></div>
-<div style="margin-bottom:1em"><code>audio#read@wav(stream:stream:r):reduce</code></div>
+<div class="h5">audio#read@wav</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>audio#read@wav(stream:stream:r):reduce</code></div>
 Reads WAV audio from a stream.
 </p>
 <p>
-<div><strong style="text-decoration:underline">audio#write@wav</strong></div>
-<div style="margin-bottom:1em"><code>audio#write@wav(stream:stream:w):reduce</code></div>
+<div class="h5">audio#write@wav</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>audio#write@wav(stream:stream:w):reduce</code></div>
 Writes WAV audio to a stream.
 </p>
 {% endraw %}

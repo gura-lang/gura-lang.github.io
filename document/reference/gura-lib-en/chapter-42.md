@@ -13,8 +13,8 @@ The <code class="highlighter-rouge">mtp</code> module provides measures to read/
 </p>
 <h2><span class="caption-index-2">42.2</span><a name="anchor-42-2"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">mtp.detect_devices</strong></div>
-<div style="margin-bottom:1em"><code>mtp.detect_devices() {block?}</code></div>
+<div class="h5">mtp.detect_devices</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.detect_devices() {block?}</code></div>
 Detects MTP devices and returns a list of <code class="highlighter-rouge">mtp.device</code> instances.
 </p>
 <h2><span class="caption-index-2">42.3</span><a name="anchor-42-3"></a>mtp.device Class</h2>
@@ -197,23 +197,23 @@ Volume identifier.</td>
 </p>
 <h3><span class="caption-index-3">42.4.2</span><a name="anchor-42-4-2"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">mtp.storage#opendir</strong></div>
-<div style="margin-bottom:1em"><code>mtp.storage#opendir(pathname:string) {block?}</code></div>
+<div class="h5">mtp.storage#opendir</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#opendir(pathname:string) {block?}</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">mtp.storage#recvfile</strong></div>
-<div style="margin-bottom:1em"><code>mtp.storage#recvfile(pathname:string, stream:stream:w):reduce {block?}</code></div>
+<div class="h5">mtp.storage#recvfile</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#recvfile(pathname:string, stream:stream:w):reduce {block?}</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">mtp.storage#remove</strong></div>
-<div style="margin-bottom:1em"><code>mtp.storage#remove(pathname:string):reduce</code></div>
+<div class="h5">mtp.storage#remove</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#remove(pathname:string):reduce</code></div>
 
 </p>
 <p>
-<div><strong style="text-decoration:underline">mtp.storage#sendfile</strong></div>
-<div style="margin-bottom:1em"><code>mtp.storage#sendfile(pathname:string, stream:stream:r):reduce {block?}</code></div>
+<div class="h5">mtp.storage#sendfile</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#sendfile(pathname:string, stream:stream:r):reduce {block?}</code></div>
 
 </p>
 <h2><span class="caption-index-2">42.5</span><a name="anchor-42-5"></a>mtp.stat Class</h2>

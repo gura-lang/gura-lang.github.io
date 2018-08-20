@@ -31,8 +31,8 @@ A <code class="highlighter-rouge">fftw.plan</code> instance has the following pr
 This module extends the <code class="highlighter-rouge">array</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">array#dft</strong></div>
-<div style="margin-bottom:1em"><code>array#dft() {block?}</code></div>
+<div class="h5">array#dft</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#dft() {block?}</code></div>
 
 </p>
 <h2><span class="caption-index-2">19.4</span><a name="anchor-19-4"></a>Thanks</h2>

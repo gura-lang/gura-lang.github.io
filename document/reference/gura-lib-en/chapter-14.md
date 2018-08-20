@@ -23,8 +23,8 @@ printf('name:%s, age:%d, email:%s¥n',
 </code></pre>
 <h2><span class="caption-index-2">14.2</span><a name="anchor-14-2"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">csv.parse</strong></div>
-<div style="margin-bottom:1em"><code>csv.parse(str:string):map {block?}</code></div>
+<div class="h5">csv.parse</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>csv.parse(str:string):map {block?}</code></div>
 Creates an iterator that parses a text in CSV format that is contained in the specified string and returns a list of fields as its each element.
 </p>
 <p>
@@ -45,8 +45,8 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<div><strong style="text-decoration:underline">csv.read</strong></div>
-<div style="margin-bottom:1em"><code>csv.read(stream:stream:r) {block?}</code></div>
+<div class="h5">csv.read</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>csv.read(stream:stream:r) {block?}</code></div>
 Creates an iterator that parses a text in CSV format from the specified stream and returns a list of fields as its each element.
 </p>
 <p>
@@ -69,8 +69,8 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 <h2><span class="caption-index-2">14.3</span><a name="anchor-14-3"></a>csv.writer Class</h2>
 <h3><span class="caption-index-3">14.3.1</span><a name="anchor-14-3-1"></a>Constructor</h3>
 <p>
-<div><strong style="text-decoration:underline">csv.writer</strong></div>
-<div style="margin-bottom:1em"><code>csv.writer(stream:stream:w, format?:string) {block?}</code></div>
+<div class="h5">csv.writer</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>csv.writer(stream:stream:w, format?:string) {block?}</code></div>
 Creates a <code class="highlighter-rouge">csv.writer</code> instance that provides methods to write CSV text to the specified stream.
 </p>
 <p>
@@ -78,8 +78,8 @@ The argument <code class="highlighter-rouge">format</code> specifies a printf-st
 </p>
 <h3><span class="caption-index-3">14.3.2</span><a name="anchor-14-3-2"></a>Method</h3>
 <p>
-<div><strong style="text-decoration:underline">csv.writer#write</strong></div>
-<div style="margin-bottom:1em"><code>csv.writer#write(fields+):map:reduce</code></div>
+<div class="h5">csv.writer#write</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>csv.writer#write(fields+):map:reduce</code></div>
 Writes values in CSV format.
 </p>
 <p>
@@ -90,8 +90,8 @@ The argument <code class="highlighter-rouge">fields</code> takes <code class="hi
 This module extends the <code class="highlighter-rouge">stream</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">stream#read@csv</strong></div>
-<div style="margin-bottom:1em"><code>stream#read@csv() {block?}</code></div>
+<div class="h5">stream#read@csv</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#read@csv() {block?}</code></div>
 Creates an iterator that parses a text in CSV format from the specified stream and returns a list of fields as its each element.
 </p>
 <p>
@@ -112,8 +112,8 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <p>
-<div><strong style="text-decoration:underline">stream#writer@csv</strong></div>
-<div style="margin-bottom:1em"><code>stream#writer@csv(format?:string) {block?}</code></div>
+<div class="h5">stream#writer@csv</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#writer@csv(format?:string) {block?}</code></div>
 Creates a <code class="highlighter-rouge">csv.writer</code> instance that provides methods to write CSV text to the target stream.
 </p>
 <p>

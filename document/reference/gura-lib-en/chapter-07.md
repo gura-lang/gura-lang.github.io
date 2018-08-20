@@ -27,32 +27,32 @@ To encode a data into base64 format, use one of the following functions:
 </ul>
 <h2><span class="caption-index-2">7.2</span><a name="anchor-7-2"></a>Module Function</h2>
 <p>
-<div><strong style="text-decoration:underline">base64.decode</strong></div>
-<div style="margin-bottom:1em"><code>base64.decode(stream:stream:r) {block?}</code></div>
+<div class="h5">base64.decode</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>base64.decode(stream:stream:r) {block?}</code></div>
 Reads text stream that is formatted in base64 and returns the decoded result in binary.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|data:binary|</code>, where <code class="highlighter-rouge">data</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<div><strong style="text-decoration:underline">base64.encode</strong></div>
-<div style="margin-bottom:1em"><code>base64.encode(stream:stream:r, linelen:number:nil =&gt; 76) {block?}</code></div>
+<div class="h5">base64.encode</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>base64.encode(stream:stream:r, linelen:number:nil =&gt; 76) {block?}</code></div>
 Encodes content of the stream into base64 format and returns the result in binary.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|data:binary|</code>, where <code class="highlighter-rouge">data</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<div><strong style="text-decoration:underline">base64.reader</strong></div>
-<div style="margin-bottom:1em"><code>base64.reader(stream:stream:r) {block?}</code></div>
+<div class="h5">base64.reader</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>base64.reader(stream:stream:r) {block?}</code></div>
 Creates a stream instance that reads data formatted in base64 from <code class="highlighter-rouge">stream</code>.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<div><strong style="text-decoration:underline">base64.writer</strong></div>
-<div style="margin-bottom:1em"><code>base64.writer(stream:stream:w, linelen:number:nil =&gt; 76) {block?}</code></div>
+<div class="h5">base64.writer</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>base64.writer(stream:stream:w, linelen:number:nil =&gt; 76) {block?}</code></div>
 Creates a stream instance that encodes data to base64 format and writes it to the <code class="highlighter-rouge">stream</code>.
 </p>
 <p>
@@ -66,16 +66,16 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 This module extends the <code class="highlighter-rouge">stream</code> class with methods described here.
 </p>
 <p>
-<div><strong style="text-decoration:underline">stream#reader@base64</strong></div>
-<div style="margin-bottom:1em"><code>stream#reader@base64() {block?}</code></div>
+<div class="h5">stream#reader@base64</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#reader@base64() {block?}</code></div>
 Creates a stream instance that reads data formatted in base64 from the target stream instance.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <p>
-<div><strong style="text-decoration:underline">stream#writer@base64</strong></div>
-<div style="margin-bottom:1em"><code>stream#writer@base64(linelen:number:nil =&gt; 76) {block?}</code></div>
+<div class="h5">stream#writer@base64</div>
+<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#writer@base64(linelen:number:nil =&gt; 76) {block?}</code></div>
 Creates a stream instance that encodes data to base64 format and writes it to the target stream instance.
 </p>
 <p>
