@@ -1,7 +1,7 @@
 ---
 layout: sub
 lang: en
-title: download
+title: Gura Programming Language - download
 redirect_from: /Download.html
 ---
 {% assign gura_version = '0.7.0' %}

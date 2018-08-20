@@ -1,7 +1,7 @@
 ---
 layout: top
 lang: en
-title: top
+title: Gura Programming Language
 ---
 <div class="jumbotron">
   <div class="container-fluid">
@@ -61,7 +61,7 @@ Below is a code to do the same thing using a control sequence:
 	  </div>
 	  <div class="card-body">
 		<dl class="row">
-		  <dt class="col-sm-3">2018-08-17</dt>
+		  <dt class="col-sm-3">2018-08-20</dt>
 		  <dd class="col-sm-9">The web site was renewed.</dd>
 
 		  <dt class="col-sm-3">2017-07-04</dt>

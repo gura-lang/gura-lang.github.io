@@ -1,7 +1,7 @@
 ---
 layout: sub
 lang: en
-title: document
+title: Gura Programming Language - document
 ---
 <!-- ----------------------------------------------------------------------- -->
 

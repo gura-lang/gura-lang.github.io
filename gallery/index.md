@@ -1,7 +1,7 @@
 ---
 layout: sub
 lang: en
-title: gallery
+title: Gura Programming Language - gallery
 ---
 ## Application
 
