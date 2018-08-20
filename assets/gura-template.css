@@ -25,6 +25,17 @@ body {
 	padding-top: 56px;		/* Height of navbar */
 }
 
+a {
+	color: #0000cc;
+}
+
+pre, pre.highlight {
+	padding: 1em;
+	font-size: 14px;
+	border: #cccccc 1px solid;
+	background: #eeeeee;
+}
+
 .list-group.list-group-root {
 	padding: 0;
 	overflow: hidden;
@@ -76,18 +87,16 @@ body {
 }
 
 .caption-index-1, .caption-index-2, .caption-index-3, .caption-index-4, .caption-index-5, .caption-index-6 {
-  margin:0 1em 0 0;
+	margin: 0 1em 0 0;
 }
 
-a {
-	color: #0000cc;
+.funcentry-title {
+	text-decoration: underline;
+	font-weight: bold;
 }
 
-pre, pre.highlight {
-	padding: 1em;
-	font-size: 14px;
-	border: #cccccc 1px solid;
-	background: #eeeeee;
+.funcentry-format {
+	margin: 0 1em 0 0;
 }
 
 /* settings for syntax highlighting */
