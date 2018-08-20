@@ -43,7 +43,7 @@ Many of the built-in functions such as `printf` are implemted with **Implicit Ma
 and automatically repeat its evaluation when given with iterators or lists as their arguments,
 like `1..` and `readlines('foo.txt')` in the above.
 
-Below is a code to do the same thing using a control sequence:
+Below is a code to do the same thing using a control sequence instead of Implicit Mapping:
 
     i = 1
     for (line in readlines('foo.txt')) {
