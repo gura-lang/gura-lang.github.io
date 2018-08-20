@@ -46,17 +46,17 @@ title: Gura Programming Language - document
 
 <tbody>
 <tr>
-<td><a href="article/Comparison-between-Java8-and-Gura/">Comparison between Java 8 and Gura</a></td>
+<td><a href="article/Comparison-between-Java8-and-Gura-en/">Comparison between Java 8 and Gura</a></td>
 <td>English</td>
 </tr>
 
 <tr>
-<td><a href="article/Script-to-Generate-Prime-Numbers/">Script to Generate Prime Numbers</a></td>
+<td><a href="article/Script-to-Generate-Prime-Numbers-en/">Script to Generate Prime Numbers</a></td>
 <td>English</td>
 </tr>
 
 <tr>
-<td><a href="article/Database-Access/">Database Access</a></td>
+<td><a href="article/Database-Access-en/">Database Access</a></td>
 <td>English</td>
 </tr>
 </tbody>
