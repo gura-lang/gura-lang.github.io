@@ -90,6 +90,13 @@ code.highlighter-rouge {
 	padding: 0 .2em;
 }
 
+pre, pre.highlight {
+	padding: 1em;
+	font-size: 14px;
+	border: #cccccc 1px solid;
+	background: #eeeeee;
+}
+
 /* settings for syntax highlighting */
 .highlight  { background: #f8f8ff; }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
