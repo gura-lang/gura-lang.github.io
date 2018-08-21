@@ -18,9 +18,13 @@ The <code class="highlighter-rouge">mtp</code> module provides measures to read/
 Detects MTP devices and returns a list of <code class="highlighter-rouge">mtp.device</code> instances.
 </p>
 <h2><span class="caption-index-2">42.3</span><a name="anchor-42-3"></a>mtp.device Class</h2>
-<h3><span class="caption-index-3">42.3.1</span><a name="anchor-42-3-1"></a>Property</h3>
+<h3><span class="caption-index-3">42.3.1</span><a name="anchor-42-3-1"></a>Overview</h3>
 <p>
-A <code class="highlighter-rouge">mtp.device</code> instance has the following properties:
+The <code class="highlighter-rouge">mtp.device</code> class provides information such as device's friendly name and manufacturer name. It also provides a list of <code class="highlighter-rouge">mtp.storage</code> instances through which you can transfer and manipulate files on the remote device.
+</p>
+<h3><span class="caption-index-3">42.3.2</span><a name="anchor-42-3-2"></a>Property</h3>
+<p>
+An <code class="highlighter-rouge">mtp.device</code> instance has the following properties:
 </p>
 <p>
 <table class="table">
@@ -77,9 +81,13 @@ Returns a list of <code class="highlighter-rouge">mtp.storage</code> instances.<
 
 </p>
 <h2><span class="caption-index-2">42.4</span><a name="anchor-42-4"></a>mtp.storage Class</h2>
-<h3><span class="caption-index-3">42.4.1</span><a name="anchor-42-4-1"></a>Property</h3>
+<h3><span class="caption-index-3">42.4.1</span><a name="anchor-42-4-1"></a>Overview</h3>
 <p>
-A <code class="highlighter-rouge">mtp.storage</code> instance has the following properties:
+The class <code class="highlighter-rouge">mtp.storage</code> provices methods to transfer files from/to a device and to list and manipulate files on a device.
+</p>
+<h3><span class="caption-index-3">42.4.2</span><a name="anchor-42-4-2"></a>Property</h3>
+<p>
+An <code class="highlighter-rouge">mtp.storage</code> instance has the following properties:
 </p>
 <p>
 <table class="table">
@@ -195,7 +203,7 @@ Volume identifier.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">42.4.2</span><a name="anchor-42-4-2"></a>Method</h3>
+<h3><span class="caption-index-3">42.4.3</span><a name="anchor-42-4-3"></a>Method</h3>
 <p>
 <div class="h5">mtp.storage#opendir</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#opendir(pathname:string) {block?}</code></div>
@@ -217,7 +225,8 @@ Volume identifier.</td>
 
 </p>
 <h2><span class="caption-index-2">42.5</span><a name="anchor-42-5"></a>mtp.stat Class</h2>
-<h3><span class="caption-index-3">42.5.1</span><a name="anchor-42-5-1"></a>Property</h3>
+<h3><span class="caption-index-3">42.5.1</span><a name="anchor-42-5-1"></a>Overview</h3>
+<h3><span class="caption-index-3">42.5.2</span><a name="anchor-42-5-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">mtp.stat</code> instance has the following properties:
 </p>
@@ -311,7 +320,6 @@ File size in bytes.</td>
 </table>
 
 </p>
-<h3><span class="caption-index-3">42.5.2</span><a name="anchor-42-5-2"></a>Method</h3>
 <h2><span class="caption-index-2">42.6</span><a name="anchor-42-6"></a>Thanks</h2>
 <p>
 This module uses libusb and libmtp library which is distributed in the following site:
