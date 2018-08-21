@@ -291,28 +291,74 @@ IJKL
 This is parsed as <code class="highlighter-rouge">'ABCD\nEFGH\nIJKL\n'</code>.
 </p>
 <p>
-The prefix <code class="highlighter-rouge">R</code> also removes indentation characters that appear at each line.
+The prefix <code class="highlighter-rouge">R</code> also removes indentation characters that appear at each line. In the following code, alhough the first string is placed at the top of the lines, the second placed after two spaces and the third followed after four spaces, all of them mean the same string literal.
 </p>
-<pre class="highlight"><code>if (flag) {
+<pre class="highlight"><code>R'''
+ABCD
+EFGH
+IJKL
+'''
+  R'''
+  ABCD
+  EFGH
+  IJKL
+  '''
+    R'''
+    ABCD
+    EFGH
+    IJKL
+    '''
+</code></pre>
+<p>
+Each line needs to have the same indentation with the line that contains the string opening token <code class="highlighter-rouge">R'''</code>. Any tokens can be described before the opening token.
+</p>
+<pre class="highlight"><code>print(R'''
+ABCD
+EFGH
+IJKL
+''')
+  print(R'''
+  ABCD
+  EFGH
+  IJKL
+  ''')
     print(R'''
     ABCD
     EFGH
     IJKL
     ''')
-}
 </code></pre>
 <p>
-Assuming that there are four spaces before the expression <code class="highlighter-rouge">print(R'''</code>, the parser would remove four spaces at top of each line within the multi-lined string. This feature helps you describe multi-lined strings in indented blocks without disarranging the appearance.
+This feature helps you describe multi-lined strings in indented blocks without disarranging the appearance.
 </p>
 <p>
-A string literal prefixed by <code class="highlighter-rouge">b</code> would be treated as a sequence of binary data instead of character code.
+A string literal prefixed by <code class="highlighter-rouge">b</code> will create a <code class="highlighter-rouge">binary</code> instance instead of that of <code class="highlighter-rouge">string</code>. The prefix can be specified in combination with other prefixes such as <code class="highlighter-rouge">R</code>.
 </p>
+<pre class="highlight"><code>b'AB\x00\x12CD'  # a binary containing (0x41, 0x42, 0x00, 0x12, 0x43, 0x44)
+
+bR'''
+AB
+CD
+'''  # a binary containing (0x41, 0x42, 0x0a, 0x43, 0x44, 0x0a)
+</code></pre>
 <p>
-A string literal prefixed by <code class="highlighter-rouge">e</code> would be treated as a string that may contain embedded scripts written in a manner for the template engine.
+A string literal prefixed by <code class="highlighter-rouge">e</code> will be treated as a string that contains embedded scripts written in a manner for the template engine and generates a <code class="highlighter-rouge">string</code> instance after evaluating the scripts. The prefix can be specified in combination with other prefixes such as <code class="highlighter-rouge">R</code>.
 </p>
+<pre class="highlight"><code>name = 'Mike'
+e'Your name is ${name}.'  # a string 'Your name is Mike.'
+
+names = ['Mike', 'Alice', 'Harry']
+eR'''
+${for (name in names)}
+- ${name}
+${end}
+'''  # a string '- Mike]\n- Alice]\n- Harry]\n'
+</code></pre>
 <p>
-A string literal can also be appended by a suffix symbol that has been registered in Suffix Manager. There's no built-in suffix for string literals.
+A string literal can also be appended by a suffix symbol that has been registered in Suffix Manager. So far, the only suffix for sting is <code class="highlighter-rouge">T</code> that creates a <code class="highlighter-rouge">template</code> instance after parsing the content of the preceding string.
 </p>
+<pre class="highlight"><code>'Your name is ${name}.'T  # a template instance
+</code></pre>
 <h3><span class="caption-index-3">3.2.4</span><a name="anchor-3-2-4"></a>Operator</h3>
 <p>
 An Operator takes one or two values as its inputs and returns a calculation result. It's categorized in the following types:
