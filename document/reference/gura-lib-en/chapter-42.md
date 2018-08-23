@@ -12,9 +12,9 @@ nextpage: chapter-43.html#naviitem-selected
 The <code class="highlighter-rouge">mtp</code> module provides measures to read/write data on a mobile platform like an Android device.
 </p>
 <h2><span class="caption-index-2">42.2</span><a name="anchor-42-2"></a>Module Function</h2>
-<p>
 <div class="h5">mtp.detect_devices</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.detect_devices() {block?}</code></div>
+<p>
 Detects MTP devices and returns a list of <code class="highlighter-rouge">mtp.device</code> instances.
 </p>
 <h2><span class="caption-index-2">42.3</span><a name="anchor-42-3"></a>mtp.device Class</h2>
@@ -26,7 +26,6 @@ The <code class="highlighter-rouge">mtp.device</code> class provides information
 <p>
 An <code class="highlighter-rouge">mtp.device</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -38,8 +37,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>friendlyname</code></td>
@@ -47,11 +44,9 @@ Note</th>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Friendly name.</td>
 </tr>
-
 <tr>
 <td>
 <code>manufacturer</code></td>
@@ -59,11 +54,9 @@ Friendly name.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Manufacturer name.</td>
 </tr>
-
 <tr>
 <td>
 <code>storages</code></td>
@@ -71,15 +64,10 @@ Manufacturer name.</td>
 <code>list</code></td>
 <td>
 R</td>
-
 <td>
 Returns a list of <code class="highlighter-rouge">mtp.storage</code> instances.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">42.4</span><a name="anchor-42-4"></a>mtp.storage Class</h2>
 <h3><span class="caption-index-3">42.4.1</span><a name="anchor-42-4-1"></a>Overview</h3>
 <p>
@@ -89,7 +77,6 @@ The class <code class="highlighter-rouge">mtp.storage</code> provices methods to
 <p>
 An <code class="highlighter-rouge">mtp.storage</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -101,8 +88,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>access_capability</code></td>
@@ -110,11 +95,9 @@ Note</th>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 Returns one of the symbols: <code class="highlighter-rouge">`ReadWrite</code>, <code class="highlighter-rouge">`ReadOnly</code>, <code class="highlighter-rouge">`ReadOnlyWithObjectDeletion</code></td>
 </tr>
-
 <tr>
 <td>
 <code>filesystem_type</code></td>
@@ -122,11 +105,9 @@ Returns one of the symbols: <code class="highlighter-rouge">`ReadWrite</code>, <
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 Returns one of the syhmbols: <code class="highlighter-rouge">`Undefined</code>, <code class="highlighter-rouge">`GenericFlat</code>, <code class="highlighter-rouge">`GenericHierarchical</code>, <code class="highlighter-rouge">`DCF</code></td>
 </tr>
-
 <tr>
 <td>
 <code>free_space_in_bytes</code></td>
@@ -134,11 +115,9 @@ Returns one of the syhmbols: <code class="highlighter-rouge">`Undefined</code>, 
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Free space in the storage in bytes.</td>
 </tr>
-
 <tr>
 <td>
 <code>free_space_in_objects</code></td>
@@ -146,11 +125,9 @@ Free space in the storage in bytes.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Free space in the storage in number of objects.</td>
 </tr>
-
 <tr>
 <td>
 <code>max_capacity</code></td>
@@ -158,11 +135,9 @@ Free space in the storage in number of objects.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Maximum capacity of the storage in bytes.</td>
 </tr>
-
 <tr>
 <td>
 <code>storage_description</code></td>
@@ -170,11 +145,9 @@ Maximum capacity of the storage in bytes.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Storage description.</td>
 </tr>
-
 <tr>
 <td>
 <code>storage_type</code></td>
@@ -182,11 +155,9 @@ Storage description.</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 Returns one of the symbols: <code class="highlighter-rouge">`Undefined</code>, <code class="highlighter-rouge">`FixedROM</code>, <code class="highlighter-rouge">`RemovableROM</code>, <code class="highlighter-rouge">`FixedRAM</code>, <code class="highlighter-rouge">`RemovableRAM</code></td>
 </tr>
-
 <tr>
 <td>
 <code>volume_identifier</code></td>
@@ -194,43 +165,25 @@ Returns one of the symbols: <code class="highlighter-rouge">`Undefined</code>, <
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Volume identifier.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">42.4.3</span><a name="anchor-42-4-3"></a>Method</h3>
-<p>
 <div class="h5">mtp.storage#opendir</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#opendir(pathname:string) {block?}</code></div>
-
-</p>
-<p>
 <div class="h5">mtp.storage#recvfile</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#recvfile(pathname:string, stream:stream:w):reduce {block?}</code></div>
-
-</p>
-<p>
 <div class="h5">mtp.storage#remove</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#remove(pathname:string):reduce</code></div>
-
-</p>
-<p>
 <div class="h5">mtp.storage#sendfile</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#sendfile(pathname:string, stream:stream:r):reduce {block?}</code></div>
-
-</p>
 <h2><span class="caption-index-2">42.5</span><a name="anchor-42-5"></a>mtp.stat Class</h2>
 <h3><span class="caption-index-3">42.5.1</span><a name="anchor-42-5-1"></a>Overview</h3>
 <h3><span class="caption-index-3">42.5.2</span><a name="anchor-42-5-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">mtp.stat</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -242,8 +195,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>dirname</code></td>
@@ -251,11 +202,9 @@ Note</th>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Directory name.</td>
 </tr>
-
 <tr>
 <td>
 <code>filename</code></td>
@@ -263,11 +212,9 @@ Directory name.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Filename.</td>
 </tr>
-
 <tr>
 <td>
 <code>isdir</code></td>
@@ -275,11 +222,9 @@ Filename.</td>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 Returns <code class="highlighter-rouge">true</code> for a directory and <code class="highlighter-rouge">false</code> for a file.</td>
 </tr>
-
 <tr>
 <td>
 <code>mtime</code></td>
@@ -287,11 +232,9 @@ Returns <code class="highlighter-rouge">true</code> for a directory and <code cl
 <code>datetime</code></td>
 <td>
 R</td>
-
 <td>
 Returns a <code class="highlighter-rouge">datetime</code> instance indicating the modification time stamp.</td>
 </tr>
-
 <tr>
 <td>
 <code>pathname</code></td>
@@ -299,11 +242,9 @@ Returns a <code class="highlighter-rouge">datetime</code> instance indicating th
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Path name.</td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -311,15 +252,10 @@ Path name.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 File size in bytes.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">42.6</span><a name="anchor-42-6"></a>Thanks</h2>
 <p>
 This module uses libusb and libmtp library which is distributed in the following site:

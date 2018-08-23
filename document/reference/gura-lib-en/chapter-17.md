@@ -25,9 +25,9 @@ The <code class="highlighter-rouge">doxygen</code> module provides measures to p
 </code></pre>
 <h2><span class="caption-index-2">17.2</span><a name="anchor-17-2"></a>doxygen.document Class</h2>
 <h3><span class="caption-index-3">17.2.1</span><a name="anchor-17-2-1"></a>Constructor</h3>
-<p>
 <div class="h5">doxygen.document</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>doxygen.document(stream?:stream, aliases?:doxygen.aliases, extracted?:boolean) {block?}</code></div>
+<p>
 Reads a Doxygen document from <code class="highlighter-rouge">stream</code> and creates an instance of <code class="highlighter-rouge">doxygen.document</code> class.
 </p>
 <p>
@@ -40,9 +40,9 @@ In default, the parser expects the Doxygen document is written within C-style co
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|doc:doxygen.document|</code>, where <code class="highlighter-rouge">doc</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">17.2.2</span><a name="anchor-17-2-2"></a>Method</h3>
-<p>
 <div class="h5">doxygen.document#structures</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>doxygen.document#structures() {block?}</code></div>
+<p>
 Creates an iterator that returns instances of <code class="highlighter-rouge">doxygen.structure</code> contained in the <code class="highlighter-rouge">doxygen.document</code>.
 </p>
 <p>
@@ -64,7 +64,6 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 </p>
 <h2><span class="caption-index-2">17.3</span><a name="anchor-17-3"></a>doxygen.structure Class</h2>
 <h3><span class="caption-index-3">17.3.1</span><a name="anchor-17-3-1"></a>Property</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -76,8 +75,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>aftermember</code></td>
@@ -85,19 +82,14 @@ Explanation</th>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">17.3.2</span><a name="anchor-17-3-2"></a>Method</h3>
-<p>
 <div class="h5">doxygen.structure#elems</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>doxygen.structure#elems():map {block?}</code></div>
+<p>
 Creates an iterator that returns <code class="highlighter-rouge">doxygen.elem</code> instances of all the elements contained in the structure.
 </p>
 <p>
@@ -117,9 +109,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">doxygen.structure#substructures</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>doxygen.structure#substructures() {block?}</code></div>
+<p>
 Creates an iterator that returns <code class="highlighter-rouge">doxygen.structure</code> instances of sub structures contained in the structure.
 </p>
 <p>
@@ -141,19 +133,18 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 </p>
 <h2><span class="caption-index-2">17.4</span><a name="anchor-17-4"></a>doxygen.elem Class</h2>
 <h3><span class="caption-index-3">17.4.1</span><a name="anchor-17-4-1"></a>Method</h3>
-<p>
 <div class="h5">doxygen.elem#print</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>doxygen.elem#print(indent?:number, out?:stream):map:void</code></div>
+<p>
 Prints out the content of the element to <code class="highlighter-rouge">out</code> with an indentation level specified by <code class="highlighter-rouge">indent</code> that starts from zero. If <code class="highlighter-rouge">out</code> is omitted, the result would be put out to standard output.
 </p>
-<p>
 <div class="h5">doxygen.elem#render</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>doxygen.elem#render(renderer:doxygen.renderer):void</code></div>
+<p>
 Renders the element content using <code class="highlighter-rouge">doxygen.renderer</code>.
 </p>
 <h2><span class="caption-index-2">17.5</span><a name="anchor-17-5"></a>doxygen.configuration Class</h2>
 <h3><span class="caption-index-3">17.5.1</span><a name="anchor-17-5-1"></a>Property</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -165,8 +156,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>aliases</code></td>
@@ -174,50 +163,45 @@ Explanation</th>
 <code>doxygen.aliases</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">17.5.2</span><a name="anchor-17-5-2"></a>Constructor</h3>
-<p>
 <div class="h5">doxygen.configuration</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>doxygen.configuration(stream?:stream) {block?}</code></div>
+<p>
 Reads a configuration file, which is usually dubbed "Doxyfile", from <code class="highlighter-rouge">stream</code> and creates a <code class="highlighter-rouge">doxygen.configuration</code> instance.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|cfg:doxygen.configuration|</code>, where <code class="highlighter-rouge">cfg</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">17.5.3</span><a name="anchor-17-5-3"></a>Method</h3>
-<p>
 <div class="h5">doxygen.configuration#get</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>doxygen.configuration#get(tagname:string):map:[raise]</code></div>
+<p>
 Returns a value associated with the tag specified by the argument <code class="highlighter-rouge">tagname</code>.
 </p>
 <p>
 If the specified tag is not found, the method would return <code class="highlighter-rouge">nil</code> while it would cause an error in the case the attribute <code class="highlighter-rouge">:raise</code> is specified.
 </p>
-<p>
 <div class="h5">doxygen.configuration#print</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>doxygen.configuration#print(out?:stream):map:void</code></div>
+<p>
 Prints out the content of the configuration to <code class="highlighter-rouge">out</code>. If omitted, the result would be put out to standard output.
 </p>
 <h2><span class="caption-index-2">17.6</span><a name="anchor-17-6"></a>doxygen.aliases Class</h2>
 <h3><span class="caption-index-3">17.6.1</span><a name="anchor-17-6-1"></a>Method</h3>
-<p>
 <div class="h5">doxygen.aliases#print</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>doxygen.aliases#print(out?:stream):map:void</code></div>
+<p>
 Prints out definitions of aliases to the stream <code class="highlighter-rouge">out</code>. If the argument is omitted, the result would be put out to the standard output.
 </p>
 <h2><span class="caption-index-2">17.7</span><a name="anchor-17-7"></a>doxygen.renderer Class</h2>
 <h3><span class="caption-index-3">17.7.1</span><a name="anchor-17-7-1"></a>Constructor</h3>
-<p>
 <div class="h5">doxygen.renderer</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>doxygen.renderer(out:stream, cfg:doxygen.configuration) {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">doxygen.renderer</code> instance.
 </p>
 <p>

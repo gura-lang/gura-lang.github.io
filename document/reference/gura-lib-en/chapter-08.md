@@ -38,17 +38,17 @@ When instance method <code class="highlighter-rouge">image#write()</code> is pro
 <p>
 This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
 </p>
-<p>
 <div class="h5">image#read@bmp</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read@bmp(stream:stream:r):reduce</code></div>
+<p>
 Reads an BMP image from a stream.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">image#write@bmp</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#write@bmp(stream:stream:w):reduce</code></div>
+<p>
 Writes a BMP image to a stream.
 </p>
 <p>

@@ -39,14 +39,14 @@ When instance method <code class="highlighter-rouge">image#write()</code> is pro
 <p>
 This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
 </p>
-<p>
 <div class="h5">image#read@png</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read@png(stream:stream:r):reduce</code></div>
+<p>
 Reads a PNG image from a stream.
 </p>
-<p>
 <div class="h5">image#write@png</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#write@png(stream:stream:w):reduce</code></div>
+<p>
 Writes a PNG image to a stream.
 </p>
 <h2><span class="caption-index-2">46.5</span><a name="anchor-46-5"></a>Thanks</h2>

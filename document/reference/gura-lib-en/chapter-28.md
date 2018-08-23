@@ -29,7 +29,6 @@ The <code class="highlighter-rouge">hash.accumulator</code> class provides measu
 As the class inhefits from <code class="highlighter-rouge">stream</code>, you can call methods of <code class="highlighter-rouge">stream</code> class with <code class="highlighter-rouge">hash.accumulator</code> instances.
 </p>
 <h3><span class="caption-index-3">28.2.1</span><a name="anchor-28-2-1"></a>Property</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -41,8 +40,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>digest</code></td>
@@ -50,12 +47,9 @@ Explanation</th>
 <code>binary</code></td>
 <td>
 R</td>
-
 <td>
 Returns the hashed result as <code>binary</code>.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>hexdigest</code></td>
@@ -63,12 +57,9 @@ Returns the hashed result as <code>binary</code>.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Returns the hashed result as <code>string</code> in hexadecimal format.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>number</code></td>
@@ -76,41 +67,36 @@ Returns the hashed result as <code>string</code> in hexadecimal format.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Returns the hashed result as <code>number</code>.
 This field is valid only for CRC32 and returns `nil` for other hashes.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">28.2.2</span><a name="anchor-28-2-2"></a>Constructor</h3>
-<p>
 <div class="h5">hash.md5</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>hash.md5(stream?:stream:r) {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">hash.accumulator</code> instance that calculates MD5 hashed value from the content of <code class="highlighter-rouge">stream</code>.
 </p>
-<p>
 <div class="h5">hash.sha1</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>hash.sha1(stream?:stream:r) {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">hash.accumulator</code> instance that calculates SHA1 hashed value from the content of <code class="highlighter-rouge">stream</code>.
 </p>
-<p>
 <div class="h5">hash.crc32</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>hash.crc32(stream?:stream:r) {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">hash.accumulator</code> instance that calculates CRC32 hashed value from the content of <code class="highlighter-rouge">stream</code>.
 </p>
 <h3><span class="caption-index-3">28.2.3</span><a name="anchor-28-2-3"></a>Method</h3>
-<p>
 <div class="h5">hash.accumulator#init</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>hash.accumulator#init():reduce</code></div>
+<p>
 Initializes the state of the accumulator.
 </p>
-<p>
 <div class="h5">hash.accumulator#update</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>hash.accumulator#update(stream:stream:r):reduce</code></div>
+<p>
 Updates the accumulator with the content of <code class="highlighter-rouge">stream</code>.
 </p>
 {% endraw %}

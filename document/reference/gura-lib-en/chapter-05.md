@@ -27,7 +27,6 @@ Below is an example to use <code class="highlighter-rouge">argument</code> class
 <p>
 An <code class="highlighter-rouge">argument</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -39,8 +38,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>function</code></td>
@@ -48,11 +45,9 @@ Note</th>
 <code>function</code></td>
 <td>
 R</td>
-
 <td>
 The <code class="highlighter-rouge">function</code> instance that has created the argument.</td>
 </tr>
-
 <tr>
 <td>
 <code>values</code></td>
@@ -60,29 +55,24 @@ The <code class="highlighter-rouge">function</code> instance that has created th
 <code>function</code></td>
 <td>
 R</td>
-
 <td>
 A list of argument values.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.1.3</span><a name="anchor-5-1-3"></a>Method</h3>
-<p>
 <div class="h5">argument#finalize_trailer</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>argument#finalize_trailer():void</code></div>
+<p>
 Signals finalizing status to trailers after the current function.
 </p>
-<p>
 <div class="h5">argument#isset</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>argument#isset(symbol:symbol)</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if the function is called with an attribute that matches the specified symbol.
 </p>
-<p>
 <div class="h5">argument#quit_trailer</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>argument#quit_trailer():void</code></div>
+<p>
 Cancels evaluation of following trailers.
 </p>
 <p>
@@ -103,7 +93,6 @@ An instance of the <code class="highlighter-rouge">array</code> class stores mul
 <p>
 There are several <code class="highlighter-rouge">array</code> classes that deal with different element types as shown below:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -111,94 +100,79 @@ Class Name</th>
 <th>
 Element Type</th>
 </tr>
-
 <tr>
 <td>
 <code>array@int8</code></td>
 <td>
 <code>Int8</code></td>
 </tr>
-
 <tr>
 <td>
 <code>array@uint8</code></td>
 <td>
 <code>Uint8</code></td>
 </tr>
-
 <tr>
 <td>
 <code>array@int16</code></td>
 <td>
 <code>Int16</code></td>
 </tr>
-
 <tr>
 <td>
 <code>array@uint16</code></td>
 <td>
 <code>Uint16</code></td>
 </tr>
-
 <tr>
 <td>
 <code>array@int32</code></td>
 <td>
 <code>Int32</code></td>
 </tr>
-
 <tr>
 <td>
 <code>array@uint32</code></td>
 <td>
 <code>Uint32</code></td>
 </tr>
-
 <tr>
 <td>
 <code>array@int64</code></td>
 <td>
 <code>Int64</code></td>
 </tr>
-
 <tr>
 <td>
 <code>array@uint64</code></td>
 <td>
 <code>Uint64</code></td>
 </tr>
-
 <tr>
 <td>
 <code>array@half</code></td>
 <td>
 <code>Half</code></td>
 </tr>
-
 <tr>
 <td>
 <code>array@float</code></td>
 <td>
 <code>Float</code></td>
 </tr>
-
 <tr>
 <td>
 <code>array@double</code></td>
 <td>
 <code>Double</code></td>
 </tr>
-
 <tr>
 <td>
 <code>array@complex</code></td>
 <td>
 <code>Complex</code></td>
 </tr>
-
 </table>
-
-</p>
 <p>
 In the specification described here, the class name is is represented as <code class="highlighter-rouge">array@T</code> where <code class="highlighter-rouge">T</code> means its element type.
 </p>
@@ -209,7 +183,6 @@ Most of methods in <code class="highlighter-rouge">array</code> class are implem
 <p>
 An <code class="highlighter-rouge">array</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -221,8 +194,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>T</code></td>
@@ -230,11 +201,9 @@ Note</th>
 <code>array</code></td>
 <td>
 R</td>
-
 <td>
 Return an array with its row and column being tranposed.</td>
 </tr>
-
 <tr>
 <td>
 <code>elembytes</code></td>
@@ -242,11 +211,9 @@ Return an array with its row and column being tranposed.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Returns the size of each element in bytes.</td>
 </tr>
-
 <tr>
 <td>
 <code>elemtype</code></td>
@@ -254,11 +221,9 @@ Returns the size of each element in bytes.</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 Returns the type name of the elements as a <code class="highlighter-rouge">symbol</code> including: <code class="highlighter-rouge">`boolean</code>, <code class="highlighter-rouge">`int8</code>, <code class="highlighter-rouge">`uint8</code>, <code class="highlighter-rouge">`int16</code>, <code class="highlighter-rouge">`uint16</code>, <code class="highlighter-rouge">`int32</code>, <code class="highlighter-rouge">`uint32</code>, <code class="highlighter-rouge">`int64</code>, <code class="highlighter-rouge">`uint64</code>, <code class="highlighter-rouge">`half</code>, <code class="highlighter-rouge">`float</code>, <code class="highlighter-rouge">`double</code> and <code class="highlighter-rouge">`complex</code>.</td>
 </tr>
-
 <tr>
 <td>
 <code>major</code></td>
@@ -266,11 +231,9 @@ Returns the type name of the elements as a <code class="highlighter-rouge">symbo
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 Returns the major-mode in symbols <code class="highlighter-rouge">`row</code> or <code class="highlighter-rouge">`column</code>.</td>
 </tr>
-
 <tr>
 <td>
 <code>memoryid</code></td>
@@ -278,11 +241,9 @@ Returns the major-mode in symbols <code class="highlighter-rouge">`row</code> or
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Returns the id of memory.</td>
 </tr>
-
 <tr>
 <td>
 <code>ndim</code></td>
@@ -290,11 +251,9 @@ Returns the id of memory.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Returns the number of dimensions.</td>
 </tr>
-
 <tr>
 <td>
 <code>p</code></td>
@@ -302,11 +261,9 @@ Returns the number of dimensions.</td>
 <code>pointer</code></td>
 <td>
 R</td>
-
 <td>
 Returns the pointer through which you can inspect and modify the content of the array as a binary data.</td>
 </tr>
-
 <tr>
 <td>
 <code>shape</code></td>
@@ -314,11 +271,9 @@ Returns the pointer through which you can inspect and modify the content of the 
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Returns a list of sizes of each dimension.</td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -326,19 +281,14 @@ Returns a list of sizes of each dimension.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Returns the total number of elements.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.2.3</span><a name="anchor-5-2-3"></a>Constructor</h3>
-<p>
 <div class="h5">array</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array(src?, elemtype?:symbol) {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array</code> instance that contains <code class="highlighter-rouge">double</code> type of elements from a <code class="highlighter-rouge">list</code> or an <code class="highlighter-rouge">iterator</code> specified as an argument <code class="highlighter-rouge">src</code> or from elements described in the block. The followings are examples to create an <code class="highlighter-rouge">array</code> instance:
 </p>
 <pre class="highlight"><code>array([[0, 1, 2], [3, 4, 5]])
@@ -362,9 +312,9 @@ Functions named <code class="highlighter-rouge">array@T</code> where <code class
 <pre class="highlight"><code>array@int32 ([[0, 1, 2], [3, 4, 5]])
 array@int32 {{0, 1, 2}, {3, 4, 5}}
 </code></pre>
-<p>
 <div class="h5">array.identity</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.identity(n:number, elemtype?:symbol):static:map {block?}</code></div>
+<p>
 Creates an array of <code class="highlighter-rouge">double</code> type of elements that represents an identity matrix with specified size <code class="highlighter-rouge">n</code>.
 </p>
 <p>
@@ -392,9 +342,9 @@ Methods named <code class="highlighter-rouge">array@T.identity</code> where <cod
 </p>
 <pre class="highlight"><code>array@int32.identity(3)
 </code></pre>
-<p>
 <div class="h5">array.interval</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.interval(begin:number, end:number, samples:number, elemtype?:symbol):static:map:[open,open_l,open_r] {block?}</code></div>
+<p>
 Creates a one-dimentional array with <code class="highlighter-rouge">double</code> type of element that contains a sequence of numbers according to the beginning, ending numbers and the number of samples between them.
 </p>
 <p>
@@ -430,9 +380,9 @@ Methods named <code class="highlighter-rouge">array@T.interval</code> where <cod
 </p>
 <pre class="highlight"><code>array@float.interval(0, 3, 7)
 </code></pre>
-<p>
 <div class="h5">array.ones</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.ones(dims[]:number, elemtype?:symbol):static:map {block?}</code></div>
+<p>
 Creates an array of <code class="highlighter-rouge">double</code> type of elements, which are initialized with one. The argument <code class="highlighter-rouge">dims</code> specifies the dimension of the created array.
 </p>
 <p>
@@ -460,9 +410,9 @@ Methods named <code class="highlighter-rouge">array@T.ones</code> where <code cl
 </p>
 <pre class="highlight"><code>array@int32.ones([3, 4])
 </code></pre>
-<p>
 <div class="h5">array.rands</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.rands(dims[]:number, range?:number, elemtype?:symbol):static:map {block?}</code></div>
+<p>
 Creates an array of <code class="highlighter-rouge">double</code> type of elements which are initialized with random numbers. The argument <code class="highlighter-rouge">dims</code> specifies the dimension of the created array. When the argument <code class="highlighter-rouge">range</code> is specified, the generated elements are all integer numbers that are ranged within <code class="highlighter-rouge">[0, range)</code>. Otherwise, the generated elements are real numbers ranged within <code class="highlighter-rouge">[0, 1)</code>.
 </p>
 <p>
@@ -490,9 +440,9 @@ Methods named <code class="highlighter-rouge">array@T.rands</code> where <code c
 </p>
 <pre class="highlight"><code>array@int32.rands([3, 4], 10)
 </code></pre>
-<p>
 <div class="h5">array.rands@normal</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.rands@normal(dims[]:number, mu?:number, sigma?:number, elemtype?:symbol):static:map {block?}</code></div>
+<p>
 Creates an array of <code class="highlighter-rouge">double</code> type of elements which are initialized with normal distribution random numbers. The argument <code class="highlighter-rouge">dims</code> specifies the dimension of the created array. The arguments <code class="highlighter-rouge">mu</code> and <code class="highlighter-rouge">sigma</code> supply parameters for normal distribution where <code class="highlighter-rouge">mu</code> specifies the mean value and <code class="highlighter-rouge">sigma</code> the standard deviation. In default, the <code class="highlighter-rouge">mu</code> is zero and <code class="highlighter-rouge">sigma</code> one.
 </p>
 <p>
@@ -519,9 +469,9 @@ Methods named <code class="highlighter-rouge">array@T.rands@normal</code> where 
 </p>
 <pre class="highlight"><code>array@int32.rands@normal([3, 4], 1, 3)
 </code></pre>
-<p>
 <div class="h5">array.range</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.range(num:number, num_end?:number, step?:number, elemtype?:symbol):static:map {block?}</code></div>
+<p>
 Creates an array of <code class="highlighter-rouge">double</code> type of elements that are initialized with a sequence of integer numbers.
 </p>
 <p>
@@ -561,9 +511,9 @@ Methods named <code class="highlighter-rouge">array@T.range</code> where <code c
 </p>
 <pre class="highlight"><code>array@int32.range(5)
 </code></pre>
-<p>
 <div class="h5">array.rotation</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.rotation(angle:number, xtrans?:number, ytrans?:number, elemtype?:symbol):static:map:[deg] {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array</code> of <code class="highlighter-rouge">double</code> type of elements representing a matrix to rotate a 2-D coord.
 </p>
 <p>
@@ -601,9 +551,9 @@ Methods named <code class="highlighter-rouge">array@T.rotation</code> where <cod
 </p>
 <pre class="highlight"><code>array@float.rotation(math.pi / 6)
 </code></pre>
-<p>
 <div class="h5">array.rotation@x</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.rotation@x(angle:number, xtrans?:number, ytrans?:number, ztrans?:number, elemtype?:symbol):static:map:[deg] {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array</code> of <code class="highlighter-rouge">double</code> type of elements representing a matrix to rotate a 3-D coord around x-axis.
 </p>
 <p>
@@ -641,9 +591,9 @@ Methods named <code class="highlighter-rouge">array@T.rotation@x</code> where <c
 </p>
 <pre class="highlight"><code>array@float.rotation@x(math.pi / 6)
 </code></pre>
-<p>
 <div class="h5">array.rotation@y</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.rotation@y(angle:number, xtrans?:number, ytrans?:number, ztrans?:number, elemtype?:symbol):static:map:[deg] {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array</code> of <code class="highlighter-rouge">double</code> type of elements representing a matrix to rotate a 3-D coord around y-axis.
 </p>
 <p>
@@ -681,9 +631,9 @@ Methods named <code class="highlighter-rouge">array@T.rotation@y</code> where <c
 </p>
 <pre class="highlight"><code>array@float.rotation@y(math.pi / 6)
 </code></pre>
-<p>
 <div class="h5">array.rotation@z</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.rotation@z(angle:number, xtrans?:number, ytrans?:number, ztrans?:number, elemtype?:symbol):static:map:[deg] {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array</code> of <code class="highlighter-rouge">double</code> type of elements representing a matrix to rotate a 3-D coord around z-axis.
 </p>
 <p>
@@ -721,9 +671,9 @@ Methods named <code class="highlighter-rouge">array@T.rotation@z</code> where <c
 </p>
 <pre class="highlight"><code>array@float.rotation@z(math.pi / 6)
 </code></pre>
-<p>
 <div class="h5">array.scaling</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.scaling(xscale:number, yscale:number, zscale?:number, elemtype?:symbol):static:map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array</code> of <code class="highlighter-rouge">double</code> type of elements representing a matrix to scale a coord.
 </p>
 <p>
@@ -756,9 +706,9 @@ Methods named <code class="highlighter-rouge">array@T.scaling</code> where <code
 </p>
 <pre class="highlight"><code>array@float.scaling(3, 4
 </code></pre>
-<p>
 <div class="h5">array.translation</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.translation(xtrans:number, ytrans:number, ztrans?:number, elemtype?:symbol):static:map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array</code> of <code class="highlighter-rouge">double</code> type of elements representing a matrix to translate a coord.
 </p>
 <p>
@@ -791,9 +741,9 @@ Methods named <code class="highlighter-rouge">array@T.translation</code> where <
 </p>
 <pre class="highlight"><code>array@float.translation(3, 4
 </code></pre>
-<p>
 <div class="h5">array.zeros</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.zeros(dims[]:number, elemtype?:symbol):static:map {block?}</code></div>
+<p>
 Creates an array of <code class="highlighter-rouge">double</code> type of elements, which are initialized with zero. The argument <code class="highlighter-rouge">dims</code> specifies the dimension of the created array.
 </p>
 <p>
@@ -822,32 +772,32 @@ Methods named <code class="highlighter-rouge">array@T.zeros</code> where <code c
 <pre class="highlight"><code>array@int32.zeros([3, 4])
 </code></pre>
 <h3><span class="caption-index-3">5.2.4</span><a name="anchor-5-2-4"></a>Method</h3>
-<p>
 <div class="h5">array#argmax</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#argmax(axis?:number):map:[last_index] {block?}</code></div>
+<p>
 Returns index of a maximum number of elements in the target <code class="highlighter-rouge">array</code>.
 </p>
-<p>
 <div class="h5">array#argmin</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#argmin(axis?:number):map:[last_index] {block?}</code></div>
+<p>
 Returns index of a minimum number of elements in the target <code class="highlighter-rouge">array</code>.
 </p>
-<p>
 <div class="h5">array.dot</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array.dot(a:array, b:array):static:map {block?}</code></div>
+<p>
 Calculates a dot product between two arrays that have one or two dimensions.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">array#dump</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#dump(stream?:stream):void:[upper]</code></div>
+<p>
 Prints out a binary dump of the array's content.
 </p>
-<p>
 <div class="h5">array#each</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#each():[flat] {block?}</code></div>
+<p>
 Creates an iterator that iterates each element in the array.
 </p>
 <p>
@@ -870,9 +820,9 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 <p>
 The block parameter is <code class="highlighter-rouge">|elem:number, idx:number|</code> where <code class="highlighter-rouge">elem</code> is the element value.
 </p>
-<p>
 <div class="h5">array#elemcast</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#elemcast(elemtype:symbol) {block?}</code></div>
+<p>
 Cast value type of contained elements.
 </p>
 <p>
@@ -896,79 +846,79 @@ Available symbols for <code class="highlighter-rouge">elemtype</code> are as fol
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">array#fill</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#fill(value:number):void</code></div>
+<p>
 Fills array with a specified value.
 </p>
-<p>
 <div class="h5">array#flatten</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#flatten() {block?}</code></div>
+<p>
 Returns an <code class="highlighter-rouge">array</code> instance as a result that has flattened elements in the target <code class="highlighter-rouge">array</code>.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">array#head</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#head(n:number):map {block?}</code></div>
+<p>
 Returns an <code class="highlighter-rouge">array</code> instance as a result that has extracted <code class="highlighter-rouge">n</code> elements from the beginning of the target <code class="highlighter-rouge">array</code>.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">array#invert</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#invert(eps?:number) {block?}</code></div>
+<p>
 Returns an <code class="highlighter-rouge">array</code> instance as a result that has elements of inverted matrix of the target <code class="highlighter-rouge">array</code>. If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">array#iselemsame</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#iselemsame(array:array)</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if the target <code class="highlighter-rouge">array</code> instance has the same elements with the specified <code class="highlighter-rouge">array</code>.
 </p>
-<p>
 <div class="h5">array#issquare</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#issquare()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if the target <code class="highlighter-rouge">array</code> consists square matrices.
 </p>
-<p>
 <div class="h5">array#max</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#max(axis?:number):map:[index,last_index] {block?}</code></div>
+<p>
 Finds a maximum number of elements in the target <code class="highlighter-rouge">array</code>.
 </p>
-<p>
 <div class="h5">array#mean</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#mean(axis?:number):map {block?}</code></div>
+<p>
 Calculates an mean value of elements in the array.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">array#min</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#min(axis?:number):map:[index,last_index] {block?}</code></div>
+<p>
 Finds a minimum number of elements in the target <code class="highlighter-rouge">array</code>.
 </p>
-<p>
 <div class="h5">array#offset</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#offset(n:number):map {block?}</code></div>
+<p>
 Returns an <code class="highlighter-rouge">array</code> instance as a result that has extracted elements of the target <code class="highlighter-rouge">array</code> after skipping its first <code class="highlighter-rouge">n</code> elements.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">array#paste</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#paste(offset:number, src:array):map</code></div>
+<p>
 Pastes elements of <code class="highlighter-rouge">src</code> into the target <code class="highlighter-rouge">array</code> instance.
 </p>
 <p>
 The argument <code class="highlighter-rouge">offset</code> specifies the posision where elements are pasted in
 </p>
-<p>
 <div class="h5">array#reshape</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#reshape(dims[]:number:nil) {block?}</code></div>
+<p>
 Returns an <code class="highlighter-rouge">array</code> instance as a result that has reshaped the target <code class="highlighter-rouge">array</code> according to a list of dimension size specified by <code class="highlighter-rouge">dims</code>.
 </p>
 <p>
@@ -987,38 +937,38 @@ b = x.reshape([2, nil, 4]) // b is an array of 2x3x4.
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">array#roundoff</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#roundoff(threshold?:number) {block?}</code></div>
+<p>
 Returns an <code class="highlighter-rouge">array</code> instance as a result that has rounded off elements less than <code class="highlighter-rouge">threshold</code> to zero in the target <code class="highlighter-rouge">array</code>. The default value for <code class="highlighter-rouge">threshold</code> is <code class="highlighter-rouge">1.0e-6</code> when omitted.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">array#std</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#std(axis?:number):map:[p] {block?}</code></div>
+<p>
 Calculates a standard deviation value of elements in the target <code class="highlighter-rouge">array</code>.
 </p>
 <p>
 In default, it calculates an unbiased estimation of standard deviation in which the summation of squared deviations is divided by <code class="highlighter-rouge">(n - 1)</code>. Specifying <code class="highlighter-rouge">:p</code> attributes will calculate a population variance that divides that summation by <code class="highlighter-rouge">n</code>.
 </p>
-<p>
 <div class="h5">array#sum</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#sum(axis?:number):map {block?}</code></div>
+<p>
 Calculates a summation value of elements in the target <code class="highlighter-rouge">array</code>.
 </p>
-<p>
 <div class="h5">array#tail</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#tail(n:number):map {block?}</code></div>
+<p>
 Returns an <code class="highlighter-rouge">array</code> instance as a result that has extracted <code class="highlighter-rouge">n</code> elements from the bottom of the target <code class="highlighter-rouge">array</code>.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">array#transpose</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#transpose(axes[]?:number) {block?}</code></div>
+<p>
 Creates an array instance that transposes axes of the original array according to the specified argument <code class="highlighter-rouge">axes</code>.
 </p>
 <p>
@@ -1027,9 +977,9 @@ If the argument is not specified, two axes at the lowest rank, which correspond 
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">array#var</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>array#var(axis?:number):map:[p] {block?}</code></div>
+<p>
 Calculates a variation value of elements in the target <code class="highlighter-rouge">array</code>.
 </p>
 <p>
@@ -1041,31 +991,16 @@ In default, it calculates an unbiased estimation of standard deviation in which 
 The <code class="highlighter-rouge">audio</code> class provides measures to work on audio data.
 </p>
 <h3><span class="caption-index-3">5.3.2</span><a name="anchor-5-3-2"></a>Method</h3>
-<p>
 <div class="h5">audio#each</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>audio#each(channel:number, offset?:number):map {block?}</code></div>
-
-</p>
-<p>
 <div class="h5">audio#get</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>audio#get(channel:number, offset:number):map</code></div>
-
-</p>
-<p>
 <div class="h5">audio#put</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>audio#put(channel:number, offset:number, data:number):map:reduce</code></div>
-
-</p>
-<p>
 <div class="h5">audio#sinewave</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>audio#sinewave(channel:number, freq:number, len:number, amplitude?:number):map:reduce</code></div>
-
-</p>
-<p>
 <div class="h5">audio#store</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>audio#store(channel:number, offset:number, data:iterator):reduce</code></div>
-
-</p>
 <h2><span class="caption-index-2">5.4</span><a name="anchor-5-4"></a>binary Class</h2>
 <h3><span class="caption-index-3">5.4.1</span><a name="anchor-5-4-1"></a>Overview</h3>
 <p>
@@ -1083,7 +1018,6 @@ You can also create the instance by specifying <code class="highlighter-rouge">b
 <p>
 A <code class="highlighter-rouge">binary</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -1095,8 +1029,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>p</code></td>
@@ -1104,11 +1036,9 @@ Note</th>
 <code>pointer</code></td>
 <td>
 R</td>
-
 <td>
 Returns a <code class="highlighter-rouge">pointer</code> instance that accesses the binary. This result is equivalent to that of calling the method <code class="highlighter-rouge">binary#pointer()</code></td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -1116,11 +1046,9 @@ Returns a <code class="highlighter-rouge">pointer</code> instance that accesses 
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Returns the binary size in bytes.</td>
 </tr>
-
 <tr>
 <td>
 <code>writable</code></td>
@@ -1128,36 +1056,31 @@ Returns the binary size in bytes.</td>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 Indicates if the content of the binary object is writable.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.4.3</span><a name="anchor-5-4-3"></a>Constructor</h3>
-<p>
 <div class="h5">binary</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>binary(buff*) {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">binary</code> instance after combining <code class="highlighter-rouge">string</code> or <code class="highlighter-rouge">binary</code> specified by the arguments <code class="highlighter-rouge">buff</code>. If no argument is specified for <code class="highlighter-rouge">buff</code>, an empty <code class="highlighter-rouge">binary</code> instance would be created.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|bin:binary|</code>, where <code class="highlighter-rouge">bin</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">5.4.4</span><a name="anchor-5-4-4"></a>Method</h3>
-<p>
 <div class="h5">binary.alloc</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>binary.alloc(bytes:number, data?:number):static:map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">binary</code> instance that has the specified size of buffer. If the argument <code class="highlighter-rouge">data</code>, which should have a number between 0 and 255, is specified, the buffer would be initialized with the value.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|bin:binary|</code>, where <code class="highlighter-rouge">bin</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">binary#dump</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>binary#dump(stream?:stream:w):void:[upper]</code></div>
+<p>
 Prints a hexadecimal dump from the content of the <code class="highlighter-rouge">binary</code> to the standard output. If the argument <code class="highlighter-rouge">stream</code> is specified, the result would be output to the stream.
 </p>
 <p>
@@ -1171,22 +1094,22 @@ Example:
 78 20 6A 75 6D 70 73 20 6F 76 65 72 20 74 68 65  x jumps over the
 20 6C 61 7A 79 20 64 6F 67 2E                     lazy dog.
 </code></pre>
-<p>
 <div class="h5">binary#pointer</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>binary#pointer(offset?:number):map {block?}</code></div>
+<p>
 Returns a <code class="highlighter-rouge">pointer</code> instance that has an initial offset specified by the argument <code class="highlighter-rouge">offset</code>. If the argument is omitted, it would return a <code class="highlighter-rouge">pointer</code> instance that points to the top of the binary.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|p:pointer|</code>, where <code class="highlighter-rouge">p</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">binary#reader</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>binary#reader() {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">stream</code> instance with which you can read data from the binary by <code class="highlighter-rouge">stream#read()</code> method. If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">binary#writer</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>binary#writer() {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">stream</code> instance with which you can append data to the binary by <code class="highlighter-rouge">stream#write()</code> method. If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h2><span class="caption-index-2">5.5</span><a name="anchor-5-5"></a>boolean Class</h2>
@@ -1230,7 +1153,6 @@ The actual functions for encoding and decoding are provided by sub modules under
 Importing other codec modules would expand available codecs. You can call <code class="highlighter-rouge">codecs.dir()</code> to get a list of codec names currently available.
 </p>
 <h3><span class="caption-index-3">5.6.2</span><a name="anchor-5-6-2"></a>Predefined Variable</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -1240,102 +1162,83 @@ Type</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>codec.bom@utf8</code></td>
 <td>
 <code>binary</code></td>
-
 <td>
 BOM for UTF-8: <code>b'\xef\xbb\xbf'</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>codec.bom@utf16le</code></td>
 <td>
 <code>binary</code></td>
-
 <td>
 BOM for UTF-16 little endian: <code>b'\xff\xfe'</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>codec.bom@utf16be</code></td>
 <td>
 <code>binary</code></td>
-
 <td>
 BOM for UTF-16 big endian: <code>b'\xfe\xff'</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>codec.bom@utf32le</code></td>
 <td>
 <code>binary</code></td>
-
 <td>
 BOM for UTF-32 little endian: <code>b'\xff\xfe\x00\x00'</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>codec.bom@utf32be</code></td>
 <td>
 <code>binary</code></td>
-
 <td>
 BOM for UTF-32 big endian: <code>b'\x00\x00\xfe\xff'</code></td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.6.3</span><a name="anchor-5-6-3"></a>Constructor</h3>
-<p>
 <div class="h5">codec</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>codec(encoding:string) {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">codec</code> instance of the specified encoding name. You can call <code class="highlighter-rouge">codecs.dir()</code> to get a list of available encoding names.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|codec:codec|</code>, where <code class="highlighter-rouge">codec</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">5.6.4</span><a name="anchor-5-6-4"></a>Method</h3>
-<p>
 <div class="h5">codec#addcr</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>codec#addcr(flag?:boolean):reduce</code></div>
+<p>
 The codec's encoder has a feature to add a CR code (<code class="highlighter-rouge">0x0d</code>) before a LF code (<code class="highlighter-rouge">0x0a</code>) so that the lines are joined with CR-LF codes in the encoded result. This method enables or disables the feature.
 </p>
 <ul>
 <li>To enable it, call the method with the argument <code class="highlighter-rouge">flag</code> set to <code class="highlighter-rouge">true</code> or without any argument.</li>
 <li>To disable it, call the method with the argument <code class="highlighter-rouge">flag</code> set to <code class="highlighter-rouge">false</code>.</li>
 </ul>
-<p>
 <div class="h5">codec#decode</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>codec#decode(buff:binary):map</code></div>
+<p>
 Decodes a binary <code class="highlighter-rouge">buff</code> and returns the decoded result as <code class="highlighter-rouge">string</code>.
 </p>
-<p>
 <div class="h5">codec#delcr</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>codec#delcr(flag?:boolean):reduce</code></div>
+<p>
 The codec's decoder has a feature to delete a CR code (<code class="highlighter-rouge">0x0d</code>) before a LF code (<code class="highlighter-rouge">0x0a</code>) so that the lines are joined with LF code in the decoded result. This method enables or disables the feature.
 </p>
 <ul>
 <li>To enable it, call the method with the argument <code class="highlighter-rouge">flag</code> set to <code class="highlighter-rouge">true</code> or without any argument.</li>
 <li>To disable it, call the method with the argument <code class="highlighter-rouge">flag</code> set to <code class="highlighter-rouge">false</code>.</li>
 </ul>
-<p>
 <div class="h5">codec#encode</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>codec#encode(str:string):map</code></div>
+<p>
 Encodes a string <code class="highlighter-rouge">str</code> and returns the encoded result as <code class="highlighter-rouge">binary</code>.
 </p>
 <h3><span class="caption-index-3">5.6.5</span><a name="anchor-5-6-5"></a>Cast Operation</h3>
@@ -1361,7 +1264,6 @@ You can create a <code class="highlighter-rouge">color</code> instance by callin
 There are class variables as shown below:
 </p>
 <h3><span class="caption-index-3">5.7.2</span><a name="anchor-5-7-2"></a>Predefined Variable</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -1371,214 +1273,155 @@ Type</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>color.names</code></td>
 <td>
 <code>string[]</code></td>
-
 <td>
 A list of color names that can be passed to <code>color()</code> function.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.zero</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(0, 0, 0, 0)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.black</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(0, 0, 0, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.maroon</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(128, 0, 0, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.green</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(0, 128, 0, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.olive</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(128, 128, 0, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.navy</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(0, 0, 128, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.purple</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(128, 0, 128, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.teal</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(0, 128, 128, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.gray</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(128, 128, 128, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.silver</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(192, 192, 192, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.red</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(255, 0, 0, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.lime</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(0, 255, 0, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.yellow</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(255, 255, 0, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.blue</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(0, 0, 255, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.fuchsia</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(255, 0, 255, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.aqua</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(0, 255, 255, 255)</code></td>
 </tr>
-
-
 <tr>
 <td>
 <code>color.white</code></td>
 <td>
 <code>color</code></td>
-
 <td>
 Color instance equivalent with <code>color(255, 255, 255, 255)</code></td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.7.3</span><a name="anchor-5-7-3"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">color</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -1590,8 +1433,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>a</code></td>
@@ -1599,11 +1440,9 @@ Note</th>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Value of the alpha element.</td>
 </tr>
-
 <tr>
 <td>
 <code>b</code></td>
@@ -1611,11 +1450,9 @@ Value of the alpha element.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Value of the blue element.</td>
 </tr>
-
 <tr>
 <td>
 <code>g</code></td>
@@ -1623,11 +1460,9 @@ Value of the blue element.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Value of the green element.</td>
 </tr>
-
 <tr>
 <td>
 <code>r</code></td>
@@ -1635,15 +1470,10 @@ Value of the green element.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Value of the red element.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.7.4</span><a name="anchor-5-7-4"></a>Cast Operation</h3>
 <p>
 A function that expects a <code class="highlighter-rouge">color</code> instance in its argument can also take a value of <code class="highlighter-rouge">symbol</code>, <code class="highlighter-rouge">string</code> and <code class="highlighter-rouge">list</code> as below:
@@ -1663,9 +1493,9 @@ With the above casting feature, you can call a function <code class="highlighter
 <li><code class="highlighter-rouge">f([128, 0, 128])</code> .. Implicit casting: from <code class="highlighter-rouge">list</code> to <code class="highlighter-rouge">color</code>.</li>
 </ul>
 <h3><span class="caption-index-3">5.7.5</span><a name="anchor-5-7-5"></a>Constructor</h3>
-<p>
 <div class="h5">color</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>color(args+):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">color</code> instance.
 </p>
 <p>
@@ -1679,22 +1509,22 @@ There are two forms to call this function as below:
 <li><code class="highlighter-rouge">color(r:number, g?:number, b?:number, a?:number)</code> .. Creates an instance from RGB elements and an optional alpha element.</li>
 </ul>
 <h3><span class="caption-index-3">5.7.6</span><a name="anchor-5-7-6"></a>Method</h3>
-<p>
 <div class="h5">color#getgray</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>color#getgray()</code></div>
+<p>
 Calculates a gray scale from RGB elements in the <code class="highlighter-rouge">color</code> instance.
 </p>
 <p>
 This is computed by a formula: <code class="highlighter-rouge">gray = 0.299 * red + 0.587 * blue + 0.114 * blue</code>.
 </p>
-<p>
 <div class="h5">color#html</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>color#html()</code></div>
+<p>
 Returns a color string in a format of <code class="highlighter-rouge">'#rrggbb'</code> that is used in HTML documents.
 </p>
-<p>
 <div class="h5">color#list</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>color#list():[alpha]</code></div>
+<p>
 Returns a list of RGB elements in a form <code class="highlighter-rouge">[r, g, b]</code>.
 </p>
 <p>
@@ -1714,9 +1544,9 @@ You can create a <code class="highlighter-rouge">complex</code> instance by foll
 <li>Appending <code class="highlighter-rouge">j</code> suffix after a number literal would create an imaginal part of a complex numbrer. e.g., <code class="highlighter-rouge">2 + 3j</code></li>
 </ul>
 <h3><span class="caption-index-3">5.8.2</span><a name="anchor-5-8-2"></a>Constructor</h3>
-<p>
 <div class="h5">complex</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>complex(real:number, imag?:number):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">complex</code> instance with a real part <code class="highlighter-rouge">real</code> and an imaginary part <code class="highlighter-rouge">imag</code>.
 </p>
 <p>
@@ -1726,9 +1556,9 @@ If the argument <code class="highlighter-rouge">imag</code> is omitted, the imag
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:complex|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">5.8.3</span><a name="anchor-5-8-3"></a>Method</h3>
-<p>
 <div class="h5">complex.polar</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>complex.polar(abs:number, arg:number):static:map:[deg] {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">complex</code> instance with an absolute number <code class="highlighter-rouge">abs</code> and an angle <code class="highlighter-rouge">arg</code> in polar coords.
 </p>
 <p>
@@ -1737,9 +1567,9 @@ The argument <code class="highlighter-rouge">arg</code> is specified in a unit o
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:complex|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">complex.roundoff</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>complex.roundoff(threshold:number =&gt; 1e-10) {block?}</code></div>
+<p>
 Returns a complex number with real and imaginary parts being rounded off.
 </p>
 <p>
@@ -1765,7 +1595,6 @@ You can create a <code class="highlighter-rouge">datetime</code> instance by cal
 You can calculate a <code class="highlighter-rouge">datetime</code> with a <code class="highlighter-rouge">timedelta</code> to put its date and time values forward and backward.
 </p>
 <h3><span class="caption-index-3">5.9.2</span><a name="anchor-5-9-2"></a>Predefined Variable</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -1775,93 +1604,67 @@ Type</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>datetime.Sunday</code></td>
 <td>
 <code>number</code></td>
-
 <td>
 Assigned with number 0 that represents Sunday.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>datetime.Monday</code></td>
 <td>
 <code>number</code></td>
-
 <td>
 Assigned with number 1 that represents Monday.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>datetime.Tuesday</code></td>
 <td>
 <code>number</code></td>
-
 <td>
 Assigned with number 2 that represents Tuesday.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>datetime.Wednesday</code></td>
 <td>
 <code>number</code></td>
-
 <td>
 Assigned with number 3 that represents Wednesday.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>datetime.Thursday</code></td>
 <td>
 <code>number</code></td>
-
 <td>
 Assigned with number 4 that represents Thursday.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>datetime.Friday</code></td>
 <td>
 <code>number</code></td>
-
 <td>
 Assigned with number 5 that represents Friday.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>datetime.Saturday</code></td>
 <td>
 <code>number</code></td>
-
 <td>
 Assigned with number 6 that represents Saturday.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.9.3</span><a name="anchor-5-9-3"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">datetime</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -1873,8 +1676,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>day</code></td>
@@ -1882,11 +1683,9 @@ Note</th>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Day value betwen 1 and 31.</td>
 </tr>
-
 <tr>
 <td>
 <code>hour</code></td>
@@ -1894,11 +1693,9 @@ Day value betwen 1 and 31.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Hour value between 0 and 23.</td>
 </tr>
-
 <tr>
 <td>
 <code>min</code></td>
@@ -1906,11 +1703,9 @@ Hour value between 0 and 23.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Minute value between 0 and 59.</td>
 </tr>
-
 <tr>
 <td>
 <code>month</code></td>
@@ -1918,11 +1713,9 @@ Minute value between 0 and 59.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Month value between 1 and 12.</td>
 </tr>
-
 <tr>
 <td>
 <code>sec</code></td>
@@ -1930,11 +1723,9 @@ Month value between 1 and 12.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Second value between 0 and 59.</td>
 </tr>
-
 <tr>
 <td>
 <code>unixtime</code></td>
@@ -1942,11 +1733,9 @@ Second value between 0 and 59.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Unixtime, a time in second since January 1st of 1970.</td>
 </tr>
-
 <tr>
 <td>
 <code>usec</code></td>
@@ -1954,11 +1743,9 @@ Unixtime, a time in second since January 1st of 1970.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Milli second value between 0 and 999999.</td>
 </tr>
-
 <tr>
 <td>
 <code>wday</code></td>
@@ -1966,11 +1753,9 @@ Milli second value between 0 and 999999.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Week day value between 0 and 6.</td>
 </tr>
-
 <tr>
 <td>
 <code>week</code></td>
@@ -1978,11 +1763,9 @@ Week day value between 0 and 6.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>yday</code></td>
@@ -1990,11 +1773,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Day in a year between 1 and 366.</td>
 </tr>
-
 <tr>
 <td>
 <code>year</code></td>
@@ -2002,19 +1783,14 @@ Day in a year between 1 and 366.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Year value between 1 and 9999.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.9.4</span><a name="anchor-5-9-4"></a>Constructor</h3>
-<p>
 <div class="h5">datetime</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>datetime(year:number, month:number, day:number, hour:number =&gt; 0, min:number =&gt; 0, sec:number =&gt; 0, usec:number =&gt; 0, minsoff?:number):map {block?}</code></div>
+<p>
 Creates an instance of <code class="highlighter-rouge">datetime</code> class based on the specified arguments.
 </p>
 <p>
@@ -2037,14 +1813,14 @@ In default, the instance has a timezone offset based on the current system setti
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|dt:datetime|</code>, where <code class="highlighter-rouge">dt</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">5.9.5</span><a name="anchor-5-9-5"></a>Method</h3>
-<p>
 <div class="h5">datetime#clrtzoff</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>datetime#clrtzoff():reduce</code></div>
+<p>
 Eliminates timezone offset information from the instance.
 </p>
-<p>
 <div class="h5">datetime#format</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>datetime#format(format =&gt; `w3c)</code></div>
+<p>
 Returns a string of the datetime properties based on the specified format. For the argument <code class="highlighter-rouge">format</code>, you can specify either a string of user-specific format or a symbol of predefined style.
 </p>
 <p>
@@ -2069,22 +1845,22 @@ Below are the symbols of predefined styles:
 <li><code class="highlighter-rouge">`http</code> .. a style used in HTTP protocol. eg) <code class="highlighter-rouge">'Thu, 01 Jan 2015 12:34:56 +0900'</code></li>
 <li><code class="highlighter-rouge">`asctime</code> .. a style used by the C function <code class="highlighter-rouge">asctime()</code>. eg) <code class="highlighter-rouge">'Thu Jan  1 12:34:56 +0900 2015'</code></li>
 </ul>
-<p>
 <div class="h5">datetime.isleap</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>datetime.isleap(year:number):static:map</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if the specified year is a leap one.
 </p>
-<p>
 <div class="h5">datetime.monthdays</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>datetime.monthdays(year:number, month:number):static:map {block?}</code></div>
+<p>
 Returns a number of days that exists in the specified month.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:number|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">datetime.now</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>datetime.now():static:[utc] {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">datetime</code> instance of the current time.
 </p>
 <p>
@@ -2093,9 +1869,9 @@ In default, the timezone offset is set to one in the system setting. Specifying 
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|dt:datetime|</code>, where <code class="highlighter-rouge">dt</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">datetime.parse</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>datetime.parse(str:string):static:map {block?}</code></div>
+<p>
 Parses a string that describs date and time information and returns the <code class="highlighter-rouge">datetime</code> instance.
 </p>
 <p>
@@ -2110,22 +1886,22 @@ It is capable of parsing the following style:
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|dt:datetime|</code>, where <code class="highlighter-rouge">dt</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">datetime#settzoff</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>datetime#settzoff(mins:number):reduce</code></div>
+<p>
 Sets timezone offset in minutes.
 </p>
-<p>
 <div class="h5">datetime.time</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>datetime.time(hour:number =&gt; 0, minute:number =&gt; 0, sec:number =&gt; 0, usec:number =&gt; 0):static:map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">datetime</code> instance from time information. The date inforomation is set as 1st of January in the Christian year of 0.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|dt:datetime|</code>, where <code class="highlighter-rouge">dt</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">datetime.today</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>datetime.today():static:[utc] {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">datetime</code> instance of today. All the time information are cleared to 0.
 </p>
 <p>
@@ -2134,14 +1910,14 @@ In default, the timezone offset is set to one in the system setting. Specifying 
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|dt:datetime|</code>, where <code class="highlighter-rouge">dt</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">datetime#utc</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>datetime#utc()</code></div>
+<p>
 Calculates UTC time of the target <code class="highlighter-rouge">datetime</code> instance. An error occurs if the instance has no timezone offset
 </p>
-<p>
 <div class="h5">datetime.weekday</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>datetime.weekday(year:number, month:number, day:number):static:map</code></div>
+<p>
 Returns a week number for the specified date, which starts from 0 for Sunday.
 </p>
 <h2><span class="caption-index-2">5.10</span><a name="anchor-5-10"></a>declaration Class</h2>
@@ -2163,7 +1939,6 @@ println(f.decls:*name)
 <p>
 A <code class="highlighter-rouge">declaration</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -2175,8 +1950,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>default</code></td>
@@ -2184,11 +1957,9 @@ Note</th>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 An <code class="highlighter-rouge">expr</code> instance that represents a default value in the declaration if exists. This is <code class="highlighter-rouge">nil</code> when no default value is specified.</td>
 </tr>
-
 <tr>
 <td>
 <code>name</code></td>
@@ -2196,11 +1967,9 @@ An <code class="highlighter-rouge">expr</code> instance that represents a defaul
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 A <code class="highlighter-rouge">string</code> instance that represents the declaration's name.</td>
 </tr>
-
 <tr>
 <td>
 <code>symbol</code></td>
@@ -2208,19 +1977,14 @@ A <code class="highlighter-rouge">string</code> instance that represents the dec
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 A <code class="highlighter-rouge">symbol</code> instance that represents the declaration's name.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.10.3</span><a name="anchor-5-10-3"></a>Method</h3>
-<p>
 <div class="h5">declaration#istype</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>declaration#istype(type+:expr):map</code></div>
+<p>
 Return <code class="highlighter-rouge">true</code> if the declaration is defined as a type that is specified in the arguments.
 </p>
 <p>
@@ -2288,9 +2052,9 @@ println(x['second']) // prints `2`
 x['third'] = 33      // replaces `3` with `33`
 </code></pre>
 <h3><span class="caption-index-3">5.11.3</span><a name="anchor-5-11-3"></a>Constructor</h3>
-<p>
 <div class="h5">dict</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>dict(elems?):[icase] {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">dict</code> instance.
 </p>
 <p>
@@ -2331,9 +2095,9 @@ The symbol <code class="highlighter-rouge">%</code> is an alias of the function 
 In default, if keys contain alphabet characters, different cases are distinguished. Appending the attribute <code class="highlighter-rouge">:icase</code> would ignore cases in them.
 </p>
 <h3><span class="caption-index-3">5.11.4</span><a name="anchor-5-11-4"></a>Method</h3>
-<p>
 <div class="h5">dict#append</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>dict#append(elems?):reduce:[overwrite,strict,timid] {block?}</code></div>
+<p>
 Adds multiple key-value pairs. It takes a list of key-value pairs in an argument or in a block that has the same format with one for the function <code class="highlighter-rouge">dict()</code>.
 </p>
 <p>
@@ -2344,22 +2108,22 @@ If the specified key already exists in the dictionary, it would be overwritten. 
 <li><code class="highlighter-rouge">:strict</code> .. raises an error</li>
 <li><code class="highlighter-rouge">:timid</code> .. keep the existing one</li>
 </ul>
-<p>
 <div class="h5">dict#clear</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>dict#clear()</code></div>
+<p>
 Clears all the key-value pairs in the dictionary.
 </p>
-<p>
 <div class="h5">dict#erase</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>dict#erase(key):map</code></div>
+<p>
 Erases a key-value pair that mathces the provided <code class="highlighter-rouge">key</code>.
 </p>
 <p>
 The <code class="highlighter-rouge">key</code> is either <code class="highlighter-rouge">number</code>, <code class="highlighter-rouge">string</code> or <code class="highlighter-rouge">symbol</code>.
 </p>
-<p>
 <div class="h5">dict#get</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>dict#get(key, default?):map:[raise]</code></div>
+<p>
 Seeks a value that is associated with the specified <code class="highlighter-rouge">key</code>.
 </p>
 <p>
@@ -2378,14 +2142,14 @@ Another measure to get a value associated with a key is to use an index operator
 <li><code class="highlighter-rouge">v = d['foo']</code></li>
 <li><code class="highlighter-rouge">v = d.get('foo'):raise</code></li>
 </ul>
-<p>
 <div class="h5">dict#haskey</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>dict#haskey(key):map</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if the specified <code class="highlighter-rouge">key</code> exists in the dictionary.
 </p>
-<p>
 <div class="h5">dict#items</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>dict#items() {block?}</code></div>
+<p>
 Returns an iterator of key-value pairs in the dictionary.
 </p>
 <p>
@@ -2405,9 +2169,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">dict#keys</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>dict#keys() {block?}</code></div>
+<p>
 Returns an iterator of keys in the dictionary.
 </p>
 <p>
@@ -2427,14 +2191,14 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">dict#len</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>dict#len()</code></div>
+<p>
 Returns the number of key-value pairs in the dictionary.
 </p>
-<p>
 <div class="h5">dict#put</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>dict#put(key, value):map:reduce:[overwrite,strict,timid]</code></div>
+<p>
 Adds a new key-value pair.
 </p>
 <p>
@@ -2452,9 +2216,9 @@ Another measure to add a key-value pair is to use an index operator. The followi
 <li><code class="highlighter-rouge">d['foo'] = 3</code></li>
 <li><code class="highlighter-rouge">d.put('foo', 3)</code></li>
 </ul>
-<p>
 <div class="h5">dict#values</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>dict#values() {block?}</code></div>
+<p>
 Returns an iterator of values in the dictionary.
 </p>
 <p>
@@ -2483,9 +2247,9 @@ The <code class="highlighter-rouge">directory</code> class handles information n
 Though the instance can be created by <code class="highlighter-rouge">directory()</code> function, you don't have to use it in many cases because a casting from <code class="highlighter-rouge">string</code> to <code class="highlighter-rouge">directory</code> instance works implicitly in a function call.
 </p>
 <h3><span class="caption-index-3">5.12.2</span><a name="anchor-5-12-2"></a>Constructor</h3>
-<p>
 <div class="h5">directory</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>directory(pathname:string):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">directory</code> instance from the specified path name.
 </p>
 <h2><span class="caption-index-2">5.13</span><a name="anchor-5-13"></a>environment Class</h2>
@@ -2494,21 +2258,15 @@ Creates a <code class="highlighter-rouge">directory</code> instance from the spe
 The <code class="highlighter-rouge">environment</code> class provides measures to operate variables in an environment, which is a fundamental mechanism to store variables.
 </p>
 <h3><span class="caption-index-3">5.13.2</span><a name="anchor-5-13-2"></a>Method</h3>
-<p>
 <div class="h5">environment#getprop!</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>environment#getprop!(symbol:symbol):map</code></div>
-
-</p>
-<p>
 <div class="h5">environment#lookup</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>environment#lookup(symbol:symbol, escalate:boolean =&gt; true):map</code></div>
+<p>
 Looks up a specified symbol in the environment and returns the associated value. In default, if the symbol is not defined in the environment, it will be searched in environments outside of the current one. Set escalate flag to false in order to disable such an escalation behaviour. Returns false when the symbol could not be found.
 </p>
-<p>
 <div class="h5">environment#setprop!</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>environment#setprop!(symbol:symbol, value):map</code></div>
-
-</p>
 <h2><span class="caption-index-2">5.14</span><a name="anchor-5-14"></a>error Class</h2>
 <h3><span class="caption-index-3">5.14.1</span><a name="anchor-5-14-1"></a>Overview</h3>
 <p>
@@ -2527,7 +2285,6 @@ In the following code, <code class="highlighter-rouge">e</code> is an instance t
 }
 </code></pre>
 <h3><span class="caption-index-3">5.14.2</span><a name="anchor-5-14-2"></a>Predefined Variable</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -2535,232 +2292,155 @@ Variable</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>error.ArgumentError</code></td>
-
 <td>
 Argument error.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.ArithmeticError</code></td>
-
 <td>
 Arithmetic error.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.AttributeError</code></td>
-
 <td>
 Invalid attribute is specified.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.CodecError</code></td>
-
 <td>
 An error that is related to codec process.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.CommandError</code></td>
-
 <td>
 An error that could happen in command line.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.DeclarationError</code></td>
-
 <td>
 An error in a function\'s declarations.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.FormatError</code></td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.IOError</code></td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.ImportError</code></td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.IndexError</code></td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.IteratorError</code></td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.KeyError</code></td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.MemberAccessError</code></td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.MemoryError</code></td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.NameError</code></td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.NotImplementedError</code></td>
-
 <td>
 An error that could occur when a called function has no implemented body but an entry.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.OutOfRange</code></td>
-
 <td>
 Index number is out of range.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.ResourceError</code></td>
-
 <td>
 Resource error.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.RuntimeError</code></td>
-
 <td>
 Runtime error.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.SyntaxError</code></td>
-
 <td>
 Syntax error.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.SystemError</code></td>
-
 <td>
 System error.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.TypeError</code></td>
-
 <td>
 Type error.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.ValueError</code></td>
-
 <td>
 Invalid value is specified.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>error.ZeroDivisionError</code></td>
-
 <td>
 Zero-division occured in division or modulo operations.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.14.3</span><a name="anchor-5-14-3"></a>Property</h3>
 <p>
 An <code class="highlighter-rouge">error</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -2772,8 +2452,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>lineno</code></td>
@@ -2781,11 +2459,9 @@ Note</th>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 The number of line where the expression that causes this error starts.</td>
 </tr>
-
 <tr>
 <td>
 <code>linenobtm</code></td>
@@ -2793,11 +2469,9 @@ The number of line where the expression that causes this error starts.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 The number of line where the expression that causes this error ends.</td>
 </tr>
-
 <tr>
 <td>
 <code>postext</code></td>
@@ -2805,11 +2479,9 @@ The number of line where the expression that causes this error ends.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 A text that consists of a source name and a line number.</td>
 </tr>
-
 <tr>
 <td>
 <code>source</code></td>
@@ -2817,11 +2489,9 @@ A text that consists of a source name and a line number.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 The name of the file that causes this error.</td>
 </tr>
-
 <tr>
 <td>
 <code>text</code></td>
@@ -2829,11 +2499,9 @@ The name of the file that causes this error.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 An error message. If an attribute <code class="highlighter-rouge">:lineno</code> is specified, it would contain a line number.</td>
 </tr>
-
 <tr>
 <td>
 <code>trace</code></td>
@@ -2841,15 +2509,10 @@ An error message. If an attribute <code class="highlighter-rouge">:lineno</code>
 <code>iterator</code></td>
 <td>
 R</td>
-
 <td>
 An iterator that generates <code class="highlighter-rouge">expr</code> instances that indicate stack trace.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">5.15</span><a name="anchor-5-15"></a>expr Class</h2>
 <h3><span class="caption-index-3">5.15.1</span><a name="anchor-5-15-1"></a>Overview</h3>
 <p>
@@ -2859,7 +2522,6 @@ The <code class="highlighter-rouge">expr</code> class provides inromation about 
 <p>
 An <code class="highlighter-rouge">expr</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -2871,8 +2533,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>attrfront</code></td>
@@ -2880,11 +2540,9 @@ Note</th>
 <code>list</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "identifier" and "caller".</td>
 </tr>
-
 <tr>
 <td>
 <code>attrs</code></td>
@@ -2892,11 +2550,9 @@ Exists in "identifier" and "caller".</td>
 <code>list</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "identifier" and "caller".</td>
 </tr>
-
 <tr>
 <td>
 <code>attrsopt</code></td>
@@ -2904,11 +2560,9 @@ Exists in "identifier" and "caller".</td>
 <code>list</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "identifier" and "caller".</td>
 </tr>
-
 <tr>
 <td>
 <code>block</code></td>
@@ -2916,11 +2570,9 @@ Exists in "identifier" and "caller".</td>
 <code>expr</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "caller".</td>
 </tr>
-
 <tr>
 <td>
 <code>blockparam</code></td>
@@ -2928,11 +2580,9 @@ Exists in "caller".</td>
 <code>iterator</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "block".</td>
 </tr>
-
 <tr>
 <td>
 <code>body</code></td>
@@ -2940,11 +2590,9 @@ Exists in "block".</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "suffixed".</td>
 </tr>
-
 <tr>
 <td>
 <code>car</code></td>
@@ -2952,11 +2600,9 @@ Exists in "suffixed".</td>
 <code>expr</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "compound".</td>
 </tr>
-
 <tr>
 <td>
 <code>cdr</code></td>
@@ -2964,11 +2610,9 @@ Exists in "compound".</td>
 <code>expr</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "compound".</td>
 </tr>
-
 <tr>
 <td>
 <code>child</code></td>
@@ -2976,11 +2620,9 @@ Exists in "compound".</td>
 <code>expr</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "unary".</td>
 </tr>
-
 <tr>
 <td>
 <code>children</code></td>
@@ -2988,11 +2630,9 @@ Exists in "unary".</td>
 <code>iterator</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "collector".</td>
 </tr>
-
 <tr>
 <td>
 <code>left</code></td>
@@ -3000,11 +2640,9 @@ Exists in "collector".</td>
 <code>expr</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "binary".</td>
 </tr>
-
 <tr>
 <td>
 <code>lineno</code></td>
@@ -3012,11 +2650,9 @@ Exists in "binary".</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>linenobtm</code></td>
@@ -3024,11 +2660,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>operator</code></td>
@@ -3036,11 +2670,9 @@ R</td>
 <code>operator</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "unaryop", "binaryop" and "assign".</td>
 </tr>
-
 <tr>
 <td>
 <code>postext</code></td>
@@ -3048,11 +2680,9 @@ Exists in "unaryop", "binaryop" and "assign".</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>right</code></td>
@@ -3060,11 +2690,9 @@ R</td>
 <code>expr</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "binary".</td>
 </tr>
-
 <tr>
 <td>
 <code>source</code></td>
@@ -3072,11 +2700,9 @@ Exists in "binary".</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>suffix</code></td>
@@ -3084,11 +2710,9 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "suffixed".</td>
 </tr>
-
 <tr>
 <td>
 <code>symbol</code></td>
@@ -3096,11 +2720,9 @@ Exists in "suffixed".</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "identifier".</td>
 </tr>
-
 <tr>
 <td>
 <code>trailer</code></td>
@@ -3108,11 +2730,9 @@ Exists in "identifier".</td>
 <code>expr</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "caller".</td>
 </tr>
-
 <tr>
 <td>
 <code>typename</code></td>
@@ -3120,11 +2740,9 @@ Exists in "caller".</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>typesym</code></td>
@@ -3132,11 +2750,9 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>value</code></td>
@@ -3144,44 +2760,39 @@ R</td>
 <code>any</code></td>
 <td>
 R</td>
-
 <td>
 Exists in "value".</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.15.3</span><a name="anchor-5-15-3"></a>Constructor</h3>
-<p>
 <div class="h5">expr</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr(src:stream:r):map {block?}</code></div>
+<p>
 Parses a Gura script from the stream <code class="highlighter-rouge">src</code> and creates an <code class="highlighter-rouge">expr</code> instance.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|expr:expr|</code>, where <code class="highlighter-rouge">expr</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">5.15.4</span><a name="anchor-5-15-4"></a>Method</h3>
-<p>
 <div class="h5">expr#eval</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#eval(env?:environment) {block?}</code></div>
+<p>
 Evaluates the <code class="highlighter-rouge">expr</code> instance.
 </p>
 <p>
 If the argument <code class="highlighter-rouge">env</code> is specified, that environment is used for evaluation. If omitted, the current scope is used.
 </p>
-<p>
 <div class="h5">expr.parse</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr.parse(script:string):static:map {block?}</code></div>
+<p>
 Parses a Gura script in the string <code class="highlighter-rouge">script</code> and creates an <code class="highlighter-rouge">expr</code> instance.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it will be evaluated with block parameter in a format of <code class="highlighter-rouge">|expr:expr|</code> where <code class="highlighter-rouge">expr</code> is the created instance.
 </p>
-<p>
 <div class="h5">expr#textize</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#textize(style?:symbol, indent?:string)</code></div>
+<p>
 Composes a script text from a content of <code class="highlighter-rouge">expr</code>.
 </p>
 <p>
@@ -3196,9 +2807,9 @@ Argument <code class="highlighter-rouge">style</code> specifies the text style o
 <p>
 The argument <code class="highlighter-rouge">indent</code> specifies a string used for indentation. Its default is a sequence of four spaces.
 </p>
-<p>
 <div class="h5">expr#tofunction</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#tofunction(`args*)</code></div>
+<p>
 Converts the <code class="highlighter-rouge">expr</code> into a function.
 </p>
 <p>
@@ -3207,14 +2818,14 @@ If the <code class="highlighter-rouge">expr</code> is a block that has a block p
 <p>
 It would be an error if <code class="highlighter-rouge">args</code> is specified and a block parameter exists as well.
 </p>
-<p>
 <div class="h5">expr#unquote</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#unquote()</code></div>
+<p>
 Returns <code class="highlighter-rouge">expr</code> instance that has removed quote operator from the original <code class="highlighter-rouge">expr</code>.
 </p>
-<p>
 <div class="h5">expr#write</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#write(dst:stream:w, style?:symbol, indent?:string)</code></div>
+<p>
 Outputs a script that describes the expression to the specified <code class="highlighter-rouge">stream</code>.
 </p>
 <p>
@@ -3229,94 +2840,94 @@ Argument <code class="highlighter-rouge">style</code> specifies the text style o
 <p>
 The argument <code class="highlighter-rouge">indent</code> specifies a string used for indentation. Its default is a sequence of four spaces.
 </p>
-<p>
 <div class="h5">expr#isunary</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#isunary()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of unary.
 </p>
-<p>
 <div class="h5">expr#isunaryop</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#isunaryop()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of unaryop.
 </p>
-<p>
 <div class="h5">expr#isquote</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#isquote()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of quote.
 </p>
-<p>
 <div class="h5">expr#isbinary</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#isbinary()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of binary.
 </p>
-<p>
 <div class="h5">expr#isbinaryop</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#isbinaryop()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of binaryop.
 </p>
-<p>
 <div class="h5">expr#isassign</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#isassign()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of assign.
 </p>
-<p>
 <div class="h5">expr#ismember</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#ismember()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of member.
 </p>
-<p>
 <div class="h5">expr#iscollector</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#iscollector()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of collector.
 </p>
-<p>
 <div class="h5">expr#isroot</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#isroot()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of root.
 </p>
-<p>
 <div class="h5">expr#isblock</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#isblock()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of block.
 </p>
-<p>
 <div class="h5">expr#islister</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#islister()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of lister.
 </p>
-<p>
 <div class="h5">expr#isiterer</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#isiterer()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of iterer.
 </p>
-<p>
 <div class="h5">expr#iscompound</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#iscompound()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of compound.
 </p>
-<p>
 <div class="h5">expr#isindexer</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#isindexer()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of indexer.
 </p>
-<p>
 <div class="h5">expr#iscaller</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#iscaller()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of caller.
 </p>
-<p>
 <div class="h5">expr#isvalue</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#isvalue()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of value.
 </p>
-<p>
 <div class="h5">expr#isidentifier</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#isidentifier()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of identifier.
 </p>
-<p>
 <div class="h5">expr#issuffixed</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>expr#issuffixed()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if expr is an expression of suffixed.
 </p>
 <h2><span class="caption-index-2">5.16</span><a name="anchor-5-16"></a>formatter Class</h2>
@@ -3335,7 +2946,6 @@ The first argument is a string containing format specifiers like <code class="hi
 <p>
 The table below summarizes associations between specifiers and the method name of their format handlers:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -3343,80 +2953,67 @@ Specifier</th>
 <th>
 Method Name</th>
 </tr>
-
 <tr>
 <td>
 <code>%d</code></td>
 <td>
 <code>__format_d__</code></td>
 </tr>
-
 <tr>
 <td>
 <code>%u</code></td>
 <td>
 <code>__format_u__</code></td>
 </tr>
-
 <tr>
 <td>
 <code>%b</code></td>
 <td>
 <code>__format_b__</code></td>
 </tr>
-
 <tr>
 <td>
 <code>%o</code></td>
 <td>
 <code>__format_o__</code></td>
 </tr>
-
 <tr>
 <td>
 <code>%x</code></td>
 <td>
 <code>__format_x__</code></td>
 </tr>
-
 <tr>
 <td>
 <code>%e</code></td>
 <td>
 <code>__format_e__</code></td>
 </tr>
-
 <tr>
 <td>
 <code>%f</code></td>
 <td>
 <code>__format_f__</code></td>
 </tr>
-
 <tr>
 <td>
 <code>%g</code></td>
 <td>
 <code>__format_g__</code></td>
 </tr>
-
 <tr>
 <td>
 <code>%s</code></td>
 <td>
 <code>__format_s__</code></td>
 </tr>
-
 <tr>
 <td>
 <code>%c</code></td>
 <td>
 <code>__format_c__</code></td>
 </tr>
-
 </table>
-
-</p>
 <p>
 This feature is supposed to be used when you want your original class's instance properly formatted in <code class="highlighter-rouge">printf</code>. Below is an example to implement a format handler for the specifier <code class="highlighter-rouge">%d</code>:
 </p>
@@ -3433,17 +3030,17 @@ a = A()
 printf('%d', a) // a.__format_d__() is called
 </code></pre>
 <h3><span class="caption-index-3">5.16.2</span><a name="anchor-5-16-2"></a>Method</h3>
-<p>
 <div class="h5">formatter#getminwidth</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>formatter#getminwidth()</code></div>
+<p>
 Returns an expected minimum width for the field.
 </p>
 <p>
 For example, with <code class="highlighter-rouge">'%3d'</code>, this method would return <code class="highlighter-rouge">3</code>.
 </p>
-<p>
 <div class="h5">formatter#getpadding</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>formatter#getpadding()</code></div>
+<p>
 Returns a string containing a padding character, a space or <code class="highlighter-rouge">'0'</code>.
 </p>
 <p>
@@ -3452,9 +3049,9 @@ In default, a space is used for padding. For example, with <code class="highligh
 <p>
 When a character <code class="highlighter-rouge">'0'</code> appears after <code class="highlighter-rouge">'%'</code>, that becomes the padding character. For example, with <code class="highlighter-rouge">'%03d'</code>, this method would return <code class="highlighter-rouge">'0'</code>.
 </p>
-<p>
 <div class="h5">formatter#getplusmode</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>formatter#getplusmode()</code></div>
+<p>
 Returns a symbol that indicates an expected action when a positive number appears.
 </p>
 <ul>
@@ -3462,33 +3059,33 @@ Returns a symbol that indicates an expected action when a positive number appear
 <li><code class="highlighter-rouge">`space</code> .. A space should be inserted.</li>
 <li><code class="highlighter-rouge">`plus</code> .. A plus character should be inserted.</li>
 </ul>
-<p>
 <div class="h5">formatter#getprecision</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>formatter#getprecision()</code></div>
+<p>
 Returns an expected precision for the field.
 </p>
 <p>
 For example, with <code class="highlighter-rouge">'%.3d'</code>, this method would return <code class="highlighter-rouge">3</code>.
 </p>
-<p>
 <div class="h5">formatter#isleftalign</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>formatter#isleftalign()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if the field is expected to be aligned on left.
 </p>
 <p>
 For example, with <code class="highlighter-rouge">'%-3d'</code>, this method would return <code class="highlighter-rouge">true</code>.
 </p>
-<p>
 <div class="h5">formatter#issharp</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>formatter#issharp()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if the specifier sequence includes <code class="highlighter-rouge">'#'</code> flag, which means some literal prefixes such as <code class="highlighter-rouge">0x</code> are expected to be appended at the top.
 </p>
 <p>
 For example, with <code class="highlighter-rouge">'%#x'</code>, this method would return <code class="highlighter-rouge">true</code>.
 </p>
-<p>
 <div class="h5">formatter#isuppercase</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>formatter#isuppercase()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if alphabet characters are expected to be shown in upper case.
 </p>
 <p>
@@ -3528,7 +3125,6 @@ You can use <code class="highlighter-rouge">&amp;</code> as an alias of <code cl
 <p>
 A <code class="highlighter-rouge">function</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -3540,8 +3136,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>decls</code></td>
@@ -3549,11 +3143,9 @@ Note</th>
 <code>iterator</code></td>
 <td>
 R</td>
-
 <td>
 An iterator of <code class="highlighter-rouge">declaration</code> instances that provide information about argument declaration the function defines.</td>
 </tr>
-
 <tr>
 <td>
 <code>expr</code></td>
@@ -3561,11 +3153,9 @@ An iterator of <code class="highlighter-rouge">declaration</code> instances that
 <code>expr</code></td>
 <td>
 R/W</td>
-
 <td>
 An expression of the function.</td>
 </tr>
-
 <tr>
 <td>
 <code>format</code></td>
@@ -3573,11 +3163,9 @@ An expression of the function.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 A string showing a declared format of the function.</td>
 </tr>
-
 <tr>
 <td>
 <code>fullname</code></td>
@@ -3585,11 +3173,9 @@ A string showing a declared format of the function.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 A full name of the function that is prefixed by a name of the module or the class it belongs to.</td>
 </tr>
-
 <tr>
 <td>
 <code>name</code></td>
@@ -3597,11 +3183,9 @@ A full name of the function that is prefixed by a name of the module or the clas
 <code>string</code></td>
 <td>
 R/W</td>
-
 <td>
 A <code class="highlighter-rouge">string</code> instance that represents the function's name.</td>
 </tr>
-
 <tr>
 <td>
 <code>symbol</code></td>
@@ -3609,15 +3193,10 @@ A <code class="highlighter-rouge">string</code> instance that represents the fun
 <code>symbol</code></td>
 <td>
 R/W</td>
-
 <td>
 A <code class="highlighter-rouge">symbol</code> instance that represents the function's name.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.17.3</span><a name="anchor-5-17-3"></a>Operator</h3>
 <p>
 You can print a function's help from the interactive prompt using the unary operator "<code class="highlighter-rouge">~</code>". Below is an example to print the help of <code class="highlighter-rouge">printf()</code> function:
@@ -3625,9 +3204,9 @@ You can print a function's help from the interactive prompt using the unary oper
 <pre class="highlight"><code>&gt;&gt;&gt; ~printf
 </code></pre>
 <h3><span class="caption-index-3">5.17.4</span><a name="anchor-5-17-4"></a>Constructor</h3>
-<p>
 <div class="h5">function</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>function(`args*) {block}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">function</code> instance with an argument list of <code class="highlighter-rouge">args</code> and a procedure body provided by <code class="highlighter-rouge">block</code>.
 </p>
 <p>
@@ -3638,17 +3217,17 @@ Following two codes have the same effect with each other.
 <li><code class="highlighter-rouge">f(a, b, c) = { /* any job */ }</code></li>
 </ul>
 <h3><span class="caption-index-3">5.17.5</span><a name="anchor-5-17-5"></a>Method</h3>
-<p>
 <div class="h5">function.getdecls</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>function.getdecls(func:function):static:map</code></div>
+<p>
 Creates an iterator of <code class="highlighter-rouge">declaration</code> instances that provide information about argument declaration that the function instance <code class="highlighter-rouge">func</code> defines.
 </p>
 <p>
 This class method returns the same information as the property <code class="highlighter-rouge">function#decls</code>.
 </p>
-<p>
 <div class="h5">function.getexpr</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>function.getexpr(func:function):static:map</code></div>
+<p>
 Returns an expression of the function instance <code class="highlighter-rouge">func</code>.
 </p>
 <p>
@@ -3657,41 +3236,41 @@ It would return <code class="highlighter-rouge">nil</code> if the function is im
 <p>
 This class method returns the same information as the property <code class="highlighter-rouge">function#expr</code>.
 </p>
-<p>
 <div class="h5">function.getformat</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>function.getformat(func:function):static:map</code></div>
+<p>
 Returns a string showing a declared format of the function instance <code class="highlighter-rouge">func</code>.
 </p>
 <p>
 This class method returns the same information as the property <code class="highlighter-rouge">function#format</code>.
 </p>
-<p>
 <div class="h5">function.getfullname</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>function.getfullname(func:function):static:map</code></div>
+<p>
 Returns a full name of the function instance <code class="highlighter-rouge">func</code>, which is prefixed by a name of the module or the class the instance belongs to.
 </p>
 <p>
 This class method returns the same information as the property <code class="highlighter-rouge">function#fullname</code>.
 </p>
-<p>
 <div class="h5">function.getname</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>function.getname(func:function):static:map</code></div>
+<p>
 Returns a name of the function instance <code class="highlighter-rouge">func</code> in <code class="highlighter-rouge">string</code> type.
 </p>
 <p>
 This class method returns the same information as the property <code class="highlighter-rouge">function#name</code>.
 </p>
-<p>
 <div class="h5">function.getsymbol</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>function.getsymbol(func:function):static:map</code></div>
+<p>
 Returns a name of the function instance <code class="highlighter-rouge">func</code> in <code class="highlighter-rouge">symbol</code> type.
 </p>
 <p>
 This class method returns the same information as the property <code class="highlighter-rouge">function#symbol</code>.
 </p>
-<p>
 <div class="h5">function#mathdiff</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>function#mathdiff(var?:symbol):reduce</code></div>
+<p>
 Returns a <code class="highlighter-rouge">function</code> instance that computes derivation of the target function, which is expected to contain only mathematical procedures. An error occurs if the target function has any elements that have nothing to do with mathematics.
 </p>
 <p>
@@ -3712,9 +3291,9 @@ You can check the result of derivation by seeing property <code class="highlight
 <h2><span class="caption-index-2">5.18</span><a name="anchor-5-18"></a>gear@averagepool1d Class</h2>
 <h3><span class="caption-index-3">5.18.1</span><a name="anchor-5-18-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.18.2</span><a name="anchor-5-18-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@averagepool1d</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@averagepool1d(size:number, strides?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@averagepool1d</code> instance.
 </p>
 <p>
@@ -3733,7 +3312,6 @@ The <code class="highlighter-rouge">channel_pos</code> specifies where channel d
 <p>
 A <code class="highlighter-rouge">gear@averagepool1d</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -3745,8 +3323,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>channel_pos</code></td>
@@ -3754,11 +3330,9 @@ Note</th>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>padding</code></td>
@@ -3766,11 +3340,9 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -3778,11 +3350,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>strides</code></td>
@@ -3790,28 +3360,22 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">5.19</span><a name="anchor-5-19"></a>gear@averagepool2d Class</h2>
 <h3><span class="caption-index-3">5.19.1</span><a name="anchor-5-19-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.19.2</span><a name="anchor-5-19-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@averagepool2d</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@averagepool2d(size[]:number, strides[]?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@averagepool2d</code> instance.
 </p>
 <h3><span class="caption-index-3">5.19.3</span><a name="anchor-5-19-3"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">gear@averagepool2d</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -3823,8 +3387,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>channel_pos</code></td>
@@ -3832,11 +3394,9 @@ Note</th>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>padding</code></td>
@@ -3844,11 +3404,9 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -3856,11 +3414,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>strides</code></td>
@@ -3868,21 +3424,16 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">5.20</span><a name="anchor-5-20"></a>gear@averagepool3d Class</h2>
 <h3><span class="caption-index-3">5.20.1</span><a name="anchor-5-20-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.20.2</span><a name="anchor-5-20-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@averagepool3d</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@averagepool3d(size[]:number, strides[]?:number, padding?:symbol, format?:symbol):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@averagepool3d</code> instance.
 </p>
 <h3><span class="caption-index-3">5.20.3</span><a name="anchor-5-20-3"></a>Property</h3>
@@ -3892,9 +3443,9 @@ A <code class="highlighter-rouge">gear@averagepool3d</code> instance has the fol
 <h2><span class="caption-index-2">5.21</span><a name="anchor-5-21"></a>gear@conv1d Class</h2>
 <h3><span class="caption-index-3">5.21.1</span><a name="anchor-5-21-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.21.2</span><a name="anchor-5-21-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@conv1d</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@conv1d(array:array, strides?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@conv1d</code> instance.
 </p>
 <p>
@@ -3924,7 +3475,6 @@ The <code class="highlighter-rouge">channel_pos</code> is a channel position and
 <p>
 A <code class="highlighter-rouge">gear@conv1d</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -3936,8 +3486,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>array</code></td>
@@ -3945,11 +3493,9 @@ Note</th>
 <code>array</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>channel_num</code></td>
@@ -3957,11 +3503,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>channel_pos</code></td>
@@ -3969,11 +3513,9 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>filter_num</code></td>
@@ -3981,11 +3523,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>padding</code></td>
@@ -3993,11 +3533,9 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -4005,11 +3543,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>strides</code></td>
@@ -4017,21 +3553,16 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">5.22</span><a name="anchor-5-22"></a>gear@conv2d Class</h2>
 <h3><span class="caption-index-3">5.22.1</span><a name="anchor-5-22-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.22.2</span><a name="anchor-5-22-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@conv2d</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@conv2d(array:array, strides[]?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@conv2d</code> instance.
 </p>
 <p>
@@ -4061,7 +3592,6 @@ The <code class="highlighter-rouge">channel_pos</code> is a channel position and
 <p>
 A <code class="highlighter-rouge">gear@conv2d</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -4073,8 +3603,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>array</code></td>
@@ -4082,11 +3610,9 @@ Note</th>
 <code>array</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>channel_num</code></td>
@@ -4094,11 +3620,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>channel_pos</code></td>
@@ -4106,11 +3630,9 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>filter_num</code></td>
@@ -4118,11 +3640,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>padding</code></td>
@@ -4130,11 +3650,9 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -4142,11 +3660,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>strides</code></td>
@@ -4154,21 +3670,16 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">5.23</span><a name="anchor-5-23"></a>gear@conv3d Class</h2>
 <h3><span class="caption-index-3">5.23.1</span><a name="anchor-5-23-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.23.2</span><a name="anchor-5-23-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@conv3d</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@conv3d(array:array, strides[]?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@conv3d</code> instance.
 </p>
 <p>
@@ -4198,7 +3709,6 @@ The <code class="highlighter-rouge">channel_pos</code> is a channel position and
 <p>
 A <code class="highlighter-rouge">gear@conv3d</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -4210,8 +3720,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>array</code></td>
@@ -4219,11 +3727,9 @@ Note</th>
 <code>array</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>channel_num</code></td>
@@ -4231,11 +3737,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>channel_pos</code></td>
@@ -4243,11 +3747,9 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>filter_num</code></td>
@@ -4255,11 +3757,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>padding</code></td>
@@ -4267,11 +3767,9 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -4279,11 +3777,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>strides</code></td>
@@ -4291,21 +3787,16 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">5.24</span><a name="anchor-5-24"></a>gear@maxpool1d Class</h2>
 <h3><span class="caption-index-3">5.24.1</span><a name="anchor-5-24-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.24.2</span><a name="anchor-5-24-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@maxpool1d</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@maxpool1d(size:number, strides?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@maxpool1d</code> instance.
 </p>
 <p>
@@ -4324,7 +3815,6 @@ The <code class="highlighter-rouge">channel_pos</code> specifies where channel d
 <p>
 A <code class="highlighter-rouge">gear@maxpool1d</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -4336,8 +3826,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>channel_pos</code></td>
@@ -4345,11 +3833,9 @@ Note</th>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>padding</code></td>
@@ -4357,11 +3843,9 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -4369,11 +3853,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>strides</code></td>
@@ -4381,28 +3863,22 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">5.25</span><a name="anchor-5-25"></a>gear@maxpool2d Class</h2>
 <h3><span class="caption-index-3">5.25.1</span><a name="anchor-5-25-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.25.2</span><a name="anchor-5-25-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@maxpool2d</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@maxpool2d(size[]:number, strides[]?:number, padding?:symbol, channel_pos?:symbol):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@maxpool2d</code> instance.
 </p>
 <h3><span class="caption-index-3">5.25.3</span><a name="anchor-5-25-3"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">gear@maxpool2d</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -4414,8 +3890,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>channel_pos</code></td>
@@ -4423,11 +3897,9 @@ Note</th>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>padding</code></td>
@@ -4435,11 +3907,9 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -4447,11 +3917,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>strides</code></td>
@@ -4459,21 +3927,16 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">5.26</span><a name="anchor-5-26"></a>gear@maxpool3d Class</h2>
 <h3><span class="caption-index-3">5.26.1</span><a name="anchor-5-26-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.26.2</span><a name="anchor-5-26-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@maxpool3d</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@maxpool3d(size[]:number, strides[]?:number, padding?:symbol, format?:symbol):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@maxpool3d</code> instance.
 </p>
 <h3><span class="caption-index-3">5.26.3</span><a name="anchor-5-26-3"></a>Property</h3>
@@ -4483,32 +3946,31 @@ A <code class="highlighter-rouge">gear@maxpool3d</code> instance has the followi
 <h2><span class="caption-index-2">5.27</span><a name="anchor-5-27"></a>gear@relu Class</h2>
 <h3><span class="caption-index-3">5.27.1</span><a name="anchor-5-27-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.27.2</span><a name="anchor-5-27-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@relu</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@relu() {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@relu</code> instance.
 </p>
 <h2><span class="caption-index-2">5.28</span><a name="anchor-5-28"></a>gear@sigmoid Class</h2>
 <h3><span class="caption-index-3">5.28.1</span><a name="anchor-5-28-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.28.2</span><a name="anchor-5-28-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@sigmoid</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@sigmoid() {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@sigmoid</code> instance.
 </p>
 <h2><span class="caption-index-2">5.29</span><a name="anchor-5-29"></a>gear@softmax Class</h2>
 <h3><span class="caption-index-3">5.29.1</span><a name="anchor-5-29-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.29.2</span><a name="anchor-5-29-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@softmax</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@softmax(axis?:number):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@softmax</code> instance.
 </p>
 <h3><span class="caption-index-3">5.29.3</span><a name="anchor-5-29-3"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">gear@softmax</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -4520,8 +3982,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>axis</code></td>
@@ -4529,21 +3989,16 @@ Note</th>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">5.30</span><a name="anchor-5-30"></a>gear@tanh Class</h2>
 <h3><span class="caption-index-3">5.30.1</span><a name="anchor-5-30-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.30.2</span><a name="anchor-5-30-2"></a>Constructor</h3>
-<p>
 <div class="h5">gear@tanh</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gear@tanh() {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">gear@tanh</code> instance.
 </p>
 <h2><span class="caption-index-2">5.31</span><a name="anchor-5-31"></a>help Class</h2>
@@ -4558,7 +4013,6 @@ You can get a <code class="highlighter-rouge">help</code> instance from a <code 
 <p>
 A <code class="highlighter-rouge">help</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -4570,8 +4024,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>doc</code></td>
@@ -4579,11 +4031,9 @@ Note</th>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 The help text.</td>
 </tr>
-
 <tr>
 <td>
 <code>format</code></td>
@@ -4591,11 +4041,9 @@ The help text.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 A name of the syntax format in which the help text is described such as <code class="highlighter-rouge">'markdown'</code>.</td>
 </tr>
-
 <tr>
 <td>
 <code>lang</code></td>
@@ -4603,11 +4051,9 @@ A name of the syntax format in which the help text is described such as <code cl
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 A symbol of the natural language in which the help text is written. For example, <code class="highlighter-rouge">`en</code> for English and <code class="highlighter-rouge">`ja</code> for Japanese.</td>
 </tr>
-
 <tr>
 <td>
 <code>title</code></td>
@@ -4615,19 +4061,14 @@ A symbol of the natural language in which the help text is written. For example,
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 The title of the help.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.31.3</span><a name="anchor-5-31-3"></a>Method</h3>
-<p>
 <div class="h5">help.text@iterator</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>help.text@iterator(lang:symbol):static {block?}</code></div>
+<p>
 Returns a help text for functions that return an iterator.
 </p>
 <p>
@@ -4636,9 +4077,9 @@ The argument <code class="highlighter-rouge">lang</code> is a symbol that specif
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|str:string|</code>, where <code class="highlighter-rouge">str</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">help.text@block</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>help.text@block(lang:symbol, varname:string, typename:string):static {block?}</code></div>
+<p>
 Returns a help text that for functions that take a block .
 </p>
 <p>
@@ -4650,9 +4091,9 @@ In the text, variable names would be replaced by <code class="highlighter-rouge"
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|str:string|</code>, where <code class="highlighter-rouge">str</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">help.presenter</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>help.presenter(format:string):static:void {block}</code></div>
+<p>
 Registers a presentation procedure with a name specified by the argument <code class="highlighter-rouge">format</code>.
 </p>
 <p>
@@ -4671,7 +4112,6 @@ The <code class="highlighter-rouge">image</code> class provides following measur
 <p>
 Acceptable image data formats can be extended by importing modules. Below is a table to show image formats and name of modules that handle them. The string listed in "imagetype" column shows a name that is used by functions <code class="highlighter-rouge">image()</code>, <code class="highlighter-rouge">image#read()</code> and <code class="highlighter-rouge">image#write()</code> to explicitly specify the image data format in a process of reading and writing files.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -4681,7 +4121,6 @@ Module Name</th>
 <th>
 imagetype</th>
 </tr>
-
 <tr>
 <td>
 BMP</td>
@@ -4690,7 +4129,6 @@ BMP</td>
 <td>
 <code>'bmp'</code></td>
 </tr>
-
 <tr>
 <td>
 GIF</td>
@@ -4699,7 +4137,6 @@ GIF</td>
 <td>
 <code>'gif'</code></td>
 </tr>
-
 <tr>
 <td>
 JPEG</td>
@@ -4708,7 +4145,6 @@ JPEG</td>
 <td>
 <code>'jpeg'</code></td>
 </tr>
-
 <tr>
 <td>
 Microsoft Icon</td>
@@ -4717,7 +4153,6 @@ Microsoft Icon</td>
 <td>
 <code>'msico'</code></td>
 </tr>
-
 <tr>
 <td>
 PNG</td>
@@ -4726,7 +4161,6 @@ PNG</td>
 <td>
 <code>'png'</code></td>
 </tr>
-
 <tr>
 <td>
 PPM</td>
@@ -4735,7 +4169,6 @@ PPM</td>
 <td>
 <code>'ppm'</code></td>
 </tr>
-
 <tr>
 <td>
 TIFF</td>
@@ -4744,75 +4177,11 @@ TIFF</td>
 <td>
 <code>'tiff'</code></td>
 </tr>
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.32.2</span><a name="anchor-5-32-2"></a>Property</h3>
 <p>
 An <code class="highlighter-rouge">image</code> instance has the following properties:
 </p>
-<p>
-Takes one of the following symbols indicating what elements are stored in the memory:
-</p>
-<ul>
-<li><code class="highlighter-rouge">`rgb</code> .. red, green and blue</li>
-<li><tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Note</th>
-</tr>
-
-
-<tr>
-<td>
-<code>format</code></td>
-<td>
-<code>symbol</code></td>
-<td>
-R</td>
-
-<td>
-Takes one of the following symbols indicating what elements are stored in the memory:</td>
-</tr>
- <tr>
-<td>
-<code>height</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
- <td>
-Image height.</td>
-</tr>
- <tr>
-<td>
-<code>palette</code></td>
-<td>
-<code>palette</code></td>
-<td>
-R/W</td>
- <td>
-A <code class="highlighter-rouge">palette</code> instance associated with this image. If there's no palette associated, this property returns <code class="highlighter-rouge">nil</code>.</td>
-</tr>
- <tr>
-<td>
-<code>width</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
- <td>
-Image width.</td>
-</tr>
-</li>
-</ul>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -4824,8 +4193,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>format</code></td>
@@ -4833,47 +4200,53 @@ Note</th>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
-Takes one of the following symbols indicating what elements are stored in the memory:</td>
+<p>
+Takes one of the following symbols indicating what elements are stored in the memory:
+</p>
+<p>
+<code class="highlighter-rouge">`rgb</code> .. red, green and blue
+</p>
+<p>
+<code class="highlighter-rouge">`rgba</code> .. red, green, blue and alpha
+</p>
+</td>
 </tr>
- <tr>
+<tr>
 <td>
 <code>height</code></td>
 <td>
 <code>number</code></td>
 <td>
 R</td>
- <td>
+<td>
 Image height.</td>
 </tr>
- <tr>
+<tr>
 <td>
 <code>palette</code></td>
 <td>
 <code>palette</code></td>
 <td>
 R/W</td>
- <td>
+<td>
 A <code class="highlighter-rouge">palette</code> instance associated with this image. If there's no palette associated, this property returns <code class="highlighter-rouge">nil</code>.</td>
 </tr>
- <tr>
+<tr>
 <td>
 <code>width</code></td>
 <td>
 <code>number</code></td>
 <td>
 R</td>
- <td>
+<td>
 Image width.</td>
 </tr>
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.32.3</span><a name="anchor-5-32-3"></a>Constructor</h3>
-<p>
 <div class="h5">image</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image(args+):map {block?}</code></div>
+<p>
 Returns an image instance with specified characteristics. There are three forms to call the function as below:
 </p>
 <ul>
@@ -4895,9 +4268,9 @@ In the third form, the format of the image data is determined by the byte sequen
 You can also explicitly specify the image data format by the argument <code class="highlighter-rouge">imagetype</code>.
 </p>
 <h3><span class="caption-index-3">5.32.4</span><a name="anchor-5-32-4"></a>Method</h3>
-<p>
 <div class="h5">image#allocbuff</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#allocbuff(width:number, height:number, color?:color):reduce</code></div>
+<p>
 Allocates a specified size of buffer in the <code class="highlighter-rouge">image</code> instance that is supposed to has no buffer allocated.
 </p>
 <p>
@@ -4910,17 +4283,17 @@ An error occurs in following cases:
 <li>It fails to allocate necessary buffer.</li>
 <li>The <code class="highlighter-rouge">image</code> instance already has allocated buffer.</li>
 </ul>
-<p>
 <div class="h5">image#blur</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#blur(radius:number, sigma?:number) {block?}</code></div>
+<p>
 Returns a new image that blurs the original image with the given parameters.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|img:image|</code>, where <code class="highlighter-rouge">img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">image#clear</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#clear():reduce</code></div>
+<p>
 Fills the buffer in the <code class="highlighter-rouge">image</code> instance with zero value.
 </p>
 <p>
@@ -4929,9 +4302,9 @@ This has the same effect with calling <code class="highlighter-rouge">image#fill
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">image#crop</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#crop(x:number, y:number, width?:number, height?:number):map {block?}</code></div>
+<p>
 Returns a new image instance of the extracted area of the source image.
 </p>
 <p>
@@ -4946,17 +4319,17 @@ The extracted area is specified by the following arguments:
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|img:image|</code>, where <code class="highlighter-rouge">img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">image#delpalette</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#delpalette():reduce</code></div>
+<p>
 Deletes a <code class="highlighter-rouge">palette</code> instance that belongs to the <code class="highlighter-rouge">image</code>.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">image#extract</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#extract(x:number, y:number, width:number, height:number, element:symbol, dst):reduce</code></div>
+<p>
 Extracts the element values within the specified area of the image, and store them into a list. The argument <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> specifies the left-top position, and <code class="highlighter-rouge">width</code>, and <code class="highlighter-rouge">height</code> does the size of the area.
 </p>
 <p>
@@ -4974,25 +4347,25 @@ The argument <code class="highlighter-rouge">dst</code> specifies the variable i
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">image#fill</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#fill(color:color):reduce</code></div>
+<p>
 Fills the whole image with the specified color.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">image#fillrect</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#fillrect(x:number, y:number, width:number, height:number, color:color):map:reduce</code></div>
+<p>
 Fills the specified area with the specified color. The argument <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> specifies the left-top position, and <code class="highlighter-rouge">width</code>, and <code class="highlighter-rouge">height</code> does the size of the area.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">image#flip</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#flip(orient:symbol):map {block?}</code></div>
+<p>
 Returns a new <code class="highlighter-rouge">image</code> instance that flips the source image horizontally or vertically. You can specify the following symbol to the <code class="highlighter-rouge">orient</code> argument.
 </p>
 <ul>
@@ -5003,25 +4376,25 @@ Returns a new <code class="highlighter-rouge">image</code> instance that flips t
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|img:image|</code>, where <code class="highlighter-rouge">img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">image#getpixel</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#getpixel(x:number, y:number):map {block?}</code></div>
+<p>
 Returns a color of a pixel data at the specified position.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|c:color|</code>, where <code class="highlighter-rouge">c</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">image#grayscale</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#grayscale() {block?}</code></div>
+<p>
 Returns a new image instance that converts the source image into gray scale.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|img:image|</code>, where <code class="highlighter-rouge">img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">image#mapcolorlevel</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#mapcolorlevel(map@r:array@uint8, map@g?:array@uint8, map@b?:array@uint8) {block?}</code></div>
+<p>
 Returns a new image that converts color levels according to the given table.
 </p>
 <p>
@@ -5033,9 +4406,9 @@ If you want to apply a mapping table to all the elements, call the method with a
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|img:image|</code>, where <code class="highlighter-rouge">img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">image#paste</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#paste(x:number, y:number, src:image, width?:number, height?:number, xoffset:number =&gt; 0, yoffset:number =&gt; 0, a:number =&gt; 255):map:reduce</code></div>
+<p>
 Pastes the source image <code class="highlighter-rouge">src</code> onto the target image instance at the specified position.
 </p>
 <p>
@@ -5047,27 +4420,24 @@ The argument <code class="highlighter-rouge">a</code> specifies the alpha value 
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">image#putpixel</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#putpixel(x:number, y:number, color:color):map:reduce</code></div>
+<p>
 Puts a color on the specified position.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">image#size</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#size()</code></div>
+<p>
 Returns the image size as a list <code class="highlighter-rouge">[width, height]</code>.
 </p>
-<p>
 <div class="h5">image#store</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#store(x:number, y:number, width:number, height:number, element:symbol, src):reduce</code></div>
-
-</p>
-<p>
 <div class="h5">image#read</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read(stream:stream:r, imagetype?:string):map:reduce</code></div>
+<p>
 Reads image data from a stream.
 </p>
 <p>
@@ -5079,9 +4449,9 @@ You can also explicitly specify the image data format by the argument <code clas
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">image#reducecolor</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#reducecolor(palette?:palette) {block?}</code></div>
+<p>
 Creates an image that reduces colors in the original image with a set of colors in the given palette. The specified palette would be associated with the created image.
 </p>
 <p>
@@ -5090,9 +4460,9 @@ If no argument is specified, the associated palette would be used. In this case,
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|img:image|</code>, where <code class="highlighter-rouge">img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">image#replacecolor</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#replacecolor(colorOrg:color, color:color, tolerance?:number):reduce</code></div>
+<p>
 Replaces pixels that have a color matching <code class="highlighter-rouge">colorOrg</code> with the <code class="highlighter-rouge">color</code>.
 </p>
 <p>
@@ -5101,9 +4471,9 @@ The argument <code class="highlighter-rouge">tolerance</code> specifies an accep
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">image#resize</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#resize(width?:number, height?:number):map:[box,ratio] {block?}</code></div>
+<p>
 Resizes the image to the size specified by <code class="highlighter-rouge">width</code> and <code class="highlighter-rouge">height</code> and returns the result.
 </p>
 <ul>
@@ -5121,9 +4491,9 @@ The following attributes are acceptable:
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|img:image|</code>, where <code class="highlighter-rouge">img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">image#rotate</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#rotate(rotate:number, background?:color):map {block?}</code></div>
+<p>
 Creates an image that rotates the original image by the specified angle.
 </p>
 <p>
@@ -5135,15 +4505,14 @@ The created instance has a size that exactly fits the rotated image. The argumen
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|img:image|</code>, where <code class="highlighter-rouge">img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">image#scan</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#scan(x?:number, y?:number, width?:number, height?:number, scandir?:symbol) {block?}</code></div>
+<p>
 Returns an iterator that scans pixels in the image.
 </p>
 <p>
 The arguments <code class="highlighter-rouge">x</code>, <code class="highlighter-rouge">y</code>, <code class="highlighter-rouge">width</code> and <code class="highlighter-rouge">height</code> specify the image area to scan. The argument <code class="highlighter-rouge">scandir</code> specifies the scan direction and takes one of the following symbol:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -5153,7 +4522,6 @@ Start Pos</th>
 <th>
 Direction</th>
 </tr>
-
 <tr>
 <td>
 <code>`left_top_horz</code></td>
@@ -5162,7 +4530,6 @@ left-top</td>
 <td>
 horizontal</td>
 </tr>
-
 <tr>
 <td>
 <code>`left_top_vert</code></td>
@@ -5171,7 +4538,6 @@ left-top</td>
 <td>
 vertical</td>
 </tr>
-
 <tr>
 <td>
 <code>`left_bottom_horz</code></td>
@@ -5180,7 +4546,6 @@ left-bottom</td>
 <td>
 horizontal</td>
 </tr>
-
 <tr>
 <td>
 <code>`left_bottom_vert</code></td>
@@ -5189,7 +4554,6 @@ left-bottom</td>
 <td>
 vertical</td>
 </tr>
-
 <tr>
 <td>
 <code>`right_top_horz</code></td>
@@ -5198,7 +4562,6 @@ right-top</td>
 <td>
 horizontal</td>
 </tr>
-
 <tr>
 <td>
 <code>`right_top_vert</code></td>
@@ -5207,7 +4570,6 @@ right-top</td>
 <td>
 vertical</td>
 </tr>
-
 <tr>
 <td>
 <code>`right_bottom_horz</code></td>
@@ -5216,7 +4578,6 @@ right-bottom</td>
 <td>
 horizontal</td>
 </tr>
-
 <tr>
 <td>
 <code>`right_bottom_vert</code></td>
@@ -5225,10 +4586,7 @@ right-bottom</td>
 <td>
 vertical</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 In default, this returns an iterator as its result value. Specifying the following attributes would customize the returned value:
 </p>
@@ -5246,9 +4604,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">image#setalpha</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#setalpha(a:number, color?:color, tolerance?:number):reduce</code></div>
+<p>
 Replaces the alpha element of all the pixels in the image with the value specified by <code class="highlighter-rouge">a</code>.
 </p>
 <p>
@@ -5257,17 +4615,17 @@ If the argument <code class="highlighter-rouge">color</code> is specified, alpha
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">image#thumbnail</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#thumbnail(width?:number, height?:number):map:[box] {block?}</code></div>
+<p>
 Resizes the image so that it fits within a rectangular area specified by <code class="highlighter-rouge">width</code> and <code class="highlighter-rouge">height</code> and returns the result.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|img:image|</code>, where <code class="highlighter-rouge">img</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">image#write</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#write(stream:stream:w, imagetype?:string):map:reduce</code></div>
+<p>
 Writes image data to a stream.
 </p>
 <p>
@@ -5289,9 +4647,9 @@ The <code class="highlighter-rouge">list</code> class provides measures to handl
 </p>
 <h3><span class="caption-index-3">5.33.2</span><a name="anchor-5-33-2"></a>Iterator-specific Features</h3>
 <h4><span class="caption-index-4">5.33.2.1</span><a name="anchor-5-33-2-1"></a>Function to Create iterator Instance</h4>
-<p>
 <div class="h5">iterator</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterator(value+) {block?}</code></div>
+<p>
 Creates an iterator that combines iterators given in the argument.
 </p>
 <p>
@@ -5315,43 +4673,43 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <h4><span class="caption-index-4">5.33.2.2</span><a name="anchor-5-33-2-2"></a>Method Specific to iterator Class</h4>
-<p>
 <div class="h5">iterator#delay</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterator#delay(delay:number) {block?}</code></div>
+<p>
 Creates an iterator that returns each element with an interval time specified by the argument <code class="highlighter-rouge">delay</code> in seconds.
 </p>
-<p>
 <div class="h5">iterator#finite</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterator#finite():reduce</code></div>
+<p>
 Marks the iterator as a finite one by clearing its infinite flag.
 </p>
 <p>
 This method returns the target instance itself.
 </p>
-<p>
 <div class="h5">iterator#infinite</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterator#infinite():reduce</code></div>
+<p>
 Marks the iterator as an infinite one by setting its infinite flag.
 </p>
 <p>
 This method returns the target instance itself.
 </p>
-<p>
 <div class="h5">iterator#isinfinite</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterator#isinfinite()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if the iterator is infinite one.
 </p>
 <p>
 The trait of iterator's infinity is used to avoid an endless process by evaluating an infinite iterator. An attempt to evaluate an infinite iterator such as creation of a list from it would occur an error.
 </p>
-<p>
 <div class="h5">iterator#next</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterator#next()</code></div>
+<p>
 Returns a next element of the iterator. This operation updates the iterator's internal status.
 </p>
-<p>
 <div class="h5">iterator#repeater</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterator#repeater()</code></div>
+<p>
 Makes the iterator behave as a "repeater". This would allow the iterator be evaulated when it appears as an element of another "repeater" iterator.
 </p>
 <p>
@@ -5389,19 +4747,19 @@ println(x[2]) // prints `C
 x[4] = `e     // replaces `E with `e
 </code></pre>
 <h4><span class="caption-index-4">5.33.3.3</span><a name="anchor-5-33-3-3"></a>Function to Create list Instance</h4>
-<p>
 <div class="h5">list</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list(value+)</code></div>
+<p>
 Creates a new list from given values in its argument list. If a given value is a list or an iteartor, elements it contains are added to the created list.
 </p>
-<p>
 <div class="h5">xlist</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xlist(value+)</code></div>
+<p>
 Creates a new list from given values except for <code class="highlighter-rouge">nil</code> in its argument list. If a given value is a list or an iteartor, elements it contains are added to the created list.
 </p>
-<p>
 <div class="h5">set</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>set(iter+:iterator):[and,or,xor]</code></div>
+<p>
 Creates a new list that contains unique values from given iterators in its argument list.
 </p>
 <p>
@@ -5412,9 +4770,9 @@ In default, all the elements in each iterators are added to the created list. Sp
 <li><code class="highlighter-rouge">:or</code> .. All the elements are added. This is the default behavior.</li>
 <li><code class="highlighter-rouge">:xor</code> .. Elements that exist in only one iterator are added.</li>
 </ul>
-<p>
 <div class="h5">xset</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>xset(iter+:iterator):[and,or,xor]</code></div>
+<p>
 Creates a new list that contains unique values except for <code class="highlighter-rouge">nil</code> from given iterators in its argument list.
 </p>
 <p>
@@ -5426,24 +4784,24 @@ In default, all the elements in each iterators are added to the created list. Sp
 <li><code class="highlighter-rouge">:xor</code> .. Elements that exist in only one iterator are added.</li>
 </ul>
 <h4><span class="caption-index-4">5.33.3.4</span><a name="anchor-5-33-3-4"></a>Method Specific to list Class</h4>
-<p>
 <div class="h5">list#add</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#add(elem+):reduce</code></div>
+<p>
 Add specified items to the list.
 </p>
-<p>
 <div class="h5">list#append</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#append(elem+):reduce</code></div>
+<p>
 Adds specified items to the list. If the item is a list or an iterator, each element in such an item is added to the list.
 </p>
-<p>
 <div class="h5">list#clear</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#clear():reduce</code></div>
+<p>
 Clear the content of the list.
 </p>
-<p>
 <div class="h5">list#combination</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#combination(n:number) {block?}</code></div>
+<p>
 Creates an iterator that generates lists that contain elements picked up from the original list in a combination manner.
 </p>
 <p>
@@ -5463,39 +4821,39 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">list#erase</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#erase(idx*:number):reduce</code></div>
+<p>
 Erases elements at the specified indices.
 </p>
-<p>
 <div class="h5">list#first</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#first()</code></div>
+<p>
 Returns a first value in the list. An error occurs when the list is empty.
 </p>
-<p>
 <div class="h5">list#get</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#get(index:number):flat:map</code></div>
+<p>
 Returns a value stored at the specified index in the list. An error occurs when the index is out of range.
 </p>
-<p>
 <div class="h5">list#insert</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#insert(idx:number, elem+):reduce</code></div>
+<p>
 Insert specified items to the list from the selected index.
 </p>
-<p>
 <div class="h5">list#isempty</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#isempty()</code></div>
+<p>
 Return true if the list is empty.
 </p>
-<p>
 <div class="h5">list#last</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#last()</code></div>
+<p>
 Returns a last value in the list. An error occurs when the list is empty.
 </p>
-<p>
 <div class="h5">list#permutation</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#permutation(n?:number) {block?}</code></div>
+<p>
 Creates an iterator that generates lists that contain elements picked up from the original list in a permutation manner.
 </p>
 <p>
@@ -5515,24 +4873,24 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">list#put</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#put(index:number, value:nomap):map:reduce</code></div>
+<p>
 Stores a value at the specified index in the list. An error occurs when the index is out of range.
 </p>
-<p>
 <div class="h5">list#shift</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#shift():[raise]</code></div>
+<p>
 Shifts the elements of the list. If the content of the list is [1, 2, 3, 4], it becomes [2, 3, 4] after calling this method. In default, no error occurs even when the list is empty. To raise an error for executing this method on an empty list, specify :raise attribute.
 </p>
-<p>
 <div class="h5">list#shuffle</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list#shuffle():reduce</code></div>
+<p>
 Shuffle the order of the list content based on random numbers.
 </p>
-<p>
 <div class="h5">list.zip</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>list.zip(values+):static {block?}</code></div>
+<p>
 Creates an iterator generating lists that bind given argument values. When the value is a list or an iterator, each item in it would be zipped.
 </p>
 <p>
@@ -5553,9 +4911,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <h3><span class="caption-index-3">5.33.4</span><a name="anchor-5-33-4"></a>Method Common to Both list and iterator Classes</h3>
-<p>
 <div class="h5">iterable#after</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#after(criteria) {block?}</code></div>
+<p>
 Creates an iterator that picks up elements that appear at positions after the criteria is evaluated to be <code class="highlighter-rouge">true</code>.
 </p>
 <p>
@@ -5578,9 +4936,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">iterable#align</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#align(n:number, value?) {block?}</code></div>
+<p>
 Creates an iterator that returns the specified number of elements in the source iterator. If the number is larger than the length of the source iterator, the lacking part is filled with <code class="highlighter-rouge">value</code>. If the argument <code class="highlighter-rouge">value</code> is omitted, <code class="highlighter-rouge">nil</code> is used for the filling.
 </p>
 <p>
@@ -5595,14 +4953,14 @@ Below is an example to specify a number that exceeds the source length:
 <pre class="highlight"><code>x = [`A, `B, `C, `D, `E, `F].align(8)
 // x generates `A, `B, `C, `D, `E, `F, nil, nil.
 </code></pre>
-<p>
 <div class="h5">iterable#and</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#and()</code></div>
+<p>
 Calculates a logical AND result of all the values in the iterable.
 </p>
-<p>
 <div class="h5">iterable#argmax</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#argmax():[indices,last_index]</code></div>
+<p>
 Returns a position index where the maximum value is found at first.
 </p>
 <p>
@@ -5620,9 +4978,9 @@ Calling of methods <code class="highlighter-rouge">iterable#argmas()</code> and 
 <li><code class="highlighter-rouge">iterable.argmax():last_index</code> and <code class="highlighter-rouge">iterable.max():last_index</code></li>
 <li><code class="highlighter-rouge">iterable.argmax():indices</code> and <code class="highlighter-rouge">iterable.max():indices</code></li>
 </ul>
-<p>
 <div class="h5">iterable#argmin</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#argmin():[indices,last_index]</code></div>
+<p>
 Returns a position index where the minimum value is found at first.
 </p>
 <p>
@@ -5640,9 +4998,9 @@ Calling of methods <code class="highlighter-rouge">iterable#argmas()</code> and 
 <li><code class="highlighter-rouge">iterable.argmax():last_index</code> and <code class="highlighter-rouge">iterable.max():last_index</code></li>
 <li><code class="highlighter-rouge">iterable.argmax():indices</code> and <code class="highlighter-rouge">iterable.max():indices</code></li>
 </ul>
-<p>
 <div class="h5">iterable#before</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#before(criteria) {block?}</code></div>
+<p>
 Creates an iterator that extracts elements in the iterable before criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
 </p>
 <p>
@@ -5662,22 +5020,22 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">iterable#contains</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#contains(value)</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if the specified value appears in the iterable.
 </p>
-<p>
 <div class="h5">iterable#count</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#count(criteria?)</code></div>
+<p>
 Returns a number of elements that matches the given criteria which is a single-argument function or a value.
 </p>
 <p>
 When a function is applied, it counts the number of true after evaluating element value with the function. If a value is applied, it counts the number of elements that are equal to the value.
 </p>
-<p>
 <div class="h5">iterable#cycle</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#cycle(n?:number) {block?}</code></div>
+<p>
 Creates an iterator that iterates elements in the source iterator cyclically.
 </p>
 <p>
@@ -5689,9 +5047,9 @@ Below is an example:
 <pre class="highlight"><code>x = [`A, `B, `C, `D, `E].cycle()
 // x generates `A, `B, `C, `D, `E, `A, `B, `C, `D, `E, `A, `B, ..
 </code></pre>
-<p>
 <div class="h5">iterable#each</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#each() {block?}</code></div>
+<p>
 Creates an iterator that iterates each element in the list.
 </p>
 <p>
@@ -5711,9 +5069,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">iterable#filter</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#filter(criteria?) {block?}</code></div>
+<p>
 Creates an iterable that filters values in the source iterable by a criteria.
 </p>
 <p>
@@ -5738,14 +5096,11 @@ Below is an example to use a function as its criteria:
 y = filter(&amp;{$x &gt; 3})
 // y generates 4, 5, 9
 </code></pre>
-<p>
 <div class="h5">iterable#find</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#find(criteria?):[index]</code></div>
-
-</p>
-<p>
 <div class="h5">iterable#flatten</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#flatten():[bfs,dfs] {block?}</code></div>
+<p>
 Creates an iterator that searches items recursively if they are lists or iterators.
 </p>
 <p>
@@ -5783,9 +5138,9 @@ y = x.flattten():dfs
 y = x.flatten():bfs
 // y generates `K, `L, `A, `B, `C, `D, `E, `I, `J, `F, `G, `H
 </code></pre>
-<p>
 <div class="h5">iterable#fold</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#fold(n:number, nstep?:number):map:[iteritem,neat] {block?}</code></div>
+<p>
 Creates an iterator that packs <code class="highlighter-rouge">n</code> elements of the source iterator into a list and returns it as its element.
 </p>
 <p>
@@ -5809,9 +5164,9 @@ Following is an example to fold elements by 3 with a step of 2:
 <pre class="highlight"><code>x = [`A, `B, `C, `D, `E, `F, `G, `H].fold(3, 2)
 // x generates [`A, `B, `C], [`C, `D, `E], [`E, `F, `G], [`G, `H].
 </code></pre>
-<p>
 <div class="h5">iterable#format</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#format(format:string):map {block?}</code></div>
+<p>
 Creates an iterator that converts element values in the source iterable into strings depending on formatter specifier in <code class="highlighter-rouge">format</code>.
 </p>
 <p>
@@ -5831,9 +5186,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">iterable#head</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#head(n:number):map {block?}</code></div>
+<p>
 Creates an iterator that takes the first <code class="highlighter-rouge">n</code> elements from the source iterable.
 </p>
 <p>
@@ -5853,27 +5208,27 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">iterable#join</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#join(sep?:string):map</code></div>
+<p>
 Joins all the elements in the iterable as strings while inserting the specified separator <code class="highlighter-rouge">sep</code> and returns the result.
 </p>
 <p>
 If an element is not a <code class="highlighter-rouge">string</code> value, it would be converted to a <code class="highlighter-rouge">string</code> before being joined.
 </p>
-<p>
 <div class="h5">iterable#joinb</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#joinb()</code></div>
+<p>
 Joins all the <code class="highlighter-rouge">binary</code> values in the iterable and returns the result.
 </p>
-<p>
 <div class="h5">iterable#len</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#len()</code></div>
+<p>
 Returns the length of the iterable.
 </p>
-<p>
 <div class="h5">iterable#map</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#map(func:function) {block?}</code></div>
+<p>
 Creates an iterator that generates element values after applying the specfied function on them. The function must take one argument.
 </p>
 <p>
@@ -5893,9 +5248,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">iterable#max</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#max():[index,indices,last_index]</code></div>
+<p>
 Returns the maximum value in the iterable.
 </p>
 <p>
@@ -5906,9 +5261,9 @@ It would return a position index where the maximum value is found when one of th
 <li><code class="highlighter-rouge">:last_index</code> .. an index where the maximum value is found at last.</li>
 <li><code class="highlighter-rouge">:indices</code> .. a list of all indices where the maximum value is found.</li>
 </ul>
-<p>
 <div class="h5">iterable#mean</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#mean()</code></div>
+<p>
 Calculates an average of elements in the iterable.
 </p>
 <p>
@@ -5919,9 +5274,9 @@ It can work on an iterable with elements of type that supports addition and divi
 <li><code class="highlighter-rouge">complex</code></li>
 <li><code class="highlighter-rouge">rational</code></li>
 </ul>
-<p>
 <div class="h5">iterable#min</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#min():[index,indices,last_index]</code></div>
+<p>
 Returns the minimum value in the iterable.
 </p>
 <p>
@@ -5932,14 +5287,14 @@ It would return a position index where the minimum value is found when one of th
 <li><code class="highlighter-rouge">:last_index</code> .. an index where the minimum value is found at last.</li>
 <li><code class="highlighter-rouge">:indices</code> .. a list of all indices where the minimum value is found.</li>
 </ul>
-<p>
 <div class="h5">iterable#nilto</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#nilto(replace) {block?}</code></div>
+<p>
 Creates an iterator that converts <code class="highlighter-rouge">nil</code> in the source iterable to the specified value.
 </p>
-<p>
 <div class="h5">iterable#offset</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#offset(n:number) {block?}</code></div>
+<p>
 Creates an iterator that returns skips the first <code class="highlighter-rouge">n</code> elements in the source iterable.
 </p>
 <p>
@@ -5965,14 +5320,14 @@ Below is an example:
 <pre class="highlight"><code>x = [`A, `B, `C, `D, `E, `F, `G, `H].offset(3)
 // x generates `D, `E, `F, `G, `H
 </code></pre>
-<p>
 <div class="h5">iterable#or</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#or()</code></div>
+<p>
 Calculates a logical OR result of all the values in the iterable.
 </p>
-<p>
 <div class="h5">iterable#pack</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#pack(format:string) {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">binary</code> instance that has packed elements in the iterable according to specifiers in the <code class="highlighter-rouge">format</code>.
 </p>
 <p>
@@ -6027,9 +5382,9 @@ You can specify an asterisk character "<code class="highlighter-rouge">*</code>"
 <p>
 You can specify encoding name embraced with "<code class="highlighter-rouge">{</code>" and "<code class="highlighter-rouge">}</code>" in the format to change coding character set while packing a string with format character "<code class="highlighter-rouge">s</code>" from UTF-8.
 </p>
-<p>
 <div class="h5">iterable#pingpong</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#pingpong(n?:number):[sticky,sticky@top,sticky@btm] {block?}</code></div>
+<p>
 Creates an iterator that iterates elements in the source iterator from top to bottom, and then from bottom to top repeatedly.
 </p>
 <p>
@@ -6055,27 +5410,24 @@ Below is an example:
 <pre class="highlight"><code>x = [`A, `B, `C, `D, `E].pingpong():sticky
 // x generates `A, `B, `C, `D, `E, `E, `D, `C, `B, `A, `A, `B, ..
 </code></pre>
-<p>
 <div class="h5">iterable#print</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#print(stream?:stream:w):void</code></div>
+<p>
 Prints elements to the specified <code class="highlighter-rouge">stream</code>.
 </p>
 <p>
 If omitted, they are printed to the standard output.
 </p>
-<p>
 <div class="h5">iterable#printf</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#printf(format:string, stream?:stream:w):void</code></div>
+<p>
 Prints items in the iterable by using the format.
 </p>
-<p>
 <div class="h5">iterable#println</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#println(stream?:stream:w):void</code></div>
-
-</p>
-<p>
 <div class="h5">iterable#rank</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#rank(directive?) {block?}</code></div>
+<p>
 Creates an iterable of rank numbers for elements after sorting them.
 </p>
 <p>
@@ -6096,9 +5448,9 @@ You can also put a function to the argument <code class="highlighter-rouge">dire
 <p>
 When an attribute :stable is specified, the original order shall be kept for elements that are determined as the same.
 </p>
-<p>
 <div class="h5">iterable#reduce</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#reduce(accum) {block}</code></div>
+<p>
 Evaluates a block with a parameter format <code class="highlighter-rouge">|value, accum|</code> and leaves the result as the next <code class="highlighter-rouge">accum</code> value.
 </p>
 <p>
@@ -6111,9 +5463,9 @@ Below is an example to calculate summation of the elements:
 n = x.reduce(0) {|value, accum| value + accum}
 // n is 55
 </code></pre>
-<p>
 <div class="h5">iterable#replace</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#replace(value, replace) {block?}</code></div>
+<p>
 Creates an iterator that replaces the <code class="highlighter-rouge">value</code> in the original iterablewith the value of <code class="highlighter-rouge">replace</code>.
 </p>
 <p>
@@ -6133,9 +5485,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">iterable#reverse</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#reverse() {block?}</code></div>
+<p>
 Creates an iterator that iterates elements in the source iterable from tail to top.
 </p>
 <p>
@@ -6155,9 +5507,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">iterable#roundoff</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#roundoff(threshold:number =&gt; 1e-10) {block?}</code></div>
+<p>
 Creates an iterator that replaces a number with zero if it is less than the specified <code class="highlighter-rouge">threshold</code>.
 </p>
 <p>
@@ -6177,9 +5529,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">iterable#runlength</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#runlength() {block?}</code></div>
+<p>
 Creates an iterator that counts the number of consecutive same value and generates elements in a form of <code class="highlighter-rouge">[cnt, value]</code> where <code class="highlighter-rouge">cnt</code> indicates how many <code class="highlighter-rouge">value</code> appears in a row.
 </p>
 <p>
@@ -6205,9 +5557,9 @@ Below is an example:
 <pre class="highlight"><code>x = [`A, `A, `B, `C, `C, `C, `D, `D].runlength()
 // x generates [2, `A], [1, `B], [3, `C], [2, `D]
 </code></pre>
-<p>
 <div class="h5">iterable#since</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#since(criteria) {block?}</code></div>
+<p>
 Creates an iterator that picks up each element in the iterable since criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
 </p>
 <p>
@@ -6227,9 +5579,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">iterable#skip</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#skip(n:number) {block?}</code></div>
+<p>
 Creates an iterator that skips <code class="highlighter-rouge">n</code> elements before picking up next element.
 </p>
 <p>
@@ -6255,9 +5607,9 @@ Below is an example:
 <pre class="highlight"><code>x = [`A, `B, `C, `D, `E, `F, `G, `H].skip(2)
 // x generates `A, `D, `G
 </code></pre>
-<p>
 <div class="h5">iterable#skipnil</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#skipnil() {block?}</code></div>
+<p>
 Creates an iterator that skips <code class="highlighter-rouge">nil</code> in the source iterable.
 </p>
 <p>
@@ -6283,9 +5635,9 @@ Below is an example:
 <pre class="highlight"><code>x = [`A, nil, `C, nil, nil, `F, nil, `H].skipnil()
 // x generates `A, `C, `F, `H
 </code></pre>
-<p>
 <div class="h5">iterable#sort</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#sort(directive?, keys[]?):[stable] {block?}</code></div>
+<p>
 Creates an iterator of elements after sorting them.
 </p>
 <p>
@@ -6306,14 +5658,14 @@ You can also put a function to the argument <code class="highlighter-rouge">dire
 <p>
 When an attribute :stable is specified, the original order shall be kept for elements that are determined as the same. If the argument <code class="highlighter-rouge">keys</code> is specified, it would be used as a key instead of element values.
 </p>
-<p>
 <div class="h5">iterable#std</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#std():[p]</code></div>
+<p>
 Calculates a standard deviation of elements in the iterable.
 </p>
-<p>
 <div class="h5">iterable#sum</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#sum()</code></div>
+<p>
 Calculates a summation of elements in the iterable.
 </p>
 <p>
@@ -6326,9 +5678,9 @@ It can work on an iterable with elements of a value type that supports addition 
 <li><code class="highlighter-rouge">rational</code></li>
 <li><code class="highlighter-rouge">timedelta</code></li>
 </ul>
-<p>
 <div class="h5">iterable#tail</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#tail(n:number) {block?}</code></div>
+<p>
 Creates an iterator that takes the last <code class="highlighter-rouge">n</code> elements from the source iterable.
 </p>
 <p>
@@ -6348,9 +5700,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">iterable#until</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#until(criteria) {block?}</code></div>
+<p>
 Creates an iterator that picks up each element in the list until criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
 </p>
 <p>
@@ -6370,14 +5722,14 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">iterable#var</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#var():[p]</code></div>
+<p>
 Calculates a variance of elements in the iterable.
 </p>
-<p>
 <div class="h5">iterable#while</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>iterable#while (criteria) {block?}</code></div>
+<p>
 Creates an iterator that picks up each element in the list while criteria is evaluated as true. You can specify a function object, a list or an iterator as the criteria.
 </p>
 <p>
@@ -6406,7 +5758,6 @@ An instance of the <code class="highlighter-rouge">memory</code> class represent
 <p>
 A <code class="highlighter-rouge">memory</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -6418,8 +5769,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>p</code></td>
@@ -6427,11 +5776,9 @@ Note</th>
 <code>pointer</code></td>
 <td>
 R</td>
-
 <td>
 Returns a <code>pointer</code> instance that accesses the memory. This result is equivalent to that of calling the method <code class="highlighter-rouge">memory#pointer()</code>.</td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -6439,75 +5786,67 @@ Returns a <code>pointer</code> instance that accesses the memory. This result is
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Returns the memory size in bytes.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.34.3</span><a name="anchor-5-34-3"></a>Constructor</h3>
-<p>
 <div class="h5">memory</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory(bytes:number):map {block?}</code></div>
-
-</p>
 <h3><span class="caption-index-3">5.34.4</span><a name="anchor-5-34-4"></a>Method</h3>
-<p>
 <div class="h5">memory#array@int8</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory#array@int8():map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array@int8</code> instance that accesses the content of the target <code class="highlighter-rouge">memory</code> instance.
 </p>
-<p>
 <div class="h5">memory#array@uint8</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory#array@uint8():map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array@uint8</code> instance that accesses the content of the target <code class="highlighter-rouge">memory</code> instance.
 </p>
-<p>
 <div class="h5">memory#array@int16</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory#array@int16():map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array@int16</code> instance that accesses the content of the target <code class="highlighter-rouge">memory</code> instance.
 </p>
-<p>
 <div class="h5">memory#array@uint16</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory#array@uint16():map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array@uint16</code> instance that accesses the content of the target <code class="highlighter-rouge">memory</code> instance.
 </p>
-<p>
 <div class="h5">memory#array@int32</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory#array@int32():map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array@int32</code> instance that accesses the content of the target <code class="highlighter-rouge">memory</code> instance.
 </p>
-<p>
 <div class="h5">memory#array@uint32</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory#array@uint32():map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array@uint32</code> instance that accesses the content of the target <code class="highlighter-rouge">memory</code> instance.
 </p>
-<p>
 <div class="h5">memory#array@int64</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory#array@int64():map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array@int64</code> instance that accesses the content of the target <code class="highlighter-rouge">memory</code> instance.
 </p>
-<p>
 <div class="h5">memory#array@uint64</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory#array@uint64():map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array@uint64</code> instance that accesses the content of the target <code class="highlighter-rouge">memory</code> instance.
 </p>
-<p>
 <div class="h5">memory#array@float</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory#array@float():map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array@float</code> instance that accesses the content of the target <code class="highlighter-rouge">memory</code> instance.
 </p>
-<p>
 <div class="h5">memory#array@double</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory#array@double():map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">array@double</code> instance that accesses the content of the target <code class="highlighter-rouge">memory</code> instance.
 </p>
-<p>
 <div class="h5">memory#dump</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory#dump(stream?:stream:w):void:[upper]</code></div>
+<p>
 Prints a hexadecimal dump from the content of the <code class="highlighter-rouge">memory</code> to the standard output. If the argument <code class="highlighter-rouge">stream</code> is specified, the result would be output to the stream.
 </p>
 <p>
@@ -6521,9 +5860,9 @@ Example:
 78 20 6A 75 6D 70 73 20 6F 76 65 72 20 74 68 65  x jumps over the
 20 6C 61 7A 79 20 64 6F 67 2E                     lazy dog.
 </code></pre>
-<p>
 <div class="h5">memory#pointer</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>memory#pointer(offset?:number) {block?}</code></div>
+<p>
 Returns a <code class="highlighter-rouge">pointer</code> instance that has an initial offset specified by the argument <code class="highlighter-rouge">offset</code>. If the argument is omitted, it would return a <code class="highlighter-rouge">pointer</code> instance that points to the top of the memory.
 </p>
 <p>
@@ -6540,11 +5879,8 @@ The <code class="highlighter-rouge">nil</code> class is the class of <code class
 The <code class="highlighter-rouge">number</code> class is a type of number values. A number literal would create a <code class="highlighter-rouge">number</code> instance.
 </p>
 <h3><span class="caption-index-3">5.36.2</span><a name="anchor-5-36-2"></a>Method</h3>
-<p>
 <div class="h5">number.roundoff</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>number.roundoff(threshold:number =&gt; 1e-10)</code></div>
-
-</p>
 <h2><span class="caption-index-2">5.37</span><a name="anchor-5-37"></a>operator Class</h2>
 <h3><span class="caption-index-3">5.37.1</span><a name="anchor-5-37-1"></a>Overview</h3>
 <p>
@@ -6554,7 +5890,6 @@ The <code class="highlighter-rouge">operator</code> class provides measures to a
 <p>
 An <code class="highlighter-rouge">operator</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -6566,8 +5901,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>symbol</code></td>
@@ -6575,19 +5908,14 @@ Note</th>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 A <code class="highlighter-rouge">symbol</code> instance that represents the operator's type.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.37.3</span><a name="anchor-5-37-3"></a>Constructor</h3>
-<p>
 <div class="h5">operator</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>operator(symbol:symbol):map {block?}</code></div>
+<p>
 Creates an <code class="highlighter-rouge">operator</code> instance that is associated with the specified symbol.
 </p>
 <p>
@@ -6599,9 +5927,9 @@ Below is an example to create an <code class="highlighter-rouge">operator</code>
 <pre class="highlight"><code>op = operator(`+)
 </code></pre>
 <h3><span class="caption-index-3">5.37.4</span><a name="anchor-5-37-4"></a>Method</h3>
-<p>
 <div class="h5">operator#assign</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>operator#assign(type_l:expr, type_r?:expr):map:void {block}</code></div>
+<p>
 Associates the <code class="highlighter-rouge">operator</code> instance with a procedure described in <code class="highlighter-rouge">block</code> that takes values as a block parameter and returns its operation result.
 </p>
 <p>
@@ -6632,9 +5960,9 @@ Below is an example to assign a procedure to a binary form of operator <code cla
     // any job
 }
 </code></pre>
-<p>
 <div class="h5">operator#entries</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>operator#entries(type?:symbol)</code></div>
+<p>
 Returns a list that contains type expressions that the operator can accept as its arguments.
 </p>
 <p>
@@ -6650,9 +5978,9 @@ The argument <code class="highlighter-rouge">type</code> takes a symbol <code cl
 The <code class="highlighter-rouge">palette</code> instance has a set of <code class="highlighter-rouge">color</code> instance.
 </p>
 <h3><span class="caption-index-3">5.38.2</span><a name="anchor-5-38-2"></a>Constructor</h3>
-<p>
 <div class="h5">palette</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>palette(type) {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">palette</code> instance.
 </p>
 <p>
@@ -6674,9 +6002,9 @@ In the second form, it can take one of the following symbols:
 <li><code class="highlighter-rouge">`websafe</code> .. A palette with 216 colors that assure to be displayed correctly in any Web environments. It actually has 256 entries though the last 40 entries are initialized with black.</li>
 </ul>
 <h3><span class="caption-index-3">5.38.3</span><a name="anchor-5-38-3"></a>Method</h3>
-<p>
 <div class="h5">palette#each</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>palette#each() {block?}</code></div>
+<p>
 Creates an iterator that iterates each element in the palette.
 </p>
 <p>
@@ -6696,22 +6024,22 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">palette#nearest</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>palette#nearest(color:color):map:[index]</code></div>
+<p>
 Returns a <code class="highlighter-rouge">color</code> instance in the palette that is the nearest with the specified color.
 </p>
 <p>
 If the attribute <code class="highlighter-rouge">:index</code> is specified, it would return an index of the nearst entry instead of its <code class="highlighter-rouge">color</code> instance.
 </p>
-<p>
 <div class="h5">palette#shrink</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>palette#shrink():reduce:[align]</code></div>
+<p>
 Shrinks the size of the palette to a number powered by two that is enough to contain unique entries. The ordef of existing entries will be kept intact.
 </p>
-<p>
 <div class="h5">palette#updateby</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>palette#updateby(image_or_palette):reduce:[align,shrink]</code></div>
+<p>
 Updates palette entries according to color data in an image or a palette.
 </p>
 <p>
@@ -6726,7 +6054,6 @@ The <code class="highlighter-rouge">pointer</code> class provides measures to re
 <p>
 A <code class="highlighter-rouge">pointer</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -6738,8 +6065,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>offset</code></td>
@@ -6747,11 +6072,9 @@ Note</th>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 The current offset.</td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -6759,11 +6082,9 @@ The current offset.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Returns the size of data accessible from the current offset.</td>
 </tr>
-
 <tr>
 <td>
 <code>size@all</code></td>
@@ -6771,11 +6092,9 @@ Returns the size of data accessible from the current offset.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Returns the entire size of the target binary or memory. This equals to <code class="highlighter-rouge">p.offset + p.size</code> where <code class="highlighter-rouge">p</code> is a <code class="highlighter-rouge">pointer</code> instance.</td>
 </tr>
-
 <tr>
 <td>
 <code>target</code></td>
@@ -6783,28 +6102,23 @@ Returns the entire size of the target binary or memory. This equals to <code cla
 <code>any</code></td>
 <td>
 R</td>
-
 <td>
 An instance that is associated with the pointer. Currently, this can be an instance of <code class="highlighter-rouge">binary</code> or <code class="highlighter-rouge">memory</code>.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.39.3</span><a name="anchor-5-39-3"></a>Constructor</h3>
-<p>
 <div class="h5">pointer</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer(org:pointer):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">pointer</code> instance that is cloned from the given instance <code class="highlighter-rouge">org</code>. You can use this to cast a <code class="highlighter-rouge">binary</code> and <code class="highlighter-rouge">memory</code> instance to the <code class="highlighter-rouge">pointer</code>.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|ptr:pointer|</code>, where <code class="highlighter-rouge">ptr</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">5.39.4</span><a name="anchor-5-39-4"></a>Method</h3>
-<p>
 <div class="h5">pointer#copyfrom</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#copyfrom(src:pointer, bytes?:number):map:reduce</code></div>
+<p>
 Copies data from <code class="highlighter-rouge">src</code> to the target pointer.
 </p>
 <p>
@@ -6813,9 +6127,9 @@ If the argument <code class="highlighter-rouge">bytes</code> is specified, it wo
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#copyto</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#copyto(dst:pointer, bytes?:number):map:reduce</code></div>
+<p>
 Copies data from the target pointer to <code class="highlighter-rouge">dst</code>.
 </p>
 <p>
@@ -6824,9 +6138,9 @@ If the argument <code class="highlighter-rouge">bytes</code> is specified, it wo
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#decode</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#decode(codec:codec, bytes?:number) {block?}</code></div>
+<p>
 Decodes the content of the <code class="highlighter-rouge">pointer</code> as a sequence of string characters using <code class="highlighter-rouge">codec</code> and returns the result in <code class="highlighter-rouge">string</code>.
 </p>
 <p>
@@ -6835,9 +6149,9 @@ If the argument <code class="highlighter-rouge">bytes</code> is specified, it wo
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|str:string|</code>, where <code class="highlighter-rouge">str</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#dump</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#dump(stream?:stream:w, bytes?:number):reduce:[upper]</code></div>
+<p>
 Prints a hexadecimal dump from the content of the <code class="highlighter-rouge">pointer</code> to the standard output. If the argument <code class="highlighter-rouge">stream</code> is specified, the result would be output to the stream.
 </p>
 <p>
@@ -6854,9 +6168,9 @@ Example:
 78 20 6A 75 6D 70 73 20 6F 76 65 72 20 74 68 65  x jumps over the
 20 6C 61 7A 79 20 64 6F 67 2E                     lazy dog.
 </code></pre>
-<p>
 <div class="h5">pointer#encodeuri</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#encodeuri(bytes?:number) {block?}</code></div>
+<p>
 Returns a string in which non-URIC characters are converted to percent-encoded string.
 </p>
 <p>
@@ -6865,9 +6179,9 @@ For example, <code class="highlighter-rouge">b'"Hello"'.p.encodeuri()</code> wou
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|str:string|</code>, where <code class="highlighter-rouge">str</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#each@int8</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#each@int8():[be] {block?}</code></div>
+<p>
 Creates an iterator that extracts numbers in size of int8 from the current pointer position.
 </p>
 <p>
@@ -6890,9 +6204,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">pointer#each@uint8</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#each@uint8():[be] {block?}</code></div>
+<p>
 Creates an iterator that extracts numbers in size of uint8 from the current pointer position.
 </p>
 <p>
@@ -6915,9 +6229,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">pointer#each@int16</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#each@int16():[be] {block?}</code></div>
+<p>
 Creates an iterator that extracts numbers in size of int16 from the current pointer position.
 </p>
 <p>
@@ -6940,9 +6254,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">pointer#each@uint16</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#each@uint16():[be] {block?}</code></div>
+<p>
 Creates an iterator that extracts numbers in size of uint16 from the current pointer position.
 </p>
 <p>
@@ -6965,9 +6279,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">pointer#each@int32</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#each@int32():[be] {block?}</code></div>
+<p>
 Creates an iterator that extracts numbers in size of int32 from the current pointer position.
 </p>
 <p>
@@ -6990,9 +6304,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">pointer#each@uint32</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#each@uint32():[be] {block?}</code></div>
+<p>
 Creates an iterator that extracts numbers in size of uint32 from the current pointer position.
 </p>
 <p>
@@ -7015,9 +6329,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">pointer#each@int64</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#each@int64():[be] {block?}</code></div>
+<p>
 Creates an iterator that extracts numbers in size of int64 from the current pointer position.
 </p>
 <p>
@@ -7040,9 +6354,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">pointer#each@uint64</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#each@uint64():[be] {block?}</code></div>
+<p>
 Creates an iterator that extracts numbers in size of uint64 from the current pointer position.
 </p>
 <p>
@@ -7065,9 +6379,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">pointer#each@float</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#each@float():[be] {block?}</code></div>
+<p>
 Creates an iterator that extracts numbers in size of float from the current pointer position.
 </p>
 <p>
@@ -7090,9 +6404,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">pointer#each@double</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#each@double():[be] {block?}</code></div>
+<p>
 Creates an iterator that extracts numbers in size of double from the current pointer position.
 </p>
 <p>
@@ -7115,9 +6429,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">pointer#forward</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#forward(distance:number):reduce</code></div>
+<p>
 Put the pointer offset forward by <code class="highlighter-rouge">distance</code>. If a negative number is specified for the argument, the offset would be put backward.
 </p>
 <p>
@@ -7126,9 +6440,9 @@ An error would occur when the pointer's offset becomes a negative value while it
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#get@int8</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#get@int8():[be,nil,stay] {block?}</code></div>
+<p>
 Returns an extracted number in size of int8 from the current pointer position.
 </p>
 <p>
@@ -7137,9 +6451,9 @@ In default, it assumes the byte seqeuces are ordered in little-endian. You can s
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:number|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#get@uint8</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#get@uint8():[be,nil,stay] {block?}</code></div>
+<p>
 Returns an extracted number in size of uint8 from the current pointer position.
 </p>
 <p>
@@ -7148,9 +6462,9 @@ In default, it assumes the byte seqeuces are ordered in little-endian. You can s
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:number|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#get@int16</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#get@int16():[be,nil,stay] {block?}</code></div>
+<p>
 Returns an extracted number in size of int16 from the current pointer position.
 </p>
 <p>
@@ -7159,9 +6473,9 @@ In default, it assumes the byte seqeuces are ordered in little-endian. You can s
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:number|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#get@uint16</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#get@uint16():[be,nil,stay] {block?}</code></div>
+<p>
 Returns an extracted number in size of uint16 from the current pointer position.
 </p>
 <p>
@@ -7170,9 +6484,9 @@ In default, it assumes the byte seqeuces are ordered in little-endian. You can s
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:number|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#get@int32</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#get@int32():[be,nil,stay] {block?}</code></div>
+<p>
 Returns an extracted number in size of int32 from the current pointer position.
 </p>
 <p>
@@ -7181,9 +6495,9 @@ In default, it assumes the byte seqeuces are ordered in little-endian. You can s
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:number|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#get@uint32</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#get@uint32():[be,nil,stay] {block?}</code></div>
+<p>
 Returns an extracted number in size of uint32 from the current pointer position.
 </p>
 <p>
@@ -7192,9 +6506,9 @@ In default, it assumes the byte seqeuces are ordered in little-endian. You can s
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:number|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#get@int64</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#get@int64():[be,nil,stay] {block?}</code></div>
+<p>
 Returns an extracted number in size of int64 from the current pointer position.
 </p>
 <p>
@@ -7203,9 +6517,9 @@ In default, it assumes the byte seqeuces are ordered in little-endian. You can s
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:number|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#get@uint64</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#get@uint64():[be,nil,stay] {block?}</code></div>
+<p>
 Returns an extracted number in size of uint64 from the current pointer position.
 </p>
 <p>
@@ -7214,9 +6528,9 @@ In default, it assumes the byte seqeuces are ordered in little-endian. You can s
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:number|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#get@float</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#get@float():[be,nil,stay] {block?}</code></div>
+<p>
 Returns an extracted number in size of float from the current pointer position.
 </p>
 <p>
@@ -7225,9 +6539,9 @@ In default, it assumes the byte seqeuces are ordered in little-endian. You can s
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:number|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#get@double</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#get@double():[be,nil,stay] {block?}</code></div>
+<p>
 Returns an extracted number in size of double from the current pointer position.
 </p>
 <p>
@@ -7236,17 +6550,17 @@ In default, it assumes the byte seqeuces are ordered in little-endian. You can s
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|n:number|</code>, where <code class="highlighter-rouge">n</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#head</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#head():reduce</code></div>
+<p>
 Moves the pointer position to the beginning.
 </p>
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#hex</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#hex(bytes?:number):[carray,cstr,upper] {block?}</code></div>
+<p>
 Converts the binary data into a hexadecimal string.
 </p>
 <p>
@@ -7265,7 +6579,6 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 <p>
 Example:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -7273,41 +6586,34 @@ Code</th>
 <th>
 Result</th>
 </tr>
-
 <tr>
 <td>
 <code>b'\x01\x23\xab\xcd'.p.hex()</code></td>
 <td>
 <code>'0123abcd'</code></td>
 </tr>
-
 <tr>
 <td>
 <code>b'\x01\x23\xab\xcd'.p.hex():upper</code></td>
 <td>
 <code>'0123ABCD'</code></td>
 </tr>
-
 <tr>
 <td>
 <code>b'\x01\x23\xab\xcd'.p.hex():cstr</code></td>
 <td>
 <code>'\\x01\\x23\\xab\\xcd'</code></td>
 </tr>
-
 <tr>
 <td>
 <code>b'\x01\x23\xab\xcd'.p.hex():carray</code></td>
 <td>
 <code>'0x01, 0x23, 0xab, 0xcd'</code></td>
 </tr>
-
 </table>
-
-</p>
-<p>
 <div class="h5">pointer#pack</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#pack(format:string, values+):reduce:[stay]</code></div>
+<p>
 Packs <code class="highlighter-rouge">values</code> in the argument list according to specifiers in the <code class="highlighter-rouge">format</code> into a binary and adds it to where the pointer points. The pointer offset is automatically incremented by the added length unless <code class="highlighter-rouge">:stay</code> attribute is specified.
 </p>
 <p>
@@ -7365,9 +6671,9 @@ You can specify an asterisk character "<code class="highlighter-rouge">*</code>"
 <p>
 You can specify encoding name embraced with "<code class="highlighter-rouge">{</code>" and "<code class="highlighter-rouge">}</code>" in the format to change coding character set from UTF-8 while packing a string with format character "<code class="highlighter-rouge">s</code>".
 </p>
-<p>
 <div class="h5">pointer#put@int8</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#put@int8(n:number):map:reduce:[be,stay]</code></div>
+<p>
 Stores the specified number to the current pointer position in size of int8.
 </p>
 <p>
@@ -7376,9 +6682,9 @@ In default, it stores the byte sequences in the order of little-endian. You can 
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#put@uint8</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#put@uint8(n:number):map:reduce:[be,stay]</code></div>
+<p>
 Stores the specified number to the current pointer position in size of uint8.
 </p>
 <p>
@@ -7387,9 +6693,9 @@ In default, it stores the byte sequences in the order of little-endian. You can 
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#put@int16</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#put@int16(n:number):map:reduce:[be,stay]</code></div>
+<p>
 Stores the specified number to the current pointer position in size of int16.
 </p>
 <p>
@@ -7398,9 +6704,9 @@ In default, it stores the byte sequences in the order of little-endian. You can 
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#put@uint16</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#put@uint16(n:number):map:reduce:[be,stay]</code></div>
+<p>
 Stores the specified number to the current pointer position in size of uint16.
 </p>
 <p>
@@ -7409,9 +6715,9 @@ In default, it stores the byte sequences in the order of little-endian. You can 
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#put@int32</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#put@int32(n:number):map:reduce:[be,stay]</code></div>
+<p>
 Stores the specified number to the current pointer position in size of int32.
 </p>
 <p>
@@ -7420,9 +6726,9 @@ In default, it stores the byte sequences in the order of little-endian. You can 
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#put@uint32</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#put@uint32(n:number):map:reduce:[be,stay]</code></div>
+<p>
 Stores the specified number to the current pointer position in size of uint32.
 </p>
 <p>
@@ -7431,9 +6737,9 @@ In default, it stores the byte sequences in the order of little-endian. You can 
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#put@int64</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#put@int64(n:number):map:reduce:[be,stay]</code></div>
+<p>
 Stores the specified number to the current pointer position in size of int64.
 </p>
 <p>
@@ -7442,9 +6748,9 @@ In default, it stores the byte sequences in the order of little-endian. You can 
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#put@uint64</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#put@uint64(n:number):map:reduce:[be,stay]</code></div>
+<p>
 Stores the specified number to the current pointer position in size of uint64.
 </p>
 <p>
@@ -7453,9 +6759,9 @@ In default, it stores the byte sequences in the order of little-endian. You can 
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#put@float</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#put@float(n:number):map:reduce:[be,stay]</code></div>
+<p>
 Stores the specified number to the current pointer position in size of float.
 </p>
 <p>
@@ -7464,9 +6770,9 @@ In default, it stores the byte sequences in the order of little-endian. You can 
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#put@double</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#put@double(n:number):map:reduce:[be,stay]</code></div>
+<p>
 Stores the specified number to the current pointer position in size of double.
 </p>
 <p>
@@ -7475,30 +6781,30 @@ In default, it stores the byte sequences in the order of little-endian. You can 
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#reader</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#reader() {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">stream</code> instance with which you can read data from the memory pointerd by the pointer. If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#seek</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#seek(offset:number):reduce</code></div>
+<p>
 Moves the pointer position to the specified <code class="highlighter-rouge">offset</code>.
 </p>
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#tail</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#tail():reduce</code></div>
+<p>
 Moves the pointer position to the end.
 </p>
 <p>
 This method returns a reference to the target instance itself.
 </p>
-<p>
 <div class="h5">pointer#unpack</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#unpack(format:string, values*:number):[nil,stay] {block?}</code></div>
+<p>
 Extracts values from data sequence pointed by the <code class="highlighter-rouge">pointer</code> instance according to specifiers in the <code class="highlighter-rouge">format</code> and returns a list containing the values.
 </p>
 <p>
@@ -7559,9 +6865,9 @@ An error occurs if the binary size is smaller than the format reqeusts. If the a
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|list:list|</code>, where <code class="highlighter-rouge">list</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#unpacks</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#unpacks(format:string, values*:number):map {block?}</code></div>
+<p>
 Returns an iterator that extracts values from data pointed by the <code class="highlighter-rouge">pointer</code> instance according to specifiers in <code class="highlighter-rouge">format</code>.
 </p>
 <p>
@@ -7570,9 +6876,9 @@ For detailed information about specifiers, see the help of <code class="highligh
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|iter:iterator|</code>, where <code class="highlighter-rouge">iter</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">pointer#writer</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>pointer#writer() {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">stream</code> instance with which you can append data to the memory pointed by the pointer. If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">5.39.5</span><a name="anchor-5-39-5"></a>Cast Operation</h3>
@@ -7606,9 +6912,9 @@ Below are examples to realize a common fraction two-thirds:
 2 / 3r
 </code></pre>
 <h3><span class="caption-index-3">5.40.2</span><a name="anchor-5-40-2"></a>Constructor</h3>
-<p>
 <div class="h5">rational</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>rational(numer:number, denom?:number):map {block?}</code></div>
+<p>
 Creates a rational value from given numerator <code class="highlighter-rouge">numer</code> and denominator <code class="highlighter-rouge">denom</code>.
 </p>
 <p>
@@ -7618,33 +6924,30 @@ If the argument <code class="highlighter-rouge">denom</code> is omitted, one is 
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|r:rational|</code>, where <code class="highlighter-rouge">r</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">5.40.3</span><a name="anchor-5-40-3"></a>Method</h3>
-<p>
 <div class="h5">rational.reduce</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>rational.reduce()</code></div>
+<p>
 Reduces the rational number by dividing its numerator and denominator by their GCD.
 </p>
 <h2><span class="caption-index-2">5.41</span><a name="anchor-5-41"></a>semaphore Class</h2>
 <h3><span class="caption-index-3">5.41.1</span><a name="anchor-5-41-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.41.2</span><a name="anchor-5-41-2"></a>Constructor</h3>
-<p>
 <div class="h5">semaphore</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>semaphore()</code></div>
-
-</p>
 <h3><span class="caption-index-3">5.41.3</span><a name="anchor-5-41-3"></a>Method</h3>
-<p>
 <div class="h5">semaphore#release</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>semaphore#release()</code></div>
+<p>
 Releases the owership of the semaphore that is grabbed by semaphore#wait().
 </p>
-<p>
 <div class="h5">semaphore#session</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>semaphore#session() {block}</code></div>
+<p>
 Forms a critical session by grabbing the semaphore's ownership, executing the block and releasing that ownership. It internally proccesses the same job as semaphore#wait() and semaphore#release() before and after the block execution
 </p>
-<p>
 <div class="h5">semaphore#wait</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>semaphore#wait()</code></div>
+<p>
 Watis for the semaphore being released by other threads, and ghen grabs that ownership.
 </p>
 <h2><span class="caption-index-2">5.42</span><a name="anchor-5-42"></a>stream Class</h2>
@@ -7676,7 +6979,6 @@ You can specify a proper <code class="highlighter-rouge">codec</code> when creat
 <p>
 A <code class="highlighter-rouge">stream</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -7688,8 +6990,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>codec</code></td>
@@ -7697,11 +6997,9 @@ Note</th>
 <code>codec</code></td>
 <td>
 R</td>
-
 <td>
 A <code class="highlighter-rouge">codec</code> instance associated with the stream.</td>
 </tr>
-
 <tr>
 <td>
 <code>identifier</code></td>
@@ -7709,11 +7007,9 @@ A <code class="highlighter-rouge">codec</code> instance associated with the stre
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Identifier of the stream.</td>
 </tr>
-
 <tr>
 <td>
 <code>name</code></td>
@@ -7721,11 +7017,9 @@ Identifier of the stream.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Name of the stream.</td>
 </tr>
-
 <tr>
 <td>
 <code>readable</code></td>
@@ -7733,11 +7027,9 @@ Name of the stream.</td>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 Indicates whether the stream is readable.</td>
 </tr>
-
 <tr>
 <td>
 <code>stat</code></td>
@@ -7745,11 +7037,9 @@ Indicates whether the stream is readable.</td>
 <code>any</code></td>
 <td>
 R</td>
-
 <td>
 Status of the stream.</td>
 </tr>
-
 <tr>
 <td>
 <code>writable</code></td>
@@ -7757,15 +7047,10 @@ Status of the stream.</td>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 Indicates whether the stream is writable.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.42.3</span><a name="anchor-5-42-3"></a>Operator</h3>
 <p>
 You can use the operator "<code class="highlighter-rouge">&lt;&lt;</code>" to output a content of a value to a <code class="highlighter-rouge">stream</code>. It comes like "<code class="highlighter-rouge">stream &lt;&lt; obj</code>" where <code class="highlighter-rouge">obj</code> is converted to a string before output to the stream.
@@ -7794,9 +7079,9 @@ Using the above casting feature, you can call a function <code class="highlighte
 <li><code class="highlighter-rouge">f(b'\x00\x12\x34\x56')</code> .. Implicit casting from <code class="highlighter-rouge">binary</code> to <code class="highlighter-rouge">stream</code> that reads the content.</li>
 </ul>
 <h3><span class="caption-index-3">5.42.5</span><a name="anchor-5-42-5"></a>Constructor</h3>
-<p>
 <div class="h5">stream</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream(pathname:string, mode?:string, codec?:codec):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">stream</code> instance from the specified <code class="highlighter-rouge">pathname</code>.
 </p>
 <p>
@@ -7817,9 +7102,9 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 You can also call <code class="highlighter-rouge">open()</code> function that is just an alias of <code class="highlighter-rouge">stream()</code> to create a <code class="highlighter-rouge">stream</code> instance.
 </p>
 <h3><span class="caption-index-3">5.42.6</span><a name="anchor-5-42-6"></a>Utility Function</h3>
-<p>
 <div class="h5">readlines</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>readlines(stream?:stream:r):[chop] {block?}</code></div>
+<p>
 Creates an iterator that reads text from the specified stream line by line.
 </p>
 <p>
@@ -7846,28 +7131,28 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 <h3><span class="caption-index-3">5.42.7</span><a name="anchor-5-42-7"></a>Method</h3>
-<p>
 <div class="h5">stream#addcr</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#addcr(flag?:boolean):reduce</code></div>
+<p>
 The codec's encoder in the stream has a feature to add a CR code (<code class="highlighter-rouge">0x0d</code>) before a LF code (<code class="highlighter-rouge">0x0a</code>) so that the lines are joined with CR-LF codes in the encoded result. This method enables or disables the feature.
 </p>
 <ul>
 <li>To enable it, call the method with the argument <code class="highlighter-rouge">flag</code> set to <code class="highlighter-rouge">true</code> or without any argument.</li>
 <li>To disable it, call the method with the argument <code class="highlighter-rouge">flag</code> set to <code class="highlighter-rouge">false</code>.</li>
 </ul>
-<p>
 <div class="h5">stream#close</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#close():void</code></div>
+<p>
 Closes the stream.
 </p>
-<p>
 <div class="h5">stream#compare</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#compare(stream:stream:r):map</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if there's no difference between the binary sequences of the target stream instance and that of <code class="highlighter-rouge">stream</code> in the argument.
 </p>
-<p>
 <div class="h5">stream.copy</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream.copy(src:stream:r, dst:stream:w, bytesunit:number =&gt; 65536):static:map:void:[finalize] {block?}</code></div>
+<p>
 Copies the content in <code class="highlighter-rouge">src</code> to the stream <code class="highlighter-rouge">dst</code>.
 </p>
 <p>
@@ -7884,9 +7169,9 @@ If the attribute <code class="highlighter-rouge">:finalize</code> is specified, 
 <p>
 This works the same way as <code class="highlighter-rouge">stream#copyfrom()</code> and <code class="highlighter-rouge">stream#copyto()</code>.
 </p>
-<p>
 <div class="h5">stream#copyfrom</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#copyfrom(src:stream:r, bytesunit:number =&gt; 65536):map:reduce:[finalize] {block?}</code></div>
+<p>
 Copies the content in <code class="highlighter-rouge">src</code> to target stream instance.
 </p>
 <p>
@@ -7903,9 +7188,9 @@ If the attribute <code class="highlighter-rouge">:finalize</code> is specified, 
 <p>
 This works the same way as <code class="highlighter-rouge">stream.copy()</code> and <code class="highlighter-rouge">stream#copyto()</code>.
 </p>
-<p>
 <div class="h5">stream#copyto</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#copyto(dst:stream:w, bytesunit:number =&gt; 65536):map:reduce:[finalize] {block?}</code></div>
+<p>
 Copies the content in the target stream to the stream <code class="highlighter-rouge">dst</code>.
 </p>
 <p>
@@ -7922,41 +7207,38 @@ If the attribute <code class="highlighter-rouge">:finalize</code> is specified, 
 <p>
 This works the same way as <code class="highlighter-rouge">stream.copy()</code> and <code class="highlighter-rouge">stream#copyfrom()</code>.
 </p>
-<p>
 <div class="h5">stream#delcr</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#delcr(flag?:boolean):reduce</code></div>
+<p>
 The codec's decoder in the stream has a feature to delete a CR code (<code class="highlighter-rouge">0x0d</code>) before a LF code (<code class="highlighter-rouge">0x0a</code>) so that the lines are joined with LF code in the decoded result. This method enables or disables the feature.
 </p>
 <ul>
 <li>To enable it, call the method with the argument <code class="highlighter-rouge">flag</code> set to <code class="highlighter-rouge">true</code> or without any argument.</li>
 <li>To disable it, call the method with the argument <code class="highlighter-rouge">flag</code> set to <code class="highlighter-rouge">false</code>.</li>
 </ul>
-<p>
 <div class="h5">stream#deserialize</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#deserialize()</code></div>
-
-</p>
-<p>
 <div class="h5">stream#flush</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#flush():void</code></div>
+<p>
 Flushes cached data to the stream.
 </p>
-<p>
 <div class="h5">stream#peek</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#peek(bytes?:number)</code></div>
+<p>
 Reads specified length of data from the stream and returns a <code class="highlighter-rouge">binary</code> instance that contains it. This doesn't move the stream's current file position.
 </p>
-<p>
 <div class="h5">stream#print</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#print(values*):map:void</code></div>
+<p>
 Prints out <code class="highlighter-rouge">values</code> to the <code class="highlighter-rouge">stream</code> instance after converting them to strings.
 </p>
 <p>
 This function encodes character codes in the string using <code class="highlighter-rouge">codec</code> instance that is specified when the <code class="highlighter-rouge">stream</code> instance is created.
 </p>
-<p>
 <div class="h5">stream#printf</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#printf(format:string, values*):map:void</code></div>
+<p>
 Prints out <code class="highlighter-rouge">values</code> to the <code class="highlighter-rouge">stream</code> instance according to formatter specifiers in <code class="highlighter-rouge">format</code>.
 </p>
 <p>
@@ -7965,25 +7247,25 @@ Refer to the help of <code class="highlighter-rouge">printf()</code> function to
 <p>
 This function encodes character codes in the string using <code class="highlighter-rouge">codec</code> instance that is specified when the <code class="highlighter-rouge">stream</code> instance is created.
 </p>
-<p>
 <div class="h5">stream#println</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#println(values*):map:void</code></div>
+<p>
 Prints out <code class="highlighter-rouge">values</code> and an end-of-line character to the <code class="highlighter-rouge">stream</code> instanceafter converting them to strings.
 </p>
 <p>
 This function encodes character codes in the string using <code class="highlighter-rouge">codec</code> instance that is specified when the <code class="highlighter-rouge">stream</code> instance is created.
 </p>
-<p>
 <div class="h5">stream#read</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#read(bytes?:number) {block?}</code></div>
+<p>
 Reads specified length of data from the stream and returns a <code class="highlighter-rouge">binary</code> instance that contains it. If the argument <code class="highlighter-rouge">bytes</code> is omitted, all the data available from the stream would be read.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|buff:binary|</code>, where <code class="highlighter-rouge">buff</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">stream#readchar</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#readchar() {block?}</code></div>
+<p>
 Reads one character from the stream and returns a <code class="highlighter-rouge">string</code> instance that contains it.
 </p>
 <p>
@@ -7992,9 +7274,9 @@ This method decodes character codes in the stream using <code class="highlighter
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|ch:string|</code>, where <code class="highlighter-rouge">ch</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">stream#readline</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#readline():[chop] {block?}</code></div>
+<p>
 Reads one line from the stream and returns a <code class="highlighter-rouge">string</code> instance that contains it.
 </p>
 <p>
@@ -8003,9 +7285,9 @@ If the attribute <code class="highlighter-rouge">:chop</code> is specified, it w
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|line:string|</code>, where <code class="highlighter-rouge">line</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">stream#readlines</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#readlines(nlines?:number):[chop] {block?}</code></div>
+<p>
 Creates an iterator that reads text from the specified stream line by line.
 </p>
 <p>
@@ -8034,17 +7316,17 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">stream#readtext</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#readtext() {block?}</code></div>
+<p>
 Reads the whole data in the stream as a text sequence and returns a <code class="highlighter-rouge">string</code> instance that contains it. This method decodes character codes in the stream using <code class="highlighter-rouge">codec</code> instance that is specified when the <code class="highlighter-rouge">stream</code> instance is created.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|text:string|</code>, where <code class="highlighter-rouge">text</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">stream#seek</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#seek(offset:number, origin?:symbol):reduce</code></div>
+<p>
 Seeks the current file position to the offset specified by the argument <code class="highlighter-rouge">offset</code>.
 </p>
 <p>
@@ -8057,27 +7339,24 @@ The argument <code class="highlighter-rouge">origin</code> specifies the meaning
 <p>
 This method returns the target stream instance itself.
 </p>
-<p>
 <div class="h5">stream#serialize</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#serialize(value):void</code></div>
-
-</p>
-<p>
 <div class="h5">stream#setcodec</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#setcodec(codec:codec:nil):reduce</code></div>
+<p>
 Sets <code class="highlighter-rouge">codec</code> instance to the target stream. If <code class="highlighter-rouge">nil</code> is specified for the argument, the current <code class="highlighter-rouge">codec</code> instance would be removed.
 </p>
 <p>
 This method returns the target stream instance itself.
 </p>
-<p>
 <div class="h5">stream#tell</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#tell()</code></div>
+<p>
 Returns the current file position at which read/write operation works.
 </p>
-<p>
 <div class="h5">stream#write</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#write(ptr:pointer, bytes?:number):reduce</code></div>
+<p>
 Writes binary data pointer by <code class="highlighter-rouge">ptr</code> to the stream. The argument <code class="highlighter-rouge">bytes</code> limits the number of data that is to be written to the stream.
 </p>
 <h2><span class="caption-index-2">5.43</span><a name="anchor-5-43"></a>string Class</h2>
@@ -8106,9 +7385,9 @@ third line
 When an string literal is suffixed by a character <code class="highlighter-rouge">$</code>, a handler registered by <code class="highlighter-rouge">string.translate()</code> function that is supposed to translate the string into other natural languages would be evaluated.
 </p>
 <h3><span class="caption-index-3">5.43.3</span><a name="anchor-5-43-3"></a>Method</h3>
-<p>
 <div class="h5">string#align</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#align(width:number, padding:string =&gt; ' '):map:[center,left,right] {block?}</code></div>
+<p>
 Align the string to the left, right or center within the specified <code class="highlighter-rouge">width</code> and returns the result.
 </p>
 <p>
@@ -8128,32 +7407,32 @@ It uses a string specified by the argument <code class="highlighter-rouge">paddi
 <p>
 This method takes into account the character width based on the specification of East Asian Width. A kanji-character occupies two characters in width.
 </p>
-<p>
 <div class="h5">string.binary</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string.binary() {block?}</code></div>
+<p>
 Converts the string into <code class="highlighter-rouge">binary</code> instance.
 </p>
-<p>
 <div class="h5">string#capitalize</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#capitalize() {block?}</code></div>
+<p>
 Returns a string that capitalizes the first character.
 </p>
-<p>
 <div class="h5">string#chop</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#chop(suffix*:string):[eol,icase] {block?}</code></div>
+<p>
 Returns a string that removes a last character.
 </p>
 <p>
 If an attribute <code class="highlighter-rouge">:eol</code> is specified, only the end-of-line character shall be removed. In this case, if the end-of-line has a sequence of CR-LF, CR code shall be removed as well.
 </p>
-<p>
 <div class="h5">string#decodeuri</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#decodeuri() {block?}</code></div>
+<p>
 Returns a string in which percent-encoded characters are decoded.
 </p>
-<p>
 <div class="h5">string#each</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#each():map:[utf32,utf8] {block?}</code></div>
+<p>
 Creates an iterator generating strings of each character in the original one.
 </p>
 <p>
@@ -8173,9 +7452,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">string#eachline</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#eachline(nlines?:number):[chop] {block?}</code></div>
+<p>
 Creates an iterator generating strings of each line in the original one.
 </p>
 <p>
@@ -8198,9 +7477,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">string#embed</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#embed(dst?:stream:w):[lasteol,noindent]</code></div>
+<p>
 Evaluates a string that contains embedded scripts and renders the result to the specified stream.
 </p>
 <p>
@@ -8209,19 +7488,19 @@ If the stream is omitted, the function returns the rendered result as a string.
 <p>
 Calling this method is equivalent to calling a method <code class="highlighter-rouge">string#template()</code> to create a <code class="highlighter-rouge">template</code> instance on which a method <code class="highlighter-rouge">template#render()</code> is applied afterward.
 </p>
-<p>
 <div class="h5">string.encode</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string.encode(codec:codec) {block?}</code></div>
+<p>
 Encodes the string with the given <code class="highlighter-rouge">codec</code> and return the result as a <code class="highlighter-rouge">binary</code>.
 </p>
-<p>
 <div class="h5">string#encodeuri</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#encodeuri() {block?}</code></div>
+<p>
 Returns a string in which non-URIC characters are percent-encoded.
 </p>
-<p>
 <div class="h5">string#endswith</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#endswith(suffix:string, endpos?:number):map:[icase,rest]</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if the string ends with suffix.
 </p>
 <p>
@@ -8230,14 +7509,14 @@ If attribute <code class="highlighter-rouge">:rest</code> is specified, it retur
 <p>
 With an attribute <code class="highlighter-rouge">:icase</code>, character cases are ignored while matching.
 </p>
-<p>
 <div class="h5">string#escapehtml</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#escapehtml():[quote] {block?}</code></div>
+<p>
 Converts some characters into HTML entity symbols. If attribute <code class="highlighter-rouge">:quote</code> is specified, a double-quotation character would be converted to an entity symbol "&quot;".
 </p>
-<p>
 <div class="h5">string#find</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#find(sub:string, pos:number =&gt; 0):map:[icase,rev]</code></div>
+<p>
 Finds a sub string from the string and returns its position.
 </p>
 <p>
@@ -8249,9 +7528,9 @@ With an attribute <code class="highlighter-rouge">:icase</code>, case of charact
 <p>
 When an attribute <code class="highlighter-rouge">:rev</code>, finding starts from tail of the string
 </p>
-<p>
 <div class="h5">string#fold</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#fold(len:number, step?:number):[neat] {block?}</code></div>
+<p>
 Creates an iterator that folds the source string by the specified length.
 </p>
 <p>
@@ -8274,9 +7553,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">string#foldw</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#foldw(width:number):[padding] {block?}</code></div>
+<p>
 Creates an iterator that folds the source string by the specified width.
 </p>
 <p>
@@ -8299,37 +7578,37 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">string#format</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#format(values*):map</code></div>
+<p>
 Taking the string instance as a printf-styled formatter string, it converts <code class="highlighter-rouge">values</code> into a string depending on formatter specifiers in it.
 </p>
-<p>
 <div class="h5">string#isempty</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#isempty()</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if the string is empty.
 </p>
-<p>
 <div class="h5">string#left</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#left(len?:number):map</code></div>
+<p>
 Extracts the specified length of string from left of the source string.
 </p>
 <p>
 If the argument is omitted, it would return whole the source string.
 </p>
-<p>
 <div class="h5">string#len</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#len()</code></div>
+<p>
 Returns the length of the string in characters.
 </p>
-<p>
 <div class="h5">string#lower</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#lower()</code></div>
+<p>
 Converts upper-case to lower-case characters.
 </p>
-<p>
 <div class="h5">string#mid</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#mid(pos:number, len?:number):map {block?}</code></div>
+<p>
 Extracts the specified length of string from the position <code class="highlighter-rouge">pos</code> and returns the result.
 </p>
 <p>
@@ -8341,33 +7620,33 @@ Below are examples:
 <pre class="highlight"><code>'Hello world'.mid(3, 2) // 'lo'
 'Hello world'.mid(5)    // 'world'
 </code></pre>
-<p>
 <div class="h5">string.print</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string.print(stream?:stream:w):void</code></div>
+<p>
 Prints out the string to the specified <code class="highlighter-rouge">stream</code>.
 </p>
 <p>
 If the argument is omitted, it would print to the standard output.
 </p>
-<p>
 <div class="h5">string.println</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string.println(stream?:stream:w):void</code></div>
+<p>
 Prints out the string and a line-break to the specified <code class="highlighter-rouge">stream</code>.
 </p>
 <p>
 If the argument is omitted, it would print to the standard output.
 </p>
-<p>
 <div class="h5">string#reader</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#reader() {block?}</code></div>
+<p>
 Returns a <code class="highlighter-rouge">stream</code> instance that reads the string content as a binary sequence.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">string#replace</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#replace(match:string, sub:string, count?:number):map:[icase] {block?}</code></div>
+<p>
 Replaces sub strings that matches the string <code class="highlighter-rouge">match</code> with a string specified by <code class="highlighter-rouge">sub</code> and returns the result.
 </p>
 <p>
@@ -8379,9 +7658,9 @@ With an attribute <code class="highlighter-rouge">:icase</code>, character cases
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|result:string, replaced:boolean|</code>, where <code class="highlighter-rouge">result</code> is the result string and <code class="highlighter-rouge">replaced</code> indicates if there is any change between the result and its original string. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">string#replaces</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#replaces(map[]:string, count?:number):map:[icase] {block?}</code></div>
+<p>
 Replaces string parts according to a list of pairs of a matching and a substituting string and returns the result.
 </p>
 <p>
@@ -8396,17 +7675,17 @@ With an attribute <code class="highlighter-rouge">:icase</code>, character cases
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|result:string, replaced:boolean|</code>, where <code class="highlighter-rouge">result</code> is the result string and <code class="highlighter-rouge">replaced</code> indicates if there is any change between the result and its original string. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">string#right</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#right(len?:number):map {block?}</code></div>
+<p>
 Extracts the specified length of string from right of the source string.
 </p>
 <p>
 If the argument is omitted, it would return whole the source string.
 </p>
-<p>
 <div class="h5">string#split</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#split(sep?:string, count?:number):[icase] {block?}</code></div>
+<p>
 Creates an iterator generating sub strings extracted from the original one separated by a specified string <code class="highlighter-rouge">sep</code>. With an attribute <code class="highlighter-rouge">:icase</code>, character cases are ignored while finding the separator.
 </p>
 <p>
@@ -8426,9 +7705,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">string#startswith</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#startswith(prefix:string, pos:number =&gt; 0):map:[icase,rest]</code></div>
+<p>
 Returns <code class="highlighter-rouge">true</code> if the string starts with <code class="highlighter-rouge">prefix</code>.
 </p>
 <p>
@@ -8437,9 +7716,9 @@ If attribute <code class="highlighter-rouge">:rest</code> is specified, it retur
 <p>
 With an attribute <code class="highlighter-rouge">:icase</code>, character cases are ignored while matching.
 </p>
-<p>
 <div class="h5">string#strip</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#strip():[both,left,right] {block?}</code></div>
+<p>
 Returns a string that removes space characters on the left, the right or the both sides of the original string.
 </p>
 <p>
@@ -8450,45 +7729,45 @@ The following attributes would specify which side of spaces should be removed:
 <li><code class="highlighter-rouge">:left</code> .. Removes spaces on the left side.</li>
 <li><code class="highlighter-rouge">:right</code> .. Removes spaces on the right side.</li>
 </ul>
-<p>
 <div class="h5">string#template</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#template():[lasteol,noindent] {block?}</code></div>
+<p>
 Parses the content of the string as a text containing embedded scripts and returns a <code class="highlighter-rouge">template</code> instance.
 </p>
-<p>
 <div class="h5">string#tosymbol</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#tosymbol() {block?}</code></div>
+<p>
 Convers the string into a symbol.
 </p>
-<p>
 <div class="h5">string.translator</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string.translator():static:void {block}</code></div>
+<p>
 Register a procedure evaluated when a string literal appears with a suffix symbol "<code class="highlighter-rouge">$</code>", which is meant to translate the string into another language.
 </p>
 <p>
 The procedure is described in <code class="highlighter-rouge">block</code> takes a block parameter <code class="highlighter-rouge">|str:string|</code> where <code class="highlighter-rouge">str</code> is the original string, and is expected to return a string translated from the original.
 </p>
-<p>
 <div class="h5">string#unescapehtml</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#unescapehtml() {block?}</code></div>
+<p>
 Converts escape sequences into readable characters.
 </p>
-<p>
 <div class="h5">string#upper</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#upper() {block?}</code></div>
+<p>
 Converts lower-case to upper-case characters.
 </p>
-<p>
 <div class="h5">string#width</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#width()</code></div>
+<p>
 Returns the width of the string.
 </p>
 <p>
 This method takes into account the character width based on the specification of East Asian Width. For example, a kanji-character of Japanese occupies two characters in width.
 </p>
-<p>
 <div class="h5">string#zentohan</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>string#zentohan() {block?}</code></div>
+<p>
 Converts zenkaku to hankaku characters.
 </p>
 <h2><span class="caption-index-2">5.44</span><a name="anchor-5-44"></a>suffixmgr Class</h2>
@@ -8507,9 +7786,9 @@ You can use that suffix like below:
 <pre class="highlight"><code>'hello world'X
 </code></pre>
 <h3><span class="caption-index-3">5.44.2</span><a name="anchor-5-44-2"></a>Constructor</h3>
-<p>
 <div class="h5">suffixmgr</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>suffixmgr(type:symbol) {block?}</code></div>
+<p>
 Creates a reference to one of two suffix managers, number and string.
 </p>
 <ul>
@@ -8520,9 +7799,9 @@ Creates a reference to one of two suffix managers, number and string.
 Specify the argument <code class="highlighter-rouge">type</code> with a symbol <code class="highlighter-rouge">`number</code> for a number suffix manager and <code class="highlighter-rouge">`string</code> for a string suffix manager.
 </p>
 <h3><span class="caption-index-3">5.44.3</span><a name="anchor-5-44-3"></a>Method</h3>
-<p>
 <div class="h5">suffixmgr#assign</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>suffixmgr#assign(suffix:symbol):void:[overwrite] {block}</code></div>
+<p>
 Assigns a procedure to a specified symbol in the suffix manager. The procedure is provided by the <code class="highlighter-rouge">block</code> that takes a block parameter <code class="highlighter-rouge">|value|</code> where <code class="highlighter-rouge">value</code> comes from the preceded literal.
 </p>
 <p>
@@ -8531,9 +7810,9 @@ An error occurs if the same suffix symbol has already been assigned. Specifying 
 <h2><span class="caption-index-2">5.45</span><a name="anchor-5-45"></a>symbol Class</h2>
 <h3><span class="caption-index-3">5.45.1</span><a name="anchor-5-45-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.45.2</span><a name="anchor-5-45-2"></a>Method</h3>
-<p>
 <div class="h5">symbol#eval</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>symbol#eval(env?:environment)</code></div>
+<p>
 Evaluate a symbol object.
 </p>
 <h2><span class="caption-index-2">5.46</span><a name="anchor-5-46"></a>template Class</h2>
@@ -8558,9 +7837,9 @@ Using the above casting feature, you can call a function <code class="highlighte
 <li><code class="highlighter-rouge">f('foo.txt')</code> .. Implicit casting: from <code class="highlighter-rouge">string</code> to <code class="highlighter-rouge">stream</code>, then from <code class="highlighter-rouge">stream</code> to <code class="highlighter-rouge">template</code>.</li>
 </ul>
 <h3><span class="caption-index-3">5.46.3</span><a name="anchor-5-46-3"></a>Constructor</h3>
-<p>
 <div class="h5">template</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>template(src?:stream:r):map:[lasteol,noindent] {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">template</code> instance.
 </p>
 <p>
@@ -8574,9 +7853,9 @@ Following attributes would customize the parser's behavior:
 <li><code class="highlighter-rouge">:noindent</code></li>
 </ul>
 <h3><span class="caption-index-3">5.46.4</span><a name="anchor-5-46-4"></a>Method</h3>
-<p>
 <div class="h5">template#parse</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>template#parse(str:string):void:[lasteol,noindent]</code></div>
+<p>
 Creates a <code class="highlighter-rouge">template</code> instance by parsing a script-embedded text in a string.
 </p>
 <p>
@@ -8586,9 +7865,9 @@ Following attributes would customize the parser's behavior:
 <li><code class="highlighter-rouge">:lasteol</code></li>
 <li><code class="highlighter-rouge">:noindent</code></li>
 </ul>
-<p>
 <div class="h5">template#read</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>template#read(src:stream:r):void:[lasteol,noindent]</code></div>
+<p>
 Creates a <code class="highlighter-rouge">template</code> instance by parsing a script-embedded text from a stream.
 </p>
 <p>
@@ -8598,18 +7877,18 @@ Following attributes would customize the parser's behavior:
 <li><code class="highlighter-rouge">:lasteol</code></li>
 <li><code class="highlighter-rouge">:noindent</code></li>
 </ul>
-<p>
 <div class="h5">template#render</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>template#render(dst?:stream:w)</code></div>
+<p>
 Renders stored content to the specified stream.
 </p>
 <p>
 If the stream is omitted, the function returns the rendered result as a string.
 </p>
 <h3><span class="caption-index-3">5.46.5</span><a name="anchor-5-46-5"></a>Method Called by Template Directive</h3>
-<p>
 <div class="h5">template#block</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>template#block(symbol:symbol):void</code></div>
+<p>
 Creates a template block which content is supposed to be replaced by a derived template.
 </p>
 <p>
@@ -8657,9 +7936,9 @@ This template renders the following result:
 Content of derived.
 Block ends here.
 </code></pre>
-<p>
 <div class="h5">template#call</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>template#call(symbol:symbol, args*)</code></div>
+<p>
 Calls a template macro that has been created by directive <code class="highlighter-rouge">${=define}</code>.
 </p>
 <p>
@@ -8673,9 +7952,9 @@ Below is an exemple to call a template macro:
 <p>
 This method would return <code class="highlighter-rouge">nil</code> if a line-break character is rendered at last and would return a null string otherwise.
 </p>
-<p>
 <div class="h5">template#define</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>template#define(symbol:symbol, `args*):void</code></div>
+<p>
 Creates a template macro from the specified block, which is supposed to be called by <code class="highlighter-rouge">${=call}</code> directive, and associates it with the specified symbol.
 </p>
 <p>
@@ -8688,9 +7967,9 @@ Below is an example to create a template macro:
 ${name} is ${age} years old.
 ${end}
 </code></pre>
-<p>
 <div class="h5">template#embed</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>template#embed(template:template)</code></div>
+<p>
 Renders the specified template at the current position.
 </p>
 <p>
@@ -8707,9 +7986,9 @@ As the template rendered by this method runs in a different context from the cur
 <p>
 This method would return <code class="highlighter-rouge">nil</code> if a line-break character is rendered at last and would return a null string otherwise.
 </p>
-<p>
 <div class="h5">template#extends</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>template#extends(template:template):void</code></div>
+<p>
 Declares the current template as a derived one from the specified template.
 </p>
 <p>
@@ -8723,9 +8002,9 @@ Below is an example to declare the current template as one derived from <code cl
 </p>
 <pre class="highlight"><code>${=extends('base.tmpl')}
 </code></pre>
-<p>
 <div class="h5">template#super</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>template#super(symbol:symbol):void</code></div>
+<p>
 Evaluates a template block registered with the specified symbol in a template from which the current template has derived.
 </p>
 <p>
@@ -8780,7 +8059,6 @@ The <code class="highlighter-rouge">timedelta</code> instance provides a time de
 <p>
 A <code class="highlighter-rouge">timedelta</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -8792,8 +8070,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>days</code></td>
@@ -8801,11 +8077,9 @@ Note</th>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Offset of days.</td>
 </tr>
-
 <tr>
 <td>
 <code>secs</code></td>
@@ -8813,11 +8087,9 @@ Offset of days.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Offset of seconds.</td>
 </tr>
-
 <tr>
 <td>
 <code>usecs</code></td>
@@ -8825,19 +8097,14 @@ Offset of seconds.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 Offset of micro seconds.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.47.3</span><a name="anchor-5-47-3"></a>Constructor</h3>
-<p>
 <div class="h5">timedelta</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>timedelta(days:number =&gt; 0, secs:number =&gt; 0, usecs:number =&gt; 0):map {block?}</code></div>
+<p>
 Returns a timedelta instance with specified values. The instance actually holds properties of days, secs and usecs.
 </p>
 <h2><span class="caption-index-2">5.48</span><a name="anchor-5-48"></a>uri Class</h2>
@@ -8851,7 +8118,6 @@ The <code class="highlighter-rouge">uri</code> instance analyzes a URI string an
 <p>
 A <code class="highlighter-rouge">uri</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -8863,8 +8129,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>host</code></td>
@@ -8872,11 +8136,9 @@ Note</th>
 <code>string</code></td>
 <td>
 R/W</td>
-
 <td>
 Host part in the URI.</td>
 </tr>
-
 <tr>
 <td>
 <code>misc</code></td>
@@ -8884,11 +8146,9 @@ Host part in the URI.</td>
 <code>string</code></td>
 <td>
 R/W</td>
-
 <td>
 Misc part in the URI.</td>
 </tr>
-
 <tr>
 <td>
 <code>password</code></td>
@@ -8896,11 +8156,9 @@ Misc part in the URI.</td>
 <code>string</code></td>
 <td>
 R/W</td>
-
 <td>
 Password part in the URI.</td>
 </tr>
-
 <tr>
 <td>
 <code>port</code></td>
@@ -8908,11 +8166,9 @@ Password part in the URI.</td>
 <code>string</code></td>
 <td>
 R/W</td>
-
 <td>
 Port part in the URI.</td>
 </tr>
-
 <tr>
 <td>
 <code>scheme</code></td>
@@ -8920,11 +8176,9 @@ Port part in the URI.</td>
 <code>string</code></td>
 <td>
 R/W</td>
-
 <td>
 Scheme part in the URI.</td>
 </tr>
-
 <tr>
 <td>
 <code>urlpath</code></td>
@@ -8932,11 +8186,9 @@ Scheme part in the URI.</td>
 <code>string</code></td>
 <td>
 R/W</td>
-
 <td>
 URL path part in the URI, which contains the path, query and fragment part.</td>
 </tr>
-
 <tr>
 <td>
 <code>user</code></td>
@@ -8944,19 +8196,14 @@ URL path part in the URI, which contains the path, query and fragment part.</td>
 <code>string</code></td>
 <td>
 R/W</td>
-
 <td>
 User part in the URI.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.48.3</span><a name="anchor-5-48-3"></a>Constructor</h3>
-<p>
 <div class="h5">uri</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>uri(str?:string):map {block?}</code></div>
+<p>
 Creates <code class="highlighter-rouge">uri</code> instance.
 </p>
 <p>
@@ -8966,24 +8213,24 @@ If the argument <code class="highlighter-rouge">str</code> is specified, it woul
 If omitted, the instance would be initialized as an empty one.
 </p>
 <h3><span class="caption-index-3">5.48.4</span><a name="anchor-5-48-4"></a>Method</h3>
-<p>
 <div class="h5">uri#getfragment</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>uri#getfragment()</code></div>
+<p>
 Returns the fragment part contained in the URI path.
 </p>
-<p>
 <div class="h5">uri#getpath</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>uri#getpath()</code></div>
+<p>
 Returns the path part contained in the URI path.
 </p>
-<p>
 <div class="h5">uri#getquery</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>uri#getquery()</code></div>
+<p>
 Returns a <code class="highlighter-rouge">dict</code> instance that is made from the query part in the URI path.
 </p>
-<p>
 <div class="h5">uri.parsequery</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>uri.parsequery(query:string):static:map</code></div>
+<p>
 This is a utility function to parse a query string and return a <code class="highlighter-rouge">dict</code> instance that contains key-value pairs for the query.
 </p>
 <h3><span class="caption-index-3">5.48.5</span><a name="anchor-5-48-5"></a>Cast Operation</h3>
@@ -9006,7 +8253,6 @@ The <code class="highlighter-rouge">vertex</code> class provides vertex informat
 <p>
 An <code class="highlighter-rouge">vertex</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -9018,8 +8264,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>x</code></td>
@@ -9027,11 +8271,9 @@ Note</th>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 A value of X.</td>
 </tr>
-
 <tr>
 <td>
 <code>y</code></td>
@@ -9039,11 +8281,9 @@ A value of X.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 A value of Y.</td>
 </tr>
-
 <tr>
 <td>
 <code>z</code></td>
@@ -9051,46 +8291,41 @@ A value of Y.</td>
 <code>number</code></td>
 <td>
 R/W</td>
-
 <td>
 A value of Z.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">5.49.3</span><a name="anchor-5-49-3"></a>Constructor</h3>
-<p>
 <div class="h5">vertex</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>vertex(x:number, y:number, z?:number):map {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">vertex</code> instance that has the given coordinates <code class="highlighter-rouge">x</code>, <code class="highlighter-rouge">y</code> and <code class="highlighter-rouge">z</code>. The argument <code class="highlighter-rouge">z</code> is optional and set to zero if omitted.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|v:vertex|</code>, where <code class="highlighter-rouge">v</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">5.49.4</span><a name="anchor-5-49-4"></a>Method</h3>
-<p>
 <div class="h5">vertex.cross</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>vertex.cross (v1:vertex, v2:vertex):static:map {block?}</code></div>
+<p>
 Calculates cross product between <code class="highlighter-rouge">v1</code> and <code class="highlighter-rouge">v2</code> and returns the result as a <code class="highlighter-rouge">vertex</code> instance.
 </p>
-<p>
 <div class="h5">vertex.dot</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>vertex.dot(v1:vertex, v2:vertex):static:map {block?}</code></div>
+<p>
 Calculates dot product between <code class="highlighter-rouge">v1</code> and <code class="highlighter-rouge">v2</code> and returns the result as a <code class="highlighter-rouge">number</code> instance.
 </p>
-<p>
 <div class="h5">vertex#list</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>vertex#list() {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">list</code> that contains coordinate values <code class="highlighter-rouge">[x, y, z]</code> of the target <code class="highlighter-rouge">vertex</code>.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|list:list|</code>, where <code class="highlighter-rouge">list</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">vertex.normal</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>vertex.normal(v1:vertex, v2:vertex, v3:vertex):static:map:[unit] {block?}</code></div>
+<p>
 Calculates a normal vector for a face that consists of three vertices given and returns it as a <code class="highlighter-rouge">vertex</code> instance.
 </p>
 <p>
@@ -9099,9 +8334,9 @@ In default, it returns a vector before being regulated to have a length of one. 
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|v:vertex|</code>, where <code class="highlighter-rouge">v</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">vertex#rotate@x</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>vertex#rotate@x(angle:number):[deg] {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">vertex</code> that is rotated from the target <code class="highlighter-rouge">vertex</code> around X-axis by the specified <code class="highlighter-rouge">angle</code> in radian. It would be rotated in a direction of tilting Y-axis toward Z-axis.
 </p>
 <p>
@@ -9110,9 +8345,9 @@ If the attribute <code class="highlighter-rouge">:deg</code> is specified, you c
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|v:vertex|</code>, where <code class="highlighter-rouge">v</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">vertex#rotate@y</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>vertex#rotate@y(angle:number):[deg] {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">vertex</code> that is rotated from the target <code class="highlighter-rouge">vertex</code> around Y-axis by the specified <code class="highlighter-rouge">angle</code> in radian. It would be rotated in a direction of tilting Z-axis toward X-axis.
 </p>
 <p>
@@ -9121,9 +8356,9 @@ If the attribute <code class="highlighter-rouge">:deg</code> is specified, you c
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|v:vertex|</code>, where <code class="highlighter-rouge">v</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">vertex#rotate@z</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>vertex#rotate@z(angle:number):[deg] {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">vertex</code> that is rotated from the target <code class="highlighter-rouge">vertex</code> around Z-axis by the specified <code class="highlighter-rouge">angle</code> in radian. It would be rotated in a direction of tilting X-axis toward Y-axis.
 </p>
 <p>
@@ -9132,9 +8367,9 @@ If the attribute <code class="highlighter-rouge">:deg</code> is specified, you c
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|v:vertex|</code>, where <code class="highlighter-rouge">v</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<p>
 <div class="h5">vertex#translate</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>vertex#translate(tx:number, ty:number, tz?:number) {block?}</code></div>
+<p>
 Creates a <code class="highlighter-rouge">vertex</code> that is translated from the target <code class="highlighter-rouge">vertex</code> by the specified offsets <code class="highlighter-rouge">tx</code>, <code class="highlighter-rouge">ty</code> and <code class="highlighter-rouge">tz</code>.
 </p>
 <p>

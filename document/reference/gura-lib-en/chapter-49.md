@@ -14,9 +14,9 @@ The <code class="highlighter-rouge">show</code> module provides a method to disp
 <p>
 This module extends the <code class="highlighter-rouge">image</code> class with a method described here.
 </p>
-<p>
 <div class="h5">image#show</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#show(width =&gt; 640, height =&gt; 480)</code></div>
+<p>
 Displays the content of <code class="highlighter-rouge">image</code> instance in a window.
 </p>
 {% endraw %}

@@ -17,9 +17,9 @@ Below is an example to show differences between files <code class="highlighter-r
 <pre class="highlight"><code>diff.compose(stream('file1.txt'), stream('file2.txt')).render(sys.stdout)
 </code></pre>
 <h2><span class="caption-index-2">16.2</span><a name="anchor-16-2"></a>Module Function</h2>
-<p>
 <div class="h5">diff.compose</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>diff.compose(src1, src2):[icase,sync] {block?}</code></div>
+<p>
 Extracts differences between two sets of line sequence and returns <code class="highlighter-rouge">diff.diff@line</code> instance that contains the difference information.
 </p>
 <p>
@@ -59,9 +59,9 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 <p>
 If attribute <code class="highlighter-rouge">:icase</code> is specified, it wouldn't distinguish upper and lower case of characters.
 </p>
-<p>
 <div class="h5">diff.compose@char</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>diff.compose@char(src1:string, src2:string):[icase] {block?}</code></div>
+<p>
 Extracts differences between two strings and returns <code class="highlighter-rouge">diff.diff@line</code> instance that contains the difference information.
 </p>
 <p>
@@ -76,7 +76,6 @@ If attribute <code class="highlighter-rouge">:icase</code> is specified, it woul
 The <code class="highlighter-rouge">diff.diff@line</code> instance is created by function <code class="highlighter-rouge">diff.compose()</code> and provides information about differences between two texts by lines.
 </p>
 <h3><span class="caption-index-3">16.3.2</span><a name="anchor-16-3-2"></a>Property</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -88,8 +87,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>distance</code></td>
@@ -97,12 +94,9 @@ Explanation</th>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 The distance between the texts. Zero means that they are identical each other.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>edits</code></td>
@@ -110,12 +104,9 @@ The distance between the texts. Zero means that they are identical each other.</
 <code>iterator</code></td>
 <td>
 R</td>
-
 <td>
 An iterator that returns <code>diff.edit@line</code> instances stored in the result.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>nlines@org</code></td>
@@ -123,12 +114,9 @@ An iterator that returns <code>diff.edit@line</code> instances stored in the res
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Number of lines in the "original" text.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>nlines@new</code></td>
@@ -136,19 +124,14 @@ Number of lines in the "original" text.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Number of lines in the "new" text.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">16.3.3</span><a name="anchor-16-3-3"></a>Method</h3>
-<p>
 <div class="h5">diff.diff@line#eachhunk</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>diff.diff@line#eachhunk(format?:symbol, lines?:number) {block?}</code></div>
+<p>
 Creates an iterator that returns <code class="highlighter-rouge">diff.hunk@line</code> instance stored in the result.
 </p>
 <p>
@@ -179,9 +162,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<p>
 <div class="h5">diff.diff@line#render</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>diff.diff@line#render(out?:stream:w, format?:symbol, lines?:number) {block?}</code></div>
+<p>
 Renders diff result to the specified stream.
 </p>
 <p>
@@ -204,7 +187,6 @@ The argument <code class="highlighter-rouge">lines</code> specifies a number of 
 The <code class="highlighter-rouge">diff.hunk@line</code> instance provides information about a hunk.
 </p>
 <h3><span class="caption-index-3">16.4.2</span><a name="anchor-16-4-2"></a>Property</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -216,8 +198,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>edits</code></td>
@@ -225,12 +205,9 @@ Explanation</th>
 <code>iterator</code></td>
 <td>
 R</td>
-
 <td>
 An iterator that returns <code>diff.edit@line</code> instances stored in the hunk.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>lineno@org</code></td>
@@ -238,12 +215,9 @@ An iterator that returns <code>diff.edit@line</code> instances stored in the hun
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Top line number of the "original" text covered by the hunk.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>lineno@new</code></td>
@@ -251,12 +225,9 @@ Top line number of the "original" text covered by the hunk.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Top line number of the "new" text covered by the hunk.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>nlines@org</code></td>
@@ -264,12 +235,9 @@ Top line number of the "new" text covered by the hunk.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Number of lines in the "original" text covered by the hunk.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>nlines@new</code></td>
@@ -277,19 +245,14 @@ Number of lines in the "original" text covered by the hunk.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Number of lines in the "new" text covered by the hunk.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">16.4.3</span><a name="anchor-16-4-3"></a>Method</h3>
-<p>
 <div class="h5">diff.hunk@line#print</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>diff.hunk@line#print(out?:stream):void {block?}</code></div>
+<p>
 Prints the content of the <code class="highlighter-rouge">diff.hunk</code> instance to the specified stream.
 </p>
 <h2><span class="caption-index-2">16.5</span><a name="anchor-16-5"></a>diff.edit@line Class</h2>
@@ -298,7 +261,6 @@ Prints the content of the <code class="highlighter-rouge">diff.hunk</code> insta
 The <code class="highlighter-rouge">diff.edit@line</code> provides information about an edit operation.
 </p>
 <h3><span class="caption-index-3">16.5.2</span><a name="anchor-16-5-2"></a>Property</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -310,8 +272,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>diff.edit@line#type</code></td>
@@ -319,25 +279,18 @@ Explanation</th>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 Edit operation:
 <ul>
 <li>
 <code>`copy</code> .. Copy the line.</li>
-
 <li>
 <code>`add</code> .. Add the line.</li>
-
 <li>
 <code>`delete</code> .. Delete the line.</li>
-
 </ul>
-
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>mark</code></td>
@@ -345,12 +298,9 @@ Edit operation:
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 A mark string that appears on the top of each line in Unified format.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>lineno@org</code></td>
@@ -358,12 +308,9 @@ A mark string that appears on the top of each line in Unified format.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Line number of the "original" text correspond to the edit.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>lineno@new</code></td>
@@ -371,12 +318,9 @@ Line number of the "original" text correspond to the edit.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Lop line number of the "new" text correspond to the edit.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>source</code></td>
@@ -384,12 +328,9 @@ Lop line number of the "new" text correspond to the edit.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 A source text.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>unified</code></td>
@@ -397,19 +338,14 @@ A source text.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 A composed string in Unified format.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">16.5.3</span><a name="anchor-16-5-3"></a>Method</h3>
-<p>
 <div class="h5">diff.edit@line#print</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>diff.edit@line#print(out?:stream):void {block?}</code></div>
+<p>
 Prints the content of the <code class="highlighter-rouge">diff.edit</code> instance to the specified stream.
 </p>
 <h2><span class="caption-index-2">16.6</span><a name="anchor-16-6"></a>diff.diff@char Class</h2>
@@ -418,7 +354,6 @@ Prints the content of the <code class="highlighter-rouge">diff.edit</code> insta
 The <code class="highlighter-rouge">diff.diff@char</code> instance is created by function <code class="highlighter-rouge">diff.compose@char()</code> and provides information about differences between two texts by characters.
 </p>
 <h3><span class="caption-index-3">16.6.2</span><a name="anchor-16-6-2"></a>Property</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -430,8 +365,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>distance</code></td>
@@ -439,12 +372,9 @@ Explanation</th>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 The distance between the texts. Zero means that they are identical each other.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>edits</code></td>
@@ -452,12 +382,9 @@ The distance between the texts. Zero means that they are identical each other.</
 <code>iterator</code></td>
 <td>
 R</td>
-
 <td>
 An iterator that returns <code>diff.edit@char</code> instances stored in the result.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>edits@org</code></td>
@@ -465,13 +392,10 @@ An iterator that returns <code>diff.edit@char</code> instances stored in the res
 <code>iterator</code></td>
 <td>
 R</td>
-
 <td>
 An iterator that returns <code>diff.edit@char</code> instances
 that are applied to the "original" string.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>edits@new</code></td>
@@ -479,23 +403,17 @@ that are applied to the "original" string.</td>
 <code>iterator</code></td>
 <td>
 R</td>
-
 <td>
 An iterator that returns <code>diff.edit@char</code> instances
 that are applied to the "new" string.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">16.7</span><a name="anchor-16-7"></a>diff.edit@char Class</h2>
 <h3><span class="caption-index-3">16.7.1</span><a name="anchor-16-7-1"></a>Overview</h3>
 <p>
 The <code class="highlighter-rouge">diff.edit@char</code> provides information about an edit operation.
 </p>
 <h3><span class="caption-index-3">16.7.2</span><a name="anchor-16-7-2"></a>Property</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -507,8 +425,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>diff.edit@char#type</code></td>
@@ -516,25 +432,18 @@ Explanation</th>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 Edit operation:
 <ul>
 <li>
 <code>`copy</code> .. Copy the line.</li>
-
 <li>
 <code>`add</code> .. Add the line.</li>
-
 <li>
 <code>`delete</code> .. Delete the line.</li>
-
 </ul>
-
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>diff.edit@char#mark</code></td>
@@ -542,12 +451,9 @@ Edit operation:
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 A mark string that appears on the top of each line in Unified format.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>diff.edit@char#source</code></td>
@@ -555,15 +461,10 @@ A mark string that appears on the top of each line in Unified format.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 A source text.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">16.8</span><a name="anchor-16-8"></a>Thanks</h2>
 <p>
 This module uses dtl (Diff Template Library) which is distributed in the following site:

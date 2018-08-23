@@ -11,24 +11,24 @@ nextpage: chapter-58.html#naviitem-selected
 The <code class="highlighter-rouge">units</code> module provides functions to convert physical units into another.
 </p>
 <h2><span class="caption-index-2">57.1</span><a name="anchor-57-1"></a>Module Function</h2>
-<p>
 <div class="h5">units.inch$mm</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>units.inch$mm(inch:number):map</code></div>
+<p>
 Converts <strong>inch</strong> to <strong>mm</strong>.
 </p>
-<p>
 <div class="h5">units.mm$inch</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>units.mm$inch(mm:number):map</code></div>
+<p>
 Converts <strong>mm</strong> to <strong>inch</strong>.
 </p>
-<p>
 <div class="h5">units.mm$pt</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>units.mm$pt(mm:number):map</code></div>
+<p>
 Converts <strong>mm</strong> to <strong>pt</strong>.
 </p>
-<p>
 <div class="h5">units.pt$mm</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>units.pt$mm(pt:number):map</code></div>
+<p>
 Converts <strong>pt</strong> to <strong>mm</strong>.
 </p>
 {% endraw %}

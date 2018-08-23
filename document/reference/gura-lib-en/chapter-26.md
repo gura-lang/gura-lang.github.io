@@ -18,9 +18,9 @@ The example below would create a composite Gura file named <code class="highligh
 gurcbuild.build(['hello.gura', 'startimg.jpg', 'README.txt'])
 </code></pre>
 <h2><span class="caption-index-2">26.1</span><a name="anchor-26-1"></a>Module Function</h2>
-<p>
 <div class="h5">gurcbuild.build</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gurcbuild.build(pathNames[]:string, dirName?:string)</code></div>
+<p>
 Creates a composite Gura file from files specified by <code class="highlighter-rouge">pathNames</code>, which includes script and other data files. The first entry of <code class="highlighter-rouge">pathNames</code> must be a script file that is to be executed as a main script.
 </p>
 <p>

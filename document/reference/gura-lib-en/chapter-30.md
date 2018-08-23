@@ -52,7 +52,6 @@ A <code class="highlighter-rouge">jpeg.exif</code> instance contains <code class
 <p>
 A <code class="highlighter-rouge">jpeg.exif</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -64,8 +63,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>endian</code></td>
@@ -73,11 +70,9 @@ Note</th>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 The endian type: <code class="highlighter-rouge">`big</code> for big-endian and <code class="highlighter-rouge">`little</code> for little-endian.</td>
 </tr>
-
 <tr>
 <td>
 <code>ifd0</code></td>
@@ -85,11 +80,9 @@ The endian type: <code class="highlighter-rouge">`big</code> for big-endian and 
 <code>jpeg.ifd</code></td>
 <td>
 R</td>
-
 <td>
 IFD0 instance.</td>
 </tr>
-
 <tr>
 <td>
 <code>ifd1</code></td>
@@ -97,11 +90,9 @@ IFD0 instance.</td>
 <code>jpeg.ifd</code></td>
 <td>
 R</td>
-
 <td>
 IFD1 instance.</td>
 </tr>
-
 <tr>
 <td>
 <code>thumbnail</code></td>
@@ -109,11 +100,9 @@ IFD1 instance.</td>
 <code>image</code></td>
 <td>
 R</td>
-
 <td>
 Thumbnail image as <code class="highlighter-rouge">image</code> value.</td>
 </tr>
-
 <tr>
 <td>
 <code>thumbnail@jpeg</code></td>
@@ -121,19 +110,14 @@ Thumbnail image as <code class="highlighter-rouge">image</code> value.</td>
 <code>binary</code></td>
 <td>
 R</td>
-
 <td>
 Thumbnail image as JPEG binary data.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">30.3.3</span><a name="anchor-30-3-3"></a>Constructor</h3>
-<p>
 <div class="h5">jpeg.exif</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>jpeg.exif(stream?:stream:r):map:[raise] {block?}</code></div>
+<p>
 Reads EXIF data from <code class="highlighter-rouge">stream</code> and creates a <code class="highlighter-rouge">jpeg.exif</code> instance.
 </p>
 <p>
@@ -143,9 +127,9 @@ If no EXIF information exists in the stream, this function returns <code class="
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|exif:jpeg.exif|</code>, where <code class="highlighter-rouge">exif</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 <h3><span class="caption-index-3">30.3.4</span><a name="anchor-30-3-4"></a>Method</h3>
-<p>
 <div class="h5">jpeg.exif#each</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>jpeg.exif#each() {block?}</code></div>
+<p>
 Creates an iterator that returns <code class="highlighter-rouge">jpeg.tag</code> values as elements that are stored in the property <code class="highlighter-rouge">jpeg.exif#ifd0</code>.
 </p>
 <p>
@@ -171,7 +155,6 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 <p>
 A <code class="highlighter-rouge">jpeg.ifd</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -183,8 +166,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>name</code></td>
@@ -192,11 +173,9 @@ Note</th>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>symbol</code></td>
@@ -204,19 +183,14 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">30.4.3</span><a name="anchor-30-4-3"></a>Method</h3>
-<p>
 <div class="h5">jpeg.ifd#each</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>jpeg.ifd#each() {block?}</code></div>
+<p>
 Creates an iterator that returns <code class="highlighter-rouge">jpeg.tag</code> values as elements that are stored in the target <code class="highlighter-rouge">jpeg.ifd</code> instance.
 </p>
 <p>
@@ -241,7 +215,6 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 <p>
 A <code class="highlighter-rouge">jpeg.tag</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -253,8 +226,6 @@ R/W</th>
 <th>
 Note</th>
 </tr>
-
-
 <tr>
 <td>
 <code>id</code></td>
@@ -262,11 +233,9 @@ Note</th>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Tag ID.</td>
 </tr>
-
 <tr>
 <td>
 <code>ifd</code></td>
@@ -274,11 +243,9 @@ Tag ID.</td>
 <code>undefined</code></td>
 <td>
 R</td>
-
 <td>
 IFD instance. Valid only for tags <code class="highlighter-rouge">Exif</code>, <code class="highlighter-rouge">GPSInfo</code> and <code class="highlighter-rouge">Interoperability</code>.</td>
 </tr>
-
 <tr>
 <td>
 <code>name</code></td>
@@ -286,11 +253,9 @@ IFD instance. Valid only for tags <code class="highlighter-rouge">Exif</code>, <
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Tag name.</td>
 </tr>
-
 <tr>
 <td>
 <code>symbol</code></td>
@@ -298,11 +263,9 @@ Tag name.</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 Tag name as <code class="highlighter-rouge">symbol</code>.</td>
 </tr>
-
 <tr>
 <td>
 <code>type</code></td>
@@ -310,11 +273,9 @@ Tag name as <code class="highlighter-rouge">symbol</code>.</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 Tag type.</td>
 </tr>
-
 <tr>
 <td>
 <code>typename</code></td>
@@ -322,11 +283,9 @@ Tag type.</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 Tag type name.</td>
 </tr>
-
 <tr>
 <td>
 <code>value</code></td>
@@ -334,22 +293,17 @@ Tag type name.</td>
 <code>any</code></td>
 <td>
 R</td>
-
 <td>
 Tag value. When the attribute <code class="highlighter-rouge">:cooked</code> is specified, numbers in some tags are translated to human-readable symbols.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">30.6</span><a name="anchor-30-6"></a>Extension to image Class</h2>
 <p>
 This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
 </p>
-<p>
 <div class="h5">image#read@jpeg</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read@jpeg(stream:stream:r, size?:number):reduce:[fast,rough]</code></div>
+<p>
 Reads a JPEG image data from the specified <code class="highlighter-rouge">stream</code>.
 </p>
 <p>
@@ -361,9 +315,9 @@ The attribute <code class="highlighter-rouge">:fast</code> indicates a fast but 
 <p>
 The attriubte <code class="highlighter-rouge">:rough</code> is only valid when <code class="highlighter-rouge">size</code> is specified and makes the shrinked image with nearest neighbor method. Othereise, shrinking shall be done with bilinear method.
 </p>
-<p>
 <div class="h5">image#write@jpeg</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#write@jpeg(stream:stream:w, quality:number =&gt; 75):reduce</code></div>
+<p>
 Writes a JPEG image data to the specified <code class="highlighter-rouge">stream</code>.
 </p>
 <p>

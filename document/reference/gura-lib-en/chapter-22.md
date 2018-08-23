@@ -85,16 +85,15 @@ The <code class="highlighter-rouge">gif.content</code> class provides properties
 <li>The property named <code class="highlighter-rouge">ApplicationExtension</code> is an instance of <code class="highlighter-rouge">gif.ApplicationExtension</code> class.</li>
 </ul>
 <h3><span class="caption-index-3">22.3.1</span><a name="anchor-22-3-1"></a>Constructor</h3>
-<p>
 <div class="h5">gif.content</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gif.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code></div>
+<p>
 Reads a GIF data from a stream and returns an object that contains GIF related information and images of a specified format. format is is <code class="highlighter-rouge">rgb,</code>rgba or <code class="highlighter-rouge">noimage. If</code>noimage is specified, only the information data is read
 </p>
 <h3><span class="caption-index-3">22.3.2</span><a name="anchor-22-3-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">gif.content</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -106,8 +105,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>images</code></td>
@@ -115,12 +112,9 @@ Explanation</th>
 <code>image[]</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>Header</code></td>
@@ -128,12 +122,9 @@ R</td>
 <code>gif.Header</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>LogicalScreenDescriptor</code></td>
@@ -141,12 +132,9 @@ R</td>
 <code>gif.LogicalScreenDescriptor</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>CommentExtension</code></td>
@@ -154,12 +142,9 @@ R</td>
 <code>gif.CommentExtension</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>PlainTextExtension</code></td>
@@ -167,12 +152,9 @@ R</td>
 <code>gif.PlainTextExtension</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>ApplicationExtension</code></td>
@@ -180,19 +162,14 @@ R</td>
 <code>gif.ApplicationExtension</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">22.3.3</span><a name="anchor-22-3-3"></a>Method</h3>
-<p>
 <div class="h5">gif.content#addimage</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gif.content#addimage(image:image, delayTime:number =&gt; 10, leftPos:number =&gt; 0, topPos:number =&gt; 0, disposalMethod:symbol =&gt; `none):map:reduce</code></div>
+<p>
 Adds an image to GIF information.
 </p>
 <p>
@@ -216,9 +193,9 @@ The argument <code class="highlighter-rouge">disposalMethod</code> takes one of 
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">gif.content#write</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gif.content#write(stream:stream:w):reduce</code></div>
+<p>
 Writes a GIF image to a stream.
 </p>
 <p>
@@ -232,7 +209,6 @@ A <code class="highlighter-rouge">gif.Header</code> instance provides informatio
 <p>
 A <code class="highlighter-rouge">gif.Header</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -244,8 +220,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>Signature</code></td>
@@ -253,12 +227,9 @@ Explanation</th>
 <code>binary</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>Version</code></td>
@@ -266,15 +237,10 @@ R</td>
 <code>binary</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">22.5</span><a name="anchor-22-5"></a>gif.LogicalScreenDescriptor Class</h2>
 <p>
 A <code class="highlighter-rouge">gif.LogicalScreenDescriptor</code> instance provides information of Logical Screen Descriptor structure in GIF format.
@@ -283,7 +249,6 @@ A <code class="highlighter-rouge">gif.LogicalScreenDescriptor</code> instance pr
 <p>
 A <code class="highlighter-rouge">gif.LogicalScreenDescriptor</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -295,8 +260,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>LogicalScreenWidth</code></td>
@@ -304,12 +267,9 @@ Explanation</th>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>LogicalScreenHeight</code></td>
@@ -317,12 +277,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>GlobalColorTableFlag</code></td>
@@ -330,12 +287,9 @@ R</td>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>ColorResolution</code></td>
@@ -343,12 +297,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>SortFlag</code></td>
@@ -356,12 +307,9 @@ R</td>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>SizeOfGlobalColorTable</code></td>
@@ -369,12 +317,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>BackgroundColorIndex</code></td>
@@ -382,12 +327,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>BackgroundColor</code></td>
@@ -395,12 +337,9 @@ R</td>
 <code>color</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>PixelAspectRatio</code></td>
@@ -408,15 +347,10 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">22.6</span><a name="anchor-22-6"></a>gif.CommentExtension Class</h2>
 <p>
 A <code class="highlighter-rouge">gif.CommentExtnsion</code> instance provides information of Comment Extension structure in GIF format.
@@ -425,7 +359,6 @@ A <code class="highlighter-rouge">gif.CommentExtnsion</code> instance provides i
 <p>
 A <code class="highlighter-rouge">gif.CommentExtension</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -437,8 +370,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>CommentData</code></td>
@@ -446,15 +377,10 @@ Explanation</th>
 <code>binary</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">22.7</span><a name="anchor-22-7"></a>gif.PlainTextExtension Class</h2>
 <p>
 A <code class="highlighter-rouge">gif.PlainTextExtnsion</code> instance provides information of Plain Text Extension structure in GIF format.
@@ -463,7 +389,6 @@ A <code class="highlighter-rouge">gif.PlainTextExtnsion</code> instance provides
 <p>
 A <code class="highlighter-rouge">gif.PlainTextExtension</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -475,8 +400,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>TextGridLeftPosition</code></td>
@@ -484,12 +407,9 @@ Explanation</th>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>TextGridTopPosition</code></td>
@@ -497,12 +417,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>TextGridWidth</code></td>
@@ -510,12 +427,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>TextGridHeight</code></td>
@@ -523,12 +437,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>CharacterCellWidth</code></td>
@@ -536,12 +447,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>CharacterCellHeight</code></td>
@@ -549,12 +457,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>TextForegroundColorIndex</code></td>
@@ -562,12 +467,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>TextBackgroundColorIndex</code></td>
@@ -575,12 +477,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>PlainTextData</code></td>
@@ -588,15 +487,10 @@ R</td>
 <code>binary</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">22.8</span><a name="anchor-22-8"></a>gif.ApplicationExtension Class</h2>
 <p>
 A <code class="highlighter-rouge">gif.ApplicationExtnsion</code> instance provides information of Application Extension structure in GIF format.
@@ -605,7 +499,6 @@ A <code class="highlighter-rouge">gif.ApplicationExtnsion</code> instance provid
 <p>
 A <code class="highlighter-rouge">gif.ApplicationExtension</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -617,8 +510,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>ApplicationIdentifier</code></td>
@@ -626,12 +517,9 @@ Explanation</th>
 <code>binary</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>AuthenticationCode</code></td>
@@ -639,12 +527,9 @@ R</td>
 <code>binary</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>ApplicationData</code></td>
@@ -652,15 +537,10 @@ R</td>
 <code>binary</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">22.9</span><a name="anchor-22-9"></a>gif.GraphicControl Class</h2>
 <p>
 A <code class="highlighter-rouge">gif.GraphicControl</code> instance provides information of Graphi Control Extension structure in GIF format.
@@ -669,7 +549,6 @@ A <code class="highlighter-rouge">gif.GraphicControl</code> instance provides in
 <p>
 A <code class="highlighter-rouge">gif.GraphicControl</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -681,8 +560,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>DisposalMethod</code></td>
@@ -690,12 +567,9 @@ Explanation</th>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>UserInputFlag</code></td>
@@ -703,12 +577,9 @@ R</td>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>TransparentColorFlag</code></td>
@@ -716,12 +587,9 @@ R</td>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>DelayTime</code></td>
@@ -729,12 +597,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>TransparentColorIndex</code></td>
@@ -742,15 +607,10 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">22.10</span><a name="anchor-22-10"></a>gif.ImageDescriptor Class</h2>
 <p>
 A <code class="highlighter-rouge">gif.ImageDescriptor</code> instance provides information of Image Descriptor structure in GIF format.
@@ -759,7 +619,6 @@ A <code class="highlighter-rouge">gif.ImageDescriptor</code> instance provides i
 <p>
 A <code class="highlighter-rouge">gif.ImageDescriptor</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -771,8 +630,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>ImageLeftPosition</code></td>
@@ -780,12 +637,9 @@ Explanation</th>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>ImageTopPosition</code></td>
@@ -793,12 +647,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>ImageWidth</code></td>
@@ -806,12 +657,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>ImageHeight</code></td>
@@ -819,12 +667,9 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>LocalColorTableFlag</code></td>
@@ -832,12 +677,9 @@ R</td>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>InterlaceFlag</code></td>
@@ -845,12 +687,9 @@ R</td>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>SortFlag</code></td>
@@ -858,12 +697,9 @@ R</td>
 <code>boolean</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>SizeOfLocalColorTable</code></td>
@@ -871,15 +707,10 @@ R</td>
 <code>number</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">22.11</span><a name="anchor-22-11"></a>gif.imgprop Class</h2>
 <p>
 Below is a class diagram of <code class="highlighter-rouge">gif.imgprop</code>:
@@ -904,7 +735,6 @@ Below is a class diagram of <code class="highlighter-rouge">gif.imgprop</code>:
 <p>
 A <code class="highlighter-rouge">gif.imgprop</code> instance has the following properties:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -916,8 +746,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>GraphicControl</code></td>
@@ -925,12 +753,9 @@ Explanation</th>
 <code>gif.GraphicControl</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>ImageDescriptor</code></td>
@@ -938,36 +763,30 @@ R</td>
 <code>gif.ImageDescriptor</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">22.12</span><a name="anchor-22-12"></a>Extension to image Class</h2>
 <p>
 This module extends the <code class="highlighter-rouge">stream</code> class with methods described here.
 </p>
-<p>
 <div class="h5">image#read@gif</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read@gif(stream:stream:r):reduce</code></div>
+<p>
 Reads a GIF image from a stream.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <div class="h5">image#write@gif</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#write@gif(stream:stream:w):reduce</code></div>
+<p>
 Writes a GIF image to a stream.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -979,8 +798,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>gif</code></td>
@@ -988,13 +805,8 @@ Explanation</th>
 <code>gif.imgprop</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 </table>
-
-</p>
 {% endraw %}

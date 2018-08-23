@@ -37,9 +37,9 @@ When instance method <code class="highlighter-rouge">image#write()</code> is pro
 <p>
 This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
 </p>
-<p>
 <div class="h5">image#read@tiff</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read@tiff(stream:stream:r):reduce</code></div>
+<p>
 Reads a TIFF image from a stream.
 </p>
 <h2><span class="caption-index-2">55.4</span><a name="anchor-55-4"></a>Thanks</h2>

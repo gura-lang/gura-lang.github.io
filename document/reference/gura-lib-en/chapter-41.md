@@ -38,29 +38,23 @@ When instance method <code class="highlighter-rouge">image#write()</code> is pro
 </ul>
 <h2><span class="caption-index-2">41.3</span><a name="anchor-41-3"></a>msico.content Class</h2>
 <h3><span class="caption-index-3">41.3.1</span><a name="anchor-41-3-1"></a>Constructor</h3>
-<p>
 <div class="h5">msico.content</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>msico.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code></div>
-
-</p>
 <h3><span class="caption-index-3">41.3.2</span><a name="anchor-41-3-2"></a>Method</h3>
-<p>
 <div class="h5">msico.content#write</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>msico.content#write(stream:stream:w):reduce</code></div>
+<p>
 Writes an ICO image to a stream.
 </p>
-<p>
 <div class="h5">msico.content#addimage</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>msico.content#addimage(image:image):map:reduce</code></div>
-
-</p>
 <h2><span class="caption-index-2">41.4</span><a name="anchor-41-4"></a>Extension to image Class</h2>
 <p>
 This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
 </p>
-<p>
 <div class="h5">image#read@msico</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read@msico(stream:stream:r, idx:number =&gt; 0):reduce</code></div>
+<p>
 Reads an ICO image from a stream.
 </p>
 {% endraw %}

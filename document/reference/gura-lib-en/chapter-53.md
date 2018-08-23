@@ -35,24 +35,24 @@ The <code class="highlighter-rouge">sys</code> module provides system-related in
 <li><code class="highlighter-rouge">sys.workdir</code></li>
 </ul>
 <h2><span class="caption-index-2">53.3</span><a name="anchor-53-3"></a>Module Function</h2>
-<p>
 <div class="h5">sys.echo</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sys.echo(flag:boolean)</code></div>
+<p>
 Enables or disables echo-back functionality according to flag.
 </p>
-<p>
 <div class="h5">sys.exit</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sys.exit(status?:number)</code></div>
+<p>
 Terminates the program with a specified status number.
 </p>
-<p>
 <div class="h5">sys.interactive</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sys.interactive()</code></div>
+<p>
 Enters to interactive mode.
 </p>
-<p>
 <div class="h5">sys.required_version</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sys.required_version(major:number, minor:number, patch:number)</code></div>
+<p>
 Raises an error if the running interpreter doesn't satisfy the required version.
 </p>
 {% endraw %}

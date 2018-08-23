@@ -48,7 +48,6 @@ You can parse documents written in both string and stream using the following me
 You can get the parsed result by inspecting a property <code class="highlighter-rouge">markdown.document#root</code> and its children that are <code class="highlighter-rouge">markdown.item</code> instances.
 </p>
 <h3><span class="caption-index-3">32.4.2</span><a name="anchor-32-4-2"></a>Property</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -60,8 +59,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>refs</code></td>
@@ -69,12 +66,9 @@ Explanation</th>
 <code>iterator</code></td>
 <td>
 R</td>
-
 <td>
 An iterator that returns referee items as <code>markdown.item</code>.</td>
 </tr>
-
-
 <tr>
 <td>
 <code>root</code></td>
@@ -82,43 +76,38 @@ An iterator that returns referee items as <code>markdown.item</code>.</td>
 <code>markdown.item</code></td>
 <td>
 R</td>
-
 <td>
 The root item of the parsed Markdown document.</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">32.4.3</span><a name="anchor-32-4-3"></a>Constructor</h3>
-<p>
 <div class="h5">markdown.document</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.document(stream?:stream:r) {block?}</code></div>
+<p>
 Returns an instance of <code class="highlighter-rouge">markdown.document</code>. If <code class="highlighter-rouge">stream</code> is specified, the content of the instance shall be initialized with the result of parsing the stream.
 </p>
 <h3><span class="caption-index-3">32.4.4</span><a name="anchor-32-4-4"></a>Method</h3>
-<p>
 <div class="h5">markdown.document#parse</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.document#parse(str:string):void</code></div>
+<p>
 Parses a Markdown text in a string.
 </p>
-<p>
 <div class="h5">markdown.document#read</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.document#read(stream:stream:r):void</code></div>
+<p>
 Parses a Markdown text from a stream.
 </p>
-<p>
 <div class="h5">markdown.document#render@console</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.document#render@console(colorFlag:boolean =&gt; true)</code></div>
+<p>
 Renders the content of markdown document to the console.
 </p>
 <p>
 In default, it uses colors to highlight items. Specify the argument <code class="highlighter-rouge">colorFlag</code> with <code class="highlighter-rouge">false</code> to disable the coloring process.
 </p>
-<p>
 <div class="h5">markdown.document#render@html</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.document#render@html(out?:stream:w, easyFormatFlag:boolean =&gt; true, captionIndex:boolean =&gt; false)</code></div>
+<p>
 Renders the content of markdown document in HTML format.
 </p>
 <p>
@@ -130,11 +119,8 @@ Specifying <code class="highlighter-rouge">true</code> to <code class="highlight
 <p>
 The argument <code class="highlighter-rouge">captionIndex</code> indicates whether caption indices are added to headers. The default is <code class="highlighter-rouge">false</code>.
 </p>
-<p>
 <div class="h5">markdown.document#render@toc</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.document#render@toc() {block}</code></div>
-
-</p>
 <h2><span class="caption-index-2">32.5</span><a name="anchor-32-5"></a>markdown.item Class</h2>
 <h3><span class="caption-index-3">32.5.1</span><a name="anchor-32-5-1"></a>Overview</h3>
 <p>
@@ -143,7 +129,6 @@ The <code class="highlighter-rouge">markdown.item</code> class provides informat
 <p>
 Below is a table of item type:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -151,189 +136,158 @@ Item Type</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>root</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>h1</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>h2</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>h3</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>h4</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>h5</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>h6</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>p</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>blockquote</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>em</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>strong</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>codeblock</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>ol</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>ul</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>li</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>line</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>a</code></td>
 <td>
 container</td>
 </tr>
-
 <tr>
 <td>
 <code>img</code></td>
 <td>
 text</td>
 </tr>
-
 <tr>
 <td>
 <code>text</code></td>
 <td>
 text</td>
 </tr>
-
 <tr>
 <td>
 <code>code</code></td>
 <td>
 text</td>
 </tr>
-
 <tr>
 <td>
 <code>entity</code></td>
 <td>
 text</td>
 </tr>
-
 <tr>
 <td>
 <code>tag</code></td>
 <td>
 container/text</td>
 </tr>
-
 <tr>
 <td>
 <code>hr</code></td>
 <td>
 no-content</td>
 </tr>
-
 <tr>
 <td>
 <code>br</code></td>
 <td>
 no-content</td>
 </tr>
-
 <tr>
 <td>
 <code>referee</code></td>
 <td>
 no-content</td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">32.5.2</span><a name="anchor-32-5-2"></a>Property</h3>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -345,8 +299,6 @@ R/W</th>
 <th>
 Explanation</th>
 </tr>
-
-
 <tr>
 <td>
 <code>type</code></td>
@@ -354,12 +306,9 @@ Explanation</th>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>text</code></td>
@@ -367,12 +316,9 @@ R</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>children</code></td>
@@ -380,12 +326,9 @@ R</td>
 <code>iterator</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>url</code></td>
@@ -393,12 +336,9 @@ R</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>title</code></td>
@@ -406,12 +346,9 @@ R</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>attrs</code></td>
@@ -419,12 +356,9 @@ R</td>
 <code>string</code></td>
 <td>
 R</td>
-
 <td>
 </td>
 </tr>
-
-
 <tr>
 <td>
 <code>align</code></td>
@@ -432,19 +366,14 @@ R</td>
 <code>symbol</code></td>
 <td>
 R</td>
-
 <td>
 <code>none</code>, <code>left</code>, <code>center</code>, <code>right</code></td>
 </tr>
-
-
 </table>
-
-</p>
 <h3><span class="caption-index-3">32.5.3</span><a name="anchor-32-5-3"></a>Method</h3>
-<p>
 <div class="h5">markdown.item#print</div>
 <div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.item#print(indent?:number):void</code></div>
+<p>
 Prints structured content of the item. Argument <code class="highlighter-rouge">indent</code> specifies an indentation level and is set to zero when omitted.
 </p>
 {% endraw %}
