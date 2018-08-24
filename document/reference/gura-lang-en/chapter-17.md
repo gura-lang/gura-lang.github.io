@@ -22,7 +22,6 @@ image('foo.jpg').write('foo.png')
 <p>
 Before <code class="highlighter-rouge">image</code> function, you have to import a module that can handle an image type. The following table shows image types and associated module names.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -32,7 +31,6 @@ Module</th>
 <th>
 Added Methods to <code>image</code></th>
 </tr>
-
 <tr>
 <td>
 BMP</td>
@@ -41,7 +39,6 @@ BMP</td>
 <td>
 <code>bmpread</code>, <code>bmpwrite</code></td>
 </tr>
-
 <tr>
 <td>
 JPEG</td>
@@ -50,7 +47,6 @@ JPEG</td>
 <td>
 <code>jpegread</code>, <code>jpegwrite</code></td>
 </tr>
-
 <tr>
 <td>
 GIF</td>
@@ -59,7 +55,6 @@ GIF</td>
 <td>
 <code>gifread</code>, <code>gifwrite</code></td>
 </tr>
-
 <tr>
 <td>
 PNG</td>
@@ -68,7 +63,6 @@ PNG</td>
 <td>
 <code>pngread</code>, <code>pngwrite</code></td>
 </tr>
-
 <tr>
 <td>
 Microsoft Icon</td>
@@ -77,7 +71,6 @@ Microsoft Icon</td>
 <td>
 <code>msicoread</code>, <code>msicowrite</code></td>
 </tr>
-
 <tr>
 <td>
 PPM</td>
@@ -86,7 +79,6 @@ PPM</td>
 <td>
 <code>ppmread</code>, <code>ppmwrite</code></td>
 </tr>
-
 <tr>
 <td>
 XPM</td>
@@ -95,7 +87,6 @@ XPM</td>
 <td>
 <code>xpmdata</code>, <code>xpmwrite</code></td>
 </tr>
-
 <tr>
 <td>
 TIFF</td>
@@ -104,10 +95,7 @@ TIFF</td>
 <td>
 <code>tiffread</code></td>
 </tr>
-
 </table>
-
-</p>
 <p>
 Importing those modules also add methods to <code class="highlighter-rouge">image</code> class like <code class="highlighter-rouge">jpeg</code> module adding <code class="highlighter-rouge">image#jpegread</code> and <code class="highlighter-rouge">image#jpegwrite</code>.
 </p>

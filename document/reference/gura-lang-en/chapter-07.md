@@ -323,7 +323,6 @@ Assignments for other expressions than what are described above are invalid and 
 <p>
 An Assignment operator can be combined with one of several other operators.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -331,85 +330,71 @@ Assignment Form</th>
 <th>
 Equivalent Code</th>
 </tr>
-
 <tr>
 <td>
 <code>x += y</code></td>
 <td>
 <code>x = x + y</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x -= y</code></td>
 <td>
 <code>x = x - y</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x *= y</code></td>
 <td>
 <code>x = x * y</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x /= y</code></td>
 <td>
 <code>x = x / y</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x %= y</code></td>
 <td>
 <code>x = x % y</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x **= y</code></td>
 <td>
 <code>x = x ** y</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x &amp;= y</code></td>
 <td>
 <code>x = x &amp; y</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x |= y</code></td>
 <td>
 <code>x = x | y</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x ^= y</code></td>
 <td>
 <code>x = x ^ y</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x &lt;&lt;= y</code></td>
 <td>
 <code>x = x &lt;&lt; y</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x &gt;&gt;= y</code></td>
 <td>
 <code>x = x &gt;&gt; y</code></td>
 </tr>
-
 </table>
-
-</p>
 {% endraw %}

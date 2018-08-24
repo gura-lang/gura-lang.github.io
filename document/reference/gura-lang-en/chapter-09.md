@@ -110,15 +110,12 @@ A function <code class="highlighter-rouge">for()</code> takes one or more expres
 <pre class="highlight"><code>for (`expr+) {block}
 </code></pre>
 <p>
-An iterator assignment is expressed with an operator <code>in</code> like below.
+An iterator assignment is expressed with an operator 
 </p>
-<p>
-<pre>
+<code>in</code> like below.<pre>
 <code><em>symbol</em> in <em>iterable</em>
 [<em>symbol1</em>, <em>symbol2</em> ..] in <em>iterable</em>
 </code></pre>
-
-</p>
 <p>
 In the first format, it assigns <code class="highlighter-rouge">symbol</code> with a value in <code class="highlighter-rouge">iterable</code> each time in the loop. Below is an example.
 </p>
@@ -481,7 +478,6 @@ A function <code class="highlighter-rouge">catch()</code> takes one or more argu
 <p>
 Here are some of the <code class="highlighter-rouge">error</code> instances that can be specified for <code class="highlighter-rouge">catch()</code> argument.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -489,35 +485,28 @@ Error Instance</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>error.ValueError</code></td>
 <td>
 Invalid argument is specified.</td>
 </tr>
-
 <tr>
 <td>
 <code>error.IndexError</code></td>
 <td>
 Invalid value for indexing.</td>
 </tr>
-
 <tr>
 <td>
 <code>error.IOError</code></td>
 <td>
 Error occurs while accessing I/O devices.</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 A block in the <code class="highlighter-rouge">catch()</code> function has a block parameter in a format of <code class="highlighter-rouge">|err:error|</code> where <code class="highlighter-rouge">err</code> takes a value of <code class="highlighter-rouge">error</code> type that contains error information such as an error message and a file name and a line position at which the error occurs.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -527,7 +516,6 @@ Data Type</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>error#lineno</code></td>
@@ -536,7 +524,6 @@ Note</th>
 <td>
 Line number</td>
 </tr>
-
 <tr>
 <td>
 <code>error#source</code></td>
@@ -545,7 +532,6 @@ Line number</td>
 <td>
 Source of the code that occurs an error</td>
 </tr>
-
 <tr>
 <td>
 <code>error#text</code></td>
@@ -554,10 +540,7 @@ Source of the code that occurs an error</td>
 <td>
 Error message</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 An example code is shown below:
 </p>

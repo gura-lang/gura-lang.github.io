@@ -156,7 +156,6 @@ This script is more useful than using other archiving tools to create a Composit
 <p>
 Available command line options are listed below:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -164,21 +163,18 @@ Option</th>
 <th>
 Explanation</th>
 </tr>
-
 <tr>
 <td>
 <code>-h</code></td>
 <td>
 Prints a help message.</td>
 </tr>
-
 <tr>
 <td>
 <code>-t</code></td>
 <td>
 Runs a script file specified and then enters interactive mode.</td>
 </tr>
-
 <tr>
 <td>
 <code>-i module[, ...]</code></td>
@@ -188,7 +184,6 @@ Imports modules in the same way as
   You can specify more than one module names for this option by separating them with comma.
   Or, you can also specify the option in multiple times to import several modules.</td>
 </tr>
-
 <tr>
 <td>
 <code>-I dir</code></td>
@@ -197,45 +192,37 @@ Specifies a directory in which modules are searched.
   You can specify the option in multiple times to add several directories for module search.
   The specified path would be converted to an absolute path unless it starts with <code>"./"</code>.</td>
 </tr>
-
 <tr>
 <td>
 <code>-c cmd</code></td>
 <td>
 Runs a Gura script described in <code>cmd</code>.</td>
 </tr>
-
 <tr>
 <td>
 <code>-T template</code></td>
 <td>
 Runs template engine to evaluate the specified template file.</td>
 </tr>
-
 <tr>
 <td>
 <code>-C dir</code></td>
 <td>
 Changes the current directory before running scripts.</td>
 </tr>
-
 <tr>
 <td>
 <code>-d encoding</code></td>
 <td>
 Specifies character encoding that the parser uses to read scripts.</td>
 </tr>
-
 <tr>
 <td>
 <code>-v</code></td>
 <td>
 Prints a version number.</td>
 </tr>
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">2.6</span><a name="anchor-2-6"></a>System Directory</h2>
 <p>
 The distribution package contains the interpreter executable as well as other various files such as Gura modules and dynamic-loaded libraries. When installed, they are stored in directories that are relative to where the interpreter executable is located.

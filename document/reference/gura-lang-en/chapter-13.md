@@ -286,7 +286,6 @@ A format specifier begins with a percent character and has the syntax below, whe
 <p>
 You always have to specify one of the following characters for the <code class="highlighter-rouge">specifier</code> field.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -294,105 +293,88 @@ specifier</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>d</code>, <code>i</code></td>
 <td>
 decimal integer number with a sign mark</td>
 </tr>
-
 <tr>
 <td>
 <code>u</code></td>
 <td>
 decimal integer number wihout a sign mark</td>
 </tr>
-
 <tr>
 <td>
 <code>b</code></td>
 <td>
 binary integer number without a sign mark</td>
 </tr>
-
 <tr>
 <td>
 <code>o</code></td>
 <td>
 octal integer number without a sign mark</td>
 </tr>
-
 <tr>
 <td>
 <code>x</code></td>
 <td>
 hexadecimal integer number in lower character without a sign mark</td>
 </tr>
-
 <tr>
 <td>
 <code>X</code></td>
 <td>
 hexadecimal integer number in upper character without a sign mark</td>
 </tr>
-
 <tr>
 <td>
 <code>e</code></td>
 <td>
 floating number in exponential form</td>
 </tr>
-
 <tr>
 <td>
 <code>E</code></td>
 <td>
 floating number in exponential form (in upper character)</td>
 </tr>
-
 <tr>
 <td>
 <code>f</code></td>
 <td>
 floating number in decimal form</td>
 </tr>
-
 <tr>
 <td>
 <code>g</code></td>
 <td>
 better form between e and f</td>
 </tr>
-
 <tr>
 <td>
 <code>G</code></td>
 <td>
 better form between E and F</td>
 </tr>
-
 <tr>
 <td>
 <code>s</code></td>
 <td>
 string</td>
 </tr>
-
 <tr>
 <td>
 <code>c</code></td>
 <td>
 character</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 You can specify one of the following characters for the optional <code class="highlighter-rouge">flags</code> field.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -400,28 +382,24 @@ flags</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>+</code></td>
 <td>
 <code>+</code> precedes for positive numbers</td>
 </tr>
-
 <tr>
 <td>
 <code>-</code></td>
 <td>
 adjust a string to left</td>
 </tr>
-
 <tr>
 <td>
 (space)</td>
 <td>
 space character precedes for positive numbers</td>
 </tr>
-
 <tr>
 <td>
 <code>#</code></td>
@@ -429,24 +407,19 @@ space character precedes for positive numbers</td>
 converted results of binary, octdecimal and hexadecimal are
   preceded by <code>'0b'</code>, <code>'0'</code> and <code>'0x'</code> respectively</td>
 </tr>
-
 <tr>
 <td>
 <code>0</code></td>
 <td>
 fill lacking columns with <code>'0'</code></td>
 </tr>
-
 </table>
-
-</p>
 <p>
 The optional field <code class="highlighter-rouge">width</code> takes a decimal number that specifies a minimum width for the corresponding value. If the value's length is shorter than the specified width, the rest would be filled with space characters. If you specify <code class="highlighter-rouge">*</code> for that field, the formatter would try to get the minimum width from the argument list.
 </p>
 <p>
 The optional field <code class="highlighter-rouge">precision</code> has different meanings depending on the specifier as below:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -454,43 +427,32 @@ specifier</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>d</code>, <code>i</code>, <code>u</code>, <code>b</code>, <code>o</code>, <code>x</code>, <code>X</code></td>
-
-  <td>
+<td>
 It specifies the minimum number of digits. If the value is shorter than this number,
     lacking digits are filled with zero.</td>
 </tr>
-
 <tr>
 <td>
 <code>e</code>, <code>E</code>, <code>f</code></td>
-
-  <td>
+<td>
 It specifies the number of digits after a decimal point.</td>
 </tr>
-
 <tr>
 <td>
 <code>g</code>, <code>G</code></td>
-
-  <td>
+<td>
 It specifies the maximum number of digits for significand part.</td>
 </tr>
-
 <tr>
 <td>
 <code>s</code></td>
-
-  <td>
+<td>
 It specifies the maximum number of characters to print.</td>
 </tr>
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">13.6</span><a name="anchor-13-6"></a>Regular Expression</h2>
 <p>
 You can import module <code class="highlighter-rouge">re</code> to use regular expression for string search and substition, which supports a syntax based on POSIX Extended Regular Expression.
@@ -686,7 +648,6 @@ Using an assignment to lister expression may often be helpful, since you can ass
 <p>
 The table below summarizes specifiers that are used to pack or unpack number values.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -696,7 +657,6 @@ Unit Size</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>b</code></td>
@@ -705,7 +665,6 @@ Note</th>
 <td>
 Packs or unpacks a signed 8-bit number (-128 to 127).</td>
 </tr>
-
 <tr>
 <td>
 <code>B</code></td>
@@ -714,7 +673,6 @@ Packs or unpacks a signed 8-bit number (-128 to 127).</td>
 <td>
 Packs or unpacks an unsigned 8-bit number (0 to 255)</td>
 </tr>
-
 <tr>
 <td>
 <code>h</code></td>
@@ -723,7 +681,6 @@ Packs or unpacks an unsigned 8-bit number (0 to 255)</td>
 <td>
 Packs or unpacks a signed 16-bit number (-32768 to 32767)</td>
 </tr>
-
 <tr>
 <td>
 <code>H</code></td>
@@ -732,7 +689,6 @@ Packs or unpacks a signed 16-bit number (-32768 to 32767)</td>
 <td>
 Packs or unpacks an unsigned 16-bit number (0 to 65535)</td>
 </tr>
-
 <tr>
 <td>
 <code>i</code></td>
@@ -741,7 +697,6 @@ Packs or unpacks an unsigned 16-bit number (0 to 65535)</td>
 <td>
 Packs or unpacks a signed 32-bit number (-2147483648 to 2147483648)</td>
 </tr>
-
 <tr>
 <td>
 <code>I</code></td>
@@ -750,7 +705,6 @@ Packs or unpacks a signed 32-bit number (-2147483648 to 2147483648)</td>
 <td>
 Packs or unpacks an unsigned 32-bit number (0 to 4294967295)</td>
 </tr>
-
 <tr>
 <td>
 <code>l</code></td>
@@ -759,7 +713,6 @@ Packs or unpacks an unsigned 32-bit number (0 to 4294967295)</td>
 <td>
 Packs or unpacks a signed 32-bit number (-2147483648 to 2147483648)</td>
 </tr>
-
 <tr>
 <td>
 <code>L</code></td>
@@ -768,7 +721,6 @@ Packs or unpacks a signed 32-bit number (-2147483648 to 2147483648)</td>
 <td>
 Packs or unpacks an unsigned 32-bit number (0 to 4294967295)</td>
 </tr>
-
 <tr>
 <td>
 <code>q</code></td>
@@ -777,7 +729,6 @@ Packs or unpacks an unsigned 32-bit number (0 to 4294967295)</td>
 <td>
 Packs or unpacks a signed 64-bit number (-9223372036854775808 to 9223372036854775807)</td>
 </tr>
-
 <tr>
 <td>
 <code>Q</code></td>
@@ -786,7 +737,6 @@ Packs or unpacks a signed 64-bit number (-9223372036854775808 to 922337203685477
 <td>
 Packs or unpacks an unsigned 64-bit number (0 to 18446744073709551615)</td>
 </tr>
-
 <tr>
 <td>
 <code>f</code></td>
@@ -795,7 +745,6 @@ Packs or unpacks an unsigned 64-bit number (0 to 18446744073709551615)</td>
 <td>
 Packs or unpacks a single precision floating point number.</td>
 </tr>
-
 <tr>
 <td>
 <code>d</code></td>
@@ -804,14 +753,10 @@ Packs or unpacks a single precision floating point number.</td>
 <td>
 Packs or unpacks a double precision floating point number.</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 By default, byte order of numbers in 16-bit, 32-bit and 64-bit size is a little endian. You can change the order by using the following specifiers:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -819,45 +764,37 @@ Specifier</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>@</code></td>
 <td>
 Turns to a system-dependent endian.</td>
 </tr>
-
 <tr>
 <td>
 <code>=</code></td>
 <td>
 Turns to a system-dependent endian.</td>
 </tr>
-
 <tr>
 <td>
 <code>&lt;</code></td>
 <td>
 Turns to a little endian.</td>
 </tr>
-
 <tr>
 <td>
 <code>&gt;</code></td>
 <td>
 Turns to a big endian.</td>
 </tr>
-
 <tr>
 <td>
 <code>!</code></td>
 <td>
 Turns to a big endian.</td>
 </tr>
-
 </table>
-
-</p>
 <pre class="highlight"><code>rtn = binary.pack('H&gt;H', 0x1234, 0x1234)
 // rtn contains 0x34, 0x12, 0x12, 0x34.
 </code></pre>
@@ -870,7 +807,6 @@ Specifier <code class="highlighter-rouge">x</code> only advances pointer ahead f
 <p>
 Specifiers <code class="highlighter-rouge">c</code> and <code class="highlighter-rouge">s</code> are prepared to pack or unpack string data.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -878,7 +814,6 @@ Specifier</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>c</code></td>
@@ -886,7 +821,6 @@ Note</th>
 Packs a first character code in a string,
  or unpack a 8-bit number as a chracter code and returns a string containing it.</td>
 </tr>
-
 <tr>
 <td>
 <code>s</code></td>
@@ -894,10 +828,7 @@ Packs a first character code in a string,
 Packs character codes in a string according to the specified codec,
  or unpack 8-bit numbers as character codes according the specified codec and returns a string containing them.</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 You can specify a codec for <code class="highlighter-rouge">s</code> specifier by surrounding its name with <code class="highlighter-rouge">{</code> and <code class="highlighter-rouge">}</code>.
 </p>

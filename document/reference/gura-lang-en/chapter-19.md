@@ -52,7 +52,6 @@ The newly created function <code class="highlighter-rouge">g(x)</code> is one th
 <p>
 The table below shows what differentiation formulas are obtained from original math functions:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -60,232 +59,197 @@ Original</th>
 <th>
 Differentiation Forumula</th>
 </tr>
-
 <tr>
 <td>
 <code>x ** 2</code></td>
 <td>
 <code>2 * x</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x ** 3</code></td>
 <td>
 <code>3 * x ** 2</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x ** 4</code></td>
 <td>
 <code>4 * x ** 3</code></td>
 </tr>
-
 <tr>
 <td>
 <code>a ** x</code></td>
 <td>
 <code>math.log(a) * a ** x</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.sin(x)</code></td>
 <td>
 <code>math.cos(x)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.cos(x)</code></td>
 <td>
 <code>-math.sin(x)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.tan(x)</code></td>
 <td>
 <code>1 / math.cos(x) ** 2</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.exp(x)</code></td>
 <td>
 <code>math.exp(x)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.log(x)</code></td>
 <td>
 <code>1 / x</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.log10(x)</code></td>
 <td>
 <code>1 / (x * math.log(10))</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.asin(x)</code></td>
 <td>
 <code>1 / math.sqrt(1 - x ** 2)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.acos(x)</code></td>
 <td>
 <code>(-1) / math.sqrt(1 - x ** 2)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.atan(x)</code></td>
 <td>
 <code>1 / (1 + x ** 2)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.sqrt(x)</code></td>
 <td>
 <code>1 / (2 * math.sqrt(x))</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.sin(x) ** 2</code></td>
 <td>
 <code>math.cos(x) * 2 * math.sin(x)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.sin(x ** 2)</code></td>
 <td>
 <code>math.cos(x ** 2) * (2 * x) </code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.log(math.sin(x))</code></td>
 <td>
 <code>math.cos(x) / math.sin(x)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>x ** 2 * math.sin(x)</code></td>
 <td>
 <code>2 * x * math.sin(x) + x ** 2 * math.cos(x)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.sin(x) / (x ** 2)</code></td>
 <td>
 <code>(math.cos(x) * x ** 2 - math.sin(x) * (2 * x)) / (x ** 4)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>3 ** (2 * x)</code></td>
 <td>
 <code>2 * math.log(3) * 3 ** (2 * x)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.log(x ** 2 + 1)</code></td>
 <td>
 <code>2 * x / (x ** 2 + 1)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>((x - 1) ** 2 * (x - 2) ** 3) / ((x - 5) ** 2)</code></td>
 <td>
 <code>(((2 * (x - 1) * (x - 2) ** 3 + (x - 1) ** 2 * (3 * (x - 2) ** 2)) * (x - 5) ** 2 - (x - 1) ** 2 * (x - 2) ** 3 * (2 * (x - 5))) / (x - 5) ** 4)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.sin(2 * x - 3)</code></td>
 <td>
 <code>math.cos(2 * x - 3) * 2</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.cos(x) ** 2</code></td>
 <td>
 <code>-(math.sin(x) * 2 * math.cos(x))</code></td>
 </tr>
-
 <tr>
 <td>
 <code>(2 * x - 1) ** 3</code></td>
 <td>
 <code>6 * (2 * x - 1) ** 2</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.sqrt(x ** 2 + 2 * x + 3)</code></td>
 <td>
 <code>(2 * x + 2) / (2 * math.sqrt(x ** 2 + 2 * x + 3))</code></td>
 </tr>
-
 <tr>
 <td>
 <code>1 / x</code></td>
 <td>
 <code>(-1) / x ** 2</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.exp(x) + math.exp(-x)</code></td>
 <td>
 <code>math.exp(x) - math.exp(-x)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.exp(x) - math.exp(-x)</code></td>
 <td>
 <code>math.exp(x) + math.exp(-x)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>(math.sin(x + 2) + x + 2) * (math.sin(x + 3) + x + 3)</code></td>
 <td>
 <code>(math.cos(x + 2) + 1) * (math.sin(x + 3) + x + 3) + (math.sin(x + 2) + x + 2) * (math.cos(x + 3) + 1)</code></td>
 </tr>
-
 <tr>
 <td>
 <code>math.sin(math.sin(x ** 2 / 3))</code></td>
 <td>
 <code>math.cos(math.sin(x ** 2 / 3)) * (math.cos(x ** 2 / 3) * (2 * x * 3 / 9))</code></td>
 </tr>
-
 <tr>
 <td>
 <code>(2 * x - 1) / x ** 2</code></td>
 <td>
 <code>(2 * x ** 2 - (2 * x - 1) * (2 * x)) / x ** 4</code></td>
 </tr>
-
 </table>
-
-</p>
 {% endraw %}

@@ -83,7 +83,6 @@ A sequence of characters that starts with <code class="highlighter-rouge">0x</co
 <p>
 A suffix symbol can be appended after a number literal to convert it into other types rather than <code class="highlighter-rouge">number</code>. Two suffix symbols are available as standard.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -91,7 +90,6 @@ Suffix Symbol</th>
 <th>
 Function</th>
 </tr>
-
 <tr>
 <td>
 <code>j</code></td>
@@ -99,7 +97,6 @@ Function</th>
 Converts into <code>complex</code> type.
 An expression <code>3j</code> is equivalent with <code>complex(0, 3)</code>.</td>
 </tr>
-
 <tr>
 <td>
 <code>r</code></td>
@@ -107,10 +104,7 @@ An expression <code>3j</code> is equivalent with <code>complex(0, 3)</code>.</td
 Converts into <code>rational</code> type.
 An expression <code>3r</code> is equivalent with <code>rational(3, 0)</code>.</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 Importing modules may add other suffix symbols. For instance, importing a module named <code class="highlighter-rouge">gmp</code>, which calculates numbers in arbitrary precision, would add a suffix <code class="highlighter-rouge">L</code> that represents numbers that may consist of many digits.
 </p>
@@ -130,7 +124,6 @@ Although you can choose one of them case by case, single quotation is more prefe
 <p>
 Within a string literal, you can use following escape characters.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -138,108 +131,91 @@ Escape Character</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>\\</code></td>
 <td>
 back slash</td>
 </tr>
-
 <tr>
 <td>
 <code>\'</code></td>
 <td>
 single quotation</td>
 </tr>
-
 <tr>
 <td>
 <code>\"</code></td>
 <td>
 double quotation</td>
 </tr>
-
 <tr>
 <td>
 <code>\a</code></td>
 <td>
 bell</td>
 </tr>
-
 <tr>
 <td>
 <code>\b</code></td>
 <td>
 back space</td>
 </tr>
-
 <tr>
 <td>
 <code>\f</code></td>
 <td>
 page feed</td>
 </tr>
-
 <tr>
 <td>
 <code>\r</code></td>
 <td>
 carriage return</td>
 </tr>
-
 <tr>
 <td>
 <code>\n</code></td>
 <td>
 line feed</td>
 </tr>
-
 <tr>
 <td>
 <code>\t</code></td>
 <td>
 tab</td>
 </tr>
-
 <tr>
 <td>
 <code>\v</code></td>
 <td>
 vertical tab</td>
 </tr>
-
 <tr>
 <td>
 <code>\0</code></td>
 <td>
 null character</td>
 </tr>
-
 <tr>
 <td>
 <code>\x<em>hh</em></code></td>
 <td>
 any byte of character code <code><em>hh</em></code> in hexadecimal</td>
 </tr>
-
 <tr>
 <td>
 <code>\u<em>hhhh</em></code></td>
 <td>
 Unicode character at codepoint <code><em>hhhh</em></code> in hexadecimal</td>
 </tr>
-
 <tr>
 <td>
 <code>\U<em>hhhhhhhh</em></code></td>
 <td>
 Unicode character at codepoint <code><em>hhhhhhhh</em></code> in hexadecimal</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 If a string is prefixed by <code class="highlighter-rouge">r</code>, a back slash is treated as a normal character, not one for escaping. This feature is convenient to describe a path name in Windows style and a regular expression that often uses back slash as a metacharacter.
 </p>

@@ -4204,12 +4204,10 @@ R</td>
 <p>
 Takes one of the following symbols indicating what elements are stored in the memory:
 </p>
-<p>
-<code class="highlighter-rouge">`rgb</code> .. red, green and blue
-</p>
-<p>
-<code class="highlighter-rouge">`rgba</code> .. red, green, blue and alpha
-</p>
+<ul>
+<li><code class="highlighter-rouge">`rgb</code> .. red, green and blue</li>
+<li><code class="highlighter-rouge">`rgba</code> .. red, green, blue and alpha</li>
+</ul>
 </td>
 </tr>
 <tr>

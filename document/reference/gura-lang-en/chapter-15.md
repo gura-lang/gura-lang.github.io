@@ -301,7 +301,6 @@ Since there's a casting feature from <code class="highlighter-rouge">string</cod
 <p>
 Below is a table that shows what codecs are available and what module provides them.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -309,45 +308,37 @@ Module</th>
 <th>
 Available Codec Names</th>
 </tr>
-
 <tr>
 <td>
 <code>codecs.basic</code></td>
 <td>
 <code>base64</code>, <code>us-ascii</code>, <code>utf-8</code>, <code>utf-16</code></td>
 </tr>
-
 <tr>
 <td>
 <code>codecs.chinese</code></td>
 <td>
 <code>big5</code>, <code>cp936</code>, <code>cp950</code>, <code>gb2312</code></td>
 </tr>
-
 <tr>
 <td>
 <code>codecs.iso8859</code></td>
 <td>
 <code>iso8859-1</code>, .. <code>iso8859-16</code></td>
 </tr>
-
 <tr>
 <td>
 <code>codecs.japanese</code></td>
 <td>
 <code>cp932</code>, <code>euc-jp</code>, <code>iso-2022-jp</code>, <code>jis</code>, <code>ms_kanji</code>, <code>shift_jis</code></td>
 </tr>
-
 <tr>
 <td>
 <code>codecs.korean</code></td>
 <td>
 <code>cp949</code>, <code>euc-kr</code></td>
 </tr>
-
 </table>
-
-</p>
 <p>
 Codecs only have effect on methods to read/write text data that are summarized below:
 </p>
@@ -616,7 +607,6 @@ There are several different <code class="highlighter-rouge">stat</code> instance
 <p>
 An item in file system returns <code class="highlighter-rouge">fs.stat</code> instance that has following properties.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -626,7 +616,6 @@ Data Type</th>
 <th>
 Content</th>
 </tr>
-
 <tr>
 <td>
 <code>pathname</code></td>
@@ -635,7 +624,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>dirname</code></td>
@@ -644,7 +632,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>filename</code></td>
@@ -653,7 +640,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -662,7 +648,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>uid</code></td>
@@ -671,7 +656,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>gid</code></td>
@@ -680,7 +664,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>atime</code></td>
@@ -689,7 +672,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>mtime</code></td>
@@ -698,7 +680,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>ctime</code></td>
@@ -707,7 +688,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>isdir</code></td>
@@ -716,7 +696,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>ischr</code></td>
@@ -725,7 +704,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>isblk</code></td>
@@ -734,7 +712,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>isreg</code></td>
@@ -743,7 +720,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>isfifo</code></td>
@@ -752,7 +728,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>islnk</code></td>
@@ -761,7 +736,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>issock</code></td>
@@ -770,10 +744,7 @@ Content</th>
 <td>
 </td>
 </tr>
-
 </table>
-
-</p>
 <p>
 The code below shows an example that prints each filename and size of items under a directory <code class="highlighter-rouge">example</code>.
 </p>
@@ -792,7 +763,6 @@ Note that you have to append a directory separator after the archive filename so
 <p>
 An item in TAR archive file returns <code class="highlighter-rouge">tar.stat</code> instance that has following properties.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -802,7 +772,6 @@ Data Type</th>
 <th>
 Content</th>
 </tr>
-
 <tr>
 <td>
 <code>name</code></td>
@@ -811,7 +780,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>filename</code></td>
@@ -820,7 +788,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>linkname</code></td>
@@ -829,7 +796,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>uname</code></td>
@@ -838,7 +804,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>gname</code></td>
@@ -847,7 +812,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>mode</code></td>
@@ -856,7 +820,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>uid</code></td>
@@ -865,7 +828,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>gid</code></td>
@@ -874,7 +836,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -883,7 +844,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>mtime</code></td>
@@ -892,7 +852,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>atime</code></td>
@@ -901,7 +860,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>ctime</code></td>
@@ -910,7 +868,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>chksum</code></td>
@@ -919,7 +876,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>typeflag</code></td>
@@ -928,7 +884,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>devmajor</code></td>
@@ -937,7 +892,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>devminor</code></td>
@@ -946,10 +900,7 @@ Content</th>
 <td>
 </td>
 </tr>
-
 </table>
-
-</p>
 <p>
 After importing <code class="highlighter-rouge">zip</code> module, you can get a list of items stored in a ZIP archive file. The code below prints all the items stored in <code class="highlighter-rouge">example.tar.gz</code> by <code class="highlighter-rouge">path.walk()</code>.
 </p>
@@ -958,7 +909,6 @@ After importing <code class="highlighter-rouge">zip</code> module, you can get a
 <p>
 An item in ZIP archive file returns <code class="highlighter-rouge">zip.stat</code> instance that has following properties.
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -968,7 +918,6 @@ Data Type</th>
 <th>
 Content</th>
 </tr>
-
 <tr>
 <td>
 <code>filename</code></td>
@@ -977,7 +926,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>comment</code></td>
@@ -986,7 +934,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>mtime</code></td>
@@ -995,7 +942,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>crc32</code></td>
@@ -1004,7 +950,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>compression_method</code></td>
@@ -1013,7 +958,6 @@ Content</th>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>size</code></td>
@@ -1022,7 +966,6 @@ Content</th>
 <td>
 number</td>
 </tr>
-
 <tr>
 <td>
 <code>compressed_size</code></td>
@@ -1031,7 +974,6 @@ number</td>
 <td>
 </td>
 </tr>
-
 <tr>
 <td>
 <code>attributes</code></td>
@@ -1040,10 +982,7 @@ number</td>
 <td>
 number</td>
 </tr>
-
 </table>
-
-</p>
 <h2><span class="caption-index-2">15.5</span><a name="anchor-15-5"></a>OS-specific Operations</h2>
 <h3><span class="caption-index-3">15.5.1</span><a name="anchor-15-5-1"></a>Operation on File System</h3>
 <p>

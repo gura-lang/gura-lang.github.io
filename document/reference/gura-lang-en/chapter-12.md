@@ -237,7 +237,6 @@ This section describes a list of modules that are bundled with the interpreter.
 <p>
 Image file format:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -245,70 +244,58 @@ Module</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>bmp</code></td>
 <td>
 handles BMP image file</td>
 </tr>
-
 <tr>
 <td>
 <code>gif</code></td>
 <td>
 handles GIF image file</td>
 </tr>
-
 <tr>
 <td>
 <code>jpeg</code></td>
 <td>
 handles <a href="http://www.ijg.org/">JPEG</a> image file</td>
 </tr>
-
 <tr>
 <td>
 <code>msico</code></td>
 <td>
 handles Microsoft Icon file</td>
 </tr>
-
 <tr>
 <td>
 <code>png</code></td>
 <td>
 handles <a href="http://www.libpng.org/">PNG</a> image file</td>
 </tr>
-
 <tr>
 <td>
 <code>ppm</code></td>
 <td>
 handles PPM image file</td>
 </tr>
-
 <tr>
 <td>
 <code>tiff</code></td>
 <td>
 handles <a href="http://www.libtiff.org/">TIFF</a> image file</td>
 </tr>
-
 <tr>
 <td>
 <code>xpm</code></td>
 <td>
 handles XPM image file</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 Compression/depression/archiving/hash:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -316,49 +303,40 @@ Module</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>bzip2</code></td>
 <td>
 provides compressor/decompressor functions for <a href="http://www.bzip.org/">bzip2</a> format</td>
 </tr>
-
 <tr>
 <td>
 <code>gzip</code></td>
 <td>
 provides compressor/decompressor functions for <a href="http://zlib.net/">gzip</a> format</td>
 </tr>
-
 <tr>
 <td>
 <code>tar</code></td>
 <td>
 provides function to read/write tar archive file</td>
 </tr>
-
 <tr>
 <td>
 <code>zip</code></td>
 <td>
 provides function to read/write ZIP archive file</td>
 </tr>
-
 <tr>
 <td>
 <code>hash</code></td>
 <td>
 </td>
 </tr>
-
 </table>
-
-</p>
 <p>
 Image operation:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -366,42 +344,34 @@ Module</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>cairo</code></td>
 <td>
 provides APIs of <a href="http://cairographics.org">Cairo</a>, a 2D graphic library</td>
 </tr>
-
 <tr>
 <td>
 <code>freetype</code></td>
 <td>
 provides APIs of <a href="http://www.freetype.org">FreeType</a>, a library to render fonts</td>
 </tr>
-
 <tr>
 <td>
 <code>opengl</code></td>
 <td>
 provides APIs of <a href="http://www.opengl.org">OpenGL</a>, a library to render 2D/3D graphics</td>
 </tr>
-
 <tr>
 <td>
 <code>glu</code></td>
 <td>
 Utility functions for OpenGL</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 GUI operation:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -409,7 +379,6 @@ Module</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>sdl</code></td>
@@ -417,43 +386,38 @@ Note</th>
 provides APIs of <a href="http://www.libsdl.org">SDL</a>,
 a library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D</td>
 </tr>
-
 <tr>
 <td>
 <code>tcl</code></td>
 <td>
 provides APIs of <a href="https://www.tcl.tk">Tcl</a> interpreter</td>
 </tr>
-
 <tr>
 <td>
 <code>tk</code></td>
 <td>
 provides APIs of Tk using <code>tcl</code> module</td>
 </tr>
-
 <tr>
 <td>
 <code>wx</code></td>
 <td>
 provides APIs of <a href="https://www.wxwidgets.org/">wxWidgets</a>, a cross-platform GUI library</td>
 </tr>
-
 <tr>
 <td>
 <code>show</code></td>
 <td>
 provides <code>image#show()</code> method that displays image on a window</td>
 </tr>
-
+<p>
 <!-- <tr><td><code>canvas</code></td><td>(obsolete)</td></tr> -->
-</table>
 
 </p>
+</table>
 <p>
 Audio operation:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -461,22 +425,20 @@ Module</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>midi</code></td>
 <td>
 provides APIs to control MIDI hardware and to create MIDI files</td>
 </tr>
-
+<p>
 <!-- <tr><td><code>wav</code></td><td></td></tr> -->
-</table>
 
 </p>
+</table>
 <p>
 Network operation:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -484,29 +446,26 @@ Module</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>curl</code></td>
 <td>
 provides APIs to access to network using <a href="http://curl.haxx.se/">CURL</a> library</td>
 </tr>
-
 <tr>
 <td>
 <code>http</code></td>
 <td>
 provides APIs for HTTP server and client functions</td>
 </tr>
-
+<p>
 <!-- <tr><td><code>guri</code></td><td></td></tr> -->
-</table>
 
 </p>
+</table>
 <p>
 OS specific:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -514,42 +473,34 @@ Module</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>conio</code></td>
 <td>
 controls console I/O</td>
 </tr>
-
 <tr>
 <td>
 <code>mswin</code></td>
 <td>
 provides APIs for OLE interface registry access</td>
 </tr>
-
 <tr>
 <td>
 <code>msxls</code></td>
 <td>
 provides simple classes that handle MS Excel documents</td>
 </tr>
-
 <tr>
 <td>
 <code>uuid</code></td>
 <td>
 generates UUID</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 Text file operation:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -557,63 +508,52 @@ Module</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>csv</code></td>
 <td>
 Read/write CSV file</td>
 </tr>
-
 <tr>
 <td>
 <code>markdown</code></td>
 <td>
 parser of Markdown syntax</td>
 </tr>
-
 <tr>
 <td>
 <code>re</code></td>
 <td>
 Regular expression</td>
 </tr>
-
 <tr>
 <td>
 <code>tokenizer</code></td>
 <td>
 provides APIs that tokenize strings</td>
 </tr>
-
 <tr>
 <td>
 <code>xml</code></td>
 <td>
 XML parser</td>
 </tr>
-
 <tr>
 <td>
 <code>xhtml</code></td>
 <td>
 XHTML composer</td>
 </tr>
-
 <tr>
 <td>
 <code>yaml</code></td>
 <td>
 provides APIs to read/write document in <a href="http://pyyaml.org/wiki/LibYAML">YAML</a> format</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 Mathematical:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -621,7 +561,6 @@ Module</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>gmp</code></td>
@@ -629,14 +568,10 @@ Note</th>
 provides APIs of <a href="https://gmplib.org/">GMP</a>,
   a library for arbitrary precision arithmetic, operating on signed integers, rational numbers, and floating-point numbers.</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 Database:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -644,21 +579,16 @@ Module</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>sqlite3</code></td>
 <td>
 provides APIs to access to database of <a href="http://www.sqlite.org/index.html">sqlite3</a></td>
 </tr>
-
 </table>
-
-</p>
 <p>
 Helper to build modules:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -666,35 +596,28 @@ Module</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>gurcbuild</code></td>
 <td>
 provides APIs to create a composite file</td>
 </tr>
-
 <tr>
 <td>
 <code>modbuild</code></td>
 <td>
 used in a script to build a binary module</td>
 </tr>
-
 <tr>
 <td>
 <code>modgen</code></td>
 <td>
 generates template files to build a binary module</td>
 </tr>
-
 </table>
-
-</p>
 <p>
 Utilities:
 </p>
-<p>
 <table class="table">
 <tr>
 <th>
@@ -702,54 +625,48 @@ Module</th>
 <th>
 Note</th>
 </tr>
-
 <tr>
 <td>
 <code>argopt</code></td>
 <td>
 provides APIs to handle argument options</td>
 </tr>
-
 <tr>
 <td>
 <code>calendar</code></td>
 <td>
 generates a specified year's calendar</td>
 </tr>
-
 <tr>
 <td>
 <code>sed</code></td>
 <td>
 replaces strings using regular expression across multiple files</td>
 </tr>
-
 <tr>
 <td>
 <code>testutil</code></td>
 <td>
 utilities for tester script</td>
 </tr>
-
 <tr>
 <td>
 <code>units</code></td>
 <td>
 definition of units</td>
 </tr>
-
 <tr>
 <td>
 <code>utils</code></td>
 <td>
 utilities</td>
 </tr>
-
+<p>
 <!-- <tr><td><code>sample</code></td><td></td></tr> -->
 <!-- <tr><td><code>graph</code></td><td></td></tr> -->
-</table>
 
 </p>
+</table>
 <h2><span class="caption-index-2">12.6</span><a name="anchor-12-6"></a>Creating Binary Module File</h2>
 <p>
 Gura has a mechanism to support users who create binary modules. This document shows how to create an original binary module hoge.
