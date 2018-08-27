@@ -39,16 +39,18 @@ When instance method <code class="highlighter-rouge">image#write()</code> is pro
 <p>
 This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
 </p>
-<div class="h5">image#read@png</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read@png(stream:stream:r):reduce</code></div>
+<div class="mb-2"><code>image#read@png(stream:stream:r):reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Reads a PNG image from a stream.
 </p>
-<div class="h5">image#write@png</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#write@png(stream:stream:w):reduce</code></div>
+</div>
+<div class="mb-2"><code>image#write@png(stream:stream:w):reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Writes a PNG image to a stream.
 </p>
+</div>
 <h2><span class="caption-index-2">46.5</span><a name="anchor-46-5"></a>Thanks</h2>
 <p>
 This module uses libpng library which is distributed in the following site:

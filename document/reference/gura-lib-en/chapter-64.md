@@ -32,25 +32,27 @@ zip.reader('foo.zip') {|r|
 }
 </code></pre>
 <h3><span class="caption-index-3">64.2.1</span><a name="anchor-64-2-1"></a>Constructor</h3>
-<div class="h5">zip.reader</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>zip.reader(stream:stream:r) {block?}</code></div>
+<div class="mb-2"><code>zip.reader(stream:stream:r) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates <code class="highlighter-rouge">zip.reader</code> instance from the specified stream.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|reader:zip.reader|</code>, where <code class="highlighter-rouge">reader</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+</div>
 <h3><span class="caption-index-3">64.2.2</span><a name="anchor-64-2-2"></a>Method</h3>
-<div class="h5">zip.reader#entry</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>zip.reader#entry(name:string) {block?}</code></div>
+<div class="mb-2"><code>zip.reader#entry(name:string) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Seeks entry in the zip file that matches the specified name and returns a <code class="highlighter-rouge">stream</code> instance associated with the entry.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<div class="h5">zip.reader#entries</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>zip.reader#entries() {block?}</code></div>
+</div>
+<div class="mb-2"><code>zip.reader#entries() {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an <code class="highlighter-rouge">iterator</code> instance that returns <code class="highlighter-rouge">stream</code> instances associated with each entry in the ZIP file.
 </p>
@@ -71,6 +73,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+</div>
 <h2><span class="caption-index-2">64.3</span><a name="anchor-64-3"></a>zip.writer Class</h2>
 <p>
 The <code class="highlighter-rouge">zip.writer</code> class provides methods to add entries to a ZIP file. When an instance of <code class="highlighter-rouge">zip.writer</code> is created, a new ZIP file would be created.
@@ -87,8 +90,8 @@ zip.writer('foo.zip') {|w|
 }		
 </code></pre>
 <h3><span class="caption-index-3">64.3.1</span><a name="anchor-64-3-1"></a>Constructor</h3>
-<div class="h5">zip.writer</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>zip.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
+<div class="mb-2"><code>zip.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates <code class="highlighter-rouge">zip.writer</code> instance from the stream.
 </p>
@@ -103,9 +106,10 @@ Argument <code class="highlighter-rouge">compression</code> specifies the compre
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|writer:zip.writer|</code>, where <code class="highlighter-rouge">writer</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+</div>
 <h3><span class="caption-index-3">64.3.2</span><a name="anchor-64-3-2"></a>Method</h3>
-<div class="h5">zip.writer#add</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>zip.writer#add(stream:stream:r, filename?:string, compression?:symbol):map:reduce</code></div>
+<div class="mb-2"><code>zip.writer#add(stream:stream:r, filename?:string, compression?:symbol):map:reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Reads data from <code class="highlighter-rouge">stream</code> and adds it to the zip file. Entry name is decided by the file name associated with the stream unless it's specified by argument <code class="highlighter-rouge">filename</code>.
 </p>
@@ -117,11 +121,13 @@ Argument <code class="highlighter-rouge">compression</code> specifies the compre
 <li><code class="highlighter-rouge">`deflate</code></li>
 <li><code class="highlighter-rouge">`bzip2</code></li>
 </ul>
-<div class="h5">zip.writer#close</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>zip.writer#close():void</code></div>
+</div>
+<div class="mb-2"><code>zip.writer#close():void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Closes the zip file after flushing cached data.
 </p>
+</div>
 <h2><span class="caption-index-2">64.4</span><a name="anchor-64-4"></a>zip.stat Class</h2>
 <p>
 The <code class="highlighter-rouge">zip.stat</code> class provides information of entries in a ZIP file.

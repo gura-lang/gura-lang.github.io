@@ -62,26 +62,30 @@ scalar</td>
 </tr>
 </table>
 <h2><span class="caption-index-2">63.3</span><a name="anchor-63-3"></a>Module Function</h2>
-<div class="h5">yaml.compose</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>yaml.compose(obj)</code></div>
+<div class="mb-2"><code>yaml.compose(obj)</code></div>
+<div class="mb-2 ml-4">
 <p>
 Composes YAML text to represent the content of <code class="highlighter-rouge">obj</code> that consists of <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">dict</code> and <code class="highlighter-rouge">string</code> instances.
 </p>
-<div class="h5">yaml.parse</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>yaml.parse(str:string)</code></div>
+</div>
+<div class="mb-2"><code>yaml.parse(str:string)</code></div>
+<div class="mb-2 ml-4">
 <p>
 Parses YAML text in <code class="highlighter-rouge">str</code> and returns a composition of <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">dict</code> and <code class="highlighter-rouge">string</code> instances.
 </p>
-<div class="h5">yaml.read</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>yaml.read(stream:stream:r)</code></div>
+</div>
+<div class="mb-2"><code>yaml.read(stream:stream:r)</code></div>
+<div class="mb-2 ml-4">
 <p>
 Parses YAML text from <code class="highlighter-rouge">stream</code> and returns a composition of <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">dict</code> and <code class="highlighter-rouge">string</code> instances.
 </p>
-<div class="h5">yaml.write</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>yaml.write(stream:stream:w, obj):reduce</code></div>
+</div>
+<div class="mb-2"><code>yaml.write(stream:stream:w, obj):reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Composes YAML text to represent the content of <code class="highlighter-rouge">obj</code> that consists of <code class="highlighter-rouge">list</code>, <code class="highlighter-rouge">dict</code> and <code class="highlighter-rouge">string</code> instances and writes the result to <code class="highlighter-rouge">stream</code>.
 </p>
+</div>
 <h2><span class="caption-index-2">63.4</span><a name="anchor-63-4"></a>Thanks</h2>
 <p>
 This module uses yaml library which is distributed in the following site:

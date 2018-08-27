@@ -81,32 +81,36 @@ The root item of the parsed Markdown document.</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">32.4.3</span><a name="anchor-32-4-3"></a>Constructor</h3>
-<div class="h5">markdown.document</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.document(stream?:stream:r) {block?}</code></div>
+<div class="mb-2"><code>markdown.document(stream?:stream:r) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Returns an instance of <code class="highlighter-rouge">markdown.document</code>. If <code class="highlighter-rouge">stream</code> is specified, the content of the instance shall be initialized with the result of parsing the stream.
 </p>
+</div>
 <h3><span class="caption-index-3">32.4.4</span><a name="anchor-32-4-4"></a>Method</h3>
-<div class="h5">markdown.document#parse</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.document#parse(str:string):void</code></div>
+<div class="mb-2"><code>markdown.document#parse(str:string):void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Parses a Markdown text in a string.
 </p>
-<div class="h5">markdown.document#read</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.document#read(stream:stream:r):void</code></div>
+</div>
+<div class="mb-2"><code>markdown.document#read(stream:stream:r):void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Parses a Markdown text from a stream.
 </p>
-<div class="h5">markdown.document#render@console</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.document#render@console(colorFlag:boolean =&gt; true)</code></div>
+</div>
+<div class="mb-2"><code>markdown.document#render@console(colorFlag:boolean =&gt; true)</code></div>
+<div class="mb-2 ml-4">
 <p>
 Renders the content of markdown document to the console.
 </p>
 <p>
 In default, it uses colors to highlight items. Specify the argument <code class="highlighter-rouge">colorFlag</code> with <code class="highlighter-rouge">false</code> to disable the coloring process.
 </p>
-<div class="h5">markdown.document#render@html</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.document#render@html(out?:stream:w, easyFormatFlag:boolean =&gt; true, captionIndex:boolean =&gt; false)</code></div>
+</div>
+<div class="mb-2"><code>markdown.document#render@html(out?:stream:w, easyFormatFlag:boolean =&gt; true, captionIndex:boolean =&gt; false)</code></div>
+<div class="mb-2 ml-4">
 <p>
 Renders the content of markdown document in HTML format.
 </p>
@@ -119,8 +123,8 @@ Specifying <code class="highlighter-rouge">true</code> to <code class="highlight
 <p>
 The argument <code class="highlighter-rouge">captionIndex</code> indicates whether caption indices are added to headers. The default is <code class="highlighter-rouge">false</code>.
 </p>
-<div class="h5">markdown.document#render@toc</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.document#render@toc() {block}</code></div>
+</div>
+<div class="mb-2"><code>markdown.document#render@toc() {block}</code></div>
 <h2><span class="caption-index-2">32.5</span><a name="anchor-32-5"></a>markdown.item Class</h2>
 <h3><span class="caption-index-3">32.5.1</span><a name="anchor-32-5-1"></a>Overview</h3>
 <p>
@@ -371,9 +375,10 @@ R</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">32.5.3</span><a name="anchor-32-5-3"></a>Method</h3>
-<div class="h5">markdown.item#print</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>markdown.item#print(indent?:number):void</code></div>
+<div class="mb-2"><code>markdown.item#print(indent?:number):void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Prints structured content of the item. Argument <code class="highlighter-rouge">indent</code> specifies an indentation level and is set to zero when omitted.
 </p>
+</div>
 {% endraw %}

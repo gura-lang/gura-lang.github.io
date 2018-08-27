@@ -85,11 +85,12 @@ The <code class="highlighter-rouge">gif.content</code> class provides properties
 <li>The property named <code class="highlighter-rouge">ApplicationExtension</code> is an instance of <code class="highlighter-rouge">gif.ApplicationExtension</code> class.</li>
 </ul>
 <h3><span class="caption-index-3">22.3.1</span><a name="anchor-22-3-1"></a>Constructor</h3>
-<div class="h5">gif.content</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gif.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code></div>
+<div class="mb-2"><code>gif.content(stream?:stream:r, format:symbol =&gt; `rgba) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Reads a GIF data from a stream and returns an object that contains GIF related information and images of a specified format. format is is <code class="highlighter-rouge">rgb,</code>rgba or <code class="highlighter-rouge">noimage. If</code>noimage is specified, only the information data is read
 </p>
+</div>
 <h3><span class="caption-index-3">22.3.2</span><a name="anchor-22-3-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">gif.content</code> instance has the following properties:
@@ -167,8 +168,8 @@ R</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">22.3.3</span><a name="anchor-22-3-3"></a>Method</h3>
-<div class="h5">gif.content#addimage</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gif.content#addimage(image:image, delayTime:number =&gt; 10, leftPos:number =&gt; 0, topPos:number =&gt; 0, disposalMethod:symbol =&gt; `none):map:reduce</code></div>
+<div class="mb-2"><code>gif.content#addimage(image:image, delayTime:number =&gt; 10, leftPos:number =&gt; 0, topPos:number =&gt; 0, disposalMethod:symbol =&gt; `none):map:reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Adds an image to GIF information.
 </p>
@@ -193,14 +194,16 @@ The argument <code class="highlighter-rouge">disposalMethod</code> takes one of 
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<div class="h5">gif.content#write</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gif.content#write(stream:stream:w):reduce</code></div>
+</div>
+<div class="mb-2"><code>gif.content#write(stream:stream:w):reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Writes a GIF image to a stream.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
+</div>
 <h2><span class="caption-index-2">22.4</span><a name="anchor-22-4"></a>gif.Header Class</h2>
 <p>
 A <code class="highlighter-rouge">gif.Header</code> instance provides information of Header structure in GIF format.
@@ -771,22 +774,24 @@ R</td>
 <p>
 This module extends the <code class="highlighter-rouge">stream</code> class with methods described here.
 </p>
-<div class="h5">image#read@gif</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read@gif(stream:stream:r):reduce</code></div>
+<div class="mb-2"><code>image#read@gif(stream:stream:r):reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Reads a GIF image from a stream.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
-<div class="h5">image#write@gif</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#write@gif(stream:stream:w):reduce</code></div>
+</div>
+<div class="mb-2"><code>image#write@gif(stream:stream:w):reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Writes a GIF image to a stream.
 </p>
 <p>
 This method returns the reference to the target instance itself.
 </p>
+</div>
 <table class="table">
 <tr>
 <th>

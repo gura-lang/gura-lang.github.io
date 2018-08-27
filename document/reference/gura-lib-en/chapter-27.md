@@ -24,18 +24,22 @@ Below is an example to read data from a file and write its compressed data to a 
 gzip.writer('foo.dat.gz').copyfrom('foo.dat')
 </code></pre>
 <h2><span class="caption-index-2">27.2</span><a name="anchor-27-2"></a>Module Function</h2>
-<div class="h5">gzip.reader</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gzip.reader(stream:stream:r) {block?}</code></div>
-<div class="h5">gzip.writer</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>gzip.writer(stream:stream:w, level?:number) {block?}</code></div>
+<div class="mb-2"><code>gzip.reader(stream:stream:r) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>gzip.writer(stream:stream:w, level?:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
 <h2><span class="caption-index-2">27.3</span><a name="anchor-27-3"></a>Extension to stream Class</h2>
 <p>
 This module extends the <code class="highlighter-rouge">stream</code> class with methods described here.
 </p>
-<div class="h5">stream#reader@gzip</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#reader@gzip() {block?}</code></div>
-<div class="h5">stream#writer@gzip</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#writer@gzip(level?:number) {block?}</code></div>
+<div class="mb-2"><code>stream#reader@gzip() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>stream#writer@gzip(level?:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
 <h2><span class="caption-index-2">27.4</span><a name="anchor-27-4"></a>Thanks</h2>
 <p>
 This module uses zlib which official site is:

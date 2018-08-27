@@ -115,8 +115,8 @@ Thumbnail image as JPEG binary data.</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">30.3.3</span><a name="anchor-30-3-3"></a>Constructor</h3>
-<div class="h5">jpeg.exif</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>jpeg.exif(stream?:stream:r):map:[raise] {block?}</code></div>
+<div class="mb-2"><code>jpeg.exif(stream?:stream:r):map:[raise] {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Reads EXIF data from <code class="highlighter-rouge">stream</code> and creates a <code class="highlighter-rouge">jpeg.exif</code> instance.
 </p>
@@ -126,9 +126,10 @@ If no EXIF information exists in the stream, this function returns <code class="
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|exif:jpeg.exif|</code>, where <code class="highlighter-rouge">exif</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+</div>
 <h3><span class="caption-index-3">30.3.4</span><a name="anchor-30-3-4"></a>Method</h3>
-<div class="h5">jpeg.exif#each</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>jpeg.exif#each() {block?}</code></div>
+<div class="mb-2"><code>jpeg.exif#each() {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an iterator that returns <code class="highlighter-rouge">jpeg.tag</code> values as elements that are stored in the property <code class="highlighter-rouge">jpeg.exif#ifd0</code>.
 </p>
@@ -149,6 +150,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+</div>
 <h2><span class="caption-index-2">30.4</span><a name="anchor-30-4"></a>jpeg.ifd Class</h2>
 <h3><span class="caption-index-3">30.4.1</span><a name="anchor-30-4-1"></a>Overview</h3>
 <h3><span class="caption-index-3">30.4.2</span><a name="anchor-30-4-2"></a>Property</h3>
@@ -188,8 +190,8 @@ R</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">30.4.3</span><a name="anchor-30-4-3"></a>Method</h3>
-<div class="h5">jpeg.ifd#each</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>jpeg.ifd#each() {block?}</code></div>
+<div class="mb-2"><code>jpeg.ifd#each() {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an iterator that returns <code class="highlighter-rouge">jpeg.tag</code> values as elements that are stored in the target <code class="highlighter-rouge">jpeg.ifd</code> instance.
 </p>
@@ -210,6 +212,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+</div>
 <h2><span class="caption-index-2">30.5</span><a name="anchor-30-5"></a>jpeg.tag Class</h2>
 <h3><span class="caption-index-3">30.5.1</span><a name="anchor-30-5-1"></a>Property</h3>
 <p>
@@ -301,8 +304,8 @@ Tag value. When the attribute <code class="highlighter-rouge">:cooked</code> is 
 <p>
 This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
 </p>
-<div class="h5">image#read@jpeg</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#read@jpeg(stream:stream:r, size?:number):reduce:[fast,rough]</code></div>
+<div class="mb-2"><code>image#read@jpeg(stream:stream:r, size?:number):reduce:[fast,rough]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Reads a JPEG image data from the specified <code class="highlighter-rouge">stream</code>.
 </p>
@@ -315,14 +318,16 @@ The attribute <code class="highlighter-rouge">:fast</code> indicates a fast but 
 <p>
 The attriubte <code class="highlighter-rouge">:rough</code> is only valid when <code class="highlighter-rouge">size</code> is specified and makes the shrinked image with nearest neighbor method. Othereise, shrinking shall be done with bilinear method.
 </p>
-<div class="h5">image#write@jpeg</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#write@jpeg(stream:stream:w, quality:number =&gt; 75):reduce</code></div>
+</div>
+<div class="mb-2"><code>image#write@jpeg(stream:stream:w, quality:number =&gt; 75):reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Writes a JPEG image data to the specified <code class="highlighter-rouge">stream</code>.
 </p>
 <p>
 The argument <code class="highlighter-rouge">quality</code> takes a number between 0 and 100 with which a a higher number results in a higher quality of result but a less compression performance. The default value for it is 75.
 </p>
+</div>
 <h2><span class="caption-index-2">30.7</span><a name="anchor-30-7"></a>Thanks</h2>
 <p>
 This module uses JPEG library which is distributed in the following site:

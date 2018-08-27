@@ -73,30 +73,35 @@ This field is valid only for CRC32 and returns `nil` for other hashes.</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">28.2.2</span><a name="anchor-28-2-2"></a>Constructor</h3>
-<div class="h5">hash.md5</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>hash.md5(stream?:stream:r) {block?}</code></div>
+<div class="mb-2"><code>hash.md5(stream?:stream:r) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an <code class="highlighter-rouge">hash.accumulator</code> instance that calculates MD5 hashed value from the content of <code class="highlighter-rouge">stream</code>.
 </p>
-<div class="h5">hash.sha1</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>hash.sha1(stream?:stream:r) {block?}</code></div>
+</div>
+<div class="mb-2"><code>hash.sha1(stream?:stream:r) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an <code class="highlighter-rouge">hash.accumulator</code> instance that calculates SHA1 hashed value from the content of <code class="highlighter-rouge">stream</code>.
 </p>
-<div class="h5">hash.crc32</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>hash.crc32(stream?:stream:r) {block?}</code></div>
+</div>
+<div class="mb-2"><code>hash.crc32(stream?:stream:r) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an <code class="highlighter-rouge">hash.accumulator</code> instance that calculates CRC32 hashed value from the content of <code class="highlighter-rouge">stream</code>.
 </p>
+</div>
 <h3><span class="caption-index-3">28.2.3</span><a name="anchor-28-2-3"></a>Method</h3>
-<div class="h5">hash.accumulator#init</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>hash.accumulator#init():reduce</code></div>
+<div class="mb-2"><code>hash.accumulator#init():reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Initializes the state of the accumulator.
 </p>
-<div class="h5">hash.accumulator#update</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>hash.accumulator#update(stream:stream:r):reduce</code></div>
+</div>
+<div class="mb-2"><code>hash.accumulator#update(stream:stream:r):reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Updates the accumulator with the content of <code class="highlighter-rouge">stream</code>.
 </p>
+</div>
 {% endraw %}

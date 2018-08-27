@@ -39,14 +39,16 @@ img = image(`rgba).xpmdata(foo_xpm)
 <p>
 This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
 </p>
-<div class="h5">image#write@xpm</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#write@xpm(stream:stream:w):reduce</code></div>
+<div class="mb-2"><code>image#write@xpm(stream:stream:w):reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Writes a xpm image to a stream.
 </p>
-<div class="h5">image#xpmdata</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>image#xpmdata(xpm[]:string):reduce</code></div>
+</div>
+<div class="mb-2"><code>image#xpmdata(xpm[]:string):reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Read xpm data from a string list.
 </p>
+</div>
 {% endraw %}

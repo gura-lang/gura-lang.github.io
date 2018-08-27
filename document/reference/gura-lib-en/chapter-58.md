@@ -12,9 +12,10 @@ nextpage: chapter-59.html#naviitem-selected
 The <code class="highlighter-rouge">uuid</code> module provides functions to generate UUIDs. To utilize it, import the <code class="highlighter-rouge">uuid</code> module using <code class="highlighter-rouge">import</code> function.
 </p>
 <h2><span class="caption-index-2">58.2</span><a name="anchor-58-2"></a>Module Function</h2>
-<div class="h5">uuid.generate</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>uuid.generate():[upper]</code></div>
+<div class="mb-2"><code>uuid.generate():[upper]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Generates a Universal Unique Identifier (UUID). In default, results are output in lower-case characters. Specifying :upper would generates it in upper-case characters.
 </p>
+</div>
 {% endraw %}

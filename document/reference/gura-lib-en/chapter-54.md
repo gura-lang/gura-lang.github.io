@@ -13,8 +13,8 @@ The <code class="highlighter-rouge">tar</code> module provides measures to read/
 </p>
 <h2><span class="caption-index-2">54.2</span><a name="anchor-54-2"></a>tar.reader Class</h2>
 <h3><span class="caption-index-3">54.2.1</span><a name="anchor-54-2-1"></a>Function To Create Instance</h3>
-<div class="h5">tar.reader</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>tar.reader(stream:stream:r, compression?:symbol) {block?}</code></div>
+<div class="mb-2"><code>tar.reader(stream:stream:r, compression?:symbol) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Reads a tar file from <code class="highlighter-rouge">stream</code> and returns a <code class="highlighter-rouge">tar.reader</code> instance that is to be used to read contents from the archive.
 </p>
@@ -26,16 +26,18 @@ The argument <code class="highlighter-rouge">compression</code> specifies the co
 <li><code class="highlighter-rouge">`gzip</code> .. gzip format</li>
 <li><code class="highlighter-rouge">`bzip2</code> .. bzip2 format</li>
 </ul>
+</div>
 <h3><span class="caption-index-3">54.2.2</span><a name="anchor-54-2-2"></a>Method</h3>
-<div class="h5">tar.reader#entries</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>tar.reader#entries() {block?}</code></div>
+<div class="mb-2"><code>tar.reader#entries() {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an iterator that returns stream instances for each entry in the tar file.
 </p>
+</div>
 <h2><span class="caption-index-2">54.3</span><a name="anchor-54-3"></a>tar.writer Class</h2>
 <h3><span class="caption-index-3">54.3.1</span><a name="anchor-54-3-1"></a>Function To Create Instance</h3>
-<div class="h5">tar.writer</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>tar.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
+<div class="mb-2"><code>tar.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates a tar file on <code class="highlighter-rouge">stream</code> and returns a <code class="highlighter-rouge">tar.writer</code> instance that is to be used to write contents to the archive.
 </p>
@@ -47,20 +49,23 @@ The argument <code class="highlighter-rouge">compression</code> specifies the co
 <li><code class="highlighter-rouge">`gzip</code> .. gzip format</li>
 <li><code class="highlighter-rouge">`bzip2</code> .. bzip2 format</li>
 </ul>
+</div>
 <h3><span class="caption-index-3">54.3.2</span><a name="anchor-54-3-2"></a>Method</h3>
-<div class="h5">tar.writer#add</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>tar.writer#add(stream:stream:r, filename?:string):map:reduce</code></div>
+<div class="mb-2"><code>tar.writer#add(stream:stream:r, filename?:string):map:reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Adds an entry to the tar archive with a content from <code class="highlighter-rouge">stream</code> and a name of <code class="highlighter-rouge">filename</code>.
 </p>
 <p>
 If the argument <code class="highlighter-rouge">filename</code> is omitted, an identifier associated with the <code class="highlighter-rouge">stream</code> would be used as the entry name.
 </p>
-<div class="h5">tar.writer#close</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>tar.writer#close():reduce</code></div>
+</div>
+<div class="mb-2"><code>tar.writer#close():reduce</code></div>
+<div class="mb-2 ml-4">
 <p>
 Flushes all the unfinished writing processes and invalidates the <code class="highlighter-rouge">tar.writer</code> instance.
 </p>
+</div>
 <h2><span class="caption-index-2">54.4</span><a name="anchor-54-4"></a>Thanks</h2>
 <p>
 This module uses zlib and bzip2 library which are distributed in the following sites:

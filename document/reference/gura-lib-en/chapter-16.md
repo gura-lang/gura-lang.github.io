@@ -17,8 +17,8 @@ Below is an example to show differences between files <code class="highlighter-r
 <pre class="highlight"><code>diff.compose(stream('file1.txt'), stream('file2.txt')).render(sys.stdout)
 </code></pre>
 <h2><span class="caption-index-2">16.2</span><a name="anchor-16-2"></a>Module Function</h2>
-<div class="h5">diff.compose</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>diff.compose(src1, src2):[icase,sync] {block?}</code></div>
+<div class="mb-2"><code>diff.compose(src1, src2):[icase,sync] {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Extracts differences between two sets of line sequence and returns <code class="highlighter-rouge">diff.diff@line</code> instance that contains the difference information.
 </p>
@@ -59,8 +59,9 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 <p>
 If attribute <code class="highlighter-rouge">:icase</code> is specified, it wouldn't distinguish upper and lower case of characters.
 </p>
-<div class="h5">diff.compose@char</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>diff.compose@char(src1:string, src2:string):[icase] {block?}</code></div>
+</div>
+<div class="mb-2"><code>diff.compose@char(src1:string, src2:string):[icase] {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Extracts differences between two strings and returns <code class="highlighter-rouge">diff.diff@line</code> instance that contains the difference information.
 </p>
@@ -70,6 +71,7 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 <p>
 If attribute <code class="highlighter-rouge">:icase</code> is specified, it wouldn't distinguish upper and lower case of characters.
 </p>
+</div>
 <h2><span class="caption-index-2">16.3</span><a name="anchor-16-3"></a>diff.diff@line Class</h2>
 <h3><span class="caption-index-3">16.3.1</span><a name="anchor-16-3-1"></a>Overview</h3>
 <p>
@@ -129,8 +131,8 @@ Number of lines in the "new" text.</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">16.3.3</span><a name="anchor-16-3-3"></a>Method</h3>
-<div class="h5">diff.diff@line#eachhunk</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>diff.diff@line#eachhunk(format?:symbol, lines?:number) {block?}</code></div>
+<div class="mb-2"><code>diff.diff@line#eachhunk(format?:symbol, lines?:number) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an iterator that returns <code class="highlighter-rouge">diff.hunk@line</code> instance stored in the result.
 </p>
@@ -162,8 +164,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<div class="h5">diff.diff@line#render</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>diff.diff@line#render(out?:stream:w, format?:symbol, lines?:number) {block?}</code></div>
+</div>
+<div class="mb-2"><code>diff.diff@line#render(out?:stream:w, format?:symbol, lines?:number) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Renders diff result to the specified stream.
 </p>
@@ -181,6 +184,7 @@ The argument <code class="highlighter-rouge">format</code> takes one of the symb
 <p>
 The argument <code class="highlighter-rouge">lines</code> specifies a number of common lines appended before and after different lines.
 </p>
+</div>
 <h2><span class="caption-index-2">16.4</span><a name="anchor-16-4"></a>diff.hunk@line Class</h2>
 <h3><span class="caption-index-3">16.4.1</span><a name="anchor-16-4-1"></a>Overview</h3>
 <p>
@@ -250,11 +254,12 @@ Number of lines in the "new" text covered by the hunk.</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">16.4.3</span><a name="anchor-16-4-3"></a>Method</h3>
-<div class="h5">diff.hunk@line#print</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>diff.hunk@line#print(out?:stream):void {block?}</code></div>
+<div class="mb-2"><code>diff.hunk@line#print(out?:stream):void {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Prints the content of the <code class="highlighter-rouge">diff.hunk</code> instance to the specified stream.
 </p>
+</div>
 <h2><span class="caption-index-2">16.5</span><a name="anchor-16-5"></a>diff.edit@line Class</h2>
 <h3><span class="caption-index-3">16.5.1</span><a name="anchor-16-5-1"></a>Overview</h3>
 <p>
@@ -343,11 +348,12 @@ A composed string in Unified format.</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">16.5.3</span><a name="anchor-16-5-3"></a>Method</h3>
-<div class="h5">diff.edit@line#print</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>diff.edit@line#print(out?:stream):void {block?}</code></div>
+<div class="mb-2"><code>diff.edit@line#print(out?:stream):void {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Prints the content of the <code class="highlighter-rouge">diff.edit</code> instance to the specified stream.
 </p>
+</div>
 <h2><span class="caption-index-2">16.6</span><a name="anchor-16-6"></a>diff.diff@char Class</h2>
 <h3><span class="caption-index-3">16.6.1</span><a name="anchor-16-6-1"></a>Overview</h3>
 <p>

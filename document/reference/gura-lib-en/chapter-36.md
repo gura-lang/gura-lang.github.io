@@ -22,8 +22,7 @@ The database consists of the following files:
 </ul>
 <h2><span class="caption-index-2">36.2</span><a name="anchor-36-2"></a>ml.mnist.dbpair Structure</h2>
 <h3><span class="caption-index-3">36.2.1</span><a name="anchor-36-2-1"></a>Constructor</h3>
-<div class="h5">mnist.dbpair</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mnist.dbpair(imageset:mnist.imageset, labelset:mnist.labelset) {block?}</code></div>
+<div class="mb-2"><code>mnist.dbpair(imageset:mnist.imageset, labelset:mnist.labelset) {block?}</code></div>
 <h3><span class="caption-index-3">36.2.2</span><a name="anchor-36-2-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">ml.mnist.dbpair</code> instance has the following properties:
@@ -62,11 +61,12 @@ R</td>
 </table>
 <h2><span class="caption-index-2">36.3</span><a name="anchor-36-3"></a>ml.mnist.database Class</h2>
 <h3><span class="caption-index-3">36.3.1</span><a name="anchor-36-3-1"></a>Constructor</h3>
-<div class="h5">mnist.database</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mnist.database(dirname:string) {block?}</code></div>
+<div class="mb-2"><code>mnist.database(dirname:string) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Reads MNIST database files in a directory specified by <code class="highlighter-rouge">dirname</code> and returns a <code class="highlighter-rouge">ml.mnist.database</code> instance.
 </p>
+</div>
 <h3><span class="caption-index-3">36.3.2</span><a name="anchor-36-3-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">ml.mnist.database</code> instance has the following properties:
@@ -105,14 +105,15 @@ R</td>
 </table>
 <h2><span class="caption-index-2">36.4</span><a name="anchor-36-4"></a>ml.mnist.imageset Class</h2>
 <h3><span class="caption-index-3">36.4.1</span><a name="anchor-36-4-1"></a>Constructor</h3>
-<div class="h5">mnist.imageset</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mnist.imageset(stream:stream):map {block?}</code></div>
+<div class="mb-2"><code>mnist.imageset(stream:stream):map {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Reads MNIST image set file from the specified <code class="highlighter-rouge">stream</code> and returns a <code class="highlighter-rouge">ml.mnist.imageset</code> instance.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|stream:stream|</code>, where <code class="highlighter-rouge">stream</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+</div>
 <h3><span class="caption-index-3">36.4.2</span><a name="anchor-36-4-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">ml.mnist.imageset</code> instance has the following properties:
@@ -160,8 +161,8 @@ Row size of each image.</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">36.4.3</span><a name="anchor-36-4-3"></a>Method</h3>
-<div class="h5">mnist.imageset#toarray</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mnist.imageset#toarray(shape?:symbol, elemtype?:symbol, normalize?:symbol):map {block?}</code></div>
+<div class="mb-2"><code>mnist.imageset#toarray(shape?:symbol, elemtype?:symbol, normalize?:symbol):map {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an <code class="highlighter-rouge">array</code> instance from the MNIST image set.
 </p>
@@ -176,16 +177,18 @@ Arguments:
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+</div>
 <h2><span class="caption-index-2">36.5</span><a name="anchor-36-5"></a>ml.mnist.labelset Class</h2>
 <h3><span class="caption-index-3">36.5.1</span><a name="anchor-36-5-1"></a>Constructor</h3>
-<div class="h5">mnist.labelset</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mnist.labelset(stream:stream):map {block?}</code></div>
+<div class="mb-2"><code>mnist.labelset(stream:stream):map {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Reads MNIST label set file from the specified <code class="highlighter-rouge">stream</code> and returns a <code class="highlighter-rouge">ml.mnist.labelset</code> instance.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|stream:stream|</code>, where <code class="highlighter-rouge">stream</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+</div>
 <h3><span class="caption-index-3">36.5.2</span><a name="anchor-36-5-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">ml.mnist.labelset</code> instance has the following properties:
@@ -213,8 +216,8 @@ Number of labels in the database.</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">36.5.3</span><a name="anchor-36-5-3"></a>Method</h3>
-<div class="h5">mnist.labelset#toarray</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mnist.labelset#toarray(onehot?:boolean, elemtype?:symbol) {block?}</code></div>
+<div class="mb-2"><code>mnist.labelset#toarray(onehot?:boolean, elemtype?:symbol) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an <code class="highlighter-rouge">array</code> instance from the MNIST label set.
 </p>
@@ -228,4 +231,5 @@ Arguments:
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+</div>
 {% endraw %}

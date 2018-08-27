@@ -24,16 +24,17 @@ Below is an example to read data from a file and write its compressed data to a 
 bzip2.writer('foo.dat.bz2').copyfrom('foo.dat')
 </code></pre>
 <h2><span class="caption-index-2">9.2</span><a name="anchor-9-2"></a>Module Function</h2>
-<div class="h5">bzip2.reader</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>bzip2.reader(stream:stream:r) {block?}</code></div>
+<div class="mb-2"><code>bzip2.reader(stream:stream:r) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates a stream instance that decompresses bzip2 data from the specified <code class="highlighter-rouge">stream</code> that has readable attribute.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|st:stream|</code>, where <code class="highlighter-rouge">st</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<div class="h5">bzip2.writer</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>bzip2.writer(stream:stream:w, blockSize100k?:number) {block?}</code></div>
+</div>
+<div class="mb-2"><code>bzip2.writer(stream:stream:w, blockSize100k?:number) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates a stream instance that compresses data into bzip2 format and writes it to the specified <code class="highlighter-rouge">stream</code> that has writable attribute.
 </p>
@@ -43,20 +44,22 @@ The argument <code class="highlighter-rouge">blockSize100k</code> takes a number
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|st:stream|</code>, where <code class="highlighter-rouge">st</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+</div>
 <h2><span class="caption-index-2">9.3</span><a name="anchor-9-3"></a>Extension to stream Class</h2>
 <p>
 This module extends the <code class="highlighter-rouge">stream</code> class with methods described here.
 </p>
-<div class="h5">stream#reader@bzip2</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#reader@bzip2() {block?}</code></div>
+<div class="mb-2"><code>stream#reader@bzip2() {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates a stream instance that decompresses bzip2 data from the specified <code class="highlighter-rouge">stream</code> that has readable attribute.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|st:stream|</code>, where <code class="highlighter-rouge">st</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
-<div class="h5">stream#writer@bzip2</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stream#writer@bzip2(blockSize100k?:number) {block?}</code></div>
+</div>
+<div class="mb-2"><code>stream#writer@bzip2(blockSize100k?:number) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates a stream instance that compresses data into bzip2 format and writes it to the specified <code class="highlighter-rouge">stream</code> that has writable attribute.
 </p>
@@ -66,6 +69,7 @@ The argument <code class="highlighter-rouge">blockSize100k</code> takes a number
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|st:stream|</code>, where <code class="highlighter-rouge">st</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+</div>
 <h2><span class="caption-index-2">9.4</span><a name="anchor-9-4"></a>Thanks</h2>
 <p>
 This module uses libbzip2 which is distributed in the following site:

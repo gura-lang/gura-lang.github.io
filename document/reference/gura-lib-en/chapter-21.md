@@ -12,16 +12,17 @@ nextpage: chapter-22.html#naviitem-selected
 The <code class="highlighter-rouge">fs</code> module provides measures to access and modify information in file systems. This is a built-in module, so you can use it without being imported.
 </p>
 <h2><span class="caption-index-2">21.2</span><a name="anchor-21-2"></a>Module Function</h2>
-<div class="h5">fs.chdir</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.chdir(pathname:string) {block?}</code></div>
+<div class="mb-2"><code>fs.chdir(pathname:string) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Changes the current working directory to <code class="highlighter-rouge">pathname</code>.
 </p>
 <p>
 The block would be evaluated if specified, and the working directory would be changed only during that evaluation period.
 </p>
-<div class="h5">fs.chmod</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.chmod(mode, pathname:string):map:void:[follow_link]</code></div>
+</div>
+<div class="mb-2"><code>fs.chmod(mode, pathname:string):map:void:[follow_link]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Changes the access mode of a file specified by <code class="highlighter-rouge">pathname</code>.
 </p>
@@ -77,8 +78,9 @@ If the modification target is a link file, each platform would have different re
 <li>MacOS .. Modifies permissions of the target file. Attribute <code class="highlighter-rouge">:follow_link</code> has no effect.</li>
 <li>Windows .. Modifies permissions of the link file. Attribute <code class="highlighter-rouge">:follow_link</code> has no effect.</li>
 </ul>
-<div class="h5">fs.copy</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.copy(src:string, dst:string):map:void:[overwrite]</code></div>
+</div>
+<div class="mb-2"><code>fs.copy(src:string, dst:string):map:void:[overwrite]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Copies a file.
 </p>
@@ -88,52 +90,60 @@ An argument <code class="highlighter-rouge">src</code> needs to specify a path n
 <p>
 If a destination file already exists, an error occurs. Specifying an attribute <code class="highlighter-rouge">:overwrite</code> would overwrite an existing one.
 </p>
-<div class="h5">fs.cpdir</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.cpdir(src:string, dst:string):map:void:[tree]</code></div>
+</div>
+<div class="mb-2"><code>fs.cpdir(src:string, dst:string):map:void:[tree]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Copies a directory.
 </p>
 <p>
 Arguments <code class="highlighter-rouge">src</code> and <code class="highlighter-rouge">dst</code> specify source directory and destination directory respectively. In default, sub directories are not copied.Specifying <code class="highlighter-rouge">:tree</code> attribute would copy all the sub directories in the source.
 </p>
-<div class="h5">fs.getcwd</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.getcwd()</code></div>
+</div>
+<div class="mb-2"><code>fs.getcwd()</code></div>
+<div class="mb-2 ml-4">
 <p>
 Returns the current working directory.
 </p>
-<div class="h5">fs.mkdir</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.mkdir(pathname:string):map:void:[tree]</code></div>
+</div>
+<div class="mb-2"><code>fs.mkdir(pathname:string):map:void:[tree]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates a directory.
 </p>
 <p>
 If <code class="highlighter-rouge">pathname</code> consists of multiple sub directories and some of them still doesn't exist, an error occurs. Specifying <code class="highlighter-rouge">:tree</code> attribute would create such directories.
 </p>
-<div class="h5">fs.remove</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.remove(pathname:string):map:void</code></div>
+</div>
+<div class="mb-2"><code>fs.remove(pathname:string):map:void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Removes a file from the file system.
 </p>
-<div class="h5">fs.rename</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.rename(src:string, dst:string):map:void</code></div>
+</div>
+<div class="mb-2"><code>fs.rename(src:string, dst:string):map:void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Renames a file or directory.
 </p>
-<div class="h5">fs.rmdir</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.rmdir(pathname:string):map:void:[tree]</code></div>
+</div>
+<div class="mb-2"><code>fs.rmdir(pathname:string):map:void:[tree]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Removes a directory.
 </p>
 <p>
 If the directory contains sub directories, an error occurs. Specifying <code class="highlighter-rouge">:tree</code> attribute would delete such a directory.
 </p>
+</div>
 <h2><span class="caption-index-2">21.3</span><a name="anchor-21-3"></a>fs.stat Class</h2>
 <p>
 An instance of <code class="highlighter-rouge">fs.stat</code> class contains information about a file or directory on the file system, which includes its full path name, size, creation time and file attributes. A <code class="highlighter-rouge">stream</code> instance has a property named <code class="highlighter-rouge">stat</code> that is a <code class="highlighter-rouge">fs.stat</code> instance when it comes from a file or directory in a file system. You can also get the instance using <code class="highlighter-rouge">fs.stat()</code> function.
 </p>
 <h3><span class="caption-index-3">21.3.1</span><a name="anchor-21-3-1"></a>Constructor</h3>
-<div class="h5">fs.stat</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>fs.stat(pathname:string) {block?}</code></div>
+<div class="mb-2"><code>fs.stat(pathname:string) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
 <h3><span class="caption-index-3">21.3.2</span><a name="anchor-21-3-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">fs.stat</code> instance has the following properties:

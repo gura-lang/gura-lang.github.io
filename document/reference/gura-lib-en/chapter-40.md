@@ -128,12 +128,13 @@ An iterator that returns instances of <code>model.stl.face</code>.</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">40.3.2</span><a name="anchor-40-3-2"></a>Constructor</h3>
-<div class="h5">stl.solid</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>stl.solid(stream:stream) {block?}</code></div>
+<div class="mb-2"><code>stl.solid(stream:stream) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Parses a file in STL format from <code class="highlighter-rouge">stream</code> and creates an instance of <code class="highlighter-rouge">model.stl.solid</code> that contains an iterator of <code class="highlighter-rouge">model.stl.face</code> representing faces in the STL. It can read both binary and ASCII format of STL.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|solid:model.stl.solid|</code>, where <code class="highlighter-rouge">solid</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+</div>
 {% endraw %}

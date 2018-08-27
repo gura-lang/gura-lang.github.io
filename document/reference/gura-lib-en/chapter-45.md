@@ -27,13 +27,14 @@ Below is an example to list path names that matches a wild card pattern "<code c
 <pre class="highlight"><code>println(path.glob('*.txt'))
 </code></pre>
 <h2><span class="caption-index-2">45.2</span><a name="anchor-45-2"></a>Module Function</h2>
-<div class="h5">path.absname</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.absname(name:string):map:[uri]</code></div>
+<div class="mb-2"><code>path.absname(name:string):map:[uri]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Returns an absolute path name of the given name.
 </p>
-<div class="h5">path.basename</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.basename(pathname:string):map</code></div>
+</div>
+<div class="mb-2"><code>path.basename(pathname:string):map</code></div>
+<div class="mb-2 ml-4">
 <p>
 Removes a suffix part of a path name. This is complementary to <code class="highlighter-rouge">path.extname()</code>.
 </p>
@@ -42,8 +43,9 @@ Example:
 </p>
 <pre class="highlight"><code>path.basename('/foo/bar/file.txt')  # Returns '/foo/bar/file'
 </code></pre>
-<div class="h5">path.bottom</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.bottom(pathname:string):map</code></div>
+</div>
+<div class="mb-2"><code>path.bottom(pathname:string):map</code></div>
+<div class="mb-2 ml-4">
 <p>
 Returns the last part of a path name (cf. <code class="highlighter-rouge">path.filename()</code>).This is complementary to <code class="highlighter-rouge">path.cutbottom()</code>.
 </p>
@@ -53,8 +55,9 @@ Example:
 <pre class="highlight"><code>path.bottom('/foo/bar/file.txt')  # Returns 'file.txt'
 path.bottom('/foo/bar/dir/')      # Returns 'dir'
 </code></pre>
-<div class="h5">path.cutbottom</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.cutbottom(pathname:string):map</code></div>
+</div>
+<div class="mb-2"><code>path.cutbottom(pathname:string):map</code></div>
+<div class="mb-2 ml-4">
 <p>
 Returns a path name after eliminating its bottom part (cf. <code class="highlighter-rouge">path.dirname()</code>).This is complementary to <code class="highlighter-rouge">path.bottom()</code>.
 </p>
@@ -64,8 +67,9 @@ Example:
 <pre class="highlight"><code>path.cutbottom('/foo/bar/file.txt')  # Returns '/foo/bar/'
 path.cutbottom('/foo/bar/dir/')      # Returns '/foo/bar/'
 </code></pre>
-<div class="h5">path.dir</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.dir(directory?:directory, pattern*:string):flat:map:[case,dir,file,icase,stat] {block?}</code></div>
+</div>
+<div class="mb-2"><code>path.dir(directory?:directory, pattern*:string):flat:map:[case,dir,file,icase,stat] {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an iterator that lists item names in the specified directory. If pathname is omitted, the current directory shall be listed.
 </p>
@@ -89,8 +93,9 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<div class="h5">path.dirname</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.dirname(pathname:string):map</code></div>
+</div>
+<div class="mb-2"><code>path.dirname(pathname:string):map</code></div>
+<div class="mb-2 ml-4">
 <p>
 Splits a pathname by a directory separator and returns a directory name part (cf. <code class="highlighter-rouge">path.cutbottom()</code>).This is complementary to <code class="highlighter-rouge">path.filename()</code>.
 </p>
@@ -100,13 +105,15 @@ Example:
 <pre class="highlight"><code>path.dirname('/foo/bar/file.txt')  # Returns '/foo/bar/'
 path.dirname('/foo/bar/dir/')      # Returns '/foo/bar/dir/'
 </code></pre>
-<div class="h5">path.exists</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.exists(pathname:string):map</code></div>
+</div>
+<div class="mb-2"><code>path.exists(pathname:string):map</code></div>
+<div class="mb-2 ml-4">
 <p>
 Returns true if the specified file exists in a file system.
 </p>
-<div class="h5">path.extname</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.extname(pathname:string):map</code></div>
+</div>
+<div class="mb-2"><code>path.extname(pathname:string):map</code></div>
+<div class="mb-2 ml-4">
 <p>
 Extracts a suffix part of a path name. It returns an empty string when the given pathname has no suffix. This is complementary to <code class="highlighter-rouge">path.basename()</code>.
 </p>
@@ -116,8 +123,9 @@ Example:
 <pre class="highlight"><code>path.extname('/foo/bar/file.txt')  # Returns 'txt'
 path.extname('/foo/bar/file')      # Returns ''
 </code></pre>
-<div class="h5">path.filename</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.filename(pathname:string):map</code></div>
+</div>
+<div class="mb-2"><code>path.filename(pathname:string):map</code></div>
+<div class="mb-2 ml-4">
 <p>
 Splits a pathname by a directory separator and returns a file name part (cf. <code class="highlighter-rouge">path.bottom()</code>). This is complementary to <code class="highlighter-rouge">path.dirname()</code>.
 </p>
@@ -127,8 +135,9 @@ Example:
 <pre class="highlight"><code>path.filename('/foo/bar/file.txt')  # Returns 'file.txt'
 path.filename('/foo/bar/dir/')      # Returns ''
 </code></pre>
-<div class="h5">path.glob</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.glob(pattern:string):flat:map:[case,dir,file,icase,stat] {block?}</code></div>
+</div>
+<div class="mb-2"><code>path.glob(pattern:string):flat:map:[case,dir,file,icase,stat] {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an iterator for item names that match with a pattern supporting UNIX shell-style wild cards. In default, case of characters is distinguished.
 </p>
@@ -152,26 +161,30 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
-<div class="h5">path.join</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.join(paths+:string):map:[uri]</code></div>
+</div>
+<div class="mb-2"><code>path.join(paths+:string):map:[uri]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Returns a path name that joins given strings with directory separators.
 </p>
-<div class="h5">path.match</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.match(pattern:string, name:string):map:[case,icase]</code></div>
+</div>
+<div class="mb-2"><code>path.match(pattern:string, name:string):map:[case,icase]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Returns true if a name matches with a pattern that supports UNIX shell-style wild cards.
 </p>
 <p>
 Though the default sensitiveness of character cases depends on the current platform, it can be changed by attributes <code class="highlighter-rouge">:case</code> for case-sensitive and <code class="highlighter-rouge">:icase</code> for case-insensitive.
 </p>
-<div class="h5">path.regulate</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.regulate(name:string):map:[uri]</code></div>
+</div>
+<div class="mb-2"><code>path.regulate(name:string):map:[uri]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Removes redundant relative directories.
 </p>
-<div class="h5">path.split</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.split(pathname:string):map:[bottom]</code></div>
+</div>
+<div class="mb-2"><code>path.split(pathname:string):map:[bottom]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Splits a pathname by a directory separator and returns a list containing a directory name as the first element and a base name as the second one.
 </p>
@@ -190,18 +203,21 @@ path.split('/foo/bar/dir/')             # Returns ['/foo/bar/dir/', '']
 path.split('/foo/bar/file.txt'):bottom  # Returns ['/foo/bar/', 'file.txt']
 path.split('/foo/bar/dir/'):bottom      # Returns ['/foo/bar/', 'dir']
 </code></pre>
-<div class="h5">path.splitext</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.splitext(pathname:string):map</code></div>
+</div>
+<div class="mb-2"><code>path.splitext(pathname:string):map</code></div>
+<div class="mb-2 ml-4">
 <p>
 Splits a pathname by a dot character indicating a beginning of an extension and returns a list containing a path name without an extention and an extention part.
 </p>
-<div class="h5">path.stat</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.stat(directory:directory):map</code></div>
+</div>
+<div class="mb-2"><code>path.stat(directory:directory):map</code></div>
+<div class="mb-2 ml-4">
 <p>
 Returns a stat object associated with the specified item.
 </p>
-<div class="h5">path.walk</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>path.walk(directory?:directory, maxdepth?:number, pattern*:string):flat:map:[case,dir,file,icase,stat] {block?}</code></div>
+</div>
+<div class="mb-2"><code>path.walk(directory?:directory, maxdepth?:number, pattern*:string):flat:map:[case,dir,file,icase,stat] {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an iterator that recursively lists item names under the specified directory. If <code class="highlighter-rouge">directory</code> is omitted, search starts at the current directory.
 </p>
@@ -225,4 +241,5 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+</div>
 {% endraw %}

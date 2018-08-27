@@ -12,8 +12,8 @@ nextpage: chapter-51.html#naviitem-selected
 The <code class="highlighter-rouge">sdl2</code> module provices functions of SDL2 library.
 </p>
 <h2><span class="caption-index-2">50.2</span><a name="anchor-50-2"></a>Module Function</h2>
-<div class="h5">sdl2.Init</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.Init(flags:number):void</code></div>
+<div class="mb-2"><code>sdl2.Init(flags:number):void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Use this function to initialize the SDL library. This must be called before using any other SDL function.
 </p>
@@ -37,8 +37,9 @@ The Event Handling, File I/O, and Threading subsystems are initialized by defaul
 <p>
 If you want to initialize subsystems separately you would call <code class="highlighter-rouge">SDL_Init(0)</code> followed by <code class="highlighter-rouge">SDL_InitSubSystem()</code> with the desired subsystem flag.
 </p>
-<div class="h5">sdl2.InitSubSystem</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.InitSubSystem(flags:number):void</code></div>
+</div>
+<div class="mb-2"><code>sdl2.InitSubSystem(flags:number):void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Use this function to initialize specific SDL subsystems.
 </p>
@@ -62,8 +63,9 @@ These are the flags which may be passed to <code class="highlighter-rouge">SDL_I
 <p>
 If you want to initialize subsystems separately you would call <code class="highlighter-rouge">SDL_Init(0)</code> followed by <code class="highlighter-rouge">SDL_InitSubSystem()</code> with the desired subsystem flag.
 </p>
-<div class="h5">sdl2.Quit</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.Quit():void</code></div>
+</div>
+<div class="mb-2"><code>sdl2.Quit():void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Use this function to clean up all initialized subsystems. You should call it upon all exit conditions.
 </p>
@@ -76,8 +78,9 @@ If you start a subsystem using a call to that subsystem's init function (for exa
 <p>
 You can use this function with <code class="highlighter-rouge">atexit()</code> to ensure that it is run when your application is shutdown, but it is not wise to do this from a library or other dynamically loaded code.
 </p>
-<div class="h5">sdl2.QuitSubSystem</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.QuitSubSystem(flags:number):void</code></div>
+</div>
+<div class="mb-2"><code>sdl2.QuitSubSystem(flags:number):void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Use this function to shut down specific SDL subsystems.
 </p>
@@ -98,16 +101,18 @@ These are the flags which may be passed to <code class="highlighter-rouge">SDL_Q
 <p>
 If you want to initialize subsystems separately you would call <code class="highlighter-rouge">SDL_Init(0)</code> followed by <code class="highlighter-rouge">SDL_InitSubSystem()</code> with the desired subsystem flag.
 </p>
-<div class="h5">sdl2.SetMainReady</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetMainReady():void</code></div>
+</div>
+<div class="mb-2"><code>sdl2.SetMainReady():void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Use this function to circumvent failure of <code class="highlighter-rouge">SDL_Init()</code> when not using <code class="highlighter-rouge">SDL_main()</code> as an entry point.
 </p>
 <p>
 This function is defined in SDL_main.h, along with the preprocessor rule to redefine <code class="highlighter-rouge">main()</code> as <code class="highlighter-rouge">SDL_main()</code>. Thus to ensure that your <code class="highlighter-rouge">main()</code> function will not be changed it is necessary to define <code class="highlighter-rouge">SDL_MAIN_HANDLED</code> before including SDL.h.
 </p>
-<div class="h5">sdl2.WasInit</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.WasInit(flags:number) {block?}</code></div>
+</div>
+<div class="mb-2"><code>sdl2.WasInit(flags:number) {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Use this function to return a mask of the specified subsystems which have previously been initialized.
 </p>
@@ -128,25 +133,33 @@ These are the flags which may be passed to <code class="highlighter-rouge">SDL_W
 <p>
 If you want to initialize subsystems separately you would call <code class="highlighter-rouge">SDL_Init(0)</code> followed by <code class="highlighter-rouge">SDL_InitSubSystem()</code> with the desired subsystem flag.
 </p>
-<div class="h5">sdl2.AddHintCallback</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AddHintCallback():void</code></div>
-<div class="h5">sdl2.ClearHints</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ClearHints():void</code></div>
-<div class="h5">sdl2.DelhintCallback</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.DelhintCallback():void</code></div>
-<div class="h5">sdl2.GetHint</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetHint():void</code></div>
-<div class="h5">sdl2.SetHint</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetHint():void</code></div>
-<div class="h5">sdl2.SetHintWithPriority</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetHintWithPriority():void</code></div>
-<div class="h5">sdl2.ClearError</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ClearError():void</code></div>
+</div>
+<div class="mb-2"><code>sdl2.AddHintCallback():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ClearHints():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.DelhintCallback():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetHint():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetHint():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetHintWithPriority():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ClearError():void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Use this function to clear any previous error message.
 </p>
-<div class="h5">sdl2.GetError</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetError() {block?}</code></div>
+</div>
+<div class="mb-2"><code>sdl2.GetError() {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Use this function to retrieve a message about the last error that occurred.
 </p>
@@ -159,998 +172,1495 @@ This string is statically allocated and must not be freed by the application.
 <p>
 It is possible for multiple errors to occur before calling <code class="highlighter-rouge">SDL_GetError()</code>. Only the last error is returned.
 </p>
-<div class="h5">sdl2.SetError</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetError():void</code></div>
-<div class="h5">sdl2.Log</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.Log():void</code></div>
-<div class="h5">sdl2.LogCritical</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogCritical():void</code></div>
-<div class="h5">sdl2.LogDebug</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogDebug():void</code></div>
-<div class="h5">sdl2.LogError</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogError():void</code></div>
-<div class="h5">sdl2.LogGetOutputFunction</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogGetOutputFunction():void</code></div>
-<div class="h5">sdl2.LogGetPriority</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogGetPriority():void</code></div>
-<div class="h5">sdl2.LogInfo</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogInfo():void</code></div>
-<div class="h5">sdl2.LogMessage</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogMessage():void</code></div>
-<div class="h5">sdl2.LogMessageV</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogMessageV():void</code></div>
-<div class="h5">sdl2.LogResetPriorities</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogResetPriorities():void</code></div>
-<div class="h5">sdl2.LogSetAllPriority</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogSetAllPriority():void</code></div>
-<div class="h5">sdl2.LogSetOutputFunction</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogSetOutputFunction():void</code></div>
-<div class="h5">sdl2.LogSetPriority</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogSetPriority():void</code></div>
-<div class="h5">sdl2.LogVerbose</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogVerbose():void</code></div>
-<div class="h5">sdl2.LogWarn</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LogWarn():void</code></div>
-<div class="h5">sdl2.GetAssertionHandler</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetAssertionHandler():void</code></div>
-<div class="h5">sdl2.GetAssertionReport</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetAssertionReport():void</code></div>
-<div class="h5">sdl2.GetDefaultAssertionHandler</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetDefaultAssertionHandler():void</code></div>
-<div class="h5">sdl2.ResetAssertionReport</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ResetAssertionReport():void</code></div>
-<div class="h5">sdl2.SetAssertionHandler</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetAssertionHandler():void</code></div>
-<div class="h5">sdl2.TriggerBreakpoint</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.TriggerBreakpoint():void</code></div>
-<div class="h5">sdl2.assert</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.assert():void</code></div>
-<div class="h5">sdl2.assert_paranoid</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.assert_paranoid():void</code></div>
-<div class="h5">sdl2.assert_release</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.assert_release():void</code></div>
-<div class="h5">sdl2.GetRevision</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRevision() {block?}</code></div>
-<div class="h5">sdl2.GetRevisionNumber</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRevisionNumber() {block?}</code></div>
-<div class="h5">sdl2.GetVersion</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetVersion() {block?}</code></div>
-<div class="h5">sdl2.VERSION</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.VERSION() {block?}</code></div>
-<div class="h5">sdl2.VERSION_ATLEAST</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.VERSION_ATLEAST(X:number, Y:number, Z:number) {block?}</code></div>
-<div class="h5">sdl2.CreateWindow</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateWindow(title:string, x:number, y:number, w:number, h:number, flags:number) {block?}</code></div>
-<div class="h5">sdl2.CreateWindowAndRenderer</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateWindowAndRenderer(width:number, height:number, window_flags:number) {block?}</code></div>
-<div class="h5">sdl2.CreateWindowFrom</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateWindowFrom():void</code></div>
-<div class="h5">sdl2.DestroyWindow</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.DestroyWindow(window:sdl2.Window):void</code></div>
-<div class="h5">sdl2.DisableScreenSaver</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.DisableScreenSaver():void</code></div>
-<div class="h5">sdl2.EnableScreenSaver</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.EnableScreenSaver():void</code></div>
-<div class="h5">sdl2.GL_CreateContext</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_CreateContext(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GL_DeleteContext</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_DeleteContext(context:sdl2.GLContext):void</code></div>
-<div class="h5">sdl2.GL_ExtensionSupported</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_ExtensionSupported(extension:string) {block?}</code></div>
-<div class="h5">sdl2.GL_GetAttribute</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_GetAttribute(attr:number) {block?}</code></div>
-<div class="h5">sdl2.GL_GetCurrentContext</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_GetCurrentContext() {block?}</code></div>
-<div class="h5">sdl2.GL_GetCurrentWindow</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_GetCurrentWindow() {block?}</code></div>
-<div class="h5">sdl2.GL_GetDrawableSize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_GetDrawableSize(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GL_GetProcAddress</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_GetProcAddress():void</code></div>
-<div class="h5">sdl2.GL_GetSwapInterval</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_GetSwapInterval() {block?}</code></div>
-<div class="h5">sdl2.GL_LoadLibrary</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_LoadLibrary(path:string):void</code></div>
-<div class="h5">sdl2.GL_MakeCurrent</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_MakeCurrent(window:sdl2.Window, context:sdl2.GLContext):void</code></div>
-<div class="h5">sdl2.GL_ResetAttributes</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_ResetAttributes():void</code></div>
-<div class="h5">sdl2.GL_SetAttribute</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_SetAttribute(attr:number, value:number):void</code></div>
-<div class="h5">sdl2.GL_SetSwapInterval</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_SetSwapInterval(interval:number):void</code></div>
-<div class="h5">sdl2.GL_SwapWindow</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_SwapWindow(window:sdl2.Window):void</code></div>
-<div class="h5">sdl2.GL_UnloadLibrary</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_UnloadLibrary():void</code></div>
-<div class="h5">sdl2.GetClosestDisplayMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetClosestDisplayMode(displayIndex:number, mode:sdl2.DisplayMode) {block?}</code></div>
-<div class="h5">sdl2.GetCurrentDisplayMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetCurrentDisplayMode(displayIndex:number) {block?}</code></div>
-<div class="h5">sdl2.GetCurrentVideoDriver</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetCurrentVideoDriver() {block?}</code></div>
-<div class="h5">sdl2.GetDesktopDisplayMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetDesktopDisplayMode(displayIndex:number) {block?}</code></div>
-<div class="h5">sdl2.GetDisplayBounds</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetDisplayBounds(displayIndex:number) {block?}</code></div>
-<div class="h5">sdl2.GetDisplayMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetDisplayMode(displayIndex:number, modeIndex:number) {block?}</code></div>
-<div class="h5">sdl2.GetDisplayName</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetDisplayName(dipslayIndex:number) {block?}</code></div>
-<div class="h5">sdl2.GetNumDisplayModes</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetNumDisplayModes(displayIndex:number) {block?}</code></div>
-<div class="h5">sdl2.GetNumVideoDisplays</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetNumVideoDisplays() {block?}</code></div>
-<div class="h5">sdl2.GetNumVideoDrivers</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetNumVideoDrivers() {block?}</code></div>
-<div class="h5">sdl2.GetVideoDriver</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetVideoDriver(index:number) {block?}</code></div>
-<div class="h5">sdl2.GetWindowBrightness</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowBrightness(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowData</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowData(window:sdl2.Window, name:string):void</code></div>
-<div class="h5">sdl2.GetWindowDisplayIndex</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowDisplayIndex(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowDisplayMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowDisplayMode(window:sdl2.Window, mode:sdl2.DisplayMode):void</code></div>
-<div class="h5">sdl2.GetWindowFlags</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowFlags(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowFromID</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowFromID(id:number) {block?}</code></div>
-<div class="h5">sdl2.GetWindowGammaRamp</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowGammaRamp(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowGrab</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowGrab(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowID</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowID(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowMaximumSize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowMaximumSize(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowMinimumSize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowMinimumSize(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowPixelFormat</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowPixelFormat(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowPosition</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowPosition(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowSize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowSize(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowSurface</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowSurface(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowTitle</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowTitle(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetWindowWMInfo</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetWindowWMInfo(window:sdl2.Window):void</code></div>
-<div class="h5">sdl2.HideWindow</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HideWindow(window:sdl2.Window):void</code></div>
-<div class="h5">sdl2.IsScreenSaverEnabled</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.IsScreenSaverEnabled() {block?}</code></div>
-<div class="h5">sdl2.MaximizeWindow</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.MaximizeWindow(window:sdl2.Window):void</code></div>
-<div class="h5">sdl2.MinimizeWindow</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.MinimizeWindow(window:sdl2.Window):void</code></div>
-<div class="h5">sdl2.RaiseWindow</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RaiseWindow(window:sdl2.Window):void</code></div>
-<div class="h5">sdl2.RestoreWindow</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RestoreWindow(window:sdl2.Window):void</code></div>
-<div class="h5">sdl2.SetWindowBordered</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowBordered(window:sdl2.Window, bordered:boolean):void</code></div>
-<div class="h5">sdl2.SetWindowBrightness</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowBrightness(window:sdl2.Window, brightness:number):void</code></div>
-<div class="h5">sdl2.SetWindowData</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowData(window:sdl2.Window, name:string):void</code></div>
-<div class="h5">sdl2.SetWindowDisplayMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowDisplayMode(window:sdl2.Window, mode:sdl2.DisplayMode):void</code></div>
-<div class="h5">sdl2.SetWindowFullscreen</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowFullscreen(window:sdl2.Window, flags:number):void</code></div>
-<div class="h5">sdl2.SetWindowGammaRamp</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowGammaRamp(window:sdl2.Window, red[]:number, green[]:number, blue[]:number):void</code></div>
-<div class="h5">sdl2.SetWindowGrab</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowGrab(window:sdl2.Window, grabbed:boolean):void</code></div>
-<div class="h5">sdl2.SetWindowHitTest</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowHitTest(window:sdl2.Window):void</code></div>
-<div class="h5">sdl2.SetWindowIcon</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowIcon(window:sdl2.Window, icon:sdl2.Surface):void</code></div>
-<div class="h5">sdl2.SetWindowMaximumSize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowMaximumSize(window:sdl2.Window, max_w:number, max_h:number):void</code></div>
-<div class="h5">sdl2.SetWindowMinimumSize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowMinimumSize(window:sdl2.Window, min_w:number, min_h:number):void</code></div>
-<div class="h5">sdl2.SetWindowPosition</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowPosition(window:sdl2.Window, x:number, y:number):void</code></div>
-<div class="h5">sdl2.SetWindowSize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowSize(window:sdl2.Window, w:number, h:number):void</code></div>
-<div class="h5">sdl2.SetWindowTitle</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetWindowTitle(window:sdl2.Window, title:string):void</code></div>
-<div class="h5">sdl2.ShowMessageBox</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ShowMessageBox():void</code></div>
-<div class="h5">sdl2.ShowSimpleMessageBox</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ShowSimpleMessageBox(flags:number, title:string, message:string, window:sdl2.Window):void</code></div>
-<div class="h5">sdl2.ShowWindow</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ShowWindow(window:sdl2.Window):void</code></div>
-<div class="h5">sdl2.UpdateWindowSurface</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.UpdateWindowSurface(window:sdl2.Window):void</code></div>
-<div class="h5">sdl2.UpdateWindowSurfaceRects</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.UpdateWindowSurfaceRects(window:sdl2.Window, rects[]:sdl2.Rect):void</code></div>
-<div class="h5">sdl2.VideoInit</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.VideoInit(driver_name:string):void</code></div>
-<div class="h5">sdl2.VideoQuit</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.VideoQuit():void</code></div>
-<div class="h5">sdl2.CreateRenderer</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateRenderer(window:sdl2.Window, index:number, flags:number) {block?}</code></div>
-<div class="h5">sdl2.CreateSoftwareRenderer</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateSoftwareRenderer(surface:sdl2.Surface) {block?}</code></div>
-<div class="h5">sdl2.CreateTexture</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateTexture(renderer:sdl2.Renderer, format:number, access:number, w:number, h:number) {block?}</code></div>
-<div class="h5">sdl2.CreateTextureFromSurface</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateTextureFromSurface(renderer:sdl2.Renderer, surface:sdl2.Surface) {block?}</code></div>
-<div class="h5">sdl2.DestroyRenderer</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.DestroyRenderer(renderer:sdl2.Renderer):void</code></div>
-<div class="h5">sdl2.DestroyTexture</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.DestroyTexture(texture:sdl2.Texture):void</code></div>
-<div class="h5">sdl2.GL_BindTexture</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_BindTexture(texture:sdl2.Texture) {block?}</code></div>
-<div class="h5">sdl2.GL_UnbindTexture</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GL_UnbindTexture(texture:sdl2.Texture):void</code></div>
-<div class="h5">sdl2.GetNumRenderDrivers</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetNumRenderDrivers() {block?}</code></div>
-<div class="h5">sdl2.GetRenderDrawBlendMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRenderDrawBlendMode(renderer:sdl2.Renderer) {block?}</code></div>
-<div class="h5">sdl2.GetRenderDrawColor</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRenderDrawColor(renderer:sdl2.Renderer) {block?}</code></div>
-<div class="h5">sdl2.GetRenderDriverInfo</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRenderDriverInfo(index:number) {block?}</code></div>
-<div class="h5">sdl2.GetRenderTarget</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRenderTarget(renderer:sdl2.Renderer) {block?}</code></div>
-<div class="h5">sdl2.GetRenderer</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRenderer(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.GetRendererInfo</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRendererInfo(renderer:sdl2.Renderer) {block?}</code></div>
-<div class="h5">sdl2.GetRenderOutputSize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRenderOutputSize(renderer:sdl2.Renderer) {block?}</code></div>
-<div class="h5">sdl2.GetTextureAlphaMod</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetTextureAlphaMod(texture:sdl2.Texture) {block?}</code></div>
-<div class="h5">sdl2.GetTextureBlendMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetTextureBlendMode(texture:sdl2.Texture) {block?}</code></div>
-<div class="h5">sdl2.GetTextureColorMod</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetTextureColorMod(texture:sdl2.Texture) {block?}</code></div>
-<div class="h5">sdl2.LockTexture</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LockTexture(texture:sdl2.Texture, rect:sdl2.Rect):void</code></div>
-<div class="h5">sdl2.QueryTexture</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.QueryTexture(texture:sdl2.Texture) {block?}</code></div>
-<div class="h5">sdl2.RenderClear</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderClear(renderer:sdl2.Renderer):void</code></div>
-<div class="h5">sdl2.RenderCopy</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderCopy(renderer:sdl2.Renderer, texture:sdl2.Texture, srcrect:sdl2.Rect:nil, dstrect:sdl2.Rect:nil):void</code></div>
-<div class="h5">sdl2.RenderCopyEx</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderCopyEx(renderer:sdl2.Renderer, texture:sdl2.Texture, srcrect:sdl2.Rect:nil, dstrect:sdl2.Rect:nil, angle:number, center:sdl2.Point:nil, flip:number):void</code></div>
-<div class="h5">sdl2.RenderDrawLine</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderDrawLine(renderer:sdl2.Renderer, x1:number, y1:number, x2:number, y2:number):void</code></div>
-<div class="h5">sdl2.RenderDrawLines</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderDrawLines(renderer:sdl2.Renderer, points[]:sdl2.Point):void</code></div>
-<div class="h5">sdl2.RenderDrawPoint</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderDrawPoint(renderer:sdl2.Renderer, x:number, y:number):void</code></div>
-<div class="h5">sdl2.RenderDrawPoints</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderDrawPoints(renderer:sdl2.Renderer, points[]:sdl2.Point):void</code></div>
-<div class="h5">sdl2.RenderDrawRect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderDrawRect(renderer:sdl2.Renderer, rect:sdl2.Rect:nil):void</code></div>
-<div class="h5">sdl2.RenderDrawRects</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderDrawRects(renderer:sdl2.Renderer, rects[]:sdl2.Rect):void</code></div>
-<div class="h5">sdl2.RenderFillRect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderFillRect(renderer:sdl2.Renderer, rect:sdl2.Rect:nil):void</code></div>
-<div class="h5">sdl2.RenderFillRects</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderFillRects(renderer:sdl2.Renderer, rects[]:sdl2.Rect):void</code></div>
-<div class="h5">sdl2.RenderGetClipRect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderGetClipRect(renderer:sdl2.Renderer) {block?}</code></div>
-<div class="h5">sdl2.RenderGetLogicalSize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderGetLogicalSize(renderer:sdl2.Renderer) {block?}</code></div>
-<div class="h5">sdl2.RenderGetScale</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderGetScale(renderer:sdl2.Renderer) {block?}</code></div>
-<div class="h5">sdl2.RenderGetViewport</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderGetViewport(renderer:sdl2.Renderer) {block?}</code></div>
-<div class="h5">sdl2.RenderIsClipEnabled</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderIsClipEnabled(renderer:sdl2.Renderer)</code></div>
-<div class="h5">sdl2.RenderPresent</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderPresent(renderer:sdl2.Renderer):void</code></div>
-<div class="h5">sdl2.RenderReadPixels</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderReadPixels(renderer:sdl2.Renderer, rect:sdl2.Rect:nil, format:symbol) {block?}</code></div>
-<div class="h5">sdl2.RenderSetClipRect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderSetClipRect(renderer:sdl2.Renderer, rect:sdl2.Rect:nil):void</code></div>
-<div class="h5">sdl2.RenderSetLogicalSize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderSetLogicalSize(renderer:sdl2.Renderer, w:number, h:number):void</code></div>
-<div class="h5">sdl2.RenderSetScale</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderSetScale(renderer:sdl2.Renderer, scaleX:number, scaleY:number):void</code></div>
-<div class="h5">sdl2.RenderSetViewport</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderSetViewport(renderer:sdl2.Renderer, rect:sdl2.Rect:nil):void</code></div>
-<div class="h5">sdl2.RenderTargetSupported</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RenderTargetSupported(renderer:sdl2.Renderer) {block?}</code></div>
-<div class="h5">sdl2.SetRenderDrawBlendMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetRenderDrawBlendMode(renderer:sdl2.Renderer, blendMode:number):void</code></div>
-<div class="h5">sdl2.SetRenderDrawColor</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetRenderDrawColor(renderer:sdl2.Renderer, r:number, g:number, b:number, a:number):void</code></div>
-<div class="h5">sdl2.SetRenderTarget</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetRenderTarget(renderer:sdl2.Renderer, texture:sdl2.Texture:nil):void</code></div>
-<div class="h5">sdl2.SetTextureAlphaMod</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetTextureAlphaMod(texture:sdl2.Texture, alpha:number):void</code></div>
-<div class="h5">sdl2.SetTextureBlendMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetTextureBlendMode(texture:sdl2.Texture, blendMode:number):void</code></div>
-<div class="h5">sdl2.SetTextureColorMod</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetTextureColorMod(texture:sdl2.Texture, r:number, g:number, b:number):void</code></div>
-<div class="h5">sdl2.UnlockTexture</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.UnlockTexture(texture:sdl2.Texture):void</code></div>
-<div class="h5">sdl2.UpdateTexture</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.UpdateTexture(texture:sdl2.Texture, rect:sdl2.Rect:nil, pitch:number):void</code></div>
-<div class="h5">sdl2.UpdateYUVTexture</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.UpdateYUVTexture():void</code></div>
-<div class="h5">sdl2.AllocFormat</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AllocFormat(pixel_format:number) {block?}</code></div>
-<div class="h5">sdl2.AllocPalette</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AllocPalette(ncolors:number) {block?}</code></div>
-<div class="h5">sdl2.CalculateGammaRamp</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CalculateGammaRamp(gamma:number) {block?}</code></div>
-<div class="h5">sdl2.FreeFormat</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.FreeFormat(format:sdl2.PixelFormat):void</code></div>
-<div class="h5">sdl2.FreePalette</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.FreePalette(palette:sdl2.Palette):void</code></div>
-<div class="h5">sdl2.GetPixelFormatName</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetPixelFormatName(format:number) {block?}</code></div>
-<div class="h5">sdl2.GetRGB</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRGB(pixel:number, format:sdl2.PixelFormat) {block?}</code></div>
-<div class="h5">sdl2.GetRGBA</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRGBA(pixel:number, format:sdl2.PixelFormat) {block?}</code></div>
-<div class="h5">sdl2.MapRGB</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.MapRGB(format:sdl2.PixelFormat, r:number, g:number, b:number) {block?}</code></div>
-<div class="h5">sdl2.MapRGBA</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.MapRGBA(format:sdl2.PixelFormat, r:number, g:number, b:number, a:number) {block?}</code></div>
-<div class="h5">sdl2.MasksToPixelFormatEnum</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.MasksToPixelFormatEnum(bpp:number, Rmask:number, Gmask:number, Bmask:number, Amask:number) {block?}</code></div>
-<div class="h5">sdl2.PixelFormatEnumToMasks</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.PixelFormatEnumToMasks(format:number) {block?}</code></div>
-<div class="h5">sdl2.SetPaletteColors</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetPaletteColors(palette:sdl2.Palette, colors[]:sdl2.Color, firstcolor:number, ncolors:number):void</code></div>
-<div class="h5">sdl2.SetPixelFormatPalette</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetPixelFormatPalette(format:sdl2.PixelFormat, palette:sdl2.Palette):void</code></div>
-<div class="h5">sdl2.EnclosePoints</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.EnclosePoints(points[]:sdl2.Point, clip:sdl2.Rect) {block?}</code></div>
-<div class="h5">sdl2.HasIntersection</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasIntersection(A:sdl2.Rect, B:sdl2.Rect) {block?}</code></div>
-<div class="h5">sdl2.IntersectRect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.IntersectRect(A:sdl2.Rect, B:sdl2.Rect) {block?}</code></div>
-<div class="h5">sdl2.IntersectRectAndLine</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.IntersectRectAndLine(rect:sdl2.Rect, X1:number, Y1:number, X2:number, Y2:number):void</code></div>
-<div class="h5">sdl2.PointInRect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.PointInRect(p:sdl2.Point, r:sdl2.Rect):void</code></div>
-<div class="h5">sdl2.RectEmpty</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RectEmpty(r:sdl2.Rect) {block?}</code></div>
-<div class="h5">sdl2.RectEquals</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RectEquals(a:sdl2.Rect, b:sdl2.Rect) {block?}</code></div>
-<div class="h5">sdl2.UnionRect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.UnionRect(A:sdl2.Rect, B:sdl2.Rect) {block?}</code></div>
-<div class="h5">sdl2.BlitScaled</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.BlitScaled(src:sdl2.Surface, srcrect:sdl2.Rect:nil, dst:sdl2.Surface, dstrect:sdl2.Rect:nil):void</code></div>
-<div class="h5">sdl2.BlitSurface</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.BlitSurface(src:sdl2.Surface, srcrect:sdl2.Rect:nil, dst:sdl2.Surface, dstrect:sdl2.Rect:nil):void</code></div>
-<div class="h5">sdl2.ConvertPixels</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ConvertPixels(width:number, height:number, src_format:number, dst_format:number):void</code></div>
-<div class="h5">sdl2.ConvertSurface</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ConvertSurface(src:sdl2.Surface, fmt:sdl2.PixelFormat, flags:number) {block?}</code></div>
-<div class="h5">sdl2.ConvertSurfaceFormat</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ConvertSurfaceFormat(src:sdl2.Surface, pixel_format:number, flags:number) {block?}</code></div>
-<div class="h5">sdl2.CreateRGBSurface</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateRGBSurface(flags:number, width:number, height:number, depth:number, Rmask:number, Gmask:number, Bmask:number, Amask:number) {block?}</code></div>
-<div class="h5">sdl2.CreateRGBSurfaceFrom</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateRGBSurfaceFrom(pixels:array:nomap, width:number, height:number, depth:number, pitch:number, Rmask:number, Gmask:number, Bmask:number, Amask:number) {block?}</code></div>
-<div class="h5">sdl2.CreateRGBSurfaceFromImage</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateRGBSurfaceFromImage(image:image) {block?}</code></div>
-<div class="h5">sdl2.FillRect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.FillRect(dst:sdl2.Surface, rect:sdl2.Rect:nil, color:number):void</code></div>
-<div class="h5">sdl2.FillRects</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.FillRects(dst:sdl2.Surface, rects[]:sdl2.Rect, color:number):void</code></div>
-<div class="h5">sdl2.FreeSurface</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.FreeSurface(surface:sdl2.Surface):void</code></div>
-<div class="h5">sdl2.GetClipRect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetClipRect(surface:sdl2.Surface) {block?}</code></div>
-<div class="h5">sdl2.GetColorKey</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetColorKey(surface:sdl2.Surface) {block?}</code></div>
-<div class="h5">sdl2.GetSurfaceAlphaMod</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetSurfaceAlphaMod(surface:sdl2.Surface) {block?}</code></div>
-<div class="h5">sdl2.GetSurfaceBlendMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetSurfaceBlendMode(surface:sdl2.Surface) {block?}</code></div>
-<div class="h5">sdl2.GetSurfaceColorMod</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetSurfaceColorMod(surface:sdl2.Surface) {block?}</code></div>
-<div class="h5">sdl2.LoadBMP</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LoadBMP(src:stream) {block?}</code></div>
-<div class="h5">sdl2.LoadBMP_RW</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LoadBMP_RW():void</code></div>
-<div class="h5">sdl2.LockSurface</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LockSurface(surface:sdl2.Surface):void</code></div>
-<div class="h5">sdl2.LowerBlit</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LowerBlit(src:sdl2.Surface, srcrect:sdl2.Rect:nil, dst:sdl2.Surface, dstrect:sdl2.Rect:nil):void</code></div>
-<div class="h5">sdl2.LowerBlitScaled</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LowerBlitScaled(src:sdl2.Surface, srcrect:sdl2.Rect:nil, dst:sdl2.Surface, dstrect:sdl2.Rect:nil):void</code></div>
-<div class="h5">sdl2.MUSTLOCK</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.MUSTLOCK(surface:sdl2.Surface) {block?}</code></div>
-<div class="h5">sdl2.SaveBMP</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SaveBMP(surface:sdl2.Surface, dst:stream) {block?}</code></div>
-<div class="h5">sdl2.SaveBMP_RW</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SaveBMP_RW():void</code></div>
-<div class="h5">sdl2.SetClipRect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetClipRect(surface:sdl2.Surface, rect:sdl2.Rect) {block?}</code></div>
-<div class="h5">sdl2.SetColorKey</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetColorKey(surface:sdl2.Surface, flag:number, key:number):void</code></div>
-<div class="h5">sdl2.SetSurfaceAlphaMod</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetSurfaceAlphaMod(surface:sdl2.Surface, alpha:number):void</code></div>
-<div class="h5">sdl2.SetSurfaceBlendMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetSurfaceBlendMode(surface:sdl2.Surface, blendMode:number):void</code></div>
-<div class="h5">sdl2.SetSurfaceColorMod</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetSurfaceColorMod(surface:sdl2.Surface, r:number, g:number, b:number):void</code></div>
-<div class="h5">sdl2.SetSurfacePalette</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetSurfacePalette(surface:sdl2.Surface, palette:sdl2.Palette):void</code></div>
-<div class="h5">sdl2.SetSurfaceRLE</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetSurfaceRLE(surface:sdl2.Surface, flag:number):void</code></div>
-<div class="h5">sdl2.UnlockSurface</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.UnlockSurface(surface:sdl2.Surface):void</code></div>
-<div class="h5">sdl2.GetClipboardText</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetClipboardText() {block?}</code></div>
-<div class="h5">sdl2.HasClipboardText</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasClipboardText() {block?}</code></div>
-<div class="h5">sdl2.SetClipboardText</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetClipboardText(text:string):void</code></div>
-<div class="h5">sdl2.AddEventWatch</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AddEventWatch():void</code></div>
-<div class="h5">sdl2.DelEventWatch</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.DelEventWatch():void</code></div>
-<div class="h5">sdl2.EventState</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.EventState(type:number, state:number) {block?}</code></div>
-<div class="h5">sdl2.FilterEvents</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.FilterEvents():void</code></div>
-<div class="h5">sdl2.FlushEvent</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.FlushEvent(type:number):void</code></div>
-<div class="h5">sdl2.FlushEvents</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.FlushEvents(minType:number, maxType:number):void</code></div>
-<div class="h5">sdl2.GetEventFilter</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetEventFilter():void</code></div>
-<div class="h5">sdl2.GetNumTouchDevices</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetNumTouchDevices() {block?}</code></div>
-<div class="h5">sdl2.GetNumTouchFingers</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetNumTouchFingers(touchId:number) {block?}</code></div>
-<div class="h5">sdl2.GetTouchDevice</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetTouchDevice(index:number) {block?}</code></div>
-<div class="h5">sdl2.GetTouchFinger</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetTouchFinger(touchId:number, index:number) {block?}</code></div>
-<div class="h5">sdl2.HasEvent</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasEvent(type:number) {block?}</code></div>
-<div class="h5">sdl2.HasEvents</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasEvents(minType:number, maxType:number) {block?}</code></div>
-<div class="h5">sdl2.LoadDollarTemplates</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LoadDollarTemplates(touchId:number, src:stream) {block?}</code></div>
-<div class="h5">sdl2.AddEvents</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AddEvents(events[]:sdl2.Event) {block?}</code></div>
-<div class="h5">sdl2.PeekEvents</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.PeekEvents(numevents:number, minType:number, maxType:number) {block?}</code></div>
-<div class="h5">sdl2.GetEvents</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetEvents(numevents:number, minType:number, maxType:number) {block?}</code></div>
-<div class="h5">sdl2.PollEvent</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.PollEvent() {block?}</code></div>
-<div class="h5">sdl2.PumpEvents</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.PumpEvents():void</code></div>
-<div class="h5">sdl2.PushEvent</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.PushEvent(event:sdl2.Event) {block?}</code></div>
-<div class="h5">sdl2.QuitRequested</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.QuitRequested() {block?}</code></div>
-<div class="h5">sdl2.RecordGesture</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RecordGesture(touchId:number) {block?}</code></div>
-<div class="h5">sdl2.RegisterEvents</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RegisterEvents(numevents:number) {block?}</code></div>
-<div class="h5">sdl2.SaveAllDollarTemplates</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SaveAllDollarTemplates(dst:stream) {block?}</code></div>
-<div class="h5">sdl2.SaveDollarTemplate</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SaveDollarTemplate(gestureId:number, dst:stream):void</code></div>
-<div class="h5">sdl2.SetEventFilter</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetEventFilter():void</code></div>
-<div class="h5">sdl2.WaitEvent</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.WaitEvent() {block?}</code></div>
-<div class="h5">sdl2.WaitEventTimeout</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.WaitEventTimeout(timeout:number) {block?}</code></div>
-<div class="h5">sdl2.CheckKeyboardState</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CheckKeyboardState(scancode:number) {block?}</code></div>
-<div class="h5">sdl2.GetKeyFromName</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetKeyFromName(name:string) {block?}</code></div>
-<div class="h5">sdl2.GetKeyFromScancode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetKeyFromScancode(scancode:number) {block?}</code></div>
-<div class="h5">sdl2.GetKeyName</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetKeyName(key:number) {block?}</code></div>
-<div class="h5">sdl2.GetKeyboardFocus</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetKeyboardFocus() {block?}</code></div>
-<div class="h5">sdl2.GetKeyboardState</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetKeyboardState() {block?}</code></div>
-<div class="h5">sdl2.GetModState</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetModState() {block?}</code></div>
-<div class="h5">sdl2.GetScancodeFromKey</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetScancodeFromKey(key:number) {block?}</code></div>
-<div class="h5">sdl2.GetScancodeFromName</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetScancodeFromName(name:string) {block?}</code></div>
-<div class="h5">sdl2.GetScancodeName</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetScancodeName(scancode:number) {block?}</code></div>
-<div class="h5">sdl2.HasScreenKeyboardSupport</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasScreenKeyboardSupport() {block?}</code></div>
-<div class="h5">sdl2.IsScreenKeyboardShown</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.IsScreenKeyboardShown(window:sdl2.Window) {block?}</code></div>
-<div class="h5">sdl2.IsTextInputActive</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.IsTextInputActive() {block?}</code></div>
-<div class="h5">sdl2.SetModState</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetModState(modstate:number):void</code></div>
-<div class="h5">sdl2.SetTextInputRect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetTextInputRect(rect:sdl2.Rect):void</code></div>
-<div class="h5">sdl2.StartTextInput</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.StartTextInput():void</code></div>
-<div class="h5">sdl2.StopTextInput</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.StopTextInput():void</code></div>
-<div class="h5">sdl2.CaptureMouse</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CaptureMouse(enalbed:boolean):void</code></div>
-<div class="h5">sdl2.CreateColorCursor</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateColorCursor(surface:sdl2.Surface, hot_x:number, hot_y:number) {block?}</code></div>
-<div class="h5">sdl2.CreateCursor</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateCursor(data:array@uint8:nomap, mask:array@uint8:nomap, w:number, h:number, hot_x:number, hot_y:number) {block?}</code></div>
-<div class="h5">sdl2.CreateSystemCursor</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateSystemCursor(id:number) {block?}</code></div>
-<div class="h5">sdl2.FreeCursor</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.FreeCursor(cursor:sdl2.Cursor):void</code></div>
-<div class="h5">sdl2.GetCursor</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetCursor() {block?}</code></div>
-<div class="h5">sdl2.GetDefaultCursor</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetDefaultCursor() {block?}</code></div>
-<div class="h5">sdl2.GetGlobalMouseState</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetGlobalMouseState():void</code></div>
-<div class="h5">sdl2.GetMouseFocus</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetMouseFocus() {block?}</code></div>
-<div class="h5">sdl2.GetMouseState</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetMouseState() {block?}</code></div>
-<div class="h5">sdl2.GetRelativeMouseMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRelativeMouseMode() {block?}</code></div>
-<div class="h5">sdl2.GetRelativeMouseState</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetRelativeMouseState() {block?}</code></div>
-<div class="h5">sdl2.SetCursor</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetCursor(cursor:sdl2.Cursor):void</code></div>
-<div class="h5">sdl2.SetRelativeMouseMode</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SetRelativeMouseMode(enabled:boolean):void</code></div>
-<div class="h5">sdl2.ShowCursor</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ShowCursor(toggle:number):void</code></div>
-<div class="h5">sdl2.WarpMouseGlobal</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.WarpMouseGlobal(x:number, y:number):void</code></div>
-<div class="h5">sdl2.WarpMouseInWindow</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.WarpMouseInWindow(window:sdl2.Window, x:number, y:number):void</code></div>
-<div class="h5">sdl2.JoystickClose</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickClose(joystick:sdl2.Joystick):void</code></div>
-<div class="h5">sdl2.JoystickEventState</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickEventState(state:number) {block?}</code></div>
-<div class="h5">sdl2.JoystickGetAttached</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickGetAttached(joystick:sdl2.Joystick) {block?}</code></div>
-<div class="h5">sdl2.JoystickGetAxis</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickGetAxis(joystick:sdl2.Joystick, axis:number) {block?}</code></div>
-<div class="h5">sdl2.JoystickGetBall</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickGetBall(joystick:sdl2.Joystick, ball:number) {block?}</code></div>
-<div class="h5">sdl2.JoystickGetButton</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickGetButton(joystick:sdl2.Joystick, button:number) {block?}</code></div>
-<div class="h5">sdl2.JoystickGetDeviceGUID</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickGetDeviceGUID(device_index:number) {block?}</code></div>
-<div class="h5">sdl2.JoystickGetGUID</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickGetGUID(joystick:sdl2.Joystick) {block?}</code></div>
-<div class="h5">sdl2.JoystickGetGUIDFromString</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickGetGUIDFromString(pchGUID:string) {block?}</code></div>
-<div class="h5">sdl2.JoystickGetGUIDString</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickGetGUIDString(guid:sdl2.JoystickGUID) {block?}</code></div>
-<div class="h5">sdl2.JoystickGetHat</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickGetHat(joystick:sdl2.Joystick, hat:number) {block?}</code></div>
-<div class="h5">sdl2.JoystickInstanceID</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickInstanceID(joystick:sdl2.Joystick) {block?}</code></div>
-<div class="h5">sdl2.JoystickName</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickName(joystick:sdl2.Joystick) {block?}</code></div>
-<div class="h5">sdl2.JoystickNameForIndex</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickNameForIndex(device_index:number) {block?}</code></div>
-<div class="h5">sdl2.JoystickNumAxes</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickNumAxes(joystick:sdl2.Joystick) {block?}</code></div>
-<div class="h5">sdl2.JoystickNumBalls</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickNumBalls(joystick:sdl2.Joystick) {block?}</code></div>
-<div class="h5">sdl2.JoystickNumButtons</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickNumButtons(joystick:sdl2.Joystick) {block?}</code></div>
-<div class="h5">sdl2.JoystickNumHats</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickNumHats(joystick:sdl2.Joystick) {block?}</code></div>
-<div class="h5">sdl2.JoystickOpen</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickOpen(device_index:number) {block?}</code></div>
-<div class="h5">sdl2.JoystickUpdate</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickUpdate():void</code></div>
-<div class="h5">sdl2.NumJoysticks</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.NumJoysticks() {block?}</code></div>
-<div class="h5">sdl2.GameControllerAddMapping</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerAddMapping(mappingString:string) {block?}</code></div>
-<div class="h5">sdl2.GameControllerAddMappingsFromFile</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerAddMappingsFromFile(file:stream) {block?}</code></div>
-<div class="h5">sdl2.GameControllerAddMappingsFromRW</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerAddMappingsFromRW():void</code></div>
-<div class="h5">sdl2.GameControllerClose</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerClose(gamecontroller:sdl2.GameController):void</code></div>
-<div class="h5">sdl2.GameControllerEventState</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerEventState(state:number) {block?}</code></div>
-<div class="h5">sdl2.GameControllerGetAttached</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerGetAttached(gamecontroller:sdl2.GameController) {block?}</code></div>
-<div class="h5">sdl2.GameControllerGetAxis</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerGetAxis(gamecontroller:sdl2.GameController, axis:number) {block?}</code></div>
-<div class="h5">sdl2.GameControllerGetAxisFromString</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerGetAxisFromString(pchString:string) {block?}</code></div>
-<div class="h5">sdl2.GameControllerGetBindForAxis</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerGetBindForAxis(gamecontroller:sdl2.GameController, axis:number) {block?}</code></div>
-<div class="h5">sdl2.GameControllerGetBindForButton</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerGetBindForButton(gamecontroller:sdl2.GameController, button:number) {block?}</code></div>
-<div class="h5">sdl2.GameControllerGetButton</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerGetButton(gamecontroller:sdl2.GameController, button:number) {block?}</code></div>
-<div class="h5">sdl2.GameControllerGetButtonFromString</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerGetButtonFromString(pchString:string) {block?}</code></div>
-<div class="h5">sdl2.GameControllerGetJoystick</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerGetJoystick(gamecontroller:sdl2.GameController) {block?}</code></div>
-<div class="h5">sdl2.GameControllerGetStringForAxis</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerGetStringForAxis(axis:number) {block?}</code></div>
-<div class="h5">sdl2.GameControllerGetStringForButton</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerGetStringForButton(button:number) {block?}</code></div>
-<div class="h5">sdl2.GameControllerMapping</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerMapping(gamecontroller:sdl2.GameController) {block?}</code></div>
-<div class="h5">sdl2.GameControllerMappingForGUID</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerMappingForGUID(guid:sdl2.JoystickGUID) {block?}</code></div>
-<div class="h5">sdl2.GameControllerName</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerName(gamecontroller:sdl2.GameController) {block?}</code></div>
-<div class="h5">sdl2.GameControllerNameForIndex</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerNameForIndex(joystick_index:number) {block?}</code></div>
-<div class="h5">sdl2.GameControllerOpen</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerOpen(joystick_index:number) {block?}</code></div>
-<div class="h5">sdl2.GameControllerUpdate</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GameControllerUpdate():void</code></div>
-<div class="h5">sdl2.IsGameController</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.IsGameController(joystick_index:number) {block?}</code></div>
-<div class="h5">sdl2.HapticClose</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticClose(haptic:sdl2.Haptic):void</code></div>
-<div class="h5">sdl2.HapticDestroyEffect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticDestroyEffect(haptic:sdl2.Haptic, effect:number):void</code></div>
-<div class="h5">sdl2.HapticEffectSupported</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticEffectSupported(haptic:sdl2.Haptic, effect:sdl2.HapticEffect) {block?}</code></div>
-<div class="h5">sdl2.HapticGetEffectStatus</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticGetEffectStatus(haptic:sdl2.Haptic, effect:number) {block?}</code></div>
-<div class="h5">sdl2.HapticIndex</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticIndex(haptic:sdl2.Haptic) {block?}</code></div>
-<div class="h5">sdl2.HapticName</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticName(device_index:number) {block?}</code></div>
-<div class="h5">sdl2.HapticNewEffect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticNewEffect(haptic:sdl2.Haptic, effect:sdl2.HapticEffect) {block?}</code></div>
-<div class="h5">sdl2.HapticNumAxes</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticNumAxes(haptic:sdl2.Haptic) {block?}</code></div>
-<div class="h5">sdl2.HapticNumEffects</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticNumEffects(haptic:sdl2.Haptic) {block?}</code></div>
-<div class="h5">sdl2.HapticNumEffectsPlaying</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticNumEffectsPlaying(haptic:sdl2.Haptic) {block?}</code></div>
-<div class="h5">sdl2.HapticOpen</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticOpen(device_index:number) {block?}</code></div>
-<div class="h5">sdl2.HapticOpenFromJoystick</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticOpenFromJoystick(joystick:sdl2.Joystick) {block?}</code></div>
-<div class="h5">sdl2.HapticOpenFromMouse</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticOpenFromMouse() {block?}</code></div>
-<div class="h5">sdl2.HapticOpened</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticOpened(device_index:number) {block?}</code></div>
-<div class="h5">sdl2.HapticPause</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticPause(haptic:sdl2.Haptic):void</code></div>
-<div class="h5">sdl2.HapticQuery</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticQuery(haptic:sdl2.Haptic) {block?}</code></div>
-<div class="h5">sdl2.HapticRumbleInit</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticRumbleInit(haptic:sdl2.Haptic):void</code></div>
-<div class="h5">sdl2.HapticRumblePlay</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticRumblePlay(haptic:sdl2.Haptic, strength:number, length:number):void</code></div>
-<div class="h5">sdl2.HapticRumbleStop</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticRumbleStop(haptic:sdl2.Haptic):void</code></div>
-<div class="h5">sdl2.HapticRumbleSupported</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticRumbleSupported(haptic:sdl2.Haptic) {block?}</code></div>
-<div class="h5">sdl2.HapticRunEffect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticRunEffect(haptic:sdl2.Haptic, effect:number, iterations:number):void</code></div>
-<div class="h5">sdl2.HapticSetAutocenter</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticSetAutocenter(haptic:sdl2.Haptic, autocenter:number):void</code></div>
-<div class="h5">sdl2.HapticSetGain</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticSetGain(haptic:sdl2.Haptic, gain:number):void</code></div>
-<div class="h5">sdl2.HapticStopAll</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticStopAll(haptic:sdl2.Haptic):void</code></div>
-<div class="h5">sdl2.HapticStopEffect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticStopEffect(haptic:sdl2.Haptic, effect:number):void</code></div>
-<div class="h5">sdl2.HapticUnpause</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticUnpause(haptic:sdl2.Haptic):void</code></div>
-<div class="h5">sdl2.HapticUpdateEffect</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HapticUpdateEffect(haptic:sdl2.Haptic, effect:number, data:sdl2.HapticEffect):void</code></div>
-<div class="h5">sdl2.JoystickIsHaptic</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.JoystickIsHaptic(joystick:sdl2.Joystick) {block?}</code></div>
-<div class="h5">sdl2.MouseIsHaptic</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.MouseIsHaptic() {block?}</code></div>
-<div class="h5">sdl2.NumHaptics</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.NumHaptics() {block?}</code></div>
-<div class="h5">sdl2.AudioInit</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AudioInit(driver_name:string):void</code></div>
-<div class="h5">sdl2.AudioQuit</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AudioQuit():void</code></div>
-<div class="h5">sdl2.BuildAudioCVT</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.BuildAudioCVT(cvt:sdl2.AudioCVT, src_format:number, src_channels:number, src_rate:number, dst_format:number, dst_channels:number, dst_rate:number) {block?}</code></div>
-<div class="h5">sdl2.ClearQueuedAudio</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ClearQueuedAudio(dev:number):void</code></div>
-<div class="h5">sdl2.CloseAudio</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CloseAudio():void</code></div>
-<div class="h5">sdl2.CloseAudioDevice</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CloseAudioDevice(dev:number):void</code></div>
-<div class="h5">sdl2.ConvertAudio</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ConvertAudio(cvt:sdl2.AudioCVT):void</code></div>
-<div class="h5">sdl2.FreeWAV</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.FreeWAV(wav:sdl2.Wav):void</code></div>
-<div class="h5">sdl2.GetAudioDeviceName</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetAudioDeviceName(index:number, iscapture:number) {block?}</code></div>
-<div class="h5">sdl2.GetAudioDeviceStatus</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetAudioDeviceStatus(dev:number) {block?}</code></div>
-<div class="h5">sdl2.GetAudioDriver</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetAudioDriver(index:number) {block?}</code></div>
-<div class="h5">sdl2.GetAudioStatus</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetAudioStatus() {block?}</code></div>
-<div class="h5">sdl2.GetCurrentAudioDriver</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetCurrentAudioDriver() {block?}</code></div>
-<div class="h5">sdl2.GetNumAudioDevices</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetNumAudioDevices(iscapture:number) {block?}</code></div>
-<div class="h5">sdl2.GetNumAudioDrivers</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetNumAudioDrivers() {block?}</code></div>
-<div class="h5">sdl2.GetQueuedAudioSize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetQueuedAudioSize(dev:number):void</code></div>
-<div class="h5">sdl2.LoadWAV</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LoadWAV(file:stream) {block?}</code></div>
-<div class="h5">sdl2.LoadWAV_RW</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LoadWAV_RW():void</code></div>
-<div class="h5">sdl2.LockAudio</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LockAudio():void</code></div>
-<div class="h5">sdl2.LockAudioDevice</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LockAudioDevice(dev:number):void</code></div>
-<div class="h5">sdl2.MixAudio</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.MixAudio(volume:number):void</code></div>
-<div class="h5">sdl2.MixAudioFormat</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.MixAudioFormat(format:number, volume:number):void</code></div>
-<div class="h5">sdl2.OpenAudio</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.OpenAudio(desired:sdl2.AudioSpec) {block?}</code></div>
-<div class="h5">sdl2.OpenAudioDevice</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.OpenAudioDevice(device:string, iscapture:number, desired:sdl2.AudioSpec, allowed_changes:number):void</code></div>
-<div class="h5">sdl2.PauseAudio</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.PauseAudio(pause_on:number):void</code></div>
-<div class="h5">sdl2.PauseAudioDevice</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.PauseAudioDevice(dev:number, pause_on:number):void</code></div>
-<div class="h5">sdl2.QueueAudio</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.QueueAudio(dev:number):void</code></div>
-<div class="h5">sdl2.UnlockAudio</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.UnlockAudio():void</code></div>
-<div class="h5">sdl2.UnlockAudioDevice</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.UnlockAudioDevice(dev:number):void</code></div>
-<div class="h5">sdl2.AUDIO_BITSIZE</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AUDIO_BITSIZE(x:number) {block?}</code></div>
-<div class="h5">sdl2.AUDIO_ISFLOAT</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AUDIO_ISFLOAT(x:number) {block?}</code></div>
-<div class="h5">sdl2.AUDIO_ISBIGENDIAN</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AUDIO_ISBIGENDIAN(x:number) {block?}</code></div>
-<div class="h5">sdl2.AUDIO_ISSIGNED</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AUDIO_ISSIGNED(x:number) {block?}</code></div>
-<div class="h5">sdl2.AUDIO_ISINT</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AUDIO_ISINT(x:number) {block?}</code></div>
-<div class="h5">sdl2.AUDIO_ISLITTLEENDIAN</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AUDIO_ISLITTLEENDIAN(x:number) {block?}</code></div>
-<div class="h5">sdl2.AUDIO_ISUNSIGNED</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AUDIO_ISUNSIGNED(x:number) {block?}</code></div>
-<div class="h5">sdl2.CreateThread</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateThread():void</code></div>
-<div class="h5">sdl2.DetachThread</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.DetachThread():void</code></div>
-<div class="h5">sdl2.GetThreadID</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetThreadID():void</code></div>
-<div class="h5">sdl2.GetThreadName</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetThreadName():void</code></div>
-<div class="h5">sdl2.GetThreadPriority</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetThreadPriority():void</code></div>
-<div class="h5">sdl2.TLSCreate</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.TLSCreate():void</code></div>
-<div class="h5">sdl2.TLSGet</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.TLSGet():void</code></div>
-<div class="h5">sdl2.TLSSet</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.TLSSet():void</code></div>
-<div class="h5">sdl2.ThreadID</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ThreadID():void</code></div>
-<div class="h5">sdl2.WaitThread</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.WaitThread():void</code></div>
-<div class="h5">sdl2.CondBroadcast</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CondBroadcast():void</code></div>
-<div class="h5">sdl2.CondSignal</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CondSignal():void</code></div>
-<div class="h5">sdl2.CondWait</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CondWait():void</code></div>
-<div class="h5">sdl2.CondWaitTimeout</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CondWaitTimeout():void</code></div>
-<div class="h5">sdl2.CreateCond</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateCond():void</code></div>
-<div class="h5">sdl2.CreateMutex</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateMutex():void</code></div>
-<div class="h5">sdl2.CreateSemaphore</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CreateSemaphore():void</code></div>
-<div class="h5">sdl2.DestroyCond</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.DestroyCond():void</code></div>
-<div class="h5">sdl2.DestroyMutex</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.DestroyMutex():void</code></div>
-<div class="h5">sdl2.DestroySemaphore</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.DestroySemaphore():void</code></div>
-<div class="h5">sdl2.LockMutex</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.LockMutex():void</code></div>
-<div class="h5">sdl2.SemPost</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SemPost():void</code></div>
-<div class="h5">sdl2.SemTryWait</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SemTryWait():void</code></div>
-<div class="h5">sdl2.SemValue</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SemValue():void</code></div>
-<div class="h5">sdl2.SemWait</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SemWait():void</code></div>
-<div class="h5">sdl2.SemWaitTimeout</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SemWaitTimeout():void</code></div>
-<div class="h5">sdl2.TryLockMutex</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.TryLockMutex():void</code></div>
-<div class="h5">sdl2.UnlockMutex</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.UnlockMutex():void</code></div>
-<div class="h5">sdl2.AtomicAdd</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AtomicAdd():void</code></div>
-<div class="h5">sdl2.AtomicCAS</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AtomicCAS():void</code></div>
-<div class="h5">sdl2.AtomicCASPtr</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AtomicCASPtr():void</code></div>
-<div class="h5">sdl2.AtomicDecRef</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AtomicDecRef():void</code></div>
-<div class="h5">sdl2.AtomicGet</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AtomicGet():void</code></div>
-<div class="h5">sdl2.AtomicGetPtr</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AtomicGetPtr():void</code></div>
-<div class="h5">sdl2.AtomicIncRef</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AtomicIncRef():void</code></div>
-<div class="h5">sdl2.AtomicLock</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AtomicLock():void</code></div>
-<div class="h5">sdl2.AtomicSet</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AtomicSet():void</code></div>
-<div class="h5">sdl2.AtomicSetPtr</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AtomicSetPtr():void</code></div>
-<div class="h5">sdl2.AtomicTryLock</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AtomicTryLock():void</code></div>
-<div class="h5">sdl2.AtomicUnlock</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AtomicUnlock():void</code></div>
-<div class="h5">sdl2.CompilerBarrier</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.CompilerBarrier():void</code></div>
-<div class="h5">sdl2.AddTimer</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AddTimer(interval:number):void</code></div>
-<div class="h5">sdl2.Delay</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.Delay(ms:number):void</code></div>
-<div class="h5">sdl2.GetPerformanceCounter</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetPerformanceCounter() {block?}</code></div>
-<div class="h5">sdl2.GetPerformanceFrequency</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetPerformanceFrequency() {block?}</code></div>
-<div class="h5">sdl2.GetTicks</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetTicks() {block?}</code></div>
-<div class="h5">sdl2.RemoveTimer</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RemoveTimer(id:number) {block?}</code></div>
-<div class="h5">sdl2.TICKS_PASSED</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.TICKS_PASSED(A:number, B:number) {block?}</code></div>
-<div class="h5">sdl2.GetBasePath</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetBasePath():void</code></div>
-<div class="h5">sdl2.GetPrefPath</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetPrefPath(org:string, app:string):void</code></div>
-<div class="h5">sdl2.AllocRW</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AllocRW():void</code></div>
-<div class="h5">sdl2.FreeRW</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.FreeRW():void</code></div>
-<div class="h5">sdl2.RWFromConstMem</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RWFromConstMem():void</code></div>
-<div class="h5">sdl2.RWFromFP</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RWFromFP():void</code></div>
-<div class="h5">sdl2.RWFromFile</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RWFromFile():void</code></div>
-<div class="h5">sdl2.RWFromMem</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RWFromMem():void</code></div>
-<div class="h5">sdl2.RWclose</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RWclose():void</code></div>
-<div class="h5">sdl2.RWread</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RWread():void</code></div>
-<div class="h5">sdl2.RWseek</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RWseek():void</code></div>
-<div class="h5">sdl2.RWtell</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RWtell():void</code></div>
-<div class="h5">sdl2.RWwrite</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.RWwrite():void</code></div>
-<div class="h5">sdl2.ReadBE16</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ReadBE16():void</code></div>
-<div class="h5">sdl2.ReadBE32</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ReadBE32():void</code></div>
-<div class="h5">sdl2.ReadBE64</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ReadBE64():void</code></div>
-<div class="h5">sdl2.ReadLE16</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ReadLE16():void</code></div>
-<div class="h5">sdl2.ReadLE32</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ReadLE32():void</code></div>
-<div class="h5">sdl2.ReadLE64</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.ReadLE64():void</code></div>
-<div class="h5">sdl2.WriteBE16</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.WriteBE16():void</code></div>
-<div class="h5">sdl2.WriteBE32</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.WriteBE32():void</code></div>
-<div class="h5">sdl2.WriteBE64</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.WriteBE64():void</code></div>
-<div class="h5">sdl2.WriteLE16</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.WriteLE16():void</code></div>
-<div class="h5">sdl2.WriteLE32</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.WriteLE32():void</code></div>
-<div class="h5">sdl2.WriteLE64</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.WriteLE64():void</code></div>
-<div class="h5">sdl2.GetPlatform</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetPlatform() {block?}</code></div>
-<div class="h5">sdl2.GetCPUCacheLineSize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetCPUCacheLineSize() {block?}</code></div>
-<div class="h5">sdl2.GetCPUCount</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetCPUCount() {block?}</code></div>
-<div class="h5">sdl2.GetSystemRAM</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetSystemRAM() {block?}</code></div>
-<div class="h5">sdl2.Has3DNow</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.Has3DNow() {block?}</code></div>
-<div class="h5">sdl2.HasAVX</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasAVX() {block?}</code></div>
-<div class="h5">sdl2.HasAVX2</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasAVX2():void</code></div>
-<div class="h5">sdl2.HasAltiVec</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasAltiVec() {block?}</code></div>
-<div class="h5">sdl2.HasMMX</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasMMX() {block?}</code></div>
-<div class="h5">sdl2.HasRDTSC</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasRDTSC() {block?}</code></div>
-<div class="h5">sdl2.HasSSE</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasSSE() {block?}</code></div>
-<div class="h5">sdl2.HasSSE2</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasSSE2() {block?}</code></div>
-<div class="h5">sdl2.HasSSE3</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasSSE3() {block?}</code></div>
-<div class="h5">sdl2.HasSSE41</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasSSE41() {block?}</code></div>
-<div class="h5">sdl2.HasSSE42</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.HasSSE42() {block?}</code></div>
-<div class="h5">sdl2.Swap16</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.Swap16():void</code></div>
-<div class="h5">sdl2.Swap32</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.Swap32():void</code></div>
-<div class="h5">sdl2.Swap64</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.Swap64():void</code></div>
-<div class="h5">sdl2.SwapBE16</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SwapBE16():void</code></div>
-<div class="h5">sdl2.SwapBE32</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SwapBE32():void</code></div>
-<div class="h5">sdl2.SwapBE64</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SwapBE64():void</code></div>
-<div class="h5">sdl2.SwapFloat</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SwapFloat():void</code></div>
-<div class="h5">sdl2.SwapFloatBE</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SwapFloatBE():void</code></div>
-<div class="h5">sdl2.SwapFloatLE</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SwapFloatLE():void</code></div>
-<div class="h5">sdl2.SwapLE16</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SwapLE16():void</code></div>
-<div class="h5">sdl2.SwapLE32</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SwapLE32():void</code></div>
-<div class="h5">sdl2.SwapLE64</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.SwapLE64():void</code></div>
-<div class="h5">sdl2.MostSignificantBitIndex32</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.MostSignificantBitIndex32(x:number):void</code></div>
-<div class="h5">sdl2.GetPowerInfo</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.GetPowerInfo() {block?}</code></div>
-<div class="h5">sdl2.AndroidGetActivity</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AndroidGetActivity():void</code></div>
-<div class="h5">sdl2.AndroidGetExternalStoragePath</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AndroidGetExternalStoragePath():void</code></div>
-<div class="h5">sdl2.AndroidGetExternalStorageState</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AndroidGetExternalStorageState():void</code></div>
-<div class="h5">sdl2.AndroidGetInternalStoragePath</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AndroidGetInternalStoragePath():void</code></div>
-<div class="h5">sdl2.AndroidGetJNIEnv</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.AndroidGetJNIEnv():void</code></div>
-<div class="h5">sdl2.acos</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>sdl2.acos(x:number) {block?}</code></div>
+</div>
+<div class="mb-2"><code>sdl2.SetError():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.Log():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogCritical():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogDebug():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogError():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogGetOutputFunction():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogGetPriority():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogInfo():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogMessage():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogMessageV():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogResetPriorities():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogSetAllPriority():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogSetOutputFunction():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogSetPriority():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogVerbose():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LogWarn():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetAssertionHandler():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetAssertionReport():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetDefaultAssertionHandler():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ResetAssertionReport():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetAssertionHandler():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.TriggerBreakpoint():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.assert():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.assert_paranoid():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.assert_release():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRevision() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRevisionNumber() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetVersion() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.VERSION() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.VERSION_ATLEAST(X:number, Y:number, Z:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateWindow(title:string, x:number, y:number, w:number, h:number, flags:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateWindowAndRenderer(width:number, height:number, window_flags:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateWindowFrom():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.DestroyWindow(window:sdl2.Window):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.DisableScreenSaver():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.EnableScreenSaver():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_CreateContext(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_DeleteContext(context:sdl2.GLContext):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_ExtensionSupported(extension:string) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_GetAttribute(attr:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_GetCurrentContext() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_GetCurrentWindow() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_GetDrawableSize(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_GetProcAddress():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_GetSwapInterval() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_LoadLibrary(path:string):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_MakeCurrent(window:sdl2.Window, context:sdl2.GLContext):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_ResetAttributes():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_SetAttribute(attr:number, value:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_SetSwapInterval(interval:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_SwapWindow(window:sdl2.Window):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_UnloadLibrary():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetClosestDisplayMode(displayIndex:number, mode:sdl2.DisplayMode) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetCurrentDisplayMode(displayIndex:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetCurrentVideoDriver() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetDesktopDisplayMode(displayIndex:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetDisplayBounds(displayIndex:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetDisplayMode(displayIndex:number, modeIndex:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetDisplayName(dipslayIndex:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetNumDisplayModes(displayIndex:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetNumVideoDisplays() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetNumVideoDrivers() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetVideoDriver(index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowBrightness(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowData(window:sdl2.Window, name:string):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowDisplayIndex(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowDisplayMode(window:sdl2.Window, mode:sdl2.DisplayMode):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowFlags(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowFromID(id:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowGammaRamp(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowGrab(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowID(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowMaximumSize(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowMinimumSize(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowPixelFormat(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowPosition(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowSize(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowSurface(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowTitle(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetWindowWMInfo(window:sdl2.Window):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HideWindow(window:sdl2.Window):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.IsScreenSaverEnabled() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.MaximizeWindow(window:sdl2.Window):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.MinimizeWindow(window:sdl2.Window):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RaiseWindow(window:sdl2.Window):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RestoreWindow(window:sdl2.Window):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowBordered(window:sdl2.Window, bordered:boolean):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowBrightness(window:sdl2.Window, brightness:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowData(window:sdl2.Window, name:string):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowDisplayMode(window:sdl2.Window, mode:sdl2.DisplayMode):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowFullscreen(window:sdl2.Window, flags:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowGammaRamp(window:sdl2.Window, red[]:number, green[]:number, blue[]:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowGrab(window:sdl2.Window, grabbed:boolean):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowHitTest(window:sdl2.Window):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowIcon(window:sdl2.Window, icon:sdl2.Surface):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowMaximumSize(window:sdl2.Window, max_w:number, max_h:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowMinimumSize(window:sdl2.Window, min_w:number, min_h:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowPosition(window:sdl2.Window, x:number, y:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowSize(window:sdl2.Window, w:number, h:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetWindowTitle(window:sdl2.Window, title:string):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ShowMessageBox():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ShowSimpleMessageBox(flags:number, title:string, message:string, window:sdl2.Window):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ShowWindow(window:sdl2.Window):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.UpdateWindowSurface(window:sdl2.Window):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.UpdateWindowSurfaceRects(window:sdl2.Window, rects[]:sdl2.Rect):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.VideoInit(driver_name:string):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.VideoQuit():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateRenderer(window:sdl2.Window, index:number, flags:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateSoftwareRenderer(surface:sdl2.Surface) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateTexture(renderer:sdl2.Renderer, format:number, access:number, w:number, h:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateTextureFromSurface(renderer:sdl2.Renderer, surface:sdl2.Surface) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.DestroyRenderer(renderer:sdl2.Renderer):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.DestroyTexture(texture:sdl2.Texture):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_BindTexture(texture:sdl2.Texture) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GL_UnbindTexture(texture:sdl2.Texture):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetNumRenderDrivers() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRenderDrawBlendMode(renderer:sdl2.Renderer) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRenderDrawColor(renderer:sdl2.Renderer) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRenderDriverInfo(index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRenderTarget(renderer:sdl2.Renderer) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRenderer(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRendererInfo(renderer:sdl2.Renderer) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRenderOutputSize(renderer:sdl2.Renderer) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetTextureAlphaMod(texture:sdl2.Texture) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetTextureBlendMode(texture:sdl2.Texture) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetTextureColorMod(texture:sdl2.Texture) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LockTexture(texture:sdl2.Texture, rect:sdl2.Rect):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.QueryTexture(texture:sdl2.Texture) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderClear(renderer:sdl2.Renderer):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderCopy(renderer:sdl2.Renderer, texture:sdl2.Texture, srcrect:sdl2.Rect:nil, dstrect:sdl2.Rect:nil):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderCopyEx(renderer:sdl2.Renderer, texture:sdl2.Texture, srcrect:sdl2.Rect:nil, dstrect:sdl2.Rect:nil, angle:number, center:sdl2.Point:nil, flip:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderDrawLine(renderer:sdl2.Renderer, x1:number, y1:number, x2:number, y2:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderDrawLines(renderer:sdl2.Renderer, points[]:sdl2.Point):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderDrawPoint(renderer:sdl2.Renderer, x:number, y:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderDrawPoints(renderer:sdl2.Renderer, points[]:sdl2.Point):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderDrawRect(renderer:sdl2.Renderer, rect:sdl2.Rect:nil):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderDrawRects(renderer:sdl2.Renderer, rects[]:sdl2.Rect):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderFillRect(renderer:sdl2.Renderer, rect:sdl2.Rect:nil):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderFillRects(renderer:sdl2.Renderer, rects[]:sdl2.Rect):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderGetClipRect(renderer:sdl2.Renderer) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderGetLogicalSize(renderer:sdl2.Renderer) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderGetScale(renderer:sdl2.Renderer) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderGetViewport(renderer:sdl2.Renderer) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderIsClipEnabled(renderer:sdl2.Renderer)</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderPresent(renderer:sdl2.Renderer):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderReadPixels(renderer:sdl2.Renderer, rect:sdl2.Rect:nil, format:symbol) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderSetClipRect(renderer:sdl2.Renderer, rect:sdl2.Rect:nil):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderSetLogicalSize(renderer:sdl2.Renderer, w:number, h:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderSetScale(renderer:sdl2.Renderer, scaleX:number, scaleY:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderSetViewport(renderer:sdl2.Renderer, rect:sdl2.Rect:nil):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RenderTargetSupported(renderer:sdl2.Renderer) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetRenderDrawBlendMode(renderer:sdl2.Renderer, blendMode:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetRenderDrawColor(renderer:sdl2.Renderer, r:number, g:number, b:number, a:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetRenderTarget(renderer:sdl2.Renderer, texture:sdl2.Texture:nil):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetTextureAlphaMod(texture:sdl2.Texture, alpha:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetTextureBlendMode(texture:sdl2.Texture, blendMode:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetTextureColorMod(texture:sdl2.Texture, r:number, g:number, b:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.UnlockTexture(texture:sdl2.Texture):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.UpdateTexture(texture:sdl2.Texture, rect:sdl2.Rect:nil, pitch:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.UpdateYUVTexture():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AllocFormat(pixel_format:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AllocPalette(ncolors:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CalculateGammaRamp(gamma:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.FreeFormat(format:sdl2.PixelFormat):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.FreePalette(palette:sdl2.Palette):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetPixelFormatName(format:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRGB(pixel:number, format:sdl2.PixelFormat) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRGBA(pixel:number, format:sdl2.PixelFormat) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.MapRGB(format:sdl2.PixelFormat, r:number, g:number, b:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.MapRGBA(format:sdl2.PixelFormat, r:number, g:number, b:number, a:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.MasksToPixelFormatEnum(bpp:number, Rmask:number, Gmask:number, Bmask:number, Amask:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.PixelFormatEnumToMasks(format:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetPaletteColors(palette:sdl2.Palette, colors[]:sdl2.Color, firstcolor:number, ncolors:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetPixelFormatPalette(format:sdl2.PixelFormat, palette:sdl2.Palette):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.EnclosePoints(points[]:sdl2.Point, clip:sdl2.Rect) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasIntersection(A:sdl2.Rect, B:sdl2.Rect) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.IntersectRect(A:sdl2.Rect, B:sdl2.Rect) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.IntersectRectAndLine(rect:sdl2.Rect, X1:number, Y1:number, X2:number, Y2:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.PointInRect(p:sdl2.Point, r:sdl2.Rect):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RectEmpty(r:sdl2.Rect) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RectEquals(a:sdl2.Rect, b:sdl2.Rect) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.UnionRect(A:sdl2.Rect, B:sdl2.Rect) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.BlitScaled(src:sdl2.Surface, srcrect:sdl2.Rect:nil, dst:sdl2.Surface, dstrect:sdl2.Rect:nil):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.BlitSurface(src:sdl2.Surface, srcrect:sdl2.Rect:nil, dst:sdl2.Surface, dstrect:sdl2.Rect:nil):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ConvertPixels(width:number, height:number, src_format:number, dst_format:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ConvertSurface(src:sdl2.Surface, fmt:sdl2.PixelFormat, flags:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ConvertSurfaceFormat(src:sdl2.Surface, pixel_format:number, flags:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateRGBSurface(flags:number, width:number, height:number, depth:number, Rmask:number, Gmask:number, Bmask:number, Amask:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateRGBSurfaceFrom(pixels:array:nomap, width:number, height:number, depth:number, pitch:number, Rmask:number, Gmask:number, Bmask:number, Amask:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateRGBSurfaceFromImage(image:image) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.FillRect(dst:sdl2.Surface, rect:sdl2.Rect:nil, color:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.FillRects(dst:sdl2.Surface, rects[]:sdl2.Rect, color:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.FreeSurface(surface:sdl2.Surface):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetClipRect(surface:sdl2.Surface) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetColorKey(surface:sdl2.Surface) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetSurfaceAlphaMod(surface:sdl2.Surface) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetSurfaceBlendMode(surface:sdl2.Surface) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetSurfaceColorMod(surface:sdl2.Surface) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LoadBMP(src:stream) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LoadBMP_RW():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LockSurface(surface:sdl2.Surface):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LowerBlit(src:sdl2.Surface, srcrect:sdl2.Rect:nil, dst:sdl2.Surface, dstrect:sdl2.Rect:nil):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LowerBlitScaled(src:sdl2.Surface, srcrect:sdl2.Rect:nil, dst:sdl2.Surface, dstrect:sdl2.Rect:nil):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.MUSTLOCK(surface:sdl2.Surface) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SaveBMP(surface:sdl2.Surface, dst:stream) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SaveBMP_RW():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetClipRect(surface:sdl2.Surface, rect:sdl2.Rect) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetColorKey(surface:sdl2.Surface, flag:number, key:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetSurfaceAlphaMod(surface:sdl2.Surface, alpha:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetSurfaceBlendMode(surface:sdl2.Surface, blendMode:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetSurfaceColorMod(surface:sdl2.Surface, r:number, g:number, b:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetSurfacePalette(surface:sdl2.Surface, palette:sdl2.Palette):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetSurfaceRLE(surface:sdl2.Surface, flag:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.UnlockSurface(surface:sdl2.Surface):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetClipboardText() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasClipboardText() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetClipboardText(text:string):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AddEventWatch():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.DelEventWatch():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.EventState(type:number, state:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.FilterEvents():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.FlushEvent(type:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.FlushEvents(minType:number, maxType:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetEventFilter():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetNumTouchDevices() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetNumTouchFingers(touchId:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetTouchDevice(index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetTouchFinger(touchId:number, index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasEvent(type:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasEvents(minType:number, maxType:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LoadDollarTemplates(touchId:number, src:stream) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AddEvents(events[]:sdl2.Event) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.PeekEvents(numevents:number, minType:number, maxType:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetEvents(numevents:number, minType:number, maxType:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.PollEvent() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.PumpEvents():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.PushEvent(event:sdl2.Event) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.QuitRequested() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RecordGesture(touchId:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RegisterEvents(numevents:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SaveAllDollarTemplates(dst:stream) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SaveDollarTemplate(gestureId:number, dst:stream):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetEventFilter():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.WaitEvent() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.WaitEventTimeout(timeout:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CheckKeyboardState(scancode:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetKeyFromName(name:string) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetKeyFromScancode(scancode:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetKeyName(key:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetKeyboardFocus() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetKeyboardState() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetModState() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetScancodeFromKey(key:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetScancodeFromName(name:string) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetScancodeName(scancode:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasScreenKeyboardSupport() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.IsScreenKeyboardShown(window:sdl2.Window) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.IsTextInputActive() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetModState(modstate:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetTextInputRect(rect:sdl2.Rect):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.StartTextInput():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.StopTextInput():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CaptureMouse(enalbed:boolean):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateColorCursor(surface:sdl2.Surface, hot_x:number, hot_y:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateCursor(data:array@uint8:nomap, mask:array@uint8:nomap, w:number, h:number, hot_x:number, hot_y:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateSystemCursor(id:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.FreeCursor(cursor:sdl2.Cursor):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetCursor() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetDefaultCursor() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetGlobalMouseState():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetMouseFocus() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetMouseState() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRelativeMouseMode() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetRelativeMouseState() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetCursor(cursor:sdl2.Cursor):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SetRelativeMouseMode(enabled:boolean):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ShowCursor(toggle:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.WarpMouseGlobal(x:number, y:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.WarpMouseInWindow(window:sdl2.Window, x:number, y:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickClose(joystick:sdl2.Joystick):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickEventState(state:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickGetAttached(joystick:sdl2.Joystick) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickGetAxis(joystick:sdl2.Joystick, axis:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickGetBall(joystick:sdl2.Joystick, ball:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickGetButton(joystick:sdl2.Joystick, button:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickGetDeviceGUID(device_index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickGetGUID(joystick:sdl2.Joystick) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickGetGUIDFromString(pchGUID:string) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickGetGUIDString(guid:sdl2.JoystickGUID) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickGetHat(joystick:sdl2.Joystick, hat:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickInstanceID(joystick:sdl2.Joystick) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickName(joystick:sdl2.Joystick) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickNameForIndex(device_index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickNumAxes(joystick:sdl2.Joystick) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickNumBalls(joystick:sdl2.Joystick) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickNumButtons(joystick:sdl2.Joystick) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickNumHats(joystick:sdl2.Joystick) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickOpen(device_index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickUpdate():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.NumJoysticks() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerAddMapping(mappingString:string) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerAddMappingsFromFile(file:stream) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerAddMappingsFromRW():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerClose(gamecontroller:sdl2.GameController):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerEventState(state:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerGetAttached(gamecontroller:sdl2.GameController) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerGetAxis(gamecontroller:sdl2.GameController, axis:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerGetAxisFromString(pchString:string) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerGetBindForAxis(gamecontroller:sdl2.GameController, axis:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerGetBindForButton(gamecontroller:sdl2.GameController, button:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerGetButton(gamecontroller:sdl2.GameController, button:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerGetButtonFromString(pchString:string) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerGetJoystick(gamecontroller:sdl2.GameController) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerGetStringForAxis(axis:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerGetStringForButton(button:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerMapping(gamecontroller:sdl2.GameController) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerMappingForGUID(guid:sdl2.JoystickGUID) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerName(gamecontroller:sdl2.GameController) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerNameForIndex(joystick_index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerOpen(joystick_index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GameControllerUpdate():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.IsGameController(joystick_index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticClose(haptic:sdl2.Haptic):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticDestroyEffect(haptic:sdl2.Haptic, effect:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticEffectSupported(haptic:sdl2.Haptic, effect:sdl2.HapticEffect) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticGetEffectStatus(haptic:sdl2.Haptic, effect:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticIndex(haptic:sdl2.Haptic) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticName(device_index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticNewEffect(haptic:sdl2.Haptic, effect:sdl2.HapticEffect) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticNumAxes(haptic:sdl2.Haptic) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticNumEffects(haptic:sdl2.Haptic) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticNumEffectsPlaying(haptic:sdl2.Haptic) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticOpen(device_index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticOpenFromJoystick(joystick:sdl2.Joystick) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticOpenFromMouse() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticOpened(device_index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticPause(haptic:sdl2.Haptic):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticQuery(haptic:sdl2.Haptic) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticRumbleInit(haptic:sdl2.Haptic):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticRumblePlay(haptic:sdl2.Haptic, strength:number, length:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticRumbleStop(haptic:sdl2.Haptic):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticRumbleSupported(haptic:sdl2.Haptic) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticRunEffect(haptic:sdl2.Haptic, effect:number, iterations:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticSetAutocenter(haptic:sdl2.Haptic, autocenter:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticSetGain(haptic:sdl2.Haptic, gain:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticStopAll(haptic:sdl2.Haptic):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticStopEffect(haptic:sdl2.Haptic, effect:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticUnpause(haptic:sdl2.Haptic):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HapticUpdateEffect(haptic:sdl2.Haptic, effect:number, data:sdl2.HapticEffect):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.JoystickIsHaptic(joystick:sdl2.Joystick) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.MouseIsHaptic() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.NumHaptics() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AudioInit(driver_name:string):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AudioQuit():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.BuildAudioCVT(cvt:sdl2.AudioCVT, src_format:number, src_channels:number, src_rate:number, dst_format:number, dst_channels:number, dst_rate:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ClearQueuedAudio(dev:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CloseAudio():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CloseAudioDevice(dev:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ConvertAudio(cvt:sdl2.AudioCVT):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.FreeWAV(wav:sdl2.Wav):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetAudioDeviceName(index:number, iscapture:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetAudioDeviceStatus(dev:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetAudioDriver(index:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetAudioStatus() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetCurrentAudioDriver() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetNumAudioDevices(iscapture:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetNumAudioDrivers() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetQueuedAudioSize(dev:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LoadWAV(file:stream) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LoadWAV_RW():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LockAudio():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LockAudioDevice(dev:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.MixAudio(volume:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.MixAudioFormat(format:number, volume:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.OpenAudio(desired:sdl2.AudioSpec) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.OpenAudioDevice(device:string, iscapture:number, desired:sdl2.AudioSpec, allowed_changes:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.PauseAudio(pause_on:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.PauseAudioDevice(dev:number, pause_on:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.QueueAudio(dev:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.UnlockAudio():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.UnlockAudioDevice(dev:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AUDIO_BITSIZE(x:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AUDIO_ISFLOAT(x:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AUDIO_ISBIGENDIAN(x:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AUDIO_ISSIGNED(x:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AUDIO_ISINT(x:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AUDIO_ISLITTLEENDIAN(x:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AUDIO_ISUNSIGNED(x:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateThread():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.DetachThread():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetThreadID():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetThreadName():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetThreadPriority():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.TLSCreate():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.TLSGet():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.TLSSet():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ThreadID():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.WaitThread():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CondBroadcast():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CondSignal():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CondWait():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CondWaitTimeout():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateCond():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateMutex():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CreateSemaphore():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.DestroyCond():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.DestroyMutex():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.DestroySemaphore():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.LockMutex():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SemPost():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SemTryWait():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SemValue():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SemWait():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SemWaitTimeout():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.TryLockMutex():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.UnlockMutex():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AtomicAdd():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AtomicCAS():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AtomicCASPtr():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AtomicDecRef():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AtomicGet():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AtomicGetPtr():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AtomicIncRef():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AtomicLock():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AtomicSet():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AtomicSetPtr():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AtomicTryLock():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AtomicUnlock():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.CompilerBarrier():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AddTimer(interval:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.Delay(ms:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetPerformanceCounter() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetPerformanceFrequency() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetTicks() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RemoveTimer(id:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.TICKS_PASSED(A:number, B:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetBasePath():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetPrefPath(org:string, app:string):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AllocRW():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.FreeRW():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RWFromConstMem():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RWFromFP():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RWFromFile():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RWFromMem():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RWclose():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RWread():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RWseek():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RWtell():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.RWwrite():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ReadBE16():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ReadBE32():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ReadBE64():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ReadLE16():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ReadLE32():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.ReadLE64():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.WriteBE16():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.WriteBE32():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.WriteBE64():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.WriteLE16():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.WriteLE32():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.WriteLE64():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetPlatform() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetCPUCacheLineSize() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetCPUCount() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetSystemRAM() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.Has3DNow() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasAVX() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasAVX2():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasAltiVec() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasMMX() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasRDTSC() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasSSE() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasSSE2() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasSSE3() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasSSE41() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.HasSSE42() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.Swap16():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.Swap32():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.Swap64():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SwapBE16():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SwapBE32():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SwapBE64():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SwapFloat():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SwapFloatBE():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SwapFloatLE():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SwapLE16():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SwapLE32():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.SwapLE64():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.MostSignificantBitIndex32(x:number):void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.GetPowerInfo() {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AndroidGetActivity():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AndroidGetExternalStoragePath():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AndroidGetExternalStorageState():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AndroidGetInternalStoragePath():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.AndroidGetJNIEnv():void</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>sdl2.acos(x:number) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
 <h2><span class="caption-index-2">50.3</span><a name="anchor-50-3"></a>sdl2.Window Class</h2>
 <h2><span class="caption-index-2">50.4</span><a name="anchor-50-4"></a>sdl2.Renderer Class</h2>
 <h2><span class="caption-index-2">50.5</span><a name="anchor-50-5"></a>sdl2.Texture Class</h2>

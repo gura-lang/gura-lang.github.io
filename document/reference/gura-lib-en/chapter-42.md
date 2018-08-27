@@ -12,11 +12,12 @@ nextpage: chapter-43.html#naviitem-selected
 The <code class="highlighter-rouge">mtp</code> module provides measures to read/write data on a mobile platform like an Android device.
 </p>
 <h2><span class="caption-index-2">42.2</span><a name="anchor-42-2"></a>Module Function</h2>
-<div class="h5">mtp.detect_devices</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.detect_devices() {block?}</code></div>
+<div class="mb-2"><code>mtp.detect_devices() {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Detects MTP devices and returns a list of <code class="highlighter-rouge">mtp.device</code> instances.
 </p>
+</div>
 <h2><span class="caption-index-2">42.3</span><a name="anchor-42-3"></a>mtp.device Class</h2>
 <h3><span class="caption-index-3">42.3.1</span><a name="anchor-42-3-1"></a>Overview</h3>
 <p>
@@ -170,14 +171,18 @@ Volume identifier.</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">42.4.3</span><a name="anchor-42-4-3"></a>Method</h3>
-<div class="h5">mtp.storage#opendir</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#opendir(pathname:string) {block?}</code></div>
-<div class="h5">mtp.storage#recvfile</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#recvfile(pathname:string, stream:stream:w):reduce {block?}</code></div>
-<div class="h5">mtp.storage#remove</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#remove(pathname:string):reduce</code></div>
-<div class="h5">mtp.storage#sendfile</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>mtp.storage#sendfile(pathname:string, stream:stream:r):reduce {block?}</code></div>
+<div class="mb-2"><code>mtp.storage#opendir(pathname:string) {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>mtp.storage#recvfile(pathname:string, stream:stream:w):reduce {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>mtp.storage#remove(pathname:string):reduce</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>mtp.storage#sendfile(pathname:string, stream:stream:r):reduce {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
 <h2><span class="caption-index-2">42.5</span><a name="anchor-42-5"></a>mtp.stat Class</h2>
 <h3><span class="caption-index-3">42.5.1</span><a name="anchor-42-5-1"></a>Overview</h3>
 <h3><span class="caption-index-3">42.5.2</span><a name="anchor-42-5-2"></a>Property</h3>

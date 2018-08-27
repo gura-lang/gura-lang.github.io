@@ -39,8 +39,8 @@ conio.moveto(0, h - 1) {
 conio.waitkey():raise
 </code></pre>
 <h2><span class="caption-index-2">13.2</span><a name="anchor-13-2"></a>Module Function</h2>
-<div class="h5">conio.clear</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>conio.clear(region?:symbol):void</code></div>
+<div class="mb-2"><code>conio.clear(region?:symbol):void</code></div>
+<div class="mb-2 ml-4">
 <p>
 Clears the screen.
 </p>
@@ -54,13 +54,15 @@ In default, it clears whole the screen. Argument <code class="highlighter-rouge"
 <li><code class="highlighter-rouge">`top</code> .. clears characters on the above side of the cursor.</li>
 <li><code class="highlighter-rouge">`bottom</code> .. clears characters on the below side of the cursor.</li>
 </ul>
-<div class="h5">conio.getwinsize</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>conio.getwinsize()</code></div>
+</div>
+<div class="mb-2"><code>conio.getwinsize()</code></div>
+<div class="mb-2 ml-4">
 <p>
 Returns the screen size as a list <code class="highlighter-rouge">[width, height]</code>.
 </p>
-<div class="h5">conio.setcolor</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>conio.setcolor(fg:symbol:nil, bg?:symbol):map:void {block?}</code></div>
+</div>
+<div class="mb-2"><code>conio.setcolor(fg:symbol:nil, bg?:symbol):map:void {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Sets foreground and background color of text by specifying a color symbol. Available color symbols are listed below:
 </p>
@@ -92,16 +94,18 @@ If <code class="highlighter-rouge">fg</code> is set to nil, the foreground color
 <p>
 If <code class="highlighter-rouge">block</code> is specified, the color is changed before evaluating the block, and then gets back to what has been set when done.
 </p>
-<div class="h5">conio.moveto</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>conio.moveto(x:number, y:number):map:void {block?}</code></div>
+</div>
+<div class="mb-2"><code>conio.moveto(x:number, y:number):map:void {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Moves cursor to the specified position. The most top-left position on the screen is represented as <code class="highlighter-rouge">0, 0</code>.
 </p>
 <p>
 If <code class="highlighter-rouge">block</code> is specified, the cursor is moved before evaluating the block, and then gets back to where it has been when done.
 </p>
-<div class="h5">conio.waitkey</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>conio.waitkey():[raise]</code></div>
+</div>
+<div class="mb-2"><code>conio.waitkey():[raise]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Waits for a keyboard input and returns a character code number associated with the key.
 </p>
@@ -128,4 +132,5 @@ Character code numbers of some of the special keys are defined as below:
 <li><code class="highlighter-rouge">conio.K_PAGEDOWN</code></li>
 <li><code class="highlighter-rouge">conio.K_DELETE</code></li>
 </ul>
+</div>
 {% endraw %}

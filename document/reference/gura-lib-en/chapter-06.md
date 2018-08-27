@@ -32,22 +32,24 @@ argopt.Parser {|p|
 </code></pre>
 <h2><span class="caption-index-2">6.2</span><a name="anchor-6-2"></a>argopt.Parser Class</h2>
 <h3><span class="caption-index-3">6.2.1</span><a name="anchor-6-2-1"></a>Constructor</h3>
-<div class="h5">argopt.Parser</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>argopt.Parser() {block?}</code></div>
+<div class="mb-2"><code>argopt.Parser() {block?}</code></div>
+<div class="mb-2 ml-4">
 <p>
 Create an <code class="highlighter-rouge">argopt.Parser</code> instance.
 </p>
+</div>
 <h3><span class="caption-index-3">6.2.2</span><a name="anchor-6-2-2"></a>Method</h3>
-<div class="h5">argopt.Parser#parse</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>argopt.Parser#parse(argv[]:string)</code></div>
+<div class="mb-2"><code>argopt.Parser#parse(argv[]:string)</code></div>
+<div class="mb-2 ml-4">
 <p>
 Parses an argument list which is usually the value of <code class="highlighter-rouge">sys.argv</code> given by <code class="highlighter-rouge">sys</code> module.
 </p>
 <p>
 It returns the result in a format <code class="highlighter-rouge">[cfg, argv]</code> where <code class="highlighter-rouge">cfg</code> is a <code class="highlighter-rouge">dict</code> instance containing parameter values and <code class="highlighter-rouge">argv</code> a list of arguments that have not been parsed as options.
 </p>
-<div class="h5">argopt.Parser#addParam</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>argopt.Parser#addParam(longName:string, shortName?:string, help?:string, helpValue?:string, defValue?:string)</code></div>
+</div>
+<div class="mb-2"><code>argopt.Parser#addParam(longName:string, shortName?:string, help?:string, helpValue?:string, defValue?:string)</code></div>
+<div class="mb-2 ml-4">
 <p>
 Adds an option that comes with a value like <code class="highlighter-rouge">--foo=value</code> where <code class="highlighter-rouge">foo</code> is a long name for the option.
 </p>
@@ -63,8 +65,9 @@ The argument <code class="highlighter-rouge">help</code> and <code class="highli
 <p>
 The argument <code class="highlighter-rouge">defValue</code> specifies a default value that would be used when the option is not specified in the command line.
 </p>
-<div class="h5">argopt.Parser#addFlag</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>argopt.Parser#addFlag(longName:string, shortName?:string, help?:string)</code></div>
+</div>
+<div class="mb-2"><code>argopt.Parser#addFlag(longName:string, shortName?:string, help?:string)</code></div>
+<div class="mb-2 ml-4">
 <p>
 Adds an option that represents a boolean state. It comes like <code class="highlighter-rouge">--foo</code> where <code class="highlighter-rouge">foo</code> is a long name for the option.
 </p>
@@ -77,8 +80,9 @@ The argument <code class="highlighter-rouge">shortName</code> specifies a short 
 <p>
 The argument <code class="highlighter-rouge">help</code> is used in a option parameter help created by <code class="highlighter-rouge">argopt.Parse#formatHelp()</code>. The string for <code class="highlighter-rouge">help</code> specifies a help text for the option.
 </p>
-<div class="h5">argopt.Parser#formatHelp</div>
-<div class="mb-2"><i class="fas fa-caret-right mr-2"></i><code>argopt.Parser#formatHelp(longNameFlag:boolean =&gt; true, shortNameFlag:boolean =&gt; true):[linefeed]</code></div>
+</div>
+<div class="mb-2"><code>argopt.Parser#formatHelp(longNameFlag:boolean =&gt; true, shortNameFlag:boolean =&gt; true):[linefeed]</code></div>
+<div class="mb-2 ml-4">
 <p>
 Creates an iterator of strings that contain help text for each option.
 </p>
@@ -108,4 +112,5 @@ The result comes as below:
 -f, --flag1     flag option #1
 -g, --flag2     flag option #2
 </code></pre>
+</div>
 {% endraw %}
