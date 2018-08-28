@@ -11,6 +11,26 @@ nextpage: chapter-43.html#naviitem-selected
 <p>
 The <code class="highlighter-rouge">mtp</code> module provides measures to read/write data on a mobile platform like an Android device.
 </p>
+<p>
+Below is an example that lists up files in the top directory of the device that is detected at first:
+</p>
+<pre class="highlight"><code>import(mtp)
+
+devices = mtp.detect_devices()
+device = devices[0]
+println('Device: ', device.friendlyname)
+storage = device.storages[0]
+path.dir(storage.opendir('/')):stat {|stat|
+    tm = stat.mtime
+    if (stat.isdir) {
+        printf('%04d/%02d/%02d %02d:%02d %12s  %s\n',
+               tm.year, tm.month, tm.day, tm.hour, tm.min, '&lt;dir&gt;', stat.filename)
+    } else {
+        printf('%04d/%02d/%02d %02d:%02d %12d  %s\n',
+               tm.year, tm.month, tm.day, tm.hour, tm.min, stat.size, stat.filename)
+    }
+}
+</code></pre>
 <h2><span class="caption-index-2">42.2</span><a name="anchor-42-2"></a>Module Function</h2>
 <div class="mb-2"><code>mtp.detect_devices() {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -22,6 +42,9 @@ Detects MTP devices and returns a list of <code class="highlighter-rouge">mtp.de
 <h3><span class="caption-index-3">42.3.1</span><a name="anchor-42-3-1"></a>Overview</h3>
 <p>
 The <code class="highlighter-rouge">mtp.device</code> class provides information such as device's friendly name and manufacturer name. It also provides a list of <code class="highlighter-rouge">mtp.storage</code> instances through which you can transfer and manipulate files on the remote device.
+</p>
+<p>
+You can call <code class="highlighter-rouge">mtp.detect_devices()</code> to get a list of <code class="highlighter-rouge">mtp.device</code> instances that are associated to connected devices.
 </p>
 <h3><span class="caption-index-3">42.3.2</span><a name="anchor-42-3-2"></a>Property</h3>
 <p>
@@ -76,7 +99,7 @@ The class <code class="highlighter-rouge">mtp.storage</code> provices methods to
 </p>
 <h3><span class="caption-index-3">42.4.2</span><a name="anchor-42-4-2"></a>Property</h3>
 <p>
-An <code class="highlighter-rouge">mtp.storage</code> instance has the following properties:
+An <code class="highlighter-rouge">mtp.storage</code> instance has following properties:
 </p>
 <table class="table">
 <tr>
@@ -97,17 +120,15 @@ Note</th>
 <td>
 R</td>
 <td>
-Returns one of the symbols: <code class="highlighter-rouge">`ReadWrite</code>, <code class="highlighter-rouge">`ReadOnly</code>, <code class="highlighter-rouge">`ReadOnlyWithObjectDeletion</code></td>
-</tr>
-<tr>
-<td>
-<code>filesystem_type</code></td>
-<td>
-<code>symbol</code></td>
-<td>
-R</td>
-<td>
-Returns one of the syhmbols: <code class="highlighter-rouge">`Undefined</code>, <code class="highlighter-rouge">`GenericFlat</code>, <code class="highlighter-rouge">`GenericHierarchical</code>, <code class="highlighter-rouge">`DCF</code></td>
+<p>
+Indicates what access is permitted to the storage by following symbols:
+</p>
+<ul>
+<li><code class="highlighter-rouge">`ReadWrite</code> .. Read/write capable.</li>
+<li><code class="highlighter-rouge">`ReadOnly</code> .. Read-only.</li>
+<li><code class="highlighter-rouge">`ReadOnlyWithObjectDeletion</code> .. Read-only but deleting operation is permitted.</li>
+</ul>
+</td>
 </tr>
 <tr>
 <td>
@@ -117,7 +138,7 @@ Returns one of the syhmbols: <code class="highlighter-rouge">`Undefined</code>, 
 <td>
 R</td>
 <td>
-Free space in the storage in bytes.</td>
+Returns the free space in the storage in bytes.</td>
 </tr>
 <tr>
 <td>
@@ -127,7 +148,7 @@ Free space in the storage in bytes.</td>
 <td>
 R</td>
 <td>
-Free space in the storage in number of objects.</td>
+Returns the free space in the storage in number of objects.</td>
 </tr>
 <tr>
 <td>
@@ -137,7 +158,7 @@ Free space in the storage in number of objects.</td>
 <td>
 R</td>
 <td>
-Maximum capacity of the storage in bytes.</td>
+Returns the maximum capacity of the storage in bytes.</td>
 </tr>
 <tr>
 <td>
@@ -147,7 +168,7 @@ Maximum capacity of the storage in bytes.</td>
 <td>
 R</td>
 <td>
-Storage description.</td>
+Returns the storage description.</td>
 </tr>
 <tr>
 <td>
@@ -157,7 +178,17 @@ Storage description.</td>
 <td>
 R</td>
 <td>
-Returns one of the symbols: <code class="highlighter-rouge">`Undefined</code>, <code class="highlighter-rouge">`FixedROM</code>, <code class="highlighter-rouge">`RemovableROM</code>, <code class="highlighter-rouge">`FixedRAM</code>, <code class="highlighter-rouge">`RemovableRAM</code></td>
+<p>
+Indicates the type of the storage by following symbols:
+</p>
+<ul>
+<li><code class="highlighter-rouge">`Undefined</code> .. Undefined type.</li>
+<li><code class="highlighter-rouge">`FixedROM</code> .. Non-removable and read-only.</li>
+<li><code class="highlighter-rouge">`RemovableROM</code> .. Removable and read-only.</li>
+<li><code class="highlighter-rouge">`FixedRAM</code> .. Non-removable and read/write capable.</li>
+<li><code class="highlighter-rouge">`RemovableRAM</code> .. Removable and read/write capable.</li>
+</ul>
+</td>
 </tr>
 <tr>
 <td>
@@ -167,27 +198,48 @@ Returns one of the symbols: <code class="highlighter-rouge">`Undefined</code>, <
 <td>
 R</td>
 <td>
-Volume identifier.</td>
+Returns the volume identifier.</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">42.4.3</span><a name="anchor-42-4-3"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">mtp.storage</code> class has following methods:
+</p>
 <div class="mb-2"><code>mtp.storage#opendir(pathname:string) {block?}</code></div>
 <div class="mb-2 ml-4">
+<p>
+Creates a <code class="highlighter-rouge">directory</code> instance that can be passed to functions that browse directories such as <code class="highlighter-rouge">path.dir()</code> and <code class="highlighter-rouge">path.walk()</code>. The argument <code class="highlighter-rouge">pathname</code> specifies the name of a directory on the device.
+</p>
+<p>
+If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|directory:directory|</code>, where <code class="highlighter-rouge">directory</code> is the created instance. In this case, the block's result would become the function's returned value.
+</p>
 </div>
 <div class="mb-2"><code>mtp.storage#recvfile(pathname:string, stream:stream:w):reduce {block?}</code></div>
 <div class="mb-2 ml-4">
+<p>
+Receives the content of a file on the device that is specified by the argument <code class="highlighter-rouge">pathname</code> and writes it to <code class="highlighter-rouge">stream</code>. If <code class="highlighter-rouge">block</code> is specified, it would be evaluated during the receiving process with a block parameter of <code class="highlighter-rouge">|recv:number, total:number|</code> where <code class="highlighter-rouge">recv</code> is a number of bytes that has been received and <code class="highlighter-rouge">total</code> is that of the total size. This functions returns the reference of the target.
+</p>
 </div>
 <div class="mb-2"><code>mtp.storage#remove(pathname:string):reduce</code></div>
 <div class="mb-2 ml-4">
+<p>
+Removes a file on the device that is specified by the argument <code class="highlighter-rouge">pathname</code>. This functions returns the reference of the target.
+</p>
 </div>
 <div class="mb-2"><code>mtp.storage#sendfile(pathname:string, stream:stream:r):reduce {block?}</code></div>
 <div class="mb-2 ml-4">
+<p>
+Reads data from <code class="highlighter-rouge">stream</code> and sends it to the device as a file that is specified by the argument <code class="highlighter-rouge">pathname</code>. If <code class="highlighter-rouge">block</code> is specified, it would be evaluated during the receiving process with a block parameter of <code class="highlighter-rouge">|sent:number, total:number|</code> where <code class="highlighter-rouge">sent</code> is a number of bytes that has been sent and <code class="highlighter-rouge">total</code> is that of the total size. This functions returns the reference of the target.
+</p>
 </div>
 <h2><span class="caption-index-2">42.5</span><a name="anchor-42-5"></a>mtp.stat Class</h2>
 <h3><span class="caption-index-3">42.5.1</span><a name="anchor-42-5-1"></a>Overview</h3>
+<p>
+The <code class="highlighter-rouge">mtp.stat</code> class provides information about filename, timestamp and size of files on a portable device. An instance of <code class="highlighter-rouge">mtp.stat</code> is generated by calling <code class="highlighter-rouge">path.dir()</code> and <code class="highlighter-rouge">path.walk()</code> with a <code class="highlighter-rouge">directory</code> instance created by <code class="highlighter-rouge">mtp.storage#opendir()</code> for the argument and <code class="highlighter-rouge">:stat</code> attribute appended.
+</p>
 <h3><span class="caption-index-3">42.5.2</span><a name="anchor-42-5-2"></a>Property</h3>
 <p>
-A <code class="highlighter-rouge">mtp.stat</code> instance has the following properties:
+A <code class="highlighter-rouge">mtp.stat</code> instance has following properties:
 </p>
 <table class="table">
 <tr>

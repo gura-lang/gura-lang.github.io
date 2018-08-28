@@ -138,9 +138,6 @@ Block parameter format is <code class="highlighter-rouge">|idx:number|</code> wh
 <p>
 Example:
 </p>
-<p>
-Example:
-</p>
 <pre class="highlight"><code>for (ch in ['A', 'B', 'C'], i in 1..4) {
     printf('%s-%d ', ch, i)
 }
