@@ -93,6 +93,5 @@ Introduction to Gura Programming Language
 <h2><i class="fas fa-code mr-2" style="width: 1.5em"></i>Sample Code<a name="sample-code"></a></h2>
 
 <p>Sample codes of Gura are stored in
-  <a href="https://github.com/gura-lang/gura/tree/master/sample"
-	 onClick="ga('send', 'event', 'repository', 'click', '/gura-lang/gura/tree/master/sample');"><i class="fab fa-github mr-1"></i>GitHub</a>.
+  <a href="https://github.com/gura-lang/gura/tree/master/sample"><i class="fab fa-github mr-1"></i>GitHub</a>.
 </p>
