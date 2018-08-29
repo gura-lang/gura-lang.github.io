@@ -6234,12 +6234,79 @@ The argument <code class="highlighter-rouge">type</code> takes a symbol <code cl
 <li>If it's specified with <code class="highlighter-rouge">`unary</code>, the method would return a list of type expressions for its single element.</li>
 </ul>
 </div>
-<h2><span class="caption-index-2">5.38</span><a name="anchor-5-38"></a>palette Class</h2>
+<h2><span class="caption-index-2">5.38</span><a name="anchor-5-38"></a>optimizer Class</h2>
 <h3><span class="caption-index-3">5.38.1</span><a name="anchor-5-38-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.38.2</span><a name="anchor-5-38-2"></a>Constructor</h3>
+<p>
+An <code class="highlighter-rouge">optimizer</code> instance is constructed by following functions:
+</p>
+<div class="mb-2"><code>optimizer@adagrad(learning_rate:number, epsilon?:number):map {block?}</code></div>
+<div class="mb-2 ml-4">
+<p>
+Creates an <code class="highlighter-rouge">optimizer</code> instance that uses AdaGrad approach for optimization.
+</p>
+<p>
+The argument <code class="highlighter-rouge">learning_rate</code> indicates the learning rate per one training session.
+</p>
+<p>
+The argumnent <code class="highlighter-rouge">epsilon</code> is a value that is added to the denominator in a divination to avoid zero-divided error. The default is <code class="highlighter-rouge">1e-7</code>.
+</p>
+</div>
+<div class="mb-2"><code>optimizer@adam():map {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>optimizer@gradient_descent(learning_rate:number):map {block?}</code></div>
+<div class="mb-2 ml-4">
+<p>
+Creates an <code class="highlighter-rouge">optimizer</code> instance that uses gradient descent approach for optimization.
+</p>
+<p>
+The argument <code class="highlighter-rouge">learning_rate</code> indicates the learning rate per one training session.
+</p>
+</div>
+<div class="mb-2"><code>optimizer@momentum(learning_rate:number, momentum?:number):map {block?}</code></div>
+<div class="mb-2 ml-4">
+<p>
+Creates an <code class="highlighter-rouge">optimizer</code> instance that uses AdaGrad approach for optimization.
+</p>
+<p>
+The argument <code class="highlighter-rouge">learning_rate</code> indicates the learning rate per one training session.
+</p>
+<p>
+The argumnent <code class="highlighter-rouge">momentum</code> is a momentum parameter and has a default value of <code class="highlighter-rouge">0.9</code>.
+</p>
+</div>
+<div class="mb-2"><code>optimizer@nesterov():map {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>optimizer@none():map {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<div class="mb-2"><code>optimizer@rmsprop():map {block?}</code></div>
+<div class="mb-2 ml-4">
+</div>
+<h3><span class="caption-index-3">5.38.3</span><a name="anchor-5-38-3"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">optimizer</code> class has following methods:
+</p>
+<div class="mb-2"><code>optimizer#reset():void</code></div>
+<div class="mb-2 ml-4">
+<p>
+Resets the status of the optimizer, if exists.
+</p>
+</div>
+<div class="mb-2"><code>optimizer#update(array:array, array_grad:array):void</code></div>
+<div class="mb-2 ml-4">
+<p>
+Updates <code class="highlighter-rouge">array</code>'s value by the optimizer calculation using the gradient information in <code class="highlighter-rouge">array_grad</code>.
+</p>
+</div>
+<h2><span class="caption-index-2">5.39</span><a name="anchor-5-39"></a>palette Class</h2>
+<h3><span class="caption-index-3">5.39.1</span><a name="anchor-5-39-1"></a>Overview</h3>
 <p>
 The <code class="highlighter-rouge">palette</code> instance has a set of <code class="highlighter-rouge">color</code> instance.
 </p>
-<h3><span class="caption-index-3">5.38.2</span><a name="anchor-5-38-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.39.2</span><a name="anchor-5-39-2"></a>Constructor</h3>
 <div class="mb-2"><code>palette(type) {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -6264,7 +6331,7 @@ In the second form, it can take one of the following symbols:
 <li><code class="highlighter-rouge">`websafe</code> .. A palette with 216 colors that assure to be displayed correctly in any Web environments. It actually has 256 entries though the last 40 entries are initialized with black.</li>
 </ul>
 </div>
-<h3><span class="caption-index-3">5.38.3</span><a name="anchor-5-38-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.39.3</span><a name="anchor-5-39-3"></a>Method</h3>
 <div class="mb-2"><code>palette#each() {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -6312,12 +6379,12 @@ Updates palette entries according to color data in an image or a palette.
 The order of existing entries will be kept intact. If attribute shrink is specified, the whole size will be shrinked to a number powered by two that is enough to contain unique entries.
 </p>
 </div>
-<h2><span class="caption-index-2">5.39</span><a name="anchor-5-39"></a>pointer Class</h2>
-<h3><span class="caption-index-3">5.39.1</span><a name="anchor-5-39-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.40</span><a name="anchor-5-40"></a>pointer Class</h2>
+<h3><span class="caption-index-3">5.40.1</span><a name="anchor-5-40-1"></a>Overview</h3>
 <p>
 The <code class="highlighter-rouge">pointer</code> class provides measures to read and write content in a <code class="highlighter-rouge">binary</code> and <code class="highlighter-rouge">memory</code> instance.
 </p>
-<h3><span class="caption-index-3">5.39.2</span><a name="anchor-5-39-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.40.2</span><a name="anchor-5-40-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">pointer</code> instance has following properties:
 </p>
@@ -6373,7 +6440,7 @@ R</td>
 An instance that is associated with the pointer. Currently, this can be an instance of <code class="highlighter-rouge">binary</code> or <code class="highlighter-rouge">memory</code>.</td>
 </tr>
 </table>
-<h3><span class="caption-index-3">5.39.3</span><a name="anchor-5-39-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.40.3</span><a name="anchor-5-40-3"></a>Constructor</h3>
 <p>
 A <code class="highlighter-rouge">pointer</code> instance is constructed by the following function:
 </p>
@@ -6386,7 +6453,7 @@ Creates a <code class="highlighter-rouge">pointer</code> instance that is cloned
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|ptr:pointer|</code>, where <code class="highlighter-rouge">ptr</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 </div>
-<h3><span class="caption-index-3">5.39.4</span><a name="anchor-5-39-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.40.4</span><a name="anchor-5-40-4"></a>Method</h3>
 <p>
 The <code class="highlighter-rouge">pointer</code> class has following methods:
 </p>
@@ -7200,7 +7267,7 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 Creates a <code class="highlighter-rouge">stream</code> instance with which you can append data to the memory pointed by the pointer. If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 </div>
-<h3><span class="caption-index-3">5.39.5</span><a name="anchor-5-39-5"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">5.40.5</span><a name="anchor-5-40-5"></a>Cast Operation</h3>
 <p>
 A function that expects a <code class="highlighter-rouge">pointer</code> instance in its argument can also take a value of <code class="highlighter-rouge">binary</code> and <code class="highlighter-rouge">memory</code>.
 </p>
@@ -7211,8 +7278,8 @@ With the above casting feature, you can call a function <code class="highlighter
 <li><code class="highlighter-rouge">b = b'\x01\x23\x45\x67\x89\xab', f(b)</code></li>
 <li><code class="highlighter-rouge">m = memory(32), f(m)</code> </li>
 </ul>
-<h2><span class="caption-index-2">5.40</span><a name="anchor-5-40"></a>rational Class</h2>
-<h3><span class="caption-index-3">5.40.1</span><a name="anchor-5-40-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.41</span><a name="anchor-5-41"></a>rational Class</h2>
+<h3><span class="caption-index-3">5.41.1</span><a name="anchor-5-41-1"></a>Overview</h3>
 <p>
 The <code class="highlighter-rouge">rational</code> class provides measures to handle rational numbers.
 </p>
@@ -7230,7 +7297,7 @@ Below are examples to realize a common fraction two-thirds:
 2r / 3
 2 / 3r
 </code></pre>
-<h3><span class="caption-index-3">5.40.2</span><a name="anchor-5-40-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.41.2</span><a name="anchor-5-41-2"></a>Constructor</h3>
 <div class="mb-2"><code>rational(numer:number, denom?:number):map {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -7243,20 +7310,20 @@ If the argument <code class="highlighter-rouge">denom</code> is omitted, one is 
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|r:rational|</code>, where <code class="highlighter-rouge">r</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 </div>
-<h3><span class="caption-index-3">5.40.3</span><a name="anchor-5-40-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.41.3</span><a name="anchor-5-41-3"></a>Method</h3>
 <div class="mb-2"><code>rational.reduce()</code></div>
 <div class="mb-2 ml-4">
 <p>
 Reduces the rational number by dividing its numerator and denominator by their GCD.
 </p>
 </div>
-<h2><span class="caption-index-2">5.41</span><a name="anchor-5-41"></a>semaphore Class</h2>
-<h3><span class="caption-index-3">5.41.1</span><a name="anchor-5-41-1"></a>Overview</h3>
-<h3><span class="caption-index-3">5.41.2</span><a name="anchor-5-41-2"></a>Constructor</h3>
+<h2><span class="caption-index-2">5.42</span><a name="anchor-5-42"></a>semaphore Class</h2>
+<h3><span class="caption-index-3">5.42.1</span><a name="anchor-5-42-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.42.2</span><a name="anchor-5-42-2"></a>Constructor</h3>
 <div class="mb-2"><code>semaphore()</code></div>
 <div class="mb-2 ml-4">
 </div>
-<h3><span class="caption-index-3">5.41.3</span><a name="anchor-5-41-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.42.3</span><a name="anchor-5-42-3"></a>Method</h3>
 <div class="mb-2"><code>semaphore#release()</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -7275,8 +7342,8 @@ Forms a critical session by grabbing the semaphore's ownership, executing the bl
 Watis for the semaphore being released by other threads, and ghen grabs that ownership.
 </p>
 </div>
-<h2><span class="caption-index-2">5.42</span><a name="anchor-5-42"></a>stream Class</h2>
-<h3><span class="caption-index-3">5.42.1</span><a name="anchor-5-42-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.43</span><a name="anchor-5-43"></a>stream Class</h2>
+<h3><span class="caption-index-3">5.43.1</span><a name="anchor-5-43-1"></a>Overview</h3>
 <p>
 The <code class="highlighter-rouge">stream</code> class provides methods to read and write data through a stream, an abstract structure to handle a byte sequence. It also provides information of the stream such as the pathname and the creation date and time.
 </p>
@@ -7300,7 +7367,7 @@ You can specify a proper <code class="highlighter-rouge">codec</code> when creat
 </ul>
 </li>
 </ul>
-<h3><span class="caption-index-3">5.42.2</span><a name="anchor-5-42-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.43.2</span><a name="anchor-5-43-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">stream</code> instance has the following properties:
 </p>
@@ -7376,7 +7443,7 @@ R</td>
 Indicates whether the stream is writable.</td>
 </tr>
 </table>
-<h3><span class="caption-index-3">5.42.3</span><a name="anchor-5-42-3"></a>Operator</h3>
+<h3><span class="caption-index-3">5.43.3</span><a name="anchor-5-43-3"></a>Operator</h3>
 <p>
 You can use the operator "<code class="highlighter-rouge">&lt;&lt;</code>" to output a content of a value to a <code class="highlighter-rouge">stream</code>. It comes like "<code class="highlighter-rouge">stream &lt;&lt; obj</code>" where <code class="highlighter-rouge">obj</code> is converted to a string before output to the stream.
 </p>
@@ -7387,7 +7454,7 @@ Since the operator returns the <code class="highlighter-rouge">stream</code> ins
 </p>
 <pre class="highlight"><code>sys.stdout &lt;&lt; 'First' &lt;&lt; 'Second'
 </code></pre>
-<h3><span class="caption-index-3">5.42.4</span><a name="anchor-5-42-4"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">5.43.4</span><a name="anchor-5-43-4"></a>Cast Operation</h3>
 <p>
 A function that expects a <code class="highlighter-rouge">stream</code> instance in its argument can also take a value of <code class="highlighter-rouge">string</code> and <code class="highlighter-rouge">binary</code> as below:
 </p>
@@ -7403,7 +7470,7 @@ Using the above casting feature, you can call a function <code class="highlighte
 <li><code class="highlighter-rouge">f('foo.txt')</code> .. Implicit casting from <code class="highlighter-rouge">string</code> to <code class="highlighter-rouge">stream</code>.</li>
 <li><code class="highlighter-rouge">f(b'\x00\x12\x34\x56')</code> .. Implicit casting from <code class="highlighter-rouge">binary</code> to <code class="highlighter-rouge">stream</code> that reads the content.</li>
 </ul>
-<h3><span class="caption-index-3">5.42.5</span><a name="anchor-5-42-5"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.43.5</span><a name="anchor-5-43-5"></a>Constructor</h3>
 <div class="mb-2"><code>stream(pathname:string, mode?:string, codec?:codec):map {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -7427,7 +7494,7 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 <p>
 You can also call <code class="highlighter-rouge">open()</code> function that is just an alias of <code class="highlighter-rouge">stream()</code> to create a <code class="highlighter-rouge">stream</code> instance.
 </p>
-<h3><span class="caption-index-3">5.42.6</span><a name="anchor-5-42-6"></a>Utility Function</h3>
+<h3><span class="caption-index-3">5.43.6</span><a name="anchor-5-43-6"></a>Utility Function</h3>
 <div class="mb-2"><code>readlines(stream?:stream:r):[chop] {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -7457,7 +7524,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
 </div>
-<h3><span class="caption-index-3">5.42.7</span><a name="anchor-5-42-7"></a>Method</h3>
+<h3><span class="caption-index-3">5.43.7</span><a name="anchor-5-43-7"></a>Method</h3>
 <div class="mb-2"><code>stream#addcr(flag?:boolean):reduce</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -7709,8 +7776,8 @@ Returns the current file position at which read/write operation works.
 Writes binary data pointer by <code class="highlighter-rouge">ptr</code> to the stream. The argument <code class="highlighter-rouge">bytes</code> limits the number of data that is to be written to the stream.
 </p>
 </div>
-<h2><span class="caption-index-2">5.43</span><a name="anchor-5-43"></a>string Class</h2>
-<h3><span class="caption-index-3">5.43.1</span><a name="anchor-5-43-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.44</span><a name="anchor-5-44"></a>string Class</h2>
+<h3><span class="caption-index-3">5.44.1</span><a name="anchor-5-44-1"></a>Overview</h3>
 <p>
 The <code class="highlighter-rouge">string</code> class provides measures to operate on strings.
 </p>
@@ -7730,11 +7797,11 @@ second line
 third line
 """
 </code></pre>
-<h3><span class="caption-index-3">5.43.2</span><a name="anchor-5-43-2"></a>Suffix Management</h3>
+<h3><span class="caption-index-3">5.44.2</span><a name="anchor-5-44-2"></a>Suffix Management</h3>
 <p>
 When an string literal is suffixed by a character <code class="highlighter-rouge">$</code>, a handler registered by <code class="highlighter-rouge">string.translate()</code> function that is supposed to translate the string into other natural languages would be evaluated.
 </p>
-<h3><span class="caption-index-3">5.43.3</span><a name="anchor-5-43-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.44.3</span><a name="anchor-5-44-3"></a>Method</h3>
 <div class="mb-2"><code>string#align(width:number, padding:string =&gt; ' '):map:[center,left,right] {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -8157,8 +8224,8 @@ This method takes into account the character width based on the specification of
 Converts zenkaku to hankaku characters.
 </p>
 </div>
-<h2><span class="caption-index-2">5.44</span><a name="anchor-5-44"></a>suffixmgr Class</h2>
-<h3><span class="caption-index-3">5.44.1</span><a name="anchor-5-44-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.45</span><a name="anchor-5-45"></a>suffixmgr Class</h2>
+<h3><span class="caption-index-3">5.45.1</span><a name="anchor-5-45-1"></a>Overview</h3>
 <p>
 The <code class="highlighter-rouge">suffixmgr</code> class provides measures to access suffix managers that are responsible to handle suffix symbols appended to number or string literals.
 </p>
@@ -8172,7 +8239,7 @@ You can use that suffix like below:
 </p>
 <pre class="highlight"><code>'hello world'X
 </code></pre>
-<h3><span class="caption-index-3">5.44.2</span><a name="anchor-5-44-2"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.45.2</span><a name="anchor-5-45-2"></a>Constructor</h3>
 <div class="mb-2"><code>suffixmgr(type:symbol) {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -8186,7 +8253,7 @@ Creates a reference to one of two suffix managers, number and string.
 Specify the argument <code class="highlighter-rouge">type</code> with a symbol <code class="highlighter-rouge">`number</code> for a number suffix manager and <code class="highlighter-rouge">`string</code> for a string suffix manager.
 </p>
 </div>
-<h3><span class="caption-index-3">5.44.3</span><a name="anchor-5-44-3"></a>Method</h3>
+<h3><span class="caption-index-3">5.45.3</span><a name="anchor-5-45-3"></a>Method</h3>
 <p>
 The <code class="highlighter-rouge">suffixmgr</code> class has following methods:
 </p>
@@ -8199,9 +8266,9 @@ Assigns a procedure to a specified symbol in the suffix manager. The procedure i
 An error occurs if the same suffix symbol has already been assigned. Specifying <code class="highlighter-rouge">:overwrite</code> attribute will forcibly overwrite an existing assignment.
 </p>
 </div>
-<h2><span class="caption-index-2">5.45</span><a name="anchor-5-45"></a>symbol Class</h2>
-<h3><span class="caption-index-3">5.45.1</span><a name="anchor-5-45-1"></a>Overview</h3>
-<h3><span class="caption-index-3">5.45.2</span><a name="anchor-5-45-2"></a>Method</h3>
+<h2><span class="caption-index-2">5.46</span><a name="anchor-5-46"></a>symbol Class</h2>
+<h3><span class="caption-index-3">5.46.1</span><a name="anchor-5-46-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.46.2</span><a name="anchor-5-46-2"></a>Method</h3>
 <p>
 The <code class="highlighter-rouge">symbol</code> class has following methods:
 </p>
@@ -8226,9 +8293,9 @@ Returns the width of the symbol.
 This method takes into account the character width based on the specification of East Asian Width. For example, a kanji-character of Japanese occupies two characters in width.
 </p>
 </div>
-<h2><span class="caption-index-2">5.46</span><a name="anchor-5-46"></a>template Class</h2>
-<h3><span class="caption-index-3">5.46.1</span><a name="anchor-5-46-1"></a>Overview</h3>
-<h3><span class="caption-index-3">5.46.2</span><a name="anchor-5-46-2"></a>Cast Operation</h3>
+<h2><span class="caption-index-2">5.47</span><a name="anchor-5-47"></a>template Class</h2>
+<h3><span class="caption-index-3">5.47.1</span><a name="anchor-5-47-1"></a>Overview</h3>
+<h3><span class="caption-index-3">5.47.2</span><a name="anchor-5-47-2"></a>Cast Operation</h3>
 <p>
 A function that expects a <code class="highlighter-rouge">template</code> instance in its argument can also take a value of <code class="highlighter-rouge">stream</code> as below:
 </p>
@@ -8247,7 +8314,7 @@ Using the above casting feature, you can call a function <code class="highlighte
 <li><code class="highlighter-rouge">f(template('foo.txt'))</code> .. Implicit casting: from <code class="highlighter-rouge">string</code> to <code class="highlighter-rouge">stream</code>.</li>
 <li><code class="highlighter-rouge">f('foo.txt')</code> .. Implicit casting: from <code class="highlighter-rouge">string</code> to <code class="highlighter-rouge">stream</code>, then from <code class="highlighter-rouge">stream</code> to <code class="highlighter-rouge">template</code>.</li>
 </ul>
-<h3><span class="caption-index-3">5.46.3</span><a name="anchor-5-46-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.47.3</span><a name="anchor-5-47-3"></a>Constructor</h3>
 <div class="mb-2"><code>template(src?:stream:r):map:[lasteol,noindent] {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -8264,7 +8331,7 @@ Following attributes would customize the parser's behavior:
 <li><code class="highlighter-rouge">:noindent</code></li>
 </ul>
 </div>
-<h3><span class="caption-index-3">5.46.4</span><a name="anchor-5-46-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.47.4</span><a name="anchor-5-47-4"></a>Method</h3>
 <div class="mb-2"><code>template#parse(str:string):void:[lasteol,noindent]</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -8300,7 +8367,7 @@ Renders stored content to the specified stream.
 If the stream is omitted, the function returns the rendered result as a string.
 </p>
 </div>
-<h3><span class="caption-index-3">5.46.5</span><a name="anchor-5-46-5"></a>Method Called by Template Directive</h3>
+<h3><span class="caption-index-3">5.47.5</span><a name="anchor-5-47-5"></a>Method Called by Template Directive</h3>
 <div class="mb-2"><code>template#block(symbol:symbol):void</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -8471,12 +8538,12 @@ Content of derived.
 Block ends here.
 </code></pre>
 </div>
-<h2><span class="caption-index-2">5.47</span><a name="anchor-5-47"></a>timedelta Class</h2>
-<h3><span class="caption-index-3">5.47.1</span><a name="anchor-5-47-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.48</span><a name="anchor-5-48"></a>timedelta Class</h2>
+<h3><span class="caption-index-3">5.48.1</span><a name="anchor-5-48-1"></a>Overview</h3>
 <p>
 The <code class="highlighter-rouge">timedelta</code> instance provides a time delta information that works with <code class="highlighter-rouge">datetime</code> instance. You can shift time information of <code class="highlighter-rouge">datetime</code> by applying addition or subtraction of <code class="highlighter-rouge">timedelta</code> to it.
 </p>
-<h3><span class="caption-index-3">5.47.2</span><a name="anchor-5-47-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.48.2</span><a name="anchor-5-48-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">timedelta</code> instance has the following properties:
 </p>
@@ -8522,21 +8589,21 @@ R/W</td>
 Offset of micro seconds.</td>
 </tr>
 </table>
-<h3><span class="caption-index-3">5.47.3</span><a name="anchor-5-47-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.48.3</span><a name="anchor-5-48-3"></a>Constructor</h3>
 <div class="mb-2"><code>timedelta(days:number =&gt; 0, secs:number =&gt; 0, usecs:number =&gt; 0):map {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
 Returns a timedelta instance with specified values. The instance actually holds properties of days, secs and usecs.
 </p>
 </div>
-<h2><span class="caption-index-2">5.48</span><a name="anchor-5-48"></a>uri Class</h2>
-<h3><span class="caption-index-3">5.48.1</span><a name="anchor-5-48-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.49</span><a name="anchor-5-49"></a>uri Class</h2>
+<h3><span class="caption-index-3">5.49.1</span><a name="anchor-5-49-1"></a>Overview</h3>
 <p>
 The <code class="highlighter-rouge">uri</code> instance analyzes a URI string and returns each part in it such as the scheme and path. A generic URI has the following format:
 </p>
 <pre class="highlight"><code>scheme:[//[user:password@]host:port]][/]path[?query][#fragment]
 </code></pre>
-<h3><span class="caption-index-3">5.48.2</span><a name="anchor-5-48-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.49.2</span><a name="anchor-5-49-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">uri</code> instance has the following properties:
 </p>
@@ -8622,7 +8689,7 @@ R/W</td>
 User part in the URI.</td>
 </tr>
 </table>
-<h3><span class="caption-index-3">5.48.3</span><a name="anchor-5-48-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.49.3</span><a name="anchor-5-49-3"></a>Constructor</h3>
 <div class="mb-2"><code>uri(str?:string):map {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -8635,7 +8702,7 @@ If the argument <code class="highlighter-rouge">str</code> is specified, it woul
 If omitted, the instance would be initialized as an empty one.
 </p>
 </div>
-<h3><span class="caption-index-3">5.48.4</span><a name="anchor-5-48-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.49.4</span><a name="anchor-5-49-4"></a>Method</h3>
 <div class="mb-2"><code>uri#getfragment()</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -8660,7 +8727,7 @@ Returns a <code class="highlighter-rouge">dict</code> instance that is made from
 This is a utility function to parse a query string and return a <code class="highlighter-rouge">dict</code> instance that contains key-value pairs for the query.
 </p>
 </div>
-<h3><span class="caption-index-3">5.48.5</span><a name="anchor-5-48-5"></a>Cast Operation</h3>
+<h3><span class="caption-index-3">5.49.5</span><a name="anchor-5-49-5"></a>Cast Operation</h3>
 <p>
 A function that expects a <code class="highlighter-rouge">uri</code> instance in its argument can also take a value of <code class="highlighter-rouge">string</code> that is recognized as a URI string.
 </p>
@@ -8671,12 +8738,12 @@ With the above casting feature, you can call a function <code class="highlighter
 <li><code class="highlighter-rouge">f(uri('http://example.com'))</code> .. The most explicit way.</li>
 <li><code class="highlighter-rouge">f('http://example.com')</code> .. Implicit casting: from <code class="highlighter-rouge">string</code> to <code class="highlighter-rouge">uri</code>. </li>
 </ul>
-<h2><span class="caption-index-2">5.49</span><a name="anchor-5-49"></a>vertex Class</h2>
-<h3><span class="caption-index-3">5.49.1</span><a name="anchor-5-49-1"></a>Overview</h3>
+<h2><span class="caption-index-2">5.50</span><a name="anchor-5-50"></a>vertex Class</h2>
+<h3><span class="caption-index-3">5.50.1</span><a name="anchor-5-50-1"></a>Overview</h3>
 <p>
 The <code class="highlighter-rouge">vertex</code> class provides vertex information that consists of x, y, z and w values.
 </p>
-<h3><span class="caption-index-3">5.49.2</span><a name="anchor-5-49-2"></a>Property</h3>
+<h3><span class="caption-index-3">5.50.2</span><a name="anchor-5-50-2"></a>Property</h3>
 <p>
 An <code class="highlighter-rouge">vertex</code> instance has the following properties:
 </p>
@@ -8722,7 +8789,7 @@ R/W</td>
 A value of Z.</td>
 </tr>
 </table>
-<h3><span class="caption-index-3">5.49.3</span><a name="anchor-5-49-3"></a>Constructor</h3>
+<h3><span class="caption-index-3">5.50.3</span><a name="anchor-5-50-3"></a>Constructor</h3>
 <div class="mb-2"><code>vertex(x:number, y:number, z?:number):map {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -8732,7 +8799,7 @@ Creates a <code class="highlighter-rouge">vertex</code> instance that has the gi
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|v:vertex|</code>, where <code class="highlighter-rouge">v</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
 </div>
-<h3><span class="caption-index-3">5.49.4</span><a name="anchor-5-49-4"></a>Method</h3>
+<h3><span class="caption-index-3">5.50.4</span><a name="anchor-5-50-4"></a>Method</h3>
 <div class="mb-2"><code>vertex.cross (v1:vertex, v2:vertex):static:map {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
