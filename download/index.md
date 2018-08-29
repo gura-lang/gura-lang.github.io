@@ -30,25 +30,27 @@ redirect_from: /Download.html
   <tr>
 	<td>Windows Installer</td>
 	<td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}-win32.msi"
-		   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-win32.msi');">gura-{{ gura_version }}-win32.msi</a></td>
+
+
+		   onClick="gtag('event', 'msi', {'event_category' : 'Downloads', 'event_label' : 'gura-{{ gura_version }}-win32.msi'});">gura-{{ gura_version }}-win32.msi</a></td>
   </tr>
 
   <tr>
 	<td>Windows Binary</td>
 	<td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}-win32.zip"
-		   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-win32.zip');">gura-{{ gura_version }}-win32.zip</a></td>
+		   onClick="gtag('event', 'zip', {'event_category' : 'Downloads', 'event_label' : 'gura-{{ gura_version }}-win32.zip'});">gura-{{ gura_version }}-win32.zip</a></td>
   </tr>
 
   <tr>
 	<td>Mac OS X Disk Image</td>
 	<td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}.dmg"
-		   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}.dmg');">gura-{{ gura_version }}.dmg</a></td>
+		   onClick="gtag('event', 'dmg', {'event_category' : 'Downloads', 'event_label' : 'gura-{{ gura_version }}.dmg'});">gura-{{ gura_version }}.dmg</a></td>
   </tr>
 
   <tr>
 	<td>Sorce Package</td>
 	<td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}-src.tar.gz"
-		   onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-src.tar.gz');">gura-{{ gura_version }}-src.tar.gz</a></td>
+		   onClick="gtag('event', 'tar.gz', {'event_category' : 'Downloads', 'event_label' : 'gura-{{ gura_version }}-src.tar.gz'});">gura-{{ gura_version }}-src.tar.gz</a></td>
   </tr>
 
 </table>
@@ -80,25 +82,25 @@ redirect_from: /Download.html
 <tr>
 <td>Windows Installer</td>
 <td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version_prev }}/gura-{{ gura_version_prev }}-win32.msi"
-  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}-win32.msi');">gura-{{ gura_version_prev }}-win32.msi</a></td>
+  onClick="gtag('event', 'msi', {'event_category' : 'Downloads', 'event_label' : 'gura-{{ gura_version_prev }}-win32.msi'});">gura-{{ gura_version_prev }}-win32.msi</a></td>
 </tr>
 
 <tr>
 <td>Windows Binary</td>
 <td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version_prev }}/gura-{{ gura_version_prev }}-win32.zip"
-  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}-win32.zip');">gura-{{ gura_version_prev }}-win32.zip</a></td>
+  onClick="gtag('event', 'zip', {'event_category' : 'Downloads', 'event_label' : 'gura-{{ gura_version_prev }}-win32.zip'});">gura-{{ gura_version_prev }}-win32.zip</a></td>
 </tr>
 
 <tr>
 <td>Mac OS X Disk Image</td>
 <td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version_prev }}/gura-{{ gura_version_prev }}.dmg"
-  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}.dmg');">gura-{{ gura_version_prev }}.dmg</a></td>
+  onClick="gtag('event', 'dmg', {'event_category' : 'Downloads', 'event_label' : 'gura-{{ gura_version_prev }}.dmg'});">gura-{{ gura_version_prev }}.dmg</a></td>
 </tr>
 
 <tr>
 <td>Sorce Package</td>
 <td><a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version_prev }}/gura-{{ gura_version_prev }}-src.tar.gz"
-  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version_prev }}-src.tar.gz');">gura-{{ gura_version_prev }}-src.tar.gz</a></td>
+  onClick="gtag('event', 'tar.gz', {'event_category' : 'Downloads', 'event_label' : 'gura-{{ gura_version_prev }}-src.tar.gz'});">gura-{{ gura_version_prev }}-src.tar.gz</a></td>
 </tr>
 
 </table>
@@ -115,7 +117,7 @@ It has been confirmed that Gura runs on the following versions of Windows:
 
 Launch the installer
 <a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}-win32.msi"
-  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-win32.msi');">gura-{{ gura_version }}-win32.msi</a> and follow the steps below:
+  onClick="gtag('event', 'msi', {'event_category' : 'Downloads', 'event_label' : 'gura-{{ gura_version }}-win32.msi'});">gura-{{ gura_version }}-win32.msi</a> and follow the steps below:
 
 <div class="card-deck">
   <div class="card mt-2 border-secondary">
@@ -161,7 +163,7 @@ to assign file extensions `.gura`, `.guraw`, `.gurc` and `.gurcw` as executable 
 
 If you don't want to modify registries, you can just expand ZIP file
 <a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}-win32.zip"
-  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-win32.zip');">gura-{{ gura_version }}-win32.zip</a>
+  onClick="gtag('event', 'zip', {'event_category' : 'Downloads', 'event_label' : 'gura-{{ gura_version }}-win32.zip'});">gura-{{ gura_version }}-win32.zip</a>
   in some directory and edit PATH environment so that it includes `gura\bin-x86` directory in the expanded content.
 
 
@@ -173,7 +175,7 @@ It has been confirmed that Gura runs on the following versions of Mac OS X.
 
 Open the disk image
 <a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}.dmg"
-  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}.dmg');">gura-{{ gura_version }}.dmg</a>
+  onClick="gtag('event', 'dmg', {'event_category' : 'Downloads', 'event_label' : 'gura-{{ gura_version }}.dmg'});">gura-{{ gura_version }}.dmg</a>
 and drag `Gura.app` icon to `Applications` folder.
 
 <img src="{{ topdir }}/assets/install-macos.png" />
@@ -220,7 +222,7 @@ For Fedora:
 
 Download a source package
 <a href="https://github.com/gura-lang/gura/releases/download/v{{ gura_version }}/gura-{{ gura_version }}-src.tar.gz"
-  onClick="ga('send', 'event', 'download', 'click', 'gura-{{ gura_version }}-src.tar.gz');">gura-{{ gura_version }}-src.tar.gz</a>.
+  onClick="gtag('event', 'tar.gz', {'event_category' : 'Downloads', 'event_label' : 'gura-{{ gura_version }}-src.tar.gz'});">gura-{{ gura_version }}-src.tar.gz</a>.
 Then, follow the steps below to build Gura executables and modules.
 
     $ tar xvfz gura-{{ gura_version }}.tar.gz
