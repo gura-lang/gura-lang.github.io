@@ -114,8 +114,7 @@ An iterator assignment is expressed with an operator
 </p>
 <code>in</code> like below.<pre>
 <code><em>symbol</em> in <em>iterable</em>
-[<em>symbol1</em>, <em>symbol2</em> ..] in <em>iterable</em>
-</code></pre>
+[<em>symbol1</em>, <em>symbol2</em> ..] in <em>iterable</em></code></pre>
 <p>
 In the first format, it assigns <code class="highlighter-rouge">symbol</code> with a value in <code class="highlighter-rouge">iterable</code> each time in the loop. Below is an example.
 </p>

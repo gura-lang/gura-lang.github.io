@@ -2,7 +2,7 @@
 layout: doc-widenavi
 lang: en
 title: Gura Library Reference
-prevpage: ""
+prevpage: index.html
 nextpage: chapter-02.html#naviitem-selected
 ---
 {% raw %}

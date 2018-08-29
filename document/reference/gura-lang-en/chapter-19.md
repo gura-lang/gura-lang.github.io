@@ -153,7 +153,7 @@ Differentiation Forumula</th>
 <td>
 <code>math.sin(x ** 2)</code></td>
 <td>
-<code>math.cos(x ** 2) * (2 * x) </code></td>
+<code>math.cos(x ** 2) * (2 * x)</code></td>
 </tr>
 <tr>
 <td>

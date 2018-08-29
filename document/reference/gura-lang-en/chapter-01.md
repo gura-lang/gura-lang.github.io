@@ -2,7 +2,7 @@
 layout: doc-widenavi
 lang: en
 title: Gura Language Manual
-prevpage: ""
+prevpage: index.html
 nextpage: chapter-02.html#naviitem-selected
 ---
 {% raw %}

@@ -412,7 +412,6 @@ provides <code>image#show()</code> method that displays image on a window</td>
 </tr>
 <p>
 <!-- <tr><td><code>canvas</code></td><td>(obsolete)</td></tr> -->
-
 </p>
 </table>
 <p>
@@ -433,7 +432,6 @@ provides APIs to control MIDI hardware and to create MIDI files</td>
 </tr>
 <p>
 <!-- <tr><td><code>wav</code></td><td></td></tr> -->
-
 </p>
 </table>
 <p>
@@ -460,7 +458,6 @@ provides APIs for HTTP server and client functions</td>
 </tr>
 <p>
 <!-- <tr><td><code>guri</code></td><td></td></tr> -->
-
 </p>
 </table>
 <p>
@@ -664,7 +661,6 @@ utilities</td>
 <p>
 <!-- <tr><td><code>sample</code></td><td></td></tr> -->
 <!-- <tr><td><code>graph</code></td><td></td></tr> -->
-
 </p>
 </table>
 <h2><span class="caption-index-2">12.6</span><a name="anchor-12-6"></a>Creating Binary Module File</h2>
