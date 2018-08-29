@@ -6319,7 +6319,7 @@ The <code class="highlighter-rouge">pointer</code> class provides measures to re
 </p>
 <h3><span class="caption-index-3">5.39.2</span><a name="anchor-5-39-2"></a>Property</h3>
 <p>
-A <code class="highlighter-rouge">pointer</code> instance has the following properties:
+A <code class="highlighter-rouge">pointer</code> instance has following properties:
 </p>
 <table class="table">
 <tr>
@@ -6374,6 +6374,9 @@ An instance that is associated with the pointer. Currently, this can be an insta
 </tr>
 </table>
 <h3><span class="caption-index-3">5.39.3</span><a name="anchor-5-39-3"></a>Constructor</h3>
+<p>
+A <code class="highlighter-rouge">pointer</code> instance is constructed by the following function:
+</p>
 <div class="mb-2"><code>pointer(org:pointer):map {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -6384,6 +6387,9 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 </p>
 </div>
 <h3><span class="caption-index-3">5.39.4</span><a name="anchor-5-39-4"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">pointer</code> class has following methods:
+</p>
 <div class="mb-2"><code>pointer#copyfrom(src:pointer, bytes?:number):map:reduce</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -8181,6 +8187,9 @@ Specify the argument <code class="highlighter-rouge">type</code> with a symbol <
 </p>
 </div>
 <h3><span class="caption-index-3">5.44.3</span><a name="anchor-5-44-3"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">suffixmgr</code> class has following methods:
+</p>
 <div class="mb-2"><code>suffixmgr#assign(suffix:symbol):void:[overwrite] {block}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -8193,10 +8202,28 @@ An error occurs if the same suffix symbol has already been assigned. Specifying 
 <h2><span class="caption-index-2">5.45</span><a name="anchor-5-45"></a>symbol Class</h2>
 <h3><span class="caption-index-3">5.45.1</span><a name="anchor-5-45-1"></a>Overview</h3>
 <h3><span class="caption-index-3">5.45.2</span><a name="anchor-5-45-2"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">symbol</code> class has following methods:
+</p>
 <div class="mb-2"><code>symbol#eval(env?:environment)</code></div>
 <div class="mb-2 ml-4">
 <p>
 Evaluate a symbol object.
+</p>
+</div>
+<div class="mb-2"><code>symbol#len()</code></div>
+<div class="mb-2 ml-4">
+<p>
+Returns the length of the symbol in characters.
+</p>
+</div>
+<div class="mb-2"><code>symbol#width()</code></div>
+<div class="mb-2 ml-4">
+<p>
+Returns the width of the symbol.
+</p>
+<p>
+This method takes into account the character width based on the specification of East Asian Width. For example, a kanji-character of Japanese occupies two characters in width.
 </p>
 </div>
 <h2><span class="caption-index-2">5.46</span><a name="anchor-5-46"></a>template Class</h2>

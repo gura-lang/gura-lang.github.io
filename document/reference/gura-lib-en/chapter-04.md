@@ -88,7 +88,10 @@ Prints out <code class="highlighter-rouge">values</code> and an end-of-line char
 <div class="mb-2"><code>cross (`expr+) {block}</code></div>
 <div class="mb-2 ml-4">
 <p>
-Executes the <code class="highlighter-rouge">block</code> while evaluating all the combinations of results from <code class="highlighter-rouge">expr</code> that has format "<code class="highlighter-rouge">var in iteratable</code>". You can specify one or more such <code class="highlighter-rouge">expr</code>s as arguments and they are counted up from the one on the right side. Iterators and lists are the most popular iteratables, but even any objects that are cable of generating iterators can be specified as such.
+Executes the <code class="highlighter-rouge">block</code> while evaluating all the combinations of results from <code class="highlighter-rouge">expr</code> that has format "<code class="highlighter-rouge">var in iteratable</code>". You can specify one or more such <code class="highlighter-rouge">expr</code>s as arguments and they are counted up from the one on the right side to the left.
+</p>
+<p>
+Iterators and lists are the most typical iteratables, but even any objects that are cable of generating iterators can be specified as such.
 </p>
 <p>
 It returns the last evaluated value in the block as its own result, but, if one of <code class="highlighter-rouge">:list</code>, <code class="highlighter-rouge">:xlist</code>, <code class="highlighter-rouge">:set</code>, <code class="highlighter-rouge">:xset</code> or <code class="highlighter-rouge">:iter</code> is specified, it returns a list or evaluated value or an iterator. The rule is as follows:
