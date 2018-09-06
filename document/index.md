@@ -16,7 +16,7 @@ title: Gura Programming Language - document
 	<tr>
 	  <td>
 		<a href="reference/gura-lang-en/">Gura Language Manual</a>
-		<a href="https://github.com/gura-lang/gura/raw/master/reference/language-manual/gura-lang-en.pdf" class="float-right">
+		<a href="https://github.com/gura-lang/gura/raw/master/reference/language-manual/gura-lang-en.pdf" target="_blank" class="float-right">
 		  <i class="far fa-file-pdf"></i> PDF
 		</a>
 	  </td>
@@ -26,7 +26,7 @@ title: Gura Programming Language - document
 	<tr>
 	  <td>
 		<a href="reference/gura-lib-en/">Gura Library Reference</a>
-		<a href="https://github.com/gura-lang/gura/raw/master/reference/library-reference/gura-lib-en.pdf" class="float-right">
+		<a href="https://github.com/gura-lang/gura/raw/master/reference/library-reference/gura-lib-en.pdf" target="_blank" class="float-right">
 		  <i class="far fa-file-pdf"></i> PDF
 		</a>
 	  </td>
