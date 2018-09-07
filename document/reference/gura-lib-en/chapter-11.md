@@ -19,8 +19,6 @@ Below is an example to print a calendar for the year 2015.
 <h2><span class="caption-index-2">11.2</span><a name="anchor-11-2"></a>Module Function</h2>
 <div class="mb-2"><code>calendar.calendar(year:number, weekoffset:number =&gt; 0, ncols:number =&gt; 3)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Prints calendars of a specified year. The argument <code class="highlighter-rouge">weekoffset</code> specifies from which week the calendar starts, <code class="highlighter-rouge">0</code> from Sunday, <code class="highlighter-rouge">1</code> from Monday, and so on. The argument <code class="highlighter-rouge">ncols</code> specifies how many months are printed in one row.
-</p>
 </div>
 {% endraw %}

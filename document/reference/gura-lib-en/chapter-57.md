@@ -6,33 +6,14 @@ prevpage: chapter-56.html#naviitem-selected
 nextpage: chapter-58.html#naviitem-selected
 ---
 {% raw %}
-<h1><span class="caption-index-1">57</span>units Module</h1>
+<h1><span class="caption-index-1">57</span>uuid Module</h1>
+<h2><span class="caption-index-2">57.1</span><a name="anchor-57-1"></a>Overview</h2>
 <p>
-The <code class="highlighter-rouge">units</code> module provides functions to convert physical units into another.
+The <code class="highlighter-rouge">uuid</code> module provides functions to generate UUIDs. To utilize it, import the <code class="highlighter-rouge">uuid</code> module using <code class="highlighter-rouge">import</code> function.
 </p>
-<h2><span class="caption-index-2">57.1</span><a name="anchor-57-1"></a>Module Function</h2>
-<div class="mb-2"><code>units.inch$mm(inch:number):map</code></div>
+<h2><span class="caption-index-2">57.2</span><a name="anchor-57-2"></a>Module Function</h2>
+<div class="mb-2"><code>uuid.generate():[upper]</code></div>
 <div class="mb-2 ml-4">
-<p>
-Converts <strong>inch</strong> to <strong>mm</strong>.
-</p>
-</div>
-<div class="mb-2"><code>units.mm$inch(mm:number):map</code></div>
-<div class="mb-2 ml-4">
-<p>
-Converts <strong>mm</strong> to <strong>inch</strong>.
-</p>
-</div>
-<div class="mb-2"><code>units.mm$pt(mm:number):map</code></div>
-<div class="mb-2 ml-4">
-<p>
-Converts <strong>mm</strong> to <strong>pt</strong>.
-</p>
-</div>
-<div class="mb-2"><code>units.pt$mm(pt:number):map</code></div>
-<div class="mb-2 ml-4">
-<p>
-Converts <strong>pt</strong> to <strong>mm</strong>.
-</p>
+Generates a Universal Unique Identifier (UUID). In default, results are output in lower-case characters. Specifying :upper would generates it in upper-case characters.
 </div>
 {% endraw %}

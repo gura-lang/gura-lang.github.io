@@ -40,14 +40,10 @@ This module extends the <code class="highlighter-rouge">image</code> class with 
 </p>
 <div class="mb-2"><code>image#read@ppm(stream:stream:r):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Reads a PPM/PGM image from a stream.
-</p>
 </div>
 <div class="mb-2"><code>image#write@ppm(stream:stream:w):reduce:[gray]</code></div>
 <div class="mb-2 ml-4">
-<p>
 Writes a PPM/PGM image to a stream.
-</p>
 </div>
 {% endraw %}

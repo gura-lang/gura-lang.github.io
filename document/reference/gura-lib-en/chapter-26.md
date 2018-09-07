@@ -26,5 +26,6 @@ Creates a composite Gura file from files specified by <code class="highlighter-r
 <p>
 The result file would be created in the directory specified by <code class="highlighter-rouge">dirName</code>. If the argument is omitted, the file would be created in the current working directory.
 </p>
+
 </div>
 {% endraw %}

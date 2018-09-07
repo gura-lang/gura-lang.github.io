@@ -29,79 +29,62 @@ The <code class="highlighter-rouge">hash.accumulator</code> class provides measu
 As the class inhefits from <code class="highlighter-rouge">stream</code>, you can call methods of <code class="highlighter-rouge">stream</code> class with <code class="highlighter-rouge">hash.accumulator</code> instances.
 </p>
 <h3><span class="caption-index-3">28.2.1</span><a name="anchor-28-2-1"></a>Property</h3>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-<tr>
-<td>
-<code>digest</code></td>
-<td>
-<code>binary</code></td>
-<td>
-R</td>
-<td>
-Returns the hashed result as <code>binary</code>.</td>
-</tr>
-<tr>
-<td>
-<code>hexdigest</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-Returns the hashed result as <code>string</code> in hexadecimal format.</td>
-</tr>
-<tr>
-<td>
-<code>number</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Returns the hashed result as <code>number</code>.
-This field is valid only for CRC32 and returns `nil` for other hashes.</td>
-</tr>
-</table>
+<div class="mb-2"><code>stream#codec</code> &hellip; <code>codec</code> [read-only]</div>
+<div class="mb-2 ml-4">
+A <code class="highlighter-rouge">codec</code> instance associated with the stream.
+</div>
+<div class="mb-2"><code>hash.accumulator#digest</code> &hellip; <code>binary</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>hash.accumulator#hexdigest</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>stream#identifier</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Identifier of the stream.
+</div>
+<div class="mb-2"><code>stream#name</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Name of the stream.
+</div>
+<div class="mb-2"><code>hash.accumulator#number</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>stream#readable</code> &hellip; <code>boolean</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Indicates whether the stream is readable.
+</div>
+<div class="mb-2"><code>stream#stat</code> &hellip; <code>any</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Status of the stream.
+</div>
+<div class="mb-2"><code>stream#writable</code> &hellip; <code>boolean</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Indicates whether the stream is writable.
+</div>
 <h3><span class="caption-index-3">28.2.2</span><a name="anchor-28-2-2"></a>Constructor</h3>
 <div class="mb-2"><code>hash.md5(stream?:stream:r) {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Creates an <code class="highlighter-rouge">hash.accumulator</code> instance that calculates MD5 hashed value from the content of <code class="highlighter-rouge">stream</code>.
-</p>
 </div>
 <div class="mb-2"><code>hash.sha1(stream?:stream:r) {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Creates an <code class="highlighter-rouge">hash.accumulator</code> instance that calculates SHA1 hashed value from the content of <code class="highlighter-rouge">stream</code>.
-</p>
 </div>
 <div class="mb-2"><code>hash.crc32(stream?:stream:r) {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Creates an <code class="highlighter-rouge">hash.accumulator</code> instance that calculates CRC32 hashed value from the content of <code class="highlighter-rouge">stream</code>.
-</p>
 </div>
 <h3><span class="caption-index-3">28.2.3</span><a name="anchor-28-2-3"></a>Method</h3>
 <div class="mb-2"><code>hash.accumulator#init():reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Initializes the state of the accumulator.
-</p>
 </div>
 <div class="mb-2"><code>hash.accumulator#update(stream:stream:r):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Updates the accumulator with the content of <code class="highlighter-rouge">stream</code>.
-</p>
 </div>
 {% endraw %}

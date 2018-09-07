@@ -14,9 +14,7 @@ The <code class="highlighter-rouge">math</code> module provices functions for ma
 <h2><span class="caption-index-2">33.2</span><a name="anchor-33-2"></a>Module Function</h2>
 <div class="mb-2"><code>math.abs(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns an absolute value.
-</p>
 </div>
 <div class="mb-2"><code>math.acos(num):map:[deg]</code></div>
 <div class="mb-2 ml-4">
@@ -26,6 +24,7 @@ Returns an inverse cosine value.
 <p>
 In default, the result is returned in radian. Specifying an attribute <code class="highlighter-rouge">:deg</code> would return that in degree.
 </p>
+
 </div>
 <div class="mb-2"><code>math.arg(num):map:[deg]</code></div>
 <div class="mb-2 ml-4">
@@ -35,6 +34,7 @@ Returns an argument, an angle from the real-axis in the complex plane, of a comp
 <p>
 In default, the angle value is returned in radian. Specifying an attribute <code class="highlighter-rouge">:deg</code> would return that in degree.
 </p>
+
 </div>
 <div class="mb-2"><code>math.asin(num):map:[deg]</code></div>
 <div class="mb-2 ml-4">
@@ -44,12 +44,11 @@ Returns an inverse sine value.
 <p>
 In default, the result is returned in radian. Specifying an attribute <code class="highlighter-rouge">:deg</code> would return that in degree.
 </p>
+
 </div>
 <div class="mb-2"><code>math.atan(num):map:[deg]</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns an inverse tangent value.
-</p>
 </div>
 <div class="mb-2"><code>math.atan2(num1, num2):map:[deg]</code></div>
 <div class="mb-2 ml-4">
@@ -59,24 +58,19 @@ Returns an inverse tangent value of a fraction of num1 and num2.
 <p>
 In default, the result is returned in radian. Specifying an attribute <code class="highlighter-rouge">:deg</code> would return that in degree.
 </p>
+
 </div>
 <div class="mb-2"><code>math.bezier(nums[]+:number)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a list that consists of functions that generate coordinates of bezier curves with specified control points. One or more lists of control points can be specified. This means that if you give it two lists of numbers as arguments, it returns two functions of bezier curve.
-</p>
 </div>
 <div class="mb-2"><code>math.ceil(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a nearest integer number above or equal to the specified value.
-</p>
 </div>
 <div class="mb-2"><code>math.conj(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a conjugate of a complex number.
-</p>
 </div>
 <div class="mb-2"><code>math.cos(num):map:[deg]</code></div>
 <div class="mb-2 ml-4">
@@ -86,30 +80,23 @@ Returns a cosine value.
 <p>
 In default, the given argument is treated as a radian number. Specifying an attribute <code class="highlighter-rouge">:deg</code> would treat that as a degree number.
 </p>
+
 </div>
 <div class="mb-2"><code>math.cosh(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a hyperbolic cosine value.
-</p>
 </div>
 <div class="mb-2"><code>math.covariance(a, b)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a covariance between the <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code>.
-</p>
 </div>
 <div class="mb-2"><code>math.cross (a, b)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Calculates a cross product between <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code>.
-</p>
 </div>
 <div class="mb-2"><code>math.delta(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Evaluates a delta function with a given argument <code class="highlighter-rouge">num</code> that returns <code class="highlighter-rouge">1</code> when <code class="highlighter-rouge">num == 0</code> and <code class="highlighter-rouge">0</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>math.diff(expr:expr, var:symbol):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -122,78 +109,59 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 <p>
 Example: <code class="highlighter-rouge">math.diff(</code>(math.sin(x  2)), <code class="highlighter-rouge">x)</code>**
 </p>
+
 </div>
 <div class="mb-2"><code>math.dot(a, b)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Calculates a dot product between <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code>.
-</p>
 </div>
 <div class="mb-2"><code>math.exp(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns an exponential value.
-</p>
 </div>
 <div class="mb-2"><code>math.fft(seq[])</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>math.floor(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a nearest integer number below or equal to the specified value.
-</p>
 </div>
 <div class="mb-2"><code>math.gcd(a:number, b+:number):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a greatest common divisor among two or more numbers.
-</p>
 </div>
 <div class="mb-2"><code>math.hypot(x, y):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a hyperbolic tangent value.
-</p>
 </div>
 <div class="mb-2"><code>math.imag(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns an imaginary part of a complex number.
-</p>
 </div>
 <div class="mb-2"><code>math.integral()</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>math.lcm(a:number, b+:number):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a least common multiple among two or more numbers.
-</p>
 </div>
 <div class="mb-2"><code>math.least_square(x:iterator, y:iterator, dim:number =&gt; 1, var:symbol =&gt; `x)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Takes two iterators <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> that return coordinate of points and returns a function that fits them using least square metho. You can specify the fitting curve's dimension by an argument <code class="highlighter-rouge">dim</code>, which default value is one. The variable symbol used in the function is <code class="highlighter-rouge">x</code>, which can be changed by specifying an argument <code class="highlighter-rouge">var</code>.
-</p>
 </div>
 <div class="mb-2"><code>math.log(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a natural logarithm value.
-</p>
 </div>
 <div class="mb-2"><code>math.log10(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a decadic logarithm value.
-</p>
 </div>
 <div class="mb-2"><code>math.norm(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a norm value of a complex number.
-</p>
 </div>
 <div class="mb-2"><code>math.optimize(expr:expr):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -203,18 +171,15 @@ Returns an optimized expression of the given argument <code class="highlighter-r
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|rtn:expr|</code>, where <code class="highlighter-rouge">rtn</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <div class="mb-2"><code>math.real(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a real part of a complex number.
-</p>
 </div>
 <div class="mb-2"><code>math.relu(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Evaluates a rectified linear unit function with a given argument <code class="highlighter-rouge">num</code> that returns <code class="highlighter-rouge">num</code> when <code class="highlighter-rouge">num &gt;= 0</code> and <code class="highlighter-rouge">0</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>math.sin(num):map:[deg]</code></div>
 <div class="mb-2 ml-4">
@@ -224,18 +189,15 @@ Returns a sine value.
 <p>
 In default, the given argument is treated as a radian number. Specifying an attribute <code class="highlighter-rouge">:deg</code> would treat that as a degree number.
 </p>
+
 </div>
 <div class="mb-2"><code>math.sinh(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a hyperbolic sine value.
-</p>
 </div>
 <div class="mb-2"><code>math.sqrt(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a square root value.
-</p>
 </div>
 <div class="mb-2"><code>math.tan(num):map:[deg]</code></div>
 <div class="mb-2 ml-4">
@@ -245,17 +207,14 @@ Returns a tangent value.
 <p>
 In default, the given argument is treated as a radian number. Specifying an attribute <code class="highlighter-rouge">:deg</code> would treat that as a degree number.
 </p>
+
 </div>
 <div class="mb-2"><code>math.tanh(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a hyperbolic tangent value.
-</p>
 </div>
 <div class="mb-2"><code>math.unitstep(num):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Evaluates a unit step function with a given argument <code class="highlighter-rouge">num</code> that returns <code class="highlighter-rouge">1</code> when <code class="highlighter-rouge">num &gt;= 0</code> and <code class="highlighter-rouge">0</code> otherwise.
-</p>
 </div>
 {% endraw %}

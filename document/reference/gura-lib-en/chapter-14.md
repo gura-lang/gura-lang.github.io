@@ -44,6 +44,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <div class="mb-2"><code>csv.read(stream:stream:r) {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -67,6 +68,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <h2><span class="caption-index-2">14.3</span><a name="anchor-14-3"></a>csv.writer Class</h2>
 <h3><span class="caption-index-3">14.3.1</span><a name="anchor-14-3-1"></a>Constructor</h3>
@@ -78,6 +80,7 @@ Creates a <code class="highlighter-rouge">csv.writer</code> instance that provid
 <p>
 The argument <code class="highlighter-rouge">format</code> specifies a printf-style format string that is used to convert a <code class="highlighter-rouge">number</code> and <code class="highlighter-rouge">complex</code> value to a string.
 </p>
+
 </div>
 <h3><span class="caption-index-3">14.3.2</span><a name="anchor-14-3-2"></a>Method</h3>
 <div class="mb-2"><code>csv.writer#write(fields+):map:reduce</code></div>
@@ -88,6 +91,7 @@ Writes values in CSV format.
 <p>
 The argument <code class="highlighter-rouge">fields</code> takes <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">number</code> or <code class="highlighter-rouge">complex</code> values that are to be put out in a row.
 </p>
+
 </div>
 <h2><span class="caption-index-2">14.4</span><a name="anchor-14-4"></a>Extension of stream Class</h2>
 <p>
@@ -115,6 +119,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <div class="mb-2"><code>stream#writer@csv(format?:string) {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -124,5 +129,6 @@ Creates a <code class="highlighter-rouge">csv.writer</code> instance that provid
 <p>
 The argument <code class="highlighter-rouge">format</code> specifies a printf-style format string that is used to convert a <code class="highlighter-rouge">number</code> and <code class="highlighter-rouge">complex</code> value to a string.
 </p>
+
 </div>
 {% endraw %}

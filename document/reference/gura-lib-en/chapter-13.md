@@ -54,12 +54,11 @@ In default, it clears whole the screen. Argument <code class="highlighter-rouge"
 <li><code class="highlighter-rouge">`top</code> .. clears characters on the above side of the cursor.</li>
 <li><code class="highlighter-rouge">`bottom</code> .. clears characters on the below side of the cursor.</li>
 </ul>
+
 </div>
 <div class="mb-2"><code>conio.getwinsize()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns the screen size as a list <code class="highlighter-rouge">[width, height]</code>.
-</p>
 </div>
 <div class="mb-2"><code>conio.setcolor(fg:symbol:nil, bg?:symbol):map:void {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -94,6 +93,7 @@ If <code class="highlighter-rouge">fg</code> is set to nil, the foreground color
 <p>
 If <code class="highlighter-rouge">block</code> is specified, the color is changed before evaluating the block, and then gets back to what has been set when done.
 </p>
+
 </div>
 <div class="mb-2"><code>conio.moveto(x:number, y:number):map:void {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -103,6 +103,7 @@ Moves cursor to the specified position. The most top-left position on the screen
 <p>
 If <code class="highlighter-rouge">block</code> is specified, the cursor is moved before evaluating the block, and then gets back to where it has been when done.
 </p>
+
 </div>
 <div class="mb-2"><code>conio.waitkey():[raise]</code></div>
 <div class="mb-2 ml-4">
@@ -132,5 +133,6 @@ Character code numbers of some of the special keys are defined as below:
 <li><code class="highlighter-rouge">conio.K_PAGEDOWN</code></li>
 <li><code class="highlighter-rouge">conio.K_DELETE</code></li>
 </ul>
+
 </div>
 {% endraw %}

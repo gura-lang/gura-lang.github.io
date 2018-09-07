@@ -52,68 +52,26 @@ A <code class="highlighter-rouge">jpeg.exif</code> instance contains <code class
 <p>
 A <code class="highlighter-rouge">jpeg.exif</code> instance has the following properties:
 </p>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Note</th>
-</tr>
-<tr>
-<td>
-<code>endian</code></td>
-<td>
-<code>boolean</code></td>
-<td>
-R</td>
-<td>
-The endian type: <code class="highlighter-rouge">`big</code> for big-endian and <code class="highlighter-rouge">`little</code> for little-endian.</td>
-</tr>
-<tr>
-<td>
-<code>ifd0</code></td>
-<td>
-<code>jpeg.ifd</code></td>
-<td>
-R</td>
-<td>
-IFD0 instance.</td>
-</tr>
-<tr>
-<td>
-<code>ifd1</code></td>
-<td>
-<code>jpeg.ifd</code></td>
-<td>
-R</td>
-<td>
-IFD1 instance.</td>
-</tr>
-<tr>
-<td>
-<code>thumbnail</code></td>
-<td>
-<code>image</code></td>
-<td>
-R</td>
-<td>
-Thumbnail image as <code class="highlighter-rouge">image</code> value.</td>
-</tr>
-<tr>
-<td>
-<code>thumbnail@jpeg</code></td>
-<td>
-<code>binary</code></td>
-<td>
-R</td>
-<td>
-Thumbnail image as JPEG binary data.</td>
-</tr>
-</table>
+<div class="mb-2"><code>jpeg.exif#endian</code> &hellip; <code>boolean</code> [read-only]</div>
+<div class="mb-2 ml-4">
+The endian type: <code class="highlighter-rouge">`big</code> for big-endian and <code class="highlighter-rouge">`little</code> for little-endian.
+</div>
+<div class="mb-2"><code>jpeg.exif#ifd0</code> &hellip; <code>jpeg.ifd</code> [read-only]</div>
+<div class="mb-2 ml-4">
+IFD0 instance.
+</div>
+<div class="mb-2"><code>jpeg.exif#ifd1</code> &hellip; <code>jpeg.ifd</code> [read-only]</div>
+<div class="mb-2 ml-4">
+IFD1 instance.
+</div>
+<div class="mb-2"><code>jpeg.exif#thumbnail</code> &hellip; <code>image</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Thumbnail image as <code class="highlighter-rouge">image</code> value.
+</div>
+<div class="mb-2"><code>jpeg.exif#thumbnail@jpeg</code> &hellip; <code>binary</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Thumbnail image as JPEG binary data.
+</div>
 <h3><span class="caption-index-3">30.3.3</span><a name="anchor-30-3-3"></a>Constructor</h3>
 <div class="mb-2"><code>jpeg.exif(stream?:stream:r):map:[raise] {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -126,6 +84,7 @@ If no EXIF information exists in the stream, this function returns <code class="
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|exif:jpeg.exif|</code>, where <code class="highlighter-rouge">exif</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <h3><span class="caption-index-3">30.3.4</span><a name="anchor-30-3-4"></a>Method</h3>
 <div class="mb-2"><code>jpeg.exif#each() {block?}</code></div>
@@ -150,6 +109,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <h2><span class="caption-index-2">30.4</span><a name="anchor-30-4"></a>jpeg.ifd Class</h2>
 <h3><span class="caption-index-3">30.4.1</span><a name="anchor-30-4-1"></a>Overview</h3>
@@ -157,38 +117,14 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 <p>
 A <code class="highlighter-rouge">jpeg.ifd</code> instance has the following properties:
 </p>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Note</th>
-</tr>
-<tr>
-<td>
-<code>name</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>symbol</code></td>
-<td>
-<code>symbol</code></td>
-<td>
-R</td>
-<td>
-</td>
-</tr>
-</table>
+<div class="mb-2"><code>jpeg.ifd#name</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>jpeg.ifd#symbol</code> &hellip; <code>symbol</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
 <h3><span class="caption-index-3">30.4.3</span><a name="anchor-30-4-3"></a>Method</h3>
 <div class="mb-2"><code>jpeg.ifd#each() {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -212,94 +148,41 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <h2><span class="caption-index-2">30.5</span><a name="anchor-30-5"></a>jpeg.tag Class</h2>
 <h3><span class="caption-index-3">30.5.1</span><a name="anchor-30-5-1"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">jpeg.tag</code> instance has the following properties:
 </p>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Note</th>
-</tr>
-<tr>
-<td>
-<code>id</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Tag ID.</td>
-</tr>
-<tr>
-<td>
-<code>ifd</code></td>
-<td>
-<code>undefined</code></td>
-<td>
-R</td>
-<td>
-IFD instance. Valid only for tags <code class="highlighter-rouge">Exif</code>, <code class="highlighter-rouge">GPSInfo</code> and <code class="highlighter-rouge">Interoperability</code>.</td>
-</tr>
-<tr>
-<td>
-<code>name</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-Tag name.</td>
-</tr>
-<tr>
-<td>
-<code>symbol</code></td>
-<td>
-<code>symbol</code></td>
-<td>
-R</td>
-<td>
-Tag name as <code class="highlighter-rouge">symbol</code>.</td>
-</tr>
-<tr>
-<td>
-<code>type</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Tag type.</td>
-</tr>
-<tr>
-<td>
-<code>typename</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-Tag type name.</td>
-</tr>
-<tr>
-<td>
-<code>value</code></td>
-<td>
-<code>any</code></td>
-<td>
-R</td>
-<td>
-Tag value. When the attribute <code class="highlighter-rouge">:cooked</code> is specified, numbers in some tags are translated to human-readable symbols.</td>
-</tr>
-</table>
+<div class="mb-2"><code>jpeg.tag#id</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Tag ID.
+</div>
+<div class="mb-2"><code>jpeg.tag#ifd</code> &hellip; <code>undefined</code> [read-only]</div>
+<div class="mb-2 ml-4">
+IFD instance. Valid only for tags <code class="highlighter-rouge">Exif</code>, <code class="highlighter-rouge">GPSInfo</code> and <code class="highlighter-rouge">Interoperability</code>.
+</div>
+<div class="mb-2"><code>jpeg.tag#name</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Tag name.
+</div>
+<div class="mb-2"><code>jpeg.tag#symbol</code> &hellip; <code>symbol</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Tag name as <code class="highlighter-rouge">symbol</code>.
+</div>
+<div class="mb-2"><code>jpeg.tag#type</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Tag type.
+</div>
+<div class="mb-2"><code>jpeg.tag#typename</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Tag type name.
+</div>
+<div class="mb-2"><code>jpeg.tag#value</code> &hellip; <code>any</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Tag value. When the attribute <code class="highlighter-rouge">:cooked</code> is specified, numbers in some tags are translated to human-readable symbols.
+</div>
 <h2><span class="caption-index-2">30.6</span><a name="anchor-30-6"></a>Extension to image Class</h2>
 <p>
 This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
@@ -318,6 +201,7 @@ The attribute <code class="highlighter-rouge">:fast</code> indicates a fast but 
 <p>
 The attriubte <code class="highlighter-rouge">:rough</code> is only valid when <code class="highlighter-rouge">size</code> is specified and makes the shrinked image with nearest neighbor method. Othereise, shrinking shall be done with bilinear method.
 </p>
+
 </div>
 <div class="mb-2"><code>image#write@jpeg(stream:stream:w, quality:number =&gt; 75):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -327,6 +211,7 @@ Writes a JPEG image data to the specified <code class="highlighter-rouge">stream
 <p>
 The argument <code class="highlighter-rouge">quality</code> takes a number between 0 and 100 with which a a higher number results in a higher quality of result but a less compression performance. The default value for it is 75.
 </p>
+
 </div>
 <h2><span class="caption-index-2">30.7</span><a name="anchor-30-7"></a>Thanks</h2>
 <p>

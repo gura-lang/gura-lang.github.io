@@ -63,9 +63,7 @@ R</td>
 <h3><span class="caption-index-3">36.3.1</span><a name="anchor-36-3-1"></a>Constructor</h3>
 <div class="mb-2"><code>mnist.database(dirname:string) {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Reads MNIST database files in a directory specified by <code class="highlighter-rouge">dirname</code> and returns a <code class="highlighter-rouge">ml.mnist.database</code> instance.
-</p>
 </div>
 <h3><span class="caption-index-3">36.3.2</span><a name="anchor-36-3-2"></a>Property</h3>
 <p>
@@ -113,53 +111,24 @@ Reads MNIST image set file from the specified <code class="highlighter-rouge">st
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|stream:stream|</code>, where <code class="highlighter-rouge">stream</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <h3><span class="caption-index-3">36.4.2</span><a name="anchor-36-4-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">ml.mnist.imageset</code> instance has the following properties:
 </p>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Note</th>
-</tr>
-<tr>
-<td>
-<code>ncols</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Column size of each image.</td>
-</tr>
-<tr>
-<td>
-<code>nimages</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Number of labels in the database.</td>
-</tr>
-<tr>
-<td>
-<code>nrows</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Row size of each image.</td>
-</tr>
-</table>
+<div class="mb-2"><code>mnist.imageset#ncols</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Column size of each image.
+</div>
+<div class="mb-2"><code>mnist.imageset#nimages</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Number of labels in the database.
+</div>
+<div class="mb-2"><code>mnist.imageset#nrows</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Row size of each image.
+</div>
 <h3><span class="caption-index-3">36.4.3</span><a name="anchor-36-4-3"></a>Method</h3>
 <div class="mb-2"><code>mnist.imageset#toarray(shape?:symbol, elemtype?:symbol, normalize?:symbol):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -177,6 +146,7 @@ Arguments:
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <h2><span class="caption-index-2">36.5</span><a name="anchor-36-5"></a>ml.mnist.labelset Class</h2>
 <h3><span class="caption-index-3">36.5.1</span><a name="anchor-36-5-1"></a>Constructor</h3>
@@ -188,33 +158,16 @@ Reads MNIST label set file from the specified <code class="highlighter-rouge">st
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|stream:stream|</code>, where <code class="highlighter-rouge">stream</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <h3><span class="caption-index-3">36.5.2</span><a name="anchor-36-5-2"></a>Property</h3>
 <p>
 A <code class="highlighter-rouge">ml.mnist.labelset</code> instance has the following properties:
 </p>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Note</th>
-</tr>
-<tr>
-<td>
-<code>nlabels</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Number of labels in the database.</td>
-</tr>
-</table>
+<div class="mb-2"><code>mnist.labelset#nlabels</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Number of labels in the database.
+</div>
 <h3><span class="caption-index-3">36.5.3</span><a name="anchor-36-5-3"></a>Method</h3>
 <div class="mb-2"><code>mnist.labelset#toarray(onehot?:boolean, elemtype?:symbol) {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -231,5 +184,6 @@ Arguments:
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|array:array|</code>, where <code class="highlighter-rouge">array</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 {% endraw %}

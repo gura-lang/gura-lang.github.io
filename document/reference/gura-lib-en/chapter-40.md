@@ -136,5 +136,6 @@ Parses a file in STL format from <code class="highlighter-rouge">stream</code> a
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|solid:model.stl.solid|</code>, where <code class="highlighter-rouge">solid</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 {% endraw %}

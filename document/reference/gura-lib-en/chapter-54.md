@@ -6,72 +6,46 @@ prevpage: chapter-53.html#naviitem-selected
 nextpage: chapter-55.html#naviitem-selected
 ---
 {% raw %}
-<h1><span class="caption-index-1">54</span>tar Module</h1>
+<h1><span class="caption-index-1">54</span>tiff Module</h1>
 <h2><span class="caption-index-2">54.1</span><a name="anchor-54-1"></a>Overview</h2>
 <p>
-The <code class="highlighter-rouge">tar</code> module provides measures to read/write TAR files. To utilize it, import the <code class="highlighter-rouge">tar</code> module using <code class="highlighter-rouge">import</code> function.
-</p>
-<h2><span class="caption-index-2">54.2</span><a name="anchor-54-2"></a>tar.reader Class</h2>
-<h3><span class="caption-index-3">54.2.1</span><a name="anchor-54-2-1"></a>Function To Create Instance</h3>
-<div class="mb-2"><code>tar.reader(stream:stream:r, compression?:symbol) {block?}</code></div>
-<div class="mb-2 ml-4">
-<p>
-Reads a tar file from <code class="highlighter-rouge">stream</code> and returns a <code class="highlighter-rouge">tar.reader</code> instance that is to be used to read contents from the archive.
+The <code class="highlighter-rouge">tiff</code> module provides measures to read/write image data in TIFF format. To utilize it, import the <code class="highlighter-rouge">tiff</code> module using <code class="highlighter-rouge">import</code> function.
 </p>
 <p>
-The argument <code class="highlighter-rouge">compression</code> specifies the compression format of the tar file and takes one of the following symbols:
+Below is an example to read a TIFF file:
+</p>
+<pre class="highlight"><code>import(tiff)
+img = image('foo.tiff')
+</code></pre>
+<h2><span class="caption-index-2">54.2</span><a name="anchor-54-2"></a>Exntension to Function's Capability</h2>
+<p>
+This module extends the capability of function <code class="highlighter-rouge">image()</code> and instance method <code class="highlighter-rouge">image#write()</code> so that they can read/write TIFF files.
+</p>
+<p>
+When function <code class="highlighter-rouge">image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a TIFF file.
 </p>
 <ul>
-<li><code class="highlighter-rouge">`auto</code> .. determins the format from a suffix name of the stream.</li>
-<li><code class="highlighter-rouge">`gzip</code> .. gzip format</li>
-<li><code class="highlighter-rouge">`bzip2</code> .. bzip2 format</li>
+<li>The identifier of the stream ends with a suffix "<code class="highlighter-rouge">.tif</code>" or "<code class="highlighter-rouge">.tiff</code>".</li>
 </ul>
-</div>
-<h3><span class="caption-index-3">54.2.2</span><a name="anchor-54-2-2"></a>Method</h3>
-<div class="mb-2"><code>tar.reader#entries() {block?}</code></div>
-<div class="mb-2 ml-4">
 <p>
-Creates an iterator that returns stream instances for each entry in the tar file.
-</p>
-</div>
-<h2><span class="caption-index-2">54.3</span><a name="anchor-54-3"></a>tar.writer Class</h2>
-<h3><span class="caption-index-3">54.3.1</span><a name="anchor-54-3-1"></a>Function To Create Instance</h3>
-<div class="mb-2"><code>tar.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
-<div class="mb-2 ml-4">
-<p>
-Creates a tar file on <code class="highlighter-rouge">stream</code> and returns a <code class="highlighter-rouge">tar.writer</code> instance that is to be used to write contents to the archive.
-</p>
-<p>
-The argument <code class="highlighter-rouge">compression</code> specifies the compression format of the tar file and takes one of the following symbols:
+When instance method <code class="highlighter-rouge">image#write()</code> is provided with a stream that satisfies the following condition, it would write image data in TIFF format.
 </p>
 <ul>
-<li><code class="highlighter-rouge">`auto</code> .. determins the format from a suffix name of the stream.</li>
-<li><code class="highlighter-rouge">`gzip</code> .. gzip format</li>
-<li><code class="highlighter-rouge">`bzip2</code> .. bzip2 format</li>
+<li>The identifier of the stream ends with a suffix "<code class="highlighter-rouge">.tif</code>" or "<code class="highlighter-rouge">.tiff</code>".</li>
 </ul>
-</div>
-<h3><span class="caption-index-3">54.3.2</span><a name="anchor-54-3-2"></a>Method</h3>
-<div class="mb-2"><code>tar.writer#add(stream:stream:r, filename?:string):map:reduce</code></div>
+<h2><span class="caption-index-2">54.3</span><a name="anchor-54-3"></a>Extension to image Class</h2>
+<p>
+This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
+</p>
+<div class="mb-2"><code>image#read@tiff(stream:stream:r):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
-Adds an entry to the tar archive with a content from <code class="highlighter-rouge">stream</code> and a name of <code class="highlighter-rouge">filename</code>.
-</p>
-<p>
-If the argument <code class="highlighter-rouge">filename</code> is omitted, an identifier associated with the <code class="highlighter-rouge">stream</code> would be used as the entry name.
-</p>
-</div>
-<div class="mb-2"><code>tar.writer#close():reduce</code></div>
-<div class="mb-2 ml-4">
-<p>
-Flushes all the unfinished writing processes and invalidates the <code class="highlighter-rouge">tar.writer</code> instance.
-</p>
+Reads a TIFF image from a stream.
 </div>
 <h2><span class="caption-index-2">54.4</span><a name="anchor-54-4"></a>Thanks</h2>
 <p>
-This module uses zlib and bzip2 library which are distributed in the following sites:
+This module uses libtiff which is distributed in the following site:
 </p>
-<ul>
-<li><a href="http://zlib.net/">http://zlib.net/</a></li>
-<li><a href="http://www.bzip.org/">http://www.bzip.org/</a></li>
-</ul>
+<p>
+<a href="http://www.libtiff.org/">http://www.libtiff.org/</a>
+</p>
 {% endraw %}

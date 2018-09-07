@@ -34,6 +34,7 @@ Reads text stream that is formatted in base64 and returns the decoded result in 
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|data:binary|</code>, where <code class="highlighter-rouge">data</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <div class="mb-2"><code>base64.encode(stream:stream:r, linelen:number:nil =&gt; 76) {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -43,6 +44,7 @@ Encodes content of the stream into base64 format and returns the result in binar
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|data:binary|</code>, where <code class="highlighter-rouge">data</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <div class="mb-2"><code>base64.reader(stream:stream:r) {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -52,6 +54,7 @@ Creates a stream instance that reads data formatted in base64 from <code class="
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <div class="mb-2"><code>base64.writer(stream:stream:w, linelen:number:nil =&gt; 76) {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -64,6 +67,7 @@ The number of characters per line is specified by an argument <code class="highl
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <h2><span class="caption-index-2">7.3</span><a name="anchor-7-3"></a>Extension to stream Class</h2>
 <p>
@@ -77,6 +81,7 @@ Creates a stream instance that reads data formatted in base64 from the target st
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <div class="mb-2"><code>stream#writer@base64(linelen:number:nil =&gt; 76) {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -89,5 +94,6 @@ The number of characters per line is specified by an argument <code class="highl
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 {% endraw %}

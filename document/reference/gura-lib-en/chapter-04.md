@@ -10,15 +10,11 @@ nextpage: chapter-05.html#naviitem-selected
 <h2><span class="caption-index-2">4.1</span><a name="anchor-4-1"></a>Formatting and Printing of Text</h2>
 <div class="mb-2"><code>format(format:string, values*):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Converts <code class="highlighter-rouge">values</code> into string depending on formatter specifications in <code class="highlighter-rouge">format</code> and returns the result in string. For a detail information about formatter specications, refer to the document of <code class="highlighter-rouge">printf()</code> function.
-</p>
 </div>
 <div class="mb-2"><code>print(values*):map:void</code></div>
 <div class="mb-2 ml-4">
-<p>
 Prints out <code class="highlighter-rouge">values</code> to standard output.
-</p>
 </div>
 <div class="mb-2"><code>printf(format:string, values*):map:void</code></div>
 <div class="mb-2 ml-4">
@@ -77,12 +73,11 @@ printf('%.5f', 1 / 3) .. prints "0.33333"
 <p>
 It has no effect with other specifiers.
 </p>
+
 </div>
 <div class="mb-2"><code>println(values*):map:void</code></div>
 <div class="mb-2 ml-4">
-<p>
 Prints out <code class="highlighter-rouge">values</code> and an end-of-line character to the standard output.
-</p>
 </div>
 <h2><span class="caption-index-2">4.2</span><a name="anchor-4-2"></a>Repetition</h2>
 <div class="mb-2"><code>cross (`expr+) {block}</code></div>
@@ -115,6 +110,7 @@ Example:
 }
 // prints "A-1 A-2 A-3 A-4 B-1 B-2 B-3 B-4 C-1 C-2 C-3 C-4 "
 </code></pre>
+
 </div>
 <div class="mb-2"><code>for (`expr+) {block}</code></div>
 <div class="mb-2 ml-4">
@@ -146,6 +142,7 @@ Example:
 }
 // prints "A-1 B-2 C-3"
 </code></pre>
+
 </div>
 <div class="mb-2"><code>repeat (n?:number) {block}</code></div>
 <div class="mb-2 ml-4">
@@ -166,6 +163,7 @@ It returns the last evaluated value in the block as its own result, but, if one 
 <p>
 Block parameter format is <code class="highlighter-rouge">|idx:number|</code> where <code class="highlighter-rouge">idx</code> indicates an index of the loop.
 </p>
+
 </div>
 <div class="mb-2"><code>while (`cond) {block}</code></div>
 <div class="mb-2 ml-4">
@@ -186,6 +184,7 @@ It returns the last evaluated value in the block as its own result, but, if one 
 <p>
 Block parameter format is <code class="highlighter-rouge">|idx:number|</code> where <code class="highlighter-rouge">idx</code> indicates an index of the loop.
 </p>
+
 </div>
 <div class="mb-2"><code>break(value?):symbol_func:void</code></div>
 <div class="mb-2 ml-4">
@@ -198,6 +197,7 @@ After this function is called, the current loop value would be set to <code clas
 <p>
 However, when the loop function is called with one of the attributes, <code class="highlighter-rouge">:list</code>, <code class="highlighter-rouge">:xlist</code>, <code class="highlighter-rouge">:set</code>, <code class="highlighter-rouge">:xset</code>, <code class="highlighter-rouge">:iter</code> and <code class="highlighter-rouge">:xiter</code>, the argument value of <code class="highlighter-rouge">break()</code> is NOT included as an element in the list or iterator.
 </p>
+
 </div>
 <div class="mb-2"><code>continue(value?):symbol_func:void</code></div>
 <div class="mb-2 ml-4">
@@ -210,6 +210,7 @@ After this function is called, the current loop value would be set to <code clas
 <p>
 If the loop function is specified with one of the attributes <code class="highlighter-rouge">:list</code>, <code class="highlighter-rouge">:xlist</code>, <code class="highlighter-rouge">:set</code>, <code class="highlighter-rouge">:xset</code>, <code class="highlighter-rouge">:iter</code> and <code class="highlighter-rouge">:xiter</code>, the argument value of <code class="highlighter-rouge">continue()</code> is included as an element in the list or iterator.
 </p>
+
 </div>
 <h2><span class="caption-index-2">4.3</span><a name="anchor-4-3"></a>Value Generator</h2>
 <div class="mb-2"><code>consts(value, num?:number) {block?}</code></div>
@@ -243,6 +244,7 @@ Below is an example to create an iterator that returns constant values:
 <pre class="highlight"><code>x = consts('hello', 10)
 // x generates 'hello' for 10 times
 </code></pre>
+
 </div>
 <div class="mb-2"><code>dim(n+:number) {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -276,6 +278,7 @@ Below is an example to create a two-dimentional list that consists of strings sh
 <pre class="highlight"><code>x = dim(3, 2) {|i, j| format('%d-%d', i, j) }
 // x is [['0-0', '0-1'], ['1-0', '1-1'], ['2-0', '2-1']]
 </code></pre>
+
 </div>
 <div class="mb-2"><code>interval(begin:number, end:number, samples:number):map:[open,open_l,open_r] {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -290,6 +293,7 @@ In default, it creates a sequence that contains the beginning and ending numbers
 <li><code class="highlighter-rouge">:open_l</code> .. Numbers in range of <code class="highlighter-rouge">(begin, end]</code> that doesn't contain <code class="highlighter-rouge">begin</code>.</li>
 <li><code class="highlighter-rouge">:open_r</code> .. Numbers in range of <code class="highlighter-rouge">[begin, end)</code> that doesn't contain <code class="highlighter-rouge">end</code>.</li>
 </ul>
+
 </div>
 <div class="mb-2"><code>range(num:number, num_end?:number, step?:number):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -333,6 +337,7 @@ x = range(3, 10)
 x = range(3, 10, 2)
 // x generates 3, 5, 7, 9
 </code></pre>
+
 </div>
 <h2><span class="caption-index-2">4.4</span><a name="anchor-4-4"></a>Branch and Flow Control</h2>
 <div class="mb-2"><code>if (`cond):leader {block}</code></div>
@@ -346,6 +351,7 @@ If the evaluation result of <code class="highlighter-rouge">cond</code> is deter
 <p>
 Otherwise, if the function is followed by a trailer <code class="highlighter-rouge">elsif</code> or <code class="highlighter-rouge">else</code>, that would be evaluated. If no trailer exists, the function returns <code class="highlighter-rouge">nil</code> value.
 </p>
+
 </div>
 <div class="mb-2"><code>elsif (`cond):leader:trailer {block}</code></div>
 <div class="mb-2 ml-4">
@@ -358,12 +364,11 @@ If the evaluation result of <code class="highlighter-rouge">cond</code> is deter
 <p>
 Otherwise, if the function is followed by a trailer <code class="highlighter-rouge">elsif</code> or <code class="highlighter-rouge">else</code>, that would be evaluated. If no trailer exists, the function returns <code class="highlighter-rouge">nil</code> value.
 </p>
+
 </div>
 <div class="mb-2"><code>else():trailer {block}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Specify an "else" block within a statement of <code class="highlighter-rouge">if-elsif-else</code> or <code class="highlighter-rouge">try-catch-else-finally</code>.
-</p>
 </div>
 <div class="mb-2"><code>end(dummy*):end_marker:symbol_func:trailer:void</code></div>
 <div class="mb-2 ml-4">
@@ -373,24 +378,19 @@ Specify an end of a sequence.
 <p>
 This function is supposed to be used as a block terminator in an embedded script of a template.
 </p>
+
 </div>
 <div class="mb-2"><code>switch() {block}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Form a switch block that contains <code class="highlighter-rouge">case()</code> and <code class="highlighter-rouge">default()</code> function calls. It calls these functions sequentially and exits the execution when one of the conditions is evaluated as true.
-</p>
 </div>
 <div class="mb-2"><code>case(`cond) {block}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Specify an case block within a switch block. After evaluating an expr object cond, the block shall be executed if it has a value of true.
-</p>
 </div>
 <div class="mb-2"><code>default() {block}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Specify a default block within a switch block. If all the preceding condition of case block are not evaluated as true, this block shall be executed.
-</p>
 </div>
 <div class="mb-2"><code>return(value?):symbol_func:void</code></div>
 <div class="mb-2 ml-4">
@@ -400,35 +400,29 @@ Skips the remaining procedure of the current function and returns to the context
 <p>
 If it takes an argument, the value is treated as a result of the function. Otherwise, the returned value would be <code class="highlighter-rouge">nil</code>.
 </p>
+
 </div>
 <h2><span class="caption-index-2">4.5</span><a name="anchor-4-5"></a>Exception Handling</h2>
 <div class="mb-2"><code>try():leader {block}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Specify a try block of a statement of try-catch-else-finally. It catches signals that occur in the block and executes a corresponding <code class="highlighter-rouge">catch()</code> or <code class="highlighter-rouge">else()</code> function that follow after it.
-</p>
 </div>
 <div class="mb-2"><code>catch(errors*:error):leader:trailer {block}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Specify an catch block of a statement of try-catch-else-finally. It can take multiple numbers of arguments of error objects to handle. If there's no error objects specified, it handles all the errors that are not handled in the preceding <code class="highlighter-rouge">catch()</code> function calls. Block parameter format: <code class="highlighter-rouge">|error:error|error</code> is an error object that contains information of the handled error.
-</p>
 </div>
 <div class="mb-2"><code>finally():finalizer:trailer {block}</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>raise(error:error, msg:string =&gt; 'error', value?)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Raises an error signal with a specified error object, a message string and an additional value.
-</p>
 </div>
 <h2><span class="caption-index-2">4.6</span><a name="anchor-4-6"></a>Data Converter</h2>
 <div class="mb-2"><code>chr(code:number):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Converts a UTF-32 code into a string.
-</p>
 </div>
 <div class="mb-2"><code>hex(num:number, digits?:number):map:[upper]</code></div>
 <div class="mb-2 ml-4">
@@ -438,6 +432,7 @@ Converts a number into a hexadecimal string. Argument <code class="highlighter-r
 <p>
 In default, it uses lower-case characters in its conversion, while it uses upper-case ones when <code class="highlighter-rouge">:upper</code> attribute is specified.
 </p>
+
 </div>
 <div class="mb-2"><code>int(value):map</code></div>
 <div class="mb-2 ml-4">
@@ -450,12 +445,11 @@ Converts a value into an integer number like below:
 <li>For a string value, it would be parsed as an integer number. An error occurs if it has an invalid format.</li>
 <li>For other values, an error occurs.</li>
 </ul>
+
 </div>
 <div class="mb-2"><code>ord(str:string):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Converts the first character of a string into a number of UTF-32 code. If the string contains more than one characters, it simply neglects trailing ones.
-</p>
 </div>
 <div class="mb-2"><code>tonumber(value):map:[nil,raise,strict,zero]</code></div>
 <div class="mb-2 ml-4">
@@ -473,18 +467,15 @@ If it fails the conversion, it would return <code class="highlighter-rouge">nil<
 <li><code class="highlighter-rouge">:zero</code> .. returns zero value</li>
 <li><code class="highlighter-rouge">:nil</code> .. returns <code class="highlighter-rouge">nil</code> value (default)</li>
 </ul>
+
 </div>
 <div class="mb-2"><code>tostring(value):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Converts a value into a string.
-</p>
 </div>
 <div class="mb-2"><code>tosymbol(str:string):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Converts a string into a symbol.
-</p>
 </div>
 <h2><span class="caption-index-2">4.7</span><a name="anchor-4-7"></a>Class Operations</h2>
 <div class="mb-2"><code>class(superclass?:class) {block?}</code></div>
@@ -511,12 +502,11 @@ person.Print()
 <p>
 If the argument <code class="highlighter-rouge">superclass</code>, which is expected to be a constructor function of a super class, is specified, the created class would inherit methods and properties from the specified class.
 </p>
+
 </div>
 <div class="mb-2"><code>classref(type+:expr):map {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Looks up a class by an expression of a type name.
-</p>
 </div>
 <div class="mb-2"><code>struct(`args+):nonamed:[loose] {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -536,6 +526,7 @@ printf('name:%s age:%d\n', person.name, person.age)
 <p>
 If <code class="highlighter-rouge">:loose</code> attribute is speicied, the generated constructor would take all the arguments as optional. Omitted variables are set to <code class="highlighter-rouge">nil</code>
 </p>
+
 </div>
 <div class="mb-2"><code>super(obj):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -557,25 +548,20 @@ b = B()
 b.func()         // B#func() is called.
 super(b).func()  // A#func() is called.
 </code></pre>
+
 </div>
 <h2><span class="caption-index-2">4.8</span><a name="anchor-4-8"></a>Scope Operations</h2>
 <div class="mb-2"><code>local(`syms+)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Declares symbols of variable that are supposed to be accessed locally in a block.
-</p>
 </div>
 <div class="mb-2"><code>locals(module?:module) {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns an environment object that belongs to a specified module. If the argument <code class="highlighter-rouge">module</code> is omitted, it returns an <code class="highlighter-rouge">environment</code> object of the current scope.
-</p>
 </div>
 <div class="mb-2"><code>outers() {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns an environment object that accesses to an outer scope.
-</p>
 </div>
 <div class="mb-2"><code>public():void {block}</code></div>
 <div class="mb-2 ml-4">
@@ -587,12 +573,11 @@ If you want to make <code class="highlighter-rouge">foo</code> and <code class="
 </p>
 <pre class="highlight"><code>public { foo, bar }
 </code></pre>
+
 </div>
 <div class="mb-2"><code>scope(target?) {block}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Evaluates block with a local scope.
-</p>
 </div>
 <h2><span class="caption-index-2">4.9</span><a name="anchor-4-9"></a>Module Operations</h2>
 <div class="mb-2"><code>import(`module, `alias?):[binary,mixin_type,overwrite] {block?}</code></div>
@@ -628,169 +613,116 @@ If the argument <code class="highlighter-rouge">module</code> is prefixed by an 
 <pre class="highlight"><code>var = 'foo'
 import(&amp;var)
 </code></pre>
+
 </div>
 <div class="mb-2"><code>module() {block}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Creates a module that contains functions and variables defined in the block and returns it as a module object. This can be used to realize a namespace.
-</p>
 </div>
 <h2><span class="caption-index-2">4.10</span><a name="anchor-4-10"></a>Value Type Information</h2>
 <div class="mb-2"><code>isbinary(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">binary</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isboolean(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">boolean</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isclass(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">class</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>iscomplex(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">complex</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isdatetime(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">datetime</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isdict(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">dict</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isenvironment(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">environment</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>iserror(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">error</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isexpr(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">expr</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isfunction(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">function</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isiterator(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">iterator</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>islist(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">list</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>ismodule(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">module</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isnil(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">nil</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isnumber(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">number</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isrational(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">rational</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>issemaphore(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">semaphore</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isstring(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">string</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>issymbol(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">symbol</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>istimedelta(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">timedelta</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isuri(value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if the <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">uri</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isdefined(`identifier)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if <code class="highlighter-rouge">identifier</code> is defined, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>isinstance(value, type+:expr):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if <code class="highlighter-rouge">value</code> is an instance of <code class="highlighter-rouge">type</code> or its descendant, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>istype(value, type+:expr):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns <code class="highlighter-rouge">true</code> if <code class="highlighter-rouge">value</code> is of the type of <code class="highlighter-rouge">type</code>, and <code class="highlighter-rouge">false</code> otherwise.
-</p>
 </div>
 <div class="mb-2"><code>typename(`value)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a type name of the value.
-</p>
 </div>
 <div class="mb-2"><code>undef(`identifier+):[raise]</code></div>
 <div class="mb-2 ml-4">
-<p>
 Undefines <code class="highlighter-rouge">identifier</code> in the current scope.
-</p>
 </div>
 <h2><span class="caption-index-2">4.11</span><a name="anchor-4-11"></a>Data Processing</h2>
 <div class="mb-2"><code>choose(index:number, values+):map</code></div>
@@ -804,6 +736,7 @@ Sample:
 <pre class="highlight"><code>choose(0, 'apple', 'orange', 'banana') // returns 'apple'
 choose(2, 'apple', 'orange', 'banana') // returns 'banana'
 </code></pre>
+
 </div>
 <div class="mb-2"><code>cond(flag:boolean, value1:nomap, value2?:nomap):map</code></div>
 <div class="mb-2 ml-4">
@@ -825,6 +758,7 @@ Notice that they have the following differences:
 <p>
 The arguments <code class="highlighter-rouge">value1</code> and <code class="highlighter-rouge">value2</code> are not processed by the implicit mapping, so you can specify a list or an iterator for them as selected items.
 </p>
+
 </div>
 <div class="mb-2"><code>conds(flag:boolean, value1, value2?):map</code></div>
 <div class="mb-2 ml-4">
@@ -846,18 +780,15 @@ Notice that they have the following differences:
 <p>
 If you want to specify a list or an iterator for <code class="highlighter-rouge">value1</code> and <code class="highlighter-rouge">value2</code> as selected values, use <code class="highlighter-rouge">cond()</code> function instead.
 </p>
+
 </div>
 <div class="mb-2"><code>max(values+):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns the maximum value among the given arguments.
-</p>
 </div>
 <div class="mb-2"><code>min(values+):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns the minimum value among the given arguments.
-</p>
 </div>
 <h2><span class="caption-index-2">4.12</span><a name="anchor-4-12"></a>Random</h2>
 <p>
@@ -865,15 +796,11 @@ Random numbers are generated using <a href="http://www.math.sci.hiroshima-u.ac.j
 </p>
 <div class="mb-2"><code>rand(range?:number) {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a random number between <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">(range - 1)</code>. If argument <code class="highlighter-rouge">range</code> is not specified, it generates random numbers in a range of [0, 1).
-</p>
 </div>
 <div class="mb-2"><code>rand@normal(mu?:number, sigma?:number) {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a normal distribution random number with a mean value of <code class="highlighter-rouge">mu</code> and a standard deviation of <code class="highlighter-rouge">sigma</code>. The default values for <code class="highlighter-rouge">mu</code> and <code class="highlighter-rouge">sigma</code> are <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">1</code> respectively.
-</p>
 </div>
 <div class="mb-2"><code>rands(range?:number, num?:number) {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -909,6 +836,7 @@ Below is an example to create a create that generates random numbers:
 <pre class="highlight"><code>x = rands(100)
 // x is an infinite iterator to generates random numbers between 0 and 99
 </code></pre>
+
 </div>
 <div class="mb-2"><code>rands@normal(mu?:number, sigma?:number, num?:number) {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -938,12 +866,11 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <div class="mb-2"><code>randseed(seed:number):void</code></div>
 <div class="mb-2 ml-4">
-<p>
 Initializes random seed with a specified number.
-</p>
 </div>
 <h2><span class="caption-index-2">4.13</span><a name="anchor-4-13"></a>Property Listing</h2>
 <div class="mb-2"><code>dir(obj?):[noesc]</code></div>
@@ -954,6 +881,7 @@ Returns a symbol list of variables and functions that are assigned in the enviro
 <p>
 In default, when the <code class="highlighter-rouge">obj</code> is an instance of a class, it also searches symbols assigned in the class that it belongs to and its parent classes. Specifying attribute <code class="highlighter-rouge">:noesc</code> avoids that behavior.
 </p>
+
 </div>
 <div class="mb-2"><code>dirtype(obj?):[noesc]</code></div>
 <div class="mb-2 ml-4">
@@ -963,5 +891,6 @@ Returns a symbol list of value types that are assigned in the environment of <co
 <p>
 In default, when the <code class="highlighter-rouge">obj</code> is an instance of a class, it also searches symbols assigned in the class that it belongs to and its parent classes. Specifying attribute <code class="highlighter-rouge">:noesc</code> inhibits avoids behavior.
 </p>
+
 </div>
 {% endraw %}

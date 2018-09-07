@@ -29,9 +29,7 @@ Below is an example to list path names that matches a wild card pattern "<code c
 <h2><span class="caption-index-2">45.2</span><a name="anchor-45-2"></a>Module Function</h2>
 <div class="mb-2"><code>path.absname(name:string):map:[uri]</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns an absolute path name of the given name.
-</p>
 </div>
 <div class="mb-2"><code>path.basename(pathname:string):map</code></div>
 <div class="mb-2 ml-4">
@@ -43,6 +41,7 @@ Example:
 </p>
 <pre class="highlight"><code>path.basename('/foo/bar/file.txt')  # Returns '/foo/bar/file'
 </code></pre>
+
 </div>
 <div class="mb-2"><code>path.bottom(pathname:string):map</code></div>
 <div class="mb-2 ml-4">
@@ -55,6 +54,7 @@ Example:
 <pre class="highlight"><code>path.bottom('/foo/bar/file.txt')  # Returns 'file.txt'
 path.bottom('/foo/bar/dir/')      # Returns 'dir'
 </code></pre>
+
 </div>
 <div class="mb-2"><code>path.cutbottom(pathname:string):map</code></div>
 <div class="mb-2 ml-4">
@@ -67,6 +67,7 @@ Example:
 <pre class="highlight"><code>path.cutbottom('/foo/bar/file.txt')  # Returns '/foo/bar/'
 path.cutbottom('/foo/bar/dir/')      # Returns '/foo/bar/'
 </code></pre>
+
 </div>
 <div class="mb-2"><code>path.dir(directory?:directory, pattern*:string):flat:map:[case,dir,file,icase,stat] {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -93,6 +94,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <div class="mb-2"><code>path.dirname(pathname:string):map</code></div>
 <div class="mb-2 ml-4">
@@ -105,12 +107,11 @@ Example:
 <pre class="highlight"><code>path.dirname('/foo/bar/file.txt')  # Returns '/foo/bar/'
 path.dirname('/foo/bar/dir/')      # Returns '/foo/bar/dir/'
 </code></pre>
+
 </div>
 <div class="mb-2"><code>path.exists(pathname:string):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns true if the specified file exists in a file system.
-</p>
 </div>
 <div class="mb-2"><code>path.extname(pathname:string):map</code></div>
 <div class="mb-2 ml-4">
@@ -123,6 +124,7 @@ Example:
 <pre class="highlight"><code>path.extname('/foo/bar/file.txt')  # Returns 'txt'
 path.extname('/foo/bar/file')      # Returns ''
 </code></pre>
+
 </div>
 <div class="mb-2"><code>path.filename(pathname:string):map</code></div>
 <div class="mb-2 ml-4">
@@ -135,6 +137,7 @@ Example:
 <pre class="highlight"><code>path.filename('/foo/bar/file.txt')  # Returns 'file.txt'
 path.filename('/foo/bar/dir/')      # Returns ''
 </code></pre>
+
 </div>
 <div class="mb-2"><code>path.glob(pattern:string):flat:map:[case,dir,file,icase,stat] {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -161,12 +164,11 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <div class="mb-2"><code>path.join(paths+:string):map:[uri]</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a path name that joins given strings with directory separators.
-</p>
 </div>
 <div class="mb-2"><code>path.match(pattern:string, name:string):map:[case,icase]</code></div>
 <div class="mb-2 ml-4">
@@ -176,12 +178,11 @@ Returns true if a name matches with a pattern that supports UNIX shell-style wil
 <p>
 Though the default sensitiveness of character cases depends on the current platform, it can be changed by attributes <code class="highlighter-rouge">:case</code> for case-sensitive and <code class="highlighter-rouge">:icase</code> for case-insensitive.
 </p>
+
 </div>
 <div class="mb-2"><code>path.regulate(name:string):map:[uri]</code></div>
 <div class="mb-2 ml-4">
-<p>
 Removes redundant relative directories.
-</p>
 </div>
 <div class="mb-2"><code>path.split(pathname:string):map:[bottom]</code></div>
 <div class="mb-2 ml-4">
@@ -203,18 +204,15 @@ path.split('/foo/bar/dir/')             # Returns ['/foo/bar/dir/', '']
 path.split('/foo/bar/file.txt'):bottom  # Returns ['/foo/bar/', 'file.txt']
 path.split('/foo/bar/dir/'):bottom      # Returns ['/foo/bar/', 'dir']
 </code></pre>
+
 </div>
 <div class="mb-2"><code>path.splitext(pathname:string):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Splits a pathname by a dot character indicating a beginning of an extension and returns a list containing a path name without an extention and an extention part.
-</p>
 </div>
 <div class="mb-2"><code>path.stat(directory:directory):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a stat object associated with the specified item.
-</p>
 </div>
 <div class="mb-2"><code>path.walk(directory?:directory, maxdepth?:number, pattern*:string):flat:map:[case,dir,file,icase,stat] {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -241,5 +239,6 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 {% endraw %}

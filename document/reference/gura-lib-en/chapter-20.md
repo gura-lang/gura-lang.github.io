@@ -84,9 +84,7 @@ The <code class="highlighter-rouge">freetype</code> module provices measures to 
 <div class="mb-2"><code>freetype.font#cleardeco():reduce</code></div>
 <div class="mb-2"><code>freetype.font#drawtext(image:image, x:number, y:number, str:string):map:reduce {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Draws a text on the image.
-</p>
 </div>
 <div class="mb-2"><code>freetype.font#calcsize(str:string):map</code></div>
 <div class="mb-2"><code>freetype.font#calcbbox(x:number, y:number, str:string):map</code></div>
@@ -96,9 +94,7 @@ This module extends the <code class="highlighter-rouge">image</code> class with 
 </p>
 <div class="mb-2"><code>image#drawtext(font:freetype.font, x:number, y:number, str:string):map:reduce {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Draws a text on the image.
-</p>
 </div>
 <h2><span class="caption-index-2">20.27</span><a name="anchor-20-27"></a>Thanks</h2>
 <p>

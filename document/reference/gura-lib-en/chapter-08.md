@@ -46,6 +46,7 @@ Reads an BMP image from a stream.
 <p>
 This method returns the reference to the target instance itself.
 </p>
+
 </div>
 <div class="mb-2"><code>image#write@bmp(stream:stream:w):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -55,5 +56,6 @@ Writes a BMP image to a stream.
 <p>
 This method returns the reference to the target instance itself.
 </p>
+
 </div>
 {% endraw %}

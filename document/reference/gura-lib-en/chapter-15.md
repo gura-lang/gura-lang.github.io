@@ -14,37 +14,40 @@ The <code class="highlighter-rouge">curl</code> module provices measures to acce
 <h2><span class="caption-index-2">15.2</span><a name="anchor-15-2"></a>Module Function</h2>
 <div class="mb-2"><code>curl.version() {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns a string of the libcurl version.
-</p>
 </div>
 <div class="mb-2"><code>curl.easy_init() {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Initializes cURL and returns a easy_handle object.
-</p>
 </div>
 <h2><span class="caption-index-2">15.3</span><a name="anchor-15-3"></a>curl.easy_handle Class</h2>
 <div class="mb-2"><code>curl.easy_handle#escape(string:string):void</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>curl.easy_handle#getinfo(info:number)</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>curl.easy_handle#recv(buflen:number)</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>curl.easy_handle#reset():void</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>curl.easy_handle#send(buffer:binary)</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>curl.easy_handle#setopt(option:number, arg):void</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>curl.easy_handle#unescape(string:string):void</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <h2><span class="caption-index-2">15.4</span><a name="anchor-15-4"></a>Thanks</h2>
 <p>

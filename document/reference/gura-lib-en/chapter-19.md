@@ -32,6 +32,7 @@ This module extends the <code class="highlighter-rouge">array</code> class with 
 </p>
 <div class="mb-2"><code>array#dft() {block?}</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <h2><span class="caption-index-2">19.4</span><a name="anchor-19-4"></a>Thanks</h2>
 <p>

@@ -16,9 +16,7 @@ The <code class="highlighter-rouge">cairo</code> module provides methods to draw
 <h4><span class="caption-index-4">10.2.1.1</span><a name="anchor-10-2-1-1"></a>Functions</h4>
 <div class="mb-2"><code>cairo.context#status()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Checks whether an error has previously occurred for this context.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#save():reduce {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -28,18 +26,15 @@ Makes a copy of the current state of cr and saves it on an internal stack of sav
 <p>
 It isn't necessary to clear all saved states before a cairo_t is freed. If the reference count of a cairo_t drops to zero in response to a call to <code class="highlighter-rouge">cairo.context#destroy()</code>, any saved states will be freed along with the <code class="highlighter-rouge">cairo_t</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#restore():reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Restores cr to the state saved by a preceding call to <code class="highlighter-rouge">cairo.context#save()</code> and removes that state from the stack of saved states.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#get_target()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the target surface for the cairo context as passed to <code class="highlighter-rouge">cairo.context</code> constructor.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#push_group():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -61,6 +56,7 @@ By default the intermediate group will have a content type of <code class="highl
 <p>
 As an example, here is how one might fill and stroke a path with translucence, but without any portion of the fill being visible under the stroke:
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#push_group_with_content(content:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -70,6 +66,7 @@ Temporarily redirects drawing to an intermediate surface known as a group. The r
 <p>
 The group will have a content type of content. The ability to control this content type is the only distinction between this function and <code class="highlighter-rouge">cairo.context#push_group()</code> which you should see for a more detailed description of group rendering.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#pop_group() {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -79,6 +76,7 @@ Terminates the redirection begun by a call to <code class="highlighter-rouge">ca
 <p>
 The <code class="highlighter-rouge">cairo.context#pop_group()</code> function calls cairo_restore(), (balancing a call to <code class="highlighter-rouge">cairo_save()</code> by the <code class="highlighter-rouge">push_group</code> function), so that any changes to the graphics state will not be visible outside the group.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#pop_group_to_source():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -88,12 +86,11 @@ Terminates the redirection begun by a call to <code class="highlighter-rouge">ca
 <p>
 The <code class="highlighter-rouge">cairo.context#pop_group()</code> function calls cairo_restore(), (balancing a call to cairo_save() by the push_group function), so that any changes to the graphics state will not be visible outside the group.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#get_group_target() {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current destination surface for the context. This is either the original target surface as passed to <code class="highlighter-rouge">cairo.context</code> constructor or the target surface for the current group as started by the most recent call to <code class="highlighter-rouge">cairo.context#push_group()</code> or <code class="highlighter-rouge">cairo.context#push_group_with_content()</code>.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_source_rgb(red:number, green:number, blue:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -106,6 +103,7 @@ The color components are floating point numbers in the range 0 to 1. If the valu
 <p>
 The default source pattern is opaque black, (that is, it is equivalent to <code class="highlighter-rouge">cr.set_source_rgb(0.0, 0.0, 0.0))</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#set_source_rgba(red:number, green:number, blue:number, alpha:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -118,6 +116,7 @@ The color and alpha components are floating point numbers in the range 0 to 1. I
 <p>
 The default source pattern is opaque black, (that is, it is equivalent to <code class="highlighter-rouge">cr.set_source_rgba(0.0, 0.0, 0.0, 1.0))</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#set_source(source:cairo.pattern):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -130,6 +129,7 @@ Note: The pattern's transformation matrix will be locked to the user space in ef
 <p>
 The default source pattern is a solid pattern that is opaque black, (that is, it is equivalent to <code class="highlighter-rouge">cr.set_source_rgb(0.0, 0.0, 0.0))</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#set_source_surface(surface:cairo.surface, x:number, y:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -142,12 +142,11 @@ The <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge"
 <p>
 Other than the initial translation pattern matrix, as described above, all other pattern attributes, (such as its extend mode), are set to the default values as in <code class="highlighter-rouge">cairo.pattern.create_for_surface()</code>. The resulting pattern can be queried with <code class="highlighter-rouge">cairo.context#get_source()</code> so that these attributes can be modified if desired, (eg. to create a repeating pattern with <code class="highlighter-rouge">cairo.pattern#set_extend()</code>).
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#get_source() {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current source pattern for <code class="highlighter-rouge">cr</code>.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_antialias(antialias:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -157,12 +156,11 @@ Set the antialiasing mode of the rasterizer used for drawing shapes. This value 
 <p>
 Note that this option does not affect text rendering, instead see <code class="highlighter-rouge">cairo.font_options#set_antialias()</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#get_antialias()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current shape antialiasing mode, as set by <code class="highlighter-rouge">cairo.context#set_antialias()</code>.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_dash(dashes[]:number, offset:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -184,12 +182,11 @@ If length of dashes is 1 a symmetric pattern is assumed with alternating on and 
 <p>
 If any value in dashes is negative, or if all values are 0, then cr will be put into an error state with a status of <code class="highlighter-rouge">cairo.STATUS_INVALID_DASH</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#get_dash()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current dash array.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_fill_rule(fill_rule:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -199,12 +196,11 @@ Set the current fill rule within the cairo context. The fill rule is used to det
 <p>
 The default fill rule is <code class="highlighter-rouge">cairo.FILL_RULE_WINDING</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#get_fill_rule()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current fill rule, as set by <code class="highlighter-rouge">cairo.context#set_fill_rule()</code>.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_line_cap(line_cap:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -217,12 +213,11 @@ As with the other stroke parameters, the current line cap style is examined by <
 <p>
 The default line cap style is <code class="highlighter-rouge">cairo.LINE_CAP_BUTT</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#get_line_cap()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current line cap style, as set by <code class="highlighter-rouge">cairo.context#set_line_cap()</code>.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_line_join(line_join:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -235,12 +230,11 @@ As with the other stroke parameters, the current line join style is examined by 
 <p>
 The default line join style is <code class="highlighter-rouge">cairo.LINE_JOIN_MITER</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#get_line_join()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current line join style, as set by <code class="highlighter-rouge">cairo.context#set_line_join()</code>.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_line_width(width:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -256,12 +250,11 @@ As with the other stroke parameters, the current line width is examined by <code
 <p>
 The default line width value is 2.0.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#get_line_width()</code></div>
 <div class="mb-2 ml-4">
-<p>
 This function returns the current line width value exactly as set by <code class="highlighter-rouge">cairo.context#set_line_width()</code>. Note that the value is unchanged even if the CTM has changed between the calls to <code class="highlighter-rouge">cairo.context#set_line_width()</code> and <code class="highlighter-rouge">cairo.context#get_line_width()</code>.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_miter_limit(limit:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -280,12 +273,11 @@ The default miter limit value is 10.0, which will convert joins with interior an
 <p>
 A miter limit for a desired angle can be computed as: miter limit = 1/sin(angle/2)
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#get_miter_limit()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current miter limit, as set by cairo.context#set_miter_limit().
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_operator(op:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -295,24 +287,19 @@ Sets the compositing operator to be used for all drawing operations. See <code c
 <p>
 The default operator is <code class="highlighter-rouge">cairo.OPERATOR_OVER</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#get_operator()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current compositing operator for a cairo context.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_tolerance(tolerance:number):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Sets the tolerance used when converting paths into trapezoids. Curved segments of the path will be subdivided until the maximum deviation between the original path and the polygonal approximation is less than tolerance. The default value is 0.1. A larger value will give better performance, a smaller value, better appearance. (Reducing the value from the default value of 0.1 is unlikely to improve appearance significantly.) The accuracy of paths within Cairo is limited by the precision of its internal arithmetic, and the prescribed tolerance is restricted to the smallest representable internal value.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#get_tolerance()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current tolerance value, as set by <code class="highlighter-rouge">cairo.context#set_tolerance()</code>.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#clip():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -328,6 +315,7 @@ The current clip region affects all drawing operations by effectively masking ou
 <p>
 Calling <code class="highlighter-rouge">cairo.context#clip()</code> can only make the clip region smaller, never larger. But the current clip is part of the graphics state, so a temporary restriction of the clip region can be achieved by calling <code class="highlighter-rouge">cairo.context#clip()</code> within a <code class="highlighter-rouge">cairo.context#save()</code>/<code class="highlighter-rouge">cairo.context#restore()</code> pair. The only other means of increasing the size of the clip region is <code class="highlighter-rouge">cairo.context#reset_clip()</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#clip_preserve():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -340,12 +328,11 @@ The current clip region affects all drawing operations by effectively masking ou
 <p>
 Calling <code class="highlighter-rouge">cairo.context#clip_preserve()</code> can only make the clip region smaller, never larger. But the current clip is part of the graphics state, so a temporary restriction of the clip region can be achieved by calling <code class="highlighter-rouge">cairo.context#clip_preserve()</code> within a <code class="highlighter-rouge">cairo.context#save()</code>/<code class="highlighter-rouge">cairo.context#restore()</code> pair. The only other means of increasing the size of the clip region is <code class="highlighter-rouge">cairo.context#reset_clip()</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#clip_extents()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Computes a bounding box in user coordinates covering the area inside the current clip.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#in_clip(x:number, y:number)</code></div>
 <div class="mb-2 ml-4">
@@ -355,6 +342,7 @@ Tests whether the given point is inside the area that would be visible through t
 <p>
 See <code class="highlighter-rouge">cairo.context#clip()</code>, and <code class="highlighter-rouge">cairo.context#clip_preserve()</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#reset_clip():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -364,6 +352,7 @@ Reset the current clip region to its original, unrestricted state. That is, set 
 <p>
 Note that code meant to be reusable should not call <code class="highlighter-rouge">cairo.context#reset_clip()</code> as it will cause results unexpected by higher-level code which calls <code class="highlighter-rouge">cairo.context#clip()</code>. Consider using <code class="highlighter-rouge">cairo.context#save()</code> and <code class="highlighter-rouge">cairo.context#restore()</code> around <code class="highlighter-rouge">cairo.context#clip()</code> as a more robust means of temporarily restricting the clip region.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#copy_clip_rectangle_list()</code></div>
 <div class="mb-2 ml-4">
@@ -373,12 +362,11 @@ Gets the current clip region as a list of rectangles in user coordinates.
 <p>
 The status in the list may be <code class="highlighter-rouge">cairo.STATUS_CLIP_NOT_REPRESENTABLE</code> to indicate that the clip region cannot be represented as a list of user-space rectangles. The status may have other values to indicate other errors.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#fill():reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 A drawing operator that fills the current path according to the current fill rule, (each sub-path is implicitly closed before being filled). After <code class="highlighter-rouge">cairo.context#fill()</code>, the current path will be cleared from the cairo context. See <code class="highlighter-rouge">cairo.context#set_fill_rule()</code> and <code class="highlighter-rouge">cairo.context#fill_preserve()</code>.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#fill_preserve():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -388,6 +376,7 @@ A drawing operator that fills the current path according to the current fill rul
 <p>
 See <code class="highlighter-rouge">cairo.context#set_fill_rule()</code> and <code class="highlighter-rouge">cairo.context#fill()</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#fill_extents():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -403,6 +392,7 @@ Note that <code class="highlighter-rouge">cairo.context#fill_extents()</code> mu
 <p>
 See <code class="highlighter-rouge">cairo.context#fill()</code>, <code class="highlighter-rouge">cairo.context#set_fill_rule()</code> and <code class="highlighter-rouge">cairo.context#fill_preserve()</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#in_fill(x:number, y:number)</code></div>
 <div class="mb-2 ml-4">
@@ -412,30 +402,23 @@ Tests whether the given point is inside the area that would be affected by a <co
 <p>
 See <code class="highlighter-rouge">cairo.context#fill()</code>, <code class="highlighter-rouge">cairo.context#set_fill_rule()</code> and <code class="highlighter-rouge">cairo.context#fill_preserve()</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#mask(pattern:cairo.pattern):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 A drawing operator that paints the current source using the alpha channel of pattern as a mask. (Opaque areas of pattern are painted with the source, transparent areas are not painted.)
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#mask_surface(surface:cairo.surface, surface_x:number, surface_y:number):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 A drawing operator that paints the current source using the alpha channel of surface as a mask. (Opaque areas of surface are painted with the source, transparent areas are not painted.)
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#paint():reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 A drawing operator that paints the current source everywhere within the current clip region.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#paint_with_alpha(alpha:number):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 A drawing operator that paints the current source everywhere within the current clip region using a mask of constant alpha value alpha. The effect is similar to cairo.context#paint(), but the drawing is faded out using the alpha value.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#stroke():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -452,6 +435,7 @@ Note: Degenerate segments and sub-paths are treated specially and provide a usef
 <p>
 In no case will a cap style of <code class="highlighter-rouge">cairo.LINE_CAP_BUTT</code> cause anything to be drawn in the case of either degenerate segments or sub-paths.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#stroke_preserve():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -461,6 +445,7 @@ A drawing operator that strokes the current path according to the current line w
 <p>
 See <code class="highlighter-rouge">cairo.context#set_line_width()</code>, <code class="highlighter-rouge">cairo.context#set_line_join()</code>, <code class="highlighter-rouge">cairo.context#set_line_cap()</code>, <code class="highlighter-rouge">cairo.context#set_dash()</code>, and <code class="highlighter-rouge">cairo.context#stroke_preserve()</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#stroke_extents()</code></div>
 <div class="mb-2 ml-4">
@@ -476,12 +461,11 @@ Note that <code class="highlighter-rouge">cairo.context#stroke_extents()</code> 
 <p>
 See <code class="highlighter-rouge">cairo.context#stroke()</code>, <code class="highlighter-rouge">cairo.context#set_line_width()</code>, <code class="highlighter-rouge">cairo.context#set_line_join()</code>, <code class="highlighter-rouge">cairo.context#set_line_cap()</code>, <code class="highlighter-rouge">cairo.context#set_dash()</code>, and <code class="highlighter-rouge">cairo.context#stroke_preserve()</code>.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#in_stroke(x:number, y:number)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Tests whether the given point is inside the area that would be affected by a <code class="highlighter-rouge">cairo.context#stroke()</code> operation given the current path and stroking parameters. Surface dimensions and clipping are not taken into account. See <code class="highlighter-rouge">cairo.context#stroke()</code>, <code class="highlighter-rouge">cairo.context#set_line_width()</code>, <code class="highlighter-rouge">cairo.context#set_line_join()</code>, <code class="highlighter-rouge">cairo.context#set_line_cap()</code>, <code class="highlighter-rouge">cairo.context#_set_dash()</code>, and <code class="highlighter-rouge">cairo.context#stroke_preserve()</code>.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#copy_page():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -491,6 +475,7 @@ Emits the current page for backends that support multiple pages, but doesn't cle
 <p>
 This is a convenience function that simply calls <code class="highlighter-rouge">cairo.context#surface_copy_page()</code> on cr's target.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#show_page():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -500,6 +485,7 @@ Emits and clears the current page for backends that support multiple pages. Use 
 <p>
 This is a convenience function that simply calls <code class="highlighter-rouge">cairo.context#surface_show_page()</code> on cr's target.
 </p>
+
 </div>
 <h4><span class="caption-index-4">10.2.1.2</span><a name="anchor-10-2-1-2"></a>Types and Values</h4>
 <p>
@@ -585,6 +571,7 @@ The result will have no data (data==nullptr and num_data==0), if either of the f
 <li>If there is insufficient memory to copy the path. In this case path-&gt;status will be set to <code class="highlighter-rouge">cairo.STATUS_NO_MEMORY</code>.</li>
 <li>If cr is already in an error state. In this case <code class="highlighter-rouge">path.status</code> will contain the same status that would be returned by <code class="highlighter-rouge">cairo.context#status()</code>.</li>
 </ol>
+
 </div>
 <div class="mb-2"><code>cairo.context#copy_path_flat()</code></div>
 <div class="mb-2 ml-4">
@@ -601,18 +588,15 @@ The result will have no data (data==nullptr and num_data==0), if either of the f
 <li>If there is insufficient memory to copy the path. In this case path.status will be set to <code class="highlighter-rouge">cairo.STATUS_NO_MEMORY</code>.</li>
 <li>If cr is already in an error state. In this case path-&gt;status will contain the same status that would be returned by <code class="highlighter-rouge">cairo.context#status()</code>.</li>
 </ol>
+
 </div>
 <div class="mb-2"><code>cairo.context#append_path(path:cairo.path):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Append the path onto the current path. The path may be either the return value from one of <code class="highlighter-rouge">cairo.context#copy_path()</code> or <code class="highlighter-rouge">cairo.context#copy_path_flat()</code> or it may be constructed manually. See <code class="highlighter-rouge">cairo.path</code> for details on how the path data structure should be initialized, and note that <code class="highlighter-rouge">path.status</code> must be initialized to <code class="highlighter-rouge">cairo.STATUS_SUCCESS</code>.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#has_current_point()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns whether a current point is defined on the current path. See cairo.context#get_current_point() for details on the current point.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#get_current_point()</code></div>
 <div class="mb-2 ml-4">
@@ -631,12 +615,11 @@ Some functions use and alter the current point but do not otherwise change curre
 <p>
 Some functions unset the current path and as a result, current point: cairo.context#fill(), cairo.context#stroke().
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#new_path():reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Clears the current path. After this call there will be no path and no current point.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#new_sub_path():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -649,6 +632,7 @@ In many cases, this call is not needed since new sub-paths are frequently starte
 <p>
 A call to cairo.context#new_sub_path() is particularly useful when beginning a new sub-path with one of the cairo.context#arc() calls. This makes things easier as it is no longer necessary to manually compute the arc's initial coordinates for a call to cairo.context#move_to().
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#close_path():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -664,6 +648,7 @@ If there is no current point before the call to cairo.context#close_path(), this
 <p>
 Note: As of cairo version 1.2.4 any call to cairo.context#close_path() will place an explicit MOVE_TO element into the path immediately after the CLOSE_PATH element, (which can be seen in cairo.context#copy_path() for example). This can simplify path processing in some cases as it may not be necessary to save the "last move_to point" during processing as the MOVE_TO immediately after the CLOSE_PATH will provide that point.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#arc(xc:number, yc:number, radius:number, angle1?:number, angle2?:number):map:reduce:[deg]</code></div>
 <div class="mb-2 ml-4">
@@ -691,6 +676,7 @@ cr.save() cr.translate(x + width / 2., y + height / 2.) cr.scale(width / 2., hei
 <p>
 <em>Gura:</em> If attribute :deg is specified, angle1 and angle2 are represented in degrees instead of radians.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#arc_negative(xc:number, yc:number, radius:number, angle1?:number, angle2?:number):map:reduce:[deg]</code></div>
 <div class="mb-2 ml-4">
@@ -703,6 +689,7 @@ See cairo.context#arc() for more details. This function differs only in the dire
 <p>
 <em>Gura:</em> If attribute :deg is specified, angle1 and angle2 are represented in degrees instead of radians.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#curve_to(x1:number, y1:number, x2:number, y2:number, x3:number, y3:number):map:reduce</code></div>
 <div class="mb-2 ml-4">
@@ -712,6 +699,7 @@ Adds a cubic Bezier spline to the path from the current point to position (x3, y
 <p>
 If there is no current point before the call to cairo.context#curve_to() this function will behave as if preceded by a call to cr.move_to(x1, y1).
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#line_to(x:number, y:number):map:reduce</code></div>
 <div class="mb-2 ml-4">
@@ -721,12 +709,11 @@ Adds a line to the path from the current point to position (x, y) in user-space 
 <p>
 If there is no current point before the call to cairo.context#line_to() this function will behave as cr.move_to(x, y).
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#move_to(x:number, y:number):map:reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Begin a new sub-path. After this call the current point will be (x, y).
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#rectangle(x:number, y:number, width:number, height:number):map:reduce</code></div>
 <div class="mb-2 ml-4">
@@ -739,6 +726,7 @@ This function is logically equivalent to:
 <p>
 cr.move_to(x, y) cr.rel_line_to(width, 0) cr.rel_line_to(0, height) cr.rel_line_to(-width, 0) cr.close_path()
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#text_path(text:string):map:reduce</code></div>
 <div class="mb-2 ml-4">
@@ -754,6 +742,7 @@ Like cairo.context#show_text(), After this call the current point is moved to th
 <p>
 Note: The cairo.context#text_path() function call is part of what the cairo designers call the "toy" text API. It is convenient for short demos and simple programs, but it is not expected to be adequate for serious text-using applications. See cairo.context#glyph_path() for the "real" text path API in cairo.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#rel_curve_to(dx1:number, dy1:number, dx2:number, dy2:number, dx3:number, dy3:number):map:reduce</code></div>
 <div class="mb-2 ml-4">
@@ -766,6 +755,7 @@ Given a current point of (x, y), cr.rel_curve_to(dx1, dy1, dx2, dy2, dx3, dy3) i
 <p>
 It is an error to call this function with no current point. Doing so will cause cr to shutdown with a status of cairo.STATUS_NO_CURRENT_POINT.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#rel_line_to(dx:number, dy:number):map:reduce</code></div>
 <div class="mb-2 ml-4">
@@ -778,6 +768,7 @@ Given a current point of (x, y), cr.rel_line_to(dx, dy) is logically equivalent 
 <p>
 It is an error to call this function with no current point. Doing so will cause cr to shutdown with a status of cairo.STATUS_NO_CURRENT_POINT.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#rel_move_to(dx:number, dy:number):map:reduce</code></div>
 <div class="mb-2 ml-4">
@@ -790,6 +781,7 @@ Given a current point of (x, y), cr.rel_move_to(dx, dy) is logically equivalent 
 <p>
 It is an error to call this function with no current point. Doing so will cause cr to shutdown with a status of cairo.STATUS_NO_CURRENT_POINT.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#path_extents()</code></div>
 <div class="mb-2 ml-4">
@@ -805,6 +797,7 @@ The result of cairo.context#path_extents() is defined as equivalent to the limit
 <p>
 Specifically, this means that zero-area sub-paths such as cairo.context#move_to();cairo.context#line_to() segments, (even degenerate cases where the coordinates to both calls are identical), will be considered as contributing to the extents. However, a lone cairo.context#move_to() will not contribute to the results of cairo.context#path_extents().
 </p>
+
 </div>
 <h4><span class="caption-index-4">10.2.2.2</span><a name="anchor-10-2-2-2"></a>Types and Values</h4>
 <h3><span class="caption-index-3">10.2.3</span><a name="anchor-10-2-3"></a>cairo.pattern - Sources for drawing</h3>
@@ -823,6 +816,7 @@ If two (or more) stops are specified with identical offset values, they will be 
 <p>
 Note: If the pattern is not a gradient pattern, (eg. a linear or radial pattern), then the pattern will be put into an error status with a status of cairo.STATUS_PATTERN_TYPE_MISMATCH.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.pattern#add_color_stop_rgba(offset:number, red:number, green:number, blue:number, alpha:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -838,48 +832,35 @@ If two (or more) stops are specified with identical offset values, they will be 
 <p>
 Note: If the pattern is not a gradient pattern, (eg. a linear or radial pattern), then the pattern will be put into an error status with a status of cairo.STATUS_PATTERN_TYPE_MISMATCH.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.pattern#get_color_stop_count()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the number of color stops specified in the given gradient pattern.
-</p>
 </div>
 <div class="mb-2"><code>cairo.pattern#get_color_stop_rgba(index:number)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the color and offset information at the given index for a gradient pattern. Values of index are 0 to 1 less than the number returned by cairo.pattern#get_color_stop_count().
-</p>
 </div>
 <div class="mb-2"><code>cairo.pattern.create_rgb(red:number, green:number, blue:number):static {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Creates a new cairo.pattern corresponding to an opaque color. The color components are floating point numbers in the range 0 to 1. If the values passed in are outside that range, they will be clamped.
-</p>
 </div>
 <div class="mb-2"><code>cairo.pattern.create_rgba(red:number, green:number, blue:number, alpha:number):static {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Creates a new cairo,pattern corresponding to a translucent color. The color components are floating point numbers in the range 0 to 1. If the values passed in are outside that range, they will be clamped.
-</p>
 </div>
 <div class="mb-2"><code>cairo.pattern#get_rgba()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the solid color for a solid color pattern.
-</p>
 </div>
 <div class="mb-2"><code>cairo.pattern.create_for_surface(surface:cairo.surface):static {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Create a new cairo.pattern for the given surface.
-</p>
 </div>
 <div class="mb-2"><code>cairo.pattern#get_surface()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the surface of a surface pattern. The reference returned in surface is owned by the pattern; the caller should call cairo_surface_reference() if the surface is to be retained.
-</p>
 </div>
 <div class="mb-2"><code>cairo.pattern.create_linear(x0:number, y0:number, x1:number, y1:number):static {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -889,12 +870,11 @@ Create a new linear gradient cairo.pattern along the line defined by (x0, y0) an
 <p>
 Note: The coordinates here are in pattern space. For a new pattern, pattern space is identical to user space, but the relationship between the spaces can be changed with cairo.pattern#set_matrix().
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.pattern#get_linear_points()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the gradient endpoints for a linear gradient.
-</p>
 </div>
 <div class="mb-2"><code>cairo.pattern.create_radial(cx0:number, cy0:number, radius0:number, cx1:number, cy1:number, radius1:number):static {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -904,45 +884,51 @@ Creates a new radial gradient cairo_pattern_t between the two circles defined by
 <p>
 Note: The coordinates here are in pattern space. For a new pattern, pattern space is identical to user space, but the relationship between the spaces can be changed with cairo.pattern#set_matrix().
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.pattern#get_radial_circles()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the gradient endpoint circles for a radial gradient, each specified as a center coordinate and a radius.
-</p>
 </div>
 <div class="mb-2"><code>cairo.mesh_pattern.create():static {block?}</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.mesh_pattern#begin_patch():reduce</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.mesh_pattern#end_patch():reduce</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.mesh_pattern#move_to(x:number, y:number):reduce</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.mesh_pattern#line_to(x:number, y:number):reduce</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.mesh_pattern#curve_to(x1:number, y1:number, x2:number, y2:number, x3:number, y3:number):reduce</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.mesh_pattern#set_control_point(point_num:number, x:number, y:number):reduce</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.mesh_pattern#set_corner_color_rgb(corner_num:number, red:number, green:number, blue:number):reduce</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.mesh_pattern#set_corner_color_rgba(corner_num:number, red:number, green:number, blue:number, alpha:number):reduce</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.pattern#status()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Checks whether an error has previously occurred for this pattern.
-</p>
 </div>
 <div class="mb-2"><code>cairo.pattern#set_extend(extend:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -952,12 +938,11 @@ Sets the mode to be used for drawing outside the area of a pattern. See cairo_ex
 <p>
 The default extend mode is cairo.EXTEND_NONE for surface patterns and cairo.EXTEND_PAD for gradient patterns.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.pattern#get_extend()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current extend mode for a pattern. See cairo_extend_t for details on the semantics of each extend strategy.
-</p>
 </div>
 <div class="mb-2"><code>cairo.pattern#set_filter(filter:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -973,12 +958,11 @@ cr.set_source_surface(image, x, y) cr.get_source().set_filter(cairo.FILTER_NEARE
 </p>
 </li>
 </ul>
+
 </div>
 <div class="mb-2"><code>cairo.pattern#get_filter()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current filter for a pattern. See cairo_filter_t for details on each filter.
-</p>
 </div>
 <div class="mb-2"><code>cairo.pattern#set_matrix(array:array@double):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -1003,18 +987,15 @@ Meanwhile, using values of 2.0 rather than 0.5 in the code above would cause the
 <p>
 Also, please note the discussion of the user-space locking semantics of cairo.context#set_source().
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.pattern#get_matrix()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Stores the pattern's transformation matrix into matrix.
-</p>
 </div>
 <div class="mb-2"><code>cairo.pattern#get_type()</code></div>
 <div class="mb-2 ml-4">
-<p>
 This function returns the type a pattern. See cairo_pattern_type_t for available types.
-</p>
 </div>
 <h4><span class="caption-index-4">10.2.3.2</span><a name="anchor-10-2-3-2"></a>Types and Values</h4>
 <p>
@@ -1081,15 +1062,11 @@ This function returns the type a pattern. See cairo_pattern_type_t for available
 <h4><span class="caption-index-4">10.2.5.1</span><a name="anchor-10-2-5-1"></a>Functions</h4>
 <div class="mb-2"><code>cairo.context#translate(tx:number, ty:number):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Modifies the current transformation matrix (CTM) by translating the user-space origin by (tx, ty). This offset is interpreted as a user-space coordinate according to the CTM in place before the new call to cairo.context#translate(). In other words, the translation of the user-space origin takes place after any existing transformation.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#scale(sx:number, sy:number):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Modifies the current transformation matrix (CTM) by scaling the X and Y user-space axes by sx and sy respectively. The scaling of the axes takes place after any existing transformation of user space.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#rotate(angle:number):reduce:[deg]</code></div>
 <div class="mb-2 ml-4">
@@ -1099,54 +1076,39 @@ Modifies the current transformation matrix (CTM) by rotating the user-space axes
 <p>
 <em>Gura:</em> If attribute :deg is specified, angle is represented in degrees instead of radians.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#transform(array:array@double):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Modifies the current transformation matrix (CTM) by applying matrix as an additional transformation. The new transformation of user space takes place after any existing transformation.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_matrix(array:array@double):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Modifies the current transformation matrix (CTM) by setting it equal to matrix.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#get_matrix()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Stores the current transformation matrix (CTM) into matrix.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#identity_matrix():reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Resets the current transformation matrix (CTM) by setting it equal to the identity matrix. That is, the user-space and device-space axes will be aligned and one user-space unit will transform to one device-space unit.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#user_to_device(x:number, y:number)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Transform a coordinate from user space to device space by multiplying the given point by the current transformation matrix (CTM).
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#user_to_device_distance(dx:number, dy:number)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Transform a distance vector from user space to device space. This function is similar to cairo.context#user_to_device() except that the translation components of the CTM will be ignored when transforming (dx,dy).
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#device_to_user(x:number, y:number)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Transform a coordinate from device space to user space by multiplying the given point by the inverse of the current transformation matrix (CTM).
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#device_to_user_distance(dx:number, dy:number)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Transform a distance vector from device space to user space. This function is similar to cairo.context#device_to_user() except that the translation components of the inverse CTM will be ignored when transforming (dx,dy).
-</p>
 </div>
 <h3><span class="caption-index-3">10.2.6</span><a name="anchor-10-2-6"></a>text - Rendering text and glyphs</h3>
 <h4><span class="caption-index-4">10.2.6.1</span><a name="anchor-10-2-6-1"></a>Functions</h4>
@@ -1176,6 +1138,7 @@ If text is drawn without a call to cairo.context#select_font_face(), (nor cairo.
 <p>
 This function is equivalent to a call to cairo.toy_font_face.create() followed by cairo.context#set_font_face().
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#set_font_size(size:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -1185,54 +1148,39 @@ Sets the current font matrix to a scale by a factor of size, replacing any font 
 <p>
 If text is drawn without a call to cairo.context#set_font_size(), (nor cairo.context#set_font_matrix() nor cairo.context#set_scaled_font()), the default font size is 10.0.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#set_font_matrix(array:array@double):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Sets the current font matrix to matrix. The font matrix gives a transformation from the design space of the font (in this space, the em-square is 1 unit by 1 unit) to user space. Normally, a simple scale is used (see cairo_set_font_size()), but a more complex font matrix can be used to shear the font or stretch it unequally along the two axes.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#get_font_matrix()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Stores the current font matrix into matrix. See cairo.context#set_font_matrix().
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_font_options(options:cairo.font_options):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Sets a set of custom font rendering options for the cairo_t. Rendering options are derived by merging these options with the options derived from underlying surface; if the value in options has a default value (like cairo.ANTIALIAS_DEFAULT), then the value from the surface is used.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#get_font_options() {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Retrieves font rendering options set via cairo.context#set_font_options. Note that the returned options do not include any options derived from the underlying surface; they are literally the options passed to cairo.context#set_font_options().
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_font_face(font_face:cairo.font_face):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Replaces the current cairo_font_face_t object in the cairo_t with font_face. The replaced font face in the cairo_t will be destroyed if there are no other references to it.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#get_font_face() {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current font face for a cairo_t.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#set_scaled_font(scaled_font:cairo.scaled_font):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Replaces the current font face, font matrix, and font options in the cairo_t with those of the cairo_scaled_font_t. Except for some translation, the current CTM of the cairo_t should be the same as that of the cairo_scaled_font_t, which can be accessed using cairo.context#scaled_font_get_ctm().
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#get_scaled_font() {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the current scaled font for a cairo_t.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#show_text(text:string):map:reduce</code></div>
 <div class="mb-2 ml-4">
@@ -1248,18 +1196,15 @@ After this call the current point is moved to the origin of where the next glyph
 <p>
 Note: The cairo.context#show_text() function call is part of what the cairo designers call the "toy" text API. It is convenient for short demos and simple programs, but it is not expected to be adequate for serious text-using applications. See cairo.context#show_glyphs() for the "real" text display API in cairo.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#show_glyphs(glyphs:cairo.glyph):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 A drawing operator that generates the shape from an array of glyphs, rendered according to the current font face, font size (font matrix), and font options.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#font_extents() {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the font extents for the currently selected font.
-</p>
 </div>
 <div class="mb-2"><code>cairo.context#text_extents(text:string):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -1269,6 +1214,7 @@ Gets the extents for a string of text. The extents describe a user-space rectang
 <p>
 Note that whitespace characters do not directly contribute to the size of the rectangle (extents.width and extents.height). They do contribute indirectly by changing the position of non-whitespace characters. In particular, trailing whitespace characters are likely to not affect the size of the rectangle, though they will affect the x_advance and y_advance values.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.context#glyph_extents(glyphs:cairo.glyph) {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -1278,6 +1224,7 @@ Gets the extents for an array of glyphs. The extents describe a user-space recta
 <p>
 Note that whitespace glyphs do not contribute to the size of the rectangle (extents.width and extents.height).
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.toy_font_face.create(family:string, slant:number, weight:number):static {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -1290,24 +1237,19 @@ If family is the zero-length string "", the platform-specific default family is 
 <p>
 The cairo.context#select_font_face() function uses this to create font faces. See that function for limitations and other details of toy font faces.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.toy_font_face#get_family()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the familly name of a toy font.
-</p>
 </div>
 <div class="mb-2"><code>cairo.toy_font_face#get_slant()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the slant a toy font.
-</p>
 </div>
 <div class="mb-2"><code>cairo.toy_font_face#get_weight()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Gets the weight a toy font.
-</p>
 </div>
 <h4><span class="caption-index-4">10.2.6.2</span><a name="anchor-10-2-6-2"></a>Types and Values</h4>
 <h3><span class="caption-index-3">10.2.7</span><a name="anchor-10-2-7"></a>Raster Sources - Supplying arbitary image data</h3>
@@ -1319,6 +1261,7 @@ Gets the weight a toy font.
 <h4><span class="caption-index-4">10.3.2.1</span><a name="anchor-10-3-2-1"></a>Functions</h4>
 <div class="mb-2"><code>cairo.scaled_font.create(font_face:cairo.font_face, font_matrix:array@double, ctm:array@double, options):static {block?}</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <h3><span class="caption-index-3">10.3.3</span><a name="anchor-10-3-3"></a>cairo_font_options_t - How a font should be rendered</h3>
 <h4><span class="caption-index-4">10.3.3.1</span><a name="anchor-10-3-3-1"></a>Functions</h4>
@@ -1365,6 +1308,7 @@ Initially the surface contents are all 0 (transparent if contents have transpare
 <p>
 Use cairo.surface.create_similar_image() if you need an image surface which can be painted quickly to the target surface.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.surface.create_similar_image(other:cairo.surface, format:number, width:number, height:number):static {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -1377,6 +1321,7 @@ Initially the surface contents are all 0 (transparent if contents have transpare
 <p>
 Use cairo.surface.create_similar() if you don't need an image surface.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.surface.create_for_rectangle(other:cairo.surface, format:number, width:number, height:number):static {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -1386,12 +1331,11 @@ Create a new surface that is a rectangle within the target surface. All operatio
 <p>
 <em>Note:</em> The semantics of subsurfaces have not been finalized yet unless the rectangle is in full device units, is contained within the extents of the target surface, and the target or subsurface's device transforms are not changed.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.surface#status()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Checks whether an error has previously occurred for this surface.
-</p>
 </div>
 <div class="mb-2"><code>cairo.surface#finish():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -1401,36 +1345,27 @@ This function finishes the surface and drops all references to external resource
 <p>
 When the last call to cairo_surface_destroy() decreases the reference count to zero, cairo will call cairo_surface_finish() if it hasn't been called already, before freeing the resources associated with the surface.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.surface#flush():reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Do any pending drawing for the surface and also restore any temporary modifications cairo has made to the surface's state. This function must be called before switching from drawing on the surface with cairo to drawing on it directly with native APIs. If the surface doesn't support direct access, then this function does nothing.
-</p>
 </div>
 <div class="mb-2"><code>cairo.surface#get_device()</code></div>
 <div class="mb-2 ml-4">
-<p>
 This function returns the device for a surface. See cairo.device.
-</p>
 </div>
 <div class="mb-2"><code>cairo.surface#get_font_options()</code></div>
 <div class="mb-2 ml-4">
-<p>
 Retrieves the default font rendering options for the surface. This allows display surfaces to report the correct subpixel order for rendering on them, print surfaces to disable hinting of metrics and so forth. The result can then be used with cairo.scaled_font.create().
-</p>
 </div>
 <div class="mb-2"><code>cairo.surface#get_content()</code></div>
 <div class="mb-2 ml-4">
-<p>
 This function returns the content type of surface which indicates whether the surface contains color and/or alpha information. See cairo_content_t.
-</p>
 </div>
 <div class="mb-2"><code>cairo.surface#mark_dirty():reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Tells cairo that drawing has been done to surface using means other than cairo, and that cairo should reread any cached areas. Note that you must call cairo.surface#flush() before doing such drawing.
-</p>
 </div>
 <div class="mb-2"><code>cairo.surface#mark_dirty_rectangle(x:number, y:number, width:number, height:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -1440,6 +1375,7 @@ Like cairo.surface#mark_dirty(), but drawing has been done only to the specified
 <p>
 Any cached clip set on the surface will be reset by this function, to make sure that future cairo calls have the clip set that they expect.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.surface#set_device_offset(x_offset:number, y_offset:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -1449,12 +1385,11 @@ Sets an offset that is added to the device coordinates determined by the CTM whe
 <p>
 Note that the offset affects drawing to the surface as well as using the surface in a source pattern.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.surface#get_device_offset()</code></div>
 <div class="mb-2 ml-4">
-<p>
 This function returns the previous device offset set by cairo.surface#set_device_offset().
-</p>
 </div>
 <div class="mb-2"><code>cairo.surface#set_fallback_resolution(x_pixels_per_inch:number, y_pixels_per_inch:number):reduce</code></div>
 <div class="mb-2 ml-4">
@@ -1476,18 +1411,15 @@ Note: The fallback resolution only takes effect at the time of completing a page
 <p>
 The default fallback resoultion is 300 pixels per inch in both dimensions.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.surface#get_fallback_resolution()</code></div>
 <div class="mb-2 ml-4">
-<p>
 This function returns the previous fallback resolution set by cairo.surface#set_fallback_resolution(), or default fallback resolution if never set.
-</p>
 </div>
 <div class="mb-2"><code>cairo.surface#get_type()</code></div>
 <div class="mb-2 ml-4">
-<p>
 This function returns the type of the backend used to create a surface. See cairo_surface_type_t for available types.
-</p>
 </div>
 <div class="mb-2"><code>cairo.surface#copy_page():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -1497,6 +1429,7 @@ Emits the current page for backends that support multiple pages, but doesn't cle
 <p>
 There is a convenience function for this that takes a cairo.context, namely cairo.context#copy_page().
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.surface#show_page():reduce</code></div>
 <div class="mb-2 ml-4">
@@ -1506,6 +1439,7 @@ Emits and clears the current page for backends that support multiple pages. Use 
 <p>
 There is a convenience function for this that takes a cairo.context, namely cairo.context#show_page().
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.surface#has_show_text_glyphs()</code></div>
 <div class="mb-2 ml-4">
@@ -1515,24 +1449,31 @@ Returns whether the surface supports sophisticated cairo.context#show_text_glyph
 <p>
 Note: Even if this function returns false, a cairo.context#show_text_glyphs() operation targeted at surface will still succeed. It just will act like a cairo.context#show_glyphs() operation. Users can use this function to avoid computing UTF-8 text and cluster mapping if the target surface does not use it.
 </p>
+
 </div>
 <div class="mb-2"><code>cairo.surface#set_mime_data():reduce</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.surface#get_mime_data()</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.surface#supports_mime_type()</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.surface#map_to_image(extents:cairo.rectangle_int)</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.surface#unmap_image()</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <div class="mb-2"><code>cairo.surface#write_to_png(stream:stream:w):reduce</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <h3><span class="caption-index-3">10.4.3</span><a name="anchor-10-4-3"></a>Image Surfaces - Rendering to memory buffers</h3>
 <h4><span class="caption-index-4">10.4.3.1</span><a name="anchor-10-4-3-1"></a>Functions</h4>

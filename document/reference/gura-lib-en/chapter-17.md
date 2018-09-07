@@ -39,6 +39,7 @@ In default, the parser expects the Doxygen document is written within C-style co
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|doc:doxygen.document|</code>, where <code class="highlighter-rouge">doc</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <h3><span class="caption-index-3">17.2.2</span><a name="anchor-17-2-2"></a>Method</h3>
 <div class="mb-2"><code>doxygen.document#structures() {block?}</code></div>
@@ -63,6 +64,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <h2><span class="caption-index-2">17.3</span><a name="anchor-17-3"></a>doxygen.structure Class</h2>
 <h3><span class="caption-index-3">17.3.1</span><a name="anchor-17-3-1"></a>Property</h3>
@@ -111,6 +113,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <div class="mb-2"><code>doxygen.structure#substructures() {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -134,20 +137,17 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <h2><span class="caption-index-2">17.4</span><a name="anchor-17-4"></a>doxygen.elem Class</h2>
 <h3><span class="caption-index-3">17.4.1</span><a name="anchor-17-4-1"></a>Method</h3>
 <div class="mb-2"><code>doxygen.elem#print(indent?:number, out?:stream):map:void</code></div>
 <div class="mb-2 ml-4">
-<p>
 Prints out the content of the element to <code class="highlighter-rouge">out</code> with an indentation level specified by <code class="highlighter-rouge">indent</code> that starts from zero. If <code class="highlighter-rouge">out</code> is omitted, the result would be put out to standard output.
-</p>
 </div>
 <div class="mb-2"><code>doxygen.elem#render(renderer:doxygen.renderer):void</code></div>
 <div class="mb-2 ml-4">
-<p>
 Renders the element content using <code class="highlighter-rouge">doxygen.renderer</code>.
-</p>
 </div>
 <h2><span class="caption-index-2">17.5</span><a name="anchor-17-5"></a>doxygen.configuration Class</h2>
 <h3><span class="caption-index-3">17.5.1</span><a name="anchor-17-5-1"></a>Property</h3>
@@ -182,6 +182,7 @@ Reads a configuration file, which is usually dubbed "Doxyfile", from <code class
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|cfg:doxygen.configuration|</code>, where <code class="highlighter-rouge">cfg</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <h3><span class="caption-index-3">17.5.3</span><a name="anchor-17-5-3"></a>Method</h3>
 <div class="mb-2"><code>doxygen.configuration#get(tagname:string):map:[raise]</code></div>
@@ -192,20 +193,17 @@ Returns a value associated with the tag specified by the argument <code class="h
 <p>
 If the specified tag is not found, the method would return <code class="highlighter-rouge">nil</code> while it would cause an error in the case the attribute <code class="highlighter-rouge">:raise</code> is specified.
 </p>
+
 </div>
 <div class="mb-2"><code>doxygen.configuration#print(out?:stream):map:void</code></div>
 <div class="mb-2 ml-4">
-<p>
 Prints out the content of the configuration to <code class="highlighter-rouge">out</code>. If omitted, the result would be put out to standard output.
-</p>
 </div>
 <h2><span class="caption-index-2">17.6</span><a name="anchor-17-6"></a>doxygen.aliases Class</h2>
 <h3><span class="caption-index-3">17.6.1</span><a name="anchor-17-6-1"></a>Method</h3>
 <div class="mb-2"><code>doxygen.aliases#print(out?:stream):map:void</code></div>
 <div class="mb-2 ml-4">
-<p>
 Prints out definitions of aliases to the stream <code class="highlighter-rouge">out</code>. If the argument is omitted, the result would be put out to the standard output.
-</p>
 </div>
 <h2><span class="caption-index-2">17.7</span><a name="anchor-17-7"></a>doxygen.renderer Class</h2>
 <h3><span class="caption-index-3">17.7.1</span><a name="anchor-17-7-1"></a>Constructor</h3>
@@ -217,5 +215,6 @@ Creates a <code class="highlighter-rouge">doxygen.renderer</code> instance.
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|renderer:doxygen.renderer|</code>, where <code class="highlighter-rouge">renderer</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 {% endraw %}

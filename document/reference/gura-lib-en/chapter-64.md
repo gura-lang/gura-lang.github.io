@@ -40,6 +40,7 @@ Creates <code class="highlighter-rouge">zip.reader</code> instance from the spec
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|reader:zip.reader|</code>, where <code class="highlighter-rouge">reader</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <h3><span class="caption-index-3">64.2.2</span><a name="anchor-64-2-2"></a>Method</h3>
 <div class="mb-2"><code>zip.reader#entry(name:string) {block?}</code></div>
@@ -50,6 +51,7 @@ Seeks entry in the zip file that matches the specified name and returns a <code 
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|s:stream|</code>, where <code class="highlighter-rouge">s</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <div class="mb-2"><code>zip.reader#entries() {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -73,6 +75,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <h2><span class="caption-index-2">64.3</span><a name="anchor-64-3"></a>zip.writer Class</h2>
 <p>
@@ -106,6 +109,7 @@ Argument <code class="highlighter-rouge">compression</code> specifies the compre
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|writer:zip.writer|</code>, where <code class="highlighter-rouge">writer</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <h3><span class="caption-index-3">64.3.2</span><a name="anchor-64-3-2"></a>Method</h3>
 <div class="mb-2"><code>zip.writer#add(stream:stream:r, filename?:string, compression?:symbol):map:reduce</code></div>
@@ -121,12 +125,11 @@ Argument <code class="highlighter-rouge">compression</code> specifies the compre
 <li><code class="highlighter-rouge">`deflate</code></li>
 <li><code class="highlighter-rouge">`bzip2</code></li>
 </ul>
+
 </div>
 <div class="mb-2"><code>zip.writer#close():void</code></div>
 <div class="mb-2 ml-4">
-<p>
 Closes the zip file after flushing cached data.
-</p>
 </div>
 <h2><span class="caption-index-2">64.4</span><a name="anchor-64-4"></a>zip.stat Class</h2>
 <p>

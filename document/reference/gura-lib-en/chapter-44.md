@@ -20,59 +20,42 @@ Returns the time duration in second since the system has started.
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would calculate how much time has been spent during evaluating the block.
 </p>
+
 </div>
 <div class="mb-2"><code>os.exec(pathname:string, args*:string):map:[fork]</code></div>
 <div class="mb-2 ml-4">
-<p>
 Executes the specified executable file.
-</p>
 </div>
 <div class="mb-2"><code>os.fromnative(buff:binary):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Converts binary data that includes OS's native string into Gura's regulated string.
-</p>
 </div>
 <div class="mb-2"><code>os.getenv(name:string, default?:string):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Returns the value of an environment variable.
-</p>
 </div>
 <div class="mb-2"><code>os.putenv(name:string, value:string):void</code></div>
 <div class="mb-2 ml-4">
-<p>
 Set the value of an environment variable.
-</p>
 </div>
 <div class="mb-2"><code>os.redirect(stdin:stream:nil:r, stdout:stream:nil:w, stderr?:stream:w) {block?}</code></div>
 <div class="mb-2 ml-4">
-<p>
 Modifies variables <code class="highlighter-rouge">os.stdin</code>, <code class="highlighter-rouge">os.stdout</code> and <code class="highlighter-rouge">os.stderr</code> with values of arguments. When <code class="highlighter-rouge">block</code> is specified, the modification only has effect within the block.
-</p>
 </div>
 <div class="mb-2"><code>os.sleep(secs:number)</code></div>
 <div class="mb-2 ml-4">
-<p>
 Sleeps for a time specified in seconds.
-</p>
 </div>
 <div class="mb-2"><code>os.symlink(src:string, tgt:string):map:void</code></div>
 <div class="mb-2 ml-4">
-<p>
 Creates a symbol link.
-</p>
 </div>
 <div class="mb-2"><code>os.tonative(str:string):map</code></div>
 <div class="mb-2 ml-4">
-<p>
 Converts Gura's regulated string into binary data that includes OS's native string.
-</p>
 </div>
 <div class="mb-2"><code>os.unsetenv(name:string):void</code></div>
 <div class="mb-2 ml-4">
-<p>
 Unset an environment variable.
-</p>
 </div>
 {% endraw %}

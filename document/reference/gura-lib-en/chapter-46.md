@@ -41,15 +41,11 @@ This module extends the <code class="highlighter-rouge">image</code> class with 
 </p>
 <div class="mb-2"><code>image#read@png(stream:stream:r):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Reads a PNG image from a stream.
-</p>
 </div>
 <div class="mb-2"><code>image#write@png(stream:stream:w):reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
 Writes a PNG image to a stream.
-</p>
 </div>
 <h2><span class="caption-index-2">46.5</span><a name="anchor-46-5"></a>Thanks</h2>
 <p>

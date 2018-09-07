@@ -223,6 +223,7 @@ m.group('hour').string // returns the group named 'hour': 12
 m.group('min').string  // returns the group named 'min': 34
 m.group('sec').string  // returns the group named 'sec': 56
 </code></pre>
+
 </div>
 <div class="mb-2"><code>re.match#groups() {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -246,6 +247,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <h2><span class="caption-index-2">48.4</span><a name="anchor-48-4"></a>re.group Class</h2>
 <p>
@@ -331,6 +333,7 @@ Following attributes would customize some traits of the pattern:
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|pat:re.pattern|</code>, where <code class="highlighter-rouge">pat</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <h3><span class="caption-index-3">48.5.3</span><a name="anchor-48-5-3"></a>Method</h3>
 <div class="mb-2"><code>re.pattern#match(str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
@@ -347,6 +350,7 @@ The argument <code class="highlighter-rouge">endpos</code> specifies the ending 
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|m:re.match|</code>, where <code class="highlighter-rouge">m</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <div class="mb-2"><code>re.pattern#sub(replace, str:string, count?:number):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -368,6 +372,7 @@ The argument <code class="highlighter-rouge">count</code> specifies the maximum 
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|str:string|</code>, where <code class="highlighter-rouge">str</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <div class="mb-2"><code>re.pattern#split(str:string, count?:number):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -394,6 +399,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <div class="mb-2"><code>re.pattern#scan(str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -423,6 +429,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <h2><span class="caption-index-2">48.6</span><a name="anchor-48-6"></a>Extension to string Class</h2>
 <p>
@@ -442,6 +449,7 @@ The argument <code class="highlighter-rouge">endpos</code> specifies the ending 
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|m:re.match|</code>, where <code class="highlighter-rouge">m</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <div class="mb-2"><code>string#sub(pattern:re.pattern, replace, count?:number):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -463,6 +471,7 @@ The argument <code class="highlighter-rouge">count</code> specifies the maximum 
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|str:string|</code>, where <code class="highlighter-rouge">str</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <div class="mb-2"><code>string#splitreg(pattern:re.pattern, count?:number):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -489,6 +498,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <div class="mb-2"><code>string#scan(pattern:re.pattern, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -518,6 +528,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <h2><span class="caption-index-2">48.7</span><a name="anchor-48-7"></a>Extension to iterable Classes</h2>
 <p>
@@ -525,6 +536,7 @@ This module extends the iterable classes, <code class="highlighter-rouge">list</
 </p>
 <div class="mb-2"><code>iterable#grep(pattern:re.pattern):map {block?}</code></div>
 <div class="mb-2 ml-4">
+
 </div>
 <h2><span class="caption-index-2">48.8</span><a name="anchor-48-8"></a>Module Function</h2>
 <div class="mb-2"><code>re.match(pattern:re.pattern, str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
@@ -541,6 +553,7 @@ The argument <code class="highlighter-rouge">endpos</code> specifies the ending 
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|m:re.match|</code>, where <code class="highlighter-rouge">m</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <div class="mb-2"><code>re.sub(pattern:re.pattern, replace, str:string, count?:number):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -562,6 +575,7 @@ The argument <code class="highlighter-rouge">count</code> specifies the maximum 
 <p>
 If <code class="highlighter-rouge">block</code> is specified, it would be evaluated with a block parameter <code class="highlighter-rouge">|str:string|</code>, where <code class="highlighter-rouge">str</code> is the created instance. In this case, the block's result would become the function's returned value.
 </p>
+
 </div>
 <div class="mb-2"><code>re.split(pattern:re.pattern, str:string, count?:number):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -588,6 +602,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <div class="mb-2"><code>re.scan(pattern:re.pattern, str:string, pos:number =&gt; 0, endpos?:number):map {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -617,6 +632,7 @@ See the chapter of Mapping Process in Gura Language Manual for the detail.
 <p>
 If a block is specified, it would be evaluated repeatingly with block parameters <code class="highlighter-rouge">|value, idx:number|</code> where <code class="highlighter-rouge">value</code> is the iterated value and <code class="highlighter-rouge">idx</code> the loop index starting from zero. In this case, the last evaluated value of the block would be the result value. If one of the attributes listed above is specified, an iterator or a list of the evaluated value would be returned.
 </p>
+
 </div>
 <h2><span class="caption-index-2">48.9</span><a name="anchor-48-9"></a>Thanks</h2>
 <p>

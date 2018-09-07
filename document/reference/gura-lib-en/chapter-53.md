@@ -6,57 +6,71 @@ prevpage: chapter-52.html#naviitem-selected
 nextpage: chapter-54.html#naviitem-selected
 ---
 {% raw %}
-<h1><span class="caption-index-1">53</span>sys Module</h1>
+<h1><span class="caption-index-1">53</span>tar Module</h1>
 <h2><span class="caption-index-2">53.1</span><a name="anchor-53-1"></a>Overview</h2>
 <p>
-The <code class="highlighter-rouge">sys</code> module provides system-related information. This is a built-in module, so you can use it without being imported.
+The <code class="highlighter-rouge">tar</code> module provides measures to read/write TAR files. To utilize it, import the <code class="highlighter-rouge">tar</code> module using <code class="highlighter-rouge">import</code> function.
 </p>
-<h2><span class="caption-index-2">53.2</span><a name="anchor-53-2"></a>Module Variable</h2>
+<h2><span class="caption-index-2">53.2</span><a name="anchor-53-2"></a>tar.reader Class</h2>
+<h3><span class="caption-index-3">53.2.1</span><a name="anchor-53-2-1"></a>Function To Create Instance</h3>
+<div class="mb-2"><code>tar.reader(stream:stream:r, compression?:symbol) {block?}</code></div>
+<div class="mb-2 ml-4">
+<p>
+Reads a tar file from <code class="highlighter-rouge">stream</code> and returns a <code class="highlighter-rouge">tar.reader</code> instance that is to be used to read contents from the archive.
+</p>
+<p>
+The argument <code class="highlighter-rouge">compression</code> specifies the compression format of the tar file and takes one of the following symbols:
+</p>
 <ul>
-<li><code class="highlighter-rouge">sys.argv</code></li>
-<li><code class="highlighter-rouge">sys.path</code></li>
-<li><code class="highlighter-rouge">sys.maindir</code></li>
-<li><code class="highlighter-rouge">sys.version</code></li>
-<li><code class="highlighter-rouge">sys.banner</code></li>
-<li><code class="highlighter-rouge">sys.timestamp</code></li>
-<li><code class="highlighter-rouge">sys.build</code></li>
-<li><code class="highlighter-rouge">sys.platform</code></li>
-<li><code class="highlighter-rouge">sys.ps1</code></li>
-<li><code class="highlighter-rouge">sys.ps2</code></li>
-<li><code class="highlighter-rouge">sys.langcode</code></li>
-<li><code class="highlighter-rouge">sys.executable</code></li>
-<li><code class="highlighter-rouge">sys.incdir</code></li>
-<li><code class="highlighter-rouge">sys.libdir</code></li>
-<li><code class="highlighter-rouge">sys.datadir</code></li>
-<li><code class="highlighter-rouge">sys.moddir</code></li>
-<li><code class="highlighter-rouge">sys.localdir</code></li>
-<li><code class="highlighter-rouge">sys.appdir</code></li>
-<li><code class="highlighter-rouge">sys.cfgdir</code></li>
-<li><code class="highlighter-rouge">sys.workdir</code></li>
+<li><code class="highlighter-rouge">`auto</code> .. determins the format from a suffix name of the stream.</li>
+<li><code class="highlighter-rouge">`gzip</code> .. gzip format</li>
+<li><code class="highlighter-rouge">`bzip2</code> .. bzip2 format</li>
 </ul>
-<h2><span class="caption-index-2">53.3</span><a name="anchor-53-3"></a>Module Function</h2>
-<div class="mb-2"><code>sys.echo(flag:boolean)</code></div>
+
+</div>
+<h3><span class="caption-index-3">53.2.2</span><a name="anchor-53-2-2"></a>Method</h3>
+<div class="mb-2"><code>tar.reader#entries() {block?}</code></div>
+<div class="mb-2 ml-4">
+Creates an iterator that returns stream instances for each entry in the tar file.
+</div>
+<h2><span class="caption-index-2">53.3</span><a name="anchor-53-3"></a>tar.writer Class</h2>
+<h3><span class="caption-index-3">53.3.1</span><a name="anchor-53-3-1"></a>Function To Create Instance</h3>
+<div class="mb-2"><code>tar.writer(stream:stream:w, compression?:symbol) {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
-Enables or disables echo-back functionality according to flag.
+Creates a tar file on <code class="highlighter-rouge">stream</code> and returns a <code class="highlighter-rouge">tar.writer</code> instance that is to be used to write contents to the archive.
 </p>
+<p>
+The argument <code class="highlighter-rouge">compression</code> specifies the compression format of the tar file and takes one of the following symbols:
+</p>
+<ul>
+<li><code class="highlighter-rouge">`auto</code> .. determins the format from a suffix name of the stream.</li>
+<li><code class="highlighter-rouge">`gzip</code> .. gzip format</li>
+<li><code class="highlighter-rouge">`bzip2</code> .. bzip2 format</li>
+</ul>
+
 </div>
-<div class="mb-2"><code>sys.exit(status?:number)</code></div>
+<h3><span class="caption-index-3">53.3.2</span><a name="anchor-53-3-2"></a>Method</h3>
+<div class="mb-2"><code>tar.writer#add(stream:stream:r, filename?:string):map:reduce</code></div>
 <div class="mb-2 ml-4">
 <p>
-Terminates the program with a specified status number.
+Adds an entry to the tar archive with a content from <code class="highlighter-rouge">stream</code> and a name of <code class="highlighter-rouge">filename</code>.
 </p>
-</div>
-<div class="mb-2"><code>sys.interactive()</code></div>
-<div class="mb-2 ml-4">
 <p>
-Enters to interactive mode.
+If the argument <code class="highlighter-rouge">filename</code> is omitted, an identifier associated with the <code class="highlighter-rouge">stream</code> would be used as the entry name.
 </p>
+
 </div>
-<div class="mb-2"><code>sys.required_version(major:number, minor:number, patch:number)</code></div>
+<div class="mb-2"><code>tar.writer#close():reduce</code></div>
 <div class="mb-2 ml-4">
-<p>
-Raises an error if the running interpreter doesn't satisfy the required version.
-</p>
+Flushes all the unfinished writing processes and invalidates the <code class="highlighter-rouge">tar.writer</code> instance.
 </div>
+<h2><span class="caption-index-2">53.4</span><a name="anchor-53-4"></a>Thanks</h2>
+<p>
+This module uses zlib and bzip2 library which are distributed in the following sites:
+</p>
+<ul>
+<li><a href="http://zlib.net/">http://zlib.net/</a></li>
+<li><a href="http://www.bzip.org/">http://www.bzip.org/</a></li>
+</ul>
 {% endraw %}
