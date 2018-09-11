@@ -26,6 +26,9 @@ To encode a data into base64 format, use one of the following functions:
 <li><code class="highlighter-rouge">base64.writer()</code> .. Creates a stream that encodes data from <code class="highlighter-rouge">write()</code> method into the given stream. <code class="highlighter-rouge">stream#writer@base64()</code> method is another form of this function. You should use this way if the data size is expected to be large.</li>
 </ul>
 <h2><span class="caption-index-2">7.2</span><a name="anchor-7-2"></a>Module Function</h2>
+<p>
+The <code class="highlighter-rouge">base64</code> module provides following functions:
+</p>
 <div class="mb-2"><code>base64.decode(stream:stream:r) {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -71,7 +74,7 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 </div>
 <h2><span class="caption-index-2">7.3</span><a name="anchor-7-3"></a>Extension to stream Class</h2>
 <p>
-This module extends the <code class="highlighter-rouge">stream</code> class with methods described here.
+The <code class="highlighter-rouge">base64</code> module extends the <code class="highlighter-rouge">stream</code> class with following methods:
 </p>
 <div class="mb-2"><code>stream#reader@base64() {block?}</code></div>
 <div class="mb-2 ml-4">

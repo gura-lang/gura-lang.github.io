@@ -12,6 +12,9 @@ nextpage: chapter-16.html#naviitem-selected
 The <code class="highlighter-rouge">curl</code> module provices measures to access Internet resources using cURL library. To utilize it, import the <code class="highlighter-rouge">curl</code> module using <code class="highlighter-rouge">import</code> function.
 </p>
 <h2><span class="caption-index-2">15.2</span><a name="anchor-15-2"></a>Module Function</h2>
+<p>
+The <code class="highlighter-rouge">curl</code> module provides following functions:
+</p>
 <div class="mb-2"><code>curl.version() {block?}</code></div>
 <div class="mb-2 ml-4">
 Returns a string of the libcurl version.
@@ -21,6 +24,10 @@ Returns a string of the libcurl version.
 Initializes cURL and returns a easy_handle object.
 </div>
 <h2><span class="caption-index-2">15.3</span><a name="anchor-15-3"></a>curl.easy_handle Class</h2>
+<h3><span class="caption-index-3">15.3.1</span><a name="anchor-15-3-1"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">csv.easy\_handle</code> class provides following methods:
+</p>
 <div class="mb-2"><code>curl.easy_handle#escape(string:string):void</code></div>
 <div class="mb-2 ml-4">
 

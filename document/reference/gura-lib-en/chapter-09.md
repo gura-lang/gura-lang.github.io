@@ -24,6 +24,9 @@ Below is an example to read data from a file and write its compressed data to a 
 bzip2.writer('foo.dat.bz2').copyfrom('foo.dat')
 </code></pre>
 <h2><span class="caption-index-2">9.2</span><a name="anchor-9-2"></a>Module Function</h2>
+<p>
+The <code class="highlighter-rouge">bzip2</code> module provides following functions:
+</p>
 <div class="mb-2"><code>bzip2.reader(stream:stream:r) {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -49,7 +52,7 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 </div>
 <h2><span class="caption-index-2">9.3</span><a name="anchor-9-3"></a>Extension to stream Class</h2>
 <p>
-This module extends the <code class="highlighter-rouge">stream</code> class with methods described here.
+The <code class="highlighter-rouge">bzip2</code> module extends the <code class="highlighter-rouge">stream</code> class with following methods:
 </p>
 <div class="mb-2"><code>stream#reader@bzip2() {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -76,7 +79,7 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 </div>
 <h2><span class="caption-index-2">9.4</span><a name="anchor-9-4"></a>Thanks</h2>
 <p>
-This module uses libbzip2 which is distributed in the following site:
+The <code class="highlighter-rouge">bzip2</code> module uses libbzip2 which is distributed in the following site:
 </p>
 <p>
 <a href="http://www.bzip.org/">http://www.bzip.org/</a>

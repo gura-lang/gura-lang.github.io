@@ -39,6 +39,9 @@ conio.moveto(0, h - 1) {
 conio.waitkey():raise
 </code></pre>
 <h2><span class="caption-index-2">13.2</span><a name="anchor-13-2"></a>Module Function</h2>
+<p>
+The <code class="highlighter-rouge">conio</code> module provides following functions:
+</p>
 <div class="mb-2"><code>conio.clear(region?:symbol):void</code></div>
 <div class="mb-2 ml-4">
 <p>

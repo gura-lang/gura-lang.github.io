@@ -17,6 +17,9 @@ Below is an example to show differences between files <code class="highlighter-r
 <pre class="highlight"><code>diff.compose(stream('file1.txt'), stream('file2.txt')).render(sys.stdout)
 </code></pre>
 <h2><span class="caption-index-2">16.2</span><a name="anchor-16-2"></a>Module Function</h2>
+<p>
+The <code class="highlighter-rouge">diff</code> module provides following methods:
+</p>
 <div class="mb-2"><code>diff.compose(src1, src2):[icase,sync] {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -80,59 +83,29 @@ If attribute <code class="highlighter-rouge">:icase</code> is specified, it woul
 The <code class="highlighter-rouge">diff.diff@line</code> instance is created by function <code class="highlighter-rouge">diff.compose()</code> and provides information about differences between two texts by lines.
 </p>
 <h3><span class="caption-index-3">16.3.2</span><a name="anchor-16-3-2"></a>Property</h3>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-<tr>
-<td>
-<code>distance</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-The distance between the texts. Zero means that they are identical each other.</td>
-</tr>
-<tr>
-<td>
-<code>edits</code></td>
-<td>
-<code>iterator</code></td>
-<td>
-R</td>
-<td>
-An iterator that returns <code>diff.edit@line</code> instances stored in the result.</td>
-</tr>
-<tr>
-<td>
-<code>nlines@org</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Number of lines in the "original" text.</td>
-</tr>
-<tr>
-<td>
-<code>nlines@new</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Number of lines in the "new" text.</td>
-</tr>
-</table>
+<p>
+The <code class="highlighter-rouge">diff.diff@line</code> instance has following properties:
+</p>
+<div class="mb-2"><code>diff.diff@line#distance</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+The distance between the texts. Zero means that they are identical each other.
+</div>
+<div class="mb-2"><code>diff.diff@line#edits</code> &hellip; <code>iterator</code> [read-only]</div>
+<div class="mb-2 ml-4">
+An iterator that returns <code class="highlighter-rouge">diff.edit@line</code> instances stored in the result.
+</div>
+<div class="mb-2"><code>diff.diff@line#nlines@new</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Number of lines in the "original" text.
+</div>
+<div class="mb-2"><code>diff.diff@line#nlines@org</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Number of lines in the "new" text.
+</div>
 <h3><span class="caption-index-3">16.3.3</span><a name="anchor-16-3-3"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">diff.diff@line</code> class provides following methods:
+</p>
 <div class="mb-2"><code>diff.diff@line#eachhunk(format?:symbol, lines?:number) {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -195,69 +168,41 @@ The argument <code class="highlighter-rouge">lines</code> specifies a number of 
 The <code class="highlighter-rouge">diff.hunk@line</code> instance provides information about a hunk.
 </p>
 <h3><span class="caption-index-3">16.4.2</span><a name="anchor-16-4-2"></a>Property</h3>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-<tr>
-<td>
-<code>edits</code></td>
-<td>
-<code>iterator</code></td>
-<td>
-R</td>
-<td>
-An iterator that returns <code>diff.edit@line</code> instances stored in the hunk.</td>
-</tr>
-<tr>
-<td>
-<code>lineno@org</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Top line number of the "original" text covered by the hunk.</td>
-</tr>
-<tr>
-<td>
-<code>lineno@new</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Top line number of the "new" text covered by the hunk.</td>
-</tr>
-<tr>
-<td>
-<code>nlines@org</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Number of lines in the "original" text covered by the hunk.</td>
-</tr>
-<tr>
-<td>
-<code>nlines@new</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Number of lines in the "new" text covered by the hunk.</td>
-</tr>
-</table>
+<p>
+The <code class="highlighter-rouge">diff.hunk@line</code> instance has following properties:
+</p>
+<div class="mb-2"><code>diff.hunk@line#diff_at_char</code> &hellip; <code>diff.diff@char</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>diff.hunk@line#edits</code> &hellip; <code>iterator</code> [read-only]</div>
+<div class="mb-2 ml-4">
+An iterator that returns <code class="highlighter-rouge">diff.edit@line</code> instances stored in the hunk.
+</div>
+<div class="mb-2"><code>diff.hunk@line#lineno@new</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Top line number of the "new" text covered by the hunk.
+</div>
+<div class="mb-2"><code>diff.hunk@line#lineno@org</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Top line number of the "original" text covered by the hunk.
+</div>
+<div class="mb-2"><code>diff.hunk@line#nlines@new</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Number of lines in the "new" text covered by the hunk.
+</div>
+<div class="mb-2"><code>diff.hunk@line#nlines@org</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Number of lines in the "original" text covered by the hunk.
+</div>
+<div class="mb-2"><code>diff.hunk@line#type</code> &hellip; <code>symbol</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
 <h3><span class="caption-index-3">16.4.3</span><a name="anchor-16-4-3"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">diff.hunk@line</code> class provides following methods:
+</p>
 <div class="mb-2"><code>diff.hunk@line#print(out?:stream):void {block?}</code></div>
 <div class="mb-2 ml-4">
 Prints the content of the <code class="highlighter-rouge">diff.hunk</code> instance to the specified stream.
@@ -268,88 +213,53 @@ Prints the content of the <code class="highlighter-rouge">diff.hunk</code> insta
 The <code class="highlighter-rouge">diff.edit@line</code> provides information about an edit operation.
 </p>
 <h3><span class="caption-index-3">16.5.2</span><a name="anchor-16-5-2"></a>Property</h3>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-<tr>
-<td>
-<code>diff.edit@line#type</code></td>
-<td>
-<code>symbol</code></td>
-<td>
-R</td>
-<td>
+<p>
+The <code class="highlighter-rouge">diff.edit@line</code> instance has following properties:
+</p>
+<div class="mb-2"><code>diff.edit@line#lineno@new</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Lop line number of the "new" text correspond to the edit.
+</div>
+<div class="mb-2"><code>diff.edit@line#lineno@org</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+Line number of the "original" text correspond to the edit.
+</div>
+<div class="mb-2"><code>diff.edit@line#mark@context</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>diff.edit@line#mark@normal</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>diff.edit@line#mark@unified</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+A mark string that appears on the top of each line in Unified format.
+</div>
+<div class="mb-2"><code>diff.edit@line#source</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+A source text.
+</div>
+<div class="mb-2"><code>diff.edit@line#type</code> &hellip; <code>symbol</code> [read-only]</div>
+<div class="mb-2 ml-4">
+<p>
 Edit operation:
+</p>
 <ul>
-<li>
-<code>`copy</code> .. Copy the line.</li>
-<li>
-<code>`add</code> .. Add the line.</li>
-<li>
-<code>`delete</code> .. Delete the line.</li>
+<li><code class="highlighter-rouge">`copy</code> .. Copy the line.</li>
+<li><code class="highlighter-rouge">`add</code> .. Add the line.</li>
+<li><code class="highlighter-rouge">`delete</code> .. Delete the line.</li>
 </ul>
-</td>
-</tr>
-<tr>
-<td>
-<code>mark</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-A mark string that appears on the top of each line in Unified format.</td>
-</tr>
-<tr>
-<td>
-<code>lineno@org</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Line number of the "original" text correspond to the edit.</td>
-</tr>
-<tr>
-<td>
-<code>lineno@new</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-Lop line number of the "new" text correspond to the edit.</td>
-</tr>
-<tr>
-<td>
-<code>source</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-A source text.</td>
-</tr>
-<tr>
-<td>
-<code>unified</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-A composed string in Unified format.</td>
-</tr>
-</table>
+
+</div>
+<div class="mb-2"><code>diff.edit@line#unified</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+A composed string in Unified format.
+</div>
 <h3><span class="caption-index-3">16.5.3</span><a name="anchor-16-5-3"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">diff.edit@line</code> class provides following methods:
+</p>
 <div class="mb-2"><code>diff.edit@line#print(out?:stream):void {block?}</code></div>
 <div class="mb-2 ml-4">
 Prints the content of the <code class="highlighter-rouge">diff.edit</code> instance to the specified stream.
@@ -360,117 +270,62 @@ Prints the content of the <code class="highlighter-rouge">diff.edit</code> insta
 The <code class="highlighter-rouge">diff.diff@char</code> instance is created by function <code class="highlighter-rouge">diff.compose@char()</code> and provides information about differences between two texts by characters.
 </p>
 <h3><span class="caption-index-3">16.6.2</span><a name="anchor-16-6-2"></a>Property</h3>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-<tr>
-<td>
-<code>distance</code></td>
-<td>
-<code>number</code></td>
-<td>
-R</td>
-<td>
-The distance between the texts. Zero means that they are identical each other.</td>
-</tr>
-<tr>
-<td>
-<code>edits</code></td>
-<td>
-<code>iterator</code></td>
-<td>
-R</td>
-<td>
-An iterator that returns <code>diff.edit@char</code> instances stored in the result.</td>
-</tr>
-<tr>
-<td>
-<code>edits@org</code></td>
-<td>
-<code>iterator</code></td>
-<td>
-R</td>
-<td>
-An iterator that returns <code>diff.edit@char</code> instances
-that are applied to the "original" string.</td>
-</tr>
-<tr>
-<td>
-<code>edits@new</code></td>
-<td>
-<code>iterator</code></td>
-<td>
-R</td>
-<td>
-An iterator that returns <code>diff.edit@char</code> instances
-that are applied to the "new" string.</td>
-</tr>
-</table>
+<p>
+The <code class="highlighter-rouge">diff.diff@char</code> instance has following properties:
+</p>
+<div class="mb-2"><code>diff.diff@char#distance</code> &hellip; <code>number</code> [read-only]</div>
+<div class="mb-2 ml-4">
+The distance between the texts. Zero means that they are identical each other.
+</div>
+<div class="mb-2"><code>diff.diff@char#edits</code> &hellip; <code>iterator</code> [read-only]</div>
+<div class="mb-2 ml-4">
+An iterator that returns <code class="highlighter-rouge">diff.edit@char</code> instances stored in the result.
+</div>
+<div class="mb-2"><code>diff.diff@char#edits@new</code> &hellip; <code>iterator</code> [read-only]</div>
+<div class="mb-2 ml-4">
+An iterator that returns <code class="highlighter-rouge">diff.edit@char</code> instances that are applied to the "new" string.
+</div>
+<div class="mb-2"><code>diff.diff@char#edits@org</code> &hellip; <code>iterator</code> [read-only]</div>
+<div class="mb-2 ml-4">
+An iterator that returns <code class="highlighter-rouge">diff.edit@char</code> instances that are applied to the "original" string.
+</div>
 <h2><span class="caption-index-2">16.7</span><a name="anchor-16-7"></a>diff.edit@char Class</h2>
 <h3><span class="caption-index-3">16.7.1</span><a name="anchor-16-7-1"></a>Overview</h3>
 <p>
 The <code class="highlighter-rouge">diff.edit@char</code> provides information about an edit operation.
 </p>
 <h3><span class="caption-index-3">16.7.2</span><a name="anchor-16-7-2"></a>Property</h3>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-<tr>
-<td>
-<code>diff.edit@char#type</code></td>
-<td>
-<code>symbol</code></td>
-<td>
-R</td>
-<td>
+<p>
+The <code class="highlighter-rouge">diff.edit@char</code> instance has following properties:
+</p>
+<div class="mb-2"><code>diff.edit@char#mark@context</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>diff.edit@char#mark@normal</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>diff.edit@char#mark@unified</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+A mark string that appears on the top of each line in Unified format.
+</div>
+<div class="mb-2"><code>diff.edit@char#source</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+A source text.
+</div>
+<div class="mb-2"><code>diff.edit@char#type</code> &hellip; <code>symbol</code> [read-only]</div>
+<div class="mb-2 ml-4">
+<p>
 Edit operation:
+</p>
 <ul>
-<li>
-<code>`copy</code> .. Copy the line.</li>
-<li>
-<code>`add</code> .. Add the line.</li>
-<li>
-<code>`delete</code> .. Delete the line.</li>
+<li><code class="highlighter-rouge">`copy</code> .. Copy the line.</li>
+<li><code class="highlighter-rouge">`add</code> .. Add the line.</li>
+<li><code class="highlighter-rouge">`delete</code> .. Delete the line.</li>
 </ul>
-</td>
-</tr>
-<tr>
-<td>
-<code>diff.edit@char#mark</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-A mark string that appears on the top of each line in Unified format.</td>
-</tr>
-<tr>
-<td>
-<code>diff.edit@char#source</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-A source text.</td>
-</tr>
-</table>
+
+</div>
 <h2><span class="caption-index-2">16.8</span><a name="anchor-16-8"></a>Thanks</h2>
 <p>
 This module uses dtl (Diff Template Library) which is distributed in the following site:

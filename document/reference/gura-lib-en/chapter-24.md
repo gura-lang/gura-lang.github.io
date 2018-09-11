@@ -12,6 +12,9 @@ nextpage: chapter-25.html#naviitem-selected
 The <code class="highlighter-rouge">glut</code> module provides functions of GLUT library.
 </p>
 <h2><span class="caption-index-2">24.2</span><a name="anchor-24-2"></a>Module Function</h2>
+<p>
+The <code class="highlighter-rouge">glut</code>module provides following functions:
+</p>
 <div class="mb-2"><code>glut.glutInit(argv[]:string) {block?}</code></div>
 <div class="mb-2 ml-4">
 <code class="highlighter-rouge">glutInit</code> is used to initialize the GLUT library.

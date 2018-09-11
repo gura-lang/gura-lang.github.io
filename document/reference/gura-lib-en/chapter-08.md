@@ -19,7 +19,7 @@ img = image('foo.bmp')
 </code></pre>
 <h2><span class="caption-index-2">8.2</span><a name="anchor-8-2"></a>Exntension to Function's Capability</h2>
 <p>
-This module extends the capability of function <code class="highlighter-rouge">image()</code> and instance method <code class="highlighter-rouge">image#write()</code> so that they can read/write BMP files.
+The <code class="highlighter-rouge">bmp</code> module extends the capability of function <code class="highlighter-rouge">image()</code> and instance method <code class="highlighter-rouge">image#write()</code> so that they can read/write BMP files.
 </p>
 <p>
 When function <code class="highlighter-rouge">image()</code> is provided with a stream that satisfies the following conditions, it would recognize the stream as a BMP file.
@@ -36,7 +36,7 @@ When instance method <code class="highlighter-rouge">image#write()</code> is pro
 </ul>
 <h2><span class="caption-index-2">8.3</span><a name="anchor-8-3"></a>Extension to image Class</h2>
 <p>
-This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
+The <code class="highlighter-rouge">bmp</code> module extends the <code class="highlighter-rouge">image</code> class with following methods:
 </p>
 <div class="mb-2"><code>image#read@bmp(stream:stream:r):reduce</code></div>
 <div class="mb-2 ml-4">

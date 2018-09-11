@@ -22,6 +22,9 @@ printf('name:%s, age:%d, email:%s¥n',
        records:*name, records:*age, records:*email)
 </code></pre>
 <h2><span class="caption-index-2">14.2</span><a name="anchor-14-2"></a>Module Function</h2>
+<p>
+The <code class="highlighter-rouge">csv</code> module provides following functions:
+</p>
 <div class="mb-2"><code>csv.parse(str:string):map {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -83,6 +86,9 @@ The argument <code class="highlighter-rouge">format</code> specifies a printf-st
 
 </div>
 <h3><span class="caption-index-3">14.3.2</span><a name="anchor-14-3-2"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">csv.writer</code> class provides following methods:
+</p>
 <div class="mb-2"><code>csv.writer#write(fields+):map:reduce</code></div>
 <div class="mb-2 ml-4">
 <p>

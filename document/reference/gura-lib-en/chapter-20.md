@@ -90,7 +90,7 @@ Draws a text on the image.
 <div class="mb-2"><code>freetype.font#calcbbox(x:number, y:number, str:string):map</code></div>
 <h2><span class="caption-index-2">20.26</span><a name="anchor-20-26"></a>Extension to image Class</h2>
 <p>
-This module extends the <code class="highlighter-rouge">image</code> class with methods described here.
+The <code class="highlighter-rouge">freetype</code> module extends the <code class="highlighter-rouge">image</code> class with following methods:
 </p>
 <div class="mb-2"><code>image#drawtext(font:freetype.font, x:number, y:number, str:string):map:reduce {block?}</code></div>
 <div class="mb-2 ml-4">

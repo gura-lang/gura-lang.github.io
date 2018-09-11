@@ -29,6 +29,9 @@ The <code class="highlighter-rouge">hash.accumulator</code> class provides measu
 As the class inhefits from <code class="highlighter-rouge">stream</code>, you can call methods of <code class="highlighter-rouge">stream</code> class with <code class="highlighter-rouge">hash.accumulator</code> instances.
 </p>
 <h3><span class="caption-index-3">28.2.1</span><a name="anchor-28-2-1"></a>Property</h3>
+<p>
+The <code class="highlighter-rouge">hash.accumulator</code> instance has following properties:
+</p>
 <div class="mb-2"><code>stream#codec</code> &hellip; <code>codec</code> [read-only]</div>
 <div class="mb-2 ml-4">
 A <code class="highlighter-rouge">codec</code> instance associated with the stream.

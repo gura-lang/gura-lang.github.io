@@ -48,44 +48,26 @@ You can parse documents written in both string and stream using the following me
 You can get the parsed result by inspecting a property <code class="highlighter-rouge">markdown.document#root</code> and its children that are <code class="highlighter-rouge">markdown.item</code> instances.
 </p>
 <h3><span class="caption-index-3">32.4.2</span><a name="anchor-32-4-2"></a>Property</h3>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-<tr>
-<td>
-<code>refs</code></td>
-<td>
-<code>iterator</code></td>
-<td>
-R</td>
-<td>
-An iterator that returns referee items as <code>markdown.item</code>.</td>
-</tr>
-<tr>
-<td>
-<code>root</code></td>
-<td>
-<code>markdown.item</code></td>
-<td>
-R</td>
-<td>
-The root item of the parsed Markdown document.</td>
-</tr>
-</table>
+<p>
+The <code class="highlighter-rouge">markdown.document</code> instance has following properties:
+</p>
+<div class="mb-2"><code>markdown.document#refs</code> &hellip; <code>iterator</code> [read-only]</div>
+<div class="mb-2 ml-4">
+An <code class="highlighter-rouge">iterator</code> that returns referee items as <code class="highlighter-rouge">markdown.item</code>.
+</div>
+<div class="mb-2"><code>markdown.document#root</code> &hellip; <code>markdown.item</code> [read-only]</div>
+<div class="mb-2 ml-4">
+The root item of the parsed Markdown document.
+</div>
 <h3><span class="caption-index-3">32.4.3</span><a name="anchor-32-4-3"></a>Constructor</h3>
 <div class="mb-2"><code>markdown.document(stream?:stream:r) {block?}</code></div>
 <div class="mb-2 ml-4">
 Returns an instance of <code class="highlighter-rouge">markdown.document</code>. If <code class="highlighter-rouge">stream</code> is specified, the content of the instance shall be initialized with the result of parsing the stream.
 </div>
 <h3><span class="caption-index-3">32.4.4</span><a name="anchor-32-4-4"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">markdown.document</code> class provides following methods:
+</p>
 <div class="mb-2"><code>markdown.document#parse(str:string):void</code></div>
 <div class="mb-2 ml-4">
 Parses a Markdown text in a string.
@@ -288,89 +270,41 @@ no-content</td>
 </tr>
 </table>
 <h3><span class="caption-index-3">32.5.2</span><a name="anchor-32-5-2"></a>Property</h3>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-<tr>
-<td>
-<code>type</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>text</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>children</code></td>
-<td>
-<code>iterator</code></td>
-<td>
-R</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>url</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>title</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>attrs</code></td>
-<td>
-<code>string</code></td>
-<td>
-R</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>align</code></td>
-<td>
-<code>symbol</code></td>
-<td>
-R</td>
-<td>
-<code>none</code>, <code>left</code>, <code>center</code>, <code>right</code></td>
-</tr>
-</table>
+<p>
+The <code class="highlighter-rouge">markdown.item</code> instance has following properties:
+</p>
+<div class="mb-2"><code>markdown.item#align</code> &hellip; <code>symbol</code> [read-only]</div>
+<div class="mb-2 ml-4">
+<code class="highlighter-rouge">`none</code>, <code class="highlighter-rouge">`left</code>, <code class="highlighter-rouge">`center</code>, <code class="highlighter-rouge">`right</code>
+</div>
+<div class="mb-2"><code>markdown.item#attrs</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>markdown.item#children</code> &hellip; <code>iterator</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>markdown.item#text</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>markdown.item#title</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>markdown.item#type</code> &hellip; <code>symbol</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>markdown.item#url</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
 <h3><span class="caption-index-3">32.5.3</span><a name="anchor-32-5-3"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">markdown.item</code> classs provides following methods;
+</p>
 <div class="mb-2"><code>markdown.item#print(indent?:number):void</code></div>
 <div class="mb-2 ml-4">
 Prints structured content of the item. Argument <code class="highlighter-rouge">indent</code> specifies an indentation level and is set to zero when omitted.

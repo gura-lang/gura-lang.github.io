@@ -42,6 +42,9 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 
 </div>
 <h3><span class="caption-index-3">17.2.2</span><a name="anchor-17-2-2"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">doxygen.document</code> class provides following methods:
+</p>
 <div class="mb-2"><code>doxygen.document#structures() {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -68,29 +71,21 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 </div>
 <h2><span class="caption-index-2">17.3</span><a name="anchor-17-3"></a>doxygen.structure Class</h2>
 <h3><span class="caption-index-3">17.3.1</span><a name="anchor-17-3-1"></a>Property</h3>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-<tr>
-<td>
-<code>aftermember</code></td>
-<td>
-<code>boolean</code></td>
-<td>
-R</td>
-<td>
-</td>
-</tr>
-</table>
+<p>
+The <code class="highlighter-rouge">doxygen.structure</code> instance has following properties:
+</p>
+<div class="mb-2"><code>doxygen.structure#aftermember</code> &hellip; <code>boolean</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
+<div class="mb-2"><code>doxygen.structure#source</code> &hellip; <code>string</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
 <h3><span class="caption-index-3">17.3.2</span><a name="anchor-17-3-2"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">doxygen.structure</code> class provides following methods:
+</p>
 <div class="mb-2"><code>doxygen.structure#elems():map {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -141,6 +136,9 @@ If a block is specified, it would be evaluated repeatingly with block parameters
 </div>
 <h2><span class="caption-index-2">17.4</span><a name="anchor-17-4"></a>doxygen.elem Class</h2>
 <h3><span class="caption-index-3">17.4.1</span><a name="anchor-17-4-1"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">doxygen.elem</code> class provides following methods:
+</p>
 <div class="mb-2"><code>doxygen.elem#print(indent?:number, out?:stream):map:void</code></div>
 <div class="mb-2 ml-4">
 Prints out the content of the element to <code class="highlighter-rouge">out</code> with an indentation level specified by <code class="highlighter-rouge">indent</code> that starts from zero. If <code class="highlighter-rouge">out</code> is omitted, the result would be put out to standard output.
@@ -151,28 +149,13 @@ Renders the element content using <code class="highlighter-rouge">doxygen.render
 </div>
 <h2><span class="caption-index-2">17.5</span><a name="anchor-17-5"></a>doxygen.configuration Class</h2>
 <h3><span class="caption-index-3">17.5.1</span><a name="anchor-17-5-1"></a>Property</h3>
-<table class="table">
-<tr>
-<th>
-Property</th>
-<th>
-Type</th>
-<th>
-R/W</th>
-<th>
-Explanation</th>
-</tr>
-<tr>
-<td>
-<code>aliases</code></td>
-<td>
-<code>doxygen.aliases</code></td>
-<td>
-R</td>
-<td>
-</td>
-</tr>
-</table>
+<p>
+The <code class="highlighter-rouge">doxygen.configuration</code> instance has following properties:
+</p>
+<div class="mb-2"><code>doxygen.configuration#aliases</code> &hellip; <code>doxygen.aliases</code> [read-only]</div>
+<div class="mb-2 ml-4">
+
+</div>
 <h3><span class="caption-index-3">17.5.2</span><a name="anchor-17-5-2"></a>Constructor</h3>
 <div class="mb-2"><code>doxygen.configuration(stream?:stream) {block?}</code></div>
 <div class="mb-2 ml-4">
@@ -185,6 +168,9 @@ If <code class="highlighter-rouge">block</code> is specified, it would be evalua
 
 </div>
 <h3><span class="caption-index-3">17.5.3</span><a name="anchor-17-5-3"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">doxygen.configuration</code> class provides following methods:
+</p>
 <div class="mb-2"><code>doxygen.configuration#get(tagname:string):map:[raise]</code></div>
 <div class="mb-2 ml-4">
 <p>
@@ -201,6 +187,9 @@ Prints out the content of the configuration to <code class="highlighter-rouge">o
 </div>
 <h2><span class="caption-index-2">17.6</span><a name="anchor-17-6"></a>doxygen.aliases Class</h2>
 <h3><span class="caption-index-3">17.6.1</span><a name="anchor-17-6-1"></a>Method</h3>
+<p>
+The <code class="highlighter-rouge">doxygen.aliases</code> class provides following methods:
+</p>
 <div class="mb-2"><code>doxygen.aliases#print(out?:stream):map:void</code></div>
 <div class="mb-2 ml-4">
 Prints out definitions of aliases to the stream <code class="highlighter-rouge">out</code>. If the argument is omitted, the result would be put out to the standard output.

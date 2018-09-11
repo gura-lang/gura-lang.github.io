@@ -12,6 +12,9 @@ nextpage: chapter-22.html#naviitem-selected
 The <code class="highlighter-rouge">fs</code> module provides measures to access and modify information in file systems. This is a built-in module, so you can use it without being imported.
 </p>
 <h2><span class="caption-index-2">21.2</span><a name="anchor-21-2"></a>Module Function</h2>
+<p>
+The <code class="highlighter-rouge">fs</code> modules provides following functions:
+</p>
 <div class="mb-2"><code>fs.chdir(pathname:string) {block?}</code></div>
 <div class="mb-2 ml-4">
 <p>

@@ -12,6 +12,9 @@ nextpage: chapter-24.html#naviitem-selected
 The <code class="highlighter-rouge">glu</code> module provides functions of GLU library.
 </p>
 <h2><span class="caption-index-2">23.2</span><a name="anchor-23-2"></a>Module Function</h2>
+<p>
+The <code class="highlighter-rouge">glu</code> modules provides folloing functions:
+</p>
 <div class="mb-2"><code>glu.gluBeginCurve(nurb:glu.Nurbs):void {block?}</code></div>
 <div class="mb-2 ml-4">
 
